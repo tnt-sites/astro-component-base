@@ -41,5 +41,6 @@
     "json",
     "jsonc"
   ],
-  "stylelint.validate": ["css", "scss"]
+  "stylelint.validate": ["css", "scss"],
+  "cSpell.words": ["pcss", "skele"]
 }

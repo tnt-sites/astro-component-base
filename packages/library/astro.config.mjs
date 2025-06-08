@@ -14,7 +14,7 @@ export default defineConfig({
   },
   integrations: [
     icon({
-      iconDir: path.resolve(__dirname, "../icons"),
+      iconDir: path.resolve(__dirname, "../shared/icons"),
     }),
   ],
   vite: {

@@ -1,18 +1,9 @@
 ---
 import { Icon as AstroIcon } from "astro-icon/components";
-import clsx from "clsx";
 import { iconSchema } from "./schema";
 
 const props = iconSchema.parse(Astro.props);
 const { buttonIcon = false } = Astro.props;
-
-const classString = clsx(
-  "icon",
-  buttonIcon && "button-icon",
-  `size-${props.size}`,
-  props.className,
-  props.flipRtl && "flip-rtl"
-);
 ---
 
 <style is:global>
@@ -26,7 +17,13 @@ const classString = clsx(
 
 <AstroIcon
   name={props.name}
-  class:list={classString}
+  class:list={[
+    "icon",
+    buttonIcon && "button-icon",
+    `size-${props.size}`,
+    props.flipRtl && "flip-rtl",
+    props.className
+  ]}
   style={props.customStyle}
   aria-label={props.label}
 />

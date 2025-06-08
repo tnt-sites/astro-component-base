@@ -1,0 +1,22 @@
+---
+import { navSchema } from "./schema";
+const props = navSchema.parse(Astro.props);
+---
+
+<style>
+    @import "./styles.pcss";
+</style>
+  
+
+<nav 
+  class:list={[
+    "nav", 
+    `nav-layout-${props.layout}`,
+    props.className,
+  ]}>
+  <div class="inner">
+    <slot name="brand" />
+    <slot name="menu" />
+    <slot name="utilities" />
+  </div>
+</nav>

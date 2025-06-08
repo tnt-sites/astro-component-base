@@ -1,0 +1,46 @@
+---
+import Icon from "../../elements/Icon/index.astro";
+import { navItemSchema } from "../nav-item-list-schema";
+const props = navItemSchema.parse(Astro.props);
+
+const hasChildren = Astro.slots.has("default");
+const dropdownId = `dropdown-toggle-${crypto.randomUUID()}`;
+---
+
+<style is:global>
+  @import "./global.pcss";
+</style>
+
+<style>
+  @import "./styles.pcss";
+</style>
+
+<li
+  class:list={[
+    "nav-item",
+    props.className,
+    hasChildren ? "has-children" : null,
+  ]}
+  id={props.id}
+  style={props.customStyle}
+>
+  {
+    hasChildren ? (
+      <>
+        <input type="checkbox" id={dropdownId} class="nav-item-toggle" />
+        <label for={dropdownId} class="nav-item-trigger">
+          {props.iconName && <Icon name={props.iconName} size="none" />}
+          {props.label}
+          <slot name="label" />
+        </label>
+      </>
+    ) : (
+      <a href={props.href}>
+        {props.iconName && <Icon name={props.iconName} size="none" />}
+        {props.label}
+        <slot name="label" />
+      </a>
+    )
+  }
+  <slot />
+</li>

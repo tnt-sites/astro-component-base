@@ -6,6 +6,9 @@ const libraryLayoutSchema = z.object({
 });
 
 import Section from "@skele/components/layouts/Section/index.astro";
+import Nav from "@skele/components/navigation/nav/index.astro";
+import NavItem from "@skele/components/navigation/navItem/index.astro";
+import NavList from "@skele/components/navigation/navList/index.astro";
 
 const props = libraryLayoutSchema.parse(Astro.props);
 ---
@@ -21,7 +24,19 @@ const props = libraryLayoutSchema.parse(Astro.props);
     <slot name="head" />
   </head>
   <body>
-    <Section maxContentWidth="md" padding={{ horizontal: "md", vertical: "lg" }}>
+    <Section maxContentWidth="2xl" padding={{ horizontal: "md", vertical: "sm" }}>
+      <Nav layout="vertical">
+        <img src="/assets/images/skele-light.svg" alt="Logo" height="32" width="110" slot="brand">
+        <NavList slot="menu">
+          <NavItem href="/" label="Home" iconName="hero/home" />
+          <NavItem label="Features">
+            <NavList>
+              <NavItem href="/features/one" label="Feature One" />
+              <NavItem href="/features/two" label="Feature Two" />
+            </NavList>
+          </NavItem>
+        </NavList>
+      </Nav>
       <slot />
     </Section>
   </body>

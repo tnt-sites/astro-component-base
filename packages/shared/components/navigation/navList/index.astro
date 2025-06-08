@@ -1,0 +1,24 @@
+---
+import { navListSchema } from "../nav-item-list-schema";
+const props = navListSchema.parse(Astro.props);
+---
+
+<style is:global>
+  @import "./global.pcss";
+</style>
+
+<style>
+  @import "./styles.pcss";
+</style>
+
+<ul
+  class:list={[
+    "nav-list",
+    props.className
+  ]}
+  id={props.id} 
+  style={props.customStyle}
+  role="list"
+>
+  <slot />
+</ul>
