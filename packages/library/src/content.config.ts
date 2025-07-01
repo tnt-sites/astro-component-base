@@ -17,6 +17,15 @@ export const collections = {
       spacing: z.string().optional(),
       component: z.string().optional(),
       props: z.record(z.any()).optional(),
+      examples: z
+        .array(
+          z.object({
+            name: z.string(),
+            slugs: z.string(),
+            size: z.string().optional(),
+          })
+        )
+        .optional(),
     }),
   }),
 };

@@ -7,5 +7,5 @@ props:
   _bookshop_name: "elements/button"
   type: "primary"
   size: "md"
-  label: "Click me"
+  label: "Try it now!"
 ---

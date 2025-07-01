@@ -6,17 +6,47 @@ import LibraryLayout from "./LibraryLayout.astro";
 const { frontmatter, schema, examples = [] } = Astro.props;
 const meta = schema?.meta?.();
 
-console.log("ComponentLayout received examples:", examples.length);
+const primaryExample = examples.find((example: any) => example.slug.includes("/primary"));
+
+const frontmatterExamples = frontmatter.examples || [];
+const processedExamples = frontmatterExamples.map((exampleConfig: any) => {
+  const matchingExamples = examples.filter((example: any) =>
+    example.slug.includes(`/${exampleConfig.slugs}`)
+  );
+
+  return {
+    title: exampleConfig.name,
+    examples: matchingExamples,
+    size: exampleConfig.size,
+  };
+});
 ---
 
 <LibraryLayout frontmatter={frontmatter}>
   <h1>{meta.title}</h1>
   <p>{meta.description}</p>
 
-  {examples.length > 0 && <ComponentViewer component_examples={examples} title={meta.title} />}
+  {primaryExample && <ComponentViewer component_examples={[primaryExample]} title={meta.title} />}
 
   <h2>Properties</h2>
   <ComponentProperties shape={schema?.shape} />
+
+  {processedExamples.length > 0 && <h2>Examples</h2>}
+
+  {
+    processedExamples.map((exampleGroup: any) => (
+      <>
+        <h3>{exampleGroup.title}</h3>
+        {exampleGroup.examples.length > 0 && (
+          <ComponentViewer
+            component_examples={exampleGroup.examples}
+            title={exampleGroup.title}
+            size={exampleGroup.size}
+          />
+        )}
+      </>
+    ))
+  }
 
   <slot />
 </LibraryLayout>
