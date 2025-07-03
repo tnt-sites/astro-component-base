@@ -1,0 +1,148 @@
+---
+import type { z } from "zod/v4";
+import "./styles.pcss";
+
+const { shape } = Astro.props;
+
+function getBaseType(schema: z.ZodTypeAny): {
+  type: string;
+  optional: boolean;
+  default: string;
+  enumValues?: string[];
+  nestedProperties?: PropertyMeta[];
+} {
+  const constructorName = schema.constructor.name;
+  const def = (schema as any)._def;
+
+  switch (constructorName) {
+    case "ZodString":
+      return { type: "string", optional: false, default: "" };
+    case "ZodBoolean":
+      return { type: "boolean", optional: false, default: "" };
+    case "ZodNumber":
+      return { type: "number", optional: false, default: "" };
+    case "ZodDate":
+      return { type: "date", optional: false, default: "" };
+    case "ZodEnum":
+      const enumValues = def.values;
+
+      return {
+        type: "enum",
+        optional: false,
+        default: "",
+        enumValues: Array.isArray(enumValues) ? enumValues : Object.keys(def.entries || {}),
+      };
+    case "ZodObject":
+      const shape = def.shape;
+      const nestedProperties: PropertyMeta[] = Object.entries(shape).map(([key, zodSchema]) => {
+        const baseType = getBaseType(zodSchema as z.ZodTypeAny);
+
+        return {
+          name: key,
+          ...baseType,
+          description: getDescription(zodSchema as z.ZodTypeAny),
+        };
+      });
+
+      return {
+        type: "object",
+        optional: false,
+        default: "",
+        nestedProperties,
+      };
+    case "ZodOptional":
+    case "ZodDefault":
+      const innerType = getBaseType(def.innerType);
+      const isDefault = constructorName === "ZodDefault";
+
+      return {
+        ...innerType,
+        optional: innerType.optional || constructorName === "ZodOptional",
+        default: isDefault ? String(def.defaultValue) : innerType.default,
+      };
+    default:
+      const inner = def?.innerType;
+
+      return inner ? getBaseType(inner) : { type: constructorName, optional: false, default: "" };
+  }
+}
+
+function getDescription(schema: z.ZodTypeAny): string {
+  const desc = (schema as any).meta?.()?.description;
+
+  if (desc) return desc;
+
+  const inner = (schema as any)._def?.innerType;
+
+  return inner ? getDescription(inner) : "";
+}
+
+type PropertyMeta = {
+  name: string;
+  type: string;
+  optional: boolean;
+  default: unknown;
+  enumValues?: string[];
+  description: string;
+  nestedProperties?: PropertyMeta[];
+};
+
+const properties: PropertyMeta[] = Object.entries(shape).map(([key, zodSchema]) => {
+  const baseType = getBaseType(zodSchema as z.ZodTypeAny);
+
+  return {
+    name: key,
+    ...baseType,
+    description: getDescription(zodSchema as z.ZodTypeAny),
+  };
+});
+---
+
+<div class="properties">
+  {
+    properties.map((prop: PropertyMeta) => {
+      function renderProperty(prop: PropertyMeta) {
+        return (
+          <div class="property">
+            <h3>
+              {prop.name}{" "}
+              <span class="property-type">
+                {prop.type}
+                {prop.optional && "| optional"}
+                {prop.default && ` | default: ${prop.default}`}
+              </span>
+            </h3>
+            {prop.description && <p>{prop.description}</p>}
+
+            {prop.enumValues && prop.enumValues.length > 0 && (
+              <div class="enum-values">
+                <strong>Accepted values:</strong>
+                <ul>
+                  {prop.enumValues.map((value: string) => (
+                    <li>
+                      <code>{value}</code>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {prop.nestedProperties && prop.nestedProperties.length > 0 && (
+              <div class="nested-properties">
+                <strong>Properties:</strong>
+                <div class="nested-property-list">
+                  {prop.nestedProperties.map((nestedProp: PropertyMeta) =>
+                    renderProperty(nestedProp)
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      }
+
+      return renderProperty(prop);
+    })
+  }
+</div>
+

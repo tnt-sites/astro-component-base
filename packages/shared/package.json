@@ -1,9 +1,0 @@
-{
-  "name": "@skele/shared",
-  "version": "0.0.1",
-  "private": true,
-  "exports": {
-    "./styles/postcss.config.cjs": "./styles/postcss.config.cjs",
-    "./components/*": "./components/*"
-  }
-}

@@ -1,15 +1,16 @@
 {
-  "name": "skele",
+  "name": "skele-astro",
   "type": "module",
-  "private": true,
-  "workspaces": ["packages/site", "packages/library", "packages/shared"],
+  "version": "1.0.0",
+  "description": "A modern design system built with Astro, featuring design tokens, components, and comprehensive documentation",
+  "keywords": ["design-system", "astro", "components", "css", "design-tokens"],
+  "author": "Your Name",
+  "license": "MIT",
   "scripts": {
-    "dev:site": "pnpm --filter site dev",
-    "dev:library": "pnpm --filter library dev",
-    "build:site": "pnpm --filter site build",
-    "build:library": "pnpm --filter library build",
-    "dev": "concurrently \"pnpm dev:site\" \"pnpm dev:library\"",
-    "build": "pnpm build:site && pnpm build:library",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
     "lint": "pnpm lint:js && pnpm lint:css",
     "lint:js": "eslint .",
     "lint:fix": "pnpm lint:js:fix && pnpm lint:css:fix",
@@ -19,39 +20,40 @@
     "format": "prettier --check .",
     "format:fix": "prettier --write ."
   },
+  "dependencies": {
+    "@bookshop/astro-bookshop": "3.16.1",
+    "astro": "^5.8.0",
+    "astro-icon": "^1.1.5",
+    "js-yaml": "^4.1.0",
+    "shiki": "^3.7.0"
+  },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
+    "@types/js-yaml": "^4.0.9",
     "@typescript-eslint/eslint-plugin": "^8.33.1",
     "@typescript-eslint/parser": "^8.33.1",
-    "astro": "^5.8.0",
-    "concurrently": "^8.0.1",
+    "autoprefixer": "^10.4.21",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "eslint": "^9.28.0",
     "eslint-plugin-astro": "^1.3.1",
     "eslint-plugin-jsonc": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "jsonc-eslint-parser": "^2.4.0",
-    "postcss-html": "^1.8.0",
-    "prettier": "^3.5.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "stylelint": "^16.20.0",
-    "stylelint-config-standard": "^38.0.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "dependencies": {
-    "@bookshop/astro-bookshop": "3.16.1",
-    "astro-eslint-parser": "^1.2.2",
-    "astro-icon": "^1.1.5",
-    "autoprefixer": "^10.4.21",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
     "glob": "^11.0.2",
+    "jsonc-eslint-parser": "^2.4.0",
     "postcss": "^8.5.3",
     "postcss-custom-media": "^11.0.6",
     "postcss-each": "^1.1.0",
+    "postcss-html": "^1.8.0",
     "postcss-import": "^16.1.0",
     "postcss-nested": "^7.0.2",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "stylelint": "^16.20.0",
+    "stylelint-config-standard": "^38.0.0",
     "zod": "^3.25.36"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

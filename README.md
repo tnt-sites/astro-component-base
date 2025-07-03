@@ -1,74 +1,126 @@
 # Skele Design System
 
-A modular design system built with Astro, featuring design tokens, components, and documentation.
+A modern design system built with Astro, featuring design tokens, components, and comprehensive documentation.
+
+## What is Skele?
+
+Skele is a design system that provides:
+
+- **Design Tokens**: CSS custom properties for consistent spacing, colors, typography, and more
+- **Component Library**: Reusable UI components with documentation and examples
+- **Utility Classes**: Tailwind-like utility classes for rapid development
+- **Documentation Site**: Interactive component documentation with live examples
 
 ## Project Structure
 
 ```
 skele-astro/
-├── packages/
-│   ├── site/           # Documentation site
-│   ├── library/        # Component library
-│   ├── styles/         # Design tokens and CSS
-│   └── components/     # Shared components
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── elements/        # Basic elements (Button, Icon, etc.)
+│   │   ├── layouts/         # Layout components (Section, etc.)
+│   │   └── navigation/      # Navigation components
+│   ├── content/skele/       # Component library documentation
+│   ├── layouts/             # Page layouts
+│   ├── pages/               # Astro pages
+│   │   └── skele/           # Component library routes (/skele/*)
+│   ├── styles/              # Design system styles
+│   │   └── skele/           # Skele framework
+│   ├── icons/               # Icon assets
+│   └── plugins/             # Build plugins
+├── public/                  # Static assets
+└── astro.config.mjs         # Astro configuration
 ```
 
-## Development Scripts
+## Quick Start
 
-### Main Commands
+1. **Install dependencies:**
 
-- `npm run dev` - Run all dev servers with token watching
-- `npm run build` - Build everything with token generation
+   ```bash
+   pnpm install
+   ```
 
-### Site Commands
+2. **Start development server:**
 
-- `npm run dev:site` - Run site dev server with token watching
-- `npm run dev:site:astro` - Run site dev server without token watching
-- `npm run build:site` - Build site with token generation
-- `npm run build:site:astro` - Build site without token generation
+   ```bash
+   pnpm dev
+   ```
 
-### Library Commands
+3. **Open your browser:**
+   - Main site: http://localhost:4321/
+   - Component library: http://localhost:4321/skele/
 
-- `npm run dev:library` - Run library dev server with token watching
-- `npm run dev:library:astro` - Run library dev server without token watching
-- `npm run build:library` - Build library with token generation
-- `npm run build:library:astro` - Build library without token generation
+## Available Scripts
 
-### Token Commands
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build
+- `pnpm lint` - Run linting
+- `pnpm format` - Format code with Prettier
 
-- `npm run build:tokens` - Build design tokens once
-- `npm run dev:tokens` - Watch and rebuild tokens when files change
+## Using Skele Components
 
-## Script Organization
+### Basic Usage
 
-The script naming follows a consistent pattern:
+```astro
+---
+import Button from "@skele/components/elements/Button/index.astro";
+---
 
-- Base commands with `:astro` suffix run without token processing
-- Commands without the suffix handle token generation automatically
-- Token scripts can be run independently when needed
+<Button label="Click me!" type="primary" />
+```
+
+### With Icons
+
+```astro
+---
+import Button from "@skele/components/elements/Button/index.astro";
+---
+
+<Button label="Save" type="primary" iconName="hero/check" />
+```
+
+### Using Utility Classes
+
+```astro
+<div class="max-width-2xl margin-auto padding-md">
+  <h1 class="text-size-2xl font-weight-bold">Hello World</h1>
+</div>
+```
 
 ## Design Tokens
 
-Design tokens are automatically generated during development and build processes. Token definitions are stored in `packages/styles/tokens/` and compiled to CSS variables.
+Skele uses CSS custom properties for consistent design tokens:
 
-For more details, see the [Styles README](packages/styles/README.md).
+- **Colors**: `--color-primary-500`, `--color-gray-100`, etc.
+- **Spacing**: `--spacing-xs`, `--spacing-sm`, `--spacing-md`, etc.
+- **Typography**: `--font-size-sm`, `--font-weight-bold`, etc.
+- **Content Widths**: `--content-width-sm`, `--content-width-2xl`, etc.
 
-## Getting Started
+## Component Library
 
-1. Install dependencies:
-   ```
-   npm install
-   ```
+The component library is available at `/skele/` and includes:
 
-2. Start development:
-   ```
-   npm run dev
-   ```
+- Interactive component examples
+- Property documentation
+- Code snippets
+- Design guidelines
 
-3. Build for production:
-   ```
-   npm run build
-   ```
+## Customization
+
+### Adding New Components
+
+1. Create your component in `src/components/`
+2. Add documentation in `src/content/skele/components/`
+3. Include examples in the component's `examples/` folder
+
+### Modifying Design Tokens
+
+Edit the CSS variables in `src/styles/skele/variables/` to customize:
+
+- Colors in `_colors.pcss`
+- Spacing in `_spacing.pcss`
+- Typography in `_fonts.pcss`
 
 ## Contributing
 

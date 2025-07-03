@@ -1,23 +1,13 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "strict": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "target": "ESNext",
-    "jsx": "preserve",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@skele/components/*": ["packages/shared/components/*"],
-      "@skele/styles/*": ["packages/styles/*"]
-    },
-    "typeRoots": ["node_modules/@types", "packages/shared/components/types"]
+      "@skele/components/*": ["src/components/*"],
+      "@skele/styles/*": ["src/styles/*"],
+      "@skele/plugins/*": ["src/plugins/*"]
+    }
   },
-  "include": ["packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.d.ts", "packages/**/*.astro"],
-  "exclude": ["node_modules", "**/node_modules", "**/dist"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

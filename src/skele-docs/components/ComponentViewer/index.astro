@@ -1,0 +1,167 @@
+---
+const { component_examples = [], title = "", size = "", componentKey = "" } = Astro.props;
+
+import Button from "@skele/components/elements/Button/index.astro";
+import { Code } from "astro:components";
+// @ts-ignore
+import yaml from "js-yaml";
+
+function getBodyPadding(spacing: string): string {
+  switch (spacing) {
+    case "all":
+      return "padding: var(--space-md";
+    case "top":
+      return "padding-top: var(--space-md)";
+    case "sides":
+      return "padding-left: var(--space-md); padding-right: var(--space-md);";
+    default:
+      return "";
+  }
+}
+
+function formatBlocksYaml(blocks: any): string {
+  if (!blocks) return "";
+
+  try {
+    return yaml.dump(blocks, {
+      indent: 2,
+      lineWidth: -1,
+      noRefs: true,
+      sortKeys: false,
+    });
+  } catch (error) {
+    console.error("Error formatting YAML:", error);
+    return "";
+  }
+}
+
+const componentModules = import.meta.glob("../../../components/**/index.astro", {
+  eager: true,
+});
+
+const componentMap: Record<string, any> = {};
+
+Object.entries(componentModules).forEach(([filePath, module]) => {
+  const pathParts = filePath.split("/");
+  const componentName = pathParts[pathParts.length - 2];
+
+  if (componentName && componentName !== "components") {
+    componentMap[componentName] = module;
+  }
+});
+
+function inferComponentName(componentKey: string): string {
+  const parts = componentKey.split("/");
+  const componentName = parts[parts.length - 1];
+
+  return componentName.charAt(0).toUpperCase() + componentName.slice(1);
+}
+
+async function loadComponent(componentName: string) {
+  try {
+    const module = componentMap[componentName];
+
+    if (!module) {
+      console.warn(
+        `Component ${componentName} not found. Available components: ${Object.keys(componentMap).join(", ")}`
+      );
+      return null;
+    }
+
+    return module.default;
+  } catch (error) {
+    console.error(`Failed to load component ${componentName}:`, error);
+    return null;
+  }
+}
+---
+
+<style>
+  @import "styles.pcss";
+</style>
+
+<script src="./script.ts"></script>
+
+<div class:list={["component-viewer", size && `viewer-size-${size}`]}>
+  <div class="previews">
+    {
+      component_examples.map(async (example: any, idx: number) => {
+        const bodyPadding = getBodyPadding(example.data.spacing);
+        const exampleName = example.data.title;
+        const exampleId = `component-${exampleName.toLowerCase().replace(/\s+/g, "-")}-${idx}`;
+
+        const componentName =
+          example.data.component || (componentKey ? inferComponentName(componentKey) : null);
+        const Component = componentName ? await loadComponent(componentName) : null;
+        const blocks = example.data.blocks || {};
+
+        return (
+          <>
+            <div id={exampleId} class:list={[`preview`, `${idx === 0 ? "active" : ""}`]}>
+              <div class="container" style={bodyPadding}>
+                {Component && Array.isArray(blocks) ? (
+                  blocks.map((block: any, blockIdx: number) => (
+                    <Component key={blockIdx} {...block} />
+                  ))
+                ) : (
+                  <Component {...blocks} />
+                )}
+              </div>
+            </div>
+
+            <div class="code" id={`code-${exampleId}`}>
+              <Code
+                lang="yaml"
+                code={formatBlocksYaml(example.data.blocks)}
+                style="height: 100%; padding: var(--space-sm);"
+              />
+            </div>
+          </>
+        );
+      })
+    }
+  </div>
+
+  {
+    component_examples.length > 0 && (
+      <nav class="controls">
+        <div>
+          {component_examples.length > 1 && (
+            <>
+              <label for={`${title.toLowerCase().replace(/\s+/g, "-")}-examples`} class="sr-only">
+                Examples:
+              </label>
+              <select class="select" id={`${title.toLowerCase().replace(/\s+/g, "-")}-examples`}>
+                {component_examples.map((example: any, idx: number) => {
+                  const exampleName = example.data.title;
+                  const exampleId = `component-${exampleName.toLowerCase().replace(/\s+/g, "-")}-${idx}`;
+
+                  return <option value={exampleId}>{exampleName}</option>;
+                })}
+              </select>
+            </>
+          )}
+        </div>
+        <div>
+          <Button
+            type="ghost"
+            label="View Code"
+            size="lg"
+            iconName="hero/code-bracket"
+            hideText={true}
+            data-action="view-code"
+          />
+          <Button
+            type="ghost"
+            label="View Component"
+            size="lg"
+            iconName="hero/computer-desktop"
+            hideText={true}
+            data-action="view-component"
+            className="hide"
+          />
+        </div>
+      </nav>
+    )
+  }
+</div>
