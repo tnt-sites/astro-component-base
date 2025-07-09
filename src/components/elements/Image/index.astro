@@ -1,0 +1,42 @@
+---
+import clsx from "clsx";
+import { getProviderForUrl } from "unpic";
+import AstroImage from "./AstroImage.astro";
+import { ImageSchema } from "./schema";
+import UnpicImage from "./UnpicImage.astro";
+
+const { src, alt, class: className, ...restProps } = ImageSchema.parse(Astro.props);
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(restProps).filter(([key]) => !key.startsWith("_"))
+);
+
+const classNames = clsx("image", className);
+
+const sizes = "(min-width: 30em) 50vw, 100vw";
+const widths = [400, 600, 800, 1200, 1600];
+
+const provider = getProviderForUrl(src);
+const isExternalCDN = provider !== false;
+
+console.log("src:", src);
+console.log("provider:", provider);
+console.log("isExternalCDN:", isExternalCDN);
+
+// Common props for all image components
+const commonProps = {
+  alt: alt || "",
+  class: classNames,
+  ...htmlAttributes,
+};
+
+console.log("test2");
+---
+
+{
+  isExternalCDN ? (
+    <UnpicImage {...commonProps} src={src} sizes={sizes} widths={widths} />
+  ) : (
+    <AstroImage {...commonProps} src={src} sizes={sizes} widths={widths} />
+  )
+}

@@ -1,0 +1,81 @@
+---
+import { Picture } from "astro:assets";
+import "./styles.pcss";
+
+interface Props {
+  src: string | any; // string path or ImageMetadata
+  alt: string;
+  class?: string;
+  sizes?: string;
+  widths?: number[];
+  width?: number;
+  height?: number;
+}
+
+const {
+  src,
+  alt,
+  class: className,
+  sizes = "(min-width: 30em) 50vw, 100vw",
+  widths = [400, 600, 800, 1200, 1600],
+  width,
+  height,
+  ...htmlAttributes
+} = Astro.props as Props;
+
+const classNames = className || "";
+
+let imageSrc = src;
+let imageWidth = width;
+let imageHeight = height;
+
+// Targeted import only for images directory to avoid circular dependencies
+const imageFiles = import.meta.glob("/src/assets/images/**/*", {
+  eager: true,
+  import: "default",
+}) as Record<string, any>;
+
+// For local images, try to find them in the images directory
+if (typeof src === "string" && src.startsWith("/images/")) {
+  const assetPath = src.replace("/images/", "");
+
+  // Find the matching image in the glob results
+  const imageKey = Object.keys(imageFiles).find((key) => key.endsWith(assetPath));
+
+  if (imageKey && imageFiles[imageKey]) {
+    console.log("Found local image:", imageKey);
+    imageSrc = imageFiles[imageKey];
+
+    // Use metadata dimensions if not explicitly provided
+    if (!imageWidth) imageWidth = imageFiles[imageKey].width;
+    if (!imageHeight) imageHeight = imageFiles[imageKey].height;
+  } else {
+    console.warn(`Local image not found for path: ${src}`);
+    // Fallback to default dimensions
+    imageWidth = imageWidth || 800;
+    imageHeight = imageHeight || 450;
+  }
+}
+
+console.debug("<Picture> props", {
+  imageSrc,
+  imageWidth,
+  imageHeight,
+  widths,
+  sizes,
+});
+---
+
+<Picture
+  src={imageSrc}
+  alt={alt}
+  widths={widths}
+  sizes={sizes}
+  formats={["avif", "webp"]}
+  {...imageWidth ? { width: imageWidth } : {}}
+  {...imageHeight ? { height: imageHeight } : {}}
+  pictureAttributes={{
+    class: classNames,
+    ...htmlAttributes,
+  }}
+/>

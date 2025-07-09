@@ -1,0 +1,54 @@
+spec:
+  label: Image
+  description: A responsive image component with optimization
+  icon: image
+  fields:
+    src:
+      type: text
+      label: Image Source
+      description: The URL or path to the image
+      required: true
+    alt:
+      type: text
+      label: Alt Text
+      description: Alternative text for accessibility
+      required: true
+    width:
+      type: number
+      label: Width
+      description: Width of the image in pixels
+      required: false
+    height:
+      type: number
+      label: Height
+      description: Height of the image in pixels
+      required: false
+    class:
+      type: text
+      label: CSS Classes
+      description: Additional CSS classes to apply
+      required: false
+    loading:
+      type: select
+      label: Loading
+      description: Loading behavior of the image
+      options:
+        - label: Lazy
+          value: lazy
+        - label: Eager
+          value: eager
+      default: lazy
+      required: false
+    decoding:
+      type: select
+      label: Decoding
+      description: Image decoding behavior
+      options:
+        - label: Async
+          value: async
+        - label: Sync
+          value: sync
+        - label: Auto
+          value: auto
+      default: async
+      required: false

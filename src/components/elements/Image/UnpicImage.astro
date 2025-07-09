@@ -1,0 +1,76 @@
+---
+import { transformUrl } from "unpic";
+import "./styles.pcss";
+
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  sizes?: string;
+  widths?: number[];
+}
+
+const {
+  src,
+  alt,
+  class: className,
+  sizes = "(min-width: 30em) 50vw, 100vw",
+  widths = [400, 600, 800, 1200, 1600],
+  ...htmlAttributes
+} = Astro.props;
+
+const classNames = className || "";
+---
+
+<picture class:list={classNames} {...htmlAttributes}>
+  <source
+    type="image/avif"
+    srcset={widths
+      .map(
+        (width) =>
+          `${transformUrl({
+            url: src,
+            width,
+            height: Math.round(width * 0.75),
+            format: "avif",
+          })} ${width}w`
+      )
+      .join(", ")}
+    sizes={sizes}
+  />
+  <source
+    type="image/webp"
+    srcset={widths
+      .map(
+        (width) =>
+          `${transformUrl({
+            url: src,
+            width,
+            height: Math.round(width * 0.75),
+            format: "webp",
+          })} ${width}w`
+      )
+      .join(", ")}
+    sizes={sizes}
+  />
+  <img
+    src={src}
+    alt={alt || ""}
+    loading="lazy"
+    decoding="async"
+    width="1600"
+    height="1200"
+    srcset={widths
+      .map(
+        (width) =>
+          `${transformUrl({
+            url: src,
+            width,
+            height: Math.round(width * 0.75),
+            format: "jpeg",
+          })} ${width}w`
+      )
+      .join(", ")}
+    sizes={sizes}
+  />
+</picture>

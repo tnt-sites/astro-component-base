@@ -3,7 +3,13 @@
   "type": "module",
   "version": "1.0.0",
   "description": "A modern design system built with Astro, featuring design tokens, components, and comprehensive documentation",
-  "keywords": ["design-system", "astro", "components", "css", "design-tokens"],
+  "keywords": [
+    "design-system",
+    "astro",
+    "components",
+    "css",
+    "design-tokens"
+  ],
   "author": "Your Name",
   "license": "MIT",
   "scripts": {
@@ -21,11 +27,13 @@
     "format:fix": "prettier --write ."
   },
   "dependencies": {
+    "@11ty/eleventy-img": "^6.0.4",
     "@bookshop/astro-bookshop": "3.16.1",
     "astro": "^5.8.0",
     "astro-icon": "^1.1.5",
     "js-yaml": "^4.1.0",
-    "shiki": "^3.7.0"
+    "shiki": "^3.7.0",
+    "unpic": "^4.1.2"
   },
   "devDependencies": {
     "@csstools/postcss-global-data": "^3.0.0",
