@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 const { name, size, background, ...restProps } = Astro.props;
 
-const { class: extraClass, ...htmlAttributes } = Object.fromEntries(
+const htmlAttributes = Object.fromEntries(
   Object.entries(restProps).filter(([key]) => !key.startsWith("_"))
 );
 
@@ -13,7 +13,7 @@ const classNames = clsx(
   `size-${size}`,
   `background-${background}`,
   name?.includes("fill/") && "fill",
-  extraClass
+  className
 );
 ---
 

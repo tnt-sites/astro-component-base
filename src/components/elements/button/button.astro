@@ -4,7 +4,7 @@ import Icon from "../icon/icon.astro";
 
 const { label, link, iconName, iconPosition, hideText, variant, size, ...restProps } = Astro.props;
 
-const { class: extraClass, ...htmlAttributes } = Object.fromEntries(
+const htmlAttributes = Object.fromEntries(
   Object.entries(restProps).filter(([key]) => !key.startsWith("_"))
 );
 
@@ -14,7 +14,7 @@ const classNames = clsx(
   `variant-${variant}`,
   hideText && "icon-only",
   iconPosition === "after" && "icon-after",
-  extraClass
+  className
 );
 
 if (hideText && !htmlAttributes["aria-label"]) {
