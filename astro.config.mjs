@@ -14,6 +14,9 @@ export default defineConfig({
   server: {
     port: 4321,
   },
+  image: {
+    domains: ["picsum.photos"],
+  },
   integrations: [
     bookshop({
       bookshopConfigPath: path.resolve(__dirname, "src/bookshop/bookshop.config.cjs"),

@@ -29,9 +29,13 @@ let imageSrc = src;
 let imageWidth = width;
 let imageHeight = height;
 
-// Targeted import only for images directory to avoid circular dependencies
+// Check if this is a remote URL
+const isRemoteUrl =
+  typeof src === "string" && (src.startsWith("http://") || src.startsWith("https://"));
+
+// Import all images from the assets directory
 const imageFiles = import.meta.glob("/src/assets/images/**/*", {
-  eager: true,
+  eager: false,
   import: "default",
 }) as Record<string, any>;
 
@@ -44,11 +48,13 @@ if (typeof src === "string" && src.startsWith("/images/")) {
 
   if (imageKey && imageFiles[imageKey]) {
     console.log("Found local image:", imageKey);
-    imageSrc = imageFiles[imageKey];
+
+    // With eager: false, imageFiles[imageKey] is a function that needs to be called
+    imageSrc = await imageFiles[imageKey]();
 
     // Use metadata dimensions if not explicitly provided
-    if (!imageWidth) imageWidth = imageFiles[imageKey].width;
-    if (!imageHeight) imageHeight = imageFiles[imageKey].height;
+    if (!imageWidth) imageWidth = imageSrc.width;
+    if (!imageHeight) imageHeight = imageSrc.height;
   } else {
     console.warn(`Local image not found for path: ${src}`);
     // Fallback to default dimensions
@@ -63,6 +69,7 @@ console.debug("<Picture> props", {
   imageHeight,
   widths,
   sizes,
+  isRemoteUrl,
 });
 ---
 
@@ -74,6 +81,7 @@ console.debug("<Picture> props", {
   formats={["avif", "webp"]}
   {...imageWidth ? { width: imageWidth } : {}}
   {...imageHeight ? { height: imageHeight } : {}}
+  {...isRemoteUrl ? { inferSize: true } : {}}
   pictureAttributes={{
     class: classNames,
     ...htmlAttributes,

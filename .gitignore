@@ -29,6 +29,3 @@ pnpm-debug.log*
 # temporary files
 *.tmp
 *.temp
-
-# generated optimized images
-public/_image/

@@ -5,5 +5,8 @@ primary_size: lg
 examples:
   - title: CDN
     slugs:
-      - cdn
+      - src-cdn
+      - src-whitelisted-remote
+      - src-non-whitelisted-remote
+      - src-local
 ---

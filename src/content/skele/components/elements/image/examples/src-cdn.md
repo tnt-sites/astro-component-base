@@ -1,5 +1,5 @@
 ---
-title: "Primary Image"
+title: "Source - CDN"
 spacing: "all"
 blocks:
   _bookshop_name: "elements/image"

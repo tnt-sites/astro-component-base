@@ -19,18 +19,11 @@ const widths = [400, 600, 800, 1200, 1600];
 const provider = getProviderForUrl(src);
 const isExternalCDN = provider !== false;
 
-console.log("src:", src);
-console.log("provider:", provider);
-console.log("isExternalCDN:", isExternalCDN);
-
-// Common props for all image components
 const commonProps = {
   alt: alt || "",
   class: classNames,
   ...htmlAttributes,
 };
-
-console.log("test2");
 ---
 
 {
