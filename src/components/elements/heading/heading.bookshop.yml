@@ -1,0 +1,59 @@
+spec:
+  structures:
+    - content_blocks
+  label: Heading
+  description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
+  icon: title
+  tags:
+
+blueprint:
+  text: 
+  level: h1
+  size:  4xl
+  align: start
+
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  text:
+    comment: The text content of the heading.
+    type: markdown
+    
+  level:
+    comment: The heading level.
+    type: select
+    options:
+      values:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+  size:
+    comment: The font size of the text. 
+    type: select
+    options:
+      values:
+        - xs
+        - s
+        - m
+        - l
+        - xl
+        - 2xl
+        - 3xl
+        - 4xl
+        - 5xl
+        - 6xl
+  align:
+    comment: The alignment of the text. 
+    type: select
+    options:
+      values:
+        - start
+        - center
+        - end
+  

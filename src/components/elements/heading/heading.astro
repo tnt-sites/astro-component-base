@@ -1,0 +1,121 @@
+---
+import clsx from "clsx";
+// @ts-ignore
+import MarkdownIt from "markdown-it";
+
+const { text, level, size, align, className, _bookshop_name, ...restProps } = Astro.props;
+
+const md = MarkdownIt({ html: true });
+const MarkdownText = text ? md.renderInline(text) : "";
+
+const classNames = clsx("heading", `size-${size}`, `align-${align}`, className);
+
+const Tag = level;
+const elementProps = {
+  ...restProps,
+};
+---
+
+<Tag {...elementProps as any} class:list={classNames}>
+  {MarkdownText}
+</Tag>
+
+<style>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--element__body__font-color);
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    margin-top: 0.8em;
+
+    em {
+      font-weight: bold;
+      background: var(--element__heading-emphasis__background-color);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-style: normal;
+
+      &::selection {
+        color: var(--element__body__font-color);
+        background: var(--element__selection__background-color);
+      }
+    }
+  }
+
+  h1 {
+    font-size: var(--font-size-6xl);
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: var(--font-size-5xl);
+    line-height: 1.25;
+  }
+
+  h3 {
+    font-size: var(--font-size-3xl);
+    line-height: 1.3;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-weight: normal;
+  }
+
+  h4 {
+    font-size: var(--font-size-2xl);
+    line-height: 1.35;
+  }
+
+  h5 {
+    font-size: var(--font-size-xl);
+    line-height: 1.4;
+  }
+
+  h6 {
+    font-size: var(--font-size-lg);
+    line-height: 1.45;
+  }
+
+  p,
+  ul,
+  ol {
+    font-size: var(--font-size-md);
+    line-height: 1.6;
+    color: var(--element__body__font-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  a,
+  td,
+  th,
+  pre,
+  code,
+  li {
+    overflow-wrap: break-word;
+  }
+
+  .align-start {
+    text-align: start;
+  }
+
+  .align-center {
+    text-align: center;
+  }
+
+  .align-end {
+    text-align: end;
+  }
+</style>
