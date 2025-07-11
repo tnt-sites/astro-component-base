@@ -1,0 +1,45 @@
+spec:
+  structures:
+    - content_blocks
+  label: Rich text
+  description: A catch all for all content types. Can contain headings, paragraphs, images, bullets.
+  icon: edit_note
+  tags:
+
+blueprint:
+  text:
+  align: 
+  size: 
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  text:
+    comment: The content for the rich text component.
+    type: markdown
+  align:
+    type: select
+    options:
+      values:
+        - start
+        - center
+        - end
+    comment: The alignment of the rich text component.
+  size: 
+    comment: The font size of the text. Note, only applied to paragraphs and lists.
+    type: select
+    options:
+      values:
+        - xs
+        - s
+        - m
+        - l
+        - xl
+        - 2xl
+        - 3xl
+        - 4xl
+        - 5xl
+        - 6xl
+  
