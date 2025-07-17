@@ -2,16 +2,7 @@
 import { Picture } from "astro:assets";
 import "./styles.pcss";
 
-const {
-  src,
-  alt,
-  class: className,
-  sizes,
-  widths,
-  width,
-  height,
-  ...htmlAttributes
-} = Astro.props as Props;
+const { src, alt, class: className, sizes, widths, width, height, ...htmlAttributes } = Astro.props;
 
 let imageSrc = src;
 let imageWidth = width;

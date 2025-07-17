@@ -10,11 +10,11 @@ const {
   sizes = "(min-width: 30em) 50vw, 100vw",
   widths = [400, 600, 800, 1200, 1600],
   class: className,
-  ...restProps
+  ...rest
 } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => !key.startsWith("_"))
+  Object.entries(rest).filter(([key]) => !key.startsWith("_"))
 );
 
 const classNames = clsx("image", className);

@@ -2,155 +2,88 @@
 import clsx from "clsx";
 // @ts-ignore
 import markdownit from "markdown-it";
+
 const md = markdownit({ html: true });
 
-const { text, align, size, className, id, ariaLabel } = Astro.props;
+const { text = "", align = "start", size, class: className, ...rest } = Astro.props;
 
-const textContent = text || "";
-const markdownContent = textContent ? md.render(textContent) : "";
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => !key.startsWith("_"))
+);
 
-const classAttr = clsx("rich-text", className, `align-${align}`, `size-${size}`);
+const markdownContent = text ? md.render(text) : "";
+
+const classNames = clsx("rich-text", className, `align-${align}`, size && `size-${size}`);
 ---
 
-<div
-  class:list={classAttr}
-  {...id ? { id } : {}}
-  {...ariaLabel ? { "aria-label": ariaLabel } : {}}
-  set:html={markdownContent}
-/>
+<div class:list={classNames} {...htmlAttributes} set:html={markdownContent} />
 
-<style is:global>
-  .rich-text table {
-    margin: 1em 0;
-    border-collapse: collapse;
-    overflow-x: auto;
-    display: table;
-  }
-
-  .rich-text thead th {
-    font-weight: 600;
-    text-align: left;
-  }
-
-  .rich-text th,
-  .rich-text td {
-    padding: 0.75rem 1rem;
-    vertical-align: top;
-  }
-
-  .rich-text tbody tr:nth-child(even) {
-    background-color: transparent;
-  }
-
-  .rich-text table p {
-    margin: 0;
-  }
-
-  .rich-text ul,
-  .rich-text ol {
-    padding-left: 2.25rem;
-  }
-</style>
-
-<style is:global>
+<style>
   .rich-text {
-    font-family: var(--font-body);
-    line-height: 1.6;
-  }
+    :global(p),
+    :global(ul),
+    :global(ol),
+    :global(li),
+    :global(h1),
+    :global(h2),
+    :global(h3),
+    :global(h4),
+    :global(h5),
+    :global(h6) {
+      font-size: 1em;
+      line-height: 1.5;
+    }
 
-  .rich-text h1,
-  .rich-text h2,
-  .rich-text h3,
-  .rich-text h4,
-  .rich-text h5,
-  .rich-text h6 {
-    font-family: var(--font-heading);
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    line-height: 1.2;
-    color: #444444;
-    font-weight: normal;
-  }
+    &.size-xs {
+      font-size: var(--font-size-xs);
+    }
 
-  .rich-text p {
-    margin-top: 0;
-    margin-bottom: 1em;
-    font-size: inherit;
-  }
+    &.size-sm {
+      font-size: var(--font-size-sm);
+    }
 
-  .rich-text blockquote {
-    margin: 1em 0;
-    padding: 1em;
-    font-style: italic;
-  }
+    &.size-md {
+      font-size: var(--font-size-md);
+    }
 
-  .rich-text code {
-    padding: 0.125em 0.25em;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-mono);
-    font-size: 0.9em;
-  }
+    &.size-lg {
+      font-size: var(--font-size-lg);
+    }
 
-  .rich-text pre {
-    padding: 1em;
-    border-radius: var(--radius-md);
-    overflow-x: auto;
-    margin-bottom: 1em;
-  }
+    &.size-xl {
+      font-size: var(--font-size-xl);
+    }
 
-  .rich-text pre code {
-    background: none;
-    padding: 0;
-  }
+    &.size-2xl {
+      font-size: var(--font-size-2xl);
+    }
 
-  .rich-text a {
-    text-decoration: underline;
-    color: #3a3a3a;
-  }
+    &.size-3xl {
+      font-size: var(--font-size-3xl);
+    }
 
-  .rich-text a:hover {
-    color: #005c93;
-  }
+    &.size-4xl {
+      font-size: var(--font-size-4xl);
+    }
 
-  .size-xs {
-    font-size: 0.75rem;
-  }
-  .size-s {
-    font-size: 0.875rem;
-  }
-  .size-m {
-    font-size: 1rem;
-  }
-  .size-l {
-    font-size: 1.125rem;
-  }
-  .size-xl {
-    font-size: 1.25rem;
-  }
-  .size-2xl {
-    font-size: 1.5rem;
-  }
-  .size-3xl {
-    font-size: 1.875rem;
-  }
-  .size-4xl {
-    font-size: 2.25rem;
-  }
-  .size-5xl {
-    font-size: 3rem;
-  }
-  .size-6xl {
-    font-size: 3.75rem;
-  }
+    &.size-5xl {
+      font-size: var(--font-size-5xl);
+    }
 
-  /* Text alignment */
-  .align-start {
-    text-align: start;
-  }
-  .align-center {
-    text-align: center;
-  }
-  .align-end {
-    text-align: end;
+    &.size-6xl {
+      font-size: var(--font-size-6xl);
+    }
+
+    &.align-start {
+      text-align: start;
+    }
+
+    &.align-center {
+      text-align: center;
+    }
+
+    &.align-end {
+      text-align: end;
+    }
   }
 </style>
