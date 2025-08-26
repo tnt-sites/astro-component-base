@@ -20,7 +20,7 @@ const htmlAttributes = Object.fromEntries(
     items.map((item: any) => {
       return (
         <dt class="title" role="term"><strong>{item.title}</strong></dt>
-        <dd class="content" role="definition">{item.content}</dd>
+        <dd class="content" role="definition">{item.text}</dd>
       );
     })
   }
