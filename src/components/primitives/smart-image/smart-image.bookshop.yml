@@ -1,8 +1,8 @@
 spec:
   structures:
     - content_blocks
-  label: Image
-  description: Displays an image optimized for performance.
+  label: Smart Image
+  description: Displays an image optimized for performance with smart CDN detection.
   icon: image
   tags: []
 

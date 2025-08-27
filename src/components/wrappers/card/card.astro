@@ -1,5 +1,5 @@
 ---
-import Image from "@components/primitives/image/image.astro";
+import SmartImage from "@components/primitives/smart-image/smart-image.astro";
 import Component from "@components/utils/renderBlock.astro";
 
 const {
@@ -42,7 +42,7 @@ const Tag = link ? "a" : "div";
 >
   {
     source && (
-      <Image
+      <SmartImage
         class:list={[
           "background-image",
           positionVertical && positionHorizontal && `${positionVertical}-${positionHorizontal}`,

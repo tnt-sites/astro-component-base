@@ -1,5 +1,5 @@
 ---
-title: Image
+title: Smart Image
 primary_size: lg
 examples:
   - title: Source

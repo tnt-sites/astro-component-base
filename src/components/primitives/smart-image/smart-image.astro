@@ -26,7 +26,7 @@ const commonProps = {
 };
 ---
 
-<div class:list={["image", rounded && "rounded", className]} {...htmlAttributes}>
+<div class:list={["smart-image", rounded && "rounded", className]} {...htmlAttributes}>
   {
     isExternalCDN ? (
       <UnpicImage {...commonProps} src={src} sizes={sizes} widths={widths} priority={priority} />

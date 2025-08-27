@@ -4,6 +4,7 @@ spacing:
 blocks:
   _bookshop_name: "wrappers/container"
   colorScheme: contrast
+  paddingVertical: 2xl
   backgroundImage:
     source: /images/component-library/dunedin-cliff.jpg
     alt: "Dunedin cliffside"
