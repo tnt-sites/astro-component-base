@@ -1,5 +1,5 @@
 ---
-import Component from "@components/utils/renderBlock.astro";
+import GridItem from "./grid-item.astro";
 
 const {
   minItemWidth = 200,
@@ -39,10 +39,10 @@ const gridStyles = [
   {...htmlAttributes}
 >
   {
-    items.map((item: any, index: number) => (
-      <div class="grid-item">
-        <Component contentBlocks={item.contentBlocks} />
-      </div>
-    ))
+    items &&
+      items.length > 0 &&
+      items.map((item: any, index: number) => <GridItem contentBlocks={item.contentBlocks} />)
   }
+
+  <slot />
 </div>

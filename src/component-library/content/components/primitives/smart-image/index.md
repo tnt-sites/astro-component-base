@@ -9,4 +9,9 @@ examples:
       - src-non-whitelisted-remote
       - src-cdn
       - src-local
+  - title: Rounded
+    size: lg
+    slugs:
+      - rounded
+      - rounded-not
 ---

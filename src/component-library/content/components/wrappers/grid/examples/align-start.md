@@ -9,8 +9,10 @@ blocks:
   equalWidth: true
   items:
     - contentBlocks:
-        - _bookshop_name: "wrappers/container"
+        - _bookshop_name: "wrappers/card"
           backgroundColor: "surface"
+          paddingHorizontal: md
+          paddingVertical: md
           contentBlocks:
             - _bookshop_name: "primitives/heading"
               text: "Short Item"

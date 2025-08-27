@@ -1,0 +1,10 @@
+---
+import RenderBlock from "@components/utils/renderBlock.astro";
+
+const { contentBlocks } = Astro.props;
+---
+
+<div class="grid-item">
+  <RenderBlock contentBlocks={contentBlocks} />
+  <slot />
+</div>

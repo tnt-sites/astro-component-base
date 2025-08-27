@@ -47,6 +47,7 @@ _inputs:
         - secondary
         - tertiary
         - ghost
+        - text
     comment: The presentation of button.
   size:
     type: select

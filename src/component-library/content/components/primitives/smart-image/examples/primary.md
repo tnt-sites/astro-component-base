@@ -6,5 +6,5 @@ blocks:
   src: /images/component-library/dunedin-cliff.jpg
   alt: "Dunedin Cliff"
   style: "max-width: 500px;"
-  rounded: true
+  rounded: false
 ---

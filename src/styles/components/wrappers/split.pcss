@@ -1,15 +1,15 @@
 .split {
+  --gap-size: var(--spacing-lg);
+  --split-columns-mobile: 1fr;
+  --split-columns-desktop: 1fr 1fr;
+  --split-fixed-width: auto;
+
   container-type: inline-size;
   display: grid;
   gap: var(--gap-size);
 
   /* Mobile: single column by default */
   grid-template-columns: var(--split-columns-mobile);
-  --gap-size: var(--spacing-lg);
-
-  --split-columns-mobile: 1fr;
-  --split-columns-desktop: 1fr 1fr;
-  --split-fixed-width: auto;
 
   @media (--from-lg) {
     grid-template-columns: var(--split-columns-desktop);

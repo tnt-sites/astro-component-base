@@ -18,4 +18,8 @@ blocks:
     variant: ghost
     text: Ghost
     style: "margin-inline-end: var(--spacing-sm);"
+  - _bookshop_name: "primitives/button"
+    variant: text
+    text: Text
+    style: "margin-inline-end: var(--spacing-sm);"
 ---
