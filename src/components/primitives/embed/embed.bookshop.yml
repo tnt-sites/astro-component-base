@@ -11,14 +11,14 @@ spec:
 blueprint:
   src:
   title:
-  aspect_ratio: landscape
+  aspectRatio: landscape
 
 preview:
 
 _inputs:
   src:
     comment: The url source for the iframe
-  aspect_ratio:
+  aspectRatio:
     comment: The aspect ratio of the embed
     type: select
     options:
