@@ -1,12 +1,13 @@
 ---
 import { Picture } from "astro:assets";
 
-const { src, alt, sizes, widths, width, height, loading, priority, ...htmlAttributes } =
-  Astro.props;
+const { src, alt, sizes, widths, width, height, priority, ...htmlAttributes } = Astro.props;
 
 let imageSrc = src;
 let imageWidth = width;
 let imageHeight = height;
+let useInferSize = false;
+let shouldRender = true;
 
 const isRemoteUrl =
   typeof src === "string" && (src.startsWith("http://") || src.startsWith("https://"));
@@ -33,20 +34,63 @@ if (typeof src === "string" && src.startsWith("/images/")) {
   }
 }
 
-const priorityAttrs = priority ? { loading: "eager", fetchpriority: "high", decoding: "sync" } : {};
+// For remote URLs, try to validate the image exists before using inferSize
+if (isRemoteUrl) {
+  if (!imageWidth || !imageHeight) {
+    imageWidth = imageWidth || 800;
+    imageHeight = imageHeight || 450;
+
+    try {
+      const response = await fetch(src, { method: "HEAD" });
+
+      if (response.ok) {
+        const contentType = response.headers.get("content-type");
+        const isValidImage = contentType && contentType.startsWith("image/");
+
+        if (isValidImage) {
+          useInferSize = true;
+        } else {
+          console.warn(`Invalid content-type for image: ${src} (${contentType})`);
+          useInferSize = false;
+          shouldRender = false;
+        }
+      } else {
+        console.warn(`Image not accessible: ${src} (${response.status})`);
+        useInferSize = false;
+        shouldRender = false;
+      }
+    } catch (error) {
+      console.warn(`Could not validate image URL: ${src}`, error);
+      useInferSize = false;
+      shouldRender = false;
+    }
+  } else {
+    useInferSize = true;
+  }
+}
 ---
 
-<Picture
-  src={imageSrc}
-  alt={alt}
-  widths={widths}
-  sizes={sizes}
-  formats={["avif", "webp"]}
-  {...imageWidth ? { width: imageWidth } : {}}
-  {...imageHeight ? { height: imageHeight } : {}}
-  {...isRemoteUrl ? { inferSize: true } : {}}
-  {...priorityAttrs}
-  pictureAttributes={{
-    ...htmlAttributes,
-  }}
-/>
+{
+  shouldRender ? (
+    <Picture
+      src={imageSrc}
+      alt={alt}
+      widths={widths}
+      sizes={sizes}
+      formats={["avif", "webp"]}
+      width={imageWidth}
+      height={imageHeight}
+      loading={priority ? "eager" : "lazy"}
+      decoding={priority ? "sync" : "async"}
+      fetchpriority={priority ? "high" : undefined}
+      inferSize={useInferSize}
+      pictureAttributes={{
+        ...htmlAttributes,
+      }}
+    />
+  ) : (
+    <picture {...htmlAttributes}>
+      <img src={src} alt={alt} />
+    </picture>
+  )
+}
