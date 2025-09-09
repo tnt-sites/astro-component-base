@@ -17,7 +17,7 @@ blocks:
             - _bookshop_name: "primitives/heading"
               text: "Equal Width"
               level: h3
-            - _bookshop_name: "primitives/paragraph"
+            - _bookshop_name: "primitives/simple-text"
               text: "All items have the same width regardless of content length. This creates a uniform, grid-like appearance."
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
@@ -28,7 +28,7 @@ blocks:
             - _bookshop_name: "primitives/heading"
               text: "Consistent Layout"
               level: h3
-            - _bookshop_name: "primitives/paragraph"
+            - _bookshop_name: "primitives/simple-text"
               text: "Perfect for displaying cards, features, or any content that should have consistent sizing."
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
@@ -39,6 +39,6 @@ blocks:
             - _bookshop_name: "primitives/heading"
               text: "Responsive Design"
               level: h3
-            - _bookshop_name: "primitives/paragraph"
+            - _bookshop_name: "primitives/simple-text"
               text: "Items automatically wrap and adjust based on available space while maintaining equal widths."
 ---

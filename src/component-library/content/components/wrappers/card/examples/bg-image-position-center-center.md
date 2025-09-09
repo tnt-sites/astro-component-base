@@ -15,6 +15,6 @@ blocks:
     - _bookshop_name: "primitives/heading"
       text: "Center Position"
       level: h3
-    - _bookshop_name: "primitives/paragraph"
+    - _bookshop_name: "primitives/simple-text"
       text: "This card's background image is centered both horizontally and vertically."
 ---

@@ -24,7 +24,7 @@ blocks:
       sub_text: How we deliver
       icon_name: truck
       contentBlocks:
-        - _bookshop_name: primitives/paragraph
+        - _bookshop_name: primitives/simple-text
           text: |
             We ship worldwide. Orders leave within 2 business days.
             Delivery times vary by region.
@@ -43,7 +43,7 @@ blocks:
       sub_text: Easy and fair
       icon_name: arrow-path
       contentBlocks:
-        - _bookshop_name: primitives/paragraph
+        - _bookshop_name: primitives/simple-text
           text: "30‑day returns. Unused items only. Full refund once received."
           align: start
           size: md

@@ -17,7 +17,7 @@ blocks:
             - _bookshop_name: "primitives/heading"
               text: "Item 1"
               level: h3
-            - _bookshop_name: "primitives/paragraph"
+            - _bookshop_name: "primitives/simple-text"
               text: "This is a grid item with sample content."
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
@@ -28,7 +28,7 @@ blocks:
             - _bookshop_name: "primitives/heading"
               text: "Item 2"
               level: h3
-            - _bookshop_name: "primitives/paragraph"
+            - _bookshop_name: "primitives/simple-text"
               text: "This is a grid item with sample content."
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
@@ -39,6 +39,6 @@ blocks:
             - _bookshop_name: "primitives/heading"
               text: "Item 3"
               level: h3
-            - _bookshop_name: "primitives/paragraph"
+            - _bookshop_name: "primitives/simple-text"
               text: "This is a grid item with sample content."
 ---

@@ -14,6 +14,6 @@ blocks:
     - _bookshop_name: "primitives/heading"
       text: "Top Left Position"
       level: h3
-    - _bookshop_name: "primitives/paragraph"
+    - _bookshop_name: "primitives/simple-text"
       text: "This card's background image is positioned at the top-left corner."
 ---

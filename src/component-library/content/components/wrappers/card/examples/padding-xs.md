@@ -10,6 +10,6 @@ blocks:
     - _bookshop_name: "primitives/heading"
       text: "xs padding"
       level: h3
-    - _bookshop_name: "primitives/paragraph"
+    - _bookshop_name: "primitives/simple-text"
       text: "This card uses xs padding for a very compact appearance."
 ---

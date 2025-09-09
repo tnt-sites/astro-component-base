@@ -12,7 +12,7 @@ const MarkdownText = text ? md.renderInline(text) : "";
 ---
 
 <p
-  class:list={["paragraph", size && `size-${size}`, `align-${align}`, className]}
+  class:list={["simple-text", size && `size-${size}`, `align-${align}`, className]}
   {...htmlAttributes}
   set:html={MarkdownText}
 />

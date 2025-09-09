@@ -11,6 +11,6 @@ blocks:
     - _bookshop_name: "primitives/heading"
       text: "Rounded Card"
       level: h3
-    - _bookshop_name: "primitives/paragraph"
+    - _bookshop_name: "primitives/simple-text"
       text: "This card has rounded corners applied."
 ---

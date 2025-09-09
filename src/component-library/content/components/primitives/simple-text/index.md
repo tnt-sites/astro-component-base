@@ -1,5 +1,5 @@
 ---
-title: Paragraph
+title: Simple Text
 primary_size: md
 examples:
   - slugs:

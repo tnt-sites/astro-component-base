@@ -3,7 +3,7 @@ spec:
     - contentBlocks
     - firstContentBlocks
     - secondContentBlocks
-  label: Paragraph
+  label: Simple Text
   description: "Displays blocks of text for content sections with options for alignment, size and decoration."
   icon: view_headline
   tags: []
@@ -17,7 +17,7 @@ preview:
 
 _inputs:
   text:
-    comment: The text content of the paragraph.
+    comment: The text content of the simple text.
     type: markdown
     options:
       bold: true

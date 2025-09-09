@@ -11,6 +11,6 @@ blocks:
     - _bookshop_name: "primitives/heading"
       text: "Clickable Card"
       level: h3
-    - _bookshop_name: "primitives/paragraph"
+    - _bookshop_name: "primitives/simple-text"
       text: "This entire card is clickable! Perfect for navigation cards or feature highlights."
 ---

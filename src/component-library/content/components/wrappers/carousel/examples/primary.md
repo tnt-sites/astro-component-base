@@ -9,7 +9,7 @@ blocks:
           text: "Slide 1"
           level: h2
           align: center
-        - _bookshop_name: "primitives/paragraph"
+        - _bookshop_name: "primitives/simple-text"
           align: center
           text: "This is the first slide of the carousel."
     - contentBlocks:
@@ -17,7 +17,7 @@ blocks:
           text: "Slide 2"
           level: h2
           align: center
-        - _bookshop_name: "primitives/paragraph"
+        - _bookshop_name: "primitives/simple-text"
           text: "This is the second slide of the carousel."
           align: center
     - contentBlocks:
@@ -25,7 +25,7 @@ blocks:
           text: "Slide 3"
           level: h2
           align: center
-        - _bookshop_name: "primitives/paragraph"
+        - _bookshop_name: "primitives/simple-text"
           text: "This is the third slide of the carousel."
           align: center
 ---
