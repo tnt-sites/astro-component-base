@@ -1,6 +1,7 @@
 ---
 title: List
 primary_size: md
+order: 4
 examples:
   - slugs:
       - direction-vertical

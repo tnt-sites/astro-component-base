@@ -1,5 +1,6 @@
 ---
 title: Icon
+order: 4
 primary_size: sm
 examples:
   - title: Sizes

@@ -1,6 +1,7 @@
 ---
 title: Heading
 primary_size: sm
+order: 1
 examples:
   - slugs:
       - types

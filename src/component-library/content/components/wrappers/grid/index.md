@@ -1,6 +1,6 @@
 ---
 title: Grid
-description: A flexible grid layout component that displays items in a centered, responsive grid with configurable item widths and alignment options.
+order: 4
 examples:
   - slugs:
       - width-equal

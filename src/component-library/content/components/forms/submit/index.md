@@ -1,6 +1,7 @@
 ---
 title: Submit
 primary_size: sm
+order: 3
 examples:
   - slugs:
       - variants

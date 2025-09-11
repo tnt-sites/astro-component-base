@@ -1,6 +1,7 @@
 ---
 title: Container
 primary_size: md
+order: 1
 examples:
   - title: Background color
     slugs:

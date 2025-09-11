@@ -1,5 +1,6 @@
 ---
 title: Smart Image
+order: 2
 primary_size: lg
 examples:
   - title: Source

@@ -1,5 +1,6 @@
 ---
 title: Button
+order: 1
 primary_size: sm
 examples:
   - slugs:

@@ -1,5 +1,6 @@
 ---
 title: Split
+order: 3
 examples:
   - title: Mode
     size: lg

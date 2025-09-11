@@ -1,6 +1,7 @@
 ---
 title: Card
 description: A container component that provides card layout with background options, padding controls, and optional link.
+order: 2
 examples:
   - slugs:
       - link

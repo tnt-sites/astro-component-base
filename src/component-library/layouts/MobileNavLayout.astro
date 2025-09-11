@@ -1,14 +1,17 @@
 ---
 import navData from "@component-library/data/nav.json";
+import Icon from "@components/elements/icon/icon.astro";
 import NavItem from "@components/navigation/nav-item/nav-item.astro";
 import NavList from "@components/navigation/nav-list/nav-list.astro";
 import NavRoot from "@components/navigation/nav-root/nav-root.astro";
-import Icon from "@components/elements/icon/icon.astro";
 import { getCollection } from "astro:content";
 
 const allComponents = await getCollection("docs-components");
 
-const componentsByCategory: Record<string, Array<{ name: string; path: string }>> = {};
+const componentsByCategory: Record<
+  string,
+  Array<{ name: string; path: string; order: number }>
+> = {};
 
 allComponents.forEach((component: any) => {
   const slug = component.id.replace(/^components\//, "").replace(/\/index$/, "");
@@ -33,6 +36,7 @@ allComponents.forEach((component: any) => {
     componentsByCategory[category].push({
       name: component.data.title || componentName.replace(/-/g, " "),
       path: `/component-library/components/${category}/${componentName}/`,
+      order: Number(component.data.order) || 999,
     });
   }
 });
@@ -43,7 +47,13 @@ const populatedNavData = navData.map((section) => {
     const category = section.group.toLowerCase();
     const items = componentsByCategory[category] || [];
 
-    const sortedItems = items.sort((a, b) => a.name.localeCompare(b.name));
+    const sortedItems = items.sort((a, b) => {
+      if (a.order !== b.order) {
+        return a.order - b.order;
+      }
+
+      return a.name.localeCompare(b.name);
+    });
 
     // Check if any child item is the current page
     const currentPath = Astro.url.pathname;
