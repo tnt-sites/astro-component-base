@@ -7,6 +7,13 @@ spec:
   description: Animated number that counts up when visible.
   icon: speed
   tags:
+  preview:
+    metadata:
+      - text: Counter
+        subtext:
+          - template: "{prefix}{number}{suffix}"
+          - Counter
+        icon: speed
 
 blueprint:
   number: 100
