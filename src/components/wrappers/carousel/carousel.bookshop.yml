@@ -27,9 +27,8 @@ _inputs:
   slides:
     comment: Array of slides to display in the carousel.
     type: array
-    _inputs:
-      contentBlocks:
-        comment: The content blocks to display in this slide.
+    options:
+      structures: _structures.slide
   autoPlay:
     comment: Enable auto-play functionality.
     type: switch
@@ -42,3 +41,16 @@ _inputs:
   minSlideWidth:
     comment: Minimum width of slides in pixels. Prevents slides from getting too small.
     type: number
+
+_structures:
+  slide:
+    values:
+      - value:
+          contentBlocks: []
+        _inputs:
+          contentBlocks:
+            type: array
+            options:
+              structures: _structures.contentBlocks
+        preview:
+          icon: transition_slide

@@ -26,9 +26,9 @@ _inputs:
     comment: The URL that the button should link to.
   iconName:
     type: select
+    comment: The name of the icon to display. See the Icon component documentation for more information.
     options:
       values: _select_data.icons
-    comment: The name of the icon to display. See the Icon component documentation for more information.
   iconPosition:
     type: select
     options:

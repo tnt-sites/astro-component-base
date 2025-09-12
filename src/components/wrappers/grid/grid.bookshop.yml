@@ -11,11 +11,10 @@ spec:
 blueprint:
   minItemWidth: 200
   maxItemWidth: 320
-  verticalAlignment: "start"
-  horizontalAlignment: "center"
+  verticalAlignment: start
+  horizontalAlignment: center
   equalWidth: true
-  items:
-    - contentBlocks:
+  items: []
 
 preview:
 
@@ -31,27 +30,48 @@ _inputs:
     type: select
     options:
       values:
-        - start
-        - center
-        - end
-        - stretch
+        - id: start
+          name: Start
+        - id: center
+          name: Center
+        - id: end
+          name: End
+        - id: stretch
+          name: Stretch
   horizontalAlignment:
     comment: The horizontal alignment of grid items.
     type: select
     options:
       values:
-        - start
-        - center
-        - end
-        - space-between
-        - space-around
-        - space-evenly
+        - id: start
+          name: Start
+        - id: center
+          name: Center
+        - id: end
+          name: End
+        - id: space-between
+          name: Space Between
+        - id: space-around
+          name: Space Around
+        - id: space-evenly
+          name: Space Evenly
   equalWidth:
     comment: Whether items should have equal widths (true) or intrinsic widths based on content (false).
     type: switch
   items:
     comment: Array of grid items, each containing content blocks to render.
     type: array
-    _inputs:
-      contentBlocks:
-        comment: Content blocks to render within this grid item.
+    options:
+      structures: _structures.grid_item
+
+_structures:
+  grid_item:
+    values:
+      - value:
+          contentBlocks: []
+        _inputs:
+          contentBlocks:
+            type: array
+            comment: Content blocks to render within this grid item.
+            options:
+              structures: _structures.contentBlocks

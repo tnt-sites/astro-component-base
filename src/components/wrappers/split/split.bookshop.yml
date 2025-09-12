@@ -11,9 +11,9 @@ spec:
 blueprint:
   firstColumnContentBlocks: []
   secondColumnContentBlocks: []
-  distributionMode: "half"
+  distributionMode: half
   fixedWidth: null
-  verticalAlignment: "top"
+  verticalAlignment: top
   reverse: false
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
@@ -25,21 +25,34 @@ _inputs:
     comment: Optional label for the split to help identify it in the editor.
     type: text
   firstColumnContentBlocks:
+    type: array
     comment: Array of content blocks to render in the first column.
+    options:
+      structures: _structures.contentBlocks
   secondColumnContentBlocks:
+    type: array
     comment: Array of content blocks to render in the second column.
+    options:
+      structures: _structures.contentBlocks
   distributionMode:
     comment: Predefined distribution mode for both columns.
     type: select
     options:
       values:
-        - quarter-three-quarters
-        - third-two-thirds
-        - half
-        - two-thirds-third
-        - three-quarters-quarter
-        - fixed-flexible
-        - flexible-fixed
+        - id: quarter-three-quarters
+          name: Quarter-Three-Quarters
+        - id: third-Two-Thirds
+          name: Third-Two-Thirds
+        - id: half
+          name: Half
+        - id: two-Thirds-Third
+          name: Two-Thirds-Third
+        - id: three-Quarters-Quarter
+          name: Three-Quarters-Quarter
+        - id: fixed-Flexible
+          name: Fixed-Flexible
+        - id: flexible-Fixed
+          name: Flexible-Fixed
   fixedWidth:
     comment: Fixed width in pixels for the fixed column (used when distribution mode includes 'fixed').
     type: number
@@ -48,10 +61,14 @@ _inputs:
     type: select
     options:
       values:
-        - top
-        - center
-        - bottom
-        - stretch
+        - id: top
+          name: Top
+        - id: center
+          name: Center
+        - id: bottom
+          name: Bottom
+        - id: stretch
+          name: Stretch
   reverse:
-    comment: "Swaps the order of the columns."
-    type: checkbox
+    comment: Swaps the order of the columns.
+    type: switch

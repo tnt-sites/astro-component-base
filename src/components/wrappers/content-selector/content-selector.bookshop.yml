@@ -17,18 +17,32 @@ preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  items:
+    type: array
+    options:
+      structures: _structures.content_items
   navigationPosition:
     type: select
     options:
       values:
-        - start
-        - top
+        - id: start
+          name: Start
+        - id: top
+          name: Top
 
 _structures:
-  items:
+  content_items:
     values:
       - label: Item
         icon: place_item
         value:
           title:
           contentBlocks:
+        _inputs:
+          title:
+            type: text
+            comment: The heading for the content panel.
+          contentBlocks:
+            type: array
+            options:
+              structures: _structures.contentBlocks
