@@ -7,8 +7,11 @@ pageBlocks:
     contentBlocks:
       - _bookshop_name: typography/heading
         text: Welcome to your CloudCannon Starter Component site
-        level: h1
+        type: h1
+        size:
         align: center
+        iconName:
+        iconPosition:
       - _bookshop_name: wrappers/button-group
         buttonBlocks:
           - _bookshop_name: elements/button
