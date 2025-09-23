@@ -46,14 +46,22 @@ _inputs:
     comment: The heading type/level.
     options:
       values:
-        - h1
-        - h2
-        - h3
-        - h4
-        - h5
-        - h6
-        - eyebrow
-        - subtitle
+        - id: h1
+          name: h1
+        - id: h2
+          name: h2
+        - id: h3
+          name: h3
+        - id: h4
+          name: h4
+        - id: h5
+          name: h5
+        - id: h6
+          name: h6
+        - id: eyebrow
+          name: Eyebrow
+        - id: subtitle
+          name: Subtitle
   size:
     type: select
     comment: The font size of the text.
