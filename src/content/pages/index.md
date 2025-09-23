@@ -12,6 +12,15 @@ pageBlocks:
         align: center
         iconName:
         iconPosition:
+      - _bookshop_name: typography/definition-list
+        items:
+          - _component: definition-list-item
+            title: >-
+              12345678901234567890123456 123456789012
+              345678901234567890123456789078901234567890123456789012
+              345678901234567890
+            text: werwerwerwerwerwerwerwer
+        horizontalAlignment: start
       - _bookshop_name: wrappers/button-group
         buttonBlocks:
           - _bookshop_name: elements/button
