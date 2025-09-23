@@ -41,21 +41,21 @@ _inputs:
       values:
         - id: quarter-three-quarters
           name: Quarter-Three-Quarters
-        - id: third-Two-Thirds
+        - id: third-two-thirds
           name: Third-Two-Thirds
         - id: half
           name: Half
-        - id: two-Thirds-Third
+        - id: two-thirds-third
           name: Two-Thirds-Third
-        - id: three-Quarters-Quarter
+        - id: three-quarters-quarter
           name: Three-Quarters-Quarter
-        - id: fixed-Flexible
+        - id: fixed-flexible
           name: Fixed-Flexible
-        - id: flexible-Fixed
+        - id: flexible-fixed
           name: Flexible-Fixed
   fixedWidth:
     type: number
-    comment: Fixed width in pixels for the fixed column (used when distribution mode includes 'fixed').
+    comment: Used when distribution mode includes 'fixed'. Sets the width in pixels for the fixed column.
   verticalAlignment:
     type: select
     comment: Vertical alignment of the columns.

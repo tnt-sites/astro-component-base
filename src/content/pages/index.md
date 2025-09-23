@@ -3,7 +3,7 @@ _schema: default
 title: Your Site
 pageBlocks:
   - _bookshop_name: wrappers/container
-    label: ''
+    label: ""
     contentBlocks:
       - _bookshop_name: wrappers/split
         firstColumnContentBlocks:
@@ -29,7 +29,7 @@ pageBlocks:
             aspectRatio: widescreen
             positionVertical: bottom
             positionHorizontal: center
-        distributionMode: third-Two-Thirds
+        distributionMode: third-two-thirds
         fixedWidth:
         verticalAlignment: center
         reverse: false
@@ -42,7 +42,7 @@ pageBlocks:
         items:
           - contentBlocks:
               - _bookshop_name: wrappers/card
-                label: ''
+                label: ""
                 contentBlocks:
                   - _bookshop_name: typography/simple-text
                     text: Some text in this here card.
@@ -62,16 +62,16 @@ pageBlocks:
                 colorScheme: default
                 backgroundColor: accent
                 backgroundImage:
-                  source: ''
-                  alt: ''
+                  source: ""
+                  alt: ""
                   positionVertical: top
                   positionHorizontal: center
-                link: ''
+                link: ""
                 rounded: true
                 border: false
           - contentBlocks:
               - _bookshop_name: wrappers/card
-                label: ''
+                label: ""
                 contentBlocks:
                   - _bookshop_name: typography/simple-text
                     text: Some text in this here card.
@@ -91,16 +91,16 @@ pageBlocks:
                 colorScheme: default
                 backgroundColor: accent
                 backgroundImage:
-                  source: ''
-                  alt: ''
+                  source: ""
+                  alt: ""
                   positionVertical: top
                   positionHorizontal: center
-                link: ''
+                link: ""
                 rounded: true
                 border: false
           - contentBlocks:
               - _bookshop_name: wrappers/card
-                label: ''
+                label: ""
                 contentBlocks:
                   - _bookshop_name: typography/simple-text
                     text: Some text in this here card.
@@ -120,16 +120,16 @@ pageBlocks:
                 colorScheme: default
                 backgroundColor: accent
                 backgroundImage:
-                  source: ''
-                  alt: ''
+                  source: ""
+                  alt: ""
                   positionVertical: top
                   positionHorizontal: center
-                link: ''
+                link: ""
                 rounded: true
                 border: false
           - contentBlocks:
               - _bookshop_name: wrappers/card
-                label: ''
+                label: ""
                 contentBlocks:
                   - _bookshop_name: typography/simple-text
                     text: Some text in this here card.
@@ -149,16 +149,16 @@ pageBlocks:
                 colorScheme: default
                 backgroundColor: accent
                 backgroundImage:
-                  source: ''
-                  alt: ''
+                  source: ""
+                  alt: ""
                   positionVertical: top
                   positionHorizontal: center
-                link: ''
+                link: ""
                 rounded: true
                 border: false
           - contentBlocks:
               - _bookshop_name: wrappers/card
-                label: ''
+                label: ""
                 contentBlocks:
                   - _bookshop_name: typography/simple-text
                     text: Some text in this here card.
@@ -178,11 +178,11 @@ pageBlocks:
                 colorScheme: default
                 backgroundColor: accent
                 backgroundImage:
-                  source: ''
-                  alt: ''
+                  source: ""
+                  alt: ""
                   positionVertical: top
                   positionHorizontal: center
-                link: ''
+                link: ""
                 rounded: true
                 border: false
       - _bookshop_name: wrappers/content-selector
@@ -215,7 +215,7 @@ pageBlocks:
                 positionHorizontal: center
         navigationPosition: start
       - _bookshop_name: wrappers/carousel
-        label: ''
+        label: ""
         slides:
           - contentBlocks: []
         autoPlay: false
@@ -261,7 +261,7 @@ pageBlocks:
         source: /assets/videos/glass.mp4
         poster: /assets/images/video-placeholder.jpg
       - _bookshop_name: wrappers/card
-        label: ''
+        label: ""
         contentBlocks:
           - _bookshop_name: typography/counter
             number: 100
@@ -286,11 +286,11 @@ pageBlocks:
         colorScheme: contrast
         backgroundColor: highlight
         backgroundImage:
-          source: ''
-          alt: ''
+          source: ""
+          alt: ""
           positionVertical: top
           positionHorizontal: center
-        link: ''
+        link: ""
         rounded: true
         border: false
       - _bookshop_name: typography/definition-list
@@ -330,7 +330,7 @@ pageBlocks:
               - _bookshop_name: elements/smart-video
                 externalVideoHost: true
                 videoHost: vimeo
-                id: '1054665455'
+                id: "1054665455"
                 title: A vimeo test vid
                 source:
                 poster:
@@ -384,7 +384,7 @@ pageBlocks:
             name: telephone
             required: false
             type: tel
-            placeholder: '+641234567'
+            placeholder: "+641234567"
             value:
           - _bookshop_name: forms/input
             label: Url
@@ -452,8 +452,8 @@ pageBlocks:
     colorScheme: default
     backgroundColor: highlight
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     rounded: false

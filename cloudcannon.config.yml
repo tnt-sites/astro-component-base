@@ -35,7 +35,7 @@ collection_groups:
 _structures:
   contentBlocks:
     style: modal
-    values: []
+    values: [] # Must contain a values array, but the structures are defined by Bookshop so there's nothing to add in here
 
 _select_data:
   icons:

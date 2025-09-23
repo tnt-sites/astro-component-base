@@ -30,6 +30,7 @@ const getReversedDistributionMode = (mode: string) => {
     "flexible-fixed": "fixed-flexible",
     half: "half",
   };
+
   return reverseMap[mode as keyof typeof reverseMap] || mode;
 };
 
