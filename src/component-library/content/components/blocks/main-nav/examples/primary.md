@@ -3,7 +3,7 @@ title: "Primary Main Nav"
 spacing: "top"
 blocks:
   _bookshop_name: "blocks/main-nav"
-  logoSource: /component-library/images/logo.svg
+  logoSource: /assets/images/component-library/logo.svg
   logoAlt: Logo
   navData:
     - name: "Home"

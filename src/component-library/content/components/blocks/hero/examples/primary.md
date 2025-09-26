@@ -7,7 +7,7 @@ blocks:
   subtitle: "A city of students, heritage, and natural wonder at the edge of the Pacific."
   reverse: true
 
-  imageSource: /component-library/images/dunedin-cliff.jpg
+  imageSource: /assets/images/component-library/dunedin-cliff.jpg
   imageAlt: "Cliffs and rugged coastline near Dunedin, New Zealand, with yellow flowering shrubs in the foreground and waves crashing against the rocks below."
   buttonBlocks:
     - _bookshop_name: "elements/button"

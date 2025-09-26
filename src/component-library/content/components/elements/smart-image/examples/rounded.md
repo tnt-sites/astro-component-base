@@ -3,7 +3,7 @@ title: "Rounded"
 spacing: "all"
 blocks:
   _bookshop_name: "elements/smart-image"
-  source: /component-library/images/quiet-street.jpg
+  source: /assets/images/component-library/quiet-street.jpg
   alt: "Quiet Street"
   style: "max-width: 500px;"
   rounded: true

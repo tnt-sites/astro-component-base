@@ -7,34 +7,24 @@ let imageSrc = source;
 let imageWidth = width;
 let imageHeight = height;
 let useInferSize = false;
-let shouldRender = true;
+let shouldRender = false;
 
 const isRemoteUrl =
   typeof source === "string" && (source.startsWith("http://") || source.startsWith("https://"));
 
-const imageFiles = import.meta.glob("/src/assets/**/*", {
+const imageFiles = import.meta.glob("/src/assets/images/**/*", {
   import: "default",
 }) as Record<string, any>;
 
-if (
-  typeof source === "string" &&
-  (source.startsWith("/images/") || source.startsWith("/component-library/images/"))
-) {
-  let assetPath;
-
-  if (source.startsWith("/component-library/images/")) {
-    assetPath = source.replace("/component-library/images/", "component-library/images/");
-  } else {
-    assetPath = source.replace("/images/", "");
-  }
-
-  const imageKey = Object.keys(imageFiles).find((key) => key.endsWith(assetPath));
+if (typeof source === "string" && source.startsWith("/assets/")) {
+  const imageKey = Object.keys(imageFiles).find((key) => key.endsWith(source));
 
   if (imageKey && imageFiles[imageKey]) {
     imageSrc = await imageFiles[imageKey]();
 
     if (!imageWidth) imageWidth = imageSrc.width;
     if (!imageHeight) imageHeight = imageSrc.height;
+    shouldRender = true;
   } else {
     console.warn(`Local image not found for path: ${source}`);
 
@@ -57,24 +47,19 @@ if (isRemoteUrl) {
         const isValidImage = contentType && contentType.startsWith("image/");
 
         if (isValidImage) {
+          shouldRender = true;
           useInferSize = true;
         } else {
           console.warn(`Invalid content-type for image: ${source} (${contentType})`);
-          useInferSize = false;
-          shouldRender = false;
         }
       } else {
         console.warn(`Image not accessible: ${source} (${response.status})`);
-        useInferSize = false;
-        shouldRender = false;
       }
     } catch (error) {
       console.warn(`Could not validate image URL: ${source}`, error);
-      useInferSize = false;
-      shouldRender = false;
     }
   } else {
-    useInferSize = true;
+    shouldRender = true;
   }
 }
 ---

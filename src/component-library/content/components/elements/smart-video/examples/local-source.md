@@ -5,8 +5,8 @@ blocks:
   - _bookshop_name: "elements/smart-video"
     type: native
     id:
-    src: /assets/component-library/videos/glass.mp4
-    poster: /assets/component-library/images/video-placeholder.jpg
+    src: /videos/component-library/glass.mp4
+    poster: /images/component-library/video-placeholder.jpg
     title: Glass pour
     style: "max-width: 600px"
 ---
