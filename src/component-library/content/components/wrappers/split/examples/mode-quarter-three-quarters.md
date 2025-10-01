@@ -9,7 +9,7 @@ blocks:
       contentBlocks:
         - _bookshop_name: "typography/rich-text"
           text: |-
-            ## Quarter Column
+            ## Quarter column
 
             This column takes up 25% of the available space.
   secondColumnContentBlocks:
@@ -18,11 +18,12 @@ blocks:
       contentBlocks:
         - _bookshop_name: "typography/rich-text"
           text: |-
-            ## Three Quarters Column
+            ## Three quarters column
 
             This column takes up 75% of the available space.
   distributionMode: "quarter-three-quarters"
   fixedWidth: null
+  minSplitWidth: 500
   verticalAlignment: "top"
   reverse: false
 ---

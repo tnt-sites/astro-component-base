@@ -3,9 +3,9 @@ title: "Spacer Primary"
 spacing: "all"
 blocks:
   - _bookshop_name: "typography/rich-text"
-    text: "There is a **spacer** below this text"
+    text: "There is a **spacer** below this text."
   - _bookshop_name: "elements/spacer"
     size: "2xl"
   - _bookshop_name: "typography/rich-text"
-    text: "There is a **spacer** above this text"
+    text: "There is a **spacer** above this text."
 ---

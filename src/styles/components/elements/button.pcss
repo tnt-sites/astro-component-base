@@ -20,14 +20,16 @@
   transition-timing-function: ease-in-out;
   vertical-align: middle;
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--color-bg-muted);
     border-color: var(--color-border-strong);
     color: var(--color-text-strong);
     cursor: pointer;
-    outline: var(--color-focus-ring);
-    outline-offset: 4px;
+  }
+
+  &:focus {
+    box-shadow: 0 0 2px 2px var(--color-focus-ring) inset;
+    outline: none;
   }
 
   &.icon-only {

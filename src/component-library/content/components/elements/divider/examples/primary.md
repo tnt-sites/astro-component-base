@@ -3,9 +3,9 @@ title: "Divider Primary"
 spacing: "all"
 blocks:
   - _bookshop_name: "typography/rich-text"
-    text: "There is a **divider** below this text"
+    text: "There is a **divider** below this text."
   - _bookshop_name: "elements/divider"
     padding: "md"
   - _bookshop_name: "typography/rich-text"
-    text: "There is a **divider** above this text"
+    text: "There is a **divider** above this text."
 ---

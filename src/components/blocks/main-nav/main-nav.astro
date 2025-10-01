@@ -1,0 +1,106 @@
+---
+import SmartImage from "@components/elements/smart-image/smart-image.astro";
+import NavRoot from "@components/navigation/nav-root/nav-root.astro";
+import ButtonGroup from "@components/wrappers/button-group/button-group.astro";
+import Container from "@components/wrappers/container/container.astro";
+
+const {
+  logoSource,
+  logoAlt = "logo",
+  navData = [],
+  buttonBlocks = [],
+  class: className,
+} = Astro.props;
+
+const navBlocks = navData.map((navItem: any) => ({
+  _bookshop_name: "navigation/nav-item",
+  href: navItem.path,
+  text: navItem.name,
+  navBlocks:
+    navItem.children?.length > 0
+      ? [
+          {
+            _bookshop_name: "navigation/nav-list",
+            navBlocks: navItem.children.map((child: any) => ({
+              _bookshop_name: "navigation/nav-item",
+              href: child.path,
+              text: child.name,
+              navBlocks:
+                child.children?.length > 0
+                  ? [
+                      {
+                        _bookshop_name: "navigation/nav-list",
+                        navBlocks: child.children.map((grandChild: any) => ({
+                          _bookshop_name: "navigation/nav-item",
+                          href: grandChild.path,
+                          text: grandChild.name,
+                          navBlocks: [],
+                        })),
+                      },
+                    ]
+                  : [],
+            })),
+          },
+        ]
+      : [],
+}));
+
+const mobileNavBlocks = [
+  ...navBlocks,
+  ...buttonBlocks.map((button: any) => ({
+    _bookshop_name: "navigation/nav-item",
+    href: button.href || "#",
+    text: button.text || button.label || "Button",
+    navBlocks: [],
+  })),
+];
+---
+
+<Container
+  maxContentWidth="2xl"
+  paddingHorizontal="md"
+  paddingVertical="none"
+  class:list={["main-nav", className]}
+>
+  {logoSource && <SmartImage source={logoSource} alt={logoAlt} />}
+  <NavRoot variant="horizontal" class="desktop-main-nav" navBlocks={navBlocks} />
+  <ButtonGroup
+    direction="row"
+    align="center"
+    class="desktop-button-group"
+    buttonBlocks={buttonBlocks}
+  />
+  <NavRoot variant="mobile" class="mobile-main-nav" navBlocks={mobileNavBlocks}>
+    {logoSource && <SmartImage source={logoSource} alt={logoAlt} slot="logo" />}
+  </NavRoot>
+</Container>
+
+<style>
+  :global(.desktop-main-nav.nav-root.horizontal),
+  :global(.desktop-button-group.button-group) {
+    @container (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  :global(.mobile-main-nav.nav-hamburger) {
+    @container (min-width: 769px) {
+      display: none;
+    }
+  }
+
+  :global(.main-nav .smart-image img) {
+    max-height: 3em;
+    max-width: min(20em, 100%);
+    width: auto;
+  }
+
+  :global(.main-nav > .outer-content > .content) {
+    align-items: center;
+    container-type: inline-size;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: space-between;
+  }
+</style>

@@ -7,7 +7,7 @@ blocks:
   maxContentWidth: sm
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: sm max content width
+      text: This container has sm max content width.
       level: h2
       align: center
       style: "border: 1px solid var(--color-border)"

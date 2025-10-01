@@ -8,6 +8,6 @@ blocks:
   paddingVertical: md
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: md padding
+      text: This container has md padding.
       level: h2
 ---

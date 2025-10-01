@@ -8,6 +8,6 @@ blocks:
   paddingVertical: sm
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: sm padding
+      text: This container has sm padding.
       level: h2
 ---

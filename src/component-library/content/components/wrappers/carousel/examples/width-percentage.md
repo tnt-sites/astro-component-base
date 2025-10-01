@@ -13,7 +13,7 @@ blocks:
           paddingVertical: sm
           contentBlocks:
             - _bookshop_name: "elements/smart-image"
-              src: /component-library/images/quiet-street.jpg
+              source: /assets/images/component-library/quiet-street.jpg
               alt: "Quiet Street"
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
@@ -21,7 +21,7 @@ blocks:
           paddingVertical: sm
           contentBlocks:
             - _bookshop_name: "elements/smart-image"
-              src: /component-library/images/sunset.jpg
+              source: /assets/images/component-library/sunset.jpg
               alt: "Sunset"
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
@@ -29,7 +29,7 @@ blocks:
           paddingVertical: sm
           contentBlocks:
             - _bookshop_name: "elements/smart-image"
-              src: /component-library/images/sheep.jpg
+              source: /assets/images/component-library/sheep.jpg
               alt: "Sheep"
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
@@ -37,7 +37,7 @@ blocks:
           paddingVertical: sm
           contentBlocks:
             - _bookshop_name: "elements/smart-image"
-              src: /component-library/images/castle.jpg
+              source: /assets/images/component-library/castle.jpg
               alt: "Castle"
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
@@ -45,6 +45,6 @@ blocks:
           paddingVertical: sm
           contentBlocks:
             - _bookshop_name: "elements/smart-image"
-              src: /component-library/images/dunedin-cliff.jpg
+              source: /assets/images/component-library/dunedin-cliff.jpg
               alt: "Dunedin Cliff"
 ---

@@ -3,35 +3,35 @@ title: "Paddings"
 spacing: "sides"
 blocks:
   - _bookshop_name: "typography/rich-text"
-    text: "none divider below"
+    text: "Below is a divider with 'none' padding."
   - _bookshop_name: "elements/divider"
     padding: none
   - _bookshop_name: "typography/rich-text"
-    text: "xs divider below"
+    text: "Below is a divider with 'xs' padding."
   - _bookshop_name: "elements/divider"
     padding: xs
   - _bookshop_name: "typography/rich-text"
-    text: "sm divider below"
+    text: "Below is a divider with 'sm' padding."
   - _bookshop_name: "elements/divider"
     padding: sm
   - _bookshop_name: "typography/rich-text"
-    text: "md divider below"
+    text: "Below is a divider with 'md' padding."
   - _bookshop_name: "elements/divider"
     padding: md
   - _bookshop_name: "typography/rich-text"
-    text: "lg divider below"
+    text: "Below is a divider with 'lg' padding."
   - _bookshop_name: "elements/divider"
     padding: lg
   - _bookshop_name: "typography/rich-text"
-    text: "xl divider below"
+    text: "Below is a divider with 'xl' padding."
   - _bookshop_name: "elements/divider"
     padding: xl
   - _bookshop_name: "typography/rich-text"
-    text: "2xl divider below"
+    text: "Below is a divider with '2xl' padding."
   - _bookshop_name: "elements/divider"
     padding: 2xl
   - _bookshop_name: "typography/rich-text"
-    text: "3xl divider below"
+    text: "Below is a divider with '3xl' padding."
   - _bookshop_name: "elements/divider"
     padding: 3xl
 ---

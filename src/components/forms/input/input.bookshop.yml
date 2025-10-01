@@ -3,22 +3,15 @@ spec:
     - formBlocks
   label: Input
   description: "A form input field with an optional label."
-  icon: input
+  icon: rectangle
   tags: []
-  preview:
-    icon: input
-    text: Input
-    subtext:
-      - key: label
-      - key: name
-      - Enter a name for the form input.
 
 blueprint:
   label:
   name:
-  required: false
   type: text
   placeholder:
+  required: false
   value:
 
 preview:
@@ -29,35 +22,24 @@ _inputs:
     comment: The label text for the input field.
   name:
     type: text
-    comment: A unique name attribute for the input field.
-    options:
-      required: true
-      required_message: Only form elements with a name will have their values passed when submitting a form.
-  required:
-    type: switch
-    comment: Whether the field is required.
+    comment: The name attribute for the input field.
   type:
     type: select
-    comment: The input type.
     options:
       values:
-        - id: text
-          name: Text
-        - id: email
-          name: Email
-        - id: password
-          name: Password
-        - id: tel
-          name: Tel
-        - id: url
-          name: Url
-        - id: number
-          name: Number
-        - id: date
-          name: Date
+        - text
+        - email
+        - password
+        - tel
+        - url
+        - number
+    comment: The input type.
   placeholder:
     type: text
     comment: Placeholder text for the input field.
+  required:
+    type: switch
+    comment: Whether the field is required.
   value:
     type: text
     comment: The default value for the input field.

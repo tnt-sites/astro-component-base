@@ -8,6 +8,6 @@ blocks:
   paddingVertical: 3xl
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: 3xl padding
+      text: This container has 3xl padding.
       level: h2
 ---

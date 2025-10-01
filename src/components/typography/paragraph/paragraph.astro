@@ -1,0 +1,78 @@
+---
+export interface Props {
+  text?: string;
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+  weight?: "light" | "normal" | "medium" | "semibold" | "bold";
+  color?: "primary" | "secondary" | "muted" | "accent" | "inverse";
+  align?: "left" | "center" | "right" | "justify";
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  text = "",
+  size = "md",
+  weight = "normal",
+  color = "primary",
+  align = "left",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_bookshop_name")
+);
+
+const sizeClasses = {
+  xs: "text-xs",
+  sm: "text-sm",
+  md: "text-base",
+  lg: "text-lg",
+  xl: "text-xl",
+  "2xl": "text-2xl",
+};
+
+const weightClasses = {
+  light: "font-light",
+  normal: "font-normal",
+  medium: "font-medium",
+  semibold: "font-semibold",
+  bold: "font-bold",
+};
+
+const colorClasses = {
+  primary: "text-text-primary",
+  secondary: "text-text-secondary",
+  muted: "text-text-muted",
+  accent: "text-accent-primary",
+  inverse: "text-text-inverse",
+};
+
+const alignClasses = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+  justify: "text-justify",
+};
+---
+
+<p
+  class:list={[
+    "paragraph",
+    sizeClasses[size],
+    weightClasses[weight],
+    colorClasses[color],
+    alignClasses[align],
+    className,
+  ]}
+  {...htmlAttributes}
+>
+  {text}
+</p>
+
+<style>
+  .paragraph {
+    line-height: var(--line-height-relaxed);
+    margin: 0;
+  }
+</style>

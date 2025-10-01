@@ -4,7 +4,7 @@ spec:
     - firstContentBlocks
     - secondContentBlocks
   label: Spacer
-  description: Gives space between content
+  description: Gives space between content.
   icon: space_bar
   tags:
 

@@ -1,0 +1,89 @@
+---
+const { page, class: className, ...rest } = Astro.props;
+const maxVisiblePages = 5;
+
+if (!page || page.lastPage <= 1) {
+  return null;
+}
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_bookshop_name")
+);
+
+const currentPage = page.currentPage;
+const totalPages = page.lastPage;
+const lastPage = totalPages;
+
+const maxVisible = maxVisiblePages - 1; // Convert to 0-based
+let startPage = Math.max(0, currentPage - 2); // Start 2 pages before current
+let endPage = Math.min(lastPage, startPage + maxVisible);
+
+// Adjust if we're near the end
+if (endPage === lastPage && startPage > 0) {
+  startPage = Math.max(0, lastPage - maxVisible);
+}
+
+// Calculate how many pages we'll show in total (including first/last if they're separate)
+const showFirst = startPage > 0;
+const showLast = endPage < lastPage;
+const visibleRange = endPage - startPage + 1;
+const totalVisible = visibleRange + (showFirst ? 1 : 0) + (showLast ? 1 : 0);
+
+// If we're showing too many pages, reduce the range
+if (totalVisible > maxVisiblePages) {
+  const excess = totalVisible - maxVisiblePages;
+  if (showFirst && showLast) {
+    // If showing both first and last, reduce the middle range
+    endPage = Math.max(startPage, endPage - excess);
+  } else if (showFirst || showLast) {
+    // If showing one of first/last, reduce the range
+    endPage = Math.max(startPage, endPage - excess);
+  }
+}
+
+// Helper function to generate page URL
+const getPageUrl = (pageNum: number) => {
+  if (pageNum === 1) {
+    return page.url.first || "/";
+  }
+
+  // Use Astro's page.url structure if available
+  if (page.url && page.url.current) {
+    const baseUrl = page.url.current.replace(/\/\d+\/?$/, "");
+    return pageNum === 1 ? baseUrl : `${baseUrl}/${pageNum}`;
+  }
+
+  // Fallback to basic URL construction
+  return `/${pageNum}`;
+};
+---
+
+<nav class:list={["pagination", className]} aria-label="Pagination Navigation" {...htmlAttributes}>
+  {startPage > 0 && <a href={getPageUrl(1)}>1</a>}
+
+  {startPage > 1 && <span aria-hidden="true">…</span>}
+
+  {
+    Array.from({ length: endPage - startPage + 1 }, (_, i) => {
+      const pageNum = startPage + i + 1; // Convert back to 1-based
+      return pageNum === currentPage ? (
+        <span class="current" aria-current="page" aria-label={`Page ${pageNum}, current page`}>
+          {pageNum}
+        </span>
+      ) : (
+        <a href={getPageUrl(pageNum)} aria-label={`Go to page ${pageNum}`}>
+          {pageNum}
+        </a>
+      );
+    })
+  }
+
+  {
+    endPage < lastPage - 1 && (
+      <>
+        <span aria-hidden="true">…</span>
+        <a href={getPageUrl(totalPages)}>{totalPages}</a>
+      </>
+    )
+  }
+</nav>

@@ -1,0 +1,40 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures: []
+  label: Hero
+  description: "A hero section component with heading, subtitle, call-to-action buttons, and feature image using a flexible split layout."
+  icon: hero
+  tags: ["hero", "banner", "cta", "split"]
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  heading: ""
+  subtitle: ""
+  imageSource: ""
+  imageAlt: ""
+  buttonBlocks: []
+  reverse: false
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  heading:
+    type: text
+    comment: "Main heading text for the hero section."
+  subtitle:
+    type: text
+    comment: "Subtitle text displayed below the main heading."
+  imageSource:
+    type: image
+    comment: "Feature image to display alongside the hero content."
+  imageAlt:
+    type: text
+    comment: "Alt text for the feature image for accessibility."
+  buttonBlocks:
+    type: array
+    comment: "Array of button components for call-to-action buttons. See the Button component documentation for more information."
+  reverse:
+    type: boolean
+    comment: "Whether to reverse the order of content and image (image first, content second)."

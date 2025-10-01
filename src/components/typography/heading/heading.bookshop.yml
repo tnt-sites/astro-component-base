@@ -22,8 +22,8 @@ preview:
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
   text:
-    type: markdown
     comment: The text content of the heading.
+    type: markdown
     options:
       bold: false
       copyformatting: false
@@ -42,29 +42,21 @@ _inputs:
       numberedlist: false
       snippet: false
   type:
+    comment: The heading type or level.
     type: select
-    comment: The heading type/level.
     options:
       values:
-        - id: h1
-          name: h1
-        - id: h2
-          name: h2
-        - id: h3
-          name: h3
-        - id: h4
-          name: h4
-        - id: h5
-          name: h5
-        - id: h6
-          name: h6
-        - id: eyebrow
-          name: Eyebrow
-        - id: subtitle
-          name: Subtitle
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+        - eyebrow
+        - subtitle
   size:
-    type: select
     comment: The font size of the text.
+    type: select
     options:
       values:
         - id: none
@@ -90,8 +82,8 @@ _inputs:
         - id: 6xl
           name: 6xl
   align:
-    type: select
     comment: The alignment of the text.
+    type: select
     options:
       values:
         - id: start
@@ -101,14 +93,13 @@ _inputs:
         - id: end
           name: End
   iconName:
-    type: select
     comment: The name of the icon to display.
+    type: select
     options:
       values: _select_data.icons
   iconPosition:
-    type: select
     comment: The position of the icon relative to the text.
-    hidden: "!iconName"
+    type: select
     options:
       values:
         - id: before

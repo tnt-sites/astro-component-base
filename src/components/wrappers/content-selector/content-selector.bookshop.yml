@@ -9,6 +9,7 @@ spec:
   tags:
 
 blueprint:
+  label: ""
   items:
   navigationPosition: start
 
@@ -17,6 +18,9 @@ preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  label:
+    comment: Optional label for the content selector to help identify it in the editor.
+    type: text
   items:
     type: array
     options:

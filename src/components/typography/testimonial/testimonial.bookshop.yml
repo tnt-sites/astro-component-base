@@ -4,7 +4,7 @@ spec:
     - firstContentBlocks
     - secondContentBlocks
   label: Testimonial
-  description: A quote with an author and description
+  description: A quotation with an author and author description.
   icon: format_quote
   tags:
   preview:
@@ -41,9 +41,14 @@ _inputs:
       redo: true
       removeformat: true
       copyformatting: true
+  authorName:
+    comment: The person to whom you're attributing the quotation.
+    type: textarea
   authorDescription:
+    comment: The role or company of the person.
     type: textarea
   horizontalAlignment:
+    comment: The alignment of the testimonial.
     type: select
     options:
       values:

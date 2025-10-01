@@ -31,7 +31,7 @@ _inputs:
     hidden: "hideText"
   link:
     type: url
-    comment: The URL that the button should link to.
+    comment: The URL to which the button should link.
   iconName:
     type: select
     comment: The name of the icon to display. See the Icon component documentation for more information.

@@ -5,7 +5,7 @@ import RenderBlock from "@components/utils/renderBlock.astro";
 const { title, contentBlocks, isOpen = false, accordionName, ...rest } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => !key.startsWith("_"))
+  Object.entries(rest).filter(([key]) => key !== "_bookshop_name")
 );
 ---
 

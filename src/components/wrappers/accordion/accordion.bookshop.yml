@@ -9,6 +9,7 @@ spec:
   tags:
 
 blueprint:
+  label: ""
   items:
   openFirst: false
   singleOpen: false
@@ -19,6 +20,9 @@ preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  label:
+    comment: Optional label for the accordion to help identify it in the editor.
+    type: text
   items:
     type: array
     comment: The items to display in the accordion.

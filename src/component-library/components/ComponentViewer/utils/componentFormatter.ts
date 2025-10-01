@@ -27,7 +27,6 @@ export function formatComponentWithSlots(block: any, indentLevel: number = 0): s
     delete props.options;
   }
 
-  // Check if this is a text component with text content
   const isTextComponent =
     componentPath.includes("heading") ||
     componentPath.includes("simple-text") ||
@@ -43,8 +42,8 @@ export function formatComponentWithSlots(block: any, indentLevel: number = 0): s
     delete props.text;
   }
 
-  // Format props as Astro attributes
   const propsString = Object.entries(props)
+    .sort(([a], [b]) => a.localeCompare(b))
     .map(([key, value]) => {
       if (typeof value === "string") {
         return `${key}="${value}"`;
@@ -67,10 +66,8 @@ export function formatComponentWithSlots(block: any, indentLevel: number = 0): s
     .filter(Boolean)
     .join(" ");
 
-  // Check if component has items prop (for list components)
   const items = block.items;
 
-  // Check if component has nested content (contentBlocks, navBlocks, formBlocks, or buttonBlocks)
   const nestedBlocks =
     block.contentBlocks || block.navBlocks || block.formBlocks || block.buttonBlocks;
 
@@ -87,7 +84,6 @@ ${indent}</${componentName}>`;
     componentPath.includes("split") &&
     (block.firstColumnContentBlocks || block.secondColumnContentBlocks)
   ) {
-    // Handle split component with named slots
     const firstContent = block.firstColumnContentBlocks
       ? (Array.isArray(block.firstColumnContentBlocks)
           ? block.firstColumnContentBlocks
@@ -137,6 +133,7 @@ ${indent}</${componentName}>`;
         }
 
         const itemPropsString = Object.entries(itemProps)
+          .sort(([a], [b]) => a.localeCompare(b)) // Sort attributes alphabetically
           .map(([key, value]) => {
             if (typeof value === "string") {
               return `${key}="${value}"`;
@@ -184,6 +181,7 @@ ${indent}</${componentName}>`;
         delete itemProps.contentBlocks; // Remove contentBlocks from props since it goes in the slot
 
         const itemPropsString = Object.entries(itemProps)
+          .sort(([a], [b]) => a.localeCompare(b)) // Sort attributes alphabetically
           .map(([key, value]) => {
             if (typeof value === "string") {
               return `${key}="${value}"`;
@@ -224,6 +222,7 @@ ${indent}</${componentName}>`;
         delete itemProps.contentBlocks; // Remove contentBlocks from props since it goes in the slot
 
         const itemPropsString = Object.entries(itemProps)
+          .sort(([a], [b]) => a.localeCompare(b)) // Sort attributes alphabetically
           .map(([key, value]) => {
             if (typeof value === "string") {
               return `${key}="${value}"`;
@@ -264,6 +263,7 @@ ${indent}</${componentName}>`;
         delete slideProps.contentBlocks; // Remove contentBlocks from props since it goes in the slot
 
         const slidePropsString = Object.entries(slideProps)
+          .sort(([a], [b]) => a.localeCompare(b)) // Sort attributes alphabetically
           .map(([key, value]) => {
             if (typeof value === "string") {
               return `${key}="${value}"`;
@@ -302,6 +302,7 @@ ${indent}</${componentName}>`;
         const optionProps = { ...option };
 
         const optionPropsString = Object.entries(optionProps)
+          .sort(([a], [b]) => a.localeCompare(b)) // Sort attributes alphabetically
           .map(([key, value]) => {
             if (typeof value === "string") {
               return `${key}="${value}"`;
@@ -336,16 +337,12 @@ ${indent}</${componentName}>`;
       componentPath.includes("button") ||
       componentPath.includes("submit")
     ) {
-      // Inline rendering to avoid p tags for simple-text, heading, list-item, definition-list-item, testimonial, button, and submit
       htmlContent = new MarkdownIt({ html: true }).renderInline(textContent).trim();
     } else if (componentPath.includes("rich-text")) {
-      // Full markdown rendering for rich-text (allows paragraphs, etc.)
       htmlContent = new MarkdownIt().render(textContent).trim();
     }
 
-    // Format HTML content with proper indentation for rich-text
     if (componentPath.includes("rich-text") && htmlContent.includes("<")) {
-      // Use js-beautify to format the HTML properly
       const formattedHtml = html(htmlContent, {
         indent_size: 2,
         indent_char: " ",

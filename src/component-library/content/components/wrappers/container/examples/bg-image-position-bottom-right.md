@@ -3,11 +3,10 @@ title: Bottom right background image
 spacing:
 blocks:
   _bookshop_name: "wrappers/container"
-  colorScheme: contrast
   paddingVertical: 2xl
   paddingHorizontal: md
   backgroundImage:
-    source: /component-library/images/dunedin-cliff.jpg
+    source: /assets/images/component-library/dunedin-cliff.jpg
     alt: "Dunedin cliffside"
     positionVertical: bottom
     positionHorizontal: right

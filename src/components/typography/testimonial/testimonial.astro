@@ -11,7 +11,7 @@ const {
 } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => !key.startsWith("_"))
+  Object.entries(restProps).filter(([key]) => key !== "_bookshop_name")
 );
 
 const md = MarkdownIt({ html: true });

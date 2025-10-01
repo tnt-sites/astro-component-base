@@ -1,0 +1,16 @@
+spec:
+  structures:
+  label: Pagination
+  description: "A navigation component for Astro's built-in pagination, simply passing the page object."
+  icon: list
+  tags: []
+
+blueprint:
+  page:
+
+preview:
+
+_inputs:
+  page:
+    type: object
+    comment: The Astro page object from paginate() function.

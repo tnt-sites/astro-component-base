@@ -7,7 +7,7 @@ blocks:
   maxContentWidth: 2xl
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: 2xl max content width
+      text: This container has 2xl max content width.
       level: h2
       align: center
       style: "border: 1px solid var(--color-border)"

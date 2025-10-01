@@ -5,10 +5,15 @@ spec:
     - secondContentBlocks
   label: Button Group
   description: "Controls the alignment and direction of buttons."
-  icon: splitscreen_top
+  icon: rectangle
   tags: []
+  preview:
+    text: Button Group
+    subtext:
+      - template:
 
 blueprint:
+  label: ""
   buttonBlocks:
   direction: row
   align: start
@@ -18,13 +23,16 @@ preview:
 
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
+  label:
+    comment: Optional label for the button group to help identify it in the editor.
+    type: text
   buttonBlocks:
     comment: Array of button components to render within the group.
     options:
       structures: _structures.buttonBlocks
   direction:
-    type: select
     comment: Direction of button layout.
+    type: select
     options:
       values:
         - id: row
@@ -32,8 +40,8 @@ _inputs:
         - id: column
           name: Column
   align:
-    type: select
     comment: Alignment of buttons within the group.
+    type: select
     options:
       values:
         - id: start

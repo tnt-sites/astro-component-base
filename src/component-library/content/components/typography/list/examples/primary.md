@@ -4,9 +4,9 @@ spacing: "all"
 blocks:
   _bookshop_name: "typography/list"
   items:
-    - text: Lists are great for listing things
+    - text: Lists with icons are helpful for emphasis.
       icon: check
-    - text: They can even go over <br> two lines
+    - text: One list item can go over <br> two lines.
       icon: lock-closed
     - text: Lists can include formatting like **bold** or *italic text*.
       icon: briefcase

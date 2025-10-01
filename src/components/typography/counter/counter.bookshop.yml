@@ -32,10 +32,11 @@ _inputs:
       min: 0
       step: 1
   prefix:
-    comment: Text to go before the number.
+    comment: Text immediately before the number.
   suffix:
-    comment: Text to go after the number.
+    comment: Text immediately after the number.
   horizontalAlignment:
+    comment: The alignment of the counter.
     type: select
     options:
       values:

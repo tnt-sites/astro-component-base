@@ -8,6 +8,6 @@ blocks:
   paddingVertical: xs
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: xs padding
+      text: This container has xs padding.
       level: h2
 ---

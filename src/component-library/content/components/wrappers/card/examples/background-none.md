@@ -11,5 +11,5 @@ blocks:
       text: "No Background Card"
       level: h3
     - _bookshop_name: "typography/simple-text"
-      text: "This card has no background color"
+      text: "This card has no background color."
 ---

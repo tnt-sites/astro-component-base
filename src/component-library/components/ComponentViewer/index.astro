@@ -114,7 +114,7 @@ const viewerId = title.toLowerCase().replace(/\s+/g, "-");
         <div>
           {component_examples.length > 1 && (
             <>
-              <label for={`${viewerId}-examples`} class="sr-only">
+              <label for={`${viewerId}-examples`} class="visually-hidden">
                 Examples:
               </label>
               <select class="example-select" id={`${viewerId}-examples`}>

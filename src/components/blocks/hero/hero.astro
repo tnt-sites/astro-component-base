@@ -1,0 +1,45 @@
+---
+import SmartImage from "@components/elements/smart-image/smart-image.astro";
+import Heading from "@components/typography/heading/heading.astro";
+import ButtonGroup from "@components/wrappers/button-group/button-group.astro";
+import Card from "@components/wrappers/card/card.astro";
+import Container from "@components/wrappers/container/container.astro";
+import Split from "@components/wrappers/split/split.astro";
+
+const {
+  heading = "",
+  subtitle = "",
+  imageSource = "",
+  imageAlt = "",
+  buttonBlocks = [],
+  reverse = false,
+  class: className,
+} = Astro.props;
+---
+
+<Container
+  maxContentWidth="2xl"
+  paddingHorizontal="md"
+  paddingVertical="xl"
+  class:list={["hero", className]}
+>
+  <Split
+    distributionMode="flexible-fixed"
+    fixedWidth="400"
+    verticalAlignment="center"
+    reverse={reverse}
+    minSplitWidth={710}
+    class="split-hero"
+  >
+    <div slot="first">
+      <Card>
+        <Heading type="h1">{heading}</Heading>
+        <Heading type="subtitle">{subtitle}</Heading>
+        <ButtonGroup class="buttons-container" buttonBlocks={buttonBlocks} />
+      </Card>
+    </div>
+    <div slot="second">
+      <SmartImage source={imageSource} alt={imageAlt} rounded="true" />
+    </div>
+  </Split>
+</Container>

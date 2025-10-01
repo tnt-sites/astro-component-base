@@ -9,10 +9,12 @@ spec:
   tags: []
 
 blueprint:
+  label: ""
   firstColumnContentBlocks: []
   secondColumnContentBlocks: []
   distributionMode: half
   fixedWidth: null
+  minSplitWidth: 0
   verticalAlignment: top
   reverse: false
 
@@ -22,8 +24,8 @@ preview:
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
   label:
-    type: text
     comment: Optional label for the split to help identify it in the editor.
+    type: text
   firstColumnContentBlocks:
     type: array
     comment: Array of content blocks to render in the first column.
@@ -35,30 +37,33 @@ _inputs:
     options:
       structures: _structures.contentBlocks
   distributionMode:
-    type: select
     comment: Predefined distribution mode for both columns.
+    type: select
     options:
       values:
         - id: quarter-three-quarters
           name: Quarter-Three-Quarters
-        - id: third-two-thirds
+        - id: third-Two-Thirds
           name: Third-Two-Thirds
         - id: half
           name: Half
-        - id: two-thirds-third
+        - id: two-Thirds-Third
           name: Two-Thirds-Third
-        - id: three-quarters-quarter
+        - id: three-Quarters-Quarter
           name: Three-Quarters-Quarter
-        - id: fixed-flexible
+        - id: fixed-Flexible
           name: Fixed-Flexible
-        - id: flexible-fixed
+        - id: flexible-Fixed
           name: Flexible-Fixed
   fixedWidth:
+    comment: Fixed width in pixels for the fixed column (used when distribution mode includes 'fixed').
     type: number
-    comment: Used when distribution mode includes 'fixed'. Sets the width in pixels for the fixed column.
+  minSplitWidth:
+    comment: Minimum width in pixels before switching to mobile layout.
+    type: number
   verticalAlignment:
-    type: select
     comment: Vertical alignment of the columns.
+    type: select
     options:
       values:
         - id: top
@@ -70,5 +75,5 @@ _inputs:
         - id: stretch
           name: Stretch
   reverse:
-    type: switch
     comment: Swaps the order of the columns.
+    type: switch

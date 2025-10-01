@@ -5,18 +5,18 @@ blocks:
   - _bookshop_name: "typography/definition-list"
     items:
       - title: Monday
-        text: 8am - 5pm
+        text: 8am – 5pm
       - title: Tuesday
-        text: 8am - 5pm
+        text: 8am – 5pm
       - title: Wednesday
-        text: 8am - 4.30pm
+        text: 8am – 4:30pm
       - title: Thursday
-        text: 9am - 4.45pm
+        text: 9am – 4:45pm
       - title: Friday
-        text: 9am - 5pm
+        text: 9am – 5pm
       - title: Saturday
-        text: Not open
+        text: Closed
       - title: Sunday
-        text: Not open
+        text: Closed
     horizontalAlignment: start
 ---

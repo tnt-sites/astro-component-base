@@ -12,7 +12,7 @@ const startNumber = Math.floor(number * 0.2);
 const duration = 500;
 
 const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => !key.startsWith("_"))
+  Object.entries(restProps).filter(([key]) => key !== "_bookshop_name")
 );
 ---
 

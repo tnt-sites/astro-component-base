@@ -7,7 +7,7 @@ blocks:
   maxContentWidth: md
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: md max content width
+      text: This container has md max content width.
       level: h2
       align: center
       style: "border: 1px solid var(--color-border)"

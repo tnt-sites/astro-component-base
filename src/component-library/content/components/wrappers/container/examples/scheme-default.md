@@ -8,6 +8,6 @@ blocks:
   paddingVertical: md
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: This is a heading inside a container
+      text: This heading and container have a default color scheme.
       level: h2
 ---

@@ -1,4 +1,5 @@
 .nav-item {
+  list-style: none;
   position: relative;
 
   .nav-item-toggle {
@@ -42,6 +43,11 @@
       background: var(--color-state-hover);
       color: var(--color-text-strong);
     }
+
+    &:focus {
+      box-shadow: 0 0 2px 2px var(--color-focus-ring) inset;
+      outline: none;
+    }
   }
 
   > .nav-item-trigger {
@@ -60,6 +66,11 @@
 
     &:hover .nav-item-icon {
       color: var(--color-text-strong);
+    }
+
+    &:focus {
+      box-shadow: 0 0 2px 2px var(--color-focus-ring) inset;
+      outline: none;
     }
   }
 
@@ -119,6 +130,20 @@
   > .nav-item-trigger {
     font-size: var(--font-size-lg);
     padding: var(--spacing-md);
+  }
+
+  > .nav-item-content {
+    animation: none !important;
+    display: none !important;
+    opacity: 1 !important;
+    position: static !important;
+    transform: none !important;
+  }
+
+  .nav-item-toggle:checked ~ .nav-item-content {
+    animation: none !important;
+    display: block !important;
+    opacity: 1 !important;
   }
 
   > .nav-item-content .nav-item {

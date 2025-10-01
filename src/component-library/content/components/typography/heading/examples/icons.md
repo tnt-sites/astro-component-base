@@ -3,11 +3,11 @@ title: "Icon"
 spacing: "sides"
 blocks:
   - _bookshop_name: "typography/heading"
-    text: Unlock your potential
+    text: Icons default to appearing before headings  
     type: h3
     iconName: briefcase
   - _bookshop_name: "typography/heading"
-    text: Everything you need
+    text: Icons can also come after headings
     type: h3
     iconName: arrow-up-right
     iconPosition: after

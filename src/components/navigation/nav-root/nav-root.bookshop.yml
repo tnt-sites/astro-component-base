@@ -3,7 +3,7 @@ spec:
   structures:
     - nav_blocks
   label: Nav Root
-  description: Navigation root component
+  description: Navigation root component.
   icon: navigation
   tags: []
 

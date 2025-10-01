@@ -5,7 +5,7 @@ import MarkdownIt from "markdown-it";
 const { text = "", icon, class: className, ...restProps } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => !key.startsWith("_"))
+  Object.entries(restProps).filter(([key]) => key !== "_bookshop_name")
 );
 
 const md = new MarkdownIt({ html: true });

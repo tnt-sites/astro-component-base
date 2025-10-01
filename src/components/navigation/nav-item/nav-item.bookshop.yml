@@ -25,7 +25,7 @@ _inputs:
   href:
     type: url
     label: Link URL
-    comment: The URL that the navigation item should link to.
+    comment: The URL to which the navigation item should link.
   text:
     type: text
     label: Text

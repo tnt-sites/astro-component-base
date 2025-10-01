@@ -9,7 +9,7 @@ blocks:
       contentBlocks:
         - _bookshop_name: "typography/rich-text"
           text: |-
-            ## Half Column
+            ## Half column
 
             This column takes up 50% of the available space.
   secondColumnContentBlocks:
@@ -18,11 +18,12 @@ blocks:
       contentBlocks:
         - _bookshop_name: "typography/rich-text"
           text: |-
-            ## Half Column
+            ## Half column
 
             This column also takes up 50% of the available space.
   distributionMode: "half"
   fixedWidth: null
+  minSplitWidth: 500
   verticalAlignment: "top"
   reverse: false
 ---

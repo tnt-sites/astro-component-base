@@ -5,7 +5,7 @@ import RenderBlock from "@components/utils/renderBlock.astro";
 const { href, text, class: className, defaultOpen = false, navBlocks = [], ...rest } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => !key.startsWith("_"))
+  Object.entries(rest).filter(([key]) => key !== "_bookshop_name")
 );
 
 const hasChildren = Astro.slots.has("default") || navBlocks.length > 0;
@@ -61,23 +61,51 @@ const isCurrentPage = href === Astro?.url?.pathname;
 </li>
 
 <script>
-  function closeAllDropdownsInParent(navItem: HTMLElement) {
+  function closeAllDropdownsInParent(navItem: Element) {
     const navRoot = navItem.closest(".nav-root");
     if (!navRoot) return;
 
+    const currentNavItem = navItem as HTMLElement;
+    const currentLevel = getNavItemLevel(currentNavItem);
+
     navRoot.querySelectorAll(".nav-item-toggle").forEach((toggle) => {
-      if (toggle instanceof HTMLInputElement) {
-        toggle.checked = false;
-        updateAriaStates(toggle, false);
+      if (
+        toggle instanceof HTMLInputElement &&
+        toggle !== navItem.querySelector(".nav-item-toggle")
+      ) {
+        const toggleNavItem = toggle.closest(".nav-item") as HTMLElement;
+        if (toggleNavItem) {
+          const toggleLevel = getNavItemLevel(toggleNavItem);
+          if (toggleLevel === currentLevel) {
+            toggle.checked = false;
+            updateAriaStates(toggle, false);
+          }
+        }
       }
     });
   }
 
+  function getNavItemLevel(navItem: HTMLElement): number {
+    let level = 0;
+    let current = navItem;
+
+    while (current) {
+      if (current.classList.contains("nav-item-content")) {
+        level++;
+      }
+      current = current.parentElement as HTMLElement;
+    }
+
+    return level;
+  }
+
   function updateAriaStates(toggle: HTMLInputElement, isExpanded: boolean) {
-    const content = document.getElementById(toggle.getAttribute("aria-controls") || "");
+    const contentId = toggle.getAttribute("aria-controls");
+    const content = document.getElementById(contentId || "");
 
     if (content) {
-      content.setAttribute("aria-hidden", (!isExpanded).toString());
+      const ariaHidden = (!isExpanded).toString();
+      content.setAttribute("aria-hidden", ariaHidden);
     }
   }
 
@@ -85,30 +113,41 @@ const isCurrentPage = href === Astro?.url?.pathname;
     document.querySelectorAll(".nav-item-toggle").forEach((toggle) => {
       toggle.addEventListener("change", (e) => {
         const target = e.target as HTMLInputElement;
-        const navItem = target.closest(".nav-item") as HTMLElement;
+        if (!target) return;
 
-        updateAriaStates(target, target.checked);
+        const navItem = target.closest(".nav-item");
+        if (!navItem) return;
 
         if (target.checked) {
           closeAllDropdownsInParent(navItem);
-          target.checked = true;
-          updateAriaStates(target, true);
         }
+        updateAriaStates(target, target.checked);
       });
     });
 
     // Add keyboard support for labels
     document.querySelectorAll(".nav-item-trigger").forEach((trigger) => {
+      // Prevent multiple event listeners
+      if (trigger.hasAttribute("data-keyboard-listener")) return;
+      trigger.setAttribute("data-keyboard-listener", "true");
+
       trigger.addEventListener("keydown", (e) => {
         const keyEvent = e as KeyboardEvent;
         if (keyEvent.key === "Enter" || keyEvent.key === " ") {
           e.preventDefault();
-          const checkbox = document.getElementById(
-            trigger.getAttribute("for") || ""
-          ) as HTMLInputElement;
+          const checkboxId = trigger.getAttribute("for");
+          const checkbox = document.getElementById(checkboxId || "") as HTMLInputElement;
           if (checkbox) {
             checkbox.checked = !checkbox.checked;
-            checkbox.dispatchEvent(new Event("change"));
+
+            // Handle the dropdown logic directly instead of dispatching events
+            const navItem = checkbox.closest(".nav-item");
+            if (navItem) {
+              if (checkbox.checked) {
+                closeAllDropdownsInParent(navItem);
+              }
+              updateAriaStates(checkbox, checkbox.checked);
+            }
           }
         }
       });
@@ -123,8 +162,30 @@ const isCurrentPage = href === Astro?.url?.pathname;
     });
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    setupDropdowns();
-    initializeAriaStates();
-  });
+  function setupNavItemInitialization() {
+    document.querySelectorAll(".nav-item").forEach((navItem) => {
+      const navRoot = navItem.closest(".nav-root");
+      if (navRoot && !navRoot.hasAttribute("data-nav-item-listener-setup")) {
+        // Initialize nav-item functionality
+        function initializeNavItem() {
+          setupDropdowns();
+          initializeAriaStates();
+        }
+
+        if (navRoot.hasAttribute("data-nav-initialized")) {
+          initializeNavItem();
+        } else {
+          navRoot.addEventListener("nav-init", initializeNavItem);
+        }
+        navRoot.setAttribute("data-nav-item-listener-setup", "true");
+      }
+    });
+  }
+
+  // Ensure DOM is ready before setting up
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupNavItemInitialization);
+  } else {
+    setupNavItemInitialization();
+  }
 </script>

@@ -3,9 +3,8 @@ title: Primary Grid
 spacing:
 blocks:
   _bookshop_name: "wrappers/grid"
-  minItemWidth: 250
-  maxItemWidth: 320
-  equalWidth: true
+  minItemWidth: 300
+  layout: tiles
   items:
     - contentBlocks:
         - _bookshop_name: "typography/heading"
@@ -18,7 +17,7 @@ blocks:
           text: "Grid Item 2"
           level: h3
         - _bookshop_name: "typography/simple-text"
-          text: "This is the second grid item. Items are automatically centered and can have equal or intrinsic widths."
+          text: "This is the second grid item. Items can have equal or unequal widths."
     - contentBlocks:
         - _bookshop_name: "typography/heading"
           text: "Grid Item 3"

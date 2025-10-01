@@ -1,0 +1,84 @@
+# Metadata about this component, to be used in the CMS
+spec:
+  structures: []
+  label: Paragraph
+  description: "A flexible paragraph component for displaying text content with customizable styling options."
+  icon: text_fields
+  tags: ["typography", "text", "paragraph"]
+
+# Defines the structure of this component, as well as the default values
+blueprint:
+  text: "This is a sample paragraph with customizable styling options."
+  size: md
+  weight: normal
+  color: primary
+  align: left
+
+# Overrides any fields in the blueprint when viewing this component in the component browser
+preview:
+
+# Any extra CloudCannon inputs configuration to apply to the blueprint
+_inputs:
+  text:
+    type: textarea
+    comment: "The text content to display in the paragraph."
+  size:
+    type: select
+    comment: "The font size of the paragraph text."
+    options:
+      values:
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2XL
+  weight:
+    type: select
+    comment: "The font weight of the paragraph text."
+    options:
+      values:
+        - id: light
+          name: Light
+        - id: normal
+          name: Normal
+        - id: medium
+          name: Medium
+        - id: semibold
+          name: Semi Bold
+        - id: bold
+          name: Bold
+  color:
+    type: select
+    comment: "The text color of the paragraph."
+    options:
+      values:
+        - id: primary
+          name: Primary
+        - id: secondary
+          name: Secondary
+        - id: muted
+          name: Muted
+        - id: accent
+          name: Accent
+        - id: inverse
+          name: Inverse
+  align:
+    type: select
+    comment: "The text alignment of the paragraph."
+    options:
+      values:
+        - id: left
+          name: Left
+        - id: center
+          name: Center
+        - id: right
+          name: Right
+        - id: justify
+          name: Justify

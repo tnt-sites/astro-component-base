@@ -11,5 +11,5 @@ blocks:
       text: "lg Padding"
       level: h3
     - _bookshop_name: "typography/simple-text"
-      text: "This card uses lg for a more spacious, breathable layout."
+      text: "This card uses lg padding for a more spacious, breathable layout."
 ---

@@ -6,11 +6,10 @@ blocks:
   paddingVertical: 2xl
   paddingHorizontal: sm
   backgroundImage:
-    source: /component-library/images/dunedin-cliff.jpg
+    source: /assets/images/component-library/dunedin-cliff.jpg
     alt: "Dunedin cliffside"
     positionVertical: bottom
     positionHorizontal: right
-  colorScheme: contrast
   contentBlocks:
     - _bookshop_name: "typography/heading"
       text: "Bottom Right Position"

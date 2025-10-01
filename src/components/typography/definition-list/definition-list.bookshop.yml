@@ -4,7 +4,7 @@ spec:
     - firstContentBlocks
     - secondContentBlocks
   label: Definition List
-  description: "Useful for displaying key-value pairs, ideal for glossaries, opening times, etc."
+  description: "For displaying key-value pairs. Ideal for glossaries, opening times, etc."
   icon: dns
   tags: []
 

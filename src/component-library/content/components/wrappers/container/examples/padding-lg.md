@@ -8,6 +8,6 @@ blocks:
   paddingVertical: lg
   contentBlocks:
     - _bookshop_name: "typography/heading"
-      text: lg padding
+      text: This container has lg padding.
       level: h2
 ---

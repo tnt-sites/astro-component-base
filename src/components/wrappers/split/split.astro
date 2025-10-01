@@ -8,13 +8,26 @@ const {
   verticalAlignment = "top",
   reverse = false,
   fixedWidth,
+  minSplitWidth = 0,
   class: className,
+  label,
   ...rest
 } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => !key.startsWith("_"))
+  Object.entries(rest).filter(([key]) => key !== "_bookshop_name")
 );
+
+const slugifyLabel = (label: string) => {
+  return label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};
+
+if (!htmlAttributes.id && label) {
+  htmlAttributes.id = slugifyLabel(label);
+}
 
 // Get content blocks based on reverse setting
 const firstContentBlocks = reverse ? secondColumnContentBlocks : firstColumnContentBlocks;
@@ -37,10 +50,14 @@ const getReversedDistributionMode = (mode: string) => {
 const finalDistributionMode = reverse
   ? getReversedDistributionMode(distributionMode)
   : distributionMode;
+
+// Generate unique ID for container query targeting
+const splitId = `split-${crypto.randomUUID()}`;
 ---
 
 <section
   class:list={["split", `align-${verticalAlignment}`, finalDistributionMode, className]}
+  data-split-id={splitId}
   style={fixedWidth ? `--split-fixed-width: ${fixedWidth}px;` : ""}
   {...htmlAttributes}
 >
@@ -53,3 +70,18 @@ const finalDistributionMode = reverse
     {reverse ? <slot name="first" /> : <slot name="second" />}
   </div>
 </section>
+
+{
+  minSplitWidth > 0 && (
+    <style
+      is:inline
+      set:html={`
+    @container (max-width: ${minSplitWidth}px) {
+      .split[data-split-id="${splitId}"] {
+        grid-template-columns: var(--split-columns-mobile);
+      }
+    }
+  `}
+    />
+  )
+}

@@ -7,7 +7,7 @@ const md = markdownit({ html: true });
 const { text = "", align = "start", class: className, ...rest } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => !key.startsWith("_"))
+  Object.entries(rest).filter(([key]) => key !== "_bookshop_name")
 );
 
 const markdownContent = text ? md.render(text) : "";

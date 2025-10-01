@@ -9,7 +9,7 @@ blocks:
       contentBlocks:
         - _bookshop_name: "typography/rich-text"
           text: |-
-            ## Flexible Column
+            ## Flexible column
 
             This column takes up the remaining space.
   secondColumnContentBlocks:
@@ -18,11 +18,12 @@ blocks:
       contentBlocks:
         - _bookshop_name: "typography/rich-text"
           text: |-
-            ## Fixed Column
+            ## Fixed column
 
             This column has a fixed width.
   distributionMode: "flexible-fixed"
   fixedWidth: null
+  minSplitWidth: 500
   verticalAlignment: "top"
   reverse: false
 ---
