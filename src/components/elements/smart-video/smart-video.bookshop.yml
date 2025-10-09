@@ -20,8 +20,8 @@ spec:
 blueprint:
   type: youtube
   id:
-  src:
-  poster:
+  source:
+  previewImage:
   title:
 
 preview:
@@ -37,21 +37,23 @@ _inputs:
           name: Vimeo
         - id: native
           name: Native
-    id:
-      comment: Enter a video ID from a public video on YouTube or Vimeo.
-      hidden: 'type == "native"'
-    src:
-      type: file
-      label: Video Source
-      comment: Must be mp4, as this is supported by all modern browsers.
-      options:
-        accepts_mime_types:
-          - video/mp4
-        paths:
-          uploads: /src/assets/videos/
-      hidden: 'type != "native"'
-    poster:
-      comment: The image displayed before the video plays or while it is loading.
-      hidden: 'type != "native"'
-    autoplay:
-      comment: Play the video automatically on load without the user pressing play.
+  id:
+    comment: Enter a video ID from a public video on YouTube or Vimeo.
+    hidden: 'type == "native"'
+  source:
+    type: file
+    label: Video Source
+    comment: For native type, the path to the video file. Must be mp4.
+    options:
+      accepts_mime_types:
+        - video/mp4
+      paths:
+        uploads: /src/assets/videos/
+    hidden: 'type != "native"'
+  previewImage:
+    comment: The image displayed before the video plays or while it is loading.
+    hidden: 'type != "native"'
+  title:
+    comment: The title of the video for accessibility and fallback links.
+  autoplay:
+    comment: Play the video automatically on load without the user pressing play.

@@ -16,7 +16,7 @@ blueprint:
   label: ""
   buttonBlocks: []
   direction: row
-  align: start
+  alignX: start
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
@@ -39,7 +39,7 @@ _inputs:
           name: Row
         - id: column
           name: Column
-  align:
+  alignX:
     comment: Alignment of buttons within the group.
     type: select
     options:

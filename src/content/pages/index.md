@@ -18,7 +18,7 @@ pageBlocks:
             variant: primary
             size: lg
         direction: row
-        align: center
+        alignX: center
     maxContentWidth: 2xl
     paddingHorizontal: lg
     paddingVertical: lg

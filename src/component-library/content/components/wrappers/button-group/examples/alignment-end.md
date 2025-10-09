@@ -4,7 +4,7 @@ spacing: "all"
 blocks:
   _bookshop_name: "wrappers/button-group"
   direction: row
-  align: end
+  alignX: end
   buttonBlocks:
     - _bookshop_name: "elements/button"
       text: "Button A"

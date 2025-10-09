@@ -1,5 +1,13 @@
 ---
-const { type = "youtube", id, src, poster, title, class: className, ...restProps } = Astro.props;
+const {
+  type = "youtube",
+  id,
+  source,
+  previewImage,
+  title,
+  class: className,
+  ...restProps
+} = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(restProps).filter(([key]) => key !== "_bookshop_name")
@@ -11,11 +19,11 @@ const htmlAttributes = Object.fromEntries(
     <video
       preload="none"
       controls
-      poster={poster}
+      poster={previewImage}
       class:list={["smart-video", className]}
       {...htmlAttributes}
     >
-      <source src={`${src}`} type="video/mp4" />
+      <source src={`${source}`} type="video/mp4" />
       Your browser does not support the HTML5 video element.
     </video>
   ) : type === "vimeo" ? (
