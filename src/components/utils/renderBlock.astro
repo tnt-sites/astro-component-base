@@ -34,9 +34,9 @@ const { contentBlocks } = Astro.props;
     }
 
     return Component ? (
-      <array-item data-id={block._bookshop_name}>
+      <editable-array-item data-id={block._bookshop_name}>
         <Component {...block} />
-      </array-item>
+      </editable-array-item>
     ) : null;
   })
 }

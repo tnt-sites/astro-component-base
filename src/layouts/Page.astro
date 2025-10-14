@@ -22,9 +22,8 @@ const props = Astro.props.frontmatter;
   keywords={props.keywords}
   image={props.image}
   canonical={props.canonical}
-  data-editable="array"
-  data-prop="pageBlocks"
-  data-id-key="_bookshop_name"
 >
-  <Components contentBlocks={props.pageBlocks} />
+  <editable-array data-editable="array" data-prop="pageBlocks" data-id-key="_bookshop_name">
+    <Components contentBlocks={props.pageBlocks} />
+  </editable-array>
 </Layout>
