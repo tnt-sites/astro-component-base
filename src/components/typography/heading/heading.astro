@@ -46,7 +46,13 @@ const Tag = getTag(type);
       />
     )
   }
-  {text ? <span class="heading-text" set:html={MarkdownText} /> : <slot />}
+  {
+    text ? (
+      <span data-editable="text" data-prop="text" class="heading-text" set:html={MarkdownText} />
+    ) : (
+      <slot />
+    )
+  }
   {
     iconName && iconPosition === "after" && (
       <Icon
