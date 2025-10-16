@@ -28,7 +28,7 @@ const uniqueId = crypto.randomUUID();
   {...htmlAttributes}
 >
   {
-    items.map((item: any, index: number) => (
+    items?.map((item: any, index: number) => (
       <input
         type="radio"
         name={`tabs-${uniqueId}`}
@@ -43,7 +43,7 @@ const uniqueId = crypto.randomUUID();
 
   <div class="tabs" role="tablist">
     {
-      items.map((item: any, index: number) => (
+      items?.map((item: any, index: number) => (
         <label
           class="tab"
           id={`tablabel-${uniqueId}-${index}`}
@@ -67,7 +67,7 @@ const uniqueId = crypto.randomUUID();
 
   <div class="panels">
     {
-      items.map((item: any, index: number) => (
+      items?.map((item: any, index: number) => (
         <div
           class="panel"
           id={`panel-${uniqueId}-${index}`}

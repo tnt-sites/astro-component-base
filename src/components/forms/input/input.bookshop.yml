@@ -5,6 +5,13 @@ spec:
   description: "A form input field with an optional label."
   icon: rectangle
   tags: []
+  preview:
+    text:
+      - template: Input - {type}
+    subtext:
+      - key: label
+      - key: name
+      - A form input field with an optional label.
 
 blueprint:
   label:

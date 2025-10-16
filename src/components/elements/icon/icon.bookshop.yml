@@ -8,6 +8,7 @@ spec:
 blueprint:
   name:
   size: lg
+  background: none
 
 preview:
 
@@ -17,12 +18,14 @@ _inputs:
     comment: The name of the icon to display from the icon library.
     options:
       values: _select_data.icons
-      value_key: id
       preview:
         text:
           - key: name
+        image:
+          - template: "src/icons/{id}.svg"
   size:
     type: select
+    comment: The size of the icon.
     options:
       values:
         - id: none
@@ -33,4 +36,12 @@ _inputs:
           name: Medium
         - id: lg
           name: Large
-    comment: The size of the icon.
+  background:
+    type: select
+    comment: The background style for the icon.
+    options:
+      values:
+        - id: none
+          name: None
+        - id: subtle
+          name: Subtle

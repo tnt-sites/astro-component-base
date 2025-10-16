@@ -1,12 +1,19 @@
 spec:
   structures:
-    - contentBlocks
-    - firstContentBlocks
-    - secondContentBlocks
+    - containerBlocks
+    - splitBlocks
+    - contentSelectorBlocks
   label: Carousel
   description: "A carousel component for displaying slides with navigation controls"
   icon: image
   tags: []
+  preview:
+    text:
+      - key: label
+      - Carousel
+    subtext:
+      - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
+      - Add slides to the carousel
 
 blueprint:
   label: ""
@@ -28,7 +35,7 @@ _inputs:
     comment: Array of slides to display in the carousel.
     type: array
     options:
-      structures: _structures.slide
+      structures: _structures.slides
   autoPlay:
     comment: Enable auto-play functionality.
     type: switch
@@ -46,14 +53,19 @@ _inputs:
     type: number
 
 _structures:
-  slide:
+  slides:
     values:
-      - value:
+      - label: Carousel Slide
+        value:
           contentBlocks: []
         _inputs:
           contentBlocks:
             type: array
             options:
-              structures: _structures.contentBlocks
+              structures: _structures.carouselBlocks
         preview:
           icon: transition_slide
+          text: Carousel Slide
+          subtext:
+            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
+            - Add one or more content blocks to the grid item

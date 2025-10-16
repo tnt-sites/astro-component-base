@@ -1,13 +1,18 @@
 spec:
   structures:
-    - contentBlocks
-    - firstContentBlocks
-    - secondContentBlocks
+    - containerBlocks
     - pageBlocks
   label: Container
   description: "A container component that provides layout structure with background options, padding, and content width controls."
   icon: width_full
   tags: []
+  preview:
+    text:
+      - key: label
+      - Container
+    subtext:
+      - template: A container containing {contentBlocks|array_length} content {"block"|pluralize=slides}
+      - Add content blocks to the container
 
 blueprint:
   label: ""
@@ -15,7 +20,7 @@ blueprint:
   maxContentWidth: md
   paddingHorizontal: md
   paddingVertical: md
-  colorScheme: "default"
+  colorScheme: default
   backgroundColor:
   backgroundImage:
     source: ""
@@ -36,7 +41,7 @@ _inputs:
     type: array
     comment: Array of content blocks to render within the container.
     options:
-      structures: _structures.contentBlocks
+      structures: _structures.containerBlocks
   maxContentWidth:
     type: select
     comment: Maximum width constraint for the content.
@@ -53,14 +58,14 @@ _inputs:
         - id: xl
           name: Extra Large
         - id: 2xl
-          name: 2xl
+          name: 2XL
         - id: 3xl
           name: 3xl
   paddingHorizontal:
     type: select
     comment: Horizontal padding applied to the container content.
     options:
-      values: &sizing_options
+      values:
         - id: none
           name: None
         - id: xs
@@ -87,7 +92,29 @@ _inputs:
     type: select
     comment: Vertical padding applied to the container content.
     options:
-      values: *sizing_options
+      values:
+        - id: none
+          name: None
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2xl
+        - id: 3xl
+          name: 3xl
+        - id: 4xl
+          name: 4xl
+        - id: 5xl
+          name: 5xl
+        - id: 6xl
+          name: 6xl
   colorScheme:
     type: select
     comment: Color scheme theme for the container.
@@ -98,8 +125,8 @@ _inputs:
         - id: contrast
           name: Contrast
   backgroundColor:
-    comment: Background color for the container.
     type: select
+    comment: Background color for the container.
     options:
       values:
         - id: base
@@ -111,8 +138,8 @@ _inputs:
         - id: highlight
           name: Highlight
   backgroundImage:
-    comment: Background image configuration for the container.
     type: object
+    comment: Background image configuration for the container.
     options:
       preview:
         icon: image
@@ -124,35 +151,38 @@ _inputs:
           - Add an image source
         image:
           - key: source
-    _inputs:
-      source:
-        comment: URL or path to the background image.
-        type: image
-      alt:
-        comment: Alt text for the background image.
-        type: textarea
-      positionVertical:
-        comment: Vertical position of the background image.
-        type: select
-        options:
-          values:
-            - id: top
-              name: Top
-            - id: center
-              name: Center
-            - id: bottom
-              name: Bottom
-      positionHorizontal:
-        comment: Horizontal position of the background image.
-        type: select
-        options:
-          values:
-            - id: left
-              name: Left
-            - id: center
-              name: Center
-            - id: right
-              name: Right
+  backgroundImage.source:
+    comment: URL or path to the background image.
+    type: image
+    options:
+      paths:
+        uploads: src/assets/images
+        static: ""
+  backgroundImage.alt:
+    comment: Alt text for the background image.
+    type: textarea
+  backgroundImage.positionVertical:
+    comment: Vertical position of the background image.
+    type: select
+    options:
+      values:
+        - id: top
+          name: Top
+        - id: center
+          name: Center
+        - id: bottom
+          name: Bottom
+  backgroundImage.positionHorizontal:
+    comment: Horizontal position of the background image.
+    type: select
+    options:
+      values:
+        - id: left
+          name: Left
+        - id: center
+          name: Center
+        - id: right
+          name: Right
   rounded:
-    comment: Whether to apply rounded corners to the container.
     type: switch
+    comment: Whether to apply rounded corners to the container.

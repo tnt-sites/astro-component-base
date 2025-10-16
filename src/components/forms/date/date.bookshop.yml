@@ -5,6 +5,11 @@ spec:
   description: "A date input field with an optional label, date constraints, and ISO8601 format validation."
   icon: calendar
   tags: []
+  preview:
+    text:
+      - key: label
+      - Date
+    subtext: A date input field with an optional label, date constraints, and ISO8601 format validation
 
 blueprint:
   label:

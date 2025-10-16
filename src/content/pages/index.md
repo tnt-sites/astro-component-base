@@ -9,6 +9,18 @@ pageBlocks:
         text: Welcome to your CloudCannon Starter Component site
         type: h1
         alignX: center
+        iconPosition: before
+      - _bookshop_name: wrappers/button-group
+        buttonBlocks:
+          - _bookshop_name: elements/button
+            text: View Components
+            link: /component-library/
+            iconPosition: before
+            hideText: false
+            variant: primary
+            size: lg
+        direction: row
+        alignX: center
     maxContentWidth: 2xl
     paddingHorizontal: lg
     paddingVertical: lg

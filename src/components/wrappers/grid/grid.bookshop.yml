@@ -1,12 +1,20 @@
 spec:
   structures:
-    - contentBlocks
-    - firstContentBlocks
-    - secondContentBlocks
+    - containerBlocks
+    - splitBlocks
+    - carouselBlocks
+    - contentSelectorBlocks
   label: Grid
   description: "Responsive, centered grid with configurable sizing."
   icon: grid_on
   tags: []
+  preview:
+    text:
+      - key: label
+      - Grid
+    subtext:
+      - template: A grid containing {items|array_length} {"item"|pluralize=items}
+      - Add items to the grid
 
 blueprint:
   label: ""
@@ -43,18 +51,23 @@ _inputs:
     comment: Array of grid items, each containing content blocks to render.
     type: array
     options:
-      structures: _structures.grid_item
+      structures: _structures.gridItems
 
 _structures:
-  grid_item:
+  gridItems:
     values:
-      - value:
+      - label: Grid Item
+        value:
           contentBlocks: []
+        preview:
+          icon: grid_view
+          text: Grid Item
+          subtext:
+            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
+            - Add one or more content blocks to the grid item
         _inputs:
           contentBlocks:
             type: array
             comment: Content blocks to render within this grid item.
             options:
-              structures: _structures.contentBlocks
-        preview:
-          icon: grid_view
+              structures: _structures.gridItemBlocks

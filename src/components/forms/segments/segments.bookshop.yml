@@ -3,35 +3,43 @@ spec:
     - formBlocks
   label: Segments
   description: "A segmented control component using radio buttons or checkboxes with optional icons."
-  icon: rectangle
+  icon: radio_button_partial
   tags: []
+  preview:
+    subtext:
+      - template: A segments field, containing {options|array_length} {"option"|pluralize=options}
 
 blueprint:
-  name:
-  options: []
   title:
+  name:
   required: false
+  options: []
   iconOnly: false
   multiple: false
-  keepStateOnRefresh: false
+  keepStateOnRefresh: true
 
 preview:
 
 _inputs:
+  title:
+    type: text
+    comment: Optional title text for the fieldset.
   name:
     type: text
-    comment: The name attribute for the radio button group.
+    comment: A unique name attribute for the radio button group.
+    options:
+      required: true
+      required_message: Only form elements with a name will have their values passed when submitting a form.
+  required:
+    type: switch
+    comment: Whether the field is required.
   options:
     type: array
     comment: Array of segment options with value, label, icon, and checked state.
     options:
-      structures: _structures.option
-  title:
-    type: text
-    comment: Optional title text for the fieldset.
-  required:
-    type: switch
-    comment: Whether the field is required.
+      structures: _structures.segmentOptions
+      min_items: 1
+      min_items_message: At least one option is required.
   iconOnly:
     type: switch
     comment: When true, labels are used as tooltips instead of being displayed as text.
@@ -40,30 +48,43 @@ _inputs:
     comment: When true, uses checkboxes for multiple selection instead of radio buttons for single selection.
   keepStateOnRefresh:
     type: switch
-    comment: When true, allows the browser to remember state on page refresh.
+    comment: When true, sets autocomplete="on" to allow browser to remember state on page refresh. Defaults to false (autocomplete="off").
 
 _structures:
-  option:
+  segmentOptions:
     values:
-      - label: Segment Option
-        icon: list
-        value:
+      - value:
           value:
           label:
+          checked:
           icon:
-          checked: false
+        preview:
+          icon: radio_button_partial
+          image:
+            - template: "src/icons/{icon}.svg"
+          text:
+            - key: label
+            - Segment Option
+          subtext:
+            - key: value
+            - Add a value for the option.
         _inputs:
           value:
             type: text
-            comment: The value attribute for this segment option (submitted with the form).
+            comment: The value entered by the user when the option is selected.
           label:
             type: text
-            comment: The display text for this segment option.
-          icon:
-            type: select
-            comment: Optional icon to display in the segment.
-            options:
-              values: _select_data.icons
+            comment: The label text for the option.
           checked:
             type: switch
-            comment: Whether this option is checked by default.
+            comment: Whether the field is checked by default.
+          icon:
+            type: select
+            comment: The name of the icon to display from the icon library next to the segment option.
+            options:
+              values: _select_data.icons
+              preview:
+                text:
+                  - key: name
+                image:
+                  - template: "src/icons/{id}.svg"

@@ -3,10 +3,9 @@ title: "Native HTML5 Video"
 spacing: "all"
 blocks:
   - _bookshop_name: "elements/smart-video"
-    type: native
-    id:
+    type: local-source
+    title: "Glass Pour"
     source: /videos/component-library/glass.mp4
-    previewImage: /images/component-library/video-placeholder.jpg
-    title: Glass pour
+    poster: /images/component-library/video-placeholder.jpg
     style: "max-width: 600px"
 ---

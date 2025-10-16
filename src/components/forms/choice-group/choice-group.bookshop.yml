@@ -3,60 +3,86 @@ spec:
     - formBlocks
   label: Choice Group
   description: "A group of checkboxes or radio buttons with labels."
-  icon: rectangle
+  icon: check_box
   tags: []
+  preview:
+    text:
+      - key: title
+      - Choice Group
+    subtext:
+      - A choice group containing {options|array_length} {"option"|pluralize=options}
 
 blueprint:
-  name:
-  options:
   title:
-  orientation: vertical
+  name:
   required: false
+  options:
+    - value: newsletter
+      label: Subscribe to newsletter
+      checked: false
+    - value: updates
+      label: Get product updates
+      checked: false
+  orientation: vertical
   multiple: true
 
 preview:
 
 _inputs:
-  name:
-    type: text
-    comment: The name attribute for the input group.
-  options:
-    type: array
-    options:
-      structures: _structures.choice_option
-    comment: Array of choice options with value, label, and checked state.
   title:
     type: text
     comment: Optional title text for the fieldset.
-  orientation:
-    type: select
+  name:
+    type: text
+    comment: A unique name attribute for the input group.
     options:
-      values:
-        - vertical
-        - horizontal
-    comment: The layout orientation - vertical for stacked layout, horizontal for grid layout.
+      required: true
+      required_message: Only form elements with a name will have their values passed when submitting a form.
   required:
     type: switch
     comment: Whether the field is required.
+  options:
+    type: array
+    comment: Array of choice options with value, label, and checked state.
+    options:
+      structures: _structures.choiceOptions
+      min_items: 1
+      min_items_message: At least one option is required.
+  orientation:
+    type: select
+    comment: The layout orientation - vertical for stacked layout, horizontal for grid layout.
+    options:
+      values:
+        - id: vertical
+          name: Vertical
+        - id: horizontal
+          name: Horizontal
   multiple:
     type: switch
     comment: When true, uses checkboxes for multiple selection. When false, uses radio buttons for single selection.
 
 _structures:
-  choice_option:
+  choiceOptions:
     values:
-      - label: Option
-        value:
-          value: ""
-          label: ""
-          checked: false
+      - value:
+          value:
+          label:
+          checked:
+        preview:
+          icon: check_box
+          text:
+            - key: label
+            - Choice Option
+          subtext:
+            - key: value
+            - Add a value for the option.
         _inputs:
           value:
             type: text
-            comment: The value submitted when this option is selected.
+            comment: The value entered by the user when the option is selected.
           label:
             type: text
-            comment: The display text shown next to the checkbox/radio button.
+            comment: The label text for the option.
           checked:
             type: switch
-            comment: Whether this option is selected by default.
+            comment: Whether the field is checked by default.
