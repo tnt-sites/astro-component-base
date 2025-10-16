@@ -1,15 +1,21 @@
 spec:
   structures:
-    - contentBlocks
-    - firstContentBlocks
-    - secondContentBlocks
+    - containerBlocks
+    - splitBlocks
+    - gridItemBlocks
+    - carouselBlocks
+    - contentSelectorBlocks
   label: Card
   description: "A container component that provides card layout with background options and padding controls."
   icon: crop_square
   tags: []
+  preview:
+    text:
+      - key: label
+      - Card
 
 blueprint:
-  label: ""
+  label:
   contentBlocks: []
   headerContentBlocks: []
   footerContentBlocks: []
@@ -18,11 +24,11 @@ blueprint:
   colorScheme: "default"
   backgroundColor:
   backgroundImage:
-    source: ""
-    alt: ""
+    source:
+    alt:
     positionVertical: top
     positionHorizontal: center
-  link: ""
+  link:
   rounded: false
   border: false
 
@@ -38,22 +44,22 @@ _inputs:
     type: array
     comment: Array of content blocks to render within the card.
     options:
-      structures: _structures.contentBlocks
+      structures: _structures.cardBlocks
   headerContentBlocks:
     type: array
     comment: Array of content blocks to render in the card header.
     options:
-      structures: _structures.contentBlocks
+      structures: _structures.cardBlocks
   footerContentBlocks:
     type: array
     comment: Array of content blocks to render in the card footer.
     options:
-      structures: _structures.contentBlocks
+      structures: _structures.cardBlocks
   paddingHorizontal:
-    comment: Horizontal padding applied to the card content.
     type: select
+    comment: Horizontal padding applied to the card content.
     options:
-      values: &sizing_options
+      values:
         - id: xs
           name: Extra Small
         - id: sm
@@ -67,13 +73,25 @@ _inputs:
         - id: 2xl
           name: 2xL
   paddingVertical:
+    type: select
     comment: Vertical padding applied to the card content.
-    type: select
     options:
-      values: *sizing_options
+      values:
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2XL
   colorScheme:
-    comment: Color scheme theme for the card.
     type: select
+    comment: Color scheme theme for the card.
     options:
       values:
         - id: default
@@ -81,8 +99,8 @@ _inputs:
         - id: contrast
           name: Contrast
   backgroundColor:
-    comment: Background color for the card.
     type: select
+    comment: Background color for the card.
     options:
       values:
         - id: base
@@ -94,8 +112,8 @@ _inputs:
         - id: highlight
           name: Highlight
   backgroundImage:
-    comment: Background image configuration for the card.
     type: object
+    comment: Background image configuration for the card.
     options:
       preview:
         icon: image
@@ -107,41 +125,44 @@ _inputs:
           - Add an image source
         image:
           - key: source
-    _inputs:
-      source:
-        comment: URL or path to the background image.
-        type: image
-      alt:
-        comment: Alt text for the background image.
-        type: text
-      positionVertical:
-        comment: Vertical position of the background image.
-        type: select
-        options:
-          values:
-            - id: top
-              name: Top
-            - id: center
-              name: Center
-            - id: bottom
-              name: Bottom
-      positionHorizontal:
-        comment: Horizontal position of the background image.
-        type: select
-        options:
-          values:
-            - id: left
-              name: Left
-            - id: center
-              name: Center
-            - id: right
-              name: Right
+  backgroundImage.source:
+    comment: URL or path to the background image.
+    type: image
+    options:
+      paths:
+        uploads: src/assets/images
+        static: ""
+  backgroundImage.alt:
+    comment: Alt text for the background image.
+    type: text
+  backgroundImage.positionVertical:
+    comment: Vertical position of the background image.
+    type: select
+    options:
+      values:
+        - id: top
+          name: Top
+        - id: center
+          name: Center
+        - id: bottom
+          name: Bottom
+  backgroundImage.positionHorizontal:
+    comment: Horizontal position of the background image.
+    type: select
+    options:
+      values:
+        - id: left
+          name: Left
+        - id: center
+          name: Center
+        - id: right
+          name: Right
   link:
-    comment: URL to make the entire card clickable. Leave empty for a non-clickable card.
     type: url
+    comment: URL to make the entire card clickable. Leave empty for a non-clickable card.
   rounded:
+    type: switch
     comment: Whether to apply rounded corners to the card.
-    type: switch
   border:
-    comment: Whether to apply a border to the card.
     type: switch
+    comment: Whether to apply a border to the card.

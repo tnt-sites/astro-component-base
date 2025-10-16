@@ -32,6 +32,12 @@ collection_groups:
     collections:
       - data
 
+_structures:
+  contentBlocks:
+    style: modal
+    id_key: _bookshop_name
+    values: [] # Must contain a values array, but the structures are defined by Bookshop so there's nothing to add in here
+
 _select_data:
   icons:
     - id: academic-cap

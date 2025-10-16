@@ -1,19 +1,26 @@
 spec:
   structures:
-    - contentBlocks
-    - firstContentBlocks
-    - secondContentBlocks
+    - containerBlocks
+    - cardBlocks
+    - splitBlocks
+    - gridItemBlocks
+    - accordionBlocks
+    - carouselBlocks
+    - contentSelectorBlocks
   label: Button Group
   description: "Controls the alignment and direction of buttons."
   icon: rectangle
   tags: []
   preview:
-    text: Button Group
+    text:
+      - key: label
+      - Button Group
     subtext:
-      - template:
+      - template: 'A button group containing {buttonBlocks|array_length} {"button"|pluralize=buttonBlocks}'
+      - Add one or more buttons to the button group
 
 blueprint:
-  label: ""
+  label:
   buttonBlocks: []
   direction: row
   alignX: start
@@ -27,6 +34,7 @@ _inputs:
     comment: Optional label for the button group to help identify it in the editor.
     type: text
   buttonBlocks:
+    type: array
     comment: Array of button components to render within the group.
     options:
       structures: _structures.buttonBlocks

@@ -3,14 +3,19 @@ spec:
     - formBlocks
   label: Textarea
   description: "A multi-line text input field with an optional label."
-  icon: rectangle
+  icon: text_ad
   tags: []
+  preview:
+    subtext:
+      - key: label
+      - key: name
+      - Enter a name for the textarea input.
 
 blueprint:
   label:
   name:
-  placeholder:
   required: false
+  placeholder:
   value:
 
 preview:
@@ -21,13 +26,16 @@ _inputs:
     comment: The label text for the textarea field.
   name:
     type: text
-    comment: The name attribute for the textarea field.
-  placeholder:
-    type: text
-    comment: Placeholder text for the textarea field.
+    comment: A unique name attribute for the textarea field.
+    options:
+      required: true
+      required_message: Only form elements with a name will have their values passed when submitting a form.
   required:
     type: switch
     comment: Whether the field is required.
+  placeholder:
+    type: text
+    comment: Placeholder text for the textarea field.
   value:
     type: text
     comment: The default value for the textarea field.

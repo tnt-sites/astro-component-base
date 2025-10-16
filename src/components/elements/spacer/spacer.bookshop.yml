@@ -1,8 +1,12 @@
 spec:
   structures:
-    - contentBlocks
-    - firstContentBlocks
-    - secondContentBlocks
+    - containerBlocks
+    - cardBlocks
+    - splitBlocks
+    - gridItemBlocks
+    - accordionBlocks
+    - carouselBlocks
+    - contentSelectorBlocks
   label: Spacer
   description: Gives space between content.
   icon: space_bar
@@ -17,8 +21,8 @@ preview:
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
   size:
-    comment: The amount of space to add.
     type: select
+    comment: The amount of space to add.
     options:
       values:
         - id: xs

@@ -4,11 +4,11 @@ order: 3
 slots:
   - title: first
     description: The contents for the first side of the Split.
-    fallback_for: firstContentBlocks
+    fallback_for: firstColumnContentBlocks
     child_component:
   - title: second
     description: The contents for the second side of the Split.
-    fallback_for: secondContentBlocks
+    fallback_for: secondColumnContentBlocks
     child_component:
 examples:
   - title: Mode

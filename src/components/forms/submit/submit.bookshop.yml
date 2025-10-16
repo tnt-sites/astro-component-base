@@ -5,6 +5,12 @@ spec:
   description: "A submit button for forms."
   icon: check
   tags: []
+  preview:
+    text:
+      - key: text
+      - key: iconName
+      - Submit Button
+    subtext: A submit button for forms.
 
 blueprint:
   text: Submit
@@ -21,39 +27,57 @@ _inputs:
   text:
     type: text
     comment: The text that goes inside the submit button.
+    hidden: "hideText"
   variant:
     type: select
+    comment: The presentation of the submit button.
     options:
       values:
-        - primary
-        - secondary
-        - tertiary
-        - ghost
-        - text
-    comment: The presentation of the submit button.
+        - id: primary
+          name: Primary
+        - id: secondary
+          name: Secondary
+        - id: tertiary
+          name: Tertiary
+        - id: ghost
+          name: Ghost
+        - id: text
+          name: Text
   size:
     type: select
+    comment: The size of the submit button.
     options:
       values:
-        - sm
-        - md
-        - lg
-    comment: The size of the submit button.
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
   iconName:
     type: select
+    comment: The name of the icon to display. See the Icon component documentation for more information.
     options:
       values: _select_data.icons
-    comment: The name of the icon to display. See the Icon component documentation for more information.
+      preview:
+        text:
+          - key: name
+        image:
+          - template: "src/icons/{id}.svg"
   iconPosition:
     type: select
+    comment: The position of the icon relative to the text.
+    hidden: "!iconName"
     options:
       values:
-        - before
-        - after
-    comment: The position of the icon relative to the text.
+        - id: before
+          name: Before
+        - id: after
+          name: After
   hideText:
     type: switch
     comment: Whether to hide the button text and show only the icon.
+    hidden: '!iconName"'
   disabled:
     type: switch
     comment: Whether the submit button is disabled.

@@ -1,12 +1,19 @@
 spec:
   structures:
-    - contentBlocks
-    - firstContentBlocks
-    - secondContentBlocks
+    - containerBlocks
+    - splitBlocks
+    - carouselBlocks
   label: Content Selector
   description: Switches between related content panels using tab buttons.
   icon: view_sidebar
   tags:
+  preview:
+    text:
+      - key: label
+      - Content Selector
+    subtext:
+      - template: A content selector containing {items|array_length} {"item"|pluralize=items}
+      - Add items to the content selector
 
 blueprint:
   label: ""
@@ -24,7 +31,7 @@ _inputs:
   items:
     type: array
     options:
-      structures: _structures.content_items
+      structures: _structures.contentSelectorItems
   navigationPosition:
     type: select
     options:
@@ -35,13 +42,20 @@ _inputs:
           name: Top
 
 _structures:
-  content_items:
+  contentSelectorItems:
     values:
-      - label: Item
+      - label: Content Selector Item
         icon: place_item
         value:
           title:
           contentBlocks:
+        preview:
+          text:
+            - key: title
+            - Content Selector Item
+          subtext:
+            - template: A content selector item containing {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
+            - Add content to the content selector item
         _inputs:
           title:
             type: text
@@ -49,4 +63,4 @@ _structures:
           contentBlocks:
             type: array
             options:
-              structures: _structures.contentBlocks
+              structures: _structures.contentSelectorBlocks

@@ -5,6 +5,10 @@ spec:
   description: "A hidden form field for storing data that should not be visible to users."
   icon: eye-slash
   tags: []
+  preview:
+    text:
+      - template: Hidden - {name}
+    subtext: A hidden form field for storing data that should not be visible to users.
 
 blueprint:
   name: ""

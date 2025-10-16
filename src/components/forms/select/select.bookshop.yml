@@ -3,15 +3,26 @@ spec:
     - formBlocks
   label: Select
   description: "A dropdown select field with an optional label."
-  icon: rectangle
+  icon: view_list
   tags: []
+  preview:
+    subtext:
+      - key: label
+      - key: name
+      - Enter a name for the form input.
 
 blueprint:
   label:
   name:
-  options: []
-  placeholder:
   required: false
+  options:
+    - value: "option1"
+      label: "Option 1"
+    - value: "option2"
+      label: "Option 2"
+    - value: "option3"
+      label: "Option 3"
+  placeholder:
   value:
 
 preview:
@@ -22,34 +33,45 @@ _inputs:
     comment: The label text for the select field.
   name:
     type: text
-    comment: The name attribute for the select field.
+    comment: A unique name attribute for the select field.
+    options:
+      required: true
+      required_message: Only form elements with a name will have their values passed when submitting a form.
+  required:
+    type: switch
+    comment: Whether the field is required.
   options:
     type: array
     comment: Array of select options with value and label.
     options:
-      structures: _structures.option
+      structures: _structures.selectOptions
+      min_items: 2
+      min_items_message: At least two options are required.
   placeholder:
     type: text
     comment: Placeholder text for the select field.
-  required:
-    type: switch
-    comment: Whether the field is required.
   value:
     type: text
     comment: The default selected value.
 
 _structures:
-  option:
+  selectOptions:
     values:
-      - label: Option
-        icon: list
-        value:
+      - value:
           value:
           label:
+        preview:
+          icon: check_circle
+          text:
+            - key: label
+            - Add a label for the select item
+          subtext:
+            - key: value
+            - Add a value for the select item
         _inputs:
-          value:
-            type: text
-            comment: The value attribute for this option (submitted with the form).
           label:
             type: text
-            comment: The display text for this option.
+            comment: The label text for the select option.
+          value:
+            type: text
+            comment: The value to add to the form when the option is selected.
