@@ -168,6 +168,7 @@ async function generateStructures() {
     lineWidth: -1, // Don't wrap lines
     quotingType: '"',
     forceQuotes: false,
+    noRefs: true, // Disable YAML anchors/references - just duplicate code
   });
 
   fs.writeFileSync(CONFIG_FILE, yamlContent, "utf8");

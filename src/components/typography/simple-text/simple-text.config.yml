@@ -2,7 +2,13 @@ label: Simple Text
 icon: view_headline
 description: "Displays blocks of text for content sections with options for alignment, size and decoration."
 structures:
-  - contentBlocks
+  - containerBlocks
+  - cardBlocks
+  - splitBlocks
+  - gridItemBlocks
+  - accordionBlocks
+  - carouselBlocks
+  - contentSelectorBlocks
 value:
   _component: typography/simple-text
   text: ""
