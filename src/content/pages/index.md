@@ -10,7 +10,7 @@ pageBlocks:
         type: h1
         alignX: center
         iconPosition: before
-      - _bookshop_name: wrappers/button-group
+      - _component: wrappers/button-group
         buttonBlocks:
           - _bookshop_name: elements/button
             text: View Components
