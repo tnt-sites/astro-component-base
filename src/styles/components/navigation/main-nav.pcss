@@ -1,0 +1,29 @@
+.main-nav {
+  .desktop-main-nav.bar,
+  .desktop-button-group.button-group {
+    @container (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .nav-hamburger.mobile-button {
+    @container (min-width: 769px) {
+      display: none;
+    }
+  }
+
+  > .outer-content > .content {
+    align-items: center;
+    container-type: inline-size;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: space-between;
+
+    > .smart-image img {
+      max-width: min(20em, 100%);
+      width: auto;
+      height: 2.5em;
+    }
+  }
+}

@@ -2,27 +2,49 @@
 import MarkdownIt from "markdown-it";
 // @ts-ignore
 import pkg from "js-beautify";
+import type { ComponentMetadata } from "./componentMetadata";
 import { getComponentDisplayName } from "./componentUtils";
 const { html } = pkg;
 
-export function formatComponentWithSlots(block: any, indentLevel: number = 0): string {
+export function formatComponentWithSlots(
+  block: any,
+  indentLevel: number = 0,
+  componentMetadata?: Map<string, ComponentMetadata>
+): string {
   const componentPath = block._component;
   const componentName = getComponentDisplayName(componentPath);
   const props = { ...block };
   const indent = "  ".repeat(indentLevel);
 
   delete props._component;
-  delete props.contentBlocks;
-  delete props.navBlocks;
-  delete props.formBlocks;
+
+  // Check if component supports slots using metadata
+  const componentSlug = componentPath
+    .replace(/^blocks\//, "")
+    .replace(/^elements\//, "")
+    .replace(/^forms\//, "")
+    .replace(/^navigation\//, "")
+    .replace(/^typography\//, "")
+    .replace(/^wrappers\//, "");
+  const metadata = componentMetadata?.get(componentSlug);
+  const supportsSlots = metadata?.supportsSlots ?? false;
+
+  // Only delete nested block props if the component supports slots
+  // For components that don't support slots, these should remain as props
+  if (supportsSlots) {
+    delete props.contentBlocks;
+    delete props.navBlocks;
+    delete props.formBlocks;
+    delete props.firstColumnContentBlocks;
+    delete props.secondColumnContentBlocks;
+    delete props.buttonBlocks;
+    delete props.slides;
+  }
+
   // Don't delete items for content-selector as it uses the prop internally
   if (!componentPath.includes("content-selector")) {
     delete props.items;
   }
-  delete props.firstColumnContentBlocks;
-  delete props.secondColumnContentBlocks;
-  delete props.buttonBlocks;
-  delete props.slides;
   if (!componentPath.includes("choice-group") && !componentPath.includes("segments")) {
     delete props.options;
   }
@@ -71,10 +93,12 @@ export function formatComponentWithSlots(block: any, indentLevel: number = 0): s
   const nestedBlocks =
     block.contentBlocks || block.navBlocks || block.formBlocks || block.buttonBlocks;
 
-  if (nestedBlocks) {
+  if (nestedBlocks && supportsSlots) {
     const blocksArray = Array.isArray(nestedBlocks) ? nestedBlocks : [nestedBlocks];
     const nestedContent = blocksArray
-      .map((nestedBlock) => formatComponentWithSlots(nestedBlock, indentLevel + 1))
+      .map((nestedBlock) =>
+        formatComponentWithSlots(nestedBlock, indentLevel + 1, componentMetadata)
+      )
       .join("\n");
 
     return `${indent}<${componentName}${propsString ? ` ${propsString}` : ""}>
@@ -89,7 +113,9 @@ ${indent}</${componentName}>`;
           ? block.firstColumnContentBlocks
           : [block.firstColumnContentBlocks]
         )
-          .map((nestedBlock) => formatComponentWithSlots(nestedBlock, indentLevel + 2))
+          .map((nestedBlock) =>
+            formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+          )
           .join("\n")
       : "";
 
@@ -98,7 +124,9 @@ ${indent}</${componentName}>`;
           ? block.secondColumnContentBlocks
           : [block.secondColumnContentBlocks]
         )
-          .map((nestedBlock) => formatComponentWithSlots(nestedBlock, indentLevel + 2))
+          .map((nestedBlock) =>
+            formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+          )
           .join("\n")
       : "";
 
@@ -197,7 +225,9 @@ ${indent}</${componentName}>`;
 
         const itemContent = item.contentBlocks
           ? (Array.isArray(item.contentBlocks) ? item.contentBlocks : [item.contentBlocks])
-              .map((nestedBlock) => formatComponentWithSlots(nestedBlock, indentLevel + 2))
+              .map((nestedBlock) =>
+                formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+              )
               .join("\n")
           : "";
 
@@ -238,7 +268,9 @@ ${indent}</${componentName}>`;
 
         const itemContent = item.contentBlocks
           ? (Array.isArray(item.contentBlocks) ? item.contentBlocks : [item.contentBlocks])
-              .map((nestedBlock) => formatComponentWithSlots(nestedBlock, indentLevel + 2))
+              .map((nestedBlock) =>
+                formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+              )
               .join("\n")
           : "";
 
@@ -279,7 +311,9 @@ ${indent}</${componentName}>`;
 
         const slideContent = slide.contentBlocks
           ? (Array.isArray(slide.contentBlocks) ? slide.contentBlocks : [slide.contentBlocks])
-              .map((nestedBlock) => formatComponentWithSlots(nestedBlock, indentLevel + 2))
+              .map((nestedBlock) =>
+                formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+              )
               .join("\n")
           : "";
 

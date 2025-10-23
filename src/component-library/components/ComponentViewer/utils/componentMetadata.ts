@@ -8,9 +8,10 @@ type ChildComponentInfo = {
   props?: string[];
 };
 
-type ComponentMetadata = {
+export type ComponentMetadata = {
   childComponent?: ChildComponentInfo;
   fallbackFor?: string;
+  supportsSlots?: boolean;
 };
 
 let metadataCache: Map<string, ComponentMetadata> | null = null;
@@ -39,17 +40,26 @@ export async function getComponentMetadataMap(): Promise<Map<string, ComponentMe
       const slug = component.id.replace(/^components\//, "").replace(/\/index$/, "");
 
       const slots = component.data?.slots || [];
+      const supportsSlots = slots.length > 0;
 
       // Find slots with child_component defined
+      let childComponent: ChildComponentInfo | undefined;
+      let fallbackFor: string | undefined;
+
       for (const slot of slots) {
         if (slot?.child_component && slot?.fallback_for) {
-          metadataCache.set(slug, {
-            childComponent: slot.child_component,
-            fallbackFor: slot.fallback_for,
-          });
+          childComponent = slot.child_component;
+          fallbackFor = slot.fallback_for;
           break; // Assume only one slot with child_component per component
         }
       }
+
+      // Store metadata for all components, not just those with child components
+      metadataCache.set(slug, {
+        childComponent,
+        fallbackFor,
+        supportsSlots,
+      });
     }
   } catch (error) {
     console.error("Error loading component metadata:", error);

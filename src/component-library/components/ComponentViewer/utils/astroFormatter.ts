@@ -107,7 +107,7 @@ export async function formatBlocksAstro(blocks: any): Promise<string> {
     // Generate component usage with nested content
     const componentUsage = blocksArray
       .map((block) => {
-        return formatComponentWithSlots(block);
+        return formatComponentWithSlots(block, 0, metadataMap);
       })
       .join("\n");
 

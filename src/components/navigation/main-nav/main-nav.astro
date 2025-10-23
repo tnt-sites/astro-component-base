@@ -32,13 +32,20 @@ const mobileNavData = [
   {...rest}
 >
   {logoSource && <SmartImage source={logoSource} alt={logoAlt} />}
-  <Bar navData={navData} class="desktop-main-nav" />
-  <ButtonGroup
-    direction="row"
-    align="center"
-    class="desktop-button-group"
-    buttonBlocks={buttonBlocks}
-  />
+  <div style=" align-items: center;display: flex;">
+    <Bar navData={navData} class="desktop-main-nav" />
+
+    {
+      buttonBlocks.length > 0 && (
+        <ButtonGroup
+          direction="row"
+          align="center"
+          class="desktop-button-group"
+          buttonBlocks={buttonBlocks}
+        />
+      )
+    }
+  </div>
   <Mobile
     logoSource={logoSource}
     logoAlt={logoAlt}
@@ -46,33 +53,3 @@ const mobileNavData = [
     class="mobile-main-nav"
   />
 </Container>
-
-<style>
-  :global(.desktop-main-nav.bar),
-  :global(.desktop-button-group.button-group) {
-    @container (max-width: 768px) {
-      display: none;
-    }
-  }
-
-  :global(.main-nav .nav-hamburger.mobile-button) {
-    @container (min-width: 769px) {
-      display: none;
-    }
-  }
-
-  :global(.main-nav .smart-image img) {
-    max-height: 3em;
-    max-width: min(20em, 100%);
-    width: auto;
-  }
-
-  :global(.main-nav > .outer-content > .content) {
-    align-items: center;
-    container-type: inline-size;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-md);
-    justify-content: space-between;
-  }
-</style>
