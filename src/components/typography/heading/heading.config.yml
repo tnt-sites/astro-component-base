@@ -13,7 +13,7 @@ value:
   _component: typography/heading
   text: ""
   type: h2
-  size: ""
+  size: "default"
   alignX: start
   iconName: null
   iconPosition: before
@@ -30,24 +30,7 @@ picker_preview:
 _inputs:
   text:
     comment: The text content of the heading.
-    type: markdown
-    options:
-      bold: false
-      copyformatting: false
-      italic: true
-      link: true
-      redo: true
-      removeformat: true
-      strike: true
-      subscript: true
-      superscript: true
-      underline: true
-      undo: true
-      blockquote: false
-      bulletedlist: false
-      image: false
-      numberedlist: false
-      snippet: false
+    type: textarea
   type:
     comment: The heading type or level.
     type: select
@@ -66,8 +49,8 @@ _inputs:
     type: select
     options:
       values:
-        - id: none
-          name: None
+        - id: default
+          name: Default
         - id: xs
           name: Extra Small
         - id: sm

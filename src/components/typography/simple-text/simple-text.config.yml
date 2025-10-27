@@ -13,7 +13,7 @@ value:
   _component: typography/simple-text
   text: ""
   alignX: start
-  size: md
+  size: default
 preview:
   text:
     - key: text
@@ -27,19 +27,7 @@ picker_preview:
 _inputs:
   text:
     comment: The text content of the simple text.
-    type: markdown
-    options:
-      bold: true
-      italic: true
-      link: true
-      strike: true
-      subscript: true
-      superscript: true
-      underline: true
-      undo: true
-      redo: true
-      removeformat: true
-      copyformatting: true
+    type: textarea
   alignX:
     comment: The horizontal alignment of the text.
     type: select
@@ -56,6 +44,8 @@ _inputs:
     comment: The font size of the text.
     options:
       values:
+        - id: default
+          name: Default
         - id: xs
           name: Extra Small
         - id: sm
