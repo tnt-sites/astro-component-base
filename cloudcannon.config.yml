@@ -820,7 +820,7 @@ _structures:
         value:
           _component: wrappers/grid
           label: ""
-          layout: center-aligned
+          layout: center
           minItemWidth: 280
           maxItemWidth: 400
           items: []
@@ -845,9 +845,9 @@ _structures:
             type: select
             options:
               values:
-                - id: start-aligned
+                - id: start
                   name: Left Aligned
-                - id: center-aligned
+                - id: center
                   name: Center Aligned
                 - id: uneven-columns
                   name: Uneven Columns
@@ -942,7 +942,7 @@ _structures:
             - key: label
             - Container
           subtext:
-            - template: A container containing {contentBlocks|array_length} content {"block"|pluralize=slides}
+            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
             - Add content blocks to the container
         picker_preview:
           text: Container
@@ -1307,42 +1307,6 @@ _structures:
             type: switch
             comment: Whether to apply a border to the card.
       - &ref_4
-        label: Accordion
-        icon: expand_all
-        description: Interactive component for showing and hiding content panels.
-        value:
-          _component: wrappers/accordion
-          label: null
-          items: null
-          openFirst: false
-          singleOpen: false
-        preview:
-          text:
-            - key: label
-            - Accordion
-          subtext:
-            - template: An accordion containing {items|array_length} {"item"|pluralize=items}
-            - Add items to the accordion
-        picker_preview:
-          text: Accordion
-          subtext: Hides content behind an expandable menu.
-          icon: expand_all
-        _inputs:
-          label:
-            comment: Optional label for the accordion to help identify it in the editor.
-            type: text
-          items:
-            comment: The items to display in the accordion.
-            type: array
-            options:
-              structures: _structures.accordionItems
-          openFirst:
-            comment: Whether the first item will be open by default.
-            type: switch
-          singleOpen:
-            comment: Whether only one item can be open at a time within this accordion.
-            type: switch
-      - &ref_5
         label: Button Group
         icon: rectangle
         description: Arranges buttons side by side with consistent spacing.
@@ -1392,6 +1356,42 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - &ref_5
+        label: Accordion
+        icon: expand_all
+        description: Interactive component for showing and hiding content panels.
+        value:
+          _component: wrappers/accordion
+          label: null
+          items: null
+          openFirst: false
+          singleOpen: false
+        preview:
+          text:
+            - key: label
+            - Accordion
+          subtext:
+            - template: An accordion containing {items|array_length} {"item"|pluralize=items}
+            - Add items to the accordion
+        picker_preview:
+          text: Accordion
+          subtext: Hides content behind an expandable menu.
+          icon: expand_all
+        _inputs:
+          label:
+            comment: Optional label for the accordion to help identify it in the editor.
+            type: text
+          items:
+            comment: The items to display in the accordion.
+            type: array
+            options:
+              structures: _structures.accordionItems
+          openFirst:
+            comment: Whether the first item will be open by default.
+            type: switch
+          singleOpen:
+            comment: Whether only one item can be open at a time within this accordion.
+            type: switch
       - &ref_6
         label: Testimonial
         icon: format_quote
@@ -1449,6 +1449,61 @@ _structures:
                 - id: center
                   name: Center
       - &ref_7
+        label: Rich text
+        icon: edit_note
+        description: Content component for markdown-formatted text.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
+      - &ref_8
         label: Simple Text
         icon: view_headline
         description: Paragraph for plain text content.
@@ -1508,61 +1563,6 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
-      - &ref_8
-        label: Rich text
-        icon: edit_note
-        description: Content component for markdown-formatted text.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
       - &ref_9
         label: List
         icon: list
@@ -1625,79 +1625,6 @@ _structures:
                 - id: 2xl
                   name: 2xl
       - &ref_10
-        label: Definition List
-        icon: dns
-        description: Lists term/definition pairs for structured content.
-        value:
-          _component: typography/definition-list
-          items: []
-          alignX: start
-        preview:
-          subtext:
-            - template: Contains {items|array_length} list {'item'|pluralize=items}
-            - Add definition list items
-        picker_preview:
-          text: Definition List
-          subtext: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
-          icon: dns
-        _inputs:
-          items:
-            type: array
-            label: List Items
-            options:
-              structures: _structures.definitionListItems
-          alignX:
-            type: select
-            comment: The horizontal alignment of the definition list items.
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-      - &ref_11
-        label: Counter
-        icon: speed
-        description: Animated counter for highlighting key stats or figures.
-        value:
-          _component: typography/counter
-          number: ""
-          prefix: ""
-          suffix: ""
-          alignX: start
-        preview:
-          subtext:
-            - template: "{prefix}{number}{suffix}"
-            - Add counter details
-        picker_preview:
-          text: Counter
-          subtext: Animated number that counts up when visible.
-          icon: speed
-        _inputs:
-          number:
-            type: number
-            comment: The number to count to.
-            options:
-              min: 0
-              step: 1
-          prefix:
-            comment: Text immediately before the number.
-          suffix:
-            comment: Text immediately after the number.
-          alignX:
-            comment: The horizontal alignment of the counter.
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-      - &ref_12
         label: Heading
         icon: title
         description: Headings for content hierarchy.
@@ -1785,6 +1712,79 @@ _structures:
                   name: Before
                 - id: after
                   name: After
+      - &ref_11
+        label: Definition List
+        icon: dns
+        description: Lists term/definition pairs for structured content.
+        value:
+          _component: typography/definition-list
+          items: []
+          alignX: start
+        preview:
+          subtext:
+            - template: Contains {items|array_length} list {'item'|pluralize=items}
+            - Add definition list items
+        picker_preview:
+          text: Definition List
+          subtext: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
+          icon: dns
+        _inputs:
+          items:
+            type: array
+            label: List Items
+            options:
+              structures: _structures.definitionListItems
+          alignX:
+            type: select
+            comment: The horizontal alignment of the definition list items.
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+      - &ref_12
+        label: Counter
+        icon: speed
+        description: Animated counter for highlighting key stats or figures.
+        value:
+          _component: typography/counter
+          number: ""
+          prefix: ""
+          suffix: ""
+          alignX: start
+        preview:
+          subtext:
+            - template: "{prefix}{number}{suffix}"
+            - Add counter details
+        picker_preview:
+          text: Counter
+          subtext: Animated number that counts up when visible.
+          icon: speed
+        _inputs:
+          number:
+            type: number
+            comment: The number to count to.
+            options:
+              min: 0
+              step: 1
+          prefix:
+            comment: Text immediately before the number.
+          suffix:
+            comment: Text immediately after the number.
+          alignX:
+            comment: The horizontal alignment of the counter.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
       - &ref_13
         label: Form
         icon: checklist_rtl
@@ -1845,6 +1845,68 @@ _structures:
                 - id: 3xl
                   name: 3xl
       - &ref_15
+        label: Smart Video
+        icon: videocam
+        description: Video component for YouTube, Vimeo, and HTML5 sources.
+        value:
+          _component: elements/smart-video
+          type: ""
+          id: ""
+          title: ""
+          source: ""
+          poster: ""
+        preview:
+          icon: videocam
+          text:
+            - template: Smart Video - {type}
+            - Smart Video
+          subtext:
+            - key: title
+            - key: source
+            - Add video
+        picker_preview:
+          text: Smart Video
+          subtext: Play a video from YouTube, Vimeo, or your local files.
+          icon: videocam
+        _inputs:
+          type:
+            type: select
+            options:
+              values:
+                - id: youtube
+                  name: YouTube
+                - id: vimeo
+                  name: Vimeo
+                - id: local-source
+                  name: Local Source
+          title:
+            type: text
+            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
+          id:
+            type: text
+            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
+          source:
+            type: file
+            label: Video Source
+            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+            options:
+              accepts_mime_types:
+                - video/mp4
+              paths:
+                uploads: public/videos
+                static: public
+          poster:
+            type: image
+            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
+            options:
+              accepts_mime_types:
+                - image/jpeg
+                - image/png
+                - image/webp
+              paths:
+                uploads: public/images
+                static: public
+      - &ref_16
         label: Smart Image
         icon: image
         description: Optimized image component for local and remote sources.
@@ -1918,68 +1980,6 @@ _structures:
                   name: Center
                 - id: right
                   name: Right
-      - &ref_16
-        label: Smart Video
-        icon: videocam
-        description: Video component for YouTube, Vimeo, and HTML5 sources.
-        value:
-          _component: elements/smart-video
-          type: ""
-          id: ""
-          title: ""
-          source: ""
-          poster: ""
-        preview:
-          icon: videocam
-          text:
-            - template: Smart Video - {type}
-            - Smart Video
-          subtext:
-            - key: title
-            - key: source
-            - Add video
-        picker_preview:
-          text: Smart Video
-          subtext: Play a video from YouTube, Vimeo, or your local files.
-          icon: videocam
-        _inputs:
-          type:
-            type: select
-            options:
-              values:
-                - id: youtube
-                  name: YouTube
-                - id: vimeo
-                  name: Vimeo
-                - id: local-source
-                  name: Local Source
-          title:
-            type: text
-            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
-          id:
-            type: text
-            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
-          source:
-            type: file
-            label: Video Source
-            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
-            options:
-              accepts_mime_types:
-                - video/mp4
-              paths:
-                uploads: public/videos
-                static: public
-          poster:
-            type: image
-            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
-            options:
-              accepts_mime_types:
-                - image/jpeg
-                - image/png
-                - image/webp
-              paths:
-                uploads: public/images
-                static: public
       - &ref_17
         label: Embed
         icon: data_object
@@ -2116,6 +2116,7 @@ _structures:
     values:
       - label: Grid Item
         value:
+          _component: wrappers/grid/grid-item
           contentBlocks: []
         preview:
           icon: grid_view
@@ -2124,6 +2125,8 @@ _structures:
             - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
             - Add one or more content blocks to the grid item
         _inputs:
+          _component:
+            hidden: true
           contentBlocks:
             type: array
             comment: Content blocks to render within this grid item.
@@ -2219,23 +2222,6 @@ _structures:
       - *ref_16
       - *ref_17
       - *ref_18
-  accordionItems:
-    id_key: _component
-    style: modal
-    values:
-      - label: Item
-        icon: place_item
-        value:
-          title: null
-          contentBlocks: null
-        _inputs:
-          title:
-            comment: The title of the accordion item.
-            type: text
-          contentBlocks:
-            type: array
-            options:
-              structures: _structures.accordionBlocks
   cardBlocks:
     id_key: _component
     style: modal
@@ -2259,7 +2245,7 @@ _structures:
     id_key: _component
     style: modal
     values:
-      - *ref_5
+      - *ref_4
       - *ref_6
       - *ref_7
       - *ref_8
@@ -2273,6 +2259,23 @@ _structures:
       - *ref_16
       - *ref_17
       - *ref_18
+  accordionItems:
+    id_key: _component
+    style: modal
+    values:
+      - label: Item
+        icon: place_item
+        value:
+          title: null
+          contentBlocks: null
+        _inputs:
+          title:
+            comment: The title of the accordion item.
+            type: text
+          contentBlocks:
+            type: array
+            options:
+              structures: _structures.accordionBlocks
   listItems:
     id_key: _component
     style: modal
@@ -2432,44 +2435,6 @@ _structures:
     id_key: _component
     style: modal
     values:
-      - label: Textarea
-        icon: text_ad
-        description: Form field for entering multi-line text.
-        value:
-          _component: forms/textarea
-          label: null
-          name: null
-          required: false
-          placeholder: null
-          value: null
-        preview:
-          subtext:
-            - key: label
-            - key: name
-            - Enter a name for the textarea input.
-        picker_preview:
-          text: Textarea
-          subtext: A multi-line text input field with an optional label.
-          icon: text_ad
-        _inputs:
-          label:
-            type: text
-            comment: The label text for the textarea field.
-          name:
-            type: text
-            comment: A unique name attribute for the textarea field.
-            options:
-              required: true
-              required_message: Only form elements with a name will have their values passed when submitting a form.
-          required:
-            type: switch
-            comment: Whether the field is required.
-          placeholder:
-            type: text
-            comment: Placeholder text for the textarea field.
-          value:
-            type: text
-            comment: The default value for the textarea field.
       - label: Submit
         icon: check
         description: Button for submitting a form.
@@ -2602,6 +2567,44 @@ _structures:
           value:
             type: text
             comment: The default selected value.
+      - label: Textarea
+        icon: text_ad
+        description: Form field for entering multi-line text.
+        value:
+          _component: forms/textarea
+          label: null
+          name: null
+          required: false
+          placeholder: null
+          value: null
+        preview:
+          subtext:
+            - key: label
+            - key: name
+            - Enter a name for the textarea input.
+        picker_preview:
+          text: Textarea
+          subtext: A multi-line text input field with an optional label.
+          icon: text_ad
+        _inputs:
+          label:
+            type: text
+            comment: The label text for the textarea field.
+          name:
+            type: text
+            comment: A unique name attribute for the textarea field.
+            options:
+              required: true
+              required_message: Only form elements with a name will have their values passed when submitting a form.
+          required:
+            type: switch
+            comment: Whether the field is required.
+          placeholder:
+            type: text
+            comment: Placeholder text for the textarea field.
+          value:
+            type: text
+            comment: The default value for the textarea field.
       - label: Segments
         icon: radio_button_partial
         description: Segmented control form field with connected buttons.
@@ -2953,7 +2956,7 @@ _structures:
         description: Clickable button for calls-to-action and navigation.
         value:
           _component: elements/button
-          text: ""
+          text: My Button
           link: ""
           iconName: ""
           iconPosition: before
