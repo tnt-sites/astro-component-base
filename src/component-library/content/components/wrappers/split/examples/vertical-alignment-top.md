@@ -27,7 +27,6 @@ blocks:
             This is content for side B.
   distributionMode: "half"
   fixedWidth: null
-  minSplitWidth: 500
   verticalAlignment: "top"
   reverse: false
 ---

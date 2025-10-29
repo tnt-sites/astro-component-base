@@ -23,7 +23,6 @@ blocks:
             This column takes up 25% of the available space.
   distributionMode: "three-quarters-quarter"
   fixedWidth: null
-  minSplitWidth: 500
   verticalAlignment: "top"
   reverse: false
 ---
