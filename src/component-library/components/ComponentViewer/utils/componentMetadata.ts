@@ -42,7 +42,6 @@ export async function getComponentMetadataMap(): Promise<Map<string, ComponentMe
       const slots = component.data?.slots || [];
       const supportsSlots = slots.length > 0;
 
-      // Find slots with child_component defined
       let childComponent: ChildComponentInfo | undefined;
       let fallbackFor: string | undefined;
 
@@ -50,11 +49,12 @@ export async function getComponentMetadataMap(): Promise<Map<string, ComponentMe
         if (slot?.child_component && slot?.fallback_for) {
           childComponent = slot.child_component;
           fallbackFor = slot.fallback_for;
-          break; // Assume only one slot with child_component per component
+          break;
+        } else if (slot?.fallback_for && !fallbackFor) {
+          fallbackFor = slot.fallback_for;
         }
       }
 
-      // Store metadata for all components, not just those with child components
       metadataCache.set(slug, {
         childComponent,
         fallbackFor,
@@ -81,7 +81,6 @@ export async function getNestedBlockProperties(): Promise<Set<string>> {
   try {
     const componentsDir = "src/components";
 
-    // Recursively find all config.yml files
     function findConfigFiles(dir: string): string[] {
       const files: string[] = [];
 
@@ -109,7 +108,6 @@ export async function getNestedBlockProperties(): Promise<Set<string>> {
         const content = readFileSync(filePath, "utf8");
         const configData = yaml.load(content) as any;
 
-        // Scan _structures for nested block property names
         if (configData._structures && typeof configData._structures === "object") {
           for (const structureName of Object.keys(configData._structures)) {
             if (typeof structureName === "string") {
@@ -121,6 +119,15 @@ export async function getNestedBlockProperties(): Promise<Set<string>> {
         console.error(`Error parsing config file ${filePath}:`, error);
       }
     }
+
+    const metadataMap = await getComponentMetadataMap();
+    for (const metadata of metadataMap.values()) {
+      if (metadata.fallbackFor) {
+        nestedBlockPropertiesCache.add(metadata.fallbackFor);
+      }
+    }
+
+    nestedBlockPropertiesCache.add("formBlocks");
   } catch (error) {
     console.error("Error loading config files for block properties:", error);
   }

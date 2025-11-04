@@ -123,12 +123,11 @@ export async function formatBlocksAstro(blocks: any): Promise<string> {
       })
       .join("\n");
 
-    // Generate component usage with nested content
     const componentUsage = blocksArray
       .map((block) => {
-        return formatComponentWithSlots(block, 0, metadataMap);
+        return formatComponentWithSlots(block, 0, metadataMap, nestedBlockProperties);
       })
-      .join("\n");
+      .join("\n\n");
 
     if (imports) {
       return `---\n${imports}\n---\n\n${componentUsage}`;

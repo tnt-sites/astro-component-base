@@ -9,7 +9,8 @@ const { html } = pkg;
 export function formatComponentWithSlots(
   block: any,
   indentLevel: number = 0,
-  componentMetadata?: Map<string, ComponentMetadata>
+  componentMetadata?: Map<string, ComponentMetadata>,
+  nestedBlockProperties?: Set<string>
 ): string {
   const componentPath = block._component;
   const componentName = getComponentDisplayName(componentPath);
@@ -18,7 +19,6 @@ export function formatComponentWithSlots(
 
   delete props._component;
 
-  // Check if component supports slots using metadata
   const componentSlug = componentPath
     .replace(/^blocks\//, "")
     .replace(/^elements\//, "")
@@ -26,12 +26,36 @@ export function formatComponentWithSlots(
     .replace(/^navigation\//, "")
     .replace(/^typography\//, "")
     .replace(/^wrappers\//, "");
-  const metadata = componentMetadata?.get(componentSlug);
+  let metadata = componentMetadata?.get(componentSlug);
+
+  if (!metadata) {
+    metadata = componentMetadata?.get(componentPath);
+  }
   const supportsSlots = metadata?.supportsSlots ?? false;
 
-  // Only delete nested block props if the component supports slots
-  // For components that don't support slots, these should remain as props
+  const isTextComponent =
+    componentPath.includes("heading") ||
+    componentPath.includes("simple-text") ||
+    componentPath.includes("list-item") ||
+    componentPath.includes("definition-list-item") ||
+    componentPath.includes("testimonial") ||
+    componentPath.includes("button") ||
+    componentPath.includes("submit");
+
+  const textContent = isTextComponent ? props.text : null;
+
+  if (textContent) {
+    delete props.text;
+  }
+
   if (supportsSlots) {
+    if (nestedBlockProperties) {
+      for (const prop of nestedBlockProperties) {
+        if (props[prop] !== undefined) {
+          delete props[prop];
+        }
+      }
+    }
     delete props.contentBlocks;
     delete props.navBlocks;
     delete props.formBlocks;
@@ -39,6 +63,11 @@ export function formatComponentWithSlots(
     delete props.secondColumnContentBlocks;
     delete props.buttonBlocks;
     delete props.slides;
+  } else if (componentPath.includes("split")) {
+    delete props.firstColumnContentBlocks;
+    delete props.secondColumnContentBlocks;
+  } else if (componentPath.includes("form")) {
+    delete props.formBlocks;
   }
 
   // Don't delete items for content-selector as it uses the prop internally
@@ -49,22 +78,7 @@ export function formatComponentWithSlots(
     delete props.options;
   }
 
-  const isTextComponent =
-    componentPath.includes("heading") ||
-    componentPath.includes("simple-text") ||
-    componentPath.includes("rich-text") ||
-    componentPath.includes("list-item") ||
-    componentPath.includes("definition-list-item") ||
-    componentPath.includes("testimonial") ||
-    componentPath.includes("button") ||
-    componentPath.includes("submit");
-  const textContent = isTextComponent ? props.text : null;
-
-  if (textContent) {
-    delete props.text;
-  }
-
-  const propsString = Object.entries(props)
+  let propsString = Object.entries(props)
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([key, value]) => {
       if (typeof value === "string") {
@@ -94,10 +108,38 @@ export function formatComponentWithSlots(
     block.contentBlocks || block.navBlocks || block.formBlocks || block.buttonBlocks;
 
   if (nestedBlocks && supportsSlots) {
+    propsString = Object.entries(props)
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([key, value]) => {
+        if (typeof value === "string") {
+          return `${key}="${value}"`;
+        } else if (typeof value === "boolean") {
+          return value ? key : "";
+        } else if (typeof value === "number") {
+          return `${key}={${value}}`;
+        } else if (Array.isArray(value)) {
+          const formattedArray = JSON.stringify(value, null, 2)
+            .split("\n")
+            .map((line, index) => (index === 0 ? line : `${indent}  ${line}`))
+            .join("\n");
+
+          return `${key}={\n${indent}  ${formattedArray}\n${indent}}`;
+        } else if (typeof value === "object" && value !== null) {
+          return `${key}={${JSON.stringify(value)}}`;
+        }
+        return `${key}="${String(value)}"`;
+      })
+      .filter(Boolean)
+      .join(" ");
     const blocksArray = Array.isArray(nestedBlocks) ? nestedBlocks : [nestedBlocks];
     const nestedContent = blocksArray
       .map((nestedBlock) =>
-        formatComponentWithSlots(nestedBlock, indentLevel + 1, componentMetadata)
+        formatComponentWithSlots(
+          nestedBlock,
+          indentLevel + 1,
+          componentMetadata,
+          nestedBlockProperties
+        )
       )
       .join("\n");
 
@@ -114,7 +156,12 @@ ${indent}</${componentName}>`;
           : [block.firstColumnContentBlocks]
         )
           .map((nestedBlock) =>
-            formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+            formatComponentWithSlots(
+              nestedBlock,
+              indentLevel + 2,
+              componentMetadata,
+              nestedBlockProperties
+            )
           )
           .join("\n")
       : "";
@@ -125,7 +172,12 @@ ${indent}</${componentName}>`;
           : [block.secondColumnContentBlocks]
         )
           .map((nestedBlock) =>
-            formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+            formatComponentWithSlots(
+              nestedBlock,
+              indentLevel + 2,
+              componentMetadata,
+              nestedBlockProperties
+            )
           )
           .join("\n")
       : "";
@@ -226,7 +278,12 @@ ${indent}</${componentName}>`;
         const itemContent = item.contentBlocks
           ? (Array.isArray(item.contentBlocks) ? item.contentBlocks : [item.contentBlocks])
               .map((nestedBlock) =>
-                formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+                formatComponentWithSlots(
+                  nestedBlock,
+                  indentLevel + 2,
+                  componentMetadata,
+                  nestedBlockProperties
+                )
               )
               .join("\n")
           : "";
@@ -269,7 +326,12 @@ ${indent}</${componentName}>`;
         const itemContent = item.contentBlocks
           ? (Array.isArray(item.contentBlocks) ? item.contentBlocks : [item.contentBlocks])
               .map((nestedBlock) =>
-                formatComponentWithSlots(nestedBlock, indentLevel + 2, componentMetadata)
+                formatComponentWithSlots(
+                  nestedBlock,
+                  indentLevel + 2,
+                  componentMetadata,
+                  nestedBlockProperties
+                )
               )
               .join("\n")
           : "";
@@ -358,8 +420,6 @@ ${indent}</${componentName}>`;
 ${optionsContent}
 ${indent}</${componentName}>`;
   } else if (textContent) {
-    // For text components, put the text content as slot content
-    // Convert markdown to HTML for text components
     let htmlContent = textContent;
 
     if (

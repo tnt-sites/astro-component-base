@@ -1,6 +1,9 @@
 # build output
 dist/
 
+_docs/
+/docGen.js
+
 # generated types
 .astro/
 
