@@ -50,42 +50,61 @@ const alignClass = alignMap[alignX as keyof typeof alignMap] ?? "align-start";
 
 <style lang="pcss">
   .button-group {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-sm);
     position: relative;
 
+    &, :global(> editable-array) {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-sm);
+    }
+
     &.column {
-      flex-direction: column;
+      &, :global(> editable-array) {
+        flex-direction: column;
+      }
 
       &.align-start {
-        align-items: flex-start;
+        &, :global(> editable-array) {
+          align-items: flex-start;
+        }
       }
 
       &.align-center {
-        align-items: center;
+        &, :global(> editable-array) {
+          align-items: center;
+        }
       }
 
       &.align-end {
-        align-items: flex-end;
+        &, :global(> editable-array) {
+          align-items: flex-end;
+        }
       }
     }
 
     &.row {
-      flex-direction: row;
+      &, :global(> editable-array) {
+        flex-direction: row;
+      }
     }
 
     &.align-center {
-      justify-content: center;
+      &, :global(> editable-array) {
+        justify-content: center;
+      }
     }
 
     &.align-end {
-      justify-content: flex-end;
+      &, :global(> editable-array) {
+        justify-content: flex-end;
+      }
     }
 
     &.align-start {
-      justify-content: flex-start;
+      &, :global(> editable-array) {
+        justify-content: flex-start;
+      }
     }
   }
 </style>
