@@ -11,7 +11,13 @@ structures:
   - contentSelectorBlocks
 value:
   _component: typography/list
-  items: []
+  items:
+    - text: List item 1
+      iconName: check
+    - text: List item 2
+      iconName: lock-closed
+    - text: List item 3
+      iconName: briefcase
   direction: vertical
   alignX: start
   size: md

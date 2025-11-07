@@ -11,10 +11,10 @@ structures:
   - contentSelectorBlocks
 value:
   _component: elements/icon
-  name: ""
+  name: "bolt"
   size: lg
   color: default
-  background: false
+  background: true
   alignX: start
 preview:
   text: Icon

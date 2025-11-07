@@ -5,8 +5,8 @@ structures:
   - formBlocks
 value:
   _component: forms/input
-  label: null
-  name: null
+  label: My input
+  name: "my_input"
   type: text
   placeholder: null
   required: false

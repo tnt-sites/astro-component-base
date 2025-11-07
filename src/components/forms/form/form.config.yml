@@ -11,7 +11,7 @@ structures:
   - contentSelectorBlocks
 value:
   _component: forms/form
-  action: null
+  action: "./"
   formBlocks: []
 preview:
   subtext:

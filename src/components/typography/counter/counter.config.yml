@@ -12,8 +12,8 @@ structures:
 value:
   _component: typography/counter
   number: 100
-  prefix: ""
-  suffix: ""
+  prefix: "$"
+  suffix: "USD"
   alignX: start
 preview:
   subtext:

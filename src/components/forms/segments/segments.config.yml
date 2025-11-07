@@ -6,7 +6,7 @@ structures:
 value:
   _component: forms/segments
   title: null
-  name: null
+  name: my_segments
   required: false
   options: []
   iconOnly: false

@@ -5,8 +5,8 @@ structures:
   - formBlocks
 value:
   _component: forms/textarea
-  label: null
-  name: null
+  label: My textarea
+  name: my_textarea
   required: false
   placeholder: null
   value: null

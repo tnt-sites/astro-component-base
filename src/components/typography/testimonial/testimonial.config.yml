@@ -11,9 +11,9 @@ structures:
   - contentSelectorBlocks
 value:
   _component: typography/testimonial
-  text: ""
-  authorName: ""
-  authorDescription: ""
+  text: "My testimonial text."
+  authorName: "Charlie Parker"
+  authorDescription: "Author"
   authorImage: ""
   alignX: start
 preview:
