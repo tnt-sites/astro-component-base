@@ -36,7 +36,7 @@ export async function getComponentMetadataMap(): Promise<Map<string, ComponentMe
         continue;
       }
 
-      // Extract component key from id (e.g., "components/typography/list/index" -> "typography/list")
+      // Extract component key from id (e.g., "components/building-blocks/core-elements/list/index" -> "building-blocks/core-elements/list")
       const slug = component.id.replace(/^components\//, "").replace(/\/index$/, "");
 
       const slots = component.data?.slots || [];

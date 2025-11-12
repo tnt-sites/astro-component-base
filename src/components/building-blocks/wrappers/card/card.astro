@@ -1,0 +1,244 @@
+---
+import Image from "@components/building-blocks/core-elements/image/image.astro";
+import Component from "@components/utils/renderBlock.astro";
+
+const {
+  label,
+  contentBlocks,
+  beforeContentBlocks,
+  afterContentBlocks,
+  paddingHorizontal,
+  paddingVertical,
+  colorScheme,
+  backgroundColor,
+  backgroundImage,
+  link,
+  rounded = false,
+  border = false,
+  class: className,
+
+  ...rest
+} = Astro.props;
+
+const {
+  source = "",
+  alt = "",
+  positionVertical = "top",
+  positionHorizontal = "center",
+} = backgroundImage || {};
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+
+const slugifyLabel = (label: string) => {
+  return label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};
+
+if (!htmlAttributes.id && label) {
+  htmlAttributes.id = slugifyLabel(label);
+}
+
+const Tag = link ? "a" : "div";
+---
+
+<Tag
+  {...htmlAttributes}
+  {...link && { href: link }}
+  class:list={["card", rounded && "rounded", border && "border", className]}
+  data-theme={colorScheme}
+>
+  {
+    source && (
+      <Image
+        class:list={["background-image"]}
+        source={source}
+        alt={alt}
+        editable={false}
+        data-prop-src="backgroundImage.source"
+        data-prop-alt="backgroundImage.alt"
+        data-editable="image"
+        positionVertical={positionVertical}
+        positionHorizontal={positionHorizontal}
+        background={true}
+      />
+    )
+  }
+  {
+    backgroundColor && (
+      <div
+        aria-hidden="true"
+        class:list={["background", backgroundColor && `bg-${backgroundColor}`]}
+      />
+    )
+  }
+
+  {
+    (beforeContentBlocks || Astro.slots.has("before")) && (
+      <div class="before-content">
+        <Component contentBlocks={beforeContentBlocks} propName="beforeContentBlocks" />
+        <slot name="before" />
+      </div>
+    )
+  }
+
+  <div class="outer-content">
+    <div
+      class:list={[
+        "content",
+        paddingHorizontal && `pad-x-${paddingHorizontal}`,
+        paddingVertical && `pad-y-${paddingVertical}`,
+      ]}
+    >
+      <slot />
+      <Component contentBlocks={contentBlocks} propName="contentBlocks" />
+    </div>
+  </div>
+
+  {
+    (afterContentBlocks || Astro.slots.has("after")) && (
+      <div class="after-content">
+        <Component contentBlocks={afterContentBlocks} propName="afterContentBlocks" />
+        <slot name="after" />
+      </div>
+    )
+  }
+</Tag>
+
+<style lang="pcss">
+  a.card:hover {
+    transform: scale(1.05);
+  }
+
+  .card {
+    color: inherit;
+    display: block;
+    margin-top: var(--spacing-lg);
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+
+    /* Only apply margin when card is a direct child of main or editable-array-item */
+    /* Nested cards (inside containers, grids, etc.) won't get margin */
+    :where(.container, .card, .split) > .outer-content > .content &,
+    :where(.container, .card, .split) > .outer-content > .content > editable-array > editable-array-item > &,
+    .grid > editable-array > editable-array-item > &,
+    .grid > & {
+      margin-top: 0;
+    }
+
+    &.rounded {
+      border-radius: var(--radius-md);
+    }
+
+    &.border {
+      border: 1px solid var(--color-border);
+    }
+
+    > .outer-content {
+      height: 100%;
+    }
+
+    > .outer-content > .content {
+      height: 100%;
+      position: relative;
+      z-index: var(--layer-1);
+
+      > editable-array > editable-array-item:first-child > *:first-child,
+      > :not(editable-array):first-child {
+        margin-top: 0;
+      }
+
+      > editable-array > editable-array-item:last-child > *:last-child,
+      > :not(editable-array):last-child {
+        margin-bottom: 0;
+      }
+
+      &.pad-x-xs {
+        padding-inline: var(--spacing-xs);
+      }
+
+      &.pad-x-sm {
+        padding-inline: var(--spacing-sm);
+      }
+
+      &.pad-x-md {
+        padding-inline: var(--spacing-md);
+      }
+
+      &.pad-x-lg {
+        padding-inline: var(--spacing-lg);
+      }
+
+      &.pad-x-xl {
+        padding-inline: var(--spacing-xl);
+      }
+
+      &.pad-x-2xl {
+        padding-inline: var(--spacing-2xl);
+      }
+
+      &.pad-y-xs {
+        padding-block: var(--spacing-xs);
+      }
+
+      &.pad-y-sm {
+        padding-block: var(--spacing-sm);
+      }
+
+      &.pad-y-md {
+        padding-block: var(--spacing-md);
+      }
+
+      &.pad-y-lg {
+        padding-block: var(--spacing-lg);
+      }
+
+      &.pad-y-xl {
+        padding-block: var(--spacing-xl);
+      }
+
+      &.pad-y-2xl {
+        padding-block: var(--spacing-2xl);
+      }
+    }
+
+    > .before-content,
+    .after-content,
+    .outer-content {
+      position: relative;
+      z-index: var(--layer-2);
+    }
+
+    > .background {
+      inset: 0;
+      position: absolute;
+    }
+
+    > .background-image {
+      z-index: var(--layer-1);
+    }
+    
+    > .bg-base {
+      background-color: var(--color-bg);
+    }
+
+    > .bg-surface {
+      background-color: var(--color-bg-surface);
+    }
+
+    > .bg-accent {
+      background-color: var(--color-bg-accent);
+    }
+
+    > .bg-highlight {
+      background-color: var(--color-bg-highlight);
+    }
+  }
+</style>

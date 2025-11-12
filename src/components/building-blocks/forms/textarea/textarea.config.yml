@@ -1,0 +1,40 @@
+label: Textarea
+icon: text_ad
+description: "Form field for entering multi-line text."
+structures:
+  - formBlocks
+value:
+  _component: building-blocks/forms/textarea
+  label: My textarea
+  name: my_textarea
+  required: false
+  placeholder: null
+  value: null
+preview:
+  subtext:
+    - key: label
+    - key: name
+    - Enter a name for the textarea input.
+picker_preview:
+  text: Textarea
+  subtext: A multi-line text input field with an optional label.
+  icon: text_ad
+_inputs:
+  label:
+    type: text
+    comment: The label text for the textarea field.
+  name:
+    type: text
+    comment: A unique name attribute for the textarea field.
+    options:
+      required: true
+      required_message: Only form elements with a name will have their values passed when submitting a form.
+  required:
+    type: switch
+    comment: Whether the field is required.
+  placeholder:
+    type: text
+    comment: Placeholder text for the textarea field.
+  value:
+    type: text
+    comment: The default value for the textarea field.

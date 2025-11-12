@@ -1,0 +1,68 @@
+label: Testimonial
+icon: format_quote
+description: "Displays customer quotes and reviews."
+structures:
+  - containerBlocks
+  - cardBlocks
+  - splitBlocks
+  - gridItemBlocks
+  - accordionBlocks
+  - carouselBlocks
+  - contentSelectorBlocks
+value:
+  _component: building-blocks/core-elements/testimonial
+  text: "My testimonial text."
+  authorName: "Charlie Parker"
+  authorDescription: "Author"
+  authorImage: ""
+  alignX: start
+preview:
+  text:
+    - template: "Testimonial - {authorName}"
+    - Testimonial
+  subtext:
+    - key: text
+    - Add testimonial text
+picker_preview:
+  text: Testimonial
+  subtext: "A quotation with an author and author description."
+  icon: format_quote
+
+_inputs:
+  text:
+    type: markdown
+    comment: Quotation marks will be added around the text.
+    options:
+      bold: true
+      italic: true
+      link: true
+      strike: true
+      subscript: true
+      superscript: true
+      underline: true
+      undo: true
+      redo: true
+      removeformat: true
+      copyformatting: true
+  authorName:
+    comment: The person to whom you're attributing the quotation.
+    type: textarea
+  authorDescription:
+    comment: The role or company of the person.
+    type: textarea
+  authorImage:
+    comment: The image of the author.
+    type: image
+    options:
+      paths:
+        uploads: src/assets/images
+        static: ""
+  alignX:
+    comment: The horizontal alignment of the testimonial.
+    type: select
+    options:
+      values:
+        - id: start
+          name: Start
+        - id: center
+          name: Center

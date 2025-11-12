@@ -1,8 +1,8 @@
 ---
 const { component_examples = [], title = "", size = "md" } = Astro.props;
 
-import Button from "@components/elements/button/button.astro";
-import Segments from "@components/forms/segments/segments.astro";
+import Button from "@components/building-blocks/core-elements/button/button.astro";
+import Segments from "@components/building-blocks/forms/segments/segments.astro";
 import { Code } from "astro:components";
 import "./styles.css";
 import { formatBlocksAstro } from "./utils/astroFormatter";
@@ -24,8 +24,10 @@ Object.entries(componentImports).forEach(([path, obj]) => {
   }
 
   const componentName = parts.join("/");
+  const component = (obj as any).default;
 
-  components[componentName] = (obj as any).default;
+  // Store component with path
+  components[componentName] = component;
 });
 
 const viewerId = title.toLowerCase().replace(/\s+/g, "-");
@@ -73,9 +75,15 @@ const formattedCodeCache = await Promise.all(
             <div id={exampleId} class:list={[`preview`, `${idx === 0 ? "active" : ""}`]}>
               <div class="examples" style={bodyPadding}>
                 {blocksArray.map((block) => {
-                  const Component = components[block._component];
+                  const componentPath = block._component;
+                  const Component = components[componentPath];
 
-                  return Component ? <Component {...block} /> : null;
+                  if (!Component) {
+                    console.warn(`Component not found: ${componentPath}`);
+                    return null;
+                  }
+
+                  return <Component {...block} />;
                 })}
               </div>
             </div>

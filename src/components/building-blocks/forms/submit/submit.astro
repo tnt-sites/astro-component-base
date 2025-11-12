@@ -1,0 +1,41 @@
+---
+import Button from "@components/building-blocks/core-elements/button/button.astro";
+
+const {
+  text = "Submit",
+  variant = "primary",
+  size = "md",
+  iconName,
+  iconPosition = "before",
+  hideText = false,
+  disabled = false,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<Button
+  element="button"
+  type="submit"
+  text={text}
+  variant={variant}
+  size={size}
+  iconName={iconName}
+  iconPosition={iconPosition}
+  hideText={hideText}
+  disabled={disabled}
+  class:list={["submit", className]}
+  {...htmlAttributes}
+>
+  <slot />
+</Button>
+
+<style lang="pcss">
+  .submit {
+    margin-top: var(--spacing-md);
+  }
+</style>

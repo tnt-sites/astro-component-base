@@ -1,0 +1,45 @@
+label: Counter
+icon: speed
+description: "Animated counter for highlighting key stats or figures."
+structures:
+  - containerBlocks
+  - cardBlocks
+  - splitBlocks
+  - gridItemBlocks
+  - accordionBlocks
+  - carouselBlocks
+  - contentSelectorBlocks
+value:
+  _component: building-blocks/core-elements/counter
+  number: 100
+  prefix: "$"
+  suffix: "USD"
+  alignX: start
+preview:
+  subtext:
+    - template: "{prefix}{number}{suffix}"
+    - Add counter details
+picker_preview:
+  text: Counter
+  subtext: "Animated number that counts up when visible."
+  icon: speed
+
+_inputs:
+  number:
+    type: number
+    comment: The number to count to.
+  prefix:
+    comment: Text immediately before the number.
+  suffix:
+    comment: Text immediately after the number.
+  alignX:
+    comment: The horizontal alignment of the counter.
+    type: select
+    options:
+      values:
+        - id: start
+          name: Start
+        - id: center
+          name: Center
+        - id: end
+          name: End

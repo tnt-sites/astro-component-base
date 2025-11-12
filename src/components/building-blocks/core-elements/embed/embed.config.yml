@@ -1,0 +1,53 @@
+label: Embed
+icon: data_object
+description: "Responsive wrapper for third-party embeds."
+structures:
+  - containerBlocks
+  - cardBlocks
+  - splitBlocks
+  - gridItemBlocks
+  - accordionBlocks
+  - carouselBlocks
+  - contentSelectorBlocks
+value:
+  _component: building-blocks/core-elements/embed
+  source: ""
+  title: ""
+  aspectRatio: landscape
+preview:
+  icon: data_object
+  text: Embed
+  subtext:
+    - key: title
+    - key: source
+    - Add embed source
+picker_preview:
+  text: Embed
+  subtext: "Embed content from other sources."
+  icon: data_object
+
+_inputs:
+  source:
+    type: url
+    comment: The url source for the iframe.
+    options:
+      disable_upload_file: true
+      disable_direct_input: false
+      disable_upload_file_in_file_browser: true
+      hide_link_to_file: true
+      hide_link_to_page: false
+      hide_link_to_email_address: true
+      hide_link_to_telephone: true
+  aspectRatio:
+    type: select
+    comment: The aspect ratio of the embed.
+    options:
+      values:
+        - id: square
+          name: Square (1:1)
+        - id: landscape
+          name: Landscape (4:3)
+        - id: portrait
+          name: Portrait (3:4)
+        - id: widescreen
+          name: Widescreen (16:9)

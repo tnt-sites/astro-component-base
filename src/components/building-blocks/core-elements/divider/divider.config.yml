@@ -1,0 +1,47 @@
+label: Divider
+icon: horizontal_rule
+description: "Visual separator for dividing content sections."
+structures:
+  - containerBlocks
+  - cardBlocks
+  - splitBlocks
+  - gridItemBlocks
+  - accordionBlocks
+  - carouselBlocks
+  - contentSelectorBlocks
+value:
+  _component: building-blocks/core-elements/divider
+  paddingVertical: "lg"
+preview:
+  text: Divider
+  subtext:
+    - key: paddingVertical
+    - Add a padding value
+  icon: horizontal_rule
+picker_preview:
+  text: Divider
+  subtext: "A horizontal line to separate content."
+  icon: horizontal_rule
+
+_inputs:
+  paddingVertical:
+    comment: The space on the top and bottom of the horizontal line.
+    type: select
+    options:
+      values:
+        - id: none
+          name: None
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2xl
+        - id: 3xl
+          name: 3xl

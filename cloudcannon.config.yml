@@ -738,7 +738,7 @@ _structures:
         icon: vertical_split
         description: Two-column layout for side-by-side content.
         value:
-          _component: wrappers/split
+          _component: building-blocks/wrappers/split
           label: ''
           firstColumnContentBlocks: []
           secondColumnContentBlocks: []
@@ -818,7 +818,7 @@ _structures:
         icon: grid_on
         description: Arranges content into a grid that adapts to screen size.
         value:
-          _component: wrappers/grid
+          _component: building-blocks/wrappers/grid
           label: ''
           layout: center
           minItemWidth: 280
@@ -887,7 +887,7 @@ _structures:
         icon: view_sidebar
         description: Lets users switch between different content panels using tabs.
         value:
-          _component: wrappers/content-selector
+          _component: building-blocks/wrappers/content-selector
           label: ''
           items: []
           navigationPosition: start
@@ -923,7 +923,7 @@ _structures:
         icon: width_full
         description: Used to group and style large sections of a page.
         value:
-          _component: wrappers/container
+          _component: building-blocks/wrappers/container
           label: ''
           contentBlocks: []
           maxContentWidth: 2xl
@@ -1096,7 +1096,7 @@ _structures:
         icon: image
         description: Displays multiple items in a sliding gallery.
         value:
-          _component: wrappers/carousel
+          _component: building-blocks/wrappers/carousel
           label: ''
           slides: []
           autoPlay: false
@@ -1144,7 +1144,7 @@ _structures:
         icon: crop_square
         description: Groups related content within a section.
         value:
-          _component: wrappers/card
+          _component: building-blocks/wrappers/card
           label: null
           contentBlocks: []
           paddingHorizontal: sm
@@ -1312,7 +1312,7 @@ _structures:
         icon: rectangle
         description: Arranges buttons side by side with consistent spacing.
         value:
-          _component: wrappers/button-group
+          _component: building-blocks/wrappers/button-group
           label: null
           buttonBlocks: []
           direction: row
@@ -1362,7 +1362,7 @@ _structures:
         icon: expand_all
         description: Interactive component for showing and hiding content panels.
         value:
-          _component: wrappers/accordion
+          _component: building-blocks/wrappers/accordion
           label: null
           items: []
           openFirst: false
@@ -1398,7 +1398,7 @@ _structures:
         icon: edit_note
         description: Content component for markdown-formatted text.
         value:
-          _component: typography/text
+          _component: building-blocks/core-elements/text
           text: My text goes here.
           alignX: start
         preview:
@@ -1453,7 +1453,7 @@ _structures:
         icon: format_quote
         description: Displays customer quotes and reviews.
         value:
-          _component: typography/testimonial
+          _component: building-blocks/core-elements/testimonial
           text: My testimonial text.
           authorName: Charlie Parker
           authorDescription: Author
@@ -1513,7 +1513,7 @@ _structures:
         icon: view_headline
         description: Paragraph for plain text content with inline markdown formatting.
         value:
-          _component: typography/simple-text
+          _component: building-blocks/core-elements/simple-text
           text: My text goes here.
           alignX: start
           size: default
@@ -1569,7 +1569,7 @@ _structures:
         icon: list
         description: Lists items with icons as markers.
         value:
-          _component: typography/list
+          _component: building-blocks/core-elements/list
           items:
             - text: List item 1
               iconName: check
@@ -1636,7 +1636,7 @@ _structures:
         icon: title
         description: Headings for content hierarchy.
         value:
-          _component: typography/heading
+          _component: building-blocks/core-elements/heading
           text: My Heading
           level: h2
           size: default
@@ -1720,7 +1720,7 @@ _structures:
         icon: dns
         description: Lists term/definition pairs for structured content.
         value:
-          _component: typography/definition-list
+          _component: building-blocks/core-elements/definition-list
           items: []
           alignX: start
         preview:
@@ -1753,7 +1753,7 @@ _structures:
         icon: speed
         description: Animated counter for highlighting key stats or figures.
         value:
-          _component: typography/counter
+          _component: building-blocks/core-elements/counter
           number: 100
           prefix: $
           suffix: USD
@@ -1790,7 +1790,7 @@ _structures:
         icon: checklist_rtl
         description: Groups form fields into one submission area.
         value:
-          _component: forms/form
+          _component: building-blocks/forms/form
           action: ./
           formBlocks: []
         preview:
@@ -1815,7 +1815,7 @@ _structures:
         icon: videocam
         description: Video component for YouTube, Vimeo, and HTML5 sources.
         value:
-          _component: elements/video
+          _component: building-blocks/core-elements/video
           type: youtube
           id: ''
           title: ''
@@ -1877,7 +1877,7 @@ _structures:
         icon: space_bar
         description: Adds adjustable spacing between content sections.
         value:
-          _component: elements/spacer
+          _component: building-blocks/core-elements/spacer
           size: md
         preview:
           text: Spacer
@@ -1911,7 +1911,7 @@ _structures:
         icon: image
         description: Optimized image component for local and remote sources.
         value:
-          _component: elements/image
+          _component: building-blocks/core-elements/image
           source: ''
           alt: ''
           rounded: false
@@ -1989,7 +1989,7 @@ _structures:
         icon: star
         description: SVG icon component.
         value:
-          _component: elements/icon
+          _component: building-blocks/core-elements/icon
           name: bolt
           size: lg
           color: default
@@ -2077,7 +2077,7 @@ _structures:
         icon: data_object
         description: Responsive wrapper for third-party embeds.
         value:
-          _component: elements/embed
+          _component: building-blocks/core-elements/embed
           source: ''
           title: ''
           aspectRatio: landscape
@@ -2122,7 +2122,7 @@ _structures:
         icon: horizontal_rule
         description: Visual separator for dividing content sections.
         value:
-          _component: elements/divider
+          _component: building-blocks/core-elements/divider
           paddingVertical: lg
         preview:
           text: Divider
@@ -2210,7 +2210,7 @@ _structures:
     values:
       - label: Grid Item
         value:
-          _component: wrappers/grid/grid-item
+          _component: building-blocks/wrappers/grid/grid-item
           contentBlocks: []
         preview:
           icon: grid_view
@@ -2257,7 +2257,7 @@ _structures:
       - label: Content Selector Item
         icon: place_item
         value:
-          _component: wrappers/content-selector/content-selector-panel
+          _component: building-blocks/wrappers/content-selector/content-selector-panel
           title: null
           contentBlocks: null
         preview:
@@ -2288,7 +2288,7 @@ _structures:
     values:
       - label: Carousel Slide
         value:
-          _component: wrappers/carousel/carousel-slide
+          _component: building-blocks/wrappers/carousel/carousel-slide
           contentBlocks: []
         _inputs:
           _component:
@@ -2370,7 +2370,7 @@ _structures:
       - label: Item
         icon: place_item
         value:
-          _component: wrappers/accordion/accordion-item
+          _component: building-blocks/wrappers/accordion/accordion-item
           title: null
           contentBlocks: null
         _inputs:
@@ -2567,7 +2567,7 @@ _structures:
         icon: text_ad
         description: Form field for entering multi-line text.
         value:
-          _component: forms/textarea
+          _component: building-blocks/forms/textarea
           label: My textarea
           name: my_textarea
           required: false
@@ -2605,7 +2605,7 @@ _structures:
         icon: check
         description: Button for submitting a form.
         value:
-          _component: forms/submit
+          _component: building-blocks/forms/submit
           text: Submit
           variant: primary
           size: md
@@ -2685,7 +2685,7 @@ _structures:
         icon: view_list
         description: Form field for selecting one option from a list.
         value:
-          _component: forms/select
+          _component: building-blocks/forms/select
           label: null
           name: null
           required: false
@@ -2737,7 +2737,7 @@ _structures:
         icon: radio_button_partial
         description: Segmented control form field with connected buttons.
         value:
-          _component: forms/segments
+          _component: building-blocks/forms/segments
           title: null
           name: my_segments
           required: false
@@ -2785,7 +2785,7 @@ _structures:
         icon: rectangle
         description: Single text input form field.
         value:
-          _component: forms/input
+          _component: building-blocks/forms/input
           label: My input
           name: my_input
           type: text
@@ -2834,7 +2834,7 @@ _structures:
         icon: eye-slash
         description: Hidden form field for storing data.
         value:
-          _component: forms/hidden
+          _component: building-blocks/forms/hidden
           name: ''
           value: ''
         preview:
@@ -2856,7 +2856,7 @@ _structures:
         icon: upload
         description: Form field for uploading files.
         value:
-          _component: forms/file-upload
+          _component: building-blocks/forms/file-upload
           label: null
           name: null
           required: false
@@ -2894,7 +2894,7 @@ _structures:
         icon: calendar
         description: Form field for selecting a date.
         value:
-          _component: forms/date
+          _component: building-blocks/forms/date
           label: My date
           name: my_date
           required: false
@@ -2933,7 +2933,7 @@ _structures:
         icon: check_box
         description: Form field for selecting one or more options.
         value:
-          _component: forms/choice-group
+          _component: building-blocks/forms/choice-group
           title: null
           name: null
           required: false
@@ -3083,7 +3083,7 @@ _structures:
         icon: variables
         description: Clickable button for calls-to-action and navigation.
         value:
-          _component: elements/button
+          _component: building-blocks/core-elements/button
           text: My Button
           link: ''
           iconName: ''

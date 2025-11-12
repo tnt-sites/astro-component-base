@@ -8,27 +8,33 @@
     "path": "/component-library/guidelines/"
   },
   {
-    "group": "Typography",
-    "children": []
+    "group": "Building Blocks",
+    "children": [
+      {
+        "group": "Core Elements",
+        "children": []
+      },
+      {
+        "group": "Forms",
+        "children": []
+      },
+      {
+        "group": "Wrappers",
+        "children": []
+      }
+    ]
   },
   {
-    "group": "Elements",
-    "children": []
-  },
-  {
-    "group": "Wrappers",
-    "children": []
-  },
-  {
-    "group": "Forms",
-    "children": []
+    "group": "Page Sections",
+    "children": [
+      {
+        "group": "Heroes",
+        "children": []
+      }
+    ]
   },
   {
     "group": "Navigation",
-    "children": []
-  },
-  {
-    "group": "Blocks",
     "children": []
   }
 ]

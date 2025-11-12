@@ -1,0 +1,64 @@
+label: Simple Text
+icon: view_headline
+description: "Paragraph for plain text content with inline markdown formatting."
+structures:
+  - containerBlocks
+  - cardBlocks
+  - splitBlocks
+  - gridItemBlocks
+  - accordionBlocks
+  - carouselBlocks
+  - contentSelectorBlocks
+value:
+  _component: building-blocks/core-elements/simple-text
+  text: "My text goes here."
+  alignX: start
+  size: default
+preview:
+  text:
+    - key: text
+    - Simple Text
+  icon: view_headline
+picker_preview:
+  text: Simple Text
+  subtext: "Displays blocks of text for content sections with options for alignment and size."
+  icon: view_headline
+
+_inputs:
+  text:
+    comment: The text content of the simple text (inline markdown only).
+    type: textarea
+  alignX:
+    comment: The horizontal alignment of the text.
+    type: select
+    options:
+      values:
+        - id: start
+          name: Start
+        - id: center
+          name: Center
+        - id: end
+          name: End
+  size:
+    type: select
+    comment: The font size of the text.
+    options:
+      values:
+        - id: default
+          name: Default
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2xl
+        - id: 3xl
+          name: 3xl
+        - id: 4xl
+          name: 4xl

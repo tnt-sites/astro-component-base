@@ -14,23 +14,56 @@ export async function generateNavData(navData) {
     }
 
     if (parts.length >= 1) {
-      const category = parts[0];
-      const componentName = parts.length > 1 ? parts[1] : parts[0];
-      const path = `/component-library/components/${category}/${componentName}/`;
+      const path = `/component-library/components/${slug}/`;
+      const componentName = parts[parts.length - 1];
 
-      if (!componentsByCategory[category]) {
-        componentsByCategory[category] = {};
+      // Handle new nested structure: building-blocks/core-elements/button, page-sections/heroes/hero-split
+      // Navigation is special: files are at navigation/bar but displayed as flat under "Navigation"
+      if (parts.length >= 2) {
+        const topCategory = parts[0]; // building-blocks, page-sections, navigation
+        const subCategory = parts[1]; // core-elements, forms, wrappers, blocks, bar, footer, etc.
+
+        if (!componentsByCategory[topCategory]) {
+          componentsByCategory[topCategory] = {};
+        }
+
+        // Navigation is displayed as flat, so use "default" for all navigation components
+        if (topCategory === "navigation") {
+          if (!componentsByCategory[topCategory]["default"]) {
+            componentsByCategory[topCategory]["default"] = [];
+          }
+          componentsByCategory[topCategory]["default"].push({
+            name: component.data.title || componentName.replace(/-/g, " "),
+            path,
+            order: Number(component.data.order) || 999,
+          });
+        } else {
+          // For building-blocks and page-sections, use the subcategory
+          if (!componentsByCategory[topCategory][subCategory]) {
+            componentsByCategory[topCategory][subCategory] = [];
+          }
+          componentsByCategory[topCategory][subCategory].push({
+            name: component.data.title || componentName.replace(/-/g, " "),
+            path,
+            order: Number(component.data.order) || 999,
+          });
+        }
+      } else if (parts.length === 1) {
+        // Handle flat structure (legacy or single-level categories)
+        const category = parts[0];
+
+        if (!componentsByCategory[category]) {
+          componentsByCategory[category] = {};
+        }
+        if (!componentsByCategory[category]["default"]) {
+          componentsByCategory[category]["default"] = [];
+        }
+        componentsByCategory[category]["default"].push({
+          name: component.data.title || componentName.replace(/-/g, " "),
+          path,
+          order: Number(component.data.order) || 999,
+        });
       }
-
-      if (!componentsByCategory[category]["default"]) {
-        componentsByCategory[category]["default"] = [];
-      }
-
-      componentsByCategory[category]["default"].push({
-        name: component.data.title || componentName.replace(/-/g, " "),
-        path,
-        order: Number(component.data.order) || 999,
-      });
     }
   });
 
@@ -42,20 +75,23 @@ export async function generateNavData(navData) {
             name: section.group,
             path: "#",
             children: section.items.map((item) => {
-              if (item.items && Array.isArray(item.items)) {
+              // Handle nested items (like "Core Elements" with component items)
+              // Check if it's a group (has group property) or has items array
+              if (item.group || (item.items && Array.isArray(item.items))) {
                 return {
-                  name: item.name,
+                  name: item.group || item.name || "",
                   path: "#",
-                  children: item.items.map((subItem) => ({
+                  children: (item.items || []).map((subItem) => ({
                     name: subItem.name,
                     path: subItem.path,
                     children: [],
                   })),
                 };
               }
+              // Handle flat items (like navigation items without groups)
               return {
-                name: item.name,
-                path: item.path,
+                name: item.name || "",
+                path: item.path || "#",
                 children: [],
               };
             }),
@@ -77,51 +113,49 @@ export async function generateNavData(navData) {
 
   const populatedNavData = navData.map((section) => {
     if (section.group) {
-      const category = section.group.toLowerCase();
+      const category = section.group.toLowerCase().replace(/\s+/g, "-");
       const categoryData = componentsByCategory[category] || {};
 
-      if (category === "blocks" && categoryData.navigation) {
-        const navigationItems = categoryData.navigation.sort((a, b) => {
-          if (a.order !== b.order) {
-            return a.order - b.order;
+      // Handle nested structure (Building Blocks, Page Sections)
+      if (section.children && Array.isArray(section.children) && section.children.length > 0) {
+        const nestedItems = section.children.map((child) => {
+          if (child.group) {
+            const childCategory = child.group.toLowerCase().replace(/\s+/g, "-");
+            const childData = categoryData[childCategory] || [];
+            const sortedItems = childData.sort((a, b) => {
+              if (a.order !== b.order) {
+                return a.order - b.order;
+              }
+              return a.name.localeCompare(b.name);
+            });
+
+            return {
+              ...child,
+              items: sortedItems,
+            };
           }
-          return a.name.localeCompare(b.name);
+          return child;
         });
 
         return {
           ...section,
-          items: [
-            {
-              name: "Navigation",
-              items: navigationItems,
-            },
-            ...Object.entries(categoryData)
-              .filter(([key]) => key !== "navigation")
-              .map(([subcategory, items]) => ({
-                name: subcategory.charAt(0).toUpperCase() + subcategory.slice(1),
-                items: items.sort((a, b) => {
-                  if (a.order !== b.order) {
-                    return a.order - b.order;
-                  }
-                  return a.name.localeCompare(b.name);
-                }),
-              })),
-          ],
-        };
-      } else {
-        const items = categoryData.default || [];
-        const sortedItems = items.sort((a, b) => {
-          if (a.order !== b.order) {
-            return a.order - b.order;
-          }
-          return a.name.localeCompare(b.name);
-        });
-
-        return {
-          ...section,
-          items: sortedItems,
+          items: nestedItems,
         };
       }
+
+      // Handle flat structure (Navigation)
+      const items = categoryData.default || [];
+      const sortedItems = items.sort((a, b) => {
+        if (a.order !== b.order) {
+          return a.order - b.order;
+        }
+        return a.name.localeCompare(b.name);
+      });
+
+      return {
+        ...section,
+        items: sortedItems,
+      };
     }
 
     return section;

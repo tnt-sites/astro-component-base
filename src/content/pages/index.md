@@ -2,18 +2,18 @@
 _schema: default
 title: Your Site
 pageBlocks:
-  - _component: wrappers/container
+  - _component: building-blocks/wrappers/container
     label: ''
     contentBlocks:
-      - _component: typography/heading
+      - _component: building-blocks/core-elements/heading
         text: Welcome to your CloudCannon Starter Component site
         level: h1
         size: default
         alignX: center
         iconPosition: before
-      - _component: wrappers/button-group
+      - _component: building-blocks/wrappers/button-group
         buttonBlocks:
-          - _component: elements/button
+          - _component: building-blocks/core-elements/button
             text: View Components
             link: /component-library/
             iconName: ''

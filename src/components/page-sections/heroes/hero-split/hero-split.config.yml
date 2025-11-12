@@ -1,0 +1,49 @@
+label: Hero Split
+icon: hero
+description: "Prominent section block for landing pages."
+structures: []
+value:
+  _component: page-sections/heroes/hero-split
+  heading: ""
+  subtitle: ""
+  imageSource: ""
+  imageAlt: ""
+  buttonBlocks: []
+  reverse: false
+preview:
+  text:
+    - key: heading
+    - Hero
+  subtext:
+    - key: subtitle
+    - Add content to the hero
+picker_preview:
+  text: Hero Split
+  subtext: "Hero section with heading, subtitle, CTA buttons, and feature image."
+  icon: hero
+
+_inputs:
+  heading:
+    type: text
+    comment: "Main heading text for the hero section."
+  subtitle:
+    type: text
+    comment: "Subtitle text displayed below the main heading."
+  imageSource:
+    type: image
+    comment: "Feature image to display alongside the hero content."
+    options:
+      paths:
+        uploads: src/assets/images
+        static: ""
+  imageAlt:
+    type: text
+    comment: "Alt text for the feature image for accessibility."
+  buttonBlocks:
+    type: array
+    comment: "Array of button components for call-to-action buttons. See the Button component documentation for more information."
+    options:
+      structures: _structures.buttonBlocks
+  reverse:
+    type: switch
+    comment: "Whether to reverse the order of content and image (image first, content second)."

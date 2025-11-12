@@ -1,0 +1,71 @@
+label: Carousel
+icon: image
+description: "Displays multiple items in a sliding gallery."
+structures:
+  - containerBlocks
+  - splitBlocks
+  - contentSelectorBlocks
+value:
+  _component: building-blocks/wrappers/carousel
+  label: ""
+  slides: []
+  autoPlay: false
+  autoScroll: false
+  slideWidthPercent: 100
+  minSlideWidth: 0
+preview:
+  text:
+    - key: label
+    - Carousel
+  subtext:
+    - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
+    - Add slides to the carousel
+picker_preview:
+  text: Carousel
+  subtext: A carousel component for displaying slides with navigation controls
+  icon: image
+_inputs:
+  label:
+    comment: Optional label for the carousel to help identify it in the editor.
+    type: text
+  slides:
+    comment: Array of slides to display in the carousel.
+    type: array
+    options:
+      structures: _structures.slides
+  autoPlay:
+    comment: Enable auto-play functionality.
+    type: switch
+  autoScroll:
+    comment: Enable auto-scroll functionality.
+    type: switch
+  slideWidthPercent:
+    comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
+    type: range
+    options:
+      min: 0
+      max: 100
+      step: 1
+  minSlideWidth:
+    comment: Minimum width of slides in pixels. Prevents slides from getting too small.
+    type: number
+_structures:
+  slides:
+    values:
+      - label: Carousel Slide
+        value:
+          _component: building-blocks/wrappers/carousel/carousel-slide
+          contentBlocks: []
+        _inputs:
+          _component:
+            hidden: true
+          contentBlocks:
+            type: array
+            options:
+              structures: _structures.carouselBlocks
+        preview:
+          icon: transition_slide
+          text: Carousel Slide
+          subtext:
+            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
+            - Add one or more content blocks to the grid item

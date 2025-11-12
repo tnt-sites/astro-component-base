@@ -1,0 +1,94 @@
+label: Grid
+icon: grid_on
+description: "Arranges content into a grid that adapts to screen size."
+structures:
+  - containerBlocks
+  - splitBlocks
+  - carouselBlocks
+  - contentSelectorBlocks
+value:
+  _component: building-blocks/wrappers/grid
+  label: ""
+  layout: center
+  minItemWidth: 280
+  maxItemWidth: 400
+  items: []
+  gap: md
+preview:
+  text:
+    - key: label
+    - Grid
+  subtext:
+    - template: A grid containing {items|array_length} {"item"|pluralize=items}
+    - Add items to the grid
+picker_preview:
+  text: Grid
+  subtext: Responsive, centered grid with configurable sizing.
+  icon: grid_on
+_inputs:
+  label:
+    comment: Optional label for the grid to help identify it in the editor.
+    type: text
+  layout:
+    comment: Defines how grid items are arranged.
+    type: select
+    options:
+      values:
+        - id: start
+          name: Left Aligned
+        - id: center
+          name: Center Aligned
+        - id: uneven-columns
+          name: Uneven Columns
+  minItemWidth:
+    comment: The minimum width for each grid item in pixels.
+    type: number
+  maxItemWidth:
+    comment: The maximum width for each grid item in pixels.
+    type: number
+  items:
+    label: Grid Items
+    comment: Array of grid items, each containing content blocks to render.
+    type: array
+    options:
+      structures: _structures.gridItems
+  gap:
+    comment: The gap between grid items.
+    type: select
+    options:
+      values:
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2xl
+        - id: 3xl
+          name: 3xl
+_structures:
+  gridItems:
+    values:
+      - label: Grid Item
+        value:
+          _component: building-blocks/wrappers/grid/grid-item
+          contentBlocks: []
+        preview:
+          icon: grid_view
+          text: Grid Item
+          subtext:
+            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
+            - Add one or more content blocks to the grid item
+        _inputs:
+          _component:
+            hidden: true
+          contentBlocks:
+            type: array
+            comment: Content blocks to render within this grid item.
+            options:
+              structures: _structures.gridItemBlocks

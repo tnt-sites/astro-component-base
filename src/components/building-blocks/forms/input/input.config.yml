@@ -1,0 +1,51 @@
+label: Input
+icon: rectangle
+description: "Single text input form field."
+structures:
+  - formBlocks
+value:
+  _component: building-blocks/forms/input
+  label: My input
+  name: "my_input"
+  type: text
+  placeholder: null
+  required: false
+  value: null
+preview:
+  text:
+    - template: Input - {type}
+  subtext:
+    - key: label
+    - key: name
+    - A form input field with an optional label.
+picker_preview:
+  text: Input
+  subtext: A form input field with an optional label.
+  icon: rectangle
+_inputs:
+  label:
+    type: text
+    comment: The label text for the input field.
+  name:
+    type: text
+    comment: The name attribute for the input field.
+  type:
+    type: select
+    options:
+      values:
+        - text
+        - email
+        - password
+        - tel
+        - url
+        - number
+    comment: The input type.
+  placeholder:
+    type: text
+    comment: Placeholder text for the input field.
+  required:
+    type: switch
+    comment: Whether the field is required.
+  value:
+    type: text
+    comment: The default value for the input field.

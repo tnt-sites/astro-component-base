@@ -1,0 +1,56 @@
+---
+import Heading from "@components/building-blocks/core-elements/heading/heading.astro";
+import Image from "@components/building-blocks/core-elements/image/image.astro";
+import Text from "@components/building-blocks/core-elements/text/text.astro";
+import ButtonGroup from "@components/building-blocks/wrappers/button-group/button-group.astro";
+import Card from "@components/building-blocks/wrappers/card/card.astro";
+import Container from "@components/building-blocks/wrappers/container/container.astro";
+import Split from "@components/building-blocks/wrappers/split/split.astro";
+
+const {
+  heading = "",
+  subtitle = "",
+  imageSource = "",
+  imageAlt = "",
+  buttonBlocks = [],
+  reverse = false,
+  class: className,
+} = Astro.props;
+---
+
+<Container
+  maxContentWidth="2xl"
+  paddingHorizontal="md"
+  paddingVertical="xl"
+  class:list={["hero", className]}
+>
+  <Split
+    distributionMode="flexible-fixed"
+    fixedWidth="400"
+    verticalAlignment="center"
+    reverse={reverse}
+    minSplitWidth={710}
+    class="split-hero"
+  >
+    <div slot="first">
+      <Card>
+        <Heading level="h1" size="xl">{heading}</Heading>
+        <Text>{subtitle}</Text>
+        <ButtonGroup class="buttons-container" buttonBlocks={buttonBlocks} />
+      </Card>
+    </div>
+    <div slot="second">
+      <Image source={imageSource} alt={imageAlt} rounded="true" editable={false} />
+    </div>
+  </Split>
+</Container>
+
+<style lang="pcss">
+  .hero {
+    margin-top: var(--spacing-lg);
+
+    .buttons-container {
+      margin-top: var(--spacing-md);
+    }
+  }
+</style>

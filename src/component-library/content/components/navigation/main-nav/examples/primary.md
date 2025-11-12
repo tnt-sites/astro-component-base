@@ -25,14 +25,14 @@ blocks:
       path: "#"
       children: []
   buttonBlocks:
-    - _component: "elements/button"
+    - _component: "building-blocks/core-elements/button"
       link: "#"
       variant: "ghost"
       size: lg
       text: Search
       iconName: magnifying-glass
       hideText: true
-    - _component: "elements/button"
+    - _component: "building-blocks/core-elements/button"
       link: "#"
       text: "Careers"
       variant: "ghost"
