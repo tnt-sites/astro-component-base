@@ -8,6 +8,6 @@ blocks:
   paddingVertical: md
   contentSections:
     - _component: "building-blocks/core-elements/heading"
-      text: This container has md padding.
+      text: This Custom Section has md padding.
       level: h2
 ---

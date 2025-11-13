@@ -8,6 +8,6 @@ blocks:
   paddingVertical: md
   contentSections:
     - _component: "building-blocks/core-elements/heading"
-      text: This heading and container have a default color scheme.
+      text: This heading and Custom Section have a default color scheme.
       level: h2
 ---

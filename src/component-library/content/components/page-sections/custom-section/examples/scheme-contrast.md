@@ -9,6 +9,6 @@ blocks:
   colorScheme: contrast
   contentSections:
     - _component: "building-blocks/core-elements/heading"
-      text: This heading and container have a contrasting color scheme.
+      text: This heading and Custom Section have a contrasting color scheme.
       level: h2
 ---

@@ -7,7 +7,7 @@ blocks:
   maxContentWidth: sm
   contentSections:
     - _component: "building-blocks/core-elements/heading"
-      text: This container has sm max content width.
+      text: This Custom Section has sm max content width.
       level: h2
       alignX: center
       style: "border: 1px solid var(--color-border)"
