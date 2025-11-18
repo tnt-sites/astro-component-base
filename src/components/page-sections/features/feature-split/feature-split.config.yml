@@ -5,17 +5,17 @@ structures:
   - pageSections
 value:
   _component: page-sections/features/feature-split
-  eyebrow: ""
-  heading: ""
-  subtext: ""
+  eyebrow: "Eyebrow text"
+  heading: "Heading text"
+  subtext: "Subtext placeholder text that will be replaced with actual content."
   buttonSections: []
   features: []
-  imageSource: ""
-  imageAlt: ""
+  imageSource: "src/assets/images/component-library/dunedin-cliff.jpg"
+  imageAlt: "Feature image"
   imageAspectRatio: portrait
   imageRounded: true
   reverse: false
-  colorScheme:
+  colorScheme: default
   backgroundColor: base
 preview:
   text:
