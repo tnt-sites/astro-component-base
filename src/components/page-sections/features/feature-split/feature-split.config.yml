@@ -9,7 +9,6 @@ value:
   heading: "Heading text"
   subtext: "Subtext placeholder text that will be replaced with actual content."
   buttonSections: []
-  features: []
   imageSource: "/src/assets/images/component-library/dunedin-cliff.jpg"
   imageAlt: "Feature image"
   imageAspectRatio: portrait
@@ -42,12 +41,6 @@ _inputs:
     comment: Calls-to-action shown beneath the copy block.
     options:
       structures: _structures.buttonSections
-  features:
-    type: array
-    label: Feature List
-    comment: Feature cards rendered beside the copy.
-    options:
-      structures: _structures.featureSplitItems
   imageSource:
     type: image
     comment: Optional image displayed above the feature list.
@@ -103,66 +96,3 @@ _inputs:
           name: Accent
         - id: highlight
           name: Highlight
-_structures:
-  featureSplitItems:
-    values:
-      - label: Feature
-        icon: checklist
-        value:
-          title: ""
-          description: ""
-          iconName: ""
-          iconColor: default
-          iconBackground: false
-        preview:
-          text:
-            - key: title
-            - Feature
-          subtext:
-            - key: description
-            - Describe the feature
-          image:
-            - template: "src/icons/{iconName}.svg"
-        _inputs:
-          title:
-            type: text
-            comment: Name of the feature.
-          description:
-            type: textarea
-            comment: Supporting description for the feature.
-          iconName:
-            type: select
-            comment: Icon displayed with the feature.
-            options:
-              values: _select_data.icons
-              preview:
-                text:
-                  - key: name
-                image:
-                  - template: "src/icons/{id}.svg"
-          iconColor:
-            type: select
-            comment: Color accent applied to the icon.
-            options:
-              values:
-                - id: default
-                  name: Default
-                - id: blue
-                  name: Blue
-                - id: green
-                  name: Green
-                - id: yellow
-                  name: Yellow
-                - id: orange
-                  name: Orange
-                - id: red
-                  name: Red
-                - id: purple
-                  name: Purple
-                - id: pink
-                  name: Pink
-                - id: cyan
-                  name: Cyan
-          iconBackground:
-            type: switch
-            comment: Adds a subtle background shape behind the icon.

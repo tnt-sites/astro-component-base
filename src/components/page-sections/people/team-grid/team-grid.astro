@@ -2,7 +2,7 @@
 import CustomSection from "@builders/custom-section/custom-section.astro";
 import Heading from "@core-elements/heading/heading.astro";
 import SimpleText from "@core-elements/simple-text/simple-text.astro";
-import TeamItem from "@features/team-grid/team-item.astro";
+import TeamItem from "@page-sections/people/team-grid/team-item.astro";
 import GridItem from "@wrappers/grid/grid-item.astro";
 import Grid from "@wrappers/grid/grid.astro";
 
@@ -13,6 +13,7 @@ const {
   teamMembers = [],
   colorScheme,
   backgroundColor,
+  paddingVertical = "4xl",
   class: className,
 } = Astro.props;
 ---
@@ -21,7 +22,7 @@ const {
   class:list={["team-grid", className]}
   maxContentWidth="2xl"
   paddingHorizontal="lg"
-  paddingVertical="lg"
+  paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
 >
@@ -58,7 +59,7 @@ const {
       >
         {teamMembers.map((member, index) => (
           <GridItem>
-            <editable-array-item data-component="page-sections/features/team-grid/team-item">
+            <editable-array-item data-component="page-sections/people/team-grid/team-item">
               <TeamItem {...member} class="team-grid-item" data-index={index} />
             </editable-array-item>
           </GridItem>

@@ -4,7 +4,6 @@ import Heading from "@core-elements/heading/heading.astro";
 import Image from "@core-elements/image/image.astro";
 import SimpleText from "@core-elements/simple-text/simple-text.astro";
 import ButtonGroup from "@wrappers/button-group/button-group.astro";
-import Card from "@wrappers/card/card.astro";
 import Split from "@wrappers/split/split.astro";
 
 const {
@@ -13,18 +12,20 @@ const {
   subtitle = "",
   imageSource = "",
   imageAlt = "",
+  imageAspectRatio = "none",
   buttonSections = [],
   reverse = false,
   colorScheme,
   backgroundColor,
+  paddingVertical = "4xl",
   class: className,
 } = Astro.props;
 ---
 
 <CustomSection
-  maxContentWidth="2xl"
-  paddingHorizontal="md"
-  paddingVertical="xl"
+  maxContentWidth="xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   class:list={["hero", className]}
@@ -35,26 +36,27 @@ const {
     verticalAlignment="center"
     reverse={reverse}
     minSplitWidth={710}
+    gap="2xl"
     class="split-hero"
   >
-    <div slot="first">
-      <Card>
-        {eyebrow && <SimpleText class="eyebrow">{eyebrow}</SimpleText>}
-        <Heading level="h1" size="xl">{heading}</Heading>
-        <SimpleText class="subtext">{subtitle}</SimpleText>
-        <ButtonGroup class="buttons-container" buttonSections={buttonSections} />
-      </Card>
-    </div>
-    <div slot="second">
+    <Fragment slot="first">
+      {eyebrow && <SimpleText class="eyebrow">{eyebrow}</SimpleText>}
+      <Heading level="h1" size="2xl">{heading}</Heading>
+      <SimpleText class="subtext">{subtitle}</SimpleText>
+      <ButtonGroup class="buttons-container" buttonSections={buttonSections} />
+    </Fragment>
+    <Fragment slot="second">
       <Image
         source={imageSource}
         alt={imageAlt}
         rounded="true"
         editable={true}
+        aspectRatio={imageAspectRatio}
         data-prop-src="imageSource"
         data-prop-alt="imageAlt"
         data-editable="image"
+        priority={true}
       />
-    </div>
+    </Fragment>
   </Split>
 </CustomSection>

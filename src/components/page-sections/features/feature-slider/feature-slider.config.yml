@@ -1,0 +1,106 @@
+label: Feature Slider
+icon: view_carousel
+description: "Carousel of feature cards, ideal for showcasing key reasons or benefits."
+structures:
+  - pageSections
+value:
+  _component: page-sections/features/feature-slider
+  eyebrow: "Eyebrow text"
+  heading: "Heading text"
+  subtext: "Subtext placeholder text that will be replaced with actual content."
+  slides: []
+  colorScheme:
+  backgroundColor: base
+preview:
+  text:
+    - key: heading
+    - Feature Slider
+  subtext:
+    - template: Displays {slides|array_length} {"slide"|pluralize=slides}
+    - Add feature slides to the carousel
+picker_preview:
+  text: Feature Slider
+  subtext: "Carousel of feature-focused cards."
+  icon: view_carousel
+_inputs:
+  eyebrow:
+    type: text
+    comment: Optional eyebrow text displayed above the heading.
+  heading:
+    type: text
+    comment: Main heading for the slider section.
+  subtext:
+    type: textarea
+    comment: Supporting copy beneath the heading.
+  slides:
+    type: array
+    label: Slides
+    comment: Structured feature slides rendered inside the carousel.
+    options:
+      structures:
+        - label: Feature slide
+          icon: view_carousel
+          value:
+            eyebrow: ""
+            title: "Slide title"
+            description: "Short description for this slide."
+            imageSource: "/src/assets/images/component-library/sunset.jpg"
+            imageAlt: "Slide image alt text"
+            minSplitWidth: 0
+          preview:
+            text:
+              - key: title
+              - Feature slide
+            subtext:
+              - key: description
+              - Add description for this slide
+          _inputs:
+            eyebrow:
+              type: text
+              comment: Optional eyebrow text displayed above the title.
+            title:
+              type: text
+              comment: Heading text shown on the slide.
+            description:
+              type: textarea
+              comment: Supporting body copy shown on the slide.
+            imageSource:
+              type: image
+              comment: Image shown on the side of the slide.
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            imageAlt:
+              type: text
+              comment: Alt text describing the slide image.
+            minSplitWidth:
+              type: number
+              comment: Container width (in px) before the split stacks vertically.
+  colorScheme:
+  colorScheme:
+    type: select
+    comment: Color scheme theme applied to the section wrapper.
+    options:
+      values:
+        - id: default
+          name: Default
+        - id: contrast
+          name: Contrast
+  backgroundColor:
+    type: select
+    comment: Background color for the section.
+    options:
+      values:
+        - id: none
+          name: None
+        - id: base
+          name: Base
+        - id: surface
+          name: Surface
+        - id: accent
+          name: Accent
+        - id: highlight
+          name: Highlight
+
+

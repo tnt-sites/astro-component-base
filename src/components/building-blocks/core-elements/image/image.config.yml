@@ -17,6 +17,7 @@ value:
   aspectRatio: none
   positionVertical: center
   positionHorizontal: center
+  priority: false
 preview:
   icon: image
   text: Image

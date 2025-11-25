@@ -15,6 +15,7 @@ value:
   minSplitWidth: 760
   verticalAlignment: center
   reverse: false
+  gap: lg
 preview:
   text:
     - key: label
@@ -81,3 +82,22 @@ _inputs:
   reverse:
     comment: Swaps the order of the columns.
     type: switch
+  gap:
+    comment: Spacing between the two columns.
+    type: select
+    options:
+      values:
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2XL
+        - id: 3xl
+          name: 3XL

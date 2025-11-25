@@ -209,6 +209,32 @@ const Tag = link ? "a" : "div";
         padding-block: var(--spacing-2xl);
       }
 
+      @media (--to-sm) {
+        &.pad-y-xs {
+          padding-block: var(--spacing-xs);
+        }
+
+        &.pad-y-sm {
+          padding-block: var(--spacing-xs);
+        }
+
+        &.pad-y-md {
+          padding-block: var(--spacing-sm);
+        }
+
+        &.pad-y-lg {
+          padding-block: var(--spacing-md);
+        }
+
+        &.pad-y-xl {
+          padding-block: var(--spacing-md);
+        }
+
+        &.pad-y-2xl {
+          padding-block: var(--spacing-lg);
+        }
+      }
+
       &.max-width-xs {
         max-width: var(--content-width-xs);
       }

@@ -13,6 +13,7 @@ const {
   features = [],
   colorScheme,
   backgroundColor,
+  paddingVertical = "4xl",
   class: className,
 } = Astro.props;
 ---
@@ -21,7 +22,7 @@ const {
   class:list={["feature-grid", className]}
   maxContentWidth="2xl"
   paddingHorizontal="lg"
-  paddingVertical="lg"
+  paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
 >

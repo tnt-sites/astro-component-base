@@ -1,0 +1,65 @@
+---
+title: "Accessibility Shouldn't Be an Afterthought"
+description: "Good defaults make inclusive design automatic."
+pubDate: 2025-12-10
+author: "Helen Kim"
+image: "/src/assets/images/component-library/quiet-street.jpg"
+tags: ["Accessibility", "Inclusive Design"]
+---
+
+Every component in this starter ships with accessibility built in. Semantic HTML, proper ARIA where needed, keyboard navigation that works out of the box. We didn't add these features as extras, they're just how the components work. When accessibility is the default, you don't have to remember to add it later. Your site is better for everyone, and you didn't have to think about it.
+
+The most effective accessibility features are the ones users never notice. When a screen reader user navigates your site and finds clear headings, descriptive link text, and logical content flow, they experience your content the way you intended. When someone navigates entirely with a keyboard and every interactive element is reachable and usable, they can accomplish their goals without friction. These experiences feel seamless because the accessibility was considered from the start, not patched in afterward.
+
+<TestimonialSection
+  authorDescription="Accessibility Advocate, Inclusive Design Co"
+  authorImage="/src/assets/images/component-library/profile4.jpg"
+  authorName="Emma Rodriguez"
+  paddingVertical="sm"
+  class="wide"
+>
+  Finally, a starter that treats accessibility as a foundation, not an add-on. Every component works
+  with screen readers and keyboards from day one. It's refreshing to work with a system that values
+  inclusive design by default.
+</TestimonialSection>
+
+Building accessibility into your defaults changes how you think about components. Instead of asking "How do I make this accessible?" you start with "How should this work for everyone?" This shift in perspective leads to better design decisions. A button component that's accessible by default forces you to consider its states, its focus indicators, and its purpose. A form component that handles validation and error messages properly from the start creates a better experience for all users, not just those using assistive technologies.
+
+The technical implementation of accessibility defaults is straightforward when it's part of your foundation. Semantic HTML elements carry meaning that screen readers understand automatically. ARIA attributes enhance that meaning where needed, but they're used sparingly because the HTML already communicates structure. Keyboard navigation works because interactive elements are properly focusable and have visible focus states. These aren't special features, they're just good HTML and CSS practices applied consistently.
+
+Here's what accessible by default looks like:
+
+```astro
+---
+const { label, name, required = false } = Astro.props;
+---
+
+<label for={name}>
+  {label}
+  {required && <span aria-label="required">*</span>}
+</label>
+<input type="text" id={name} name={name} required={required} aria-required={required} />
+```
+
+Semantic HTML, proper labels, ARIA where needed. No extra work, just good defaults.
+
+When accessibility is built in, it becomes part of your development muscle memory. You don't have to remember to add alt text because the image component requires it. You don't have to think about form labels because they're part of the form component's structure. You don't have to test keyboard navigation separately because it's already working. This automatic inclusion means your sites are accessible by default, and that's how it should be.
+
+<CenterCta
+  buttonSections={[
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "Explore Components",
+      variant: "primary",
+      size: "md",
+      link: "/component-library/",
+    },
+  ]}
+  colorScheme="contrast"
+  backgroundColor="base"
+  heading="Accessibility built in, not bolted on"
+  subtext="Every component works for everyone from the start."
+  rounded="true"
+  class="wide"
+  style="margin-top: var(--spacing-xl);"
+/>

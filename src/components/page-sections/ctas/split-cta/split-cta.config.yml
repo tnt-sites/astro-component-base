@@ -21,6 +21,7 @@ value:
   reverse: false
   colorScheme: default
   backgroundColor: base
+  rounded: false
 preview:
   text:
     - key: heading
@@ -81,3 +82,6 @@ _inputs:
           name: Accent
         - id: highlight
           name: Highlight
+  rounded:
+    type: boolean
+    comment: Add rounded corners to the CTA section.

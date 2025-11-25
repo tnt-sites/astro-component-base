@@ -17,17 +17,16 @@ const {
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
-
-const cardClasses = ["feature-item", className].filter(Boolean).join(" ");
 ---
 
 <Card
   {...htmlAttributes}
-  class={cardClasses || undefined}
+  class:list={["feature-item", className]}
   paddingHorizontal="lg"
   paddingVertical="lg"
   rounded
   border
+  backgroundColor="base"
 >
   {
     iconName && (
@@ -36,7 +35,7 @@ const cardClasses = ["feature-item", className].filter(Boolean).join(" ");
         name={iconName}
         size="lg"
         color={iconColor}
-        background={iconBackground}
+        background={true}
         alignX="start"
       />
     )

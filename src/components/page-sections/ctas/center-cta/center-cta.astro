@@ -10,22 +10,27 @@ const {
   buttonSections = [],
   colorScheme,
   backgroundColor,
+  paddingVertical = "4xl",
   class: className,
+  rounded = false,
+  ...rest
 } = Astro.props;
 ---
 
 <CustomSection
   class:list={["center-cta", className]}
-  maxContentWidth="2xl"
+  maxContentWidth="lg"
   paddingHorizontal="lg"
-  paddingVertical="lg"
+  paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  rounded={rounded}
+  {...rest}
 >
   <div class="stack">
     {
       heading && (
-        <Heading level="h2" size="lg" alignX="center">
+        <Heading level="h2" size="xl" alignX="center">
           {heading}
         </Heading>
       )

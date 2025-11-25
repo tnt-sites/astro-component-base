@@ -57,7 +57,10 @@ export async function formatBlocksAstro(blocks: any): Promise<string> {
         }
       }
 
-      // Handle child components based on metadata
+      if (block.formBlocks) {
+        uniqueComponents.add("building-blocks/forms/form");
+      }
+
       if (block._component) {
         const metadata = metadataMap.get(block._component);
 

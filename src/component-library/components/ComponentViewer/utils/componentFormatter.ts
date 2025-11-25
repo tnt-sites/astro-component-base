@@ -71,6 +71,11 @@ export function formatComponentWithSlots(
     delete props.formBlocks;
   }
 
+  // If formBlocks exists, we'll handle it as slot content, so remove it from props
+  if (block.formBlocks) {
+    delete props.formBlocks;
+  }
+
   // Don't delete items for content-selector as it uses the prop internally
   if (!componentPath.includes("content-selector")) {
     delete props.items;
@@ -146,6 +151,28 @@ export function formatComponentWithSlots(
 
     return `${indent}<${componentName}${propsString ? ` ${propsString}` : ""}>
 ${nestedContent}
+${indent}</${componentName}>`;
+  } else if (block.formBlocks) {
+    // Handle formBlocks as slot content - render as Form with child components
+    const formAction = block.formAction || "./";
+    const formBlocksArray = Array.isArray(block.formBlocks) ? block.formBlocks : [block.formBlocks];
+    const FormComponentName = getComponentDisplayName("building-blocks/forms/form");
+    
+    const formChildren = formBlocksArray
+      .map((formBlock) =>
+        formatComponentWithSlots(
+          formBlock,
+          indentLevel + 2,
+          componentMetadata,
+          nestedBlockProperties
+        )
+      )
+      .join("\n");
+
+    return `${indent}<${componentName}${propsString ? ` ${propsString}` : ""}>
+${indent}  <${FormComponentName} action="${formAction}">
+${formChildren}
+${indent}  </${FormComponentName}>
 ${indent}</${componentName}>`;
   } else if (
     componentPath.includes("split") &&

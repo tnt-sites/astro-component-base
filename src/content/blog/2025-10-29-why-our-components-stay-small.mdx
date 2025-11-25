@@ -1,0 +1,74 @@
+---
+title: "Designing Components That Don't Blow Up Over Time"
+description: "Simple components survive redesigns. Complex ones don't."
+pubDate: 2025-10-29
+author: "Helen Kim"
+image: "/src/assets/images/component-library/quiet-street.jpg"
+tags: ["Components", "Design Systems"]
+---
+
+We kept each component small and predictable because that's what scales. When a component does exactly one thing, it doesn't become a fragile mess the moment your design shifts. Editors get clean controls. Developers get clean APIs. And content teams can rearrange sections without accidentally reinventing the wheel. That's the whole philosophy: small pieces that work everywhere.
+
+Small components are easier to understand because they have clear boundaries. When you look at a component, you immediately know what it does and how it works. There's no hidden complexity, no unexpected side effects, no dependencies that aren't obvious. This clarity makes components easier to modify because you can see the full picture at once. You're not trying to understand how multiple responsibilities interact within a single component.
+
+Take this button component as an example:
+
+```astro
+---
+const { text, variant = "primary", link, ...rest } = Astro.props;
+---
+
+<a href={link} class:list={["button", `button--${variant}`]} {...rest}>
+  {text}
+</a>
+```
+
+One responsibility: render a button. Clear props, obvious behavior, easy to modify. That's the pattern.
+
+Predictability comes from consistency. When every component follows the same patterns, you can work with them confidently. The API is familiar, the structure is consistent, and the behavior is expected. This predictability means you spend less time reading documentation and more time building features. New team members can contribute quickly because the patterns are obvious from the first component they encounter.
+
+<TestimonialSection
+  authorDescription="Design System Lead, Enterprise Inc"
+  authorImage="/src/assets/images/component-library/profile3.jpg"
+  authorName="Michael Torres"
+  paddingVertical="sm"
+  class="wide"
+>
+  Small components changed everything for our team. We can rearrange layouts without breaking functionality, and editors love the focused controls. It's the most maintainable system we've ever worked with.
+</TestimonialSection>
+
+When components do one thing well, they become reliable building blocks. You can combine them in different ways to create new layouts without modifying the components themselves. A hero section component works the same whether it's on the homepage or a landing page. A card component maintains its behavior whether it's in a grid or a list. This reliability means you can experiment with layouts without worrying about breaking functionality.
+
+Editors benefit from small components because the controls are focused. Instead of a complex component with dozens of options, they get simple components with clear purposes. A heading component has heading-specific controls. A button component has button-specific controls. This focus makes the editing experience intuitive because each component's purpose is obvious from its controls.
+
+Developers benefit from clean APIs that are easy to extend. When a component has a single responsibility, its API is straightforward. You know exactly what props it accepts and what it will render. This clarity makes it easy to customize components for specific use cases without modifying the core component. You can wrap it, extend it, or compose it with other components, all while maintaining the original component's reliability.
+
+The philosophy of small pieces that work everywhere creates a system that's both flexible and maintainable. You can rearrange components to create new page layouts. You can combine them to create new patterns. You can modify them for specific needs without affecting other uses. This flexibility means your component library grows in capability without growing in complexity.
+
+<SplitCta
+  buttonSections={[
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "Browse Components",
+      variant: "primary",
+      size: "md",
+      link: "/component-library/",
+    },
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "View Examples",
+      variant: "secondary",
+      size: "md",
+      link: "/component-library/guidelines",
+    },
+  ]}
+  heading="Build with small, focused components"
+  imageAlt="Component system illustration."
+  imageSource="/src/assets/images/component-library/castle.jpg"
+  subtext="Components that do one thing well."
+  class="wide"
+  colorScheme="contrast"
+  backgroundColor="surface"
+  style="margin-top: var(--spacing-xl);"
+  rounded="true"
+/>

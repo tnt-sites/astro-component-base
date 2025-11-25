@@ -108,7 +108,6 @@ _structures:
           description: "Feature description placeholder text that will be replaced with actual content."
           iconName: "bolt"
           iconColor: yellow
-          iconBackground: true
         preview:
           text:
             - key: title
@@ -158,6 +157,3 @@ _structures:
                   name: Pink
                 - id: cyan
                   name: Cyan
-          iconBackground:
-            type: switch
-            comment: Adds a subtle background shape behind the icon.

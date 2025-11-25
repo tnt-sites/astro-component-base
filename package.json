@@ -3,7 +3,13 @@
   "type": "module",
   "version": "1.0.0",
   "description": "A modern design system built with Astro, featuring design tokens, components, and comprehensive documentation",
-  "keywords": ["design-system", "astro", "components", "css", "design-tokens"],
+  "keywords": [
+    "design-system",
+    "astro",
+    "components",
+    "css",
+    "design-tokens"
+  ],
   "author": "Your Name",
   "license": "MIT",
   "scripts": {
@@ -25,6 +31,7 @@
     "format:fix": "prettier --write ."
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.12",
     "@astrojs/sitemap": "^3.5.1",
     "@choctawnationofoklahoma/lite-vimeo": "^1.3.1",
     "@cloudcannon/editable-regions": "github:CloudCannon/editable-regions#fix/astro-and-array-fixes",
@@ -32,6 +39,7 @@
     "@justinribeiro/lite-youtube": "^1.8.2",
     "@types/js-yaml": "^4.0.9",
     "astro": "^5.12.9",
+    "astro-auto-import": "^0.4.5",
     "astro-icon": "^1.1.5",
     "astro-seo": "^0.8.4",
     "autoprefixer": "^10.4.21",
@@ -76,9 +84,9 @@
     "node": "24.10.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.24.0",
-    "@rollup/rollup-win32-x64-msvc": "^4.24.0",
     "@img/sharp-linux-x64": "^0.33.5",
-    "@img/sharp-linuxmusl-x64": "^0.33.5"
+    "@img/sharp-linuxmusl-x64": "^0.33.5",
+    "@rollup/rollup-linux-x64-gnu": "^4.24.0",
+    "@rollup/rollup-win32-x64-msvc": "^4.24.0"
   }
 }

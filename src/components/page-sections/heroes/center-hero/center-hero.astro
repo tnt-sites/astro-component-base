@@ -11,6 +11,7 @@ const {
   buttonSections = [],
   colorScheme,
   backgroundColor,
+  paddingVertical = "4xl",
   class: className,
 } = Astro.props;
 ---
@@ -19,7 +20,7 @@ const {
   class:list={["center-hero", className]}
   maxContentWidth="2xl"
   paddingHorizontal="lg"
-  paddingVertical="lg"
+  paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
 >
@@ -30,7 +31,7 @@ const {
       </SimpleText>
     )
   }
-  <Heading level="h1" size="xl" alignX="center">
+  <Heading level="h1" size="2xl" alignX="center">
     {heading}
   </Heading>
   {

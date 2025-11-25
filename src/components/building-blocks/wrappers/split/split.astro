@@ -9,6 +9,7 @@ const {
   reverse = false,
   fixedWidth,
   minSplitWidth = 700,
+  gap = "lg",
   class: className,
   label,
   ...rest
@@ -57,7 +58,14 @@ const splitId = `split-${crypto.randomUUID()}`;
 ---
 
 <section
-  class:list={["split", `align-${verticalAlignment}`, finalDistributionMode, className]}
+  class:list={[
+    "split",
+    `align-${verticalAlignment}`,
+    finalDistributionMode,
+    className,
+    `gap-${gap}`,
+    { reversed: reverse },
+  ]}
   data-split-id={splitId}
   style={fixedWidth ? `--split-fixed-width: ${fixedWidth}px;` : ""}
   {...htmlAttributes}
@@ -95,6 +103,12 @@ const splitId = `split-${crypto.randomUUID()}`;
       .split[data-split-id="${splitId}"] {
         grid-template-columns: var(--split-columns-mobile);
       }
+      .split.reversed[data-split-id="${splitId}"] .pane.first {
+        order: 2;
+      }
+      .split.reversed[data-split-id="${splitId}"] .pane.second {
+        order: 1;
+      }
     }
   `}
     />
@@ -104,15 +118,72 @@ const splitId = `split-${crypto.randomUUID()}`;
 <style lang="pcss">
 
   .split {
-    --gap-size: var(--spacing-lg);
     --split-columns-mobile: 1fr;
     --split-columns-desktop: 1fr 1fr;
     --split-fixed-width: auto;
 
     display: grid;
-    gap: var(--gap-size);
+    gap: var(--spacing-lg);
     grid-template-columns: var(--split-columns-desktop);
     margin-top: var(--spacing-lg);
+
+    &.gap-xs {
+      gap: var(--spacing-xs);
+    }
+
+    &.gap-sm {
+      gap: var(--spacing-sm);
+    }
+
+    &.gap-md {
+      gap: var(--spacing-md);
+    }
+
+    &.gap-lg {
+      gap: var(--spacing-lg);
+    }
+
+    &.gap-xl {
+      gap: var(--spacing-xl);
+    }
+
+    &.gap-2xl {
+      gap: var(--spacing-2xl);
+    }
+
+    &.gap-3xl {
+      gap: var(--spacing-3xl);
+    }
+
+    @media (--to-sm) {
+      &.gap-xs {
+        gap: var(--spacing-xs);
+      }
+
+      &.gap-sm {
+        gap: var(--spacing-xs);
+      }
+
+      &.gap-md {
+        gap: var(--spacing-sm);
+      }
+
+      &.gap-lg {
+        gap: var(--spacing-md);
+      }
+
+      &.gap-xl {
+        gap: var(--spacing-md);
+      }
+
+      &.gap-2xl {
+        gap: var(--spacing-lg);
+      }
+
+      &.gap-3xl {
+        gap: var(--spacing-xl);
+      }
+    }
 
     &.align-top {
       align-items: start;
@@ -129,8 +200,8 @@ const splitId = `split-${crypto.randomUUID()}`;
     &.align-stretch {
       align-items: stretch;
 
-      > .pane > *:not(editable-array):only-child,
-      > .pane > editable-array > editable-array-item:only-child > * {
+      > .pane > :global(*:not(editable-array):only-child),
+      > .pane > :global(editable-array > editable-array-item:only-child > *) {
         height: 100%;
       }
     }

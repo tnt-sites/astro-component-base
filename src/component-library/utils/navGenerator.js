@@ -7,6 +7,7 @@ const DISPLAY_NAME_OVERRIDES = {
 
 const formatDisplayName = (value = "") => {
   const lower = value.toLowerCase();
+
   if (DISPLAY_NAME_OVERRIDES[lower]) {
     return DISPLAY_NAME_OVERRIDES[lower];
   }
@@ -144,6 +145,10 @@ export async function generateNavData(navData) {
         return a.name.localeCompare(b.name);
       });
 
+      const subcategoryOrder = Array.isArray(section.subcategoryOrder)
+        ? section.subcategoryOrder
+        : [];
+
       const nestedItems = subcategories.map((subCategory) => {
         const childData = categoryData[subCategory] || [];
         const sortedItems = childData.sort((a, b) => {
@@ -154,14 +159,40 @@ export async function generateNavData(navData) {
         });
 
         const displayName = formatDisplayName(subCategory);
+        const orderIndex = subcategoryOrder.indexOf(subCategory);
+        const hasExplicitOrder = orderIndex !== -1;
+        const order = hasExplicitOrder ? orderIndex : 999;
 
         return {
           group: displayName,
           items: sortedItems,
+          order,
+          hasExplicitOrder,
+          subCategory,
         };
       });
 
-      const allItems = [...sortedFlatItems, ...nestedItems];
+      nestedItems.sort((a, b) => {
+        if (a.hasExplicitOrder && !b.hasExplicitOrder) {
+          return -1;
+        }
+        if (!a.hasExplicitOrder && b.hasExplicitOrder) {
+          return 1;
+        }
+
+        if (a.hasExplicitOrder && b.hasExplicitOrder) {
+          if (a.order !== b.order) {
+            return a.order - b.order;
+          }
+        }
+        return a.group.localeCompare(b.group);
+      });
+
+      const cleanedNestedItems = nestedItems.map(
+        ({ order, hasExplicitOrder, subCategory, ...item }) => item
+      );
+
+      const allItems = [...sortedFlatItems, ...cleanedNestedItems];
 
       return {
         ...section,

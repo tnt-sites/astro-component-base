@@ -102,10 +102,10 @@ const carouselStyles = `
     </div>
   </div>
 
-  <div class="controls">
+  <div class="controls-wrapper">
     <Button
       iconName="arrow-left"
-      size="lg"
+      size="md"
       variant="tertiary"
       hideText={true}
       aria-label="Previous slide"
@@ -113,9 +113,11 @@ const carouselStyles = `
       element="button"
     />
 
+    <div class="indicators"></div>
+
     <Button
       iconName="arrow-right"
-      size="lg"
+      size="md"
       variant="tertiary"
       hideText={true}
       aria-label="Next slide"
@@ -123,8 +125,6 @@ const carouselStyles = `
       element="button"
     />
   </div>
-
-  <div class="indicators"></div>
 </section>
 
 <script>
@@ -140,12 +140,13 @@ const carouselStyles = `
         return;
       }
 
-      const viewport = carousel.querySelector(".viewport");
+      const viewport = carousel.querySelector(".viewport") as HTMLElement;
       const track = viewport?.querySelector(".track");
       const slides = track?.querySelectorAll(".slide");
-      const indicatorsContainer = carousel.querySelector(".indicators");
+      const controlsWrapper = carousel.querySelector(".controls-wrapper");
+      const indicatorsContainer = controlsWrapper?.querySelector(".indicators");
 
-      if (!viewport || !track || !slides.length) {
+      if (!viewport || !track || !slides || !slides.length) {
         console.warn("Carousel: Missing required elements");
         return;
       }
@@ -189,8 +190,8 @@ const carouselStyles = `
       carousel.setAttribute("data-embla-initialized", "true");
 
       // Navigation
-      const prevButton = carousel.querySelector(".prev");
-      const nextButton = carousel.querySelector(".next");
+      const prevButton = carousel.querySelector(".prev") as HTMLButtonElement;
+      const nextButton = carousel.querySelector(".next") as HTMLButtonElement;
 
       const updateButtons = () => {
         if (prevButton) prevButton.disabled = !embla.canScrollPrev();
@@ -272,42 +273,40 @@ const carouselStyles = `
       }
     }
 
-    > .controls {
+    > .controls-wrapper {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      position: absolute;
-      top: 50%;
-      left: var(--spacing-md);
-      right: var(--spacing-md);
-      transform: translateY(-50%);
-      z-index: 10;
-      pointer-events: none;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-top: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
     }
 
-    > .controls > :global(.prev),
-    > .controls > :global(.next) {
+    > .controls-wrapper > :global(.prev),
+    > .controls-wrapper > :global(.next) {
       pointer-events: auto;
       border-radius: var(--radius-full);
       background-color: var(--color-bg);
+      flex-shrink: 0;
 
       &:hover {
         background-color: var(--color-bg-surface);
       }
     }
 
-    > .indicators {
+    > .controls-wrapper > .indicators {
       display: flex;
       justify-content: center;
-      margin-top: var(--spacing-sm);
-      margin-bottom: var(--spacing-sm);
+      gap: var(--spacing-sm);
     }
 
-    > .indicators > :global(.indicator) {
+    > .controls-wrapper > .indicators > :global(.indicator) {
       border-radius: var(--radius-full);
       width: 8px;
-      height: 8px;
-      margin: 0 var(--spacing-xs);
+      aspect-ratio: 1/1;
+      padding: 0;
+      min-width: 0;
+      min-height: 0;
       transition:
         transform var(--animation-normal) ease,
         background-color var(--animation-normal) ease;
@@ -321,13 +320,14 @@ const carouselStyles = `
     }
 
     &[data-show-indicators="false"] {
-      > .indicators {
+      > .controls-wrapper > .indicators {
         display: none;
       }
     }
 
     &[data-show-arrows="false"] {
-      > .controls {
+      > .controls-wrapper > :global(.prev),
+      > .controls-wrapper > :global(.next) {
         display: none;
       }
     }

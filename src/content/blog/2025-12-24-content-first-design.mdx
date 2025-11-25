@@ -1,0 +1,72 @@
+---
+title: "Designing Around Content, Not Components"
+description: "Start with what you're saying, then build the structure."
+pubDate: 2025-12-24
+author: "Helen Kim"
+image: "/src/assets/images/component-library/castle.jpg"
+tags: ["Content Strategy", "Design"]
+---
+
+This starter encourages content-first thinking. Components are flexible containers that adapt to your content, not rigid boxes that force content to fit. When you start with the message, the design follows naturally. That's why our components are small and composable. They're meant to serve your content, not dictate it.
+
+Traditional design workflows often begin with wireframes and component libraries. Designers create beautiful, pixel-perfect layouts, and then content creators are asked to fill in the blanks. This approach leads to awkward compromises—content gets truncated, stretched, or padded with filler text just to fit the predetermined structure. The result is a website that looks polished but feels hollow, where the design overshadows the message instead of amplifying it.
+
+Content-first design flips this process on its head. Instead of asking "What components do we need?", you start by asking "What story are we telling?" Once you understand the narrative, the structure emerges organically. A compelling hero section isn't just a template you fill—it's a space crafted specifically for your unique value proposition. Your call-to-action isn't forced into a standard button style; it's designed to match the urgency and tone of your message.
+
+This philosophy extends beyond individual pages to the entire site architecture. When content drives the structure, navigation becomes intuitive because it reflects how your audience actually thinks about your topics. Information hierarchy emerges from the content's natural flow, not from a generic design system. Users don't notice the design—they notice how effortlessly they can find what they're looking for.
+
+The technical implementation of content-first design requires a different mindset from developers and designers alike. Components become utilities rather than templates. They're building blocks that can be combined and customized, not rigid frameworks that demand conformity. This flexibility might seem like more work upfront, but it pays dividends when your content evolves. A new product launch or a shift in messaging doesn't require a complete redesign—just a thoughtful rearrangement of your existing components.
+
+Consider this example of a content-first component:
+
+```astro
+---
+const { heading = "", subtext = "", buttonSections = [], ...rest } = Astro.props;
+---
+
+<CustomSection {...rest}>
+  {
+    heading && (
+      <Heading level="h2" size="xl">
+        {heading}
+      </Heading>
+    )
+  }
+  {subtext && <SimpleText size="md">{subtext}</SimpleText>}
+  {buttonSections?.length > 0 && <ButtonGroup buttonSections={buttonSections} />}
+</CustomSection>
+```
+
+Notice how each element is optional and conditionally rendered. The component adapts to whatever content you provide—whether that's a heading alone, a heading with subtext, or a full call-to-action with buttons. The structure serves the content, not the other way around.
+
+Perhaps the most compelling argument for content-first design is its impact on authenticity. When your design serves your content, your brand voice comes through clearly. Visitors can sense when a website was built with intention, when every element has a purpose tied to the message. This authenticity builds trust, and trust converts visitors into customers, readers into subscribers, browsers into believers.
+
+The challenge, of course, is breaking old habits. It's tempting to start with a beautiful component library and work backward. But the most effective websites aren't the ones with the most impressive design systems—they're the ones where design and content work in perfect harmony. That harmony only happens when content leads the way.
+
+<SplitCta
+  buttonSections={[
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "Explore Components",
+      variant: "primary",
+      size: "md",
+      link: "/component-library/",
+    },
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "View Guidelines",
+      variant: "secondary",
+      size: "md",
+      link: "/component-library/guidelines",
+    },
+  ]}
+  heading="Build with flexible components"
+  imageAlt="Content-first design illustration."
+  imageSource="/src/assets/images/component-library/sunset.jpg"
+  subtext="Components that adapt to your content."
+  class="wide"
+  colorScheme="contrast"
+  backgroundColor="surface"
+  style="margin-top: var(--spacing-xl);"
+  rounded="true"
+/>

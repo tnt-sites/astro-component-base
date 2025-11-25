@@ -7,11 +7,18 @@ import Image from "@core-elements/image/image.astro";
 import Text from "@core-elements/text/text.astro";
 import ButtonGroup from "@wrappers/button-group/button-group.astro";
 
-const { links = [], socials = [], footerText = "", logoSource, logoAlt } = Astro.props;
+const {
+  links = [],
+  socials = [],
+  footerText = "",
+  logoSource,
+  logoAlt,
+  ...htmlAttributes
+} = Astro.props;
 ---
 
-<footer class="footer">
-  <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="lg">
+<footer class="footer" {...htmlAttributes}>
+  <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="2xl">
     <div class="footer-content">
       <div class="content-container">
         <Image source={logoSource} alt={logoAlt} class="footer-logo" editable={false} />

@@ -1,4 +1,5 @@
 ---
+import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
 import Page from "@layouts/Page.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -21,4 +22,4 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 ---
 
-<Page frontmatter={page.data} mainNav={mainNavData} />
+<Page frontmatter={page.data} mainNav={mainNavData} footer={footerData} />

@@ -1,0 +1,64 @@
+---
+title: "JavaScript Should Be Opt-In, Not the Default"
+description: "Interactivity is great. Automatic interactivity isn't."
+pubDate: 2025-11-19
+author: "Tom Rodriguez"
+image: "/src/assets/images/component-library/castle.jpg"
+tags: ["JavaScript", "Performance"]
+---
+
+Every interactive piece in this starter only loads what it needs and nothing more. Accordions, tabs, modals, they all run on tiny scripts that initialize only when the component appears on the page. No app-scale bundle, no hydration everywhere. That's how you get the performance of static sites with the convenience of a modern component system.
+
+The opt-in approach means JavaScript is a conscious choice, not an automatic inclusion. When you add an interactive component, you're making a deliberate decision to enhance the experience. This intentionality prevents the slow accumulation of JavaScript that happens when everything is interactive by default. You only add interactivity where it provides clear value.
+
+Tiny scripts that initialize on demand keep the initial page load fast. The browser doesn't parse JavaScript for components that aren't on the page. Users don't download code for features they'll never encounter. This pattern means your site stays fast even as you add more interactive components. Each component brings only its own functionality, nothing more.
+
+Component-level initialization means each interactive element is self-contained. An accordion component includes everything it needs to function. A modal component is complete in itself. This isolation makes components easy to understand, easy to modify, and easy to remove if you no longer need them. There's no shared state to manage, no global initialization to worry about.
+
+Here's a typical pattern:
+
+```javascript
+// accordion.js - only loads when accordion is on the page
+export function initAccordion(element) {
+  const button = element.querySelector("button");
+  const content = element.querySelector(".content");
+
+  button.addEventListener("click", () => {
+    content.classList.toggle("is-open");
+  });
+}
+```
+
+No framework, no global state, no complexity. Just a small function that does one thing well.
+
+<Image
+  source="/src/assets/images/component-library/castle.jpg"
+  rounded="true"
+  aspectRatio="landscape"
+  alt="JavaScript architecture illustration"
+/>
+
+The performance of static sites comes from starting with HTML and CSS. Your pages render immediately because they don't wait for JavaScript to execute. Content is accessible right away, navigation works immediately, and the core experience is complete. JavaScript enhances that experience where it adds value, but it's never blocking the initial render.
+
+The convenience of a modern component system comes from reusable, well-structured components. You get the benefits of component-based development, like consistent patterns and easy maintenance, without the overhead of a full application framework. Components are just organized pieces of HTML, CSS, and JavaScript that work together. This simplicity makes the system approachable while still providing the structure you need.
+
+This approach scales because each component is independent. You can add new interactive components without affecting existing ones. You can modify one component without worrying about breaking others. The system grows in capability without growing in complexity. You get the benefits of modern development practices without the weight of a full application framework.
+
+<CenterCta
+  buttonSections={[
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "Learn More",
+      variant: "primary",
+      size: "md",
+      link: "/",
+    },
+  ]}
+  colorScheme="contrast"
+  backgroundColor="base"
+  heading="JavaScript when you need it"
+  subtext="Opt-in interactivity, not automatic bloat."
+  rounded="true"
+  class="wide"
+  style="margin-top: var(--spacing-xl);"
+/>

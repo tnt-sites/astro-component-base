@@ -5,10 +5,6 @@ contentSections: []
 
 # Guidelines
 
-An overview of the principles and structure behind this component library.
-
-## Principles
-
 This isn’t a typical component library. It’s a foundation for building fast, accessible, and maintainable websites using web fundamentals.
 
 These principles guide how components are built and maintained:

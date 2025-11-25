@@ -127,11 +127,11 @@ function getNestedProperties(inputConfig: any, configData?: any): PropertyMeta[]
 function getArrayItemProperties(inputConfig: any, configData: any): PropertyMeta[] | undefined {
   // Check if this is an array with a structure reference
   if (inputConfig?.type === "array" && inputConfig.options?.structures) {
-    const structurePath = inputConfig.options.structures;
+    const structures = inputConfig.options.structures;
 
-    // Handle _structures.item format
-    if (structurePath.startsWith("_structures.")) {
-      const structureName = structurePath.replace("_structures.", "");
+    // Handle _structures.item format - when structures is a string reference
+    if (typeof structures === "string" && structures.startsWith("_structures.")) {
+      const structureName = structures.replace("_structures.", "");
       const structure = configData._structures?.[structureName];
 
       if (structure?.values && structure.values.length > 0) {
@@ -160,6 +160,34 @@ function getArrayItemProperties(inputConfig: any, configData: any): PropertyMeta
 
           return arrayItemProperties;
         }
+      }
+    }
+    // Handle array of structure definitions
+    else if (Array.isArray(structures) && structures.length > 0) {
+      // Get the first structure definition as the template
+      const itemTemplate = structures[0];
+      const itemValue = itemTemplate.value;
+      const itemInputs = itemTemplate._inputs;
+
+      if (itemValue && itemInputs) {
+        const arrayItemProperties: PropertyMeta[] = [];
+
+        Object.entries(itemValue).forEach(([key, value]) => {
+          const itemInputConfig = itemInputs[key];
+
+          arrayItemProperties.push({
+            name: key,
+            type: getPropertyType(itemInputConfig),
+            optional: false,
+            default: formatDefaultValue(value, itemInputConfig),
+            enumValues: getEnumValues(itemInputConfig),
+            description: itemInputConfig?.comment || "",
+            nestedProperties: getNestedProperties(itemInputConfig, configData),
+            arrayItemProperties: getArrayItemProperties(itemInputConfig, configData),
+          });
+        });
+
+        return arrayItemProperties;
       }
     }
   }

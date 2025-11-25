@@ -10,6 +10,7 @@ value:
   subtitle: "Subtitle placeholder text that will be replaced with actual content."
   imageSource: "/src/assets/images/component-library/dunedin-cliff.jpg"
   imageAlt: "Hero image"
+  imageAspectRatio: none
   buttonSections:
     - _component: building-blocks/core-elements/button
       text: "My Button"
@@ -56,6 +57,21 @@ _inputs:
   imageAlt:
     type: text
     comment: "Alt text for the feature image for accessibility."
+  imageAspectRatio:
+    type: select
+    comment: "Set a fixed aspect ratio for the image."
+    options:
+      values:
+        - id: none
+          name: None
+        - id: square
+          name: Square (1:1)
+        - id: landscape
+          name: Landscape (4:3)
+        - id: portrait
+          name: Portrait (3:4)
+        - id: widescreen
+          name: Widescreen (16:9)
   buttonSections:
     type: array
     comment: "Array of button components for call-to-action buttons. See the Button component documentation for more information."

@@ -2,7 +2,7 @@
 title: Team Grid
 spacing: all
 blocks:
-  _component: "page-sections/features/team-grid"
+  _component: "page-sections/people/team-grid"
   eyebrow: "Our team"
   heading: "Meet the team"
   subtext: "Get to know the people behind our work."

@@ -4,7 +4,7 @@ description: "Responsive grid layout for showcasing team members."
 structures:
   - pageSections
 value:
-  _component: page-sections/features/team-grid
+  _component: page-sections/people/team-grid
   eyebrow: "Our team"
   heading: "Meet the team"
   subtext: "Get to know the people behind our work."
@@ -68,7 +68,7 @@ _structures:
       - label: Team Member
         icon: person
         value:
-          _component: page-sections/features/team-grid/team-item
+          _component: page-sections/people/team-grid/team-item
           name: "Team member name"
           role: "Job title"
           bio: "Brief bio or description of the team member."

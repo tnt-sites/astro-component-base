@@ -1,0 +1,221 @@
+label: FAQ Section
+icon: help_outline
+description: "Section displaying frequently asked questions in an accordion format."
+structures:
+  - pageSections
+value:
+  _component: page-sections/info-blocks/faq-section
+  heading: Frequently Asked Questions
+  headingLevel: h2
+  headingSize: lg
+  label: About FAQ
+  singleOpen: true
+  openFirst: false
+  items: []
+  maxContentWidth: xl
+  paddingHorizontal: xl
+  paddingVertical: 4xl
+  colorScheme:
+  backgroundColor: base
+preview:
+  text:
+    - key: heading
+    - FAQ Section
+  subtext:
+    - template: Displays {items|array_length} {"question"|pluralize=items}
+    - Add FAQ items to the accordion
+picker_preview:
+  text: FAQ Section
+  subtext: "Accordion of frequently asked questions."
+  icon: help_outline
+_inputs:
+  heading:
+    type: text
+    comment: Main heading for the FAQ section.
+  headingLevel:
+    type: select
+    comment: HTML heading level (h1-h6).
+    options:
+      values:
+        - id: h1
+          name: H1
+        - id: h2
+          name: H2
+        - id: h3
+          name: H3
+        - id: h4
+          name: H4
+        - id: h5
+          name: H5
+        - id: h6
+          name: H6
+  headingSize:
+    type: select
+    comment: Visual size of the heading.
+    options:
+      values:
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2X Large
+  label:
+    type: text
+    comment: Label for the accordion (used for accessibility).
+  singleOpen:
+    type: switch
+    comment: Whether only one accordion item can be open at a time.
+  openFirst:
+    type: switch
+    comment: Whether the first accordion item should be open by default.
+  items:
+    type: array
+    label: FAQ Items
+    comment: Questions and answers in the accordion.
+    options:
+      structures: _structures.faqItems
+  maxContentWidth:
+    type: select
+    comment: Maximum width of the content area.
+    options:
+      values:
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2X Large
+  paddingHorizontal:
+    type: select
+    comment: Horizontal padding for the section.
+    options:
+      values:
+        - id: none
+          name: None
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+  paddingVertical:
+    type: select
+    comment: Vertical padding for the section.
+    options:
+      values:
+        - id: none
+          name: None
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2X Large
+        - id: 3xl
+          name: 3X Large
+        - id: 4xl
+          name: 4X Large
+  colorScheme:
+    type: select
+    comment: Color scheme theme applied to the section wrapper.
+    options:
+      values:
+        - id: default
+          name: Default
+        - id: contrast
+          name: Contrast
+  backgroundColor:
+    type: select
+    comment: Background color for the section.
+    options:
+      values:
+        - id: none
+          name: None
+        - id: base
+          name: Base
+        - id: surface
+          name: Surface
+        - id: accent
+          name: Accent
+        - id: highlight
+          name: Highlight
+_structures:
+  faqItems:
+    values:
+      - label: FAQ Item
+        icon: help_outline
+        value:
+          _component: building-blocks/wrappers/accordion/accordion-item
+          title: "Question text"
+          contentSections:
+            - _component: building-blocks/core-elements/simple-text
+              text: "Answer text goes here."
+              size: md
+        preview:
+          text:
+            - key: title
+            - FAQ Item
+          subtext:
+            - key: contentSections.0.text
+            - Add answer text
+        _inputs:
+          title:
+            type: text
+            comment: The question text.
+          contentSections:
+            type: array
+            label: Answer Content
+            comment: Content sections for the answer (typically simple-text).
+            options:
+              structures:
+                - label: Text
+                  icon: text_fields
+                  value:
+                    _component: building-blocks/core-elements/simple-text
+                    text: "Answer text goes here."
+                    size: md
+                  preview:
+                    text:
+                      - key: text
+                      - Text content
+                  _inputs:
+                    text:
+                      type: textarea
+                      comment: The answer text content.
+                    size:
+                      type: select
+                      comment: Text size.
+                      options:
+                        values:
+                          - id: xs
+                            name: Extra Small
+                          - id: sm
+                            name: Small
+                          - id: md
+                            name: Medium
+                          - id: lg
+                            name: Large
+                          - id: xl
+                            name: Extra Large
+

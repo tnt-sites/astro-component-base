@@ -11,6 +11,8 @@ import postcssEach from "postcss-each";
 import postcssImport from "postcss-import";
 import postcssNested from "postcss-nested";
 
+import mdx from "@astrojs/mdx";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
@@ -40,6 +42,7 @@ export default defineConfig({
         return !page.includes("/component-library");
       },
     }),
+    mdx(),
   ],
   vite: {
     css: {

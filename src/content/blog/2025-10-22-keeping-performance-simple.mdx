@@ -1,0 +1,66 @@
+---
+title: "Performance Isn't Magic—It's Restraint"
+description: "The easiest way to speed is to stop loading junk."
+pubDate: 2025-10-22
+author: "Tom Rodriguez"
+image: "/src/assets/images/component-library/sunset.jpg"
+tags: ["Performance", "Optimization"]
+---
+
+Most performance advice gets overly clever. Our approach is boring on purpose: don't ship code the browser doesn't need. Critical CSS stays tiny. JS loads only when something actually requires it. And components are designed to be static-first, so the default state is fast. This template won't fight you, it nudges you toward good decisions automatically.
+
+The simplest performance optimization is the one you don't have to make because you never shipped the code in the first place. When your default state is static HTML and CSS, you're starting from a fast baseline. Every enhancement you add is intentional, which means you can evaluate whether it's worth the performance cost. This approach prevents the slow accumulation of unnecessary code that happens when everything is interactive by default.
+
+Critical CSS stays small because we're not loading styles for components that aren't on the page. Each component brings only the styles it needs, and those styles are scoped to prevent conflicts. This means your initial page load includes exactly what's required to render the first view, nothing more. The browser can paint the page quickly because it's not parsing and applying styles for components that don't exist yet.
+
+JavaScript loads on demand because interactivity should be a choice, not an assumption. An accordion component loads its script only when that accordion appears on the page. A modal loads its functionality only when it's needed. This pattern means users only download code for features they actually encounter. The performance benefit is immediate: smaller bundles, faster parsing, less work for the browser.
+
+Here's how that works:
+
+```astro
+---
+// Component script only loads when component is used
+import { initAccordion } from './accordion.js';
+---
+
+<div class="accordion" data-accordion>
+  <button>Toggle</button>
+  <div class="content">Content here</div>
+</div>
+
+<script>
+  initAccordion(document.querySelector('[data-accordion]'));
+</script>
+```
+
+The script is tiny, scoped to this component, and only runs when needed. No global bundle, no unnecessary overhead.
+
+<Image
+  source="/src/assets/images/component-library/quiet-street.jpg"
+  rounded="true"
+  aspectRatio="widescreen"
+  alt="Performance optimization illustration"
+/>
+
+Static-first design means your site works perfectly without JavaScript. Content is accessible, navigation functions, and the core experience is complete. JavaScript enhances that experience where it adds value, but it's never required for basic functionality. This approach serves users on slow connections, users with JavaScript disabled, and users on devices with limited processing power. Everyone gets a fast experience, and those with capable devices get enhanced interactivity.
+
+The automatic nudges toward good decisions come from the structure itself. When components are designed to be static-first, you naturally think about progressive enhancement. When JavaScript is opt-in, you naturally consider whether interactivity is necessary. When CSS is scoped and minimal, you naturally avoid style conflicts. The patterns guide you toward performance without requiring constant vigilance.
+
+<CenterCta
+  buttonSections={[
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "See Performance",
+      variant: "primary",
+      size: "md",
+      link: "/",
+    },
+  ]}
+  colorScheme="contrast"
+  backgroundColor="base"
+  heading="Build fast by default"
+  subtext="Performance isn't an afterthought—it's built in."
+  rounded="true"
+  class="wide"
+  style="margin-top: var(--spacing-xl);"
+/>

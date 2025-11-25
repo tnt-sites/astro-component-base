@@ -18,6 +18,7 @@ const {
   reverse = false,
   colorScheme,
   backgroundColor,
+  paddingVertical = "4xl",
   class: className,
 } = Astro.props;
 
@@ -28,9 +29,9 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
 
 <CustomSection
   class:list={["feature-split", className]}
-  maxContentWidth="2xl"
+  maxContentWidth="xl"
   paddingHorizontal="lg"
-  paddingVertical="lg"
+  paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   data-feature-split-id={featureSplitId}
@@ -38,12 +39,13 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   <Split
     class="feature-split-layout"
     distributionMode="flexible-fixed"
-    fixedWidth="420"
+    fixedWidth="400"
     minSplitWidth={minSplitWidth}
     reverse={reverse}
     verticalAlignment="center"
+    gap="2xl"
   >
-    <div slot="first">
+    <Fragment slot="first">
       {eyebrow && <SimpleText class="eyebrow">{eyebrow}</SimpleText>}
       {
         heading && (
@@ -69,23 +71,22 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
           />
         )
       }
-    </div>
-    <div slot="second">
-      {
-        hasImage && (
-          <Image
-            class:list={["feature-split-image", reverse && "reverse"]}
-            source={imageSource}
-            alt={imageAlt}
-            rounded={imageRounded}
-            aspectRatio={imageAspectRatio}
-            data-prop-src="imageSource"
-            data-prop-alt="imageAlt"
-            data-editable="image"
-          />
-        )
-      }
-    </div>
+    </Fragment>
+    {
+      hasImage && (
+        <Image
+          slot="second"
+          class:list={["feature-split-image", reverse && "reverse"]}
+          source={imageSource}
+          alt={imageAlt}
+          rounded={imageRounded}
+          aspectRatio={imageAspectRatio}
+          data-prop-src="imageSource"
+          data-prop-alt="imageAlt"
+          data-editable="image"
+        />
+      )
+    }
   </Split>
 </CustomSection>
 
@@ -113,7 +114,6 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
 
   .feature-split-layout {
     container-type: inline-size;
-    container-name: feature-split-layout;
   }
 
 </style>

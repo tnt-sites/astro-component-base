@@ -57,6 +57,7 @@ const MarkdownText = text ? md.render(text) : "";
 <style lang="pcss">
   .testimonial {
     display: flex;
+    background: var(--color-bg);
     flex-direction: column;
     gap: var(--spacing-em-sm);
     margin: 0;
@@ -73,23 +74,23 @@ const MarkdownText = text ? md.render(text) : "";
     > .quote {
       margin: 0;
 
-      * {
+      :global(*) {
         font-size: var(--font-size-2xl);
       }
 
-      *:first-child {
+      :global(*:first-child) {
         margin-top: 0;
       }
 
-      *:last-child {
+      :global(*:last-child) {
         margin-bottom: 0;
       }
 
-      *:first-child::before {
+      :global(*:first-child::before) {
         content: "\201C";
       }
 
-      *:last-child::after {
+      :global(*:last-child::after) {
         content: "\201D";
       }
     }

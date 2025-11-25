@@ -15,7 +15,10 @@ const {
   reverse = false,
   colorScheme,
   backgroundColor,
+  paddingVertical = "4xl",
+  rounded = false,
   class: className,
+  ...rest
 } = Astro.props;
 ---
 
@@ -23,9 +26,11 @@ const {
   class:list={["split-cta", className]}
   maxContentWidth="2xl"
   paddingHorizontal="lg"
-  paddingVertical="lg"
+  paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  rounded={rounded}
+  {...rest}
 >
   <Split
     class="split"
@@ -35,10 +40,10 @@ const {
     reverse={reverse}
     minSplitWidth={640}
   >
-    <div slot="first">
+    <Fragment slot="first">
       {
         heading && (
-          <Heading level="h2" size="lg">
+          <Heading level="h2" size="xl">
             {heading}
           </Heading>
         )
@@ -54,8 +59,8 @@ const {
           />
         )
       }
-    </div>
-    <div slot="second">
+    </Fragment>
+    <Fragment slot="second">
       {
         imageSource && (
           <Image
@@ -70,6 +75,6 @@ const {
           />
         )
       }
-    </div>
+    </Fragment>
   </Split>
 </CustomSection>

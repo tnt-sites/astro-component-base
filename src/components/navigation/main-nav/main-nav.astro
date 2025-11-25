@@ -1,9 +1,9 @@
 ---
-import Image from "@core-elements/image/image.astro";
+import CustomSection from "@builders/custom-section/custom-section.astro";
 import Bar from "@components/navigation/bar/bar.astro";
 import Mobile from "@components/navigation/mobile/mobile.astro";
+import Image from "@core-elements/image/image.astro";
 import ButtonGroup from "@wrappers/button-group/button-group.astro";
-import CustomSection from "@builders/custom-section/custom-section.astro";
 
 const {
   logoSource,
@@ -26,13 +26,24 @@ const mobileNavData = [
 
 <CustomSection
   maxContentWidth="2xl"
-  paddingHorizontal="md"
+  paddingHorizontal="lg"
   paddingVertical="none"
   class:list={["main-nav", className]}
   {...rest}
 >
-  {logoSource && <Image source={logoSource} alt={logoAlt} editable={false} />}
-  <div style=" align-items: center;display: flex;">
+  {
+    logoSource && (
+      <a href="/">
+        <Image
+          source={logoSource}
+          alt={logoAlt}
+          editable={false}
+          style="margin-top: 0 !important;"
+        />
+      </a>
+    )
+  }
+  <div class="nav-end">
     <Bar navData={navData} class="desktop-main-nav" />
 
     {
@@ -77,7 +88,6 @@ const mobileNavData = [
       display: flex;
       flex-wrap: wrap;
       gap: var(--spacing-md);
-      justify-content: space-between;
 
       > :global(.image img) {
         height: 1.8em;
@@ -87,6 +97,18 @@ const mobileNavData = [
 
       :global(.button-group) {
         margin-top: 0;
+      }
+    }
+
+    > :global(.outer-content) > :global(.content) > .nav-end {
+      align-items: center;
+      display: flex;
+      justify-content: flex-end;
+      margin-left: auto;
+      flex-shrink: 0;
+
+      > :global(.button-group) {
+        container-type: normal;
       }
     }
   }

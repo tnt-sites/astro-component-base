@@ -1,0 +1,43 @@
+---
+import CustomSection from "@builders/custom-section/custom-section.astro";
+import FeatureSliderItem from "@features/feature-slider/feature-slider-item.astro";
+import CarouselSlide from "@wrappers/carousel/carousel-slide.astro";
+import Carousel from "@wrappers/carousel/carousel.astro";
+
+const {
+  colorScheme,
+  backgroundColor,
+  paddingVertical = "4xl",
+  class: className,
+  slides = [],
+} = Astro.props;
+---
+
+<CustomSection
+  class:list={["feature-slider", className]}
+  maxContentWidth="xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+>
+  <Carousel
+    label="Feature slider"
+    slideWidthPercent={100}
+    minSlideWidth={0}
+    autoPlay={false}
+    autoScroll={false}
+  >
+    {
+      Array.isArray(slides) &&
+        slides.length > 0 &&
+        slides.map((slide, index) => (
+          <editable-array-item data-component="page-sections/features/feature-slider/feature-slider-item">
+            <CarouselSlide aria-label={`Slide ${index + 1} of ${slides.length}`}>
+              <FeatureSliderItem {...slide} data-index={index} />
+            </CarouselSlide>
+          </editable-array-item>
+        ))
+    }
+  </Carousel>
+</CustomSection>

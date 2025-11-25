@@ -1,0 +1,70 @@
+---
+title: "Presets That Remove All the Early Busywork"
+description: "You shouldn't spend your morning wiring up boilerplate."
+pubDate: 2025-11-26
+author: "Emily Watson"
+image: "/src/assets/images/component-library/sunset.jpg"
+tags: ["Productivity", "Workflow"]
+---
+
+We included presets for common layouts, section patterns, and common page types so teams can get moving immediately. New projects get structure from day one. No hunting through old repos. No reinventing common pages. It's the kind of acceleration that actually helps, speed without chaos.
+
+The first hours of a new project are critical. That's when you're setting the tone for how the project will evolve. When you start with solid presets, you're not just saving time, you're establishing patterns that will guide the entire project. Your team knows where to find things because the structure is consistent. New features fit naturally into the existing patterns because the foundation is already there.
+
+Presets work best when they're flexible starting points, not rigid templates. A layout preset gives you the structure you need, but you can customize it to match your specific requirements. A section pattern provides the common elements, but you can adapt it to your content. This balance between structure and flexibility means you get the benefits of proven patterns without being locked into a one-size-fits-all approach.
+
+Here's how you might use a preset:
+
+```astro
+---
+import HeroSection from "@presets/hero-section.astro";
+---
+
+<HeroSection
+  heading="Welcome to our site"
+  subtext="Get started with a proven pattern"
+  buttonText="Learn More"
+  buttonLink="/about"
+/>
+```
+
+Start with the preset, customize as needed. You're building features, not infrastructure.
+
+<Image
+  source="/src/assets/images/component-library/sunset.jpg"
+  rounded="true"
+  aspectRatio="widescreen"
+  alt="Project presets illustration"
+/>
+
+The mental energy you save by using presets compounds throughout the project. Instead of spending time deciding how to structure a page, you can focus on what makes that page unique. Instead of building common components from scratch, you can enhance existing ones. This shift from building infrastructure to building features is where real progress happens. You're solving problems instead of setting up solutions.
+
+Consistency across projects is another benefit that emerges from using presets. When your team works with familiar patterns, knowledge transfers easily between projects. A developer who worked on one project can jump into another and immediately understand the structure. This shared understanding reduces onboarding time and makes collaboration smoother. The presets become a common language that your team speaks fluently.
+
+<SplitCta
+  buttonSections={[
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "View Presets",
+      variant: "primary",
+      size: "md",
+      link: "/component-library/",
+    },
+    {
+      _component: "building-blocks/core-elements/button",
+      text: "Get Started",
+      variant: "secondary",
+      size: "md",
+      link: "/",
+    },
+  ]}
+  heading="Start faster with proven patterns"
+  imageAlt="Presets and templates illustration."
+  imageSource="/src/assets/images/component-library/quiet-street.jpg"
+  subtext="Presets that get you moving immediately."
+  class="wide"
+  colorScheme="contrast"
+  backgroundColor="surface"
+  style="margin-top: var(--spacing-xl);"
+  rounded="true"
+/>

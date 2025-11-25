@@ -1,13 +1,13 @@
 ---
-import Image from "@core-elements/image/image.astro";
 import Component from "@components/utils/renderBlock.astro";
+import Image from "@core-elements/image/image.astro";
 
 const {
   label,
   contentSections,
   maxContentWidth,
   paddingHorizontal,
-  paddingVertical,
+  paddingVertical = "4xl",
   colorScheme,
   backgroundColor,
   backgroundImage,
@@ -93,7 +93,7 @@ if (!htmlAttributes.id && label) {
     position: relative;
 
     &.rounded {
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-xl);
       overflow: hidden;
     }
 
@@ -195,6 +195,48 @@ if (!htmlAttributes.id && label) {
 
       &.pad-y-6xl {
         padding-block: var(--spacing-6xl);
+      }
+
+      @media (--to-sm) {
+        &.pad-y-xs {
+          padding-block: var(--spacing-xs);
+        }
+
+        &.pad-y-sm {
+          padding-block: var(--spacing-xs);
+        }
+
+        &.pad-y-md {
+          padding-block: var(--spacing-sm);
+        }
+
+        &.pad-y-lg {
+          padding-block: var(--spacing-md);
+        }
+
+        &.pad-y-xl {
+          padding-block: var(--spacing-md);
+        }
+
+        &.pad-y-2xl {
+          padding-block: var(--spacing-lg);
+        }
+
+        &.pad-y-3xl {
+          padding-block: var(--spacing-xl);
+        }
+
+        &.pad-y-4xl {
+          padding-block: var(--spacing-2xl);
+        }
+
+        &.pad-y-5xl {
+          padding-block: var(--spacing-3xl);
+        }
+
+        &.pad-y-6xl {
+          padding-block: var(--spacing-4xl);
+        }
       }
 
       &.max-width-xs {

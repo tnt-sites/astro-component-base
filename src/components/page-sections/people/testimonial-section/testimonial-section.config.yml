@@ -1,0 +1,136 @@
+label: Testimonial Section
+icon: format_quote
+description: "Section displaying a customer testimonial with author information."
+structures:
+  - pageSections
+value:
+  _component: page-sections/people/testimonial-section
+  text: "This framework has completely changed the way we build. The sites come together fast, they run even faster, and the whole process feels effortless. I couldn't be happier with the results."
+  authorName: Richard Johnson
+  authorDescription: CEO, Tech Innovations
+  authorImage: /src/assets/images/component-library/profile.jpg
+  alignX: center
+  maxContentWidth: xl
+  paddingHorizontal: xl
+  paddingVertical: sm
+  colorScheme:
+  backgroundColor: surface
+preview:
+  text:
+    - key: authorName
+    - Testimonial Section
+  subtext:
+    - key: authorDescription
+    - Customer testimonial
+picker_preview:
+  text: Testimonial Section
+  subtext: "Section with customer testimonial and author details."
+  icon: format_quote
+_inputs:
+  text:
+    type: textarea
+    comment: The testimonial quote text.
+  authorName:
+    type: text
+    comment: Name of the testimonial author.
+  authorDescription:
+    type: text
+    comment: Title or description of the author (e.g., job title, company).
+  authorImage:
+    type: image
+    comment: Photo of the testimonial author.
+    options:
+      paths:
+        uploads: src/assets/images
+        static: ""
+  alignX:
+    type: select
+    comment: Horizontal alignment of the testimonial content.
+    options:
+      values:
+        - id: center
+          name: Center
+        - id: start
+          name: Start
+        - id: end
+          name: End
+  maxContentWidth:
+    type: select
+    comment: Maximum width of the content area.
+    options:
+      values:
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2X Large
+  paddingHorizontal:
+    type: select
+    comment: Horizontal padding for the section.
+    options:
+      values:
+        - id: none
+          name: None
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+  paddingVertical:
+    type: select
+    comment: Vertical padding for the section.
+    options:
+      values:
+        - id: none
+          name: None
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2X Large
+        - id: 3xl
+          name: 3X Large
+        - id: 4xl
+          name: 4X Large
+  colorScheme:
+    type: select
+    comment: Color scheme theme applied to the section wrapper.
+    options:
+      values:
+        - id: default
+          name: Default
+        - id: contrast
+          name: Contrast
+  backgroundColor:
+    type: select
+    comment: Background color for the section.
+    options:
+      values:
+        - id: none
+          name: None
+        - id: base
+          name: Base
+        - id: surface
+          name: Surface
+        - id: accent
+          name: Accent
+        - id: highlight
+          name: Highlight
+
