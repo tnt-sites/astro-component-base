@@ -87,6 +87,7 @@ if (isRemoteUrl) {
 
       if (response.ok) {
         const contentType = response.headers.get("content-type");
+
         if (contentType?.startsWith("image/")) {
           shouldRender = true;
           useInferSize = true;
@@ -119,6 +120,7 @@ if (aspectRatio && aspectRatio !== "none" && shouldRender && imageSrc && imageWi
 
     if (targetAspect === 1 && imageHeight) {
       const dimension = Math.min(imageWidth, imageHeight);
+
       maxWidth = dimension;
       maxHeight = dimension;
     } else if (imageHeight) {
@@ -143,6 +145,7 @@ if (aspectRatio && aspectRatio !== "none" && shouldRender && imageSrc && imageWi
     useFit = "cover";
 
     const positionKey = `${positionVertical}-${positionHorizontal}`;
+
     usePosition = POSITION_MAP[positionKey] || "center";
   }
 }
@@ -155,7 +158,7 @@ if (aspectRatio && aspectRatio !== "none" && shouldRender && imageSrc && imageWi
       alt={alt}
       widths={filteredWidths}
       sizes={sizes}
-      formats={["avif", "webp"]}
+      formats={["avif"]}
       width={finalWidth}
       height={finalHeight}
       fit={useFit}

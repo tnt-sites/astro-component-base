@@ -23,10 +23,59 @@ collections_config:
       title:
         type: text
         comment: Controls the metadata title for the page.
+  blog:
+    path: src/content/blog
+    glob:
+      - '**/*.mdx'
+    url: /blog/[full_slug]/
+    icon: article
+    _enabled_editors:
+      - content
+    add_options:
+      - name: Add New Blog Post
+        schema: default
+        icon: article
+    schemas:
+      default:
+        name: New Blog Post
+        path: .cloudcannon/schemas/blog-post.md
+        remove_extra_inputs: false
+    create:
+      path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
+    new_preview_url: /blog/
+    _inputs:
+      title:
+        type: text
+        comment: The title of the blog post.
+      description:
+        type: text
+        comment: A brief description of the blog post.
+      pubDate:
+        type: date
+        comment: The publication date.
+      author:
+        type: text
+        comment: The author of the blog post.
+      image:
+        type: text
+        comment: Optional image path for the blog post.
+      tags:
+        type: text
+        comment: Comma-separated list of tags.
+  data:
+    path: src/data
+    glob:
+      - '**/*.json'
+    icon: database
+    _enabled_editors:
+      - data
 collection_groups:
   - heading: Pages
     collections:
       - pages
+  - heading: Blog
+    collections:
+      - blog
   - heading: Data
     collections:
       - data
@@ -2437,6 +2486,54 @@ _structures:
                   name: Start
                 - id: top
                   name: Top
+      - &ref_20
+        label: Carousel
+        icon: image
+        description: Displays multiple items in a sliding gallery.
+        value:
+          _component: building-blocks/wrappers/carousel
+          label: ''
+          slides: []
+          autoPlay: false
+          autoScroll: false
+          slideWidthPercent: 100
+          minSlideWidth: 0
+        preview:
+          text:
+            - key: label
+            - Carousel
+          subtext:
+            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
+            - Add slides to the carousel
+        picker_preview:
+          text: Carousel
+          subtext: Displays multiple items in a sliding gallery.
+          icon: image
+        _inputs:
+          label:
+            comment: Optional label for the carousel to help identify it in the editor.
+            type: text
+          slides:
+            comment: Array of slides to display in the carousel.
+            type: array
+            options:
+              structures: _structures.slides
+          autoPlay:
+            comment: Enable auto-play functionality.
+            type: switch
+          autoScroll:
+            comment: Enable auto-scroll functionality.
+            type: switch
+          slideWidthPercent:
+            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
+            type: range
+            options:
+              min: 0
+              max: 100
+              step: 1
+          minSlideWidth:
+            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
+            type: number
       - &ref_3
         label: Card
         icon: crop_square
@@ -2711,54 +2808,6 @@ _structures:
           singleOpen:
             comment: Whether only one item can be open at a time within this accordion.
             type: switch
-      - &ref_20
-        label: Carousel
-        icon: image
-        description: Displays multiple items in a sliding gallery.
-        value:
-          _component: building-blocks/wrappers/carousel
-          label: ''
-          slides: []
-          autoPlay: false
-          autoScroll: false
-          slideWidthPercent: 100
-          minSlideWidth: 0
-        preview:
-          text:
-            - key: label
-            - Carousel
-          subtext:
-            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
-            - Add slides to the carousel
-        picker_preview:
-          text: Carousel
-          subtext: Displays multiple items in a sliding gallery.
-          icon: image
-        _inputs:
-          label:
-            comment: Optional label for the carousel to help identify it in the editor.
-            type: text
-          slides:
-            comment: Array of slides to display in the carousel.
-            type: array
-            options:
-              structures: _structures.slides
-          autoPlay:
-            comment: Enable auto-play functionality.
-            type: switch
-          autoScroll:
-            comment: Enable auto-scroll functionality.
-            type: switch
-          slideWidthPercent:
-            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
-            type: range
-            options:
-              min: 0
-              max: 100
-              step: 1
-          minSlideWidth:
-            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
-            type: number
       - &ref_6
         label: Form
         icon: checklist_rtl
@@ -3553,10 +3602,10 @@ _structures:
     values:
       - *ref_0
       - *ref_1
+      - *ref_20
       - *ref_3
       - *ref_4
       - *ref_5
-      - *ref_20
       - *ref_6
       - *ref_7
       - *ref_8
@@ -3596,10 +3645,10 @@ _structures:
     values:
       - *ref_1
       - *ref_2
+      - *ref_20
       - *ref_3
       - *ref_4
       - *ref_5
-      - *ref_20
       - *ref_6
       - *ref_7
       - *ref_8
@@ -3638,6 +3687,24 @@ _structures:
             type: array
             options:
               structures: _structures.contentSelectorSections
+  slides:
+    id_key: _component
+    style: modal
+    values:
+      - label: Carousel Slide
+        value:
+          contentSections: []
+        _inputs:
+          contentSections:
+            type: array
+            options:
+              structures: _structures.carouselSections
+        preview:
+          icon: transition_slide
+          text: Carousel Slide
+          subtext:
+            - template: Contains {contentSections|array_length} content {"block"|pluralize=contentSections}
+            - Add one or more content blocks to the grid item
   gridItemSections:
     id_key: _component
     style: modal
@@ -3715,24 +3782,6 @@ _structures:
             type: array
             options:
               structures: _structures.accordionSections
-  slides:
-    id_key: _component
-    style: modal
-    values:
-      - label: Carousel Slide
-        value:
-          contentSections: []
-        _inputs:
-          contentSections:
-            type: array
-            options:
-              structures: _structures.carouselSections
-        preview:
-          icon: transition_slide
-          text: Carousel Slide
-          subtext:
-            - template: Contains {contentSections|array_length} content {"block"|pluralize=contentSections}
-            - Add one or more content blocks to the grid item
   formBlocks:
     id_key: _component
     style: modal
