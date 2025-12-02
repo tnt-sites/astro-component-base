@@ -37,7 +37,6 @@ preview:
     - CTA Form
   subtext:
     - key: subtext
-    - Add supporting text
 picker_preview:
   text: CTA Form
   subtext: Split layout CTA with form and image.

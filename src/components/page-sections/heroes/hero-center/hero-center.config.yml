@@ -24,10 +24,7 @@ preview:
     - key: heading
     - Hero Center
   subtext:
-    - key: eyebrow
-    - Eyebrow
-    - key: subtext
-    - Add subtext to the hero
+    - key: subtitle
 picker_preview:
   text: Hero Center
   subtext: "Centered hero with heading, subtext, and buttons."

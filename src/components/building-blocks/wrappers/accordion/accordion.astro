@@ -14,8 +14,10 @@ const slugifyLabel = (label: string) => {
     .replace(/^-+|-+$/g, "");
 };
 
-if (!htmlAttributes.id && label) {
-  htmlAttributes.id = slugifyLabel(label);
+const generatedLabel = label || `Accordion-${crypto.randomUUID()}`;
+
+if (!htmlAttributes.id) {
+  htmlAttributes.id = slugifyLabel(generatedLabel);
 }
 
 const accordionName = singleOpen ? `accordion-${crypto.randomUUID()}` : undefined;

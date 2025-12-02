@@ -28,7 +28,6 @@ preview:
     - CTA Split
   subtext:
     - key: subtext
-    - Add supporting text
 picker_preview:
   text: CTA Split
   subtext: Split layout CTA with button stack.

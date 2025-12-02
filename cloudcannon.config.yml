@@ -2,7 +2,7 @@ collections_config:
   pages:
     path: src/content/pages
     glob:
-      - "**/*.md"
+      - '**/*.md'
     url: /[full_slug]/
     icon: laptop_mac
     _enabled_editors:
@@ -17,7 +17,7 @@ collections_config:
         path: .cloudcannon/schemas/page.md
         remove_extra_inputs: false
     create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
+      path: '[relative_base_path]/{filename|slugify|lowercase}.md'
     new_preview_url: /
     _inputs:
       title:
@@ -26,7 +26,7 @@ collections_config:
   blog:
     path: src/content/blog
     glob:
-      - "**/*.mdx"
+      - '**/*.mdx'
     url: /blog/[full_slug]/
     icon: article
     _enabled_editors:
@@ -41,7 +41,7 @@ collections_config:
         path: .cloudcannon/schemas/blog-post.md
         remove_extra_inputs: false
     create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
+      path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
     new_preview_url: /blog/
     _inputs:
       title:
@@ -65,7 +65,7 @@ collections_config:
   data:
     path: src/data
     glob:
-      - "**/*.json"
+      - '**/*.json'
     icon: database
     _enabled_editors:
       - data
@@ -840,8 +840,8 @@ _structures:
       - label: Navigation Link
         icon: link
         value:
-          name: ""
-          path: ""
+          name: ''
+          path: ''
         _inputs:
           name:
             type: text
@@ -856,8 +856,8 @@ _structures:
       - label: Social Link
         icon: share
         value:
-          icon: ""
-          link: ""
+          icon: ''
+          link: ''
         _inputs:
           icon:
             type: text
@@ -890,7 +890,6 @@ _structures:
             - Testimonial Section
           subtext:
             - key: authorDescription
-            - Customer testimonial
         picker_preview:
           text: Testimonial Section
           subtext: Section with customer testimonial and author details.
@@ -911,7 +910,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           alignX:
             type: select
             comment: Horizontal alignment of the testimonial content.
@@ -1018,8 +1017,7 @@ _structures:
             - key: heading
             - Team Grid
           subtext:
-            - template: Displays {teamMembers|array_length} {"team member"|pluralize=teamMembers}
-            - Add team members to the grid
+            - key: subtext
         picker_preview:
           text: Team Grid
           subtext: Grid of team member cards with photos and bios.
@@ -1072,7 +1070,6 @@ _structures:
           heading: Frequently Asked Questions
           headingLevel: h2
           headingSize: lg
-          label: About FAQ
           singleOpen: true
           openFirst: false
           items: []
@@ -1085,9 +1082,6 @@ _structures:
           text:
             - key: heading
             - FAQ Section
-          subtext:
-            - template: Displays {items|array_length} {"question"|pluralize=items}
-            - Add FAQ items to the accordion
         picker_preview:
           text: FAQ Section
           subtext: Accordion of frequently asked questions.
@@ -1130,9 +1124,6 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2X Large
-          label:
-            type: text
-            comment: Label for the accordion (used for accessibility).
           singleOpen:
             type: switch
             comment: Whether only one accordion item can be open at a time.
@@ -1238,8 +1229,8 @@ _structures:
           buttonSections:
             - _component: building-blocks/core-elements/button
               text: My Button
-              link: ""
-              iconName: ""
+              link: ''
+              iconName: ''
               iconPosition: before
               hideText: false
               variant: primary
@@ -1252,10 +1243,7 @@ _structures:
             - key: heading
             - Hero Split
           subtext:
-            - key: eyebrow
-            - Eyebrow
             - key: subtitle
-            - Add content to the hero
         picker_preview:
           text: Hero Split
           subtext: Prominent section block for landing pages.
@@ -1276,7 +1264,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           imageAlt:
             type: text
             comment: Alt text for the feature image for accessibility.
@@ -1338,8 +1326,8 @@ _structures:
           buttonSections:
             - _component: building-blocks/core-elements/button
               text: My Button
-              link: ""
-              iconName: ""
+              link: ''
+              iconName: ''
               iconPosition: before
               hideText: false
               variant: primary
@@ -1351,10 +1339,7 @@ _structures:
             - key: heading
             - Hero Center
           subtext:
-            - key: eyebrow
-            - Eyebrow
-            - key: subtext
-            - Add subtext to the hero
+            - key: subtitle
         picker_preview:
           text: Hero Center
           subtext: Centered hero with heading, subtext, and buttons.
@@ -1419,7 +1404,7 @@ _structures:
             - key: heading
             - Feature Split
           subtext:
-            - Add feature details
+            - key: subtext
         picker_preview:
           text: Feature Split
           subtext: Split view with story content and supporting feature list.
@@ -1445,7 +1430,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           imageAlt:
             type: text
             comment: Alt text describing the image content.
@@ -1494,110 +1479,6 @@ _structures:
                   name: Accent
                 - id: highlight
                   name: Highlight
-      - label: Feature Slider
-        icon: view_carousel
-        description: Carousel of feature cards, ideal for showcasing key reasons or benefits.
-        value:
-          _component: page-sections/features/feature-slider
-          eyebrow: Eyebrow text
-          heading: Heading text
-          subtext: Subtext placeholder text that will be replaced with actual content.
-          slides: []
-          colorScheme: null
-          backgroundColor: base
-        preview:
-          text:
-            - key: heading
-            - Feature Slider
-          subtext:
-            - template: Displays {slides|array_length} {"slide"|pluralize=slides}
-            - Add feature slides to the carousel
-        picker_preview:
-          text: Feature Slider
-          subtext: Carousel of feature-focused cards.
-          icon: view_carousel
-        _inputs:
-          _component:
-            hidden: true
-          eyebrow:
-            type: text
-            comment: Optional eyebrow text displayed above the heading.
-          heading:
-            type: text
-            comment: Main heading for the slider section.
-          subtext:
-            type: textarea
-            comment: Supporting copy beneath the heading.
-          slides:
-            type: array
-            label: Slides
-            comment: Structured feature slides rendered inside the carousel.
-            options:
-              structures:
-                - label: Feature slide
-                  icon: view_carousel
-                  value:
-                    _component: page-sections/features/feature-slider/feature-slider-item
-                    eyebrow: ""
-                    title: Slide title
-                    description: Short description for this slide.
-                    imageSource: /src/assets/images/component-library/sunset.jpg
-                    imageAlt: Slide image alt text
-                    minSplitWidth: 0
-                  preview:
-                    text:
-                      - key: title
-                      - Feature slide
-                    subtext:
-                      - key: description
-                      - Add description for this slide
-                  _inputs:
-                    eyebrow:
-                      type: text
-                      comment: Optional eyebrow text displayed above the title.
-                    title:
-                      type: text
-                      comment: Heading text shown on the slide.
-                    description:
-                      type: textarea
-                      comment: Supporting body copy shown on the slide.
-                    imageSource:
-                      type: image
-                      comment: Image shown on the side of the slide.
-                      options:
-                        paths:
-                          uploads: src/assets/images
-                          static: ""
-                    imageAlt:
-                      type: text
-                      comment: Alt text describing the slide image.
-                    minSplitWidth:
-                      type: number
-                      comment: Container width (in px) before the split stacks vertically.
-          colorScheme:
-            type: select
-            comment: Color scheme theme applied to the section wrapper.
-            options:
-              values:
-                - id: default
-                  name: Default
-                - id: contrast
-                  name: Contrast
-          backgroundColor:
-            type: select
-            comment: Background color for the section.
-            options:
-              values:
-                - id: none
-                  name: None
-                - id: base
-                  name: Base
-                - id: surface
-                  name: Surface
-                - id: accent
-                  name: Accent
-                - id: highlight
-                  name: Highlight
       - label: Feature Grid
         icon: apps
         description: Responsive grid layout for highlighting multiple product features.
@@ -1617,8 +1498,7 @@ _structures:
             - key: heading
             - Feature Grid
           subtext:
-            - template: Displays {features|array_length} {"feature"|pluralize=features}
-            - Add feature items to the grid
+            - key: subtext
         picker_preview:
           text: Feature Grid
           subtext: Grid of feature highlights with icons and descriptions.
@@ -1695,6 +1575,109 @@ _structures:
                   name: Accent
                 - id: highlight
                   name: Highlight
+      - label: Feature Slider
+        icon: view_carousel
+        description: Carousel of feature cards, ideal for showcasing key reasons or benefits.
+        value:
+          _component: page-sections/features/feature-slider
+          eyebrow: Eyebrow text
+          heading: Heading text
+          subtext: Subtext placeholder text that will be replaced with actual content.
+          slides: []
+          colorScheme: null
+          backgroundColor: base
+        preview:
+          text:
+            - key: heading
+            - Feature Slider
+          subtext:
+            - key: subtext
+        picker_preview:
+          text: Feature Slider
+          subtext: Carousel of feature-focused cards.
+          icon: view_carousel
+        _inputs:
+          _component:
+            hidden: true
+          eyebrow:
+            type: text
+            comment: Optional eyebrow text displayed above the heading.
+          heading:
+            type: text
+            comment: Main heading for the slider section.
+          subtext:
+            type: textarea
+            comment: Supporting copy beneath the heading.
+          slides:
+            type: array
+            label: Slides
+            comment: Structured feature slides rendered inside the carousel.
+            options:
+              structures:
+                - label: Feature slide
+                  icon: view_carousel
+                  value:
+                    _component: page-sections/features/feature-slider/feature-slider-item
+                    eyebrow: ''
+                    title: Slide title
+                    description: Short description for this slide.
+                    imageSource: /src/assets/images/component-library/sunset.jpg
+                    imageAlt: Slide image alt text
+                    minSplitWidth: 0
+                  preview:
+                    text:
+                      - key: title
+                      - Feature slide
+                    subtext:
+                      - key: description
+                      - Add description for this slide
+                  _inputs:
+                    eyebrow:
+                      type: text
+                      comment: Optional eyebrow text displayed above the title.
+                    title:
+                      type: text
+                      comment: Heading text shown on the slide.
+                    description:
+                      type: textarea
+                      comment: Supporting body copy shown on the slide.
+                    imageSource:
+                      type: image
+                      comment: Image shown on the side of the slide.
+                      options:
+                        paths:
+                          uploads: src/assets/images
+                          static: ''
+                    imageAlt:
+                      type: text
+                      comment: Alt text describing the slide image.
+                    minSplitWidth:
+                      type: number
+                      comment: Container width (in px) before the split stacks vertically.
+          colorScheme:
+            type: select
+            comment: Color scheme theme applied to the section wrapper.
+            options:
+              values:
+                - id: default
+                  name: Default
+                - id: contrast
+                  name: Contrast
+          backgroundColor:
+            type: select
+            comment: Background color for the section.
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: base
+                  name: Base
+                - id: surface
+                  name: Surface
+                - id: accent
+                  name: Accent
+                - id: highlight
+                  name: Highlight
       - label: CTA Split
         icon: hero
         description: Side-by-side CTA with copy on one side and stacked buttons on the other.
@@ -1707,8 +1690,8 @@ _structures:
           buttonSections:
             - _component: building-blocks/core-elements/button
               text: My Button
-              link: ""
-              iconName: ""
+              link: ''
+              iconName: ''
               iconPosition: before
               hideText: false
               variant: primary
@@ -1723,7 +1706,6 @@ _structures:
             - CTA Split
           subtext:
             - key: subtext
-            - Add supporting text
         picker_preview:
           text: CTA Split
           subtext: Split layout CTA with button stack.
@@ -1741,7 +1723,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           imageAlt:
             type: text
             comment: Alt text describing the CTA image.
@@ -1817,7 +1799,6 @@ _structures:
             - CTA Form
           subtext:
             - key: subtext
-            - Add supporting text
         picker_preview:
           text: CTA Form
           subtext: Split layout CTA with form and image.
@@ -1843,7 +1824,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           imageAlt:
             type: text
             comment: Alt text describing the CTA image.
@@ -1884,8 +1865,8 @@ _structures:
           buttonSections:
             - _component: building-blocks/core-elements/button
               text: My Button
-              link: ""
-              iconName: ""
+              link: ''
+              iconName: ''
               iconPosition: before
               hideText: false
               variant: primary
@@ -1899,7 +1880,6 @@ _structures:
             - CTA Center
           subtext:
             - key: subtext
-            - Add supporting text
         picker_preview:
           text: CTA Center
           subtext: Centered CTA with stacked text and buttons.
@@ -1948,7 +1928,7 @@ _structures:
         description: Used to group and style large sections of a page.
         value:
           _component: page-sections/builders/custom-section
-          label: ""
+          label: ''
           contentSections: []
           maxContentWidth: 2xl
           paddingHorizontal: md
@@ -1956,8 +1936,8 @@ _structures:
           colorScheme: null
           backgroundColor: base
           backgroundImage:
-            source: ""
-            alt: ""
+            source: ''
+            alt: ''
             positionVertical: top
             positionHorizontal: center
           rounded: false
@@ -2086,7 +2066,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           backgroundImage.alt:
             comment: Alt text for the background image.
             type: textarea
@@ -2153,7 +2133,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           imageAlt:
             type: text
             comment: Alt text describing the team member photo.
@@ -2287,7 +2267,7 @@ _structures:
         description: Two-column layout for side-by-side content.
         value:
           _component: building-blocks/wrappers/split
-          label: ""
+          label: ''
           firstColumnContentSections: []
           secondColumnContentSections: []
           distributionMode: half
@@ -2387,7 +2367,7 @@ _structures:
         description: Arranges content into a grid that adapts to screen size.
         value:
           _component: building-blocks/wrappers/grid
-          label: ""
+          label: ''
           layout: center
           minItemWidth: 280
           maxItemWidth: 400
@@ -2454,7 +2434,7 @@ _structures:
         description: Lets users switch between different content panels using tabs.
         value:
           _component: building-blocks/wrappers/content-selector
-          label: ""
+          label: ''
           items: []
           navigationPosition: start
         preview:
@@ -2484,54 +2464,6 @@ _structures:
                   name: Start
                 - id: top
                   name: Top
-      - &ref_20
-        label: Carousel
-        icon: image
-        description: Displays multiple items in a sliding gallery.
-        value:
-          _component: building-blocks/wrappers/carousel
-          label: ""
-          slides: []
-          autoPlay: false
-          autoScroll: false
-          slideWidthPercent: 100
-          minSlideWidth: 0
-        preview:
-          text:
-            - key: label
-            - Carousel
-          subtext:
-            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
-            - Add slides to the carousel
-        picker_preview:
-          text: Carousel
-          subtext: Displays multiple items in a sliding gallery.
-          icon: image
-        _inputs:
-          label:
-            comment: Optional label for the carousel to help identify it in the editor.
-            type: text
-          slides:
-            comment: Array of slides to display in the carousel.
-            type: array
-            options:
-              structures: _structures.slides
-          autoPlay:
-            comment: Enable auto-play functionality.
-            type: switch
-          autoScroll:
-            comment: Enable auto-scroll functionality.
-            type: switch
-          slideWidthPercent:
-            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
-            type: range
-            options:
-              min: 0
-              max: 100
-              step: 1
-          minSlideWidth:
-            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
-            type: number
       - &ref_3
         label: Card
         icon: crop_square
@@ -2576,13 +2508,13 @@ _structures:
           beforeContentSections:
             type: array
             comment: Content that appears above the main card area, without padding.
-            hidden: "!showBeforeAfter"
+            hidden: '!showBeforeAfter'
             options:
               structures: _structures.cardSections
           afterContentSections:
             type: array
             comment: Content that appears below the main card area, without padding.
-            hidden: "!showBeforeAfter"
+            hidden: '!showBeforeAfter'
             options:
               structures: _structures.cardSections
           maxContentWidth:
@@ -2685,7 +2617,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           backgroundImage.alt:
             comment: Alt text for the background image.
             type: text
@@ -2720,6 +2652,54 @@ _structures:
           border:
             type: switch
             comment: Whether to apply a border to the card.
+      - &ref_20
+        label: Carousel
+        icon: image
+        description: Displays multiple items in a sliding gallery.
+        value:
+          _component: building-blocks/wrappers/carousel
+          label: ''
+          slides: []
+          autoPlay: false
+          autoScroll: false
+          slideWidthPercent: 100
+          minSlideWidth: 0
+        preview:
+          text:
+            - key: label
+            - Carousel
+          subtext:
+            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
+            - Add slides to the carousel
+        picker_preview:
+          text: Carousel
+          subtext: Displays multiple items in a sliding gallery.
+          icon: image
+        _inputs:
+          label:
+            comment: Optional label for the carousel to help identify it in the editor.
+            type: text
+          slides:
+            comment: Array of slides to display in the carousel.
+            type: array
+            options:
+              structures: _structures.slides
+          autoPlay:
+            comment: Enable auto-play functionality.
+            type: switch
+          autoScroll:
+            comment: Enable auto-scroll functionality.
+            type: switch
+          slideWidthPercent:
+            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
+            type: range
+            options:
+              min: 0
+              max: 100
+              step: 1
+          minSlideWidth:
+            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
+            type: number
       - &ref_4
         label: Button Group
         icon: rectangle
@@ -2838,10 +2818,10 @@ _structures:
         value:
           _component: building-blocks/core-elements/video
           type: youtube
-          id: ""
-          title: ""
-          source: ""
-          thumbnail: ""
+          id: ''
+          title: ''
+          source: ''
+          thumbnail: ''
         preview:
           icon: videocam
           text:
@@ -2957,7 +2937,7 @@ _structures:
           text: My testimonial text.
           authorName: Charlie Parker
           authorDescription: Author
-          authorImage: ""
+          authorImage: ''
           alignX: start
         preview:
           text:
@@ -2998,7 +2978,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           alignX:
             comment: The horizontal alignment of the testimonial.
             type: select
@@ -3171,8 +3151,8 @@ _structures:
         description: Optimized image component for local and remote sources.
         value:
           _component: building-blocks/core-elements/image
-          source: ""
-          alt: ""
+          source: ''
+          alt: ''
           rounded: false
           aspectRatio: none
           positionVertical: center
@@ -3196,7 +3176,7 @@ _structures:
             options:
               paths:
                 uploads: src/assets/images
-                static: ""
+                static: ''
           alt:
             type: textarea
             comment: Alternative text for accessibility.
@@ -3422,8 +3402,8 @@ _structures:
         description: Responsive wrapper for third-party embeds.
         value:
           _component: building-blocks/core-elements/embed
-          source: ""
-          title: ""
+          source: ''
+          title: ''
           aspectRatio: landscape
         preview:
           icon: data_object
@@ -3545,7 +3525,7 @@ _structures:
           alignX: start
         preview:
           subtext:
-            - template: "{prefix}{number}{suffix}"
+            - template: '{prefix}{number}{suffix}'
             - Add counter details
         picker_preview:
           text: Counter
@@ -3600,8 +3580,8 @@ _structures:
     values:
       - *ref_0
       - *ref_1
-      - *ref_20
       - *ref_3
+      - *ref_20
       - *ref_4
       - *ref_5
       - *ref_6
@@ -3643,8 +3623,8 @@ _structures:
     values:
       - *ref_1
       - *ref_2
-      - *ref_20
       - *ref_3
+      - *ref_20
       - *ref_4
       - *ref_5
       - *ref_6
@@ -3685,24 +3665,6 @@ _structures:
             type: array
             options:
               structures: _structures.contentSelectorSections
-  slides:
-    id_key: _component
-    style: modal
-    values:
-      - label: Carousel Slide
-        value:
-          contentSections: []
-        _inputs:
-          contentSections:
-            type: array
-            options:
-              structures: _structures.carouselSections
-        preview:
-          icon: transition_slide
-          text: Carousel Slide
-          subtext:
-            - template: Contains {contentSections|array_length} content {"block"|pluralize=contentSections}
-            - Add one or more content blocks to the grid item
   gridItemSections:
     id_key: _component
     style: modal
@@ -3724,6 +3686,24 @@ _structures:
       - *ref_17
       - *ref_18
       - *ref_19
+  slides:
+    id_key: _component
+    style: modal
+    values:
+      - label: Carousel Slide
+        value:
+          contentSections: []
+        _inputs:
+          contentSections:
+            type: array
+            options:
+              structures: _structures.carouselSections
+        preview:
+          icon: transition_slide
+          text: Carousel Slide
+          subtext:
+            - template: Contains {contentSections|array_length} content {"block"|pluralize=contentSections}
+            - Add one or more content blocks to the grid item
   cardSections:
     id_key: _component
     style: modal
@@ -3888,7 +3868,7 @@ _structures:
           iconPosition:
             type: select
             comment: The position of the icon relative to the text.
-            hidden: "!iconName"
+            hidden: '!iconName'
             options:
               values:
                 - id: before
@@ -3898,7 +3878,7 @@ _structures:
           hideText:
             type: switch
             comment: Whether to hide the button text and show only the icon.
-            hidden: "!iconName"
+            hidden: '!iconName'
           disabled:
             type: switch
             comment: Whether the submit button is disabled.
@@ -3954,54 +3934,6 @@ _structures:
           value:
             type: text
             comment: The default selected value.
-      - label: Segments
-        icon: radio_button_partial
-        description: Segmented control form field with connected buttons.
-        value:
-          _component: building-blocks/forms/segments
-          title: null
-          name: my_segments
-          required: false
-          options: []
-          iconOnly: false
-          multiple: false
-          keepStateOnRefresh: true
-        preview:
-          subtext:
-            - template: A segments field, containing {options|array_length} {"option"|pluralize=options}
-        picker_preview:
-          text: Segments
-          subtext: Segmented control form field with connected buttons.
-          icon: radio_button_partial
-        _inputs:
-          title:
-            type: text
-            comment: Optional title text for the fieldset.
-          name:
-            type: text
-            comment: A unique name attribute for the radio button group.
-            options:
-              required: true
-              required_message: Only form elements with a name will have their values passed when submitting a form.
-          required:
-            type: switch
-            comment: Whether the field is required.
-          options:
-            type: array
-            comment: Array of segment options with value, label, icon, and checked state.
-            options:
-              structures: _structures.segmentOptions
-              min_items: 1
-              min_items_message: At least one option is required.
-          iconOnly:
-            type: switch
-            comment: When true, labels are used as tooltips instead of being displayed as text.
-          multiple:
-            type: switch
-            comment: When true, uses checkboxes for multiple selection instead of radio buttons for single selection.
-          keepStateOnRefresh:
-            type: switch
-            comment: When true, sets autocomplete="on" to allow browser to remember state on page refresh. Defaults to false (autocomplete="off").
       - label: Input
         icon: rectangle
         description: Single text input form field.
@@ -4051,13 +3983,61 @@ _structures:
           value:
             type: text
             comment: The default value for the input field.
+      - label: Segments
+        icon: radio_button_partial
+        description: Segmented control form field with connected buttons.
+        value:
+          _component: building-blocks/forms/segments
+          title: null
+          name: my_segments
+          required: false
+          options: []
+          iconOnly: false
+          multiple: false
+          keepStateOnRefresh: true
+        preview:
+          subtext:
+            - template: A segments field, containing {options|array_length} {"option"|pluralize=options}
+        picker_preview:
+          text: Segments
+          subtext: Segmented control form field with connected buttons.
+          icon: radio_button_partial
+        _inputs:
+          title:
+            type: text
+            comment: Optional title text for the fieldset.
+          name:
+            type: text
+            comment: A unique name attribute for the radio button group.
+            options:
+              required: true
+              required_message: Only form elements with a name will have their values passed when submitting a form.
+          required:
+            type: switch
+            comment: Whether the field is required.
+          options:
+            type: array
+            comment: Array of segment options with value, label, icon, and checked state.
+            options:
+              structures: _structures.segmentOptions
+              min_items: 1
+              min_items_message: At least one option is required.
+          iconOnly:
+            type: switch
+            comment: When true, labels are used as tooltips instead of being displayed as text.
+          multiple:
+            type: switch
+            comment: When true, uses checkboxes for multiple selection instead of radio buttons for single selection.
+          keepStateOnRefresh:
+            type: switch
+            comment: When true, sets autocomplete="on" to allow browser to remember state on page refresh. Defaults to false (autocomplete="off").
       - label: Hidden
         icon: eye-slash
         description: Hidden form field for storing data.
         value:
           _component: building-blocks/forms/hidden
-          name: ""
-          value: ""
+          name: ''
+          value: ''
         preview:
           text:
             - template: Hidden - {name}
@@ -4119,7 +4099,7 @@ _structures:
           label: My date
           name: my_date
           required: false
-          value: "2026-01-01T15:30:00"
+          value: '2026-01-01T15:30:00'
           min: null
           max: null
         preview:
@@ -4302,8 +4282,8 @@ _structures:
     values:
       - label: List Item
         value:
-          text: ""
-          iconName: ""
+          text: ''
+          iconName: ''
           iconColor: default
         preview:
           icon: text_fields
@@ -4364,8 +4344,8 @@ _structures:
     values:
       - label: Definition List Item
         value:
-          title: ""
-          text: ""
+          title: ''
+          text: ''
         preview:
           icon: list
           text:
@@ -4390,8 +4370,8 @@ _structures:
         value:
           _component: building-blocks/core-elements/button
           text: My Button
-          link: ""
-          iconName: ""
+          link: ''
+          iconName: ''
           iconPosition: before
           hideText: false
           variant: primary
@@ -4430,7 +4410,7 @@ _structures:
           iconPosition:
             type: select
             comment: The position of the icon relative to the text.
-            hidden: "!iconName"
+            hidden: '!iconName'
             options:
               values:
                 - id: before
@@ -4439,7 +4419,7 @@ _structures:
                   name: After
           hideText:
             type: switch
-            hidden: "!iconName"
+            hidden: '!iconName'
             comment: Whether to hide the button text and show only the icon.
           variant:
             type: select

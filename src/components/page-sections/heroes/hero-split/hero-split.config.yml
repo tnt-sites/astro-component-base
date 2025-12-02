@@ -28,10 +28,7 @@ preview:
     - key: heading
     - Hero Split
   subtext:
-    - key: eyebrow
-    - Eyebrow
     - key: subtitle
-    - Add content to the hero
 picker_preview:
   text: Hero Split
   subtext: "Prominent section block for landing pages."

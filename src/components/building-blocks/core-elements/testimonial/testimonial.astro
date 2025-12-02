@@ -108,13 +108,16 @@ const MarkdownText = text ? md.render(text) : "";
 
       > .author-image {
         aspect-ratio: var(--ratio-square);
-        border-radius: var(--radius-full);
-        overflow: hidden;
         width: 80px;
         height: 80px;
 
-        img {
-          height: auto;
+        :global(picture) {
+          border-radius: var(--radius-full);
+          overflow: hidden;
+        }
+
+        :global(img) {
+          height: 100%;
         }
       }
     }

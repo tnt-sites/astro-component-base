@@ -16,8 +16,7 @@ preview:
     - key: heading
     - Team Grid
   subtext:
-    - template: Displays {teamMembers|array_length} {"team member"|pluralize=teamMembers}
-    - Add team members to the grid
+    - key: subtext
 picker_preview:
   text: Team Grid
   subtext: "Grid of team member cards with photos and bios."

@@ -25,7 +25,6 @@ preview:
     - CTA Center
   subtext:
     - key: subtext
-    - Add supporting text
 picker_preview:
   text: CTA Center
   subtext: Centered CTA with stacked text and buttons.

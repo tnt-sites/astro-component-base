@@ -21,7 +21,7 @@ preview:
     - key: heading
     - Feature Split
   subtext:
-    - Add feature details
+    - key: subtext
 picker_preview:
   text: Feature Split
   subtext: "Split view with story content and supporting feature list."

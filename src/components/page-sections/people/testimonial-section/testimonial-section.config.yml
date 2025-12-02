@@ -21,7 +21,6 @@ preview:
     - Testimonial Section
   subtext:
     - key: authorDescription
-    - Customer testimonial
 picker_preview:
   text: Testimonial Section
   subtext: "Section with customer testimonial and author details."
@@ -133,4 +132,3 @@ _inputs:
           name: Accent
         - id: highlight
           name: Highlight
-

@@ -19,8 +19,7 @@ preview:
     - key: heading
     - Feature Grid
   subtext:
-    - template: Displays {features|array_length} {"feature"|pluralize=features}
-    - Add feature items to the grid
+    - key: subtext
 picker_preview:
   text: Feature Grid
   subtext: "Grid of feature highlights with icons and descriptions."

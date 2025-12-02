@@ -16,8 +16,7 @@ preview:
     - key: heading
     - Feature Slider
   subtext:
-    - template: Displays {slides|array_length} {"slide"|pluralize=slides}
-    - Add feature slides to the carousel
+    - key: subtext
 picker_preview:
   text: Feature Slider
   subtext: "Carousel of feature-focused cards."
