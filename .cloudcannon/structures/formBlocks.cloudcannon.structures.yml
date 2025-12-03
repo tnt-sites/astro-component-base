@@ -2,12 +2,5 @@ formBlocks:
   id_key: _component
   style: modal
   values_from_glob:
-    - /src/components/building-blocks/forms/textarea/textarea.cloudcannon.structure-value.yml
-    - /src/components/building-blocks/forms/submit/submit.cloudcannon.structure-value.yml
-    - /src/components/building-blocks/forms/select/select.cloudcannon.structure-value.yml
-    - /src/components/building-blocks/forms/segments/segments.cloudcannon.structure-value.yml
-    - /src/components/building-blocks/forms/input/input.cloudcannon.structure-value.yml
-    - /src/components/building-blocks/forms/hidden/hidden.cloudcannon.structure-value.yml
-    - /src/components/building-blocks/forms/file-upload/file-upload.cloudcannon.structure-value.yml
-    - /src/components/building-blocks/forms/date/date.cloudcannon.structure-value.yml
-    - /src/components/building-blocks/forms/choice-group/choice-group.cloudcannon.structure-value.yml
+    - /src/components/building-blocks/forms/**/*.cloudcannon.structure-value.yml
+    - "!/src/components/building-blocks/forms/form/form.cloudcannon.structure-value.yml"
