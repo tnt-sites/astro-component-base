@@ -69,6 +69,12 @@ collections_config:
     icon: database
     _enabled_editors:
       - data
+    _inputs:
+      navData:
+        type: array
+        comment: Array of navigation items to render in the navigation bar.
+        options:
+          structures: navDataSections
 collection_groups:
   - heading: Content
     collections:
