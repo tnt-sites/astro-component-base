@@ -22,17 +22,15 @@ _inputs:
     type: markdown
     comment: Quotation marks will be added around the text.
     options:
+      blockquote: false
       bold: true
+      format: p
       italic: true
       link: true
-      strike: true
+      strike: false
       subscript: true
       superscript: true
-      underline: true
-      undo: true
-      redo: true
-      removeformat: true
-      copyformatting: true
+      underline: false
   authorName:
     comment: The person to whom you're attributing the quotation.
     type: textarea
