@@ -82,7 +82,7 @@ _structures:
             options:
               blockquote: false
               bold: true
-              format: p
+              format:
               italic: true
               link: true
               strike: false
