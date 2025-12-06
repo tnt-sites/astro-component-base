@@ -5,8 +5,9 @@ value:
   _component: building-blocks/core-elements/counter
   number: 100
   prefix: $
-  suffix: USD
+  suffix: M
   alignX: start
+  size: 2xl
 preview:
   text:
     - Counter
@@ -35,3 +36,24 @@ _inputs:
           name: Center
         - id: end
           name: End
+  size:
+    type: select
+    comment: The font size of the counter.
+    options:
+      values:
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2xl
+        - id: 3xl
+          name: 3xl
+        - id: 4xl
+          name: 4xl
