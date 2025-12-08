@@ -13,31 +13,25 @@ const htmlAttributes = Object.fromEntries(
   Object.entries(restProps).filter(([key]) => key !== "_component")
 );
 
-const titleDataAttributes = editable && customDataPropTitle
-  ? {
-      "data-editable": "text",
-      "data-prop": customDataPropTitle,
-    }
-  : {};
+const titleDataAttributes =
+  editable && customDataPropTitle
+    ? {
+        "data-editable": "text",
+        "data-prop": customDataPropTitle,
+      }
+    : {};
 
-const contentDataAttributes = editable && customDataPropContent
-  ? {
-      "data-editable": "text",
-      "data-prop": customDataPropContent,
-    }
-  : {};
+const contentDataAttributes =
+  editable && customDataPropContent
+    ? {
+        "data-editable": "text",
+        "data-prop": customDataPropContent,
+      }
+    : {};
 ---
 
-<dt class:list={["title", className]} role="term" {...htmlAttributes}>
-  {
-    title ? (
-      <strong {...titleDataAttributes}>{title}</strong>
-    ) : (
-      <span {...titleDataAttributes}>
-        <slot name="title" />
-      </span>
-    )
-  }
+<dt class:list={["title", className]} role="term" {...titleDataAttributes} {...htmlAttributes}>
+  {title ? <span {...titleDataAttributes}>{title}</span> : <slot name="title" />}
 </dt>
 <dd class:list={["content", className]} role="definition" {...htmlAttributes}>
   {
@@ -50,3 +44,9 @@ const contentDataAttributes = editable && customDataPropContent
     )
   }
 </dd>
+
+<style lang="pcss">
+  .title {
+    font-weight: var(--font-weight-bold);
+  }
+</style>
