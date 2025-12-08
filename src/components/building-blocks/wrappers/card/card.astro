@@ -109,7 +109,7 @@ const Tag = link ? "a" : "div";
   </div>
 
   {
-    (afterContentSections && showBeforeAfter) || Astro.slots.has("after")) && (
+    ((afterContentSections && showBeforeAfter) || Astro.slots.has("after")) && (
       <div class="after-content">
         {afterContentSections ? (
           <Component contentSections={afterContentSections} propName="afterContentSections" />
