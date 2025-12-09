@@ -1,21 +1,28 @@
-Counter:
-  snippet: "<Counter [[counter_args]] />"
-  params:
-    counter_args:
-      parser: key_values
-      options:
-        models:
-          - editor_key: number
-          - editor_key: prefix
-          - editor_key: suffix
-          - editor_key: alignX
-          - editor_key: size
-        format:
-          string_boundary:
-            - '"'
-          root_value_delimiter: "="
-          root_pair_delimiter:
-            - " "
-          allow_booleans: true
+counter:
+  template: mdx_component
+  inline: false
+  preview:
+    text: Counter
+  definitions:
+    component_name: Counter
+    named_args:
+      - editor_key: number
+        type: number
+      - editor_key: prefix
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: suffix
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: alignX
+        type: string
+        optional: true
+        default: start
+      - editor_key: size
+        type: string
+        optional: true
+        remove_empty: true
   _inputs_from_glob:
     - /src/components/building-blocks/core-elements/counter/counter.cloudcannon.inputs.yml

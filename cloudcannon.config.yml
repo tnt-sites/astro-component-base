@@ -777,5 +777,7 @@ _select_data:
       name: X Mark
 _structures_from_glob:
   - /.cloudcannon/structures/*.cloudcannon.structures.yml
+_snippets_imports:
+  mdx: true
 _snippets_from_glob:
   - /**/*.cloudcannon.snippets.yml
