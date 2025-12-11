@@ -1,0 +1,24 @@
+---
+const {
+  html,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<div
+  class:list={["raw-html", className]}
+  set:html={html}
+  {...htmlAttributes}
+></div>
+
+<style lang="pcss">
+  .raw-html {
+    margin-top: var(--spacing-lg);
+  }
+</style>
+

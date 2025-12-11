@@ -1,0 +1,198 @@
+---
+import { getProviderForUrl } from "unpic";
+import AstroImage from "./AstroImage.astro";
+import UnpicImage from "./UnpicImage.astro";
+
+const {
+  source,
+  alt,
+  sizes = "(min-width: 30em) 50vw, 100vw",
+  widths = [400, 600, 800, 1200, 1600],
+  rounded = false,
+  priority = false,
+  aspectRatio = null,
+  positionVertical = "center",
+  positionHorizontal = "center",
+  background = false,
+  editable = true,
+  class: className,
+  "data-prop-src": customDataPropSrc,
+  "data-prop-alt": customDataPropAlt,
+  "data-editable": customDataEditable,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+
+const hasValidSrc = source && typeof source === "string" && source.trim() !== "";
+
+const provider = hasValidSrc ? getProviderForUrl(source) : false;
+const isExternalCDN = provider !== false;
+
+const commonProps = {
+  alt: alt || "",
+};
+
+const dataAttributes = editable
+  ? {
+      "data-editable": customDataEditable || "image",
+      "data-prop-src": customDataPropSrc || "source",
+      "data-prop-alt": customDataPropAlt || "alt",
+    }
+  : {};
+
+const positionClass = `position-${positionVertical}-${positionHorizontal}`;
+---
+
+<div
+  class:list={[
+    "image",
+    aspectRatio && "ratio",
+    aspectRatio && `ratio-${aspectRatio}`,
+    positionClass,
+    rounded && "rounded",
+    background && "background",
+    className,
+  ]}
+  {...htmlAttributes}
+>
+  {
+    hasValidSrc ? (
+      isExternalCDN ? (
+        <UnpicImage
+          {...commonProps}
+          {...dataAttributes}
+          source={source}
+          sizes={sizes}
+          widths={widths}
+          priority={priority}
+          aspectRatio={aspectRatio}
+          positionVertical={positionVertical}
+          positionHorizontal={positionHorizontal}
+        />
+      ) : (
+        <AstroImage
+          {...commonProps}
+          {...dataAttributes}
+          source={source}
+          sizes={sizes}
+          widths={widths}
+          priority={priority}
+          aspectRatio={aspectRatio}
+          positionVertical={positionVertical}
+          positionHorizontal={positionHorizontal}
+        />
+      )
+    ) : (
+      <picture>
+        <img {...dataAttributes} src={source} alt={alt || ""} />
+      </picture>
+    )
+  }
+</div>
+
+<style lang="pcss">
+  .image {
+    display: block;
+    overflow: hidden;
+    margin-top: var(--spacing-lg);
+
+    &.ratio-square {
+      aspect-ratio: var(--ratio-square);
+    }
+
+    &.ratio-landscape {
+      aspect-ratio: var(--ratio-landscape);
+    }
+
+    &.ratio-portrait {
+      aspect-ratio: var(--ratio-portrait);
+    }
+
+    &.ratio-widescreen {
+      aspect-ratio: var(--ratio-widescreen);
+    }
+
+    &.ratio {
+      :global(picture) {
+        height: 100%;
+      }
+
+      :global(img) {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+    }
+
+    &.background {
+      inset: 0;
+      position: absolute;
+      margin-top: 0;
+
+      > :global(picture) {
+        height: 100%;
+      }
+
+      > :global(picture) > :global(img) {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    :global(picture) {
+      display: block;
+      margin-block: auto;
+      width: 100%;
+    }
+
+    :global(img) {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    &.position-center-center :global(img) {
+      object-position: center center;
+    }
+
+    &.position-top-center :global(img) {
+      object-position: center top;
+    }
+
+    &.position-bottom-center :global(img) {
+      object-position: center bottom;
+    }
+
+    &.position-center-left :global(img) {
+      object-position: left center;
+    }
+
+    &.position-center-right :global(img) {
+      object-position: right center;
+    }
+
+    &.position-top-left :global(img) {
+      object-position: left top;
+    }
+
+    &.position-top-right :global(img) {
+      object-position: right top;
+    }
+
+    &.position-bottom-left :global(img) {
+      object-position: left bottom;
+    }
+
+    &.position-bottom-right :global(img) {
+      object-position: right bottom;
+    }
+
+    &.rounded {
+      border-radius: var(--radius-lg);
+    }
+  }
+</style>

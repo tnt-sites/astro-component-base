@@ -1,0 +1,50 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Text from "@core-elements/text/Text.astro";
+import ButtonGroup from "@wrappers/button-group/Buttongroup.astro";
+
+const {
+  eyebrow = "",
+  heading = "",
+  subtext = "",
+  buttonSections = [],
+  colorScheme,
+  backgroundColor,
+  paddingVertical = "4xl",
+  class: className,
+} = Astro.props;
+---
+
+<CustomSection
+  class:list={["hero-center", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+>
+  {
+    eyebrow && (
+      <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
+        {eyebrow}
+      </SimpleText>
+    )
+  }
+  <Heading level="h1" size="2xl" alignX="center" data-prop="heading">
+    {heading}
+  </Heading>
+  {subtext && <Text alignX="center" class="subtext" data-prop="subtext" text={subtext} />}
+  {
+    buttonSections?.length > 0 && (
+      <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
+    )
+  }
+</CustomSection>
+
+<style>
+  .subtext :global(p) {
+    font-size: var(--font-size-lg);
+  }
+</style>

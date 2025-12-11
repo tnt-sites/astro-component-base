@@ -1,8 +1,8 @@
 ---
 const { component_examples = [], title = "", size = "md" } = Astro.props;
 
-import Button from "@core-elements/button/button.astro";
-import Segments from "@forms/segments/segments.astro";
+import Button from "@core-elements/button/Button.astro";
+import Segments from "@forms/segments/Segments.astro";
 import { Code } from "astro:components";
 import "./styles.css";
 import { formatBlocksAstro } from "./utils/astroFormatter";
@@ -14,13 +14,28 @@ const componentImports = import.meta.glob("../../../components/**/*.astro", {
   eager: true,
 });
 
+// Helper to convert PascalCase to kebab-case
+function pascalToKebab(pascal: string): string {
+  return pascal
+    .replace(/([A-Z])/g, "-$1")
+    .toLowerCase()
+    .replace(/^-/, "");
+}
+
 Object.entries(componentImports).forEach(([path, obj]) => {
   const relativePath = path.replace("../../../components/", "").replace(/\.astro$/, "");
   const parts = relativePath.split("/");
-
-  // Remove duplicate directory names (e.g., text/text -> text)
-  if (parts.length > 1 && parts[parts.length - 1] === parts[parts.length - 2]) {
+  const filename = parts[parts.length - 1];
+  
+  // Convert PascalCase filename to kebab-case
+  const kebabFilename = pascalToKebab(filename);
+  
+  // If filename (in kebab-case) matches parent folder, remove it
+  if (parts.length > 1 && kebabFilename === parts[parts.length - 2]) {
     parts.pop();
+    parts[parts.length - 1] = kebabFilename;
+  } else {
+    parts[parts.length - 1] = kebabFilename;
   }
 
   const componentName = parts.join("/");

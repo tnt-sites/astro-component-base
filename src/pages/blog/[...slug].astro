@@ -1,9 +1,9 @@
 ---
-import Heading from "@core-elements/heading/heading.astro";
-import Image from "@core-elements/image/image.astro";
-import SimpleText from "@core-elements/simple-text/simple-text.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
 import Page from "@layouts/Page.astro";
-import CustomSection from "@page-sections/builders/custom-section/custom-section.astro";
+import CustomSection from "@page-sections/builders/custom-section/CustomSection.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
 // Automatically import all components from building-blocks and page-sections for MDX
@@ -25,14 +25,22 @@ Object.entries(componentImports).forEach(([path, module]) => {
   const pathParts = path.split("/");
   const fileName = pathParts[pathParts.length - 1].replace(".astro", "");
   const folderName = pathParts[pathParts.length - 2];
-  const componentName = fileName
-    .split("-")
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join("");
+  
+  // Convert PascalCase to component name (already PascalCase, so just use it)
+  // If filename matches folder (in kebab-case), use folder-based name
+  const kebabFileName = fileName
+    .replace(/([A-Z])/g, "-$1")
+    .toLowerCase()
+    .replace(/^-/, "");
+  const kebabFolderName = folderName
+    .replace(/([A-Z])/g, "-$1")
+    .toLowerCase()
+    .replace(/^-/, "");
+  
+  // Component name is already PascalCase from filename
+  const componentName = fileName;
 
-  const finalName = fileName === folderName ? componentName : componentName;
-
-  mdxComponents[finalName] = (module as any).default;
+  mdxComponents[componentName] = (module as any).default;
 });
 
 export async function getStaticPaths() {

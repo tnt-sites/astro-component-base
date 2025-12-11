@@ -1,0 +1,70 @@
+---
+import AccordionItem from "./AccordionItem.astro";
+
+const {
+  items,
+  openFirst,
+  singleOpen = false,
+  label,
+  editable = true,
+  "data-prop": customDataProp = "items",
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+
+const slugifyLabel = (label: string) => {
+  return label
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+};
+
+const generatedLabel = label || `Accordion-${crypto.randomUUID()}`;
+
+if (!htmlAttributes.id) {
+  htmlAttributes.id = slugifyLabel(generatedLabel);
+}
+
+const accordionName = singleOpen ? `accordion-${crypto.randomUUID()}` : undefined;
+
+const arrayDataAttributes = editable
+  ? {
+      "data-editable": "array",
+      "data-prop": customDataProp,
+      "data-component-key": "_component",
+      "data-id-key": "_component",
+    }
+  : {};
+---
+
+<div class:list={["accordion"]} {...arrayDataAttributes} {...htmlAttributes}>
+  {
+    items ? (
+      items.map((item: any, index: number) => {
+        const isFirst = index === 0 && openFirst;
+
+        return (
+          <editable-array-item data-component="building-blocks/wrappers/accordion/accordion-item">
+            <AccordionItem
+              title={item.title}
+              contentSections={item.contentSections}
+              isOpen={isFirst}
+              accordionName={accordionName}
+            />
+          </editable-array-item>
+        );
+      })
+    ) : (
+      <slot />
+    )
+  }
+</div>
+
+<style lang="pcss">
+  .accordion {
+    margin-top: var(--spacing-lg);
+  }
+</style>

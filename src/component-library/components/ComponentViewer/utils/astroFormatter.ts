@@ -122,7 +122,7 @@ export async function formatBlocksAstro(blocks: any): Promise<string> {
           importPath = `${componentPath}/${lastPart}`;
         }
 
-        return `import ${getComponentDisplayName(componentPath)} from "@components/${importPath}.astro";`;
+        return `import ${getComponentDisplayName(componentPath)} from "@components/${importpath}.astro";`;
       })
       .join("\n");
 

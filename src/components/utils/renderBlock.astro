@@ -10,12 +10,26 @@ const componentImports = import.meta.glob("../**/*.{jsx,astro}", {
   eager: true,
 });
 
+function pascalToKebab(pascal: string): string {
+  return pascal
+    .replace(/([A-Z])/g, "-$1")
+    .toLowerCase()
+    .replace(/^-/, "");
+}
+
 Object.entries(componentImports).forEach(([path, obj]) => {
   const parts = path.replace("../", "").split(".")[0].split("/");
+  const filename = parts[parts.length - 1];
 
-  if (parts.length > 1 && parts[parts.length - 1] === parts[parts.length - 2]) {
+  const kebabFilename = pascalToKebab(filename);
+
+  if (parts.length > 1 && kebabFilename === parts[parts.length - 2]) {
     parts.pop();
+    parts[parts.length - 1] = kebabFilename;
+  } else {
+    parts[parts.length - 1] = kebabFilename;
   }
+
   const componentName = parts.join("/");
 
   components[componentName] = (obj as any).default;

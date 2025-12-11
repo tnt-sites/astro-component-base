@@ -1,0 +1,20 @@
+label: Raw HTML
+icon: code
+description: Raw HTML content including scripts and styles.
+value:
+  _component: building-blocks/core-elements/raw-html
+  html: ""
+preview:
+  text:
+    - Raw HTML
+  subtext:
+    - key: html
+picker_preview:
+  text: Raw HTML
+  subtext: Raw HTML content including scripts and styles.
+  icon: code
+_inputs:
+  html:
+    comment: The raw HTML content to render (including scripts, styles, etc.).
+    type: textarea
+

@@ -48,18 +48,6 @@ _inputs:
       underline: false
       bulletedlist: false
       numberedlist: false
-    options:
-      blockquote: false
-      bold: true
-      format:
-      italic: true
-      link: true
-      strike: false
-      subscript: true
-      superscript: true
-      underline: false
-      bulletedlist: false
-      numberedlist: false
   buttonSections:
     type: array
     comment: Button blocks for calls to action.

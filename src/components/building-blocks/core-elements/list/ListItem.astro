@@ -1,0 +1,65 @@
+---
+import Icon from "@core-elements/icon/Icon.astro";
+import MarkdownIt from "markdown-it";
+
+const {
+  text = "",
+  iconName,
+  iconColor = "default",
+  class: className,
+  editable = true,
+  "data-prop": customDataProp = "text",
+  ...restProps
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(restProps).filter(([key]) => key !== "_component")
+);
+
+const md = new MarkdownIt({ html: true });
+
+const textDataAttributes = editable && customDataProp
+  ? {
+      "data-editable": "text",
+      "data-prop": customDataProp,
+    }
+  : {};
+---
+
+<li class:list={["item", className]} {...htmlAttributes}>
+  {
+    iconName && (
+      <Icon name={iconName} color={iconColor} size="none" class="list-icon" aria-hidden="true" />
+    )
+  }
+  {
+    text ? (
+      <span {...textDataAttributes} set:html={md.renderInline(text)} />
+    ) : (
+      <span {...textDataAttributes}>
+        <slot />
+      </span>
+    )
+  }
+</li>
+
+<style lang="pcss">
+  .item {
+    display: block;
+
+    > .list-icon {
+      display: inline-block;
+      flex-shrink: 0;
+      height: 1em;
+      margin-right: var(--spacing-em-xs);
+      vertical-align: -0.15em;
+      width: 1em;
+
+      svg {
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+</style>
