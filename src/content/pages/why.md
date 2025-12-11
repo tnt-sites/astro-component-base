@@ -7,7 +7,7 @@ pageSections:
     heading: Why build another Astro component library?
     subtext: >-
       We're big fans of the static web. And we love what the Astro team is
-      making!  As more <a href="https://cloudcannon.com/partner-program/"
+      making! As more <a href="https://cloudcannon.com/partner-program/"
       target="_blank" rel="noopener">partner agencies</a> are building client
       sites on CloudCannon, we wanted to provide a component library for Astro
       that outputs static HTML and CSS, for the fastest delivery possible

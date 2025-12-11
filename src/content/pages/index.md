@@ -160,18 +160,4 @@ pageSections:
     colorScheme: contrast
     backgroundColor: surface
     rounded: false
-  - _component: page-sections/builders/custom-section
-    label: ''
-    contentSections: []
-    maxContentWidth: 2xl
-    paddingHorizontal: md
-    paddingVertical: md
-    colorScheme:
-    backgroundColor: base
-    backgroundImage:
-      source: ''
-      alt: ''
-      positionVertical: top
-      positionHorizontal: center
-    rounded: false
 ---
