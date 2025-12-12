@@ -20,30 +20,17 @@ for (const [path, module] of Object.entries(componentModules)) {
     const filename = parts[parts.length - 1];
     const parentFolder = parts.length > 1 ? parts[parts.length - 2] : null;
 
-    // Convert PascalCase filename to kebab-case for comparison
+    // Convert PascalCase filename to kebab-case
     const kebabFilename = pascalToKebab(filename);
+    const kebabParent = parentFolder ? pascalToKebab(parentFolder) : null;
 
-    // If kebab-case filename matches parent folder, it's not a subcomponent - remove redundant filename
-    // e.g. 'wrappers/grid' (from Grid.astro in grid folder), 'wrappers/grid/grid-item' (from GridItem.astro)
+    // If filename (in kebab-case) matches parent folder, it's not a subcomponent - remove redundant filename
+    // e.g. 'wrappers/grid', 'wrappers/grid/grid-item'
     const registrationPath =
-      kebabFilename === parentFolder
+      kebabFilename === kebabParent
         ? parts.slice(0, -1).join("/")
         : parts.slice(0, -1).concat(kebabFilename).join("/");
 
-    // Validate module.default exists before registering
-    if (!module || !module.default) {
-      console.warn(`[live-editing] Skipping ${path}: module.default is missing`, {
-        hasModule: !!module,
-        moduleKeys: module ? Object.keys(module) : [],
-        registrationPath,
-      });
-      continue;
-    }
-
-    try {
-      registerAstroComponent(registrationPath, module.default);
-    } catch (error) {
-      console.error(`[live-editing] Error registering ${registrationPath} from ${path}:`, error);
-    }
+    registerAstroComponent(registrationPath, module.default);
   }
 }
