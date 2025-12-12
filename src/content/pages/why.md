@@ -72,15 +72,17 @@ pageSections:
     label: ''
     contentSections:
       - _component: building-blocks/core-elements/heading
-        text: My Heading
+        text: Mix and match your components
         level: h2
         size: default
-        alignX: start
+        alignX: center
         iconName:
         iconPosition: before
       - _component: building-blocks/core-elements/text
-        text: My text goes here.
-        alignX: start
+        text: >-
+          With custom sections, you can create components for almost any use
+          case.
+        alignX: center
     maxContentWidth: 2xl
     paddingHorizontal: md
     paddingVertical: md
