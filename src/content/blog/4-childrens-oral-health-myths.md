@@ -1,0 +1,33 @@
+---
+title: "Telling You the Tooth: 4 Common Myths About Children’s Oral Health"
+date: 2024-12-11
+author: "bloomkidsdent"
+excerpt: ""
+slug: "4-childrens-oral-health-myths"
+---
+
+![a dad holding his daughter and smiling at her](/images/AdobeStock_849194837__1734027166_20916-300x200.jpg)
+
+When you’re a parent, especially when you’re a new one, it’s easy to get overwhelmed with different people’s advice and guidance, making it hard to know what’s right and what’s wrong. There are countless myths swirling around out there that become so popularly circulated that they feel like fact. That’s why it’s important to bring a critical eye to everything you hear, and if you have any questions about your [child’s oral health](https://www.bloomkidsdentist.com/preventive-dentistry.html), always bring them to your pediatric dentist. Read below to learn about four of the most popular children’s oral health myths and what makes them fictitious.
+
+## “Cavities in temporary teeth aren’t important.”
+
+Even though your baby’s teeth may only last for a few years, it’s still crucial to take good care of them because they act as a guide for their permanent teeth to grow. When these baby teeth aren’t properly cared for, it can lead to cavities that can cause discomfort and even allow harmful oral bacteria to flourish in your child’s mouth.
+
+While most pediatric dentists try to avoid serious dental treatments at a young age to prevent anxiety or fear later on, there are some issues, like serious cavities, that may need to be treated right away. When you go to a pediatric dentist, not only will they create a positive and educational experience for your child, but they’ll thoroughly inform you of all of your options and answer any questions you may have as well.
+
+## “Kids should never use chewing gum.”
+
+The American Academy of Pediatrics states that children five years and older are able to chew gum, as this is around the age where they’re able to understand that it shouldn’t be swallowed. Although you may be hesitant to let them in fear of it getting stuck around the house, it’s actually great for their oral health. Sugar-free gum can help children generate more acid-neutralizing saliva, helping prevent food debris from accumulating in the pits of their teeth and leading to cavity formation.
+
+## “Fruit juice won’t hurt your child’s teeth.”
+
+Even though fruit juice seems like the healthiest way to quell your little one’s sweet tooth, having them drink it regularly can impact their oral health. This is because fruit juice, whether it’s apple, orange, grape, or another flavor, is incredibly high in sugar, virtually just as much as soda! This can cause problems for teeth because harmful oral bacteria love to feed off of sugar within the mouth and release enamel eroding waste in the form of acid. That’s why sugar has been linked directly to dental decay!
+
+## “Don’t use fluoride toothpaste for your kids until they get older.”
+
+For many people, fluoride is a mysterious substance that they aren’t 100% sure of what it does, causing them to be leery of giving their children anything with fluoride in it. However, it has great benefits for children’s oral health! The Centers for Disease Control and Prevention recommends that children begin using a small, rice grain-size smear of fluoride toothpaste at two years old, graduating to a pea-sized amount from three to six years old. Fluoride has been shown to prevent cavities by fortifying the outermost protective layer of teeth, called the enamel, making it an important mineral to include in your child’s oral hygiene routine!
+
+**About the Practice**
+
+Dr. Nelson and Dr. JoJo are our two experienced pediatric dentists at Bloom Pediatric Dentistry. As specialists, they’re experts at helping small smiles grow up to be healthy and cavity-free and offer a wide range of kid-focused dental treatments, ranging from protective dental sealants to keep decay away to tooth-colored fillings and emergency dentistry. For questions or to schedule an appointment for your child, visit Bloom Pediatric Dentistry’s [website](https://www.bloomkidsdentist.com/contact.html) or call 469-663-0663.

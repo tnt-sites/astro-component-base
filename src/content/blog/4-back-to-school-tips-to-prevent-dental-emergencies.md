@@ -1,0 +1,36 @@
+---
+title: "4 Tips to Prevent Back-to-School Dental Emergencies"
+date: 2024-08-27
+author: "bloomkidsdent"
+excerpt: ""
+slug: "4-back-to-school-tips-to-prevent-dental-emergencies"
+---
+
+![a parent walking her children to school](/images/AdobeStock_365344848__1724776298_29955-300x200.jpg)
+
+Back-to-school season is here, which means your child’s daily routine and schedule are about to change quite a bit! The last type of problem you would want them to have to deal with is something like a [dental emergency](https://www.bloomkidsdentist.com/childrens-emergency-dentistry.html). Follow these four helpful tips to keep cavities and other common dental problems at bay so they can focus on their schoolwork.
+
+## Schedule Their Bi-Annual Dental Checkup & Cleaning
+
+The American Academy of Pediatric Dentistry recommends that children start visiting their pediatric dentist every six months, either by the time their first tooth erupts into their mouth or by their first birthday. While routine cleanings help prevent plaque and tartar buildup which commonly leads to decay, the checkups also make sure that their oral development is on the right track. Plus, speaking with a pediatric dentist about your little one’s oral and soothing habits (like thumb-sucking) can provide you with helpful insight on how these factors can alter the growth of their smile.
+
+## Help Them Stick to Their Oral Hygiene Routine
+
+Since the school year has started, it’s likely that your child’s daily routine has changed drastically since summer break. This can also lead to changes in their at-home oral hygiene routine. Helping them establish a new routine that continues to include brushing twice a day for two minutes, flossing daily, and rinsing with mouthwash once a day can help minimize their risk of common dental issues like cavities, tooth infections, and gum disease.
+
+## Pack Tooth-Healthy Lunches
+
+Did you know that certain types of food can help strengthen tooth enamel and prevent dental decay? Trying to incorporate the following foods into your child’s school lunchbox can be another great way to prevent issues like dental sensitivity:
+
+ * Crunchy fresh fruits and vegetables can help act as nature’s toothbrush by clearing away plaque and debris.
+ * Cheese, yogurt, and other snacks that are high in calcium help strengthen tooth enamel.
+ * Proteins like fish, meat, chicken, nuts, and eggs are a good source of phosphorus, which also helps build tooth enamel.
+ * Green vegetables like cucumbers, bell peppers, and spinach are all good sources of essential vitamins and minerals that benefit the health of the teeth and gums.
+
+## Protect Against Sports Injuries
+
+If your child is going into middle or high school and planning on playing on their school’s sports team, investing in a customized athletic mouthguard is another great way to prevent dental emergencies from occurring. These are custom-designed to comfortably fit in your child’s mouth without obstructing their breathing. Studies also show that providing your child with a quality sportsguard can drastically reduce their chances of sustaining an oral injury on the court or field.
+
+**About the Pediatric Dentists**
+
+Dr. Nelson and Dr. JoJo are two goofy, friendly, and experienced pediatric dentists. They each bring unique skillsets to the practice that allow them to provide a truly comprehensive menu of dental services for infants, school-aged children, and teens. They also provide same-day emergency appointments to help patients get out of pain fast. For questions or to schedule a visit, view Bloom Pediatric Dentistry’s [website](https://www.bloomkidsdentist.com/contact.html) or call 469-663-0663.

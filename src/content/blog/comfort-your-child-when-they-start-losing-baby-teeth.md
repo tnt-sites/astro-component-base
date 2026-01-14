@@ -1,0 +1,43 @@
+---
+title: "How to Comfort Your Child When They Start Losing Their Baby Teeth"
+date: 2024-09-24
+author: "bloomkidsdent"
+excerpt: ""
+slug: "comfort-your-child-when-they-start-losing-baby-teeth"
+---
+
+![Happy little girl holding a lost baby tooth](/images/Happy-little-girl-holding-a-lost-baby-tooth-300x200.jpg)
+
+On average, children start to lose their baby teeth around age 6, though the process can begin even earlier for some. Some kids are excited when they notice that their teeth are becoming looser; they are delighted to see a sign that they are growing up! For other children, though, the experience is a bit frightening. If your child is alarmed when their teeth start wiggling, how can you comfort them? This blog post provides some helpful tips from an experienced [pediatric dental team](https://www.bloomkidsdentist.com/dentistry-for-children.html).
+
+## Explain Why It Happens
+
+Losing their teeth is an unfamiliar experience for your child, so they might be confused about what is happening. To help them, you can simply explain why their teeth are coming out. It is a natural process that is meant to make room for their adult dentition. Try to get your child excited about seeing their brand-new “grown-up teeth!”
+
+## Offer Physical Comfort
+
+When a baby tooth falls out, it is normal for a child to experience a bit of bleeding and discomfort. Encourage your child to swish with warm salt water to reduce pain and swelling. They may also enjoy something cold to drink and some soft snacks that will not irritate their tooth socket.
+
+Keep in mind as well that cuddles and snuggles can do a lot to comfort a frightened child!
+
+## Validate Your Child’s Feelings
+
+With the best of intentions, some parents provide the wrong kind of reassurance to their kids. They might repeat phrases like “It’s okay” or “You’re all right” even when the child is convinced that they are not all right at all! They might subconsciously be made to believe that their feelings are not valid.
+
+It is better to acknowledge the validity of your child’s feelings. Tell them it is okay to be frightened and let them fully express themselves. Then, you can offer specific advice to help them cope with the situation.
+
+## Celebrate the Milestone
+
+The loss of a baby tooth can feel like a big deal! Your child may be nervous, and you may be a bit emotional because your baby is growing up so quickly. To take the edge off of negative feelings, find a way to celebrate this important milestone. For example, you could take your child out for some ice cream or another special treat.
+
+Many families also choose to have fun with tooth fairy stories. A bit of extra spending money under your child’s pillow might just help them forget their anxiety!
+
+## If You Have Doubts, Seek Help
+
+In the vast majority of instances, the loss of baby teeth is normal, natural, and even desirable. However, if your child loses a tooth because of an injury or is experiencing severe pain, it would be best to book an [emergency dental appointment](https://www.bloomkidsdentist.com/childrens-emergency-dentistry.html) for them. A pediatric dentist can assess the situation and provide the needed assistance.
+
+Losing baby teeth can be exciting and frightening at the same time! Use the information in this article to turn it into a positive experience for your family.
+
+**Meet the Practice**
+
+Drs. Nelson Hui and Josephine Yip are pediatric dentists who enjoy working with children of all ages, abilities, and dispositions. They love to help young smiles thrive. Under their leadership, our practice offers a range of services for children, including emergency care when necessary. If you have questions or concerns about your little one’s oral health, we would be pleased to serve you. [Contact Bloom Pediatric Dentistry in Murphy, TX](https://www.bloomkidsdentist.com/contact.html), at 469-663-0663.

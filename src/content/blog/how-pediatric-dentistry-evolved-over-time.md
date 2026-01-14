@@ -1,0 +1,35 @@
+---
+title: "Pediatric Dentistry Through the Ages: Here’s How It All Began!"
+date: 2025-01-16
+author: "bloomkidsdent"
+excerpt: ""
+slug: "how-pediatric-dentistry-evolved-over-time"
+---
+
+![Black and white picture of a pediatric dentistry office](/images/AdobeStock_297097897-1.jpeg)
+
+Did you know that pediatric dentistry has been around for only about a hundred years? That means that from the time of cavemen all the way to the invention of Mickey Mouse, kids typically had their teeth extracted when they had a cavity! Thankfully, the field has come a long way since then, evolving into a specialization dedicated to children’s oral health. But where did it all truly begin? Continue reading to take a journey through time and discover the origins of [pediatric oral care](https://www.bloomkidsdentist.com/who-we-help.html)!
+
+## The Early 20th Century: The Spark of Pediatric Dentistry
+
+Pediatric dentistry as a specialty only emerged in the early 20th century. During that time, dentists recognized that children’s teeth needed a different approach compared to adult care due to their growth and development.
+
+Dentist Minnie Evangeline Jordon is often credited with the first spark of pediatric dentistry as she established a dental practice dedicated to children in 1909. In 1913, Alfred C. Fones, the “father of dental hygiene,” established a program that included cleaning schoolchildren’s teeth to emphasize preventive care.
+
+## The Mid 20th Century: A Growing Practice
+
+By the mid-20th century, pediatric dentistry was beginning to rise with the establishment of the American Academy of Pediatric Dentistry. This organization finally set standards and regulations for pediatric care and placed a strong emphasis on prevention and education.
+
+This is also when the first official training programs in this new field were established, focusing on child-friendly methods. In a stroke of luck, fluoride was also being discovered as a key factor in preventing cavities in the 1940s!
+
+This incredible mineral has been a crucial part of much of the drinking water in the US ever since. In fact, data from the Centers of Disease Control and Prevention and other oral health organizations shows that the prevalence of cavities has dropped by 50 to 60% from the 1940s to the 1980s!
+
+## Pediatric Dentistry Today: Advanced Technology for Healthier Teeth
+
+Modern pediatric dentistry blends advanced technology with compassionate care. From digital X-rays to minimally invasive treatments, today’s tools make procedures safer and more comfortable for young patients than ever!
+
+As you can see, there is a long and storied history behind pediatric oral care. You’ve only just scratched the surface! With an understanding of children’s needs, pediatric practices will continue to innovate, creating positive dental experiences for kids.
+
+## About the Practice
+
+At Bloom Pediatric Dentistry, [Dr. Nelson Hui](https://www.bloomkidsdentist.com/dr-nelson-hui.html) and [Dr. JoJo](https://www.bloomkidsdentist.com/dr-josephine-yip.html) are fired up about patient education and care! They use the latest dental technology and techniques to provide quality dental work for every tiny smile they meet. Call (469) 663-0663 to schedule an appointment for your child or [visit our website](https://www.bloomkidsdentist.com/) to explore a full menu of services!

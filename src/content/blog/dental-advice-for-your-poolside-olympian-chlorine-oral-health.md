@@ -1,0 +1,37 @@
+---
+title: "Dental Advice for Your Poolside Olympian"
+date: 2024-06-18
+author: "bloomkidsdent"
+excerpt: ""
+slug: "dental-advice-for-your-poolside-olympian-chlorine-oral-health"
+---
+
+![Little girl rocking a pair of shades and chilling on a pool floaty](/images/image-300x169.png)
+
+Kids love swimming. Who can blame them? The only summertime activity that might be better is eating ice cream. But did you know that prolonged exposure to chlorine can be bad for their teeth?
+
+If you thought, “Nothing is safe anymore”, we feel you. Fortunately, there are simple ways to avoid pool-related dental drama. Keep reading to learn more and help protect your little Olympian’s [oral health](https://www.bloomkidsdentist.com/preventive-dentistry.html).
+
+## Swimmer’s Calculus: _Ew!_
+
+Six hours a week is all it takes to develop swimmer’s calculus. This isn’t a complicated math problem - it’s a complicated dental staining problem! Just like most things that get into our mouths, chlorine can leave behind an icky residue on teeth. As the residue accumulates, you’ll start to notice yellowy or brownish streaks on your kiddo’s pearly whites.
+
+Swimmer’s calculus is even more stubborn than plaque and tartar, so unless your pediatric dentist banishes it with a professional cleaning, irritated gums are a likely scenario. Make sure your enthusiastic divers are keeping up with their oral hygiene, and take them to visit your pediatric dentist if you notice the gross warning signs.
+
+## Tooth Enamel vs. Pool Water
+
+The type of chlorine used in pools makes the water acidic. In fact, it becomes acidic enough to wear down tooth enamel. When this happens, it’s possible to develop dental sensitivity, and teeth can become more vulnerable to tooth decay and gum disease. Definitely not fun!
+
+Brushing your child’s teeth with fluoride toothpaste before they cannonball can help fortify their enamel against acidity. PH strips, usually available at sports stores, are also an effective safeguard. If you have a backyard pool and regulate the pH levels yourself, make sure they stay within CDC recommendations. 
+
+## Hop Right In, The Water’s Dry!
+
+Have you ever had to furiously scrub conditioner into your hair after a dip in the pool? This is because chlorine tends to dry out whatever it touches. Ironically, frequent swimming can deplete the moisture in your mouth! If this doesn’t sound like a big deal, you might not know that saliva is crucial for managing oral bacteria. It’s kind of like your body’s natural mouthwash, rinsing away dental debris.
+
+Summer heat is no joke, so you might already be taking precautions to keep your kids hydrated while they swim away their energy. Drinking lotsof water will also help prevent dry mouth, and sugar-free electrolytes are a good alternative for finicky drinkers or the chronically dehydrated. Oh - and remind everyone **not** to drink the pool water!
+
+Still feeling blindsided by these facts? Call up your pediatric dentist! They can answer all your oral health questions, and will help you protect your child’s teeth from chlorine sneak-attacks.
+
+## About the Practice
+
+Dr. Nelson is a board-certified pediatric dentist with a strong background in general dentistry. Dr. JoJo is a member of the renowned American Dental Association and the American Academy of Pediatric Dentistry. Both have a special place in their hearts for children, and believe in the power of a fun, comfortable care experience. When the dentist isn’t so scary, maintaining good oral health habits isn’t that bad! To get in touch with Dr. Nelson and Dr. JoJo, call [Bloom Pediatric Dentistry](https://www.bloomkidsdentist.com/contact.html) at 469-663-0663. They’ll answer all your pool-related dental questions!

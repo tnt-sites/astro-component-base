@@ -1,0 +1,41 @@
+---
+title: "6 Simple Tips to Help Your Child Heal from a Tooth Extraction"
+date: 2024-11-06
+author: "bloomkidsdent"
+excerpt: ""
+slug: "simple-tips-help-child-heal-tooth-extraction"
+---
+
+![smiling little girl holding her extracted tooth](/images/smiling-little-girl-holding-her-extracted-tooth-300x211.jpg)
+
+Due to decay, injury, overcrowding, or other circumstances, there may come a time when your dentist recommends that your child undergoes a [tooth extraction](https://www.bloomkidsdentist.com/childrens-tooth-extractions.html). This is a new experience for most kids, and it might feel a bit intimidating for parents as well! The good news is that there are some simple things you can do to make their healing process as easy as possible:
+
+## Wait Until the Numbness Wears Off
+
+Depending on the amount of local anesthesia that was administered, your child’s mouth might be numb for a few hours after their appointment. Because of that, you should not give them any food during that time. You should also avoid providing any hot beverages. Cool items, such as cold drinks, should be fine. (**Additional note:** Do not provide beverages with a straw. The suction action can dislodge the blood clot at an extraction site.)
+
+## Help with Bleeding and Discomfort
+
+Some intermittent bleeding might occur after an extraction. If that happens, have your child bite gently on a clean piece of gauze. If the bleeding seems prolonged or severe, call your child’s dentist right away.
+
+Applying a cold compress for 20 minutes at a time can help with discomfort. You might also choose to administer age-appropriate doses of pain medication.
+
+## Provide Soft Foods
+
+Your child’s mouth may be sore for up to a week or longer after their appointment. Hard, crunchy, and chewy foods are likely to worsen their discomfort. Therefore, it may be wise to stock up on soft meals and snacks. Things like well-cooked pasta, scrambled eggs, applesauce, pudding, and meatloaf are all acceptable choices. As a treat, you can even provide a bit of ice cream (without any hard add-ins).
+
+## Protect the Blood Clot
+
+The blood clot at the site of a tooth extraction is very important. If it gets prematurely dislodged (or fails to form in the first place), your child may end up with a painful condition known as dry socket. To keep the blood clot intact, your child should not drink through a straw, eat hard foods, vigorously rinse with mouthwash, or engage in strenuous physical activity.
+
+## Help with Oral Hygiene
+
+Your child should not attempt to brush or floss around their extraction site for the first 24 hours after their procedure. Following that, they can resume gently cleaning the area. Depending on their age, you may need to keep a close eye on them, so they do not accidentally irritate their extraction site.
+
+## Do Not Forget Emotional Support
+
+Depending on your child’s age and level of emotional maturity, they might feel upset or sad after their extraction. Lots of cuddles and supportive language can help them through. Commend them for being brave and keep reminding them that the extraction was for their own good.
+
+**Meet the Practice**
+
+Drs. Nelson Hui and Jojo Yip are proud to provide top-quality pediatric dental care for families in Murphy, TX. They focus strongly on offering service that is personalized to each unique smile. They also want kids to be comfortable, so they use a gentle touch, along with available sedation, to make extractions as easy as possible. If you would like to learn more about them, [contact Bloom Pediatric Dentistry](https://www.bloomkidsdentist.com/contact.html) at 469-663-0663.
