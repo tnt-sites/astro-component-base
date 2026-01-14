@@ -1,0 +1,45 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import GallerySimpleItem from "@page-sections/gallery-simple/GallerySimpleItem.astro";
+import Grid from "@wrappers/grid/Grid.astro";
+import GridItem from "@wrappers/grid/GridItem.astro";
+
+const {
+  images = [
+    {
+      imageSource: "",
+      imageAlt: "",
+    },
+  ],
+  class: className,
+} = Astro.props;
+---
+
+<CustomSection
+  class:list={["team-grid", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor="base"
+>
+  <Grid
+    gap="md"
+    minItemWidth={200}
+    maxItemWidth={240}
+    style="margin-top: var(--spacing-xl)"
+    data-prop="images"
+    layout="start"
+    editable={true}
+  >
+  {
+    images.map((image: any, index: number) => (
+      <GridItem>
+          <editable-array-item data-component="page-sections/gallery-simple/gallery-simple-item">
+            <GallerySimpleItem {...image} class="team-grid-item" data-index={index} />
+          </editable-array-item>
+      </GridItem>
+    ))
+  }
+  </Grid>
+</CustomSection>

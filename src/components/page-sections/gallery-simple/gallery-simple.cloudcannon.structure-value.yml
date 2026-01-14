@@ -1,0 +1,33 @@
+label: Gallery (Simple)
+icon: people
+description: Simple gallery layout with images.
+value:
+  _component: page-sections/gallery-simple
+  images: []
+preview:
+  text:
+    - Gallery (Simple)
+  subtext:
+    - key: subtext
+  icon: people
+picker_preview:
+  text: Gallery (Simple)
+  subtext: Simple gallery layout with images.
+_structures:
+  images:
+    values:
+      - label: Image
+        icon: person
+        value:
+          _component: page-sections/gallery-simple/gallery-simple-item
+          imageSource: 
+          imageAlt: 
+        _inputs:
+          imageSource:
+            type: image
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          imageAlt:
+            type: text

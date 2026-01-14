@@ -1,0 +1,38 @@
+label: Gallery (Middle Ground)
+icon: people
+description: Middle ground gallery layout with images.
+value:
+  _component: page-sections/gallery-mid
+  images: []
+  aspectRatio: landscape
+  columns: 5
+  backgroundColor: base
+preview:
+  text:
+    - Gallery (Middle Ground)
+  subtext:
+    - key: subtext
+  icon: people
+picker_preview:
+  text: Gallery (Middle Ground)
+  subtext: Middle ground gallery layout with images.
+_inputs_from_glob:
+  - /src/components/page-sections/gallery-mid/gallery-mid.cloudcannon.inputs.yml
+_structures:
+  images:
+    values:
+      - label: Image
+        icon: person
+        value:
+          _component: page-sections/gallery-simple/gallery-simple-item
+          imageSource: 
+          imageAlt: 
+        _inputs:
+          imageSource:
+            type: image
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          imageAlt:
+            type: text
