@@ -80,7 +80,7 @@ const docsComponentsCollection = defineCollection({
 
 const blogPostSchema = z.object({
   title: z.string(),
-  date: z.string(),
+  date: z.date(),
   author: z.string(),
   excerpt: z.string(),
   slug: z.string(),
