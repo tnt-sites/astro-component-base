@@ -62,7 +62,7 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
-const pubDate = post.data.pubDate.toLocaleDateString("en-US", {
+const pubDate = post.data.date.toLocaleDateString("en-US", {
   year: "numeric",
   month: "long",
   day: "numeric",

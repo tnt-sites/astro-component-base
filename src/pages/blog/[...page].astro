@@ -63,7 +63,7 @@ const pageDescription =
             editable={false}
           >
             {page.data.map((post: any) => {
-              const pubDate = post.data.pubDate.toLocaleDateString("en-US", {
+              const pubDate = post.data.date.toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
