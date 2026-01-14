@@ -79,12 +79,13 @@ const docsComponentsCollection = defineCollection({
 });
 
 const blogPostSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-  pubDate: z.coerce.date(),
-  author: z.string().default("Anonymous"),
-  image: z.string().optional(),
-  tags: z.array(z.string()).default([]),
+  schema: z.object({
+    title: z.string(),
+    date: z.string(),
+    author: z.string(),
+    excerpt: z.string(),
+    slug: z.string(),
+  }),
 });
 
 const blogCollection = defineCollection({
