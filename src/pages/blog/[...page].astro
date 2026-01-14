@@ -13,7 +13,7 @@ import { getCollection } from "astro:content";
 
 export async function getStaticPaths({ paginate }) {
   const blogPosts = (await getCollection("blog")).sort(
-    (a: any, b: any) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+    (a: any, b: any) => b.data.date.getTime() - a.data.date.getTime()
   );
 
   return paginate(blogPosts, { pageSize: 9 });
