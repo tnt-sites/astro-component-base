@@ -43,7 +43,7 @@ const htmlAttributes = Object.fromEntries(
         minSlideWidth={0}
         autoPlay={false}
         autoScroll={false}
-        data-prop="leftSlides"
+        editable={false}
       >
         {
           Array.isArray(leftSlides) &&
@@ -51,13 +51,9 @@ const htmlAttributes = Object.fromEntries(
             leftSlides.map((slide, index) => (
               <CarouselSlide aria-label={`Slide ${index + 1} of ${leftSlides.length}`}>
                 {slide._component === "building-blocks/core-elements/image" ? (
-                  <editable-array-item data-component="building-blocks/core-elements/image">
-                    <Image {...slide} data-index={index} editable={false} aspectRatio="landscape" />
-                  </editable-array-item>
+                    <Image {...slide} data-index={index} />
                 ) : (
-                  <editable-array-item data-component="building-blocks/core-elements/video">
                     {slide.id && <Video {...slide} data-index={index} />}
-                  </editable-array-item>
                 )}
               </CarouselSlide>
             ))
@@ -71,7 +67,7 @@ const htmlAttributes = Object.fromEntries(
         minSlideWidth={0}
         autoPlay={false}
         autoScroll={false}
-        data-prop="rightSlides"
+        editable={false}
       >
         {
           Array.isArray(rightSlides) &&
@@ -79,13 +75,9 @@ const htmlAttributes = Object.fromEntries(
             rightSlides.map((slide, index) => (
               <CarouselSlide aria-label={`Slide ${index + 1} of ${rightSlides.length}`}>
                 {slide._component === "building-blocks/core-elements/image" ? (
-                  <editable-array-item data-component="building-blocks/core-elements/image">
-                    <Image {...slide} data-index={index} editable={false} aspectRatio="landscape" />
-                  </editable-array-item>
+                    <Image {...slide} data-index={index} />
                 ) : (
-                  <editable-array-item data-component="building-blocks/core-elements/video">
                     {slide.id && <Video {...slide} data-index={index} />}
-                  </editable-array-item>
                 )}
               </CarouselSlide>
             ))
