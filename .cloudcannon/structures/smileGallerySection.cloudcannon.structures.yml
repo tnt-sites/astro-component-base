@@ -1,5 +1,10 @@
 smileGallerySections:
   id_key: _component
+  values:
+    - label: Image
+      value:
+        _component: building-blocks/core-elements/image
+        source: ""
+        alt: ""
   values_from_glob:
-    - /src/components/building-blocks/core-elements/image/image.cloudcannon.structure-value.yml
     - /src/components/building-blocks/core-elements/video/video.cloudcannon.structure-value.yml
