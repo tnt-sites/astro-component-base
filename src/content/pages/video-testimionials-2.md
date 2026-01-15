@@ -8,37 +8,37 @@ pageSections:
     leftSlides:
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/about-us-1.jpg
-        alt: ''
-        aspectRatio: landscape
+        alt: ""
+        aspectRatio: widescreen
         editable: false
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/about-us-1.jpg
-        alt: ''
-        aspectRatio: landscape
+        alt: ""
+        aspectRatio: widescreen
         editable: false
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/about-us-1.jpg
-        alt: ''
-        aspectRatio: landscape
+        alt: ""
+        aspectRatio: widescreen
         editable: false
     rightSlides:
       - _component: building-blocks/core-elements/video
         type: youtube
         id: Anbcd82U4tA
-        title: ''
-        source: ''
-        thumbnail: ''
+        title: ""
+        source: ""
+        thumbnail: ""
       - _component: building-blocks/core-elements/video
         type: youtube
         id: Anbcd82U4tA
-        title: ''
-        source: ''
-        thumbnail: ''
+        title: ""
+        source: ""
+        thumbnail: ""
       - _component: building-blocks/core-elements/video
         type: youtube
         id: Anbcd82U4tA
-        title: ''
-        source: ''
-        thumbnail: ''
+        title: ""
+        source: ""
+        thumbnail: ""
     reverse: false
 ---

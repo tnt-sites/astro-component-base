@@ -7,7 +7,7 @@ smileGallerySections:
         _component: building-blocks/core-elements/image
         source: ""
         alt: ""
-        aspectRatio: landscape
+        aspectRatio: widescreen
         editable: false
       _inputs:
         source:
