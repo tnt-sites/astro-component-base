@@ -37,7 +37,14 @@ const htmlAttributes = Object.fromEntries(
   </Heading>
   <Split distributionMode="half" verticalAlignment="center" minSplitWidth={500} reverse={reverse}>
     <Fragment slot="first">
-      <Carousel>
+      <Carousel
+        label="Left carousel"
+        slideWidthPercent={100}
+        minSlideWidth={0}
+        autoPlay={false}
+        autoScroll={false}
+        data-prop="leftSlides"
+      >
         {
           Array.isArray(leftSlides) &&
             leftSlides.length > 0 &&
@@ -58,7 +65,14 @@ const htmlAttributes = Object.fromEntries(
       </Carousel>
     </Fragment>
     <Fragment slot="second">
-      <Carousel>
+      <Carousel
+        label="Right carousel"
+        slideWidthPercent={100}
+        minSlideWidth={0}
+        autoPlay={false}
+        autoScroll={false}
+        data-prop="rightSlides"
+      >
         {
           Array.isArray(rightSlides) &&
             rightSlides.length > 0 &&
