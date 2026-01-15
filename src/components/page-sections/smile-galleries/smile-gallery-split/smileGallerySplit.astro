@@ -52,7 +52,7 @@ const htmlAttributes = Object.fromEntries(
               <CarouselSlide aria-label={`Slide ${index + 1} of ${leftSlides.length}`}>
                 {slide._component === "building-blocks/core-elements/image" ? (
                   <editable-array-item data-component="building-blocks/core-elements/image">
-                    {slide.source && <Image {...slide} data-index={index} />}
+                    <Image {...slide} data-index={index} editable={false} aspectRatio="landscape" />
                   </editable-array-item>
                 ) : (
                   <editable-array-item data-component="building-blocks/core-elements/video">
@@ -80,7 +80,7 @@ const htmlAttributes = Object.fromEntries(
               <CarouselSlide aria-label={`Slide ${index + 1} of ${rightSlides.length}`}>
                 {slide._component === "building-blocks/core-elements/image" ? (
                   <editable-array-item data-component="building-blocks/core-elements/image">
-                    {slide.source && <Image {...slide} data-index={index} />}
+                    <Image {...slide} data-index={index} editable={false} aspectRatio="landscape" />
                   </editable-array-item>
                 ) : (
                   <editable-array-item data-component="building-blocks/core-elements/video">
