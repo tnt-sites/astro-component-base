@@ -51,9 +51,9 @@ const htmlAttributes = Object.fromEntries(
             leftSlides.map((slide, index) => (
               <CarouselSlide aria-label={`Slide ${index + 1} of ${leftSlides.length}`}>
                 {slide._component === "building-blocks/core-elements/image" ? (
-                    <Image {...slide} data-index={index} />
+                  <Image {...slide} data-index={index} />
                 ) : (
-                    {slide.id && <Video {...slide} data-index={index} />}
+                  <Video {...slide} data-index={index} />
                 )}
               </CarouselSlide>
             ))
@@ -75,9 +75,9 @@ const htmlAttributes = Object.fromEntries(
             rightSlides.map((slide, index) => (
               <CarouselSlide aria-label={`Slide ${index + 1} of ${rightSlides.length}`}>
                 {slide._component === "building-blocks/core-elements/image" ? (
-                    <Image {...slide} data-index={index} />
+                  <Image {...slide} data-index={index} />
                 ) : (
-                    {slide.id && <Video {...slide} data-index={index} />}
+                  <Video {...slide} data-index={index} />
                 )}
               </CarouselSlide>
             ))
