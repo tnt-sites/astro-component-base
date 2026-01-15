@@ -17,16 +17,18 @@ leftSlides:
   type: array
   comment: The slides for the left side of the gallery.
   options:
-    _structures_from_glob:
-      - /src/components/building-blocks/core-elements/image/image.cloudcannon.structure-value.yml
-      - /src/components/building-blocks/core-elements/video/video.cloudcannon.structure-value.yml
+    structures:
+      values_from_glob:
+        - /src/components/building-blocks/core-elements/image/image.cloudcannon.structure-value.yml
+        - /src/components/building-blocks/core-elements/video/video.cloudcannon.structure-value.yml
 rightSlides:
   type: array
   comment: The slides for the right side of the gallery.
   options:
-    _structures_from_glob:
-      - /src/components/building-blocks/core-elements/image/image.cloudcannon.structure-value.yml
-      - /src/components/building-blocks/core-elements/video/video.cloudcannon.structure-value.yml
+    structures:
+      values_from_glob:
+        - /src/components/building-blocks/core-elements/image/image.cloudcannon.structure-value.yml
+        - /src/components/building-blocks/core-elements/video/video.cloudcannon.structure-value.yml
 reverse:
   type: switch
   comment: Flips the layout so the carousels are on opposite sides.
