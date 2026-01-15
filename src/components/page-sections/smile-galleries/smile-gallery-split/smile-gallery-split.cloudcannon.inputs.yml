@@ -17,54 +17,12 @@ leftSlides:
   type: array
   comment: The slides for the left side of the gallery.
   options:
-    structures:
-      id_key: _component
-      values:
-        - label: Image
-          icon: image
-          value:
-            _component: building-blocks/core-elements/image
-            source: ""
-            alt: ""
-          _inputs:
-            source:
-              type: image
-              comment: The URL or path to the image.
-              options:
-                paths:
-                  uploads: src/assets/images
-                  static: ""
-            alt:
-              type: textarea
-              comment: Alternative text for accessibility.
-      values_from_glob:
-        - /src/components/building-blocks/core-elements/video/video.cloudcannon.structure-value.yml
+    structures: _structures.smileGallerySections
 rightSlides:
   type: array
   comment: The slides for the right side of the gallery.
   options:
-    structures:
-      id_key: _component
-      values:
-        - label: Image
-          icon: image
-          value:
-            _component: building-blocks/core-elements/image
-            source: ""
-            alt: ""
-          _inputs:
-            source:
-              type: image
-              comment: The URL or path to the image.
-              options:
-                paths:
-                  uploads: src/assets/images
-                  static: ""
-            alt:
-              type: textarea
-              comment: Alternative text for accessibility.
-      values_from_glob:
-        - /src/components/building-blocks/core-elements/video/video.cloudcannon.structure-value.yml
+    structures: _structures.smileGallerySections
 reverse:
   type: switch
   comment: Flips the layout so the carousels are on opposite sides.
