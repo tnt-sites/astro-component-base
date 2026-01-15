@@ -1,0 +1,10 @@
+label: Banner List
+icon: add
+description: Description for Banner List component.
+value:
+  _component: page-sections/banner-list
+  heading: "Banner List Heading"
+  backgroundColor: base
+  items: []
+_inputs_from_glob:
+  - /src/components/page-sections/banner-list/banner-list.cloudcannon.inputs.yml

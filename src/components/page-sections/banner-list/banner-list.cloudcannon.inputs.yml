@@ -1,0 +1,20 @@
+backgroundColor:
+  type: select
+  comment: Background color used behind the grid.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+# Add your other component inputs here
+# Example:
+# text:
+#   type: text
+#   comment: The text content for the component.
