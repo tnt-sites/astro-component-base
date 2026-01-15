@@ -1,7 +1,10 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@components/building-blocks/core-elements/image/Image.astro";
+import Video from "@components/building-blocks/core-elements/video/Video.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import Carousel from "@wrappers/carousel/Carousel.astro";
+import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
 import Split from "@wrappers/split/Split.astro";
 
 const {
@@ -40,9 +43,15 @@ const htmlAttributes = Object.fromEntries(
             leftSlides.length > 0 &&
             leftSlides.map((slide, index) => (
               <CarouselSlide aria-label={`Slide ${index + 1} of ${leftSlides.length}`}>
-                <editable-array-item data-component="page-sections/features/feature-slider/feature-slider-item">
-                  <FeatureSliderItem {...slide} data-index={index} />
-                </editable-array-item>
+                {slide._component === "building-blocks/core-elements/image" ? (
+                  <editable-array-item data-component="building-blocks/core-elements/image">
+                    <Image {...slide} data-index={index} />
+                  </editable-array-item>
+                ) : (
+                  <editable-array-item data-component="building-blocks/core-elements/video">
+                    <Video {...slide} data-index={index} />
+                  </editable-array-item>
+                )}
               </CarouselSlide>
             ))
         }
@@ -55,9 +64,15 @@ const htmlAttributes = Object.fromEntries(
             rightSlides.length > 0 &&
             rightSlides.map((slide, index) => (
               <CarouselSlide aria-label={`Slide ${index + 1} of ${rightSlides.length}`}>
-                <editable-array-item data-component="page-sections/features/feature-slider/feature-slider-item">
-                  <FeatureSliderItem {...slide} data-index={index} />
-                </editable-array-item>
+                {slide._component === "building-blocks/core-elements/image" ? (
+                  <editable-array-item data-component="building-blocks/core-elements/image">
+                    <Image {...slide} data-index={index} />
+                  </editable-array-item>
+                ) : (
+                  <editable-array-item data-component="building-blocks/core-elements/video">
+                    <Video {...slide} data-index={index} />
+                  </editable-array-item>
+                )}
               </CarouselSlide>
             ))
         }
