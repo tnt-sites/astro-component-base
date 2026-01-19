@@ -4,20 +4,20 @@ A modern design system built with Astro. This starter provides a modular foundat
 
 ## Features
 
-- 🎨 **Comprehensive Component Starter** - Pre-built components organized by purpose (building blocks, page sections, navigation)
-- 🚀 **Built with Astro** - Fast, modern static site generation with minimal JavaScript
-- 🎯 **Design Tokens** - CSS variables for consistent theming across your entire site
-- 📱 **Fully Responsive** - Mobile-first components that work on all devices
-- ♿ **Accessibility First** - Components built with ARIA attributes and semantic HTML
-- 🎨 **CloudCannon Integration** - Visual content editing without touching code
-- 📝 **Component Documentation** - Built-in documentation for every component
-- 🎭 **Theme Support** - Light and dark theme support out of the box
-- 🔧 **PostCSS Architecture** - Modern CSS with custom properties and nesting
+* 🎨 **Comprehensive Component Starter** - Pre-built components organized by purpose (building blocks, page sections, navigation)
+* 🚀 **Built with Astro** - Fast, modern static site generation with minimal JavaScript
+* 🎯 **Design Tokens** - CSS variables for consistent theming across your entire site
+* 📱 **Fully Responsive** - Mobile-first components that work on all devices
+* ♿ **Accessibility First** - Components built with ARIA attributes and semantic HTML
+* 🎨 **CloudCannon Integration** - Visual content editing without touching code
+* 📝 **Component Documentation** - Built-in documentation for every component
+* 🎭 **Theme Support** - Light and dark theme support out of the box
+* 🔧 **PostCSS Architecture** - Modern CSS with custom properties and nesting
 
 ## Prerequisites
 
-- Node.js >= 24.0.0
-- npm or yarn
+* Node.js &gt;= 24.0.0
+* npm or yarn
 
 ## Installation
 
@@ -44,14 +44,14 @@ The site will be available at `http://localhost:4321`
 
 ## Available Scripts
 
-- `npm run dev` - Start the development server
-- `npm run build` - Build the site for production
-- `npm run build:no-library` - Build without the component starter documentation
-- `npm run preview` - Preview the production build locally
-- `npm run lint` - Run all linters (JS, CSS, YML)
-- `npm run lint:fix` - Auto-fix linting issues
-- `npm run format` - Check code formatting
-- `npm run format:fix` - Auto-fix formatting issues
+* `npm run dev` - Start the development server
+* `npm run build` - Build the site for production
+* `npm run build:no-library` - Build without the component starter documentation
+* `npm run preview` - Preview the production build locally
+* `npm run lint` - Run all linters (JS, CSS, YML)
+* `npm run lint:fix` - Auto-fix linting issues
+* `npm run format` - Check code formatting
+* `npm run format:fix` - Auto-fix formatting issues
 
 ## Project Structure
 
@@ -87,30 +87,30 @@ src/
 
 Foundational UI components designed for reuse within larger structures:
 
-- **Core Elements** - Buttons, headings, text, images, icons, lists
-- **Forms** - Inputs, selects, textareas, file uploads, form wrappers
-- **Wrappers** - Grids, splits, cards, accordions, carousels
+* **Core Elements** - Buttons, headings, text, images, icons, lists
+* **Forms** - Inputs, selects, textareas, file uploads, form wrappers
+* **Wrappers** - Grids, splits, cards, accordions, carousels
 
 ### Page Sections
 
 Pre-built, full-width sections ready to assemble complete page layouts:
 
-- **Heroes** - Eye-catching header sections
-- **Features** - Product feature showcases
-- **CTAs** - Call-to-action sections
-- **Info Blocks** - FAQ and informational content
-- **People** - Team grids and testimonials
-- **Builders** - Custom sections for flexible page construction
+* **Heroes** - Eye-catching header sections
+* **Features** - Product feature showcases
+* **CTAs** - Call-to-action sections
+* **Info Blocks** - FAQ and informational content
+* **People** - Team grids and testimonials
+* **Builders** - Custom sections for flexible page construction
 
 ### Navigation
 
 Components that facilitate movement throughout your site:
 
-- **Main Navigation** - Primary site menus
-- **Mobile Navigation** - Mobile-friendly menus
-- **Side Navigation** - Sidebar navigation
-- **Footer** - Site footer components
-- **Navigation Bar** - Additional navigation bars
+* **Main Navigation** - Primary site menus
+* **Mobile Navigation** - Mobile-friendly menus
+* **Side Navigation** - Sidebar navigation
+* **Footer** - Site footer components
+* **Navigation Bar** - Additional navigation bars
 
 ## Customization
 
@@ -120,29 +120,29 @@ Customize your brand by editing CSS variables:
 
 **Colors** (themes):
 
-- `src/styles/themes/_default.pcss` - Light theme
-- `src/styles/themes/_contrast.pcss` - Dark theme
+* `src/styles/themes/_default.pcss` - Light theme
+* `src/styles/themes/_contrast.pcss` - Dark theme
 
 **Typography**:
 
-- `src/styles/variables/_fonts.pcss` - Font families and sizing
+* `src/styles/variables/_fonts.pcss` - Font families and sizing
 
 **Layout**:
 
-- `src/styles/variables/_content-widths.pcss` - Max content widths
-- `src/styles/variables/_spacing.pcss` - Spacing scale
+* `src/styles/variables/_content-widths.pcss` - Max content widths
+* `src/styles/variables/_spacing.pcss` - Spacing scale
 
 **Colors**:
 
-- `src/styles/variables/_colors.pcss` - Color palette
+* `src/styles/variables/_colors.pcss` - Color palette
 
 ### Components
 
 All components are fully customizable. Edit component files in `src/components/` to:
 
-- Modify existing components
-- Add new props for customization
-- Create new components by combining building blocks
+* Modify existing components
+* Add new props for customization
+* Create new components by combining building blocks
 
 ## CloudCannon Integration
 
@@ -152,18 +152,18 @@ This project is configured for use with [CloudCannon](https://cloudcannon.com/),
 
 Each component includes CloudCannon configuration:
 
-- `*.cloudcannon.inputs.yml` - Defines editor inputs
-- `*.cloudcannon.structure-value.yml` - Defines component structures
-- `*.cloudcannon.snippets.yml` - Defines editor snippets
+* `*.cloudcannon.inputs.yml` - Defines editor inputs
+* `*.cloudcannon.structure-value.yml` - Defines component structures
+* `*.cloudcannon.snippets.yml` - Defines editor snippets
 
 ## Documentation
 
 The component starter includes comprehensive documentation:
 
-- Component properties and usage
-- Code examples
-- Design guidelines
-- Getting started guide
+* Component properties and usage
+* Code examples
+* Design guidelines
+* Getting started guide
 
 Visit `/component-library/` in your development server to explore the documentation.
 
@@ -175,10 +175,10 @@ MIT
 
 This is a starter template. Feel free to:
 
-- Customize components to fit your needs
-- Add new components following existing patterns
-- Modify design tokens to match your brand
-- Extend functionality as needed
+* Customize components to fit your needs
+* Add new components following existing patterns
+* Modify design tokens to match your brand
+* Extend functionality as needed
 
 ---
 
