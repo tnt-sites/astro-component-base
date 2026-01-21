@@ -22,7 +22,7 @@ _structures:
     values:
       - label: List Item
         value:
-          _component: building-blocks/core-elements/list-item
+          _component: building-blocks/core-elements/list/list-item
           text: "List item"
           iconName: "check"
           iconColor: default
