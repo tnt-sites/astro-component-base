@@ -13,6 +13,10 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+items:
+  type: array
+items[*]:
+  type: string
 # Add your other component inputs here
 # Example:
 # text:
