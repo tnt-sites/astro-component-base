@@ -8,13 +8,16 @@ value:
   items:
     - _component: building-blocks/core-elements/list/list-item
       text: List item 1
-      iconName: check
+      iconName: stylised-check
+      iconColor: default
     - _component: building-blocks/core-elements/list/list-item
       text: List item 2
-      iconName: check
+      iconName: stylised-check
+      iconColor: default
     - _component: building-blocks/core-elements/list/list-item
       text: List item 3
-      iconName: check
+      iconName: stylised-check
+      iconColor: default
 _inputs_from_glob:
   - /src/components/page-sections/banner-list/banner-list.cloudcannon.inputs.yml
 _structures:
@@ -24,7 +27,7 @@ _structures:
         value:
           _component: building-blocks/core-elements/list/list-item
           text: "List item"
-          iconName: "check"
+          iconName: "stylised-check"
           iconColor: default
         preview:
           icon: text_fields

@@ -50,9 +50,6 @@ const htmlAttributes = Object.fromEntries(
 </CustomSection>
 
 <style>
-  .banner-list-heading {
-    margin-top: 0;
-  }
   .banner-list-heading :global(.heading-text) {
     text-transform: uppercase;
   }
@@ -67,9 +64,15 @@ const htmlAttributes = Object.fromEntries(
     flex-direction: column;
     justify-content: center;
   }
+  .background-image-why-bg :global(picture) {
+    height: 100%;
+  }
   .background-image-why-bg :global(img) {
     min-height: 200px;
+    height: 100%;
+    object-fit: cover;
   }
+
   .background-image-why-bg {
     grid-row: 1;
     grid-column: 1;
@@ -85,5 +88,8 @@ const htmlAttributes = Object.fromEntries(
   .background-image-corner :global(img) {
     max-height: 200px;
     object-fit: contain;
+  }
+  .list {
+    margin-bottom: var(--spacing-lg);
   }
 </style>

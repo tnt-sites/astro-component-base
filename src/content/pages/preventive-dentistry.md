@@ -10,6 +10,6 @@ pageSections:
     items:
       - _component: building-blocks/core-elements/list-item
         text: List item
-        iconName: check
+        iconName: stylised-check
         iconColor: default
 ---
