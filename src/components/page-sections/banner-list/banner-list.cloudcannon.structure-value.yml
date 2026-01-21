@@ -5,7 +5,16 @@ value:
   _component: page-sections/banner-list
   heading: "Banner List Heading"
   backgroundColor: base
-  items: []
+  items:
+    - _component: building-blocks/core-elements/list/list-item
+      text: List item 1
+      iconName: check
+    - _component: building-blocks/core-elements/list/list-item
+      text: List item 2
+      iconName: check
+    - _component: building-blocks/core-elements/list/list-item
+      text: List item 3
+      iconName: check
 _inputs_from_glob:
   - /src/components/page-sections/banner-list/banner-list.cloudcannon.inputs.yml
 _structures:
