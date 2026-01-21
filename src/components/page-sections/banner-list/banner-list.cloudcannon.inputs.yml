@@ -16,7 +16,7 @@ backgroundColor:
 items:
   type: array
 items[*]:
-  type: string
+  type: textarea
 # Add your other component inputs here
 # Example:
 # text:
