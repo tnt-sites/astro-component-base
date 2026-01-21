@@ -8,7 +8,8 @@ pageSections:
     heading: Banner List Heading
     backgroundColor: none
     items:
-      - _component: building-blocks/core-elements/list/list-item
-        text: List item 1
+      - _component: building-blocks/core-elements/list-item
+        text: List item
         iconName: check
+        iconColor: default
 ---
