@@ -28,13 +28,19 @@ const htmlAttributes = Object.fromEntries(
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <Image source="/src/assets/images/why-bg.jpg" alt="" class="background-image-why-bg" />
+  <Image
+    source="/src/assets/images/why-bg.jpg"
+    alt=""
+    class="background-image-why-bg"
+    editable={false}
+  />
   <Image
     source="/src/assets/images/corner-wave-full.svg"
     alt=""
     class="background-image-corner"
     positionVertical="bottom"
     positionHorizontal="left"
+    editable={false}
   />
   <div class="banner-list-content">
     <Heading level="h2" size="xs" alignX="center" data-prop="heading" class="banner-list-heading">
