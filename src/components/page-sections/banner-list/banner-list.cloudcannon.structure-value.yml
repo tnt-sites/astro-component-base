@@ -8,3 +8,36 @@ value:
   items: []
 _inputs_from_glob:
   - /src/components/page-sections/banner-list/banner-list.cloudcannon.inputs.yml
+_structures:
+  listItems:
+    values:
+      - label: List Item
+        value:
+          _component: building-blocks/core-elements/list-item
+          text: "List item"
+          iconName: "check"
+          iconColor: default
+        preview:
+          icon: text_fields
+          image:
+            - template: src/icons/{iconName}.svg
+        _inputs:
+          text:
+            type: markdown
+            comment: The text to display in the list item.
+            options:
+              blockquote: false
+              bold: true
+              format:
+              italic: true
+              link: true
+              strike: false
+              subscript: true
+              superscript: true
+              underline: false
+              bulletedlist: false
+              numberedlist: false
+          iconName:
+            hidden: true
+          iconColor:
+            hidden: true
