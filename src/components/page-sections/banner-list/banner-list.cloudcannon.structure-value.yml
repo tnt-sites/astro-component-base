@@ -4,7 +4,7 @@ description: Description for Banner List component.
 value:
   _component: page-sections/banner-list
   heading: "Banner List Heading"
-  backgroundColor: base
+  backgroundColor: none
   items:
     - _component: building-blocks/core-elements/list/list-item
       text: List item 1
@@ -18,7 +18,7 @@ value:
 _inputs_from_glob:
   - /src/components/page-sections/banner-list/banner-list.cloudcannon.inputs.yml
 _structures:
-  listItems:
+  bannerListItems:
     values:
       - label: List Item
         value:

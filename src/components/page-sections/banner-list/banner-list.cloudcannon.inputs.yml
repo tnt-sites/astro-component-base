@@ -16,7 +16,7 @@ backgroundColor:
 items:
   type: array
   options:
-    structures: _structures.listItems
+    structures: _structures.bannerListItems
   comment: Array of list items.
 # Add your other component inputs here
 # Example:
