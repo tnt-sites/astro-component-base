@@ -3,7 +3,6 @@ import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 import List from "@core-elements/list/List.astro";
-import ListItem from "@core-elements/list/ListItem.astro";
 
 const {
   heading = "",
@@ -46,9 +45,7 @@ const htmlAttributes = Object.fromEntries(
     <Heading level="h2" size="xs" alignX="center" data-prop="heading" class="banner-list-heading">
       {heading}
     </Heading>
-    <List direction="vertical" alignX="center">
-      {items.map((item: string) => <ListItem text={item} iconName="check" />)}
-    </List>
+    <List items={items} direction="vertical" alignX="center" />
   </div>
 </CustomSection>
 

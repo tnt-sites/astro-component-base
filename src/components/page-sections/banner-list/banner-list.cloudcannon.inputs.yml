@@ -15,8 +15,9 @@ backgroundColor:
         name: Highlight
 items:
   type: array
-items[*]:
-  type: textarea
+  options:
+    structures: _structures.listItems
+  comment: Array of list items.
 # Add your other component inputs here
 # Example:
 # text:

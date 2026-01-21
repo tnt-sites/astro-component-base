@@ -8,6 +8,7 @@ pageSections:
     heading: Banner List Heading
     backgroundColor: none
     items:
-      - item
-      - item
+      - _component: building-blocks/core-elements/list/list-item
+        text: List item 1
+        iconName: check
 ---
