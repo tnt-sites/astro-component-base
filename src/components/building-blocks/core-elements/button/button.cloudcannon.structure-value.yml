@@ -4,10 +4,10 @@ description: Clickable button for calls-to-action and navigation.
 value:
   _component: building-blocks/core-elements/button
   text: My Button
+  hideText: false
   link: ""
   iconName: ""
   iconPosition: before
-  hideText: false
   variant: primary
   size: md
 preview:

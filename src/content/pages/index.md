@@ -11,18 +11,18 @@ pageSections:
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: Explore Components
+        hideText: false
         link: /component-library/
         iconName: ''
         iconPosition: before
-        hideText: false
         variant: primary
         size: md
       - _component: building-blocks/core-elements/button
         text: View in GitHub
+        hideText: false
         link: https://github.com/CloudCannon/astro-component-starter
         iconName: ''
         iconPosition: before
-        hideText: false
         variant: secondary
         size: md
     colorScheme: default
@@ -144,18 +144,18 @@ pageSections:
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: Explore Components
+        hideText: false
         link: /component-library/
         iconName: ''
         iconPosition: before
-        hideText: false
         variant: primary
         size: md
       - _component: building-blocks/core-elements/button
         text: View in GitHub
+        hideText: false
         link: https://github.com/CloudCannon/astro-component-starter
         iconName: ''
         iconPosition: before
-        hideText: false
         variant: tertiary
         size: md
     colorScheme: contrast
