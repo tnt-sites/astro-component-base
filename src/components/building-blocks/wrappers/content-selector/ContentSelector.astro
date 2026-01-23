@@ -9,12 +9,9 @@ const {
   label,
   editable = true,
   "data-prop": customDataProp = "items",
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 
 const slugifyLabel = (label: string) => {
   return label

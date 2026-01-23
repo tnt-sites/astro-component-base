@@ -7,12 +7,9 @@ const {
   class: className,
   "data-prop": customDataProp = "items",
   editable = true,
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 
 const arrayDataAttributes = editable
   ? {

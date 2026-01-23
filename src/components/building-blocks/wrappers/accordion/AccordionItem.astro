@@ -2,11 +2,7 @@
 import RenderBlock from "@components/utils/renderBlock.astro";
 import Icon from "@core-elements/icon/Icon.astro";
 
-const { title, contentSections, isOpen = false, accordionName, ...rest } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
+const { title, contentSections, isOpen = false, accordionName, _component, ...htmlAttributes } = Astro.props;
 ---
 
 <details class="item" open={isOpen} name={accordionName} {...htmlAttributes}>

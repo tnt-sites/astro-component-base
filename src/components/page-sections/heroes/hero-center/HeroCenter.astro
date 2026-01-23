@@ -14,6 +14,8 @@ const {
   backgroundColor,
   paddingVertical = "4xl",
   class: className,
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 ---
 
@@ -24,6 +26,7 @@ const {
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  {...htmlAttributes}
 >
   <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
     {eyebrow}

@@ -6,15 +6,12 @@ const {
   alignX = "start",
   size,
   class: className,
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 
 const startNumber = Math.floor(number * 0.2);
 const duration = 500;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 ---
 
 <div

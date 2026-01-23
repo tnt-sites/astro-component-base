@@ -9,12 +9,9 @@ const {
   class: className,
   editable = true,
   "data-prop": customDataProp = "text",
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 
 const md = new MarkdownIt({ html: true });
 

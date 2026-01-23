@@ -19,16 +19,13 @@ const {
   "data-prop-src": customDataPropSrc,
   "data-prop-alt": customDataPropAlt,
   "data-editable": customDataEditable,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 
 const hasValidSrc = source && typeof source === "string" && source.trim() !== "";
 
-if (!hasValidSrc) {
+if (!_component && !hasValidSrc) {
   return;
 }
 

@@ -12,12 +12,9 @@ const {
   "data-prop": customDataProp = "text",
   "data-prop-author-name": customDataPropAuthorName = "authorName",
   "data-prop-author-description": customDataPropAuthorDescription = "authorDescription",
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 
 const md = MarkdownIt({ html: true });
 const MarkdownText = text ? md.render(text) : "";

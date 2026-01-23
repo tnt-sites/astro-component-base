@@ -1,9 +1,5 @@
 ---
-const { html, aspectRatio = "landscape", class: className, ...restProps } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
+const { html, aspectRatio = "landscape", class: className, _component, ...htmlAttributes } = Astro.props;
 ---
 
 <div

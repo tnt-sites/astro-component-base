@@ -11,7 +11,8 @@ const {
   navData = [],
   buttonSections = [],
   class: className,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 
 const mobileNavData = [
@@ -29,10 +30,10 @@ const mobileNavData = [
   paddingHorizontal="lg"
   paddingVertical="none"
   class:list={["main-nav", className]}
-  {...rest}
+  {...htmlAttributes}
 >
   <a href="/">
-    <Image source={logoSource} alt={logoAlt} editable={false} style="margin-top: 0 !important;" />
+    <Image source={logoSource} class="main-nav-logo" alt={logoAlt} editable={false} />
   </a>
   <div class="nav-end">
     <Bar navData={navData} class="desktop-main-nav" />
@@ -62,6 +63,10 @@ const mobileNavData = [
         @container (max-width: 768px) {
           display: none;
         }
+      }
+
+      .main-nav-logo {
+        margin-top: 0 !important;
       }
 
       :global(.nav-hamburger.mobile-button) {

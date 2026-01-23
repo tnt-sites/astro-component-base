@@ -13,12 +13,9 @@ const {
   class: className,
   editable = true,
   "data-prop": customDataProp = "text",
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 
 const textDataAttributes =
   editable && customDataProp
@@ -41,7 +38,7 @@ const slotContent = Astro.slots.has("default") ? await Astro.slots.render("defau
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 const hasIcon = iconName?.trim().length > 0;
 
-if (!hasText && !hasSlotContent && !hasIcon) return;
+if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
 ---
 
 <Tag
