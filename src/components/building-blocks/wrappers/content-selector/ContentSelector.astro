@@ -129,7 +129,7 @@ const arrayDataAttributes = editable
   </script>
 </section>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .content-selector {
       --content-selector-border-width: 1px;
@@ -184,8 +184,8 @@ const arrayDataAttributes = editable
           background: var(--color-border-strong);
         }
 
-        .input:nth-of-type($i):checked ~ .panels > :global(.panel:nth-of-type($i)),
-        .input:nth-of-type($i):checked ~ .panels > :global(editable-array-item:nth-of-type($i)) > :global(.panel) {
+        .input:nth-of-type($i):checked ~ .panels > .panel:nth-of-type($i),
+        .input:nth-of-type($i):checked ~ .panels > editable-array-item:nth-of-type($i) > .panel {
           display: revert;
         }
       }

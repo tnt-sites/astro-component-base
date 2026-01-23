@@ -25,17 +25,17 @@ const inputName = multiple ? `${name}[]` : name;
       <legend class="legend">
         {title}
         {required && (
-          <span class="required" aria-label="required">
+          <span class="choice-group-required" aria-label="required">
             *
           </span>
         )}
       </legend>
     )
   }
-  <div class="options">
+  <div class="choice-group-options">
     {
       options.map((option, index) => (
-        <label class="option">
+        <label class="choice-group-option">
           <input
             type={inputType}
             name={inputName}
@@ -43,16 +43,16 @@ const inputName = multiple ? `${name}[]` : name;
             checked={option.checked || false}
             required={required && index === 0}
             aria-required={required && index === 0}
-            class="field"
+            class="choice-group-field"
           />
-          <span class="label-text">{option.label}</span>
+          <span class="choice-group-label-text">{option.label}</span>
         </label>
       ))
     }
   </div>
 </fieldset>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .choice-group {
       display: flex;
@@ -63,18 +63,18 @@ const inputName = multiple ? `${name}[]` : name;
       padding: var(--spacing-md);
       width: 100%;
 
-      .required {
+      .choice-group-required {
         color: red;
         margin-inline-end: var(--spacing-em-xs);
       }
 
-      .options {
+      .choice-group-options {
         display: flex;
         flex-direction: column;
         gap: var(--spacing-sm);
       }
 
-      &.orientation-horizontal .options {
+      &.orientation-horizontal .choice-group-options {
         display: grid;
         gap: var(--spacing-sm);
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

@@ -14,15 +14,15 @@ const { contentSections = [], _component, ...htmlAttributes } = Astro.props;
   </slot>
 </div>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .slide {
     flex-shrink: 0;
     flex-basis: calc(max(var(--slide-width, 100%), var(--min-slide-width, 0px)));
     container-type: inline-size;
 
-    > :global(editable-array) > :global(editable-array-item:first-child) > :global(*:first-child),
-    > :global(:not(editable-array):first-child) {
+    > editable-array > editable-array-item:first-child > *:first-child,
+    > :not(editable-array):first-child {
       margin-top: 0 !important;
     }
   }

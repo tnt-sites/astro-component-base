@@ -15,7 +15,7 @@ const { contentSections, index, uniqueId, _component, ...htmlAttributes } = Astr
   <RenderBlock contentSections={contentSections} />
 </div>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .panel {
       container-type: inline-size;
@@ -23,8 +23,8 @@ const { contentSections, index, uniqueId, _component, ...htmlAttributes } = Astr
       display: none;
       padding: 0 var(--spacing-md);
 
-      > :global(editable-array) > :global(editable-array-item:first-child) > :global(*:first-child),
-      > :global(:not(editable-array):first-child) {
+      > editable-array > editable-array-item:first-child > *:first-child,
+      > :not(editable-array):first-child {
         margin-top: 0 !important;
       }
     }

@@ -8,12 +8,12 @@ const { html, aspectRatio = "landscape", class: className, _component, ...htmlAt
   {...htmlAttributes}
 />
 
-<style>
+<style is:global>
   @layer components {
     .embed-wrapper {
       margin-top: var(--spacing-lg);
 
-      :global(iframe) {
+      iframe {
         border: none;
         display: block;
         height: 100%;

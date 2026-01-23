@@ -246,7 +246,7 @@ const carouselStyles = `
   document.addEventListener("astro:page-load", setupCarousels);
 </script>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .carousel {
       margin-top: var(--spacing-lg);
@@ -265,12 +265,12 @@ const carouselStyles = `
         display: flex;
         flex-wrap: nowrap;
 
-        > :global(editable-array-item), > :global(.slide) {
+        > editable-array-item, > .slide {
           flex-shrink: 0;
           flex-basis: calc(max(var(--slide-width, 100%), var(--min-slide-width, 0px)));
         }
 
-        > :global(editable-array-item) > :global(.slide) {
+        > editable-array-item > .slide {
           width: 100%;
         }
       }
@@ -284,8 +284,8 @@ const carouselStyles = `
         margin-bottom: var(--spacing-sm);
       }
 
-      > .controls-wrapper > :global(.prev),
-      > .controls-wrapper > :global(.next) {
+      > .controls-wrapper > .prev,
+      > .controls-wrapper > .next {
         pointer-events: auto;
         border-radius: var(--radius-full);
         background-color: var(--color-bg);
@@ -302,7 +302,7 @@ const carouselStyles = `
         gap: var(--spacing-sm);
       }
 
-      > .controls-wrapper > .indicators > :global(.indicator) {
+      > .controls-wrapper > .indicators > .indicator {
         border-radius: var(--radius-full);
         width: 8px;
         aspect-ratio: 1/1;
@@ -328,8 +328,8 @@ const carouselStyles = `
       }
 
       &[data-show-arrows="false"] {
-        > .controls-wrapper > :global(.prev),
-        > .controls-wrapper > :global(.next) {
+        > .controls-wrapper > .prev,
+        > .controls-wrapper > .next {
           display: none;
         }
       }

@@ -82,10 +82,10 @@ const Tag = link ? "a" : "div";
     )
   }
 
-  <div class="outer-content">
+  <div class="card-outer-content">
     <div
       class:list={[
-        "content",
+        "card-content",
         paddingHorizontal && `pad-x-${paddingHorizontal}`,
         paddingVertical && `pad-y-${paddingVertical}`,
         maxContentWidth && `max-width-${maxContentWidth}`,
@@ -114,7 +114,7 @@ const Tag = link ? "a" : "div";
   }
 </Tag>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     a.card:hover {
       transform: scale(1.05);
@@ -139,20 +139,25 @@ const Tag = link ? "a" : "div";
         border: 1px solid var(--color-border);
       }
 
-      > .outer-content {
+      > .card-outer-content {
         height: 100%;
       }
 
-      > .outer-content > .content {
+      > .card-outer-content > .card-content {
         height: 100%;
         margin-inline: auto;
         position: relative;
         z-index: var(--layer-1);
         container-type: inline-size;
 
-        > :global(editable-array) > :global(editable-array-item:first-child) > :global(*:first-child),
-        > :global(:not(editable-array):first-child) {
+        > editable-array > editable-array-item:first-child > *:first-child,
+        > :not(editable-array):first-child {
           margin-top: 0 !important;
+        }
+
+        > editable-array > editable-array-item:last-child > *:last-child,
+        > :not(editable-array):last-child {
+          margin-bottom: 0 !important;
         }
 
         &.pad-x-xs {
@@ -263,13 +268,18 @@ const Tag = link ? "a" : "div";
         position: relative;
         z-index: var(--layer-2);
 
-        > :global(editable-array) > :global(editable-array-item:first-child) > :global(*:first-child),
-        > :global(:not(editable-array):first-child) {
+        > editable-array > editable-array-item:first-child > *:first-child,
+        > :not(editable-array):first-child {
           margin-top: 0 !important;
+        }
+
+        > editable-array > editable-array-item:last-child > *:last-child,
+        > :not(editable-array):last-child {
+          margin-bottom: 0 !important;
         }
       }
 
-      > .outer-content {
+      > .card-outer-content {
         position: relative;
         z-index: var(--layer-2);
       }

@@ -79,7 +79,7 @@ const authorDescriptionDataAttributes =
   </div>
 </blockquote>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .testimonial {
       display: flex;
@@ -100,23 +100,23 @@ const authorDescriptionDataAttributes =
       > .quote {
         margin: 0;
 
-        :global(*) {
+        * {
           font-size: var(--font-size-2xl);
         }
 
-        :global(*:first-child) {
+        *:first-child {
           margin-top: 0;
         }
 
-        :global(*:last-child) {
+        *:last-child {
           margin-bottom: 0;
         }
 
-        :global(*:first-child::before) {
+        *:first-child::before {
           content: "\201C";
         }
 
-        :global(*:last-child::after) {
+        *:last-child::after {
           content: "\201D";
         }
       }
@@ -137,12 +137,12 @@ const authorDescriptionDataAttributes =
           width: 80px;
           height: 80px;
 
-          :global(picture) {
+          picture {
             border-radius: var(--radius-full);
             overflow: hidden;
           }
 
-          :global(img) {
+          img {
             height: 100%;
           }
         }

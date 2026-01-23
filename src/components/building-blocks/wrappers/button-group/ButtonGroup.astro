@@ -51,7 +51,7 @@ if (!_component && !hasButtonSections && !hasSlotContent) return;
   </slot>
 </div>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .button-group {
       position: relative;
@@ -59,7 +59,7 @@ if (!_component && !hasButtonSections && !hasSlotContent) return;
       container-type: inline-size;
       width: 100%;
 
-      &, :global(> editable-array) {
+      &, > editable-array {
         align-items: center;
         display: flex;
         flex-wrap: wrap;
@@ -67,49 +67,49 @@ if (!_component && !hasButtonSections && !hasSlotContent) return;
       }
 
       &.column {
-        &, :global(> editable-array) {
+        &, > editable-array {
           flex-direction: column;
         }
 
         &.align-start {
-          &, :global(> editable-array) {
+          &, > editable-array {
             align-items: flex-start;
           }
         }
 
         &.align-center {
-          &, :global(> editable-array) {
+          &, > editable-array {
             align-items: center;
           }
         }
 
         &.align-end {
-          &, :global(> editable-array) {
+          &, > editable-array {
             align-items: flex-end;
           }
         }
       }
 
       &.row {
-        &, :global(> editable-array) {
+        &, > editable-array {
           flex-direction: row;
         }
       }
 
       &.align-center {
-        &, :global(> editable-array) {
+        &, > editable-array {
           justify-content: center;
         }
       }
 
       &.align-end {
-        &, :global(> editable-array) {
+        &, > editable-array {
           justify-content: flex-end;
         }
       }
 
       &.align-start {
-        &, :global(> editable-array) {
+        &, > editable-array {
           justify-content: flex-start;
         }
       }

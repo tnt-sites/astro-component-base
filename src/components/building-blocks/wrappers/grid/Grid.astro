@@ -71,7 +71,7 @@ if (!_component && !hasItems && !hasSlotContent) return;
   </slot>
 </div>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .grid {
       gap: var(--grid-spacing, --spacing-md);
@@ -91,8 +91,8 @@ if (!_component && !hasItems && !hasSlotContent) return;
         flex-wrap: wrap;
         justify-content: center;
 
-        > :global(editable-array-item),
-        > :global(.grid-item) {
+        > editable-array-item,
+        > .grid-item {
           flex: 1 1 var(--min-item-width, 200px);
           max-width: var(--max-item-width, 320px);
           min-width: min(var(--min-item-width, 200px), 100%);

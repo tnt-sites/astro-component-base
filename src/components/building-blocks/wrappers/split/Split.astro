@@ -131,7 +131,7 @@ const splitId = `split-${crypto.randomUUID()}`;
   )
 }
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .split {
       --split-columns-mobile: 1fr;
@@ -216,8 +216,8 @@ const splitId = `split-${crypto.randomUUID()}`;
       &.align-stretch {
         align-items: stretch;
 
-        > .pane > :global(*:not(editable-array):only-child),
-        > .pane > :global(editable-array > editable-array-item:only-child > *) {
+        > .pane > *:not(editable-array):only-child,
+        > .pane > editable-array > editable-array-item:only-child > * {
           height: 100%;
         }
       }
@@ -228,8 +228,8 @@ const splitId = `split-${crypto.randomUUID()}`;
         word-wrap: break-word;
         container-type: inline-size;
 
-        > :global(editable-array) > :global(editable-array-item:first-child) > :global(*:first-child),
-        > :global(:not(editable-array):first-child) {
+        > editable-array > editable-array-item:first-child > *:first-child,
+        > :not(editable-array):first-child {
           margin-top: 0 !important;
         }
       }

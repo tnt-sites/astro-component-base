@@ -54,7 +54,7 @@ const mobileNavData = [
   />
 </CustomSection>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer page-sections {
     .main-nav {
       z-index: var(--layer-2);
@@ -63,8 +63,8 @@ const mobileNavData = [
       position: sticky; 
       top: 0;
 
-      :global(.desktop-main-nav.bar),
-      :global(.desktop-button-group.button-group) {
+      .desktop-main-nav.bar,
+      .desktop-button-group.button-group {
         @container (max-width: 768px) {
           display: none;
         }
@@ -74,38 +74,38 @@ const mobileNavData = [
         margin-top: 0 !important;
       }
 
-      :global(.nav-hamburger.mobile-button) {
+      .nav-hamburger.mobile-button {
         @container (min-width: 769px) {
           display: none;
         }
       }
 
-      > :global(.outer-content) > :global(.content) {
+      > .outer-content > .content {
         align-items: center;
         container-type: inline-size;
         display: flex;
         flex-wrap: wrap;
         gap: var(--spacing-md);
 
-        > a > :global(.image img) {
+        > a > .image img {
           height: 1.8em;
           max-width: min(20em, 100%);
           width: auto;
         }
 
-        :global(.button-group) {
+        .button-group {
           margin-top: 0;
         }
       }
 
-      > :global(.outer-content) > :global(.content) > .nav-end {
+      > .outer-content > .content > .nav-end {
         align-items: center;
         display: flex;
         justify-content: flex-end;
         margin-left: auto;
         flex-shrink: 0;
 
-        > :global(.button-group) {
+        > .button-group {
           container-type: normal;
         }
       }

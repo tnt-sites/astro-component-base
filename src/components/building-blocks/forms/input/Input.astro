@@ -20,7 +20,7 @@ const fieldId = htmlAttributes.id || `input-${crypto.randomUUID()}`;
       <label for={fieldId} class="label">
         {label}
         {required && (
-          <span class="required" aria-label="required">
+          <span class="input-required" aria-label="required">
             *
           </span>
         )}
@@ -40,7 +40,7 @@ const fieldId = htmlAttributes.id || `input-${crypto.randomUUID()}`;
   />
 </div>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .input {
       display: flex;
@@ -50,7 +50,7 @@ const fieldId = htmlAttributes.id || `input-${crypto.randomUUID()}`;
       margin: 0;
       margin-bottom: var(--spacing-md);
 
-      .required {
+      .input-required {
         color: red;
         margin-inline-end: var(--spacing-em-xs);
       }

@@ -39,7 +39,7 @@ const arrayDataAttributes = editable
   }
 </dl>
 
-<style lang="pcss">
+<style lang="pcss" is:global>
   @layer components {
     .definition-list {
       display: grid;
@@ -48,7 +48,7 @@ const arrayDataAttributes = editable
       margin: 0;
       margin-top: var(--spacing-lg);
 
-      > :global(editable-array-item) {
+      > editable-array-item {
         display: grid;
         gap: var(--spacing-em-sm) var(--spacing-em-md);
         grid-column: 1 / -1;
@@ -60,11 +60,11 @@ const arrayDataAttributes = editable
         grid-template-columns: 1fr 1fr;
         justify-content: center;
 
-        > :global(editable-array-item) {
+        > editable-array-item {
           grid-template-columns: 1fr 1fr;
         }
 
-        > :global(editable-array-item) > :global(.title),
+        > editable-array-item > .title,
         > .title {
           text-align: end;
         }
@@ -75,22 +75,22 @@ const arrayDataAttributes = editable
         grid-template-columns: auto auto;
         justify-content: end;
 
-        > :global(editable-array-item) {
+        > editable-array-item {
           grid-template-columns: auto auto;
         }
 
-        > :global(editable-array-item) > :global(.title),
+        > editable-array-item > .title,
         > .title {
           text-align: start;
         }
 
-        > :global(editable-array-item) > :global(.content),
+        > editable-array-item > .content,
         > .content {
           text-align: end;
         }
       }
 
-      > :global(editable-array-item) > :global(.content),
+      > editable-array-item > .content,
       > .content {
         margin: 0;
       }
