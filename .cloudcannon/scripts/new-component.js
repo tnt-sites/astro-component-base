@@ -128,8 +128,10 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
       </Heading>
     </CustomSection>
 
-    <style>
-      .${kebabName} {
+    <style lang="pcss" is:global>
+      @layer page-sections {
+        .${kebabName} {
+        }
       }
     </style>
     `.trim();
