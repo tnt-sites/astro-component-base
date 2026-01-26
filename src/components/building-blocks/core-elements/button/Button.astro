@@ -38,7 +38,7 @@ const slotContent = Astro.slots.has("default") ? await Astro.slots.render("defau
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 const hasIcon = iconName?.trim().length > 0;
 
-if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
+if (!_component && !hasText && !hasSlotContent && !hasIcon) {return};
 ---
 
 <Tag
