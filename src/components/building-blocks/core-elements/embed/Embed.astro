@@ -1,9 +1,5 @@
 ---
-const { html, aspectRatio = "landscape", class: className, ...restProps } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
+const { html, aspectRatio = "landscape", class: className, _component, ...htmlAttributes } = Astro.props;
 ---
 
 <div
@@ -12,31 +8,33 @@ const htmlAttributes = Object.fromEntries(
   {...htmlAttributes}
 />
 
-<style>
-  .embed-wrapper {
-    margin-top: var(--spacing-lg);
+<style is:global>
+  @layer components {
+    .embed-wrapper {
+      margin-top: var(--spacing-lg);
 
-    :global(iframe) {
-      border: none;
-      display: block;
-      height: 100%;
-      width: 100%;
-    }
+      iframe {
+        border: none;
+        display: block;
+        height: 100%;
+        width: 100%;
+      }
 
-    &.ratio-square {
-      aspect-ratio: var(--ratio-square);
-    }
+      &.ratio-square {
+        aspect-ratio: var(--ratio-square);
+      }
 
-    &.ratio-landscape {
-      aspect-ratio: var(--ratio-landscape);
-    }
+      &.ratio-landscape {
+        aspect-ratio: var(--ratio-landscape);
+      }
 
-    &.ratio-portrait {
-      aspect-ratio: var(--ratio-portrait);
-    }
+      &.ratio-portrait {
+        aspect-ratio: var(--ratio-portrait);
+      }
 
-    &.ratio-widescreen {
-      aspect-ratio: var(--ratio-widescreen);
+      &.ratio-widescreen {
+        aspect-ratio: var(--ratio-widescreen);
+      }
     }
   }
 </style>

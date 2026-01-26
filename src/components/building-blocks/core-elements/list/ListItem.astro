@@ -9,12 +9,9 @@ const {
   class: className,
   editable = true,
   "data-prop": customDataProp = "text",
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 
 const md = new MarkdownIt({ html: true });
 
@@ -34,9 +31,15 @@ const textDataAttributes =
   </p>
 </li>
 
-<style lang="pcss">
-  .item {
-    display: block;
+<style lang="pcss" is:global>
+  @layer components {
+    .item {
+      display: block;
+      > p {
+        display: inline;
+        margin: 0;
+        font-size: inherit;
+      }
 
     > p {
       display: inline;
@@ -51,10 +54,11 @@ const textDataAttributes =
       vertical-align: -0.15em;
       width: 1em;
 
-      svg {
-        display: block;
-        height: 100%;
-        width: 100%;
+        svg {
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
       }
     }
   }

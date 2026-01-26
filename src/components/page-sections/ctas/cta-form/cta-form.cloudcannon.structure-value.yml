@@ -27,7 +27,7 @@ value:
   imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
   imageAlt: CTA image
   reverse: false
-  colorScheme: null
+  colorScheme: inherit
   backgroundColor: base
 preview:
   text:

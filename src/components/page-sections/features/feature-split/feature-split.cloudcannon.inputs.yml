@@ -60,6 +60,8 @@ colorScheme:
   comment: Color scheme theme applied to the section wrapper.
   options:
     values:
+      - id: inherit
+        name: Inherit
       - id: default
         name: Default
       - id: contrast

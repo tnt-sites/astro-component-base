@@ -9,18 +9,15 @@ const {
   background = false,
   alignX = "",
   class: className,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = props;
 
 const isValidName = name && typeof name === "string" && name.trim();
 
-if (!isValidName) {
+if (!_component && !isValidName) {
   return;
 }
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 ---
 
 <div
@@ -38,141 +35,143 @@ const htmlAttributes = Object.fromEntries(
   <AstroIcon name={String(name).trim()} is:inline />
 </div>
 
-<style lang="pcss">
-  .icon {
-    border-radius: var(--radius-xs);
-    color: inherit;
-    display: inline-block;
-    line-height: 0;
-    vertical-align: middle;
-    &.flip-rtl {
-      transform: scaleX(-1);
-    }
+<style lang="pcss" is:global>
+  @layer components {
+    .icon {
+      border-radius: var(--radius-xs);
+      color: inherit;
+      display: inline-block;
+      line-height: 0;
+      vertical-align: middle;
+      &.flip-rtl {
+        transform: scaleX(-1);
+      }
 
-    &.background-subtle {
-      padding: 0.15em;
-    }
+      &.background-subtle {
+        padding: 0.15em;
+      }
 
-    &.fill {
-      fill: currentcolor;
-    }
-
-    &.background {
-      background-color: var(--color-bg-surface);
-      padding: var(--spacing-em-xs);
-    }
-
-    &.color-blue {
-      color: var(--blue-dark);
+      &.fill {
+        fill: currentcolor;
+      }
 
       &.background {
-        background-color: var(--blue-light);
+        background-color: var(--color-bg-surface);
+        padding: var(--spacing-em-xs);
       }
-    }
 
-    &.color-green {
-      color: var(--green-dark);
+      &.color-blue {
+        color: var(--blue-dark);
 
-      &.background {
-        background-color: var(--green-light);
+        &.background {
+          background-color: var(--blue-light);
+        }
       }
-    }
 
-    &.color-yellow {
-      color: var(--yellow-dark);
+      &.color-green {
+        color: var(--green-dark);
 
-      &.background {
-        background-color: var(--yellow-light);
+        &.background {
+          background-color: var(--green-light);
+        }
       }
-    }
 
-    &.color-orange {
-      color: var(--orange-dark);
+      &.color-yellow {
+        color: var(--yellow-dark);
 
-      &.background {
-        background-color: var(--orange-light);
+        &.background {
+          background-color: var(--yellow-light);
+        }
       }
-    }
 
-    &.color-red {
-      color: var(--red-dark);
+      &.color-orange {
+        color: var(--orange-dark);
 
-      &.background {
-        background-color: var(--red-light);
+        &.background {
+          background-color: var(--orange-light);
+        }
       }
-    }
 
-    &.color-purple {
-      color: var(--purple-dark);
+      &.color-red {
+        color: var(--red-dark);
 
-      &.background {
-        background-color: var(--purple-light);
+        &.background {
+          background-color: var(--red-light);
+        }
       }
-    }
 
-    &.color-pink {
-      color: var(--pink-dark);
+      &.color-purple {
+        color: var(--purple-dark);
 
-      &.background {
-        background-color: var(--pink-light);
+        &.background {
+          background-color: var(--purple-light);
+        }
       }
-    }
 
-    &.color-cyan {
-      color: var(--cyan-dark);
+      &.color-pink {
+        color: var(--pink-dark);
 
-      &.background {
-        background-color: var(--cyan-light);
+        &.background {
+          background-color: var(--pink-light);
+        }
       }
-    }
 
-    &.size-sm {
-      font-size: var(--font-size-sm);
-    }
+      &.color-cyan {
+        color: var(--cyan-dark);
 
-    &.size-md {
-      font-size: var(--font-size-xl);
-    }
+        &.background {
+          background-color: var(--cyan-light);
+        }
+      }
 
-    &.size-lg {
-      font-size: var(--font-size-2xl);
-    }
+      &.size-sm {
+        font-size: var(--font-size-sm);
+      }
 
-    &.size-xl {
-      font-size: var(--font-size-3xl);
-    }
+      &.size-md {
+        font-size: var(--font-size-xl);
+      }
 
-    &.size-2xl {
-      font-size: var(--font-size-4xl);
-    }
+      &.size-lg {
+        font-size: var(--font-size-2xl);
+      }
 
-    &.size-3xl {
-      font-size: var(--font-size-4xl);
-    }
+      &.size-xl {
+        font-size: var(--font-size-3xl);
+      }
 
-    &.size-4xl {
-      font-size: var(--font-size-4xl);
-    }
+      &.size-2xl {
+        font-size: var(--font-size-4xl);
+      }
 
-    &.align-start {
-      display: block;
-      width: fit-content;
-    }
+      &.size-3xl {
+        font-size: var(--font-size-4xl);
+      }
 
-    &.align-center {
-      display: block;
-      margin-inline: auto;
-      width: fit-content;
-    }
+      &.size-4xl {
+        font-size: var(--font-size-4xl);
+      }
 
-    &.align-end {
-      display: block;
-      margin-inline-start: auto;
-      width: fit-content;
-    }
+      &.align-start {
+        display: block;
+        width: fit-content;
+      }
 
-    svg {
-      max-height: 100%;
+      &.align-center {
+        display: block;
+        margin-inline: auto;
+        width: fit-content;
+      }
+
+      &.align-end {
+        display: block;
+        margin-inline-start: auto;
+        width: fit-content;
+      }
+
+      svg {
+        max-height: 100%;
+      }
     }
   }
 </style>

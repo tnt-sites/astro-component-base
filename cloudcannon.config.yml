@@ -40,6 +40,18 @@ collections_config:
     disable_url: false
     _enabled_editors:
       - content
+    add_options:
+      - name: Add New Blog Post
+        schema: default
+        icon: article
+    schemas:
+      default:
+        name: New Blog Post
+        path: .cloudcannon/schemas/blog-post.mdx
+        remove_extra_inputs: false
+    create:
+      path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
+    new_preview_url: /blog/
     _inputs:
       title:
         type: text
@@ -48,8 +60,7 @@ collections_config:
       description:
         type: text
         comment: A brief description of the blog post.
-        cascade: true
-      pubDate:
+      date:
         type: date
         comment: The publication date.
         cascade: true
@@ -58,12 +69,14 @@ collections_config:
         comment: The author of the blog post.
         cascade: true
       image:
-        type: text
+        type: image
         comment: Optional image path for the blog post.
+        options:
+          paths:
+            uploads: src/assets/images
         cascade: true
       tags:
-        type: text
-        comment: Comma-separated list of tags.
+        type: array
         cascade: true
     add_options:
       - name: Add New Blog Post
@@ -102,6 +115,17 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+    _inputs:
+      logoSource:
+        type: image
+        options:
+          paths:
+            uploads: src/assets/images
+      image:
+        type: image
+        options:
+          paths:
+            uploads: src/assets/images
 collection_groups:
   - heading: Content
     collections:

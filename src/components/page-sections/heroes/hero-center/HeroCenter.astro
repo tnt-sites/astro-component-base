@@ -10,10 +10,12 @@ const {
   heading = "",
   subtext = "",
   buttonSections = [],
-  colorScheme,
+  colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
   class: className,
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 ---
 
@@ -24,6 +26,7 @@ const {
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  {...htmlAttributes}
 >
   <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
     {eyebrow}
@@ -35,8 +38,10 @@ const {
   <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
 </CustomSection>
 
-<style>
-  .subtext :global(p) {
-    font-size: var(--font-size-lg);
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .subtext p {
+      font-size: var(--font-size-lg);
+    }
   }
 </style>

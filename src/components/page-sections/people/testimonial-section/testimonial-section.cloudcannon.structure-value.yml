@@ -11,7 +11,7 @@ value:
   maxContentWidth: xl
   paddingHorizontal: xl
   paddingVertical: sm
-  colorScheme: null
+  colorScheme: inherit
   backgroundColor: surface
 preview:
   text:

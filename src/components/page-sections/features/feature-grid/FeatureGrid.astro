@@ -12,10 +12,12 @@ const {
   heading = "",
   subtext = "",
   features = [],
-  colorScheme,
+  colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
   class: className,
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 ---
 
@@ -26,6 +28,7 @@ const {
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  {...htmlAttributes}
 >
   <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
     {eyebrow}
@@ -38,8 +41,8 @@ const {
     gap="lg"
     minItemWidth="360"
     maxItemWidth="360"
-    style="margin-top: var(--spacing-2xl)"
     data-prop="features"
+    class="feature-grid-grid"
   >
     {
       features.map((feature: any, index: number) => (
@@ -52,3 +55,11 @@ const {
     }
   </Grid>
 </CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .feature-grid-grid {
+      margin-top: var(--spacing-2xl);
+    }
+  }
+</style>

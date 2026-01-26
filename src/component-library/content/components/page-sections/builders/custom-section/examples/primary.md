@@ -12,7 +12,7 @@ blocks:
       level: h2
   label: ""
   maxContentWidth: 2xl
-  colorScheme: null
+  colorScheme: inherit
   backgroundImage:
     source: ""
     alt: ""

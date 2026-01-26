@@ -52,10 +52,7 @@ const hasSlotContent = Astro.slots.has("default");
   image={image}
   canonical={canonical}
 >
-  <MainNavigation
-    {...mainNav}
-    style="background-color: var(--color-bg); padding-block: var(--spacing-md); position: sticky; top: 0;"
-  />
+  <MainNavigation {...mainNav} />
   <main data-pagefind-body>
     {
       hasPageSections ? (

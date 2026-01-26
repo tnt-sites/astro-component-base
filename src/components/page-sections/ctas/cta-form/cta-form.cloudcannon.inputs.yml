@@ -42,6 +42,8 @@ colorScheme:
   comment: Color scheme theme for the CTA.
   options:
     values:
+      - id: inherit
+        name: Inherit
       - id: default
         name: Default
       - id: contrast

@@ -6,12 +6,9 @@ const {
   editable = true,
   "data-prop-title": customDataPropTitle = "title",
   "data-prop-content": customDataPropContent = "text",
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 
 const titleDataAttributes =
   editable && customDataPropTitle
@@ -36,7 +33,7 @@ const hasText = text?.trim().length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 
-if ((!hasTitle && !hasTitleSlotContent) || (!hasText && !hasSlotContent)) return;
+if (!_component && ((!hasTitle && !hasTitleSlotContent) || (!hasText && !hasSlotContent))) return;
 ---
 
 <dt class:list={["title", className]} role="term" {...titleDataAttributes} {...htmlAttributes}>
@@ -54,8 +51,10 @@ if ((!hasTitle && !hasTitleSlotContent) || (!hasText && !hasSlotContent)) return
   </span>
 </dd>
 
-<style lang="pcss">
-  .title {
-    font-weight: var(--font-weight-bold);
+<style lang="pcss" is:global>
+  @layer components {
+    .title {
+      font-weight: var(--font-weight-bold);
+    }
   }
 </style>

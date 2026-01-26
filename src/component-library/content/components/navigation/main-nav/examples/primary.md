@@ -30,8 +30,8 @@ blocks:
       variant: "ghost"
       size: lg
       text: Search
-      iconName: magnifying-glass
       hideText: true
+      iconName: magnifying-glass
     - _component: "building-blocks/core-elements/button"
       link: "#"
       text: "Careers"
