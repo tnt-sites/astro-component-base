@@ -38,7 +38,7 @@ collections_config:
     schemas:
       default:
         name: New Blog Post
-        path: .cloudcannon/schemas/blog-post.md
+        path: .cloudcannon/schemas/blog-post.mdx
         remove_extra_inputs: false
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
@@ -50,18 +50,21 @@ collections_config:
       description:
         type: text
         comment: A brief description of the blog post.
-      pubDate:
+      date:
         type: date
         comment: The publication date.
       author:
         type: text
         comment: The author of the blog post.
       image:
-        type: text
+        type: image
         comment: Optional image path for the blog post.
+        options:
+          paths:
+            uploads: src/assets/images
       tags:
-        type: text
-        comment: Comma-separated list of tags.
+        type: array
+        comment: Tags relevant to this post's content.
   data:
     path: src/data
     glob:
@@ -69,6 +72,17 @@ collections_config:
     icon: database
     _enabled_editors:
       - data
+    _inputs:
+      logoSource:
+        type: image
+        options:
+          paths:
+            uploads: src/assets/images
+      image:
+        type: image
+        options:
+          paths:
+            uploads: src/assets/images
 collection_groups:
   - heading: Content
     collections:

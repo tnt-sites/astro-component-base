@@ -5,11 +5,13 @@ import Carousel from "@wrappers/carousel/Carousel.astro";
 import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
 
 const {
-  colorScheme,
+  colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
   class: className,
   slides = [],
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 ---
 
@@ -20,6 +22,7 @@ const {
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  {...htmlAttributes}
 >
   <Carousel
     label="Feature slider"

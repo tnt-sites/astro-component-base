@@ -17,7 +17,13 @@ export default [
     },
     rules: {
       // Basic ESLint rules
-      "no-unused-vars": "warn",
+      "no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_component$",
+        },
+      ],
       "no-console": "off",
       "prefer-const": "error",
       "no-var": "error",
@@ -48,7 +54,13 @@ export default [
     },
     rules: {
       ...typescriptEslint.configs.recommended.rules,
-      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_component$",
+        },
+      ],
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-non-null-assertion": "warn",
       // Removed rules that require type information for now
@@ -89,6 +101,13 @@ export default [
       "astro/prefer-class-list-directive": "warn",
       "astro/prefer-split-class-list": "warn",
       "astro/sort-attributes": "off",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_component$",
+        },
+      ],
     },
   },
 

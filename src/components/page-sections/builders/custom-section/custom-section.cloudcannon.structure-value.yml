@@ -8,7 +8,7 @@ value:
   maxContentWidth: 2xl
   paddingHorizontal: md
   paddingVertical: md
-  colorScheme: null
+  colorScheme: inherit
   backgroundColor: base
   backgroundImage:
     source: ""

@@ -1,5 +1,5 @@
 ---
-title: 2XL Spacing
+title: 2xl Spacing
 spacing:
 blocks:
   _component: "building-blocks/wrappers/grid"
@@ -19,7 +19,7 @@ blocks:
               text: "Item 1"
               level: h3
             - _component: "building-blocks/core-elements/text"
-              text: "2XL spacing creates maximum visual separation."
+              text: "2xl spacing creates maximum visual separation."
     - contentSections:
         - _component: "building-blocks/wrappers/card"
           paddingHorizontal: md

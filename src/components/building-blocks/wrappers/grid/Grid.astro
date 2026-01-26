@@ -11,14 +11,10 @@ const {
   label,
   gap = "md",
   editable = true,
-  ...rest
+  _component,
+  "data-prop": dataProp = "items",
+  ...htmlAttributes
 } = Astro.props;
-
-const dataProp = (Astro.props as any)["data-prop"] ?? "items";
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component" && key !== "data-prop")
-);
 
 const slugifyLabel = (label: string) => {
   return label
@@ -53,7 +49,7 @@ const hasItems = items?.length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 
-if (!hasItems && !hasSlotContent) return;
+if (!_component && !hasItems && !hasSlotContent) return;
 ---
 
 <div
@@ -75,30 +71,32 @@ if (!hasItems && !hasSlotContent) return;
   </slot>
 </div>
 
-<style lang="pcss">
-  .grid {
-    gap: var(--grid-spacing, --spacing-md);
-    margin-top: var(--spacing-lg);
-    width: 100%;
+<style lang="pcss" is:global>
+  @layer components {
+    .grid {
+      gap: var(--grid-spacing, --spacing-md);
+      margin-top: var(--spacing-lg);
+      width: 100%;
 
-    &.layout-start {
-      align-items: stretch;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(var(--min-item-width), 100%), 1fr));
-      justify-content: start;
-    }
+      &.layout-start {
+        align-items: stretch;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(var(--min-item-width), 100%), 1fr));
+        justify-content: start;
+      }
 
-    &.layout-center {
-      align-items: stretch;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      &.layout-center {
+        align-items: stretch;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
 
-      > :global(editable-array-item),
-      > :global(.grid-item) {
-        flex: 1 1 var(--min-item-width, 200px);
-        max-width: var(--max-item-width, 320px);
-        min-width: min(var(--min-item-width, 200px), 100%);
+        > editable-array-item,
+        > .grid-item {
+          flex: 1 1 var(--min-item-width, 200px);
+          max-width: var(--max-item-width, 320px);
+          min-width: min(var(--min-item-width, 200px), 100%);
+        }
       }
     }
   }

@@ -22,10 +22,10 @@
     {
       "_component": "building-blocks/core-elements/button",
       "text": "Search",
+      "hideText": true,
       "link": "/search/",
       "iconName": "magnifying-glass",
       "iconPosition": "before",
-      "hideText": true,
       "variant": "ghost",
       "size": "lg"
     }

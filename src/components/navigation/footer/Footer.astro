@@ -13,6 +13,7 @@ const {
   footerText = "",
   logoSource,
   logoAlt,
+  _component,
   ...htmlAttributes
 } = Astro.props;
 ---
@@ -56,59 +57,62 @@ const {
   </CustomSection>
 </footer>
 
-<style lang="pcss">
-  .footer {
-    container-type: inline-size;
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .footer {
+      container-type: inline-size;
 
-    .button-group {
-      &.align-end {
-        @container (max-width: 599px) {
-          justify-content: center;
+      .button-group {
+        &.align-end {
+          @container (max-width: 599px) {
+            justify-content: center;
+          }
         }
       }
-    }
 
-    .footer-content {
-      @container (min-width: 600px) {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
-
-      .content-container {
-        flex: 1;
-      }
-    }
-
-    .footer-legal-text {
-      color: var(--color-text-muted);
-      text-align: center;
-      @container (min-width: 600px) {
-        text-align: start;
-      }
-    }
-
-    .footer-logo {
-      flex-shrink: 0;
-
-      :global(img) {
-        margin-inline: auto;
-        margin-bottom: var(--spacing-md);
-        max-height: 2em;
-        max-width: min(20em, 100%);
-        width: auto;
+      .footer-content {
         @container (min-width: 600px) {
-          margin: 0;
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
+
+        .content-container {
+          flex: 1;
         }
       }
-    }
 
-    :global(.bar .bar-list) {
-      flex-flow: column wrap;
-      @container (min-width: 600px) {
-        flex-direction: row;
-        justify-content: end;
+      .footer-legal-text {
+        color: var(--color-text-muted);
+        text-align: center;
+        @container (min-width: 600px) {
+          text-align: start;
+        }
+      }
+
+      .footer-logo {
+        flex-shrink: 0;
+        margin-top: 0 !important;
+
+        img {
+          margin-inline: auto;
+          margin-bottom: var(--spacing-md);
+          max-height: 2em;
+          max-width: min(20em, 100%);
+          width: auto;
+          @container (min-width: 600px) {
+            margin: 0;
+          }
+        }
+      }
+
+      .bar .bar-list {
+        flex-flow: column wrap;
+        @container (min-width: 600px) {
+          flex-direction: row;
+          justify-content: end;
+        }
       }
     }
   }

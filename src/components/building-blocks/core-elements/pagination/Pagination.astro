@@ -1,16 +1,12 @@
 ---
 import Icon from "@core-elements/icon/Icon.astro";
 
-const { page, class: className, showArrows = false, ...rest } = Astro.props;
+const { page, class: className, showArrows = false, _component, ...htmlAttributes } = Astro.props;
 const maxVisiblePages = 5;
 
 if (!page || page.lastPage <= 1) {
   return null;
 }
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 
 const currentPage = page.currentPage;
 const totalPages = page.lastPage;
@@ -125,80 +121,82 @@ const getPageUrl = (pageNum: number) => {
   }
 </nav>
 
-<style lang="pcss">
-  .pagination {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: var(--spacing-lg);
+<style lang="pcss" is:global>
+  @layer components {
+    .pagination {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: var(--spacing-lg);
 
-    a,
-    span {
-      background-color: var(--color-bg);
-      border: 1px solid var(--color-border);
-      border-inline-start: none;
-      color: var(--color-text-strong);
-      font-weight: var(--font-weight-semibold);
-      padding: var(--spacing-sm) var(--spacing-md);
-      text-decoration: none;
-      transition: background-color var(--animation-normal) ease-in-out;
-
-      &:hover {
-        background-color: var(--color-state-hover);
+      a,
+      span {
+        background-color: var(--color-bg);
+        border: 1px solid var(--color-border);
+        border-inline-start: none;
         color: var(--color-text-strong);
-      }
-
-      &:first-child:not(.pagination-arrow) {
-        border-bottom-left-radius: var(--radius-sm);
-        border-inline-start: 1px solid var(--color-border);
-        border-top-left-radius: var(--radius-sm);
-      }
-
-      &:last-child:not(.pagination-arrow) {
-        border-bottom-right-radius: var(--radius-sm);
-        border-top-right-radius: var(--radius-sm);
-      }
-
-      &[aria-hidden="true"] {
-        cursor: default;
+        font-weight: var(--font-weight-semibold);
+        padding: var(--spacing-sm) var(--spacing-md);
+        text-decoration: none;
+        transition: background-color var(--animation-normal) ease-in-out;
 
         &:hover {
-          background-color: var(--color-bg);
+          background-color: var(--color-state-hover);
           color: var(--color-text-strong);
         }
+
+        &:first-child:not(.pagination-arrow) {
+          border-bottom-left-radius: var(--radius-sm);
+          border-inline-start: 1px solid var(--color-border);
+          border-top-left-radius: var(--radius-sm);
+        }
+
+        &:last-child:not(.pagination-arrow) {
+          border-bottom-right-radius: var(--radius-sm);
+          border-top-right-radius: var(--radius-sm);
+        }
+
+        &[aria-hidden="true"] {
+          cursor: default;
+
+          &:hover {
+            background-color: var(--color-bg);
+            color: var(--color-text-strong);
+          }
+        }
       }
-    }
 
-    .current,
-    .current:hover {
-      background-color: var(--color-bg-brand);
-      border-color: var(--color-bg-brand);
-      color: var(--color-text-on-brand);
-      cursor: default;
-    }
+      .current,
+      .current:hover {
+        background-color: var(--color-bg-brand);
+        border-color: var(--color-bg-brand);
+        color: var(--color-text-on-brand);
+        cursor: default;
+      }
 
-    .pagination-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 2.5rem;
-
-      :global(.icon) {
+      .pagination-arrow {
         display: flex;
         align-items: center;
         justify-content: center;
+        min-width: 2.5rem;
+
+        .icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
-    }
 
-    .pagination-prev {
-      border-inline-start: 1px solid var(--color-border);
-      border-bottom-left-radius: var(--radius-sm);
-      border-top-left-radius: var(--radius-sm);
-    }
+      .pagination-prev {
+        border-inline-start: 1px solid var(--color-border);
+        border-bottom-left-radius: var(--radius-sm);
+        border-top-left-radius: var(--radius-sm);
+      }
 
-    .pagination-next {
-      border-bottom-right-radius: var(--radius-sm);
-      border-top-right-radius: var(--radius-sm);
+      .pagination-next {
+        border-bottom-right-radius: var(--radius-sm);
+        border-top-right-radius: var(--radius-sm);
+      }
     }
   }
 </style>

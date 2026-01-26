@@ -1,6 +1,7 @@
 html:
-  type: textarea
+  type: code
   comment: The raw HTML content to render.
+  syntax: html
 aspectRatio:
   type: select
   comment: The aspect ratio of the embed.

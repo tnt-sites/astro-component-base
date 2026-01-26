@@ -1,5 +1,5 @@
 ---
-title: 3XL Spacing
+title: 3xl Spacing
 spacing:
 blocks:
   _component: "building-blocks/wrappers/grid"
@@ -19,7 +19,7 @@ blocks:
               text: "Item 1"
               level: h3
             - _component: "building-blocks/core-elements/text"
-              text: "3XL spacing creates extreme visual separation."
+              text: "3xl spacing creates extreme visual separation."
     - contentSections:
         - _component: "building-blocks/wrappers/card"
           paddingHorizontal: md

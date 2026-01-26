@@ -7,12 +7,9 @@ const {
   required = false,
   value,
   class: className,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 
 const fieldId = htmlAttributes.id || `input-${crypto.randomUUID()}`;
 ---
@@ -23,7 +20,7 @@ const fieldId = htmlAttributes.id || `input-${crypto.randomUUID()}`;
       <label for={fieldId} class="label">
         {label}
         {required && (
-          <span class="required" aria-label="required">
+          <span class="input-required" aria-label="required">
             *
           </span>
         )}
@@ -43,18 +40,20 @@ const fieldId = htmlAttributes.id || `input-${crypto.randomUUID()}`;
   />
 </div>
 
-<style lang="pcss">
-  .input {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-    width: 100%;
-    margin: 0;
-    margin-bottom: var(--spacing-md);
+<style lang="pcss" is:global>
+  @layer components {
+    .input {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      width: 100%;
+      margin: 0;
+      margin-bottom: var(--spacing-md);
 
-    .required {
-      color: red;
-      margin-inline-end: var(--spacing-em-xs);
+      .input-required {
+        color: red;
+        margin-inline-end: var(--spacing-em-xs);
+      }
     }
   }
 </style>

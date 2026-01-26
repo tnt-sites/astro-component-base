@@ -4,12 +4,17 @@ text:
   options:
     blockquote: false
     bold: true
+    format: p h1 h2 h3 h4 h5 h6 pre
     italic: true
     link: true
     strike: false
     subscript: true
     superscript: true
     underline: false
+    bulletedlist: true
+    numberedlist: true
+    indent: true
+    outdent: true
 alignX:
   type: select
   options:
@@ -21,4 +26,3 @@ alignX:
       - id: end
         name: End
   comment: The horizontal alignment of the text component.
-

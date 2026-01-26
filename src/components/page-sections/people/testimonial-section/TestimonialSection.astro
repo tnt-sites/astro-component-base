@@ -8,15 +8,12 @@ const {
   authorDescription = "",
   authorImage = "",
   paddingVertical = "sm",
-  colorScheme,
+  colorScheme = "inherit",
   backgroundColor,
   class: className,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 ---
 
 <CustomSection

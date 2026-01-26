@@ -3,11 +3,14 @@ import Button from "@core-elements/button/Button.astro";
 import Icon from "@core-elements/icon/Icon.astro";
 import Image from "@core-elements/image/Image.astro";
 
-const { logoSource, logoAlt, navData = [], class: className, ...rest } = Astro.props as Props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
+const {
+  logoSource,
+  logoAlt,
+  navData = [],
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props as Props;
 
 const toggleId = `mobile-toggle-${crypto.randomUUID()}`;
 const navInstanceId = crypto.randomUUID();
@@ -69,7 +72,6 @@ function createNavItemData(item, level, parentGroupId) {
           height={48}
           class="mobile-logo-image"
           editable={false}
-          style="margin-top: 0 !important;"
         />
       </slot>
     </div>
@@ -346,176 +348,182 @@ function createNavItemData(item, level, parentGroupId) {
   });
 </script>
 
-<style lang="pcss">
-  .nav-toggle {
-    display: none;
-  }
+<style lang="pcss" is:global>
+  @layer components {
+    .nav-toggle {
+      display: none;
+    }
 
-  .nav-toggle:checked ~ .mobile {
-    transform: translateX(0);
-  }
+    .nav-toggle:checked ~ .mobile {
+      transform: translateX(0);
+    }
 
-  .mobile-button {
-    border-radius: var(--radius-xs);
-    display: inline-block;
-    outline-offset: -2px;
-  }
+    .mobile-button {
+      border-radius: var(--radius-xs);
+      display: inline-block;
+      outline-offset: -2px;
+    }
 
-  .mobile {
-    background: var(--color-bg);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    inset: 0;
-    position: fixed;
-    transform: translateX(-100%);
-    transition: transform var(--animation-normal) ease-in-out;
-    z-index: var(--layer-5);
-
-    .mobile-header {
-      align-items: center;
-      border-bottom: 1px solid var(--color-border-subtle);
+    .mobile {
+      background: var(--color-bg);
       display: flex;
-      flex-shrink: 0;
-      justify-content: space-between;
-      padding: var(--spacing-md);
+      flex-direction: column;
+      height: 100vh;
+      inset: 0;
+      position: fixed;
+      transform: translateX(-100%);
+      transition: transform var(--animation-normal) ease-in-out;
+      z-index: var(--layer-5);
 
-      .mobile-logo {
-        :global(svg) {
-          height: 100%;
-          width: 100%;
-          max-height: 3em;
-        }
-        :global(img),
-        :global(mobile-logo-image) {
-          height: auto;
-          max-height: 3em;
-          max-width: min(20em, 100%);
-          width: auto;
-        }
-      }
-    }
-
-    .mobile-content {
-      flex: 1;
-      overflow-y: auto;
-
-      .mobile-list {
-        font-size: var(--font-size-lg);
-        list-style: none;
-        margin: 0;
-        padding: 0;
+      .mobile-logo-image {
+        margin-top: 0 !important;
       }
 
-      .nav-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-    }
-
-    .nav-item {
-      border-bottom: 1px solid var(--color-border-subtle);
-      position: relative;
-
-      > a,
-      > .nav-item-trigger {
-        border-radius: var(--radius-xs);
-        color: var(--color-text-strong);
-        cursor: pointer;
-        display: block;
-        font-weight: var(--font-weight-semibold);
-        padding: var(--spacing-md);
-        text-decoration: none;
-        transition: background var(--animation-normal) ease-in-out;
-        user-select: none;
-        white-space: nowrap;
-        width: 100%;
-
-        &[aria-current="page"] {
-          text-decoration: underline dotted;
-          text-decoration-color: var(--color-text-muted);
-          text-underline-offset: 3px;
-        }
-
-        &:hover,
-        &:focus-visible {
-          background: var(--color-state-hover);
-          color: var(--color-text-strong);
-        }
-      }
-
-      > .nav-item-trigger {
+      .mobile-header {
         align-items: center;
-        cursor: pointer;
+        border-bottom: 1px solid var(--color-border-subtle);
         display: flex;
-        gap: var(--spacing-xs);
+        flex-shrink: 0;
         justify-content: space-between;
+        padding: var(--spacing-md);
 
-        .nav-item-icon {
-          color: var(--color-text-muted);
-          transition:
-            color var(--animation-normal) ease-in-out,
-            transform var(--animation-normal) ease-in-out;
+        .mobile-logo {
+          svg {
+            height: 100%;
+            width: 100%;
+            max-height: 3em;
+          }
+          img,
+          mobile-logo-image {
+            height: auto;
+            max-height: 3em;
+            max-width: min(20em, 100%);
+            width: auto;
+          }
+        }
+      }
+
+      .mobile-content {
+        flex: 1;
+        overflow-y: auto;
+
+        .mobile-list {
+          font-size: var(--font-size-lg);
+          list-style: none;
+          margin: 0;
+          padding: 0;
         }
 
-        &:hover .nav-item-icon {
-          color: var(--color-text-strong);
+        .nav-list {
+          list-style: none;
+          margin: 0;
+          padding: 0;
         }
       }
 
-      .nav-item-toggle {
-        display: none;
-      }
+      .nav-item {
+        border-bottom: 1px solid var(--color-border-subtle);
+        position: relative;
 
-      .nav-item-content {
-        display: none;
-      }
-
-      .nav-item-toggle:checked ~ .nav-item-content {
-        animation: grow-out var(--animation-normal) ease-out;
-        display: block;
-      }
-
-      .nav-item-toggle:checked ~ .nav-item-trigger > .nav-item-icon {
-        transform: rotate(90deg);
-      }
-    }
-
-    .nav-item > .nav-item-content .nav-item {
-      > a,
-      > .nav-item-trigger {
-        padding: var(--spacing-md) var(--spacing-xl);
-        width: 100%;
-      }
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      > .nav-item-content .nav-item {
         > a,
         > .nav-item-trigger {
-          padding: var(--spacing-md) var(--spacing-2xl);
+          border-radius: var(--radius-xs);
+          color: var(--color-text-strong);
+          cursor: pointer;
+          display: block;
+          font-weight: var(--font-weight-semibold);
+          padding: var(--spacing-md);
+          text-decoration: none;
+          transition: background var(--animation-normal) ease-in-out;
+          user-select: none;
+          white-space: nowrap;
           width: 100%;
+
+          &[aria-current="page"] {
+            text-decoration: underline dotted;
+            text-decoration-color: var(--color-text-muted);
+            text-underline-offset: 3px;
+          }
+
+          &:hover,
+          &:focus-visible {
+            background: var(--color-state-hover);
+            color: var(--color-text-strong);
+          }
+        }
+
+        > .nav-item-trigger {
+          align-items: center;
+          cursor: pointer;
+          display: flex;
+          gap: var(--spacing-xs);
+          justify-content: space-between;
+
+          .nav-item-icon {
+            color: var(--color-text-muted);
+            transition:
+              color var(--animation-normal) ease-in-out,
+              transform var(--animation-normal) ease-in-out;
+          }
+
+          &:hover .nav-item-icon {
+            color: var(--color-text-strong);
+          }
+        }
+
+        .nav-item-toggle {
+          display: none;
+        }
+
+        .nav-item-content {
+          display: none;
+        }
+
+        .nav-item-toggle:checked ~ .nav-item-content {
+          animation: grow-out var(--animation-normal) ease-out;
+          display: block;
+        }
+
+        .nav-item-toggle:checked ~ .nav-item-trigger > .nav-item-icon {
+          transform: rotate(90deg);
+        }
+      }
+
+      .nav-item > .nav-item-content .nav-item {
+        > a,
+        > .nav-item-trigger {
+          padding: var(--spacing-md) var(--spacing-xl);
+          width: 100%;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        > .nav-item-content .nav-item {
+          > a,
+          > .nav-item-trigger {
+            padding: var(--spacing-md) var(--spacing-2xl);
+            width: 100%;
+          }
         }
       }
     }
-  }
 
-  .mobile-overlay {
-    background: var(--color-bg);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    inset: 0;
-    position: fixed;
-    transform: translateX(-100%);
-    transition: transform var(--animation-normal) ease-in-out;
-    z-index: var(--layer-6);
+    .mobile-overlay {
+      background: var(--color-bg);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      inset: 0;
+      position: fixed;
+      transform: translateX(-100%);
+      transition: transform var(--animation-normal) ease-in-out;
+      z-index: var(--layer-6);
 
-    &.open {
-      transform: translateX(0);
+      &.open {
+        transform: translateX(0);
+      }
     }
   }
 </style>

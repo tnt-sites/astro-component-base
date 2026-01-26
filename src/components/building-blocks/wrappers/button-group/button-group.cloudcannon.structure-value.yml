@@ -7,10 +7,10 @@ value:
   buttonSections:
     - _component: building-blocks/core-elements/button
       text: My Button
+      hideText: false
       link: ""
       iconName: ""
       iconPosition: before
-      hideText: false
       variant: primary
       size: md
   direction: row

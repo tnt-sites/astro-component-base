@@ -1,48 +1,42 @@
 ---
-const { size = "md", class: className, editable = true, ...rest } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
+const { size = "md", class: className, editable = true, _component, ...htmlAttributes } = Astro.props;
 ---
 
-<div
-  class:list={["spacer", className, `size-${size}`]}
-  {...htmlAttributes}
-  aria-hidden="true"
->
+<div class:list={["spacer", className, `size-${size}`]} {...htmlAttributes} aria-hidden="true">
 </div>
 
-<style lang="pcss">
-  .spacer {
-    height: 0;
+<style lang="pcss" is:global>
+  @layer components {
+    .spacer {
+      height: 0;
 
-    &.size-xs {
-      height: var(--spacing-xs);
-    }
+      &.size-xs {
+        height: var(--spacing-xs);
+      }
 
-    &.size-sm {
-      height: var(--spacing-sm);
-    }
+      &.size-sm {
+        height: var(--spacing-sm);
+      }
 
-    &.size-md {
-      height: var(--spacing-md);
-    }
+      &.size-md {
+        height: var(--spacing-md);
+      }
 
-    &.size-lg {
-      height: var(--spacing-lg);
-    }
+      &.size-lg {
+        height: var(--spacing-lg);
+      }
 
-    &.size-xl {
-      height: var(--spacing-xl);
-    }
+      &.size-xl {
+        height: var(--spacing-xl);
+      }
 
-    &.size-2xl {
-      height: var(--spacing-2xl);
-    }
+      &.size-2xl {
+        height: var(--spacing-2xl);
+      }
 
-    &.size-3xl {
-      height: var(--spacing-3xl);
+      &.size-3xl {
+        height: var(--spacing-3xl);
+      }
     }
   }
 </style>

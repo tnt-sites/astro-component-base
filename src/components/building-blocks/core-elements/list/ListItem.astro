@@ -9,12 +9,9 @@ const {
   class: className,
   editable = true,
   "data-prop": customDataProp = "text",
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 
 const md = new MarkdownIt({ html: true });
 
@@ -29,27 +26,34 @@ const textDataAttributes =
 
 <li class:list={["item", className]} {...htmlAttributes}>
   <Icon name={iconName} color={iconColor} size="none" class="list-icon" aria-hidden="true" />
-  <span {...textDataAttributes}>
+  <p {...textDataAttributes}>
     {text ? <Fragment set:html={md.renderInline(text)} /> : <slot />}
-  </span>
+  </p>
 </li>
 
-<style lang="pcss">
-  .item {
-    display: block;
+<style lang="pcss" is:global>
+  @layer components {
+    .item {
+      display: block;
+      > p {
+        display: inline;
+        margin: 0;
+        font-size: inherit;
+      }
 
-    > .list-icon {
-      display: inline-block;
-      flex-shrink: 0;
-      height: 1em;
-      margin-right: var(--spacing-em-xs);
-      vertical-align: -0.15em;
-      width: 1em;
+      > .list-icon {
+        display: inline-block;
+        flex-shrink: 0;
+        height: 1em;
+        margin-right: var(--spacing-em-xs);
+        vertical-align: -0.15em;
+        width: 1em;
 
-      svg {
-        display: block;
-        height: 100%;
-        width: 100%;
+        svg {
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
       }
     }
   }

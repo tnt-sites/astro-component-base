@@ -12,12 +12,9 @@ const {
   label,
   "data-prop": customDataProp = "slides",
   editable = true,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component" && key !== "data-prop")
-);
 
 const slugifyLabel = (label: string) => {
   return label
@@ -249,92 +246,92 @@ const carouselStyles = `
   document.addEventListener("astro:page-load", setupCarousels);
 </script>
 
-<style lang="pcss">
-
-
-  .carousel {
-    margin-top: var(--spacing-lg);
-    position: relative;
-    width: 100%;
-    --slide-width: 100%;
-    --min-slide-width: 0px;
-
-    > .viewport {
-      overflow: hidden;
+<style lang="pcss" is:global>
+  @layer components {
+    .carousel {
+      margin-top: var(--spacing-lg);
       position: relative;
       width: 100%;
-    }
+      --slide-width: 100%;
+      --min-slide-width: 0px;
 
-    > .viewport > .track {
-      display: flex;
-      flex-wrap: nowrap;
-
-      > :global(editable-array-item), > :global(.slide) {
-        flex-shrink: 0;
-        flex-basis: calc(max(var(--slide-width, 100%), var(--min-slide-width, 0px)));
-      }
-
-      > :global(editable-array-item) > :global(.slide) {
+      > .viewport {
+        overflow: hidden;
+        position: relative;
         width: 100%;
       }
-    }
 
-    > .controls-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--spacing-md);
-      margin-top: var(--spacing-sm);
-      margin-bottom: var(--spacing-sm);
-    }
+      > .viewport > .track {
+        display: flex;
+        flex-wrap: nowrap;
 
-    > .controls-wrapper > :global(.prev),
-    > .controls-wrapper > :global(.next) {
-      pointer-events: auto;
-      border-radius: var(--radius-full);
-      background-color: var(--color-bg);
-      flex-shrink: 0;
+        > editable-array-item, > .slide {
+          flex-shrink: 0;
+          flex-basis: calc(max(var(--slide-width, 100%), var(--min-slide-width, 0px)));
+        }
 
-      &:hover {
-        background-color: var(--color-bg-surface);
+        > editable-array-item > .slide {
+          width: 100%;
+        }
       }
-    }
 
-    > .controls-wrapper > .indicators {
-      display: flex;
-      justify-content: center;
-      gap: var(--spacing-sm);
-    }
-
-    > .controls-wrapper > .indicators > :global(.indicator) {
-      border-radius: var(--radius-full);
-      width: 8px;
-      aspect-ratio: 1/1;
-      padding: 0;
-      min-width: 0;
-      min-height: 0;
-      transition:
-        transform var(--animation-normal) ease,
-        background-color var(--animation-normal) ease;
-      border: none;
-      cursor: pointer;
-
-      &[data-selected="true"] {
-        background-color: var(--color-brand-muted);
-        transform: scale(1.2);
+      > .controls-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
       }
-    }
 
-    &[data-show-indicators="false"] {
+      > .controls-wrapper > .prev,
+      > .controls-wrapper > .next {
+        pointer-events: auto;
+        border-radius: var(--radius-full);
+        background-color: var(--color-bg);
+        flex-shrink: 0;
+
+        &:hover {
+          background-color: var(--color-bg-surface);
+        }
+      }
+
       > .controls-wrapper > .indicators {
-        display: none;
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-sm);
       }
-    }
 
-    &[data-show-arrows="false"] {
-      > .controls-wrapper > :global(.prev),
-      > .controls-wrapper > :global(.next) {
-        display: none;
+      > .controls-wrapper > .indicators > .indicator {
+        border-radius: var(--radius-full);
+        width: 8px;
+        aspect-ratio: 1/1;
+        padding: 0;
+        min-width: 0;
+        min-height: 0;
+        transition:
+          transform var(--animation-normal) ease,
+          background-color var(--animation-normal) ease;
+        border: none;
+        cursor: pointer;
+
+        &[data-selected="true"] {
+          background-color: var(--color-brand-muted);
+          transform: scale(1.2);
+        }
+      }
+
+      &[data-show-indicators="false"] {
+        > .controls-wrapper > .indicators {
+          display: none;
+        }
+      }
+
+      &[data-show-arrows="false"] {
+        > .controls-wrapper > .prev,
+        > .controls-wrapper > .next {
+          display: none;
+        }
       }
     }
   }
