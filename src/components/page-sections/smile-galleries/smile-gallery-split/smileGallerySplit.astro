@@ -1,0 +1,96 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@components/building-blocks/core-elements/image/Image.astro";
+import Video from "@components/building-blocks/core-elements/video/Video.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Carousel from "@wrappers/carousel/Carousel.astro";
+import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
+import Split from "@wrappers/split/Split.astro";
+
+const {
+  heading = "",
+  backgroundColor = "base",
+  leftSlides = [],
+  rightSlides = [],
+  reverse = false,
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["smile-gallery-split", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  <Heading level="h2" size="lg" alignX="center" data-prop="heading">
+    {heading}
+  </Heading>
+  <Split distributionMode="half" verticalAlignment="center" minSplitWidth={500} reverse={reverse}>
+    <Fragment slot="first">
+      <Carousel
+        label="Left carousel"
+        slideWidthPercent={100}
+        minSlideWidth={0}
+        autoPlay={false}
+        autoScroll={false}
+        editable={false}
+      >
+        {
+          Array.isArray(leftSlides) &&
+            leftSlides.length > 0 &&
+            leftSlides.map((slide, index) => (
+              <CarouselSlide aria-label={`Slide ${index + 1} of ${leftSlides.length}`}>
+                {slide._component === "building-blocks/core-elements/image" ? (
+                  <Image {...slide} data-index={index} />
+                ) : (
+                  <Video {...slide} data-index={index} />
+                )}
+              </CarouselSlide>
+            ))
+        }
+      </Carousel>
+    </Fragment>
+    <Fragment slot="second">
+      <Carousel
+        label="Right carousel"
+        slideWidthPercent={100}
+        minSlideWidth={0}
+        autoPlay={false}
+        autoScroll={false}
+        editable={false}
+      >
+        {
+          Array.isArray(rightSlides) &&
+            rightSlides.length > 0 &&
+            rightSlides.map((slide, index) => (
+              <CarouselSlide aria-label={`Slide ${index + 1} of ${rightSlides.length}`}>
+                {slide._component === "building-blocks/core-elements/image" ? (
+                  <Image {...slide} data-index={index} />
+                ) : (
+                  <Video {...slide} data-index={index} />
+                )}
+              </CarouselSlide>
+            ))
+        }
+      </Carousel>
+    </Fragment>
+  </Split>
+</CustomSection>
+
+<style>
+  .smile-gallery-split {
+  }
+  .video {
+    margin-top: 0;
+  }
+</style>

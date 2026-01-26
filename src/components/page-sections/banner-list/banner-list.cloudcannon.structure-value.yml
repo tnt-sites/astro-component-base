@@ -1,0 +1,55 @@
+label: Banner List
+icon: add
+description: Description for Banner List component.
+value:
+  _component: page-sections/banner-list
+  heading: "Banner List Heading"
+  backgroundColor: none
+  items:
+    - _component: building-blocks/core-elements/list/list-item
+      text: List item 1
+      iconName: stylised-check
+      iconColor: default
+    - _component: building-blocks/core-elements/list/list-item
+      text: List item 2
+      iconName: stylised-check
+      iconColor: default
+    - _component: building-blocks/core-elements/list/list-item
+      text: List item 3
+      iconName: stylised-check
+      iconColor: default
+_inputs_from_glob:
+  - /src/components/page-sections/banner-list/banner-list.cloudcannon.inputs.yml
+_structures:
+  bannerListItems:
+    values:
+      - label: List Item
+        value:
+          _component: building-blocks/core-elements/list/list-item
+          text: "List item"
+          iconName: "stylised-check"
+          iconColor: default
+        preview:
+          icon: text_fields
+          image:
+            - template: src/icons/{iconName}.svg
+        _inputs:
+          text:
+            type: markdown
+            comment: The text to display in the list item.
+            options:
+              blockquote: false
+              bold: true
+              format:
+              italic: true
+              link: true
+              strike: false
+              subscript: true
+              superscript: true
+              underline: false
+              bulletedlist: false
+              numberedlist: false
+          iconName:
+            hidden: true
+          iconColor:
+            hidden: true

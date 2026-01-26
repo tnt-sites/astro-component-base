@@ -27,6 +27,11 @@ const pageImage = props.image || seoData.defaultSeo.image;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- TODO: remove -->
+    <script>
+      import "@justinribeiro/lite-youtube";
+    </script>
+
     <script>
       if (window.inEditorMode) {
         import("../../live-editing");

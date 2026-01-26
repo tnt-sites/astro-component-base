@@ -1,0 +1,28 @@
+backgroundColor:
+  type: select
+  comment: Background color used behind the grid.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+leftSlides:
+  type: array
+  comment: The slides for the left side of the gallery.
+  options:
+    structures: _structures.smileGallerySections
+rightSlides:
+  type: array
+  comment: The slides for the right side of the gallery.
+  options:
+    structures: _structures.smileGallerySections
+reverse:
+  type: switch
+  comment: Flips the layout so the carousels are on opposite sides.
