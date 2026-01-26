@@ -38,9 +38,9 @@ const slotContent = Astro.slots.has("default") ? await Astro.slots.render("defau
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 const hasIcon = iconName?.trim().length > 0;
 
-if (!_component && !hasText && !hasSlotContent && !hasIcon) {return};
+const shouldRender = _component || hasText || hasSlotContent || hasIcon;
 ---
-
+{shouldRender && (
 <Tag
   class:list={[
     "button",
@@ -62,6 +62,7 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) {return};
     )
   }
 </Tag>
+)}
 
 <style lang="pcss" is:global>
   @layer components {
@@ -87,53 +88,8 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) {return};
       transition-timing-function: ease-in-out;
       vertical-align: middle;
 
-    &:focus {
-      box-shadow: 0 0 2px 2px var(--color-focus-ring) inset;
-      outline: none;
-    }
-
-    &.icon-only {
-      padding: var(--spacing-em-xs);
-    }
-
-    &.icon-after {
-      flex-direction: row-reverse;
-    }
-
-    &.variant-primary {
-      background-color: var(--color-bg-brand);
-      border-color: transparent;
-      color: var(--color-text-on-brand);
-
-      &:hover,
-      &:focus {
-        background-color: var(--color-bg-brand-muted);
-        border-color: transparent;
-        color: var(--color-text-on-brand);
-      }
-    }
-
-    &.variant-secondary {
-      background-color: var(--color-bg-muted);
-      border-color: transparent;
-      color: var(--color-text-inverse);
-
-      &:hover,
-      &:focus {
-        background-color: var(--color-state-hover);
-        border-color: transparent;
-        color: var(--color-text-inverse);
-      }
-    }
-
-    &.variant-tertiary {
-      background-color: transparent;
-      border-color: var(--color-border-strong);
-      color: var(--color-text-strong);
-
-      &:hover,
-      &:focus {
-        background-color: var(--color-bg-surface);
+      &:hover {
+        background-color: var(--color-bg-muted);
         border-color: var(--color-border-strong);
         color: var(--color-text-strong);
         cursor: pointer;
@@ -168,13 +124,13 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) {return};
       &.variant-secondary {
         background-color: var(--color-bg-muted);
         border-color: transparent;
-        color: var(--color-text-strong);
+        color: var(--color-text-on-brand);
 
         &:hover,
         &:focus {
           background-color: var(--color-state-hover);
           border-color: transparent;
-          color: var(--color-text-strong);
+          color: var(--color-text-on-brand);
         }
       }
 
