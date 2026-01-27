@@ -134,6 +134,7 @@ const htmlAttributes = Object.fromEntries(
 
       .hero-banner-background-video {
           object-fit: cover;
+          object-position: center center;
           height: 100%;
           @media (--from-md) {
             width: 440px;
@@ -147,6 +148,13 @@ const htmlAttributes = Object.fromEntries(
           }
           @media (--from-2xl) {
             width: 700px;
+          }
+          @media (--from-2xl) {
+            width: 700px;
+          }
+          @media (width >= 2000px) {
+            width: 960px;
+            aspect-ratio: 1 / 0.8;
           }
       }
       .hero-banner-background-image {
@@ -173,6 +181,10 @@ const htmlAttributes = Object.fromEntries(
           }
           @media (--from-2xl) {
             width: 700px;
+          }
+          @media (width >= 2000px) {
+            width: 960px;
+            aspect-ratio: 1 / 0.8;
           }
         }
       }
@@ -229,10 +241,13 @@ const htmlAttributes = Object.fromEntries(
           left: 150px;
         }
         @media (--from-xl) {
-          left: 200px;
+          left: 350px;
         }
         @media (--from-2xl) {
-          left: 250px;
+          left: 300px;
+        }
+        @media (width >= 2000px) {
+          left: 600px;
         }
 
         .wave {
@@ -252,13 +267,19 @@ const htmlAttributes = Object.fromEntries(
         .wave-1 img {
           inset: 0 auto 0 0;
           animation: scaleXAnimation1 2s infinite alternate ease-in-out;
+          @media (--from-xl) {
+            inset: 0 auto 0 -100px;
+          }
         }
         .wave-2 img {
-          inset: 0 auto 0 160px;
+          inset: 0 auto 0 150px;
           animation: scaleXAnimation2 2s infinite alternate ease-in-out;
+          @media (--from-xl) {
+            inset: 0 auto 0 100px;
+          }
         }
         .wave-3 img {
-          inset: 0 auto 0 380px;
+          inset: 0 auto 0 345px;
           animation: scaleXAnimation1 2s infinite alternate ease-in-out;
         }
       }
