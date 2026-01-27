@@ -18,6 +18,7 @@ async function getComponentName() {
   const componentName = await rl.question(
     "Enter the component name: "
   );
+
   return componentName;
 }
 
@@ -28,6 +29,7 @@ async function getKebabName(componentName) {
 // Recursively select a folder inside baseDir with prompts
 async function selectFolder(baseDir) {
   let entries;
+
   try {
     entries = await fs.readdir(baseDir, { withFileTypes: true });
   } catch (err) {
@@ -59,12 +61,13 @@ async function selectFolder(baseDir) {
   }
 
   const nextDir = path.join(baseDir, folders[choiceIndex - 1]);
+
   return selectFolder(nextDir);
 }
 
 function dedent(strings, ...values) {
   // Combine strings and values first
-  let full = strings.reduce((acc, str, i) => acc + str + (values[i] || ""), "");
+  const full = strings.reduce((acc, str, i) => acc + str + (values[i] || ""), "");
 
   // Match indentation from the first non-empty line
   const match = full.match(/^[ \t]*(?=\S)/gm);
@@ -125,13 +128,16 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
       </Heading>
     </CustomSection>
 
-    <style>
-      .${kebabName} {
+    <style lang="pcss" is:global>
+      @layer page-sections {
+        .${kebabName} {
+        }
       }
     </style>
     `.trim();
 
     const astroFilePath = path.join(componentFolderPath, `${capitalisedCamelCaseName}.astro`);
+
     await fs.writeFile(astroFilePath, astroContent, { flag: "wx" });
     console.log(`✓ Created: ${capitalisedCamelCaseName}.astro`);
   
@@ -149,6 +155,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
     `.trim();
 
     const structureValuePath = path.join(componentFolderPath, `${kebabName}.cloudcannon.structure-value.yml`);
+
     await fs.writeFile(structureValuePath, structureValueContent, { flag: "wx" });
     console.log(`✓ Created: ${kebabName}.cloudcannon.structure-value.yml`);
   
@@ -177,6 +184,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
     `.trim();
 
     const inputsPath = path.join(componentFolderPath, `${kebabName}.cloudcannon.inputs.yml`);
+
     await fs.writeFile(inputsPath, inputsContent, { flag: "wx" });
     console.log(`✓ Created: ${kebabName}.cloudcannon.inputs.yml`);
 
@@ -209,16 +217,18 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
     `.trim();
 
     const snippetsPath = path.join(componentFolderPath, `${kebabName}.cloudcannon.snippets.yml`);
+
     await fs.writeFile(snippetsPath, snippetsContent, { flag: "wx" });
     console.log(`✓ Created: ${kebabName}.cloudcannon.snippets.yml`);
   
     console.log('\n✨ Component created successfully!');
     console.log(`\nLocation: ${componentFolderPath}`);
     console.log('\nNext steps:');
-    console.log('1. Edit the component files to add your functionality');
-    console.log('2. Update the inputs.yml file with your component props');
-    console.log('3. Update the snippets.yml file with your component arguments');
-    console.log('4. Create example markdown files in src/component-library/content/components/building-blocks/core-elements/${componentName}/examples/\n');
+    console.log('1. Edit the .astro file for component structure and styling');
+    console.log('2. Update the structure-value.yml file with your component props');
+    console.log('3. Update the inputs.yml file with your component prop configuration');
+    console.log('4. Update the snippets.yml file with your component props (if required, otherwise you can remove this file)');
+    console.log('5. Create example markdown files in src/component-library/content/components/${componentPath}/${componentName}/examples/\n');
   } catch (err) {
     if (err.code === "EEXIST") {
       console.error("Component already exists!");
@@ -235,10 +245,12 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
     const componentName = await getComponentName();
     const kebabName = await getKebabName(componentName);
     const targetFolder = await selectFolder(baseComponentsDir);
+
     console.log(`Component name: ${kebabName}`);
     console.log(`Target folder: ${targetFolder}`);
 
     const componentFolderPath = path.join(targetFolder, kebabName);
+
     createComponent(componentName, kebabName, componentFolderPath);
   } finally {
     rl.close();

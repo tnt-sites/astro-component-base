@@ -91,9 +91,9 @@
   }
 
   > .previews {
+    container-type: inline-size;
     max-height: 30rem;
     min-height: 10rem;
-    container-type: inline-size;
 
     > .preview {
       background-color: var(--color-bg);
@@ -110,7 +110,7 @@
       position: relative;
       transition: max-width var(--animation-slow) ease-in-out;
 
-      > *:first-child {
+      > .examples > *:first-child {
         margin-top: 0 !important;
       }
     }

@@ -8,12 +8,9 @@ const {
   editable = true,
   class: className,
   label,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 
 const slugifyLabel = (label: string) => {
   return label
@@ -38,7 +35,7 @@ const hasButtonSections = buttonSections?.length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 
-if (!hasButtonSections && !hasSlotContent) return;
+if (!_component && !hasButtonSections && !hasSlotContent) return;
 ---
 
 <div
@@ -54,65 +51,67 @@ if (!hasButtonSections && !hasSlotContent) return;
   </slot>
 </div>
 
-<style lang="pcss">
-  .button-group {
-    position: relative;
-    margin-top: var(--spacing-lg);
-    container-type: inline-size;
-    width: 100%;
+<style lang="pcss" is:global>
+  @layer components {
+    .button-group {
+      position: relative;
+      margin-top: var(--spacing-lg);
+      container-type: inline-size;
+      width: 100%;
 
-    &, :global(> editable-array) {
-      align-items: center;
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-sm);
-    }
-
-    &.column {
-      &, :global(> editable-array) {
-        flex-direction: column;
+      &, > editable-array {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-sm);
       }
 
-      &.align-start {
-        &, :global(> editable-array) {
-          align-items: flex-start;
+      &.column {
+        &, > editable-array {
+          flex-direction: column;
+        }
+
+        &.align-start {
+          &, > editable-array {
+            align-items: flex-start;
+          }
+        }
+
+        &.align-center {
+          &, > editable-array {
+            align-items: center;
+          }
+        }
+
+        &.align-end {
+          &, > editable-array {
+            align-items: flex-end;
+          }
+        }
+      }
+
+      &.row {
+        &, > editable-array {
+          flex-direction: row;
         }
       }
 
       &.align-center {
-        &, :global(> editable-array) {
-          align-items: center;
+        &, > editable-array {
+          justify-content: center;
         }
       }
 
       &.align-end {
-        &, :global(> editable-array) {
-          align-items: flex-end;
+        &, > editable-array {
+          justify-content: flex-end;
         }
       }
-    }
 
-    &.row {
-      &, :global(> editable-array) {
-        flex-direction: row;
-      }
-    }
-
-    &.align-center {
-      &, :global(> editable-array) {
-        justify-content: center;
-      }
-    }
-
-    &.align-end {
-      &, :global(> editable-array) {
-        justify-content: flex-end;
-      }
-    }
-
-    &.align-start {
-      &, :global(> editable-array) {
-        justify-content: flex-start;
+      &.align-start {
+        &, > editable-array {
+          justify-content: flex-start;
+        }
       }
     }
   }

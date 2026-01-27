@@ -11,7 +11,7 @@ const {
   heading = "",
   subtext = "",
   teamMembers = [],
-  colorScheme,
+  colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
   class: className,
@@ -29,29 +29,17 @@ const {
   <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
     {eyebrow}
   </SimpleText>
-  <Heading
-    level="h2"
-    size="lg"
-    alignX="center"
-    style="margin-bottom: var(--spacing-sm);"
-    data-prop="heading"
-  >
+  <Heading class="team-grid-heading" level="h2" size="lg" alignX="center" data-prop="heading">
     {heading}
   </Heading>
-  <SimpleText
-    class="team-grid-subtext"
-    size="md"
-    alignX="center"
-    style="margin-top: 0;"
-    data-prop="subtext"
-  >
+  <SimpleText class="team-grid-subtext" size="md" alignX="center" data-prop="subtext">
     {subtext}
   </SimpleText>
   <Grid
+    class="team-grid-grid"
     gap="md"
     minItemWidth={260}
     maxItemWidth={400}
-    style="margin-top: var(--spacing-xl)"
     data-prop="teamMembers"
     layout="start"
   >
@@ -66,3 +54,19 @@ const {
     }
   </Grid>
 </CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .team-grid-heading {
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .team-grid-subtext {
+      margin-top: 0;
+    }
+
+    .team-grid-grid {
+      margin-top: var(--spacing-xl);
+    }
+  }
+</style>

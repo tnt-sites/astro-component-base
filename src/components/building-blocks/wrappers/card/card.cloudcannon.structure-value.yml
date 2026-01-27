@@ -8,7 +8,7 @@ value:
   maxContentWidth: null
   paddingHorizontal: sm
   paddingVertical: sm
-  colorScheme: null
+  colorScheme: inherit
   backgroundColor: base
   backgroundImage:
     source: null

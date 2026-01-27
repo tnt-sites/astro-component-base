@@ -1,40 +1,40 @@
 ---
-const { type, id, title, source, thumbnail, class: className, editable = true, ...restProps } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
+const {
+  type,
+  id,
+  title,
+  source,
+  thumbnail,
+  class: className,
+  editable = true,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
 ---
 
 {
   type === "vimeo" ? (
-    <>
-      <script>import '@choctawnationofoklahoma/lite-vimeo';</script>
-      <lite-vimeo
-        class:list={["video", className]}
-        videotitle={`${title}`}
-        videoid={`${id}`}
-        {...htmlAttributes}
-      >
-        <a class="lite-vimeo-fallback" href={`https://vimeo.com/${id}`}>
-          Watch on Vimeo: "{title}"
-        </a>
-      </lite-vimeo>
-    </>
+    <lite-vimeo
+      class:list={["video", className]}
+      videotitle={`${title}`}
+      videoid={`${id}`}
+      {...htmlAttributes}
+    >
+      <a class="lite-vimeo-fallback" href={`https://vimeo.com/${id}`}>
+        Watch on Vimeo: "{title}"
+      </a>
+    </lite-vimeo>
   ) : type === "youtube" ? (
-    <>
-      <script>import '@justinribeiro/lite-youtube';</script>
-      <lite-youtube
-        class:list={["video", className]}
-        videotitle={`${title}`}
-        videoid={`${id}`}
-        {...htmlAttributes}
-      >
-        <a class="lite-youtube-fallback" href={`https://www.youtube.com/watch?v=${id}`}>
-          Watch on YouTube: "{title}"
-        </a>
-      </lite-youtube>
-    </>
+    <lite-youtube
+      class:list={["video", className]}
+      videotitle={`${title}`}
+      videoid={`${id}`}
+      {...htmlAttributes}
+    >
+      <a class="lite-youtube-fallback" href={`https://www.youtube.com/watch?v=${id}`}>
+        Watch on YouTube: "{title}"
+      </a>
+    </lite-youtube>
   ) : (
     <video
       preload="none"
@@ -49,9 +49,11 @@ const htmlAttributes = Object.fromEntries(
   )
 }
 
-<style lang="pcss">
-  .video {
-    display: block;
-    margin-top: var(--spacing-lg);
+<style lang="pcss" is:global>
+  @layer components {
+    .video {
+      display: block;
+      margin-top: var(--spacing-lg);
+    }
   }
 </style>

@@ -12,7 +12,7 @@ value:
   imageAspectRatio: portrait
   imageRounded: true
   reverse: false
-  colorScheme: null
+  colorScheme: inherit
   backgroundColor: base
 preview:
   text:

@@ -4,7 +4,7 @@ description: Carousel of feature cards, ideal for showcasing key reasons or bene
 value:
   _component: page-sections/features/feature-slider
   slides: []
-  colorScheme: null
+  colorScheme: inherit
   backgroundColor: base
 preview:
   text:

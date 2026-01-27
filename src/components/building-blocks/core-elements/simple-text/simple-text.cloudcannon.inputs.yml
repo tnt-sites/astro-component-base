@@ -17,8 +17,6 @@ size:
   comment: The font size of the text.
   options:
     values:
-      - id: default
-        name: Default
       - id: xs
         name: Extra Small
       - id: sm
@@ -35,4 +33,3 @@ size:
         name: 3xl
       - id: 4xl
         name: 4xl
-

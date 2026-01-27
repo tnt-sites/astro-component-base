@@ -13,12 +13,13 @@ const {
   imageSource = "",
   imageAlt = "",
   reverse = false,
-  colorScheme,
+  colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
   rounded = false,
   class: className,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 ---
 
@@ -30,7 +31,7 @@ const {
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   rounded={rounded}
-  {...rest}
+  {...htmlAttributes}
 >
   <Split
     class="split"

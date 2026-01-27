@@ -10,7 +10,7 @@ value:
   minItemWidth: 280
   maxItemWidth: 360
   features: []
-  colorScheme: null
+  colorScheme: inherit
   backgroundColor: base
 preview:
   text:

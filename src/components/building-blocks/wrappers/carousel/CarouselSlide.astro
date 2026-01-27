@@ -1,11 +1,7 @@
 ---
 import Component from "@components/utils/renderBlock.astro";
 
-const { contentSections = [], ...rest } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
+const { contentSections = [], _component, ...htmlAttributes } = Astro.props;
 ---
 
 <div class="slide" role="group" {...htmlAttributes}>
@@ -18,15 +14,17 @@ const htmlAttributes = Object.fromEntries(
   </slot>
 </div>
 
-<style lang="pcss">
-  .slide {
+<style lang="pcss" is:global>
+  @layer components {
+    .slide {
     flex-shrink: 0;
     flex-basis: calc(max(var(--slide-width, 100%), var(--min-slide-width, 0px)));
     container-type: inline-size;
 
-    > :global(editable-array) > :global(editable-array-item:first-child) > :global(*:first-child),
-    > :global(:not(editable-array):first-child) {
+    > editable-array > editable-array-item:first-child > *:first-child,
+    > :not(editable-array):first-child {
       margin-top: 0 !important;
     }
+  }
   }
 </style>

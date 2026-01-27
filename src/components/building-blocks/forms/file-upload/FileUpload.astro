@@ -6,12 +6,9 @@ const {
   accept,
   multiple = false,
   class: className,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 
 const fieldId = htmlAttributes.id || `file-upload-${crypto.randomUUID()}`;
 ---
@@ -22,7 +19,7 @@ const fieldId = htmlAttributes.id || `file-upload-${crypto.randomUUID()}`;
       <label for={fieldId} class="label">
         {label}
         {required && (
-          <span class="required" aria-label="required">
+          <span class="file-upload-required" aria-label="required">
             *
           </span>
         )}
@@ -42,18 +39,20 @@ const fieldId = htmlAttributes.id || `file-upload-${crypto.randomUUID()}`;
   />
 </div>
 
-<style lang="pcss">
-  .file-upload {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xs);
-    width: 100%;
-    margin: 0;
-    margin-bottom: var(--spacing-md);
+<style lang="pcss" is:global>
+  @layer components {
+    .file-upload {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      width: 100%;
+      margin: 0;
+      margin-bottom: var(--spacing-md);
 
-    .required {
-      color: red;
-      margin-inline-end: var(--spacing-em-xs);
+      .file-upload-required {
+        color: red;
+        margin-inline-end: var(--spacing-em-xs);
+      }
     }
   }
 </style>

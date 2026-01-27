@@ -14,21 +14,18 @@ const {
   imageAlt = "",
   minSplitWidth = 0,
   class: className,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 
 const hasImage = Boolean(imageSource);
 ---
 
 <Card
-  {...htmlAttributes}
   class:list={["feature-slider-item", className]}
   paddingHorizontal="xs"
   paddingVertical="none"
+  {...htmlAttributes}
 >
   <Split
     distributionMode="two-thirds-third"

@@ -17,10 +17,12 @@ const {
   imageAspectRatio = "portrait",
   imageRounded = true,
   reverse = false,
-  colorScheme,
+  colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
   class: className,
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 
 const minSplitWidth = 720;
@@ -35,6 +37,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   data-feature-split-id={featureSplitId}
+  {...htmlAttributes}
 >
   <Split
     class="feature-split-layout"
@@ -95,10 +98,10 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   )
 }
 
-<style lang="pcss">
-
-  .feature-split-layout {
-    container-type: inline-size;
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .feature-split-layout {
+      container-type: inline-size;
+    }
   }
-
 </style>

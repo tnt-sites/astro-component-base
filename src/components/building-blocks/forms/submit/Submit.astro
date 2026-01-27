@@ -11,12 +11,9 @@ const {
   disabled = false,
   class: className,
   editable = true,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
-);
 
 const hasSlot = Astro.slots.has("default");
 let finalText = text;
@@ -44,8 +41,10 @@ if (hasSlot) {
   {...htmlAttributes}
 />
 
-<style lang="pcss">
-  .submit {
-    margin-top: var(--spacing-md);
+<style lang="pcss" is:global>
+  @layer components {
+    .submit {
+      margin-top: var(--spacing-md);
+    }
   }
 </style>

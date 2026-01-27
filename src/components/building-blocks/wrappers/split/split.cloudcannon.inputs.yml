@@ -72,6 +72,6 @@ gap:
       - id: xl
         name: Extra Large
       - id: 2xl
-        name: 2XL
+        name: 2xl
       - id: 3xl
-        name: 3XL
+        name: 3xl

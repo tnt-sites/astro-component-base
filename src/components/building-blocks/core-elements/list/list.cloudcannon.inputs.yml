@@ -40,4 +40,7 @@ size:
         name: Extra Large
       - id: 2xl
         name: 2xl
-
+      - id: 3xl
+        name: 3xl
+      - id: 4xl
+        name: 4xl

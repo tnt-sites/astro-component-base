@@ -30,6 +30,8 @@ examples:
       - size-lg
       - size-xl
       - size-2xl
+      - size-3xl
+      - size-4xl
     title: Sizes
   - slugs:
       - icon-colors

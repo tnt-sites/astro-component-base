@@ -11,7 +11,8 @@ const {
   navData = [],
   buttonSections = [],
   class: className,
-  ...rest
+  _component,
+  ...htmlAttributes
 } = Astro.props;
 
 const mobileNavData = [
@@ -29,10 +30,10 @@ const mobileNavData = [
   paddingHorizontal="lg"
   paddingVertical="none"
   class:list={["main-nav", className]}
-  {...rest}
+  {...htmlAttributes}
 >
   <a href="/">
-    <Image source={logoSource} alt={logoAlt} editable={false} style="margin-top: 0 !important;" />
+    <Image source={logoSource} class="main-nav-logo" alt={logoAlt} editable={false} />
   </a>
   <div class="nav-end">
     <Bar navData={navData} class="desktop-main-nav" />
@@ -53,49 +54,60 @@ const mobileNavData = [
   />
 </CustomSection>
 
-<style lang="pcss">
-  .main-nav {
-    z-index: var(--layer-2);
-    :global(.desktop-main-nav.bar),
-    :global(.desktop-button-group.button-group) {
-      @container (max-width: 768px) {
-        display: none;
-      }
-    }
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .main-nav {
+      z-index: var(--layer-2);
+      background-color: var(--color-bg); 
+      padding-block: var(--spacing-md);
+      position: sticky; 
+      top: 0;
 
-    :global(.nav-hamburger.mobile-button) {
-      @container (min-width: 769px) {
-        display: none;
-      }
-    }
-
-    > :global(.outer-content) > :global(.content) {
-      align-items: center;
-      container-type: inline-size;
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--spacing-md);
-
-      > a > :global(.image img) {
-        height: 1.8em;
-        max-width: min(20em, 100%);
-        width: auto;
+      .desktop-main-nav.bar,
+      .desktop-button-group.button-group {
+        @container (max-width: 768px) {
+          display: none;
+        }
       }
 
-      :global(.button-group) {
-        margin-top: 0;
+      .main-nav-logo {
+        margin-top: 0 !important;
       }
-    }
 
-    > :global(.outer-content) > :global(.content) > .nav-end {
-      align-items: center;
-      display: flex;
-      justify-content: flex-end;
-      margin-left: auto;
-      flex-shrink: 0;
+      .nav-hamburger.mobile-button {
+        @container (min-width: 769px) {
+          display: none;
+        }
+      }
 
-      > :global(.button-group) {
-        container-type: normal;
+      > .outer-content > .content {
+        align-items: center;
+        container-type: inline-size;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+
+        > a > .image img {
+          height: 1.8em;
+          max-width: min(20em, 100%);
+          width: auto;
+        }
+
+        .button-group {
+          margin-top: 0;
+        }
+      }
+
+      > .outer-content > .content > .nav-end {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+        flex-shrink: 0;
+
+        > .button-group {
+          container-type: normal;
+        }
       }
     }
   }

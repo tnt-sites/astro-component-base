@@ -9,12 +9,9 @@ const {
   class: className,
   "data-prop": customDataProp = "items",
   editable = true,
-  ...restProps
+  _component,
+  ...htmlAttributes
 } = Astro.props;
-
-const htmlAttributes = Object.fromEntries(
-  Object.entries(restProps).filter(([key]) => key !== "_component")
-);
 
 const arrayDataAttributes = editable
   ? {
@@ -29,7 +26,7 @@ const hasItems = items?.length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 
-if (!hasItems && !hasSlotContent) return;
+if (!_component && !hasItems && !hasSlotContent) return;
 ---
 
 <ul
@@ -56,53 +53,63 @@ if (!hasItems && !hasSlotContent) return;
   </slot>
 </ul>
 
-<style lang="pcss">
-  .list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-em-sm);
-    list-style: none;
-    margin: 0;
-    margin-top: var(--spacing-lg);
-    padding: 0;
-
-    &.direction-horizontal {
-      flex-flow: row wrap;
+<style lang="pcss" is:global>
+  @layer components {
+    .list {
+      display: flex;
+      flex-direction: column;
       gap: var(--spacing-em-sm);
-    }
+      list-style: none;
+      margin: 0;
+      margin-top: var(--spacing-lg);
+      padding: 0;
 
-    &.alignment-end {
-      align-items: flex-end;
-      justify-content: flex-end;
-    }
+      &.direction-horizontal {
+        flex-flow: row wrap;
+        gap: var(--spacing-em-sm);
+      }
 
-    &.alignment-center {
-      align-items: center;
-      justify-content: center;
-    }
+      &.alignment-end {
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
 
-    &.size-xs {
-      font-size: var(--font-size-xs);
-    }
+      &.alignment-center {
+        align-items: center;
+        justify-content: center;
+      }
 
-    &.size-sm {
-      font-size: var(--font-size-sm);
-    }
+      &.size-xs {
+        font-size: var(--font-size-xs);
+      }
 
-    &.size-md {
-      font-size: var(--font-size-md);
-    }
+      &.size-sm {
+        font-size: var(--font-size-sm);
+      }
 
-    &.size-lg {
-      font-size: var(--font-size-lg);
-    }
+      &.size-md {
+        font-size: var(--font-size-md);
+      }
 
-    &.size-xl {
-      font-size: var(--font-size-xl);
-    }
+      &.size-lg {
+        font-size: var(--font-size-lg);
+      }
 
-    &.size-2xl {
-      font-size: var(--font-size-2xl);
+      &.size-xl {
+        font-size: var(--font-size-xl);
+      }
+
+      &.size-2xl {
+        font-size: var(--font-size-2xl);
+      }
+
+      &.size-3xl {
+        font-size: var(--font-size-3xl);
+      }
+
+      &.size-4xl {
+        font-size: var(--font-size-4xl);
+      }
     }
   }
 </style>
