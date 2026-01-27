@@ -6,9 +6,9 @@ pageSections:
     label: Meet
     contentSections:
       - _component: building-blocks/core-elements/heading
-        text: My Heading
+        text: Our friendly pediatric dentists
         level: h2
-        size: sm
+        size: xs
         alignX: center
         iconName:
         iconPosition: before
@@ -29,7 +29,7 @@ pageSections:
               - _component: building-blocks/core-elements/heading
                 text: ' Nelson Hui, DMD'
                 level: h3
-                size: md
+                size: lg
                 alignX: center
                 iconName:
                 iconPosition: before
@@ -63,20 +63,21 @@ pageSections:
               - _component: building-blocks/core-elements/heading
                 text: ' Josephine Yip, DMD'
                 level: h3
-                size: md
-                alignX: start
+                size: lg
+                alignX: center
                 iconName:
                 iconPosition: before
               - _component: building-blocks/core-elements/text
                 text: >-
                   From
-                  [infants](https://www.bloomkidsdentist.com/dentistry-for-infants.html)to
+                  [infants](https://www.bloomkidsdentist.com/dentistry-for-infants.html)
+                  to
                   [teens](https://www.bloomkidsdentist.com/dentistry-for-teens.html),
                   Dr. JoJo takes the time to ask questions and learn more about
                   her patients, allowing her to personalize the care she
                   provides and create positive dental experiences that build
                   trust.
-                alignX: start
+                alignX: center
             maxContentWidth:
             paddingHorizontal: sm
             paddingVertical: sm
@@ -100,11 +101,11 @@ pageSections:
         reverse: false
         reverseOrderOnMobile: false
         gap: lg
-    maxContentWidth: 2xl
+    maxContentWidth: 3xl
     paddingHorizontal: md
-    paddingVertical: md
-    colorScheme:
-    backgroundColor: base
+    paddingVertical: 3xl
+    colorScheme: default
+    backgroundColor: surface
     backgroundImage:
       source: ''
       alt: ''
