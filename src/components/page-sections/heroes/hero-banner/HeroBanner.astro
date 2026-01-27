@@ -40,7 +40,7 @@ const htmlAttributes = Object.fromEntries(
   >
     <Fragment slot="first">
       {
-        backgroundImage ? (
+        backgroundImage && backgroundImage.source ? (
           <Image
             source={backgroundImage.source}
             alt={backgroundImage.alt}
@@ -51,7 +51,7 @@ const htmlAttributes = Object.fromEntries(
             data-prop-alt="backgroundImage.alt"
             class="hero-banner-background-image"
           />
-        ) : (
+        ) : backgroundVideo && backgroundVideo.type ? (
           <Video
             type={backgroundVideo.type}
             id={backgroundVideo.id}
@@ -59,7 +59,7 @@ const htmlAttributes = Object.fromEntries(
             source={backgroundVideo.source}
             thumbnail={backgroundVideo.thumbnail}
           />
-        )
+        ) : null
       }
       <Image source="/src/assets/images/wave-internal-mobile.png" alt="Several shades of pink and purple wavy lines" rounded={false} editable={false} class="hero-banner-wave-mobile" />
     </Fragment>
