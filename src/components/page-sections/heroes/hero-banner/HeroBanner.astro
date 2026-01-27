@@ -61,8 +61,7 @@ const htmlAttributes = Object.fromEntries(
           />
         )
       }
-      <!-- Convert this to image subcomponent -->
-      <img class="hero-banner-wave-mobile" src="/src/assets/images/wave-internal-mobile.png" alt="Several shades of pink and purple wavy lines">
+      <Image source="/src/assets/images/wave-internal-mobile.png" alt="Several shades of pink and purple wavy lines" rounded={false} editable={false} class="hero-banner-wave-mobile" />
     </Fragment>
     <Fragment slot="second">
       <div class="hero-banner-wave-desktop">
@@ -180,11 +179,15 @@ const htmlAttributes = Object.fromEntries(
       }
 
       .hero-banner-wave-mobile {
-        height: 20vh;
-        width: 100%;
-        position: absolute;
-        bottom: calc(var(--spacing-wave) * -1);
-        animation: scaleXAnimation1 2s infinite alternate ease-in-out;
+        picture, img {
+          height: 20vh;
+          width: 100%;
+        }
+        img {
+          position: absolute;
+          bottom: calc(var(--spacing-wave) * -1);
+          animation: scaleXAnimation1 2s infinite alternate ease-in-out;
+        }
 
         @media (--from-md) {
           display: none;
