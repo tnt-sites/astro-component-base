@@ -16,12 +16,7 @@ pageSections:
       welcome break from the rest of your day that results in your child having
       a bright, healthy, and confident smile.
     backgroundColor: surface
-    backgroundVideo:
-      type: youtube
-      id: ''
-      title: ''
-      source: ''
-      thumbnail: ''
+    backgroundVideo: {}
     backgroundImage:
       source: /src/assets/images/about-us-1.webp
       alt: >-
