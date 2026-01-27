@@ -49,7 +49,6 @@ const htmlAttributes = Object.fromEntries(
             aspectRatio=""
             data-prop-src="backgroundImage.source"
             data-prop-alt="backgroundImage.alt"
-            data-editable="image"
             class="hero-banner-background-image"
           />
         ) : (
@@ -62,6 +61,7 @@ const htmlAttributes = Object.fromEntries(
           />
         )
       }
+      <!-- Convert this to image subcomponent -->
       <img class="hero-banner-wave-mobile" src="/src/assets/images/wave-internal-mobile.png" alt="Several shades of pink and purple wavy lines">
     </Fragment>
     <Fragment slot="second">

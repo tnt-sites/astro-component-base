@@ -1,18 +1,13 @@
-label: hero-banner
-icon: add
-description: Description for hero-banner component.
+label: Hero Banner
+icon: title
+description: Hero banner with background image or video, and eyebrow heading and body text.
 value:
   _component: page-sections/heroes/hero-banner
   eyebrowHeading: "hero-banner Eyebrow Heading"
   heading: "hero-banner Heading"
   bodyText: "hero-banner Body Text"
   backgroundColor: base
-  backgroundVideo:
-    type: youtube
-    id: ""
-    title: ""
-    source: ""
-    thumbnail: ""
+  backgroundVideo: {}
   backgroundImage:
     source: ""
     alt: ""
