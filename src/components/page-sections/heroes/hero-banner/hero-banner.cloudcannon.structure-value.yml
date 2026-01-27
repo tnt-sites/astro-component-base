@@ -1,0 +1,22 @@
+label: hero-banner
+icon: add
+description: Description for hero-banner component.
+value:
+  _component: page-sections/heroes/hero-banner
+  eyebrowHeading: "hero-banner Eyebrow Heading"
+  heading: "hero-banner Heading"
+  bodyText: "hero-banner Body Text"
+  backgroundColor: base
+  backgroundVideo:
+    type: youtube
+    id: ""
+    title: ""
+    source: ""
+    thumbnail: ""
+  backgroundImage:
+    source: ""
+    alt: ""
+    positionVertical: top
+    positionHorizontal: center
+_inputs_from_glob:
+  - /src/components/page-sections/heroes/hero-banner/hero-banner.cloudcannon.inputs.yml

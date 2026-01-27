@@ -1,0 +1,249 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import Text from "@core-elements/text/Text.astro";
+import Video from "@core-elements/video/Video.astro";
+import Split from "@wrappers/split/Split.astro";
+
+const {
+  eyebrowHeading = "",
+  heading = "",
+  bodyText = "",
+  backgroundColor = "base",
+  backgroundVideo,
+  backgroundImage,
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["hero-banner", className]}
+  maxContentWidth=""
+  paddingHorizontal=""
+  paddingVertical=""
+  colorScheme="contrast"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  <Split
+  distributionMode="half"
+  minSplitWidth={979}
+  verticalAlignment="center"
+  gap="wave"
+  >
+    <Fragment slot="first">
+      {
+        backgroundImage ? (
+          <Image
+            source={backgroundImage.source}
+            alt={backgroundImage.alt}
+            rounded={false}
+            editable={true}
+            aspectRatio=""
+            data-prop-src="backgroundImage.source"
+            data-prop-alt="backgroundImage.alt"
+            data-editable="image"
+            class="hero-banner-background-image"
+          />
+        ) : (
+          <Video
+            type={backgroundVideo.type}
+            id={backgroundVideo.id}
+            title={backgroundVideo.title}
+            source={backgroundVideo.source}
+            thumbnail={backgroundVideo.thumbnail}
+          />
+        )
+      }
+      <img class="hero-banner-wave-mobile" src="/src/assets/images/wave-internal-mobile.png" alt="Several shades of pink and purple wavy lines">
+    </Fragment>
+    <Fragment slot="second">
+      <div class="hero-banner-wave-desktop">
+        <Image
+          source="/src/assets/images/banner-wave-1.svg"
+          alt="Decorative wavy dark purple line"
+          rounded={false}
+          editable={false}
+          class="wave wave-1"
+        />
+        <Image
+          source="/src/assets/images/banner-wave-2.svg"
+          alt="Decorative wavy dark purple line"
+          rounded={false}
+          editable={false}
+          class="wave wave-2"
+        />
+        <Image
+          source="/src/assets/images/banner-wave-3.svg"
+          alt="Decorative pink wavy line"
+          rounded={false}
+          editable={false}
+          class="wave wave-3"
+        />
+      </div>
+      <Heading
+      level="h1"
+      size="xs"
+      alignX="center"
+      class="hero-banner-eyebrow"
+      data-prop="eyebrowHeading"
+      >
+        {eyebrowHeading}
+      </Heading>
+    
+      <Heading
+      level="h2"
+      size="4xl"
+      alignX="center"
+      class="hero-banner-heading"
+      data-prop="heading"
+      >
+        {heading}
+      </Heading>
+      <Text alignX="center" data-prop="bodyText" text={bodyText} class="hero-banner-body-text" />
+    </Fragment>
+  </Split>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .hero-banner {
+      overflow: hidden;
+
+      .hero-banner-eyebrow {
+        text-transform: uppercase;
+        letter-spacing: var(--font-letter-spacing-eyebrow);
+      }
+
+      .hero-banner-heading {
+        margin: 0;
+      }
+
+      .pane.first {
+        position: relative;
+        height: 100%;
+      }
+
+      .hero-banner-background-image {
+        width: 100%;
+        height: 100%;
+        
+        
+        picture {
+          height: 100%;
+        }
+        
+        img {
+          object-fit: cover;
+          height: 100%;
+          @media (--from-md) {
+            width: 440px;
+            aspect-ratio: 1 / 1.1;
+          }
+          @media (--from-lg) {
+            width: 460px;
+          }
+          @media (--from-xl) {
+            width: 590px;
+          }
+          @media (--from-2xl) {
+            width: 700px;
+          }
+        }
+      }
+
+      .pane.second {
+        max-width: 600px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--spacing-lg);
+        justify-self: center;
+        z-index: 1;
+
+        @media (--from-md) {
+          justify-self: left;
+        }
+
+        @media (width >= 1950px) {
+          justify-self: center;
+        }
+      }
+
+      .hero-banner-wave-mobile {
+        height: 20vh;
+        width: 100%;
+        position: absolute;
+        bottom: calc(var(--spacing-wave) * -1);
+        animation: scaleXAnimation1 2s infinite alternate ease-in-out;
+
+        @media (--from-md) {
+          display: none;
+        }
+      }
+
+      .hero-banner-wave-desktop {
+        display: none;
+        z-index: -1;
+
+        @media (--from-md) {
+          display: block;
+          position: absolute;
+          top: -4%;
+          left: 110px;
+          width: 100%;
+          height: 104%;
+        }
+        @media (--from-lg) {
+          left: 150px;
+        }
+        @media (--from-xl) {
+          left: 200px;
+        }
+        @media (--from-2xl) {
+          left: 250px;
+        }
+
+        .wave {
+          height: 100%;
+          picture {
+            height: 100%;
+          }
+          img {
+            height: 100%;
+            position: absolute;
+            -o-object-fit: cover;
+            object-fit: cover;
+            transition: all 1s;
+            width: auto;
+          }
+        }
+        .wave-1 img {
+          inset: 0 auto 0 0;
+          animation: scaleXAnimation1 2s infinite alternate ease-in-out;
+        }
+        .wave-2 img {
+          inset: 0 auto 0 160px;
+          animation: scaleXAnimation2 2s infinite alternate ease-in-out;
+        }
+        .wave-3 img {
+          inset: 0 auto 0 380px;
+          animation: scaleXAnimation1 2s infinite alternate ease-in-out;
+        }
+      }
+    }
+    
+    .hero-banner-body-text p {
+      margin: 0;
+    }
+  }
+</style>
