@@ -40,6 +40,19 @@ pageSections:
                   [child](https://www.bloomkidsdentist.com/dentistry-for-children.html)
                   and parent knows that they have a voice when they’re with him.
                 alignX: center
+              - _component: building-blocks/wrappers/button-group
+                label:
+                buttonSections:
+                  - _component: building-blocks/core-elements/button
+                    text: Meet Dr. Hui
+                    link: ''
+                    iconName: ''
+                    iconPosition: before
+                    hideText: false
+                    variant: primary
+                    size: md
+                direction:
+                alignX: center
             maxContentWidth: md
             paddingHorizontal: sm
             paddingVertical: sm
@@ -77,6 +90,19 @@ pageSections:
                   her patients, allowing her to personalize the care she
                   provides and create positive dental experiences that build
                   trust.
+                alignX: center
+              - _component: building-blocks/wrappers/button-group
+                label:
+                buttonSections:
+                  - _component: building-blocks/core-elements/button
+                    text: Meet Dr. JoJo
+                    link: ''
+                    iconName: ''
+                    iconPosition: before
+                    hideText: false
+                    variant: primary
+                    size: md
+                direction: row
                 alignX: center
             maxContentWidth:
             paddingHorizontal: sm
