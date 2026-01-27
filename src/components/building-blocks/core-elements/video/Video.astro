@@ -38,7 +38,7 @@ const {
   ) : (
     <video
       preload="none"
-      controls
+      controls={htmlAttributes.controls !== false}
       poster={thumbnail}
       class:list={["video", className]}
       {...htmlAttributes}

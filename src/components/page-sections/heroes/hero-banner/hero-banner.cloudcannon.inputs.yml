@@ -51,17 +51,10 @@ backgroundVideo:
         - label: Background Video
           icon: videocam
           value:
-            type: youtube
-            id: ""
-            title: ""
+            type: local-source
             source: ""
-            thumbnail: ""
           preview:
             icon: videocam
-            text:
-              - key: title
-            image:
-              - key: thumbnail
           _inputs_from_glob:
             - /src/components/building-blocks/core-elements/video/video.cloudcannon.inputs.yml
 bodyText:

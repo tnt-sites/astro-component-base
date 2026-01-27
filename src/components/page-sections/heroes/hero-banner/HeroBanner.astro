@@ -54,10 +54,12 @@ const htmlAttributes = Object.fromEntries(
         ) : backgroundVideo && backgroundVideo.type ? (
           <Video
             type={backgroundVideo.type}
-            id={backgroundVideo.id}
-            title={backgroundVideo.title}
             source={backgroundVideo.source}
-            thumbnail={backgroundVideo.thumbnail}
+            autoPlay={true}
+            muted={true}
+            loop={true}
+            controls={false}
+            class="hero-banner-background-video"
           />
         ) : null
       }
@@ -130,6 +132,23 @@ const htmlAttributes = Object.fromEntries(
         height: 100%;
       }
 
+      .hero-banner-background-video {
+          object-fit: cover;
+          height: 100%;
+          @media (--from-md) {
+            width: 440px;
+            aspect-ratio: 1 / 1.1;
+          }
+          @media (--from-lg) {
+            width: 460px;
+          }
+          @media (--from-xl) {
+            width: 590px;
+          }
+          @media (--from-2xl) {
+            width: 700px;
+          }
+      }
       .hero-banner-background-image {
         width: 100%;
         height: 100%;
