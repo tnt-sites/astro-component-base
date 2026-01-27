@@ -13,6 +13,44 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+backgroundImage:
+  type: object
+  comment: Background image configuration for the hero banner.
+  options:
+    structures:
+      values:
+        - label: Background Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              comment: URL or path to the background image.
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: textarea
+              comment: Alternative text for accessibility.
+    preview:
+      icon: image
+      text:
+        - key: alt
+        - Background Image
+      image:
+        - key: source
+bodyText:
+  type: markdown
+  options:
+    bold: true
+    italic: true
+    link: true
+    subscript: true
+    superscript: true
+    underline: false
 # Add your other component inputs here
 # Example:
 # text:
