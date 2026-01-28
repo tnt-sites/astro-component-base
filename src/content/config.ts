@@ -92,9 +92,20 @@ const blogCollection = defineCollection({
   schema: blogPostSchema,
 });
 
+const ppcPageSchema = z.object({
+  title: z.string(),
+  ppcPageSections: z.array(z.any()),
+});
+
+const ppcPagesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/ppc-pages" }),
+  schema: ppcPageSchema,
+});
+
 export const collections = {
   pages: pagesCollection,
   "docs-pages": docsPagesCollection,
   "docs-components": docsComponentsCollection,
+  "ppc-pages": ppcPagesCollection,
   blog: blogCollection,
 };

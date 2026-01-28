@@ -1,0 +1,15 @@
+label: Hero
+icon: title
+description: A hero for PPC landing pages, with image and content.
+value:
+  _component: page-sections/ppc-blocks/hero
+  image:
+    source:
+    alt:
+  heading: "Hero Heading"
+  subtext: "Hero Subtext"
+  buttonSections: []
+  reverse: false
+  backgroundColor: base
+_inputs_from_glob:
+  - /src/components/page-sections/ppc-blocks/hero/hero.cloudcannon.inputs.yml

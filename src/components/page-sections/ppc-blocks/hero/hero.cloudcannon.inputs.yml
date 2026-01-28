@@ -1,0 +1,39 @@
+backgroundColor:
+  type: select
+  comment: Background color used behind the grid.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+image:
+  type: object
+  comment: Image configuration for the hero section.
+  options:
+    structures:
+      values:
+        - label: Hero Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs_from_glob:
+            - /src/components/building-blocks/core-elements/image/image.cloudcannon.inputs.yml
+buttonSections:
+  type: array
+  comment: Array of button group components to display in the hero section.
+  options:
+    _inputs_from_glob:
+      - /src/components/building-blocks/wrappers/button-group/button-group.cloudcannon.inputs.yml
+# Add your other component inputs here
+# Example:
+# text:
+#   type: text
+#   comment: The text content for the component.
