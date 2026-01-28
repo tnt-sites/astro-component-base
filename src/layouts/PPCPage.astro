@@ -40,7 +40,7 @@ const description = frontmatter?.description ?? descriptionProp;
 const keywords = frontmatter?.keywords ?? keywordsProp;
 const image = frontmatter?.image ?? imageProp;
 const canonical = frontmatter?.canonical ?? canonicalProp;
-const PageSections = frontmatter?.ppcPageSections;
+const pageSections = frontmatter?.ppcPageSections;
 const hasPageSections = pageSections && pageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
 ---
