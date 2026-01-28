@@ -9,7 +9,7 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const pages = await getCollection("pages");
+  const pages = await getCollection("ppc-pages");
 
   return pages
     .filter((page) => {
