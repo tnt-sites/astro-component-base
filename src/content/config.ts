@@ -84,6 +84,10 @@ const blogPostSchema = z.object({
   author: z.string(),
   excerpt: z.string(),
   slug: z.string(),
+  image: z.object({
+    source: z.string(),
+    alt: z.string(),
+  }),
 });
 
 const blogCollection = defineCollection({
