@@ -122,7 +122,6 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
-    new_preview_url: /
     schemas:
       landing-page:
         path: .cloudcannon/schemas/ppc/ppc-landing-page.md
