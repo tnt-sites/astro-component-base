@@ -24,7 +24,7 @@ image:
           value:
             source: ""
             alt: ""
-          _inputs_from_glob:
+          _inputs:
             source:
               type: image
               comment: The URL or path to the image.
@@ -52,7 +52,7 @@ badges:
           value:
             source: ""
             alt: ""
-          _inputs_from_glob:
+          _inputs:
             source:
               type: image
               comment: The URL or path to the image.

@@ -51,6 +51,8 @@ const htmlAttributes = Object.fromEntries(
         rounded={true}
         editable={true}
         aspectRatio="landscape"
+        data-prop-source="image.source"
+        data-prop-alt="image.alt"
       />
     </Fragment>
     <Fragment slot="second">
@@ -65,12 +67,14 @@ const htmlAttributes = Object.fromEntries(
       <Text data-prop="subtext" text={subtext} />
       <ButtonGroup class="buttons" buttonSections={buttonSections} />
       <div class="badges">
-        {badges.map((badge) => (
+        {badges.map((index, badge) => (
           <Image
             source={badge.source}
             alt={badge.alt}
             rounded={true}
             editable={true}
+            data-prop-source={`badges.${index}.source`}
+            data-prop-alt={`badges.${index}.alt`}
           />
         ))}
       </div>
