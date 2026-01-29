@@ -25,7 +25,16 @@ image:
             source: ""
             alt: ""
           _inputs_from_glob:
-            - /src/components/building-blocks/core-elements/image/image.cloudcannon.inputs.yml
+            source:
+              type: image
+              comment: The URL or path to the image.
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: textarea
+              comment: Alternative text for accessibility.
 buttonSections:
   type: array
   comment: Array of button group components to display in the hero section.
@@ -44,7 +53,16 @@ badges:
             source: ""
             alt: ""
           _inputs_from_glob:
-            - /src/components/building-blocks/core-elements/image/image.cloudcannon.inputs.yml
+            source:
+              type: image
+              comment: The URL or path to the image.
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: textarea
+              comment: Alternative text for accessibility.
 # Add your other component inputs here
 # Example:
 # text:
