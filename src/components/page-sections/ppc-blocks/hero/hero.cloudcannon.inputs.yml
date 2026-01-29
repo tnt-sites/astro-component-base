@@ -37,8 +37,14 @@ badges:
   comment: Array of badge images to display in the hero section.
   options:
     structures:
-      values_from_glob:
-        - /src/components/building-blocks/core-elements/image/image.cloudcannon.structure-value.yml
+      values:
+        - label: Badge
+          icon: workspace_premium
+          value:
+            source: ""
+            alt: ""
+          _inputs_from_glob:
+            - /src/components/building-blocks/core-elements/image/image.cloudcannon.inputs.yml
 # Add your other component inputs here
 # Example:
 # text:
