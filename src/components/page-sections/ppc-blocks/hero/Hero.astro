@@ -68,7 +68,7 @@ const htmlAttributes = Object.fromEntries(
       <ButtonGroup class="buttons" buttonSections={buttonSections} />
       <div class="badges" data-editable="array" data-prop="badges">
         {badges.map((badge) => (
-          <div data-editable="array-item" data-component="building-blocks/core-elements/image">
+          <editable-array-item data-component="building-blocks/core-elements/image">
             <Image
               source={badge.source}
               alt={badge.alt}
@@ -77,7 +77,7 @@ const htmlAttributes = Object.fromEntries(
               data-prop-src="source"
               data-prop-alt="alt"
             />
-          </div>
+          </editable-array-item>
         ))}
       </div>
     </Fragment>
