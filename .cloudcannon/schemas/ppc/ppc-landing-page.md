@@ -3,8 +3,8 @@ title:
 ppcPageSections:
   - _component: page-sections/ppc-blocks/hero
     image:
-      source:
-      alt:
+      source: https://placehold.co/600x400
+      alt: A placeholder image
     heading: "Primary Headline"
     subtext: "Subheadline with supporting detail"
     buttonSections:
@@ -16,6 +16,7 @@ ppcPageSections:
         iconPosition: before
         variant: primary
         size: md
+    badges: []
     reverse: false
     backgroundColor: base
 ---

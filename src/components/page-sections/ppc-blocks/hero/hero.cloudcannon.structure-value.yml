@@ -9,6 +9,7 @@ value:
   heading: "Hero Heading"
   subtext: "Hero Subtext"
   buttonSections: []
+  badges: []
   reverse: false
   backgroundColor: base
 _inputs_from_glob:

@@ -14,6 +14,7 @@ const {
   heading = "",
   subtext = "",
   buttonSections = [],
+  badges = [],
   reverse = false,
   backgroundColor = "base",
   class: className,
@@ -36,8 +37,7 @@ const htmlAttributes = Object.fromEntries(
   {...htmlAttributes}
 >
   <Split
-    distributionMode="flexible-fixed"
-    fixedWidth="400"
+    distributionMode="third-two-thirds"
     verticalAlignment="center"
     reverse={reverse}
     minSplitWidth={710}
@@ -60,18 +60,34 @@ const htmlAttributes = Object.fromEntries(
       <Heading
       level="h2"
       size="lg"
-      alignX="center"
+      alignX="left"
       data-prop="heading"
       >
         {heading}
       </Heading>
       <Text data-prop="subtext" text={subtext} />
       <ButtonGroup class="buttons" buttonSections={buttonSections} />
+      <div class="badges">
+        {badges.map((badge) => (
+          <Image
+            source={badge.source}
+            alt={badge.alt}
+            rounded={true}
+            editable={true}
+          />
+        ))}
+      </div>
     </Fragment>
   </Split>
 </CustomSection>
 
 <style>
   .hero {
+    .badges {
+      display: flex;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+      max-height: 235px
+    }
   }
 </style>

@@ -32,6 +32,13 @@ buttonSections:
   options:
     _inputs_from_glob:
       - /src/components/building-blocks/wrappers/button-group/button-group.cloudcannon.inputs.yml
+badges:
+  type: array
+  comment: Array of badge images to display in the hero section.
+  options:
+    structures:
+      values_from_glob:
+        - /src/components/building-blocks/core-elements/image/image.cloudcannon.structure-value.yml
 # Add your other component inputs here
 # Example:
 # text:
