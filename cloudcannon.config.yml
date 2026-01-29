@@ -143,7 +143,7 @@ collections_config:
         hide_extra_inputs: false
         remove_empty_inputs: false
         remove_extra_inputs: false
-        name: Landing Page
+        name: Form Page
         icon: stars
         _enabled_editors:
           - visual
@@ -154,7 +154,7 @@ collections_config:
         hide_extra_inputs: false
         remove_empty_inputs: false
         remove_extra_inputs: false
-        name: Landing Page
+        name: Thank You Page
         icon: stars
         _enabled_editors:
           - visual
