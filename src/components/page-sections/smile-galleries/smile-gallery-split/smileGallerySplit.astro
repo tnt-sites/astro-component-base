@@ -3,12 +3,14 @@ import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@components/building-blocks/core-elements/image/Image.astro";
 import Video from "@components/building-blocks/core-elements/video/Video.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Text from "@core-elements/text/Text.astro";
 import Carousel from "@wrappers/carousel/Carousel.astro";
 import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
 import Split from "@wrappers/split/Split.astro";
 
 const {
   heading = "",
+  subheading = "",
   backgroundColor = "base",
   leftSlides = [],
   rightSlides = [],
@@ -35,6 +37,9 @@ const htmlAttributes = Object.fromEntries(
   <Heading level="h2" size="lg" alignX="center" data-prop="heading">
     {heading}
   </Heading>
+  <Text alignX="center" data-prop="subheading">
+    {subheading}
+  </Text>
   <Split distributionMode="half" verticalAlignment="center" minSplitWidth={500} reverse={reverse}>
     <Fragment slot="first">
       <Carousel

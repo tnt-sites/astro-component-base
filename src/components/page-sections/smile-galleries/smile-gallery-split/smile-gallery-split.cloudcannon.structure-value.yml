@@ -4,6 +4,7 @@ description: Description for Smile Gallery - Split component.
 value:
   _component: page-sections/smile-galleries/smile-gallery-split
   heading: "Smile Gallery - Split Heading"
+  subheading: ""
   backgroundColor: base
   leftSlides: []
   rightSlides: []
