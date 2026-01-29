@@ -134,7 +134,6 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
-        new_preview_url: /
       form-page:
         path: .cloudcannon/schemas/ppc/ppc-form.md
         reorder_inputs: true
@@ -145,7 +144,6 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
-        new_preview_url: /
       thank-you-page:
         path: .cloudcannon/schemas/ppc/ppc-thank-you-page.md
         reorder_inputs: true
@@ -156,7 +154,6 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
-        new_preview_url: /
 collection_groups:
   - heading: Content
     collections:
