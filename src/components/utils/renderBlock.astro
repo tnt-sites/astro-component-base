@@ -37,7 +37,7 @@ Object.entries(componentImports).forEach(([path, obj]) => {
 
 const { contentSections, propName = "contentSections", editable = true } = Astro.props;
 ---
-
+<p>Rendering {propName}</p>
 {
   !editable ? (
     contentSections?.map((block) => {

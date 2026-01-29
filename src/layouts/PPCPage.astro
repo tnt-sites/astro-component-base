@@ -40,8 +40,8 @@ const description = frontmatter?.description ?? descriptionProp;
 const keywords = frontmatter?.keywords ?? keywordsProp;
 const image = frontmatter?.image ?? imageProp;
 const canonical = frontmatter?.canonical ?? canonicalProp;
-const pageSections = frontmatter?.ppcPageSections;
-const hasPageSections = pageSections && pageSections.length > 0;
+const ppcPageSections = frontmatter?.ppcPageSections;
+const hasPageSections = ppcPageSections && ppcPageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
 ---
 
@@ -56,7 +56,7 @@ const hasSlotContent = Astro.slots.has("default");
   <main data-pagefind-body>
     {
       hasPageSections ? (
-        <Components contentSections={pageSections} propName="ppcPageSections" />
+        <Components contentSections={ppcPageSections} propName="ppcPageSections" />
       ) : hasSlotContent ? (
         <slot />
       ) : null
