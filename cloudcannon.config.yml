@@ -112,11 +112,53 @@ collections_config:
     disable_file_actions: false
   ppc_pages:
     path: src/content/ppc-pages
-    icon: fit_page
+    name: PPC Pages
+    icon: stars
+    url: '[full_slug]/'
     disable_url: false
+    _enabled_editors:
+      - visual
+    create:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+    new_preview_url: /
+    schemas:
+      landing-page:
+        path: .cloudcannon/schemas/ppc/ppc-landing-page.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page
+        icon: stars
+        _enabled_editors:
+          - visual
+        create:
+          path: ppc-{title}-special.md
+        new_preview_url: /
+      form-page:
+        path: .cloudcannon/schemas/ppc/ppc-form.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page
+        icon: stars
+        _enabled_editors:
+          - visual
+        new_preview_url: /
+      thank-you-page:
+        path: .cloudcannon/schemas/ppc/ppc-thank-you-page.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page
+        icon: stars
+        _enabled_editors:
+          - visual
+        new_preview_url: /
 collection_groups:
   - heading: Content
     collections:
