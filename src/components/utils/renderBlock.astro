@@ -37,7 +37,6 @@ Object.entries(componentImports).forEach(([path, obj]) => {
 
 const { contentSections, propName = "contentSections", editable = true } = Astro.props;
 ---
-<p>Rendering {propName}</p>
 {
   !editable ? (
     contentSections?.map((block) => {
@@ -59,7 +58,6 @@ const { contentSections, propName = "contentSections", editable = true } = Astro
       data-id-key="_component"
       data-prop={propName}
     >
-      <p>Rendering {propName}</p>
       {contentSections?.map((block) => {
         const Component = components[block._component];
 
