@@ -1,20 +1,10 @@
 {
-  "logoSource": "/images/logo.svg",
+  "logoSource": "https://placehold.co/200x100",
   "logoAlt": "Logo",
   "navData": [
     {
-      "name": "Home",
-      "path": "/",
-      "children": []
-    },
-    {
       "name": "Why",
       "path": "/why/",
-      "children": []
-    },
-    {
-      "name": "Blog",
-      "path": "/blog/",
       "children": []
     }
   ],
@@ -28,6 +18,16 @@
       "iconPosition": "before",
       "variant": "ghost",
       "size": "lg"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "Request an appointment",
+      "hideText": false,
+      "link": "/",
+      "iconName": "",
+      "iconPosition": "before",
+      "variant": "primary",
+      "size": "md"
     }
   ]
 }
