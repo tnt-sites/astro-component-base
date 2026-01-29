@@ -22,6 +22,7 @@ image:
         - label: Hero Image
           icon: image
           value:
+            _component: building-blocks/core-elements/image
             source: ""
             alt: ""
           _inputs:
@@ -50,6 +51,7 @@ badges:
         - label: Badge
           icon: workspace_premium
           value:
+            _component: building-blocks/core-elements/image
             source: ""
             alt: ""
           _inputs:
