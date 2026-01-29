@@ -134,8 +134,6 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
-        create:
-          path: ppc-{title}-special.md
         new_preview_url: /
       form-page:
         path: .cloudcannon/schemas/ppc/ppc-form.md
