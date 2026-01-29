@@ -67,7 +67,7 @@ const htmlAttributes = Object.fromEntries(
       <Text data-prop="subtext" text={subtext} />
       <ButtonGroup class="buttons" buttonSections={buttonSections} />
       <div class="badges" data-editable="array" data-prop="badges">
-        {badges.map((badge) => (
+        {badges && badges.length > 0 && badges.map((badge) => (
           <editable-array-item data-component="building-blocks/core-elements/image">
             <Image
               source={badge.source}
