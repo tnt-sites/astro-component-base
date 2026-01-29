@@ -1,0 +1,25 @@
+label: Image Gallery
+icon: add
+description: Description for Image Gallery component.
+value:
+  _component: page-sections/smile-galleries/image-gallery
+  heading: "Image Gallery Heading"
+  slides: []
+  backgroundColor: base
+_inputs_from_glob:
+  - /src/components/page-sections/smile-galleries/image-gallery/image-gallery.cloudcannon.inputs.yml
+
+_structures:
+  slides:
+    values:
+      - id: Slide
+        value:
+          image:
+            source:
+            alt:
+          heading:
+          text:
+        _inputs:
+          image.source:
+            type: image
+            comment: The source of the image.
