@@ -18,11 +18,14 @@ ppcPageSections:
         iconPosition: before
         variant: primary
         size: md
-    badges: []
+    badges:
+      - _component: building-blocks/core-elements/image
+        source: ''
+        alt: ''
     reverse: false
     backgroundColor: base
   - _component: page-sections/ppc-blocks/reviews
-    backgroundColor: base
+    backgroundColor: dark
     image:
       _component: building-blocks/core-elements/image
       source: /src/assets/images/ppc-er-np-2024-google-logo.png
