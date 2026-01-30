@@ -1,0 +1,55 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Text from "@core-elements/text/Text.astro";
+import Form from "@forms/form/Form.astro";
+
+const {
+  heading = "",
+  text = "",
+  formAction = "./",
+  formBlocks = [],
+  backgroundColor = "base",
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["ppc-form", className]}
+  maxContentWidth="md"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  <Heading level="h2" size="xl" alignX="center" data-prop="heading">
+    {heading}
+  </Heading>
+  <Text alignX="center" data-prop="text">
+    {text}
+  </Text>
+  <Form alignX="center" action={formAction} formBlocks={formBlocks?.length > 0 ? formBlocks : []}>
+    <slot />
+  </Form>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .ppc-form {
+      .form {
+        editable-array-item {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+</style>

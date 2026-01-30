@@ -1,0 +1,29 @@
+label: PPC Form
+icon: add
+description: Description for PPC Form component.
+value:
+  _component: page-sections/ppc-blocks/ppc-form
+  heading: "PPC Form Heading"
+  text: "PPC Form content."
+  formAction: ./
+  formBlocks:
+    - _component: building-blocks/forms/input
+      label: Name
+      name: name
+      type: text
+      required: true
+    - _component: building-blocks/forms/input
+      label: Email
+      name: email
+      type: email
+      required: true
+    - _component: building-blocks/forms/textarea
+      label: Message
+      name: message
+      required: true
+    - _component: building-blocks/forms/submit
+      text: Send message
+      variant: primary
+  backgroundColor: base
+_inputs_from_glob:
+  - /src/components/page-sections/ppc-blocks/ppc-form/ppc-form.cloudcannon.inputs.yml
