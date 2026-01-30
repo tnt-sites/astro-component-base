@@ -9,12 +9,10 @@ const {
   image = {
     source: "",
     alt: "",
-    aspectRatio: "none",
   },
   mobileImage = {
     source: "",
     alt: "",
-    aspectRatio: "none",
   },
   backgroundImage = {
     source: "",
@@ -62,7 +60,8 @@ const htmlAttributes = Object.fromEntries(
         class:list={["img-desk", className]}
         source={image.source}
         alt={image.alt}
-        rounded={true}
+        rounded={false}
+        aspectRatio="none"
         editable={true}
         data-prop-src="image.source"
         data-prop-alt="image.alt"
@@ -71,7 +70,8 @@ const htmlAttributes = Object.fromEntries(
         class:list={["img-mob", className]}
         source={mobileImage.source}
         alt={mobileImage.alt}
-        rounded={true}
+        rounded={false}
+        aspectRatio="none"
         editable={true}
         data-prop-src="mobileImage.source"
         data-prop-alt="mobileImage.alt"
