@@ -46,11 +46,17 @@ const htmlAttributes = Object.fromEntries(
         slides.length > 0 &&
         slides.map((slide, index) => (
           <CarouselSlide aria-label={`Slide ${index + 1} of ${slides.length}`}>
-            <Image {...slide.image} />
-            <Heading level="h3" size="md" alignX="center" data-prop={`slide.heading`}>
+            <Image
+              {...slide.image}
+              data-prop-src={`slides.${index}.image.source`}
+              data-prop-alt={`slides.${index}.image.alt`}
+            />
+            <Heading level="h3" size="md" alignX="center" data-prop={`slide.${index}.heading`}>
               {slide.heading}
             </Heading>
-            <Text alignX="center">{slide.description}</Text>
+            <Text alignX="center" data-prop={`slide.${index}.description`}>
+              {slide.description}
+            </Text>
           </CarouselSlide>
         ))
     }
