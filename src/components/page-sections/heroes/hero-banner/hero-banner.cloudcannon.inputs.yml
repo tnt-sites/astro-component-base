@@ -55,7 +55,7 @@ backgroundVideo:
             source: ""
           preview:
             icon: videocam
-          _inputs_from_glob:
+          _inputs:
             source:
               type: file
               label: Video Source
