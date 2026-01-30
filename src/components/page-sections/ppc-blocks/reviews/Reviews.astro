@@ -76,7 +76,11 @@ const htmlAttributes = Object.fromEntries(
         data-prop-src="mobileImage.source"
         data-prop-alt="mobileImage.alt"
       />
-      <Text color="white" editable={true} data-prop="reviewText">
+      <Text
+        style={`--text-color: ${textColor}; --mobile-text-color: ${mobileTextColor};`}
+        editable={true}
+        data-prop="reviewText"
+      >
         {reviewText}
       </Text>
       <div class={`author align-${authorAlignX}`}>
