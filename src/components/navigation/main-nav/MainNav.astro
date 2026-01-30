@@ -98,7 +98,8 @@ const mobileNavData = [
           margin-top: 0;
           
           a {
-            max-width: 140px;
+            max-width: 120px;
+            font-size: var(--font-size-sm);
           }
         }
       }
@@ -107,11 +108,13 @@ const mobileNavData = [
         align-items: center;
         display: flex;
         justify-content: flex-end;
-        margin-left: auto;
         flex-shrink: 0;
-
+        flex-grow: 1;
+        margin: 0 auto;
+  
         > .button-group {
           container-type: normal;
+          width: max-content;
         }
       }
     }
