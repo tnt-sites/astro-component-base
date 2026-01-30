@@ -48,20 +48,25 @@ const htmlAttributes = Object.fromEntries(
     class:list={["bg", className]}
     source={backgroundImage.source}
     alt={backgroundImage.alt}
-    rounded={true}
+    background={true}
     editable={true}
     data-prop-src="backgroundImage.source"
     data-prop-alt="backgroundImage.alt"
   />
 
   <div class="content">
-    <div class="container">
+    <div
+      class="container"
+      style={`--text-color: ${textColor}; --mobile-text-color: ${mobileTextColor};`}
+    >
       <Image
         class:list={["img-desk", className]}
         source={image.source}
         alt={image.alt}
         rounded={false}
         aspectRatio="none"
+        sizes="auto"
+        widths={[]}
         editable={true}
         data-prop-src="image.source"
         data-prop-alt="image.alt"
@@ -72,15 +77,13 @@ const htmlAttributes = Object.fromEntries(
         alt={mobileImage.alt}
         rounded={false}
         aspectRatio="none"
+        sizes="auto"
+        widths={[]}
         editable={true}
         data-prop-src="mobileImage.source"
         data-prop-alt="mobileImage.alt"
       />
-      <Text
-        style={`--text-color: ${textColor}; --mobile-text-color: ${mobileTextColor};`}
-        editable={true}
-        data-prop="reviewText"
-      >
+      <Text editable={true} data-prop="reviewText">
         {reviewText}
       </Text>
       <div class={`author align-${authorAlignX}`}>
