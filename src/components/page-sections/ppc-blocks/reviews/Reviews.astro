@@ -17,8 +17,10 @@ const {
   backgroundImage = {
     source: "",
   },
-  text = "",
+  reviewText = "",
   author = "",
+  authorAlignX = "left",
+  starColor = "#febb21",
   backgroundColor = "base",
   class: className,
   editable = true,
@@ -37,6 +39,7 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
+  style={backgroundImage?.source ? `background-image: url(${backgroundImage.source});` : undefined}
   {...htmlAttributes}
 >
   <div class="container">
@@ -55,22 +58,29 @@ const htmlAttributes = Object.fromEntries(
       alt={mobileImage.alt}
       rounded={true}
       editable={true}
-      data-prop-src="image.source"
-      data-prop-alt="image.alt"
+      data-prop-src="mobileImage.source"
+      data-prop-alt="mobileImage.alt"
     />
-    <Text color="white">
-      {text}
+    <Text color="white" editable={true} data-prop="reviewText">
+      {reviewText}
     </Text>
-    <SimpleText class:list={["author", className]} size="sm" alignX="left" starColor="">
-      {author}
-      <div class="star"></div>
-    </SimpleText>
+    <div class="author">
+      <SimpleText
+        size="sm"
+        alignX="authorAlignX"
+        starColor={starColor}
+        editable={true}
+        data-prop="author"
+      >
+        {author}
+        <div class="star" style={`--star-color: ${starColor};`}></div>
+      </SimpleText>
+    </div>
   </div>
 </CustomSection>
 
 <style>
   .reviews {
-    background-image: url(backgroundImage.src);
     padding: 100px 10px;
     position: relative;
   }
@@ -85,13 +95,13 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .reviews .star:before {
-    font-size: 28px;
-    font-family: "fontello";
-    font-weight: 400;
-    margin: 0;
-    font-style: normal;
+    color: var(--star-color);
     content: "\e80f \e80f \e80f \e80f \e80f";
-    color: #febb21;
+    font-family: fontello;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 400;
     letter-spacing: 8.4px;
+    margin: 0;
   }
 </style>

@@ -1,6 +1,6 @@
-label: reviews
+label: Reviews
 icon: add
-description: Description for reviews component.
+description: A Review section for PPC landing pages, with background image.
 value:
   _component: page-sections/ppc-blocks/reviews
   heading: "reviews Heading"

@@ -79,6 +79,39 @@ backgroundImage:
                 paths:
                   uploads: src/assets/images
                   static: ""
+text:
+  type: markdown
+  comment: Main Review Text
+  options:
+    blockquote: false
+    bold: true
+    format:
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+author:
+  type: text
+  comment: Author Name
+authorAlignX:
+  type: select
+  comment: Alignment of the author text.
+  options:
+    values:
+      - id: left
+        name: Left
+      - id: center
+        name: Center
+      - id: right
+        name: Right
+
+starColor:
+  type: color
+  comment: Color of the review stars.
 # Add your other component inputs here
 # Example:
 # text:
