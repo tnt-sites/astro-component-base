@@ -5,6 +5,7 @@ value:
   _component: page-sections/ppc-blocks/ppc-form
   heading: "PPC Form Heading"
   text: "PPC Form content."
+  textAlignment: center
   formAction: ./
   formBlocks:
     - _component: building-blocks/forms/input

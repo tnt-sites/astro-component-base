@@ -7,6 +7,7 @@ import Form from "@forms/form/Form.astro";
 const {
   heading = "",
   text = "",
+  textAlignment = "center"
   formAction = "./",
   formBlocks = [],
   backgroundColor = "base",
@@ -29,13 +30,13 @@ const htmlAttributes = Object.fromEntries(
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <Heading level="h2" size="xl" alignX="center" data-prop="heading">
+  <Heading level="h2" size="xl" alignX={textAlignment} data-prop="heading">
     {heading}
   </Heading>
-  <Text alignX="center" data-prop="text">
+  <Text alignX={textAlignment} data-prop="text">
     {text}
   </Text>
-  <Form alignX="center" action={formAction} formBlocks={formBlocks?.length > 0 ? formBlocks : []}>
+  <Form action={formAction} formBlocks={formBlocks?.length > 0 ? formBlocks : []}>
     <slot />
   </Form>
 </CustomSection>

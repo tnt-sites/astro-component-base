@@ -23,6 +23,15 @@ formBlocks:
     structures: _structures.formBlocks
 text:
   type: textarea
+textAlignment:
+  comment: Conttrols the heading and text alignment.
+  type: select
+  options:
+    values:
+      - id: start
+        name: Start
+      - id: center
+        name: Center
 # Add your other component inputs here
 # Example:
 # text:
