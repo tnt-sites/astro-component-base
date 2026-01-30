@@ -141,6 +141,15 @@ const date = post.data.date.toLocaleDateString("en-US", {
     margin-top: 0;
   }
 
+  .post :global(a) {
+    color: var(--color-brand);
+    text-decoration: none;
+    &:hover {
+      color: var(--color-brand-muted);
+      text-decoration: none;
+    }
+  }
+
   .post > :global(.astro-code) {
     margin-block: var(--spacing-xl);
   }
@@ -148,5 +157,6 @@ const date = post.data.date.toLocaleDateString("en-US", {
   .post-image {
     float: right;
     margin: .5em 0 .5em 1em;
+    max-width: 300px;
   }
 </style>
