@@ -9,10 +9,12 @@ const {
   image = {
     source: "",
     alt: "",
+    aspectRatio: "none",
   },
   mobileImage = {
     source: "",
     alt: "",
+    aspectRatio: "none",
   },
   backgroundImage = {
     source: "",
@@ -75,8 +77,8 @@ const htmlAttributes = Object.fromEntries(
       <Text color="white" editable={true} data-prop="reviewText">
         {reviewText}
       </Text>
-      <div class="author">
-        <SimpleText size="sm" alignX={authorAlignX} editable={true} data-prop="author">
+      <div class="author align-{authorAlignX}">
+        <SimpleText size="sm" editable={true} data-prop="author">
           {author}
         </SimpleText>
         <div class="star" style={`--star-color: ${starColor};`}></div>
