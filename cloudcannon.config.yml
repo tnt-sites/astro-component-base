@@ -44,11 +44,6 @@ collections_config:
       - name: Add New Blog Post
         schema: default
         icon: article
-    schemas:
-      default:
-        name: New Blog Post
-        path: ".cloudcannon/schemas/blog-post.mdx"
-        remove_extra_inputs: false
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
     new_preview_url: /blog/
