@@ -1,0 +1,19 @@
+label: reviews
+icon: add
+description: Description for reviews component.
+value:
+  _component: page-sections/ppc-blocks/reviews
+  heading: "reviews Heading"
+  backgroundColor: base,
+  image:
+    source: https://placehold.co/600x400
+    alt: A placeholder image
+  mobileImage:
+    source: https://placehold.co/200x200
+    alt: A placeholder image
+  backgroundImage:
+    source: https://placehold.co/1200x1200
+  text: "lorem ipsum"
+  author: "First Last"
+_inputs_from_glob:
+  - /src/components/page-sections/ppc-blocks/reviews/reviews.cloudcannon.inputs.yml

@@ -1,0 +1,97 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@core-elements/image/Image.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Text from "@core-elements/text/Text.astro";
+
+const {
+  heading = "",
+  image = {
+    source: "",
+    alt: "",
+  },
+  mobileImage = {
+    source: "",
+    alt: "",
+  },
+  backgroundImage = {
+    source: "",
+  },
+  text = "",
+  author = "",
+  backgroundColor = "base",
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["reviews", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  <div class="container">
+    <Image
+      class:list={["img-desk", className]}
+      source={image.source}
+      alt={image.alt}
+      rounded={true}
+      editable={true}
+      data-prop-src="image.source"
+      data-prop-alt="image.alt"
+    />
+    <Image
+      class:list={["img-mob", className]}
+      source={mobileImage.source}
+      alt={mobileImage.alt}
+      rounded={true}
+      editable={true}
+      data-prop-src="image.source"
+      data-prop-alt="image.alt"
+    />
+    <Text color="white">
+      {text}
+    </Text>
+    <SimpleText class:list={["author", className]} size="sm" alignX="left" starColor="">
+      {author}
+      <div class="star"></div>
+    </SimpleText>
+  </div>
+</CustomSection>
+
+<style>
+  .reviews {
+    background-image: url(backgroundImage.src);
+    padding: 100px 10px;
+    position: relative;
+  }
+  .reviews .container {
+    max-width: 1150px;
+  }
+  .reviews .author {
+    text-transform: uppercase;
+  }
+  .reviews .star {
+    margin: 0 15px;
+  }
+
+  .reviews .star:before {
+    font-size: 28px;
+    font-family: "fontello";
+    font-weight: 400;
+    margin: 0;
+    font-style: normal;
+    content: "\e80f \e80f \e80f \e80f \e80f";
+    color: #febb21;
+    letter-spacing: 8.4px;
+  }
+</style>
