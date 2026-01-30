@@ -1,6 +1,6 @@
 backgroundColor:
   type: select
-  comment: Background color used behind the grid.
+  comment: Background color used behind the review.
   options:
     values:
       - id: none
@@ -13,6 +13,8 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: dark
+        name: Dark
 image:
   type: object
   comment: Image configuration for the reviews section.
@@ -108,7 +110,6 @@ authorAlignX:
         name: Center
       - id: right
         name: Right
-
 starColor:
   type: color
   comment: Color of the review stars.

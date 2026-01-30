@@ -78,7 +78,7 @@ const htmlAttributes = Object.fromEntries(
       <div class="author">
         <SimpleText
           size="sm"
-          alignX="authorAlignX"
+          alignX={authorAlignX}
           starColor={starColor}
           editable={true}
           data-prop="author"
@@ -160,6 +160,8 @@ const htmlAttributes = Object.fromEntries(
       border-radius: 20px;
       color: #000;
       padding: 40px 20px;
+    }
+    .reviews .container p {
       text-align: center;
     }
     .reviews .author p {
