@@ -56,6 +56,8 @@ backgroundVideo:
           preview:
             icon: videocam
           _inputs:
+            type:
+              hidden: true
             source:
               type: file
               label: Video Source
