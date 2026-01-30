@@ -1,5 +1,5 @@
 {
-  "logoSource": "/images/logo.svg",
+  "logoSource": "/src/assets/images/bloom-logo-updated.svg",
   "logoAlt": "Logo",
   "navData": [
     {
@@ -8,26 +8,182 @@
       "children": []
     },
     {
-      "name": "Why",
-      "path": "/why/",
-      "children": []
+      "name": "About Us",
+      "path": "/about/",
+      "children": [
+        {
+          "name": "What Sets Us Apart",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Meet the Dentists",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Meet the Team",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Tour Our Office",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Community",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Dental Technology",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Blog",
+          "path": "/blog/",
+          "children": []
+        }
+      ]
     },
     {
-      "name": "Blog",
-      "path": "/blog/",
-      "children": []
+      "name": "Who We Help",
+      "path": "/",
+      "children": [
+        {
+          "name": "Dentistry for Infants",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Dentistry for Toddlers",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Dentistry for Children",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Dentistry for Teens",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Dentistry for Special Needs Children",
+          "path": "/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "What We Do",
+      "path": "/",
+      "children": [
+        {
+          "name": "Minimally Invasive Dentistry",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Preventative Dentistry",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Restorative Dentistry",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Children's Sedation Dentistry",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Children's Emergency Dentistry",
+          "path": "/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "For Patients",
+      "path": "/",
+      "children": [
+        {
+          "name": "Your Child's First Visit",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Insurance & Financing",
+          "path": "/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Reviews",
+      "path": "/",
+      "children": [
+        {
+          "name": "Written Reviews",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Video Testimonials",
+          "path": "/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "path": "/",
+      "children": [
+        {
+          "name": "Office Info",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Request an Appointment",
+          "path": "/",
+          "children": []
+        },
+        {
+          "name": "Refer a Patient",
+          "path": "/",
+          "children": []
+        }
+      ]
     }
   ],
   "buttonSections": [
     {
       "_component": "building-blocks/core-elements/button",
-      "text": "Search",
-      "hideText": true,
-      "link": "/search/",
-      "iconName": "magnifying-glass",
+      "text": "Request Appointment",
+      "hideText": false,
+      "link": "/",
+      "iconName": null,
       "iconPosition": "before",
-      "variant": "ghost",
-      "size": "lg"
+      "variant": "primary",
+      "size": "md"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "Online Scheduling",
+      "hideText": false,
+      "link": "/",
+      "iconName": null,
+      "iconPosition": "before",
+      "variant": "secondary",
+      "size": "md"
     }
   ]
 }
