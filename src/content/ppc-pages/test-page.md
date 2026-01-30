@@ -4,6 +4,7 @@ title: title
 ppcPageSections:
   - _component: page-sections/ppc-blocks/hero
     image:
+      _component: building-blocks/core-elements/image
       source: https://placehold.co/600x400
       alt: A placeholder image
     heading: Primary Headline
