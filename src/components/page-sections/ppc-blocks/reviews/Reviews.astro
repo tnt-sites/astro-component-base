@@ -39,10 +39,19 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
-  style={backgroundImage?.source ? `background-image: url(${backgroundImage.source});` : undefined}
   {...htmlAttributes}
 >
+  <!-- style={backgroundImage?.source ? `background-image: url(${backgroundImage.source});` : undefined} -->
   <div class="container">
+    <Image
+      class:list={["bg", className]}
+      source={backgroundImage.source}
+      alt={backgroundImage.alt}
+      rounded={true}
+      editable={true}
+      data-prop-src="backgroundImage.source"
+      data-prop-alt="backgroundImage.alt"
+    />
     <Image
       class:list={["img-desk", className]}
       source={image.source}
@@ -84,6 +93,8 @@ const htmlAttributes = Object.fromEntries(
     padding: 100px 10px;
     position: relative;
   }
+  .reviews .bg {
+  }
   .reviews .container {
     max-width: 1150px;
   }
@@ -103,5 +114,31 @@ const htmlAttributes = Object.fromEntries(
     font-weight: 400;
     letter-spacing: 8.4px;
     margin: 0;
+  }
+  .reviews .img-desk {
+    margin: 0;
+    width: auto;
+  }
+  .reviews .img-mob {
+    display: none;
+    width: auto;
+  }
+
+  @media (max-width: 1024px) {
+    .reviews .bg {
+      display: none;
+    }
+    .reviews .container {
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 40px 20px;
+    }
+    .reviews .img-desk {
+      display: none;
+    }
+    .reviews .img-mob {
+      display: block;
+      margin: 0 auto;
+    }
   }
 </style>
