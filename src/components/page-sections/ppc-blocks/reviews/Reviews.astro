@@ -101,6 +101,7 @@ const htmlAttributes = Object.fromEntries(
   .reviews .bg {
     inset: 0;
     position: absolute;
+    z-index: -1;
   }
   .reviews .bg :global(picture) {
     height: 100%;
@@ -115,6 +116,7 @@ const htmlAttributes = Object.fromEntries(
     max-width: 1150px;
   }
   .reviews .author {
+    font-weight: 600;
     text-transform: uppercase;
   }
   .reviews .star {
@@ -150,7 +152,9 @@ const htmlAttributes = Object.fromEntries(
     .reviews .container {
       background-color: #fff;
       border-radius: 20px;
+      color: #000;
       padding: 40px 20px;
+      text-align: center;
     }
     .reviews .img-desk {
       display: none;
