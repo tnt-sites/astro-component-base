@@ -2,6 +2,22 @@
 _schema: default
 title: Pediatric Dentist in Murphy, TX | Bloom Pediatric Dentistry
 pageSections:
+  - _component: page-sections/heroes/hero-banner
+    eyebrowHeading: Pediatric Dentist Murphy
+    heading: A reimagined approach to children's dentistry.
+    bodyText:
+    backgroundColor: surface
+    backgroundVideo:
+      type: local-source
+      source: /videos/ae979d06.mp4
+    backgroundImage:
+    secondaryVideo:
+      _component: building-blocks/core-elements/video
+      type: youtube
+      id: UImqfGvKL2Y
+      title: ''
+      source: ''
+      thumbnail:
   - _component: page-sections/builders/custom-section
     label: Meet
     contentSections:
@@ -45,10 +61,10 @@ pageSections:
                 buttonSections:
                   - _component: building-blocks/core-elements/button
                     text: Meet Dr. Hui
+                    hideText: false
                     link: ''
                     iconName: ''
                     iconPosition: before
-                    hideText: false
                     variant: primary
                     size: md
                 direction:
@@ -96,10 +112,10 @@ pageSections:
                 buttonSections:
                   - _component: building-blocks/core-elements/button
                     text: Meet Dr. JoJo
+                    hideText: false
                     link: ''
                     iconName: ''
                     iconPosition: before
-                    hideText: false
                     variant: primary
                     size: md
                 direction: row
@@ -138,4 +154,5 @@ pageSections:
       positionVertical: top
       positionHorizontal: center
     rounded: false
+description: ''
 ---
