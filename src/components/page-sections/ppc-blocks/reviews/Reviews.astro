@@ -76,16 +76,10 @@ const htmlAttributes = Object.fromEntries(
         {reviewText}
       </Text>
       <div class="author">
-        <SimpleText
-          size="sm"
-          alignX={authorAlignX}
-          starColor={starColor}
-          editable={true}
-          data-prop="author"
-        >
+        <SimpleText size="sm" alignX={authorAlignX} editable={true} data-prop="author">
           {author}
-          <div class="star" style={`--star-color: ${starColor};`}></div>
         </SimpleText>
+        <div class="star" style={`--star-color: ${starColor};`}></div>
       </div>
     </div>
   </div>
@@ -118,15 +112,38 @@ const htmlAttributes = Object.fromEntries(
   .reviews .container {
     font-size: 1.4rem;
   }
+  .reviews .author {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+  }
+
+  /* Right alignment */
+  .reviews .author.align-right {
+    justify-content: flex-end;
+  }
+
+  /* Center alignment */
+  .reviews .author.align-center {
+    justify-content: center;
+  }
+
+  /* Left alignment (default) */
+  .reviews .author.align-left {
+    justify-content: flex-start;
+  }
+
+  /* Make sure <p> doesn't add layout weirdness */
+  .reviews .author p {
+    margin: 0;
+    white-space: nowrap;
+  }
+
   .reviews .author p {
     color: #fff;
     font-weight: 600;
     letter-spacing: 1.6px;
     text-transform: uppercase;
-  }
-  .reviews .star {
-    display: inline-block;
-    margin: 0 15px;
   }
 
   .reviews .star:before {
