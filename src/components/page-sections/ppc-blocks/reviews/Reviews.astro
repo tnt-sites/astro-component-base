@@ -99,6 +99,7 @@ const htmlAttributes = Object.fromEntries(
     padding: 100px 10px;
   }
   .reviews .bg {
+    border-radius: 0;
     inset: 0;
     position: absolute;
     z-index: -1;
@@ -112,11 +113,16 @@ const htmlAttributes = Object.fromEntries(
     object-fit: cover;
   }
   .reviews .container {
+    color: #fff;
     margin: 0 auto;
     max-width: 1150px;
   }
+  .reviews .container {
+    font-size: 1.4rem;
+  }
   .reviews .author {
     font-weight: 600;
+    letter-spacing: 1.6px;
     text-transform: uppercase;
   }
   .reviews .star {
