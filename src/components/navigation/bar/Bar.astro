@@ -331,16 +331,8 @@ function createNavItemData(item, level, parentGroupId) {
         transition: background var(--animation-normal) ease-in-out;
         white-space: nowrap;
         font-size: var(--font-size-sm);
-
-        &[aria-current="page"] {
-          text-decoration: underline dotted;
-          text-decoration-color: var(--color-text-muted);
-          text-underline-offset: 3px;
-        }
-
         &:hover {
-          background: var(--color-state-hover);
-          color: var(--color-text-strong);
+          color: var(--color-brand);
         }
       }
 
@@ -351,21 +343,14 @@ function createNavItemData(item, level, parentGroupId) {
       }
 
       .nav-item-icon {
-        color: var(--color-text-muted);
+        color: var(--color-brand-muted);
         display: inline-block;
         transition:
           color var(--animation-normal) ease-in-out,
           transform var(--animation-normal) ease-in-out;
-        width: 0.8rem;
+        width: 1.2rem;
         transform-origin: 50% 60%;
-      }
-
-      .nav-item-trigger:hover .nav-item-icon {
-        color: var(--color-text-strong);
-      }
-
-      .nav-item-toggle:checked ~ .nav-item-trigger .nav-item-icon {
-        transform: rotate(90deg);
+        rotate: 90deg;
       }
 
       .nav-item-toggle {
@@ -388,9 +373,7 @@ function createNavItemData(item, level, parentGroupId) {
       }
 
       .nav-item > .nav-item-content {
-        background: var(--color-bg);
-        border: 1px solid var(--color-border-subtle);
-        border-radius: var(--radius-xs);
+        background: var(--color-brand);
         left: 50%;
         margin-top: var(--spacing-xs);
         min-width: 200px;
@@ -403,11 +386,15 @@ function createNavItemData(item, level, parentGroupId) {
 
       .nav-item-content .nav-item {
         display: block;
+        &:hover {
+          background: var(--color-brand-muted);
+        }
       }
 
       .nav-item-content .nav-item > a,
       .nav-item-content .nav-item > .nav-item-trigger {
         border-radius: 0;
+        color: var(--color-text-on-brand);
       }
 
       .nav-item-nested .nav-item > a {
