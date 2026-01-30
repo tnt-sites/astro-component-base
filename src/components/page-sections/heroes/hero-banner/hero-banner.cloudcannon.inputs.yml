@@ -56,6 +56,34 @@ backgroundVideo:
           preview:
             icon: videocam
           _inputs_from_glob:
+            source:
+              type: file
+              label: Video Source
+              comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+              options:
+                accepts_mime_types:
+                  - video/mp4
+                paths:
+                  uploads: public/videos
+                  static: public
+secondaryVideo:
+  type: object
+  comment: Video to show after the user clicks a play button.
+  options:
+    structures:
+      values:
+        - label: Background Video
+          icon: videocam
+          value:
+            _component: building-blocks/core-elements/video
+            type: youtube
+            id: ""
+            title: ""
+            source: ""
+            thumbnail: ""
+          preview:
+            icon: videocam
+          _inputs_from_glob:
             - /src/components/building-blocks/core-elements/video/video.cloudcannon.inputs.yml
 bodyText:
   type: markdown

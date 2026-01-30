@@ -11,5 +11,6 @@ value:
   backgroundImage:
     source: ""
     alt: ""
+  secondaryVideo: {}
 _inputs_from_glob:
   - /src/components/page-sections/heroes/hero-banner/hero-banner.cloudcannon.inputs.yml

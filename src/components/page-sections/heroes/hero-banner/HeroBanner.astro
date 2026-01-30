@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Button from "@building-blocks/core-elements/button/Button.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
@@ -13,6 +14,7 @@ const {
   backgroundColor = "base",
   backgroundVideo,
   backgroundImage,
+  secondaryVideo,
   class: className,
   editable = true,
   ...rest
@@ -37,6 +39,7 @@ const htmlAttributes = Object.fromEntries(
   minSplitWidth={979}
   verticalAlignment="center"
   gap="wave"
+  class="hero-banner-split"
   >
     <Fragment slot="first">
       {
@@ -109,9 +112,54 @@ const htmlAttributes = Object.fromEntries(
         {heading}
       </Heading>
       <Text alignX="center" data-prop="bodyText" text={bodyText} class="hero-banner-body-text" />
+      {secondaryVideo && (secondaryVideo.source || secondaryVideo.id) && (
+        <Button text="Play Video" iconName="play" editable={false} hideText={true} variant="secondary" rounded={true} class="hero-banner-play-button" size="lg" />
+      )}
     </Fragment>
   </Split>
+  {secondaryVideo && (secondaryVideo.source || secondaryVideo.id) && (
+    <CustomSection class="hero-banner-secondary-video-container" maxContentWidth="xl" paddingHorizontal="lg" paddingVertical="none" backgroundColor="none">
+      <Button 
+        text="CLOSE VIDEO" 
+        iconName="x-mark" 
+        iconPosition="before" 
+        variant="primary" 
+        class="hero-banner-close-video"
+        editable={false}
+        rounded={false}
+      />
+      <Video {...secondaryVideo} class="hero-banner-secondary-video" />
+    </CustomSection>
+  )}
 </CustomSection>
+
+<script>
+  function initVideoToggle() {
+    const playButton = document.querySelector('.hero-banner-play-button');
+    const closeButton = document.querySelector('.hero-banner-close-video');
+    const splitSection = document.querySelector('.hero-banner-split');
+    const videoContainer = document.querySelector('.hero-banner-secondary-video-container');
+
+    if (!playButton || !closeButton || !splitSection || !videoContainer) return;
+
+    playButton.addEventListener('click', () => {
+      splitSection.style.display = 'none';
+      videoContainer.style.display = 'block';
+    });
+
+    closeButton.addEventListener('click', () => {
+      splitSection.style.display = 'grid';
+      videoContainer.style.display = 'none';
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initVideoToggle);
+  } else {
+    initVideoToggle();
+  }
+</script>
 
 <style lang="pcss" is:global>
   @layer page-sections {
@@ -287,6 +335,31 @@ const htmlAttributes = Object.fromEntries(
     
     .hero-banner-body-text p {
       margin: 0;
+    }
+
+    .hero-banner-play-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 100%;
+      margin: var(--spacing-lg) auto;
+
+      &:hover {
+        background-color: var(--color-bg-brand);
+      }
+    }
+
+    .hero-banner-close-video {
+      position: absolute;
+      top: 0;
+      right: 15px;
+      z-index: 1;
+    }
+    .hero-banner-secondary-video-container {
+      display: none;
+
+      .video {
+        margin-top: 0;
+      }
     }
   }
 </style>
