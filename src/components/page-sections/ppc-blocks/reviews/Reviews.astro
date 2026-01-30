@@ -121,6 +121,7 @@ const htmlAttributes = Object.fromEntries(
     font-size: 1.4rem;
   }
   .reviews .author {
+    color: #fff;
     font-weight: 600;
     letter-spacing: 1.6px;
     text-transform: uppercase;
@@ -148,6 +149,7 @@ const htmlAttributes = Object.fromEntries(
   }
   .reviews .img-desk :global(img),
   .reviews .img-mob :global(img) {
+    aspect-ratio: unset;
     width: auto;
   }
 
@@ -161,6 +163,9 @@ const htmlAttributes = Object.fromEntries(
       color: #000;
       padding: 40px 20px;
       text-align: center;
+    }
+    .reviews .author {
+      color: #000;
     }
     .reviews .img-desk {
       display: none;
