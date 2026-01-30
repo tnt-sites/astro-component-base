@@ -110,6 +110,12 @@ authorAlignX:
         name: Center
       - id: right
         name: Right
+textColor:
+  type: color
+  comment: Color of the review text.
+mobileTextColor:
+  type: color
+  comment: Color of the review text on mobile.
 starColor:
   type: color
   comment: Color of the review stars.
