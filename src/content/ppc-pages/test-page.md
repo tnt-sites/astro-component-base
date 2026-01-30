@@ -22,8 +22,7 @@ ppcPageSections:
     reverse: false
     backgroundColor: base
   - _component: page-sections/ppc-blocks/reviews
-    heading: reviews Heading
-    backgroundColor: base,
+    backgroundColor: base
     image:
       _component: building-blocks/core-elements/image
       source: /src/assets/images/ppc-er-np-2024-google-logo.png
@@ -35,13 +34,18 @@ ppcPageSections:
     backgroundImage:
       _component: building-blocks/core-elements/image
       source: /src/assets/images/ppc-er-np-2024-reviews-bkg.jpg
-      alt: ''
+      alt:
     reviewText: >-
       Dr. Jafari and his staff are outstanding! They’re professional, caring,
       and make every visit comfortable. The office is clean, welcoming, and
       always on time. Highly recommend for anyone looking for a great dentist in
       Phoenix!
     author: '- Steve M.'
+    textColor: '#ffffff'
+    mobileTextColor: '#000000'
+    authorAlignX: left
+    starColor: '#2158fe'
+    heading: reviews Heading
     text: >-
       Dr. Jafari and his staff are outstanding! They’re professional, caring,
       and make every visit comfortable. The office is clean, welcoming, and
