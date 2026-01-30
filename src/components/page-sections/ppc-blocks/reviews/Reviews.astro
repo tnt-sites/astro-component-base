@@ -77,7 +77,7 @@ const htmlAttributes = Object.fromEntries(
       <Text color="white" editable={true} data-prop="reviewText">
         {reviewText}
       </Text>
-      <div class="author align-{authorAlignX}">
+      <div class={`author align-${authorAlignX}`}>
         <SimpleText size="sm" editable={true} data-prop="author">
           {author}
         </SimpleText>
