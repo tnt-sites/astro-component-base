@@ -42,50 +42,50 @@ const htmlAttributes = Object.fromEntries(
   {...htmlAttributes}
 >
   <!-- style={backgroundImage?.source ? `background-image: url(${backgroundImage.source});` : undefined} -->
-    <Image
-      class:list={["bg", className]}
-      source={backgroundImage.source}
-      alt={backgroundImage.alt}
-      rounded={true}
-      editable={true}
-      data-prop-src="backgroundImage.source"
-      data-prop-alt="backgroundImage.alt"
-    />
+  <Image
+    class:list={["bg", className]}
+    source={backgroundImage.source}
+    alt={backgroundImage.alt}
+    rounded={true}
+    editable={true}
+    data-prop-src="backgroundImage.source"
+    data-prop-alt="backgroundImage.alt"
+  />
 
   <div class="content">
     <div class="container">
-    <Image
-      class:list={["img-desk", className]}
-      source={image.source}
-      alt={image.alt}
-      rounded={true}
-      editable={true}
-      data-prop-src="image.source"
-      data-prop-alt="image.alt"
-    />
-    <Image
-      class:list={["img-mob", className]}
-      source={mobileImage.source}
-      alt={mobileImage.alt}
-      rounded={true}
-      editable={true}
-      data-prop-src="mobileImage.source"
-      data-prop-alt="mobileImage.alt"
-    />
-    <Text color="white" editable={true} data-prop="reviewText">
-      {reviewText}
-    </Text>
-    <div class="author">
-      <SimpleText
-        size="sm"
-        alignX="authorAlignX"
-        starColor={starColor}
+      <Image
+        class:list={["img-desk", className]}
+        source={image.source}
+        alt={image.alt}
+        rounded={true}
         editable={true}
-        data-prop="author"
-      >
-        {author}
-        <div class="star" style={`--star-color: ${starColor};`}></div>
-      </SimpleText>
+        data-prop-src="image.source"
+        data-prop-alt="image.alt"
+      />
+      <Image
+        class:list={["img-mob", className]}
+        source={mobileImage.source}
+        alt={mobileImage.alt}
+        rounded={true}
+        editable={true}
+        data-prop-src="mobileImage.source"
+        data-prop-alt="mobileImage.alt"
+      />
+      <Text color="white" editable={true} data-prop="reviewText">
+        {reviewText}
+      </Text>
+      <div class="author">
+        <SimpleText
+          size="sm"
+          alignX="authorAlignX"
+          starColor={starColor}
+          editable={true}
+          data-prop="author"
+        >
+          {author}
+          <div class="star" style={`--star-color: ${starColor};`}></div>
+        </SimpleText>
       </div>
     </div>
   </div>
@@ -157,6 +157,8 @@ const htmlAttributes = Object.fromEntries(
     }
     .reviews .img-mob {
       display: block;
+    }
+    .reviews .img-mob :global(img) {
       margin: 0 auto;
     }
   }
