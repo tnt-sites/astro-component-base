@@ -36,10 +36,15 @@ ppcPageSections:
       _component: building-blocks/core-elements/image
       source: /src/assets/images/ppc-er-np-2024-reviews-bkg.jpg
       alt: ''
-    text: >-
+    reviewText: >-
       Dr. Jafari and his staff are outstanding! They’re professional, caring,
       and make every visit comfortable. The office is clean, welcoming, and
       always on time. Highly recommend for anyone looking for a great dentist in
       Phoenix!
     author: '- Steve M.'
+    text: >-
+      Dr. Jafari and his staff are outstanding! They’re professional, caring,
+      and make every visit comfortable. The office is clean, welcoming, and
+      always on time. Highly recommend for anyone looking for a great dentist in
+      Phoenix!
 ---
