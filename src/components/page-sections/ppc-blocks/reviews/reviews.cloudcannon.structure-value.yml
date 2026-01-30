@@ -1,6 +1,7 @@
 label: Reviews
 icon: add
 description: A Review section for PPC landing pages, with background image.
+
 value:
   _component: page-sections/ppc-blocks/reviews
   backgroundColor: base
