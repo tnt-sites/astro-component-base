@@ -3,8 +3,7 @@ icon: add
 description: A Review section for PPC landing pages, with background image.
 value:
   _component: page-sections/ppc-blocks/reviews
-  heading: "reviews Heading"
-  backgroundColor: base,
+  backgroundColor: base
   image:
     source: https://placehold.co/600x400
     alt: A placeholder image
@@ -15,5 +14,7 @@ value:
     source: https://placehold.co/1200x1200
   reviewText: "lorem ipsum"
   author: "First Last"
+  authorAlignX: left
+  starColor: "#febb21"
 _inputs_from_glob:
   - /src/components/page-sections/ppc-blocks/reviews/reviews.cloudcannon.inputs.yml
