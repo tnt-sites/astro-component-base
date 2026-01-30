@@ -47,7 +47,7 @@ collections_config:
     schemas:
       default:
         name: New Blog Post
-        path: .cloudcannon/schemas/blog-post.mdx
+        path: ".cloudcannon/schemas/blog-post.mdx"
         remove_extra_inputs: false
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
