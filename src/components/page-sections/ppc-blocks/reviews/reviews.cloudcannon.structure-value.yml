@@ -13,7 +13,7 @@ value:
     alt: A placeholder image
   backgroundImage:
     source: https://placehold.co/1200x1200
-  text: "lorem ipsum"
+  reviewText: "lorem ipsum"
   author: "First Last"
 _inputs_from_glob:
   - /src/components/page-sections/ppc-blocks/reviews/reviews.cloudcannon.inputs.yml

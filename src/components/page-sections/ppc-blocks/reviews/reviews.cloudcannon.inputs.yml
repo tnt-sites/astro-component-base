@@ -79,7 +79,7 @@ backgroundImage:
                 paths:
                   uploads: src/assets/images
                   static: ""
-text:
+reviewText:
   type: markdown
   comment: Main Review Text
   options:

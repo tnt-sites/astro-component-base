@@ -42,7 +42,6 @@ const htmlAttributes = Object.fromEntries(
   {...htmlAttributes}
 >
   <!-- style={backgroundImage?.source ? `background-image: url(${backgroundImage.source});` : undefined} -->
-  <div class="container">
     <Image
       class:list={["bg", className]}
       source={backgroundImage.source}
@@ -52,6 +51,9 @@ const htmlAttributes = Object.fromEntries(
       data-prop-src="backgroundImage.source"
       data-prop-alt="backgroundImage.alt"
     />
+
+  <div class="content">
+    <div class="container">
     <Image
       class:list={["img-desk", className]}
       source={image.source}
@@ -84,14 +86,17 @@ const htmlAttributes = Object.fromEntries(
         {author}
         <div class="star" style={`--star-color: ${starColor};`}></div>
       </SimpleText>
+      </div>
     </div>
   </div>
 </CustomSection>
 
 <style>
   .reviews {
-    padding: 100px 10px;
     position: relative;
+  }
+  .reviews .content {
+    padding: 100px 10px;
   }
   .reviews .bg :global(picture) {
     height: 100%;
@@ -102,18 +107,21 @@ const htmlAttributes = Object.fromEntries(
     object-fit: cover;
   }
   .reviews .container {
+    margin: 0 auto;
     max-width: 1150px;
   }
   .reviews .author {
     text-transform: uppercase;
   }
   .reviews .star {
+    display: inline-block;
     margin: 0 15px;
   }
 
   .reviews .star:before {
     color: var(--star-color);
     content: "\e80f \e80f \e80f \e80f \e80f";
+    font-family: fontello;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
@@ -122,10 +130,12 @@ const htmlAttributes = Object.fromEntries(
   }
   .reviews .img-desk {
     margin: 0;
-    width: auto;
   }
   .reviews .img-mob {
     display: none;
+  }
+  .reviews .img-desk :global(img),
+  .reviews .img-mob :global(img) {
     width: auto;
   }
 
