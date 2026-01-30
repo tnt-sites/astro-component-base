@@ -113,9 +113,12 @@ const htmlAttributes = Object.fromEntries(
     object-fit: cover;
   }
   .reviews .container {
-    color: var(--text-color);
     margin: 0 auto;
     max-width: 1150px;
+  }
+  .reviews .text,
+  .reviews .author p {
+    color: var(--text-color);
   }
   .reviews .container {
     font-size: 1.4rem;
@@ -126,32 +129,24 @@ const htmlAttributes = Object.fromEntries(
     gap: 12px;
   }
 
-  /* Right alignment */
   .reviews .author.align-right {
     justify-content: flex-end;
   }
 
-  /* Center alignment */
   .reviews .author.align-center {
     justify-content: center;
   }
 
-  /* Left alignment (default) */
   .reviews .author.align-left {
     justify-content: flex-start;
   }
 
-  /* Make sure <p> doesn't add layout weirdness */
   .reviews .author p {
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  .reviews .author p {
-    color: #fff;
     font-weight: 600;
     letter-spacing: 1.6px;
+    margin: 0;
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .reviews .star:before {
@@ -183,8 +178,12 @@ const htmlAttributes = Object.fromEntries(
     .reviews .container {
       background-color: #fff;
       border-radius: 20px;
-      color: var(--mobile-text-color);
       padding: 40px 20px;
+    }
+
+    .reviews .text,
+    .reviews .author p {
+      color: var(--mobile-text-color);
     }
 
     .reviews .container {
