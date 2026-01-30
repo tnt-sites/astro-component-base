@@ -40,13 +40,6 @@ collections_config:
     disable_url: false
     _enabled_editors:
       - content
-    add_options:
-      - name: Add New Blog Post
-        schema: default
-        icon: article
-    create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
-    new_preview_url: /blog/
     _inputs:
       title:
         type: text
