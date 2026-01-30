@@ -93,7 +93,13 @@ const htmlAttributes = Object.fromEntries(
     padding: 100px 10px;
     position: relative;
   }
-  .reviews .bg {
+  .reviews .bg :global(picture) {
+    height: 100%;
+  }
+  .reviews .bg :global(img) {
+    height: 100%;
+    min-height: 200px;
+    object-fit: cover;
   }
   .reviews .container {
     max-width: 1150px;
@@ -108,7 +114,6 @@ const htmlAttributes = Object.fromEntries(
   .reviews .star:before {
     color: var(--star-color);
     content: "\e80f \e80f \e80f \e80f \e80f";
-    font-family: fontello;
     font-size: 28px;
     font-style: normal;
     font-weight: 400;
