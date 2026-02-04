@@ -66,10 +66,6 @@ collections_config:
       tags:
         type: array
         cascade: true
-    add_options:
-      - name: Add New Blog Post
-        icon: article
-        schema: default
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
     disable_add: false
