@@ -1,3 +1,14 @@
+listType:
+  type: select
+  comment: The style of list markers (icons, bullets, or numbers).
+  options:
+    values:
+      - id: icon
+        name: Icon
+      - id: bullet
+        name: Bullet
+      - id: numbered
+        name: Numbered
 items:
   type: array
   options:

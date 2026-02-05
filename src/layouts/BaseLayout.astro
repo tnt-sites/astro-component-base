@@ -14,9 +14,9 @@ export interface Props {
 }
 
 const props = Astro.props;
-const formattedTitle = seoData.defaultSeo.titleFormat.replace("{title}", props.title);
-const pageDescription = props.description || seoData.defaultSeo.description;
-const pageImage = props.image || seoData.defaultSeo.image;
+const formattedTitle = seoData.titleFormat.replace("{title}", props.title);
+const pageDescription = props.description || seoData.description;
+const pageImage = props.image || seoData.logoSource;
 ---
 
 <!doctype html>
@@ -27,7 +27,7 @@ const pageImage = props.image || seoData.defaultSeo.image;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <style is:inline>
-      @layer reset, base, components, pageSections, utils, overrides;
+      @layer reset, base, components, page-sections, utils, overrides;
     </style>
 
     <script>
@@ -59,7 +59,7 @@ const pageImage = props.image || seoData.defaultSeo.image;
       }}
     />
 
-    <StructuredData type="Organization" data={seoData.organization} />
+    <StructuredData site={seoData} />
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
 

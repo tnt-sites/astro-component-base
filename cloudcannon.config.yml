@@ -96,7 +96,6 @@ _inputs:
     comment: The main sections of the page.
   logoSource:
     type: image
-    comment: The logo image for the top navigation.
 _select_data:
   icons:
     - id: academic-cap

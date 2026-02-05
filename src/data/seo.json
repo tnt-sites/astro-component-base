@@ -1,18 +1,8 @@
 {
-  "defaultSeo": {
-    "titleFormat": "{title} | Astro Component Starter",
-    "description": "",
-    "image": "/images/logo.svg",
-    "siteName": "Astro Component Starter",
-    "twitterHandle": "@yourusername"
-  },
-  "organization": {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Astro Component Starter",
-    "url": "https://example.com",
-    "logo": "https://example.com/images/logo.svg",
-    "description": "",
-    "sameAs": ["https://x.com/yourusername", "https://github.com/yourusername"]
-  }
+  "name": "Astro Component Starter",
+  "url": "https://example.com",
+  "description": "",
+  "logoSource": "/images/logo.svg",
+  "titleFormat": "{title} | Astro Component Starter",
+  "twitterHandle": "@yourusername"
 }

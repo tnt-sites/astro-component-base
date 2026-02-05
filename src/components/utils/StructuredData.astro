@@ -1,10 +1,23 @@
 ---
 export interface Props {
-  type: string;
-  data: Record<string, any>;
+  site: {
+    name: string;
+    url: string;
+    logoSource: string;
+    description: string;
+  };
 }
 
-const { type, data } = Astro.props;
+const { site } = Astro.props;
+
+const structuredData: Record<string, any> = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  url: site.url,
+  logo: site.url + site.logoSource,
+  description: site.description,
+};
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(data)} />
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

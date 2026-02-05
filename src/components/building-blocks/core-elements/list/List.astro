@@ -6,6 +6,7 @@ const {
   direction = "vertical",
   alignX = "start",
   size = "md",
+  listType = "icon",
   class: className,
   "data-prop": customDataProp = "items",
   editable = true,
@@ -26,11 +27,21 @@ const hasItems = items?.length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 
+const ListTag = listType === "numbered" ? "ol" : "ul";
+const showIcons = listType === "icon";
+
 if (!_component && !hasItems && !hasSlotContent) return;
 ---
 
-<ul
-  class:list={["list", `size-${size}`, `direction-${direction}`, `alignment-${alignX}`, className]}
+<ListTag
+  class:list={[
+    "list",
+    `size-${size}`,
+    `direction-${direction}`,
+    `alignment-${alignX}`,
+    `type-${listType}`,
+    className,
+  ]}
   role="list"
   {...arrayDataAttributes}
   {...htmlAttributes}
@@ -46,12 +57,13 @@ if (!_component && !hasItems && !hasSlotContent) return;
               iconName={item.iconName}
               iconColor={item.iconColor}
               editable={editable}
+              showIcon={showIcons}
             />
           </editable-array-item>
         ))
     }
   </slot>
-</ul>
+</ListTag>
 
 <style lang="pcss" is:global>
   @layer components {
@@ -59,14 +71,34 @@ if (!_component && !hasItems && !hasSlotContent) return;
       display: flex;
       flex-direction: column;
       gap: var(--spacing-em-sm);
-      list-style: none;
       margin: 0;
       margin-top: var(--spacing-lg);
-      padding: 0;
+      padding-inline-start: var(--spacing-md);
 
       &.direction-horizontal {
         flex-flow: row wrap;
         gap: var(--spacing-em-sm);
+      }
+
+      &.type-bullet {
+        list-style: disc;
+      }
+
+      &.type-numbered {
+        list-style: decimal;
+      }
+
+      &.type-bullet,
+      &.type-numbered {
+
+        &.direction-horizontal > li:not(:first-child), &.direction-horizontal > editable-array-item:not(:first-child) li {
+          margin-inline-start: var(--spacing-lg);
+        }
+      }
+
+      &.type-icon {
+        list-style: none;
+        padding: 0;
       }
 
       &.alignment-end {

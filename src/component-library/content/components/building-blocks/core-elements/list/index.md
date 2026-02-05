@@ -1,6 +1,6 @@
 ---
 title: List
-overview: "Displays an icon list with support for vertical or horizontal layouts, custom styling, alignment, and markdown formatting. For standard bullet or numbered lists, use [Rich Text](/component-library/components/building-blocks/core-elements/text) instead."
+overview: "Displays a list with icons, bullets, or numbers as markers. Supports vertical or horizontal layouts, custom styling, alignment, and markdown formatting."
 slots:
   - title: default
     description: The content inside the List.
@@ -12,8 +12,15 @@ slots:
         - "text/slot"
 examples:
   - slugs:
+      - type-icon
+      - type-bullet
+      - type-numbered
+    title: List Types
+  - slugs:
       - direction-vertical
       - direction-horizontal
+      - direction-horizontal-bullet
+      - direction-horizontal-numbered
     title: Directions
   - slugs:
       - alignment-start-vertical
@@ -22,6 +29,8 @@ examples:
       - alignment-start-horizontal
       - alignment-center-horizontal
       - alignment-end-horizontal
+      - alignment-center-vertical-bullet
+      - alignment-end-horizontal-numbered
     title: AlignX
   - slugs:
       - size-xs
@@ -32,6 +41,8 @@ examples:
       - size-2xl
       - size-3xl
       - size-4xl
+      - size-lg-numbered
+      - size-3xl-bullet
     title: Sizes
   - slugs:
       - icon-colors

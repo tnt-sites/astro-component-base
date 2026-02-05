@@ -1,6 +1,6 @@
 label: List
 icon: list
-description: Lists items with icons as markers.
+description: Lists items with icons, bullets, or numbers as markers.
 value:
   _component: building-blocks/core-elements/list
   items:
@@ -19,13 +19,14 @@ value:
   direction: vertical
   alignX: start
   size: md
+  listType: icon
 preview:
   text:
     - List
   icon: list
 picker_preview:
   text: List
-  subtext: Lists items with icons as markers.
+  subtext: Lists items with icons, bullets, or numbers as markers.
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/list/list.cloudcannon.inputs.yml
 _structures:
@@ -61,6 +62,7 @@ _structures:
           iconName:
             type: select
             comment: The name of the icon to display from the icon library.
+            hidden: "listType !== 'icon'"
             options:
               values: _select_data.icons
               preview:
@@ -71,6 +73,7 @@ _structures:
           iconColor:
             type: select
             comment: The color of the icon.
+            hidden: "listType !== 'icon'"
             options:
               values:
                 - id: default
