@@ -17,7 +17,16 @@ text:
   type: markdown
   comment: Main Text
   options:
+    blockquote: false
     bold: true
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
 textColor:
   type: color
   comment: Color of the text.
