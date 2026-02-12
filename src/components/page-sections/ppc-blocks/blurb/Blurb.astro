@@ -6,7 +6,7 @@ const {
   text = "",
   backgroundColor = "base",
   class: className,
-  blurbBackgroundColor = "none"
+  blurbBackgroundColor = "none",
   editable = true,
   ...rest
 } = Astro.props;
@@ -22,12 +22,11 @@ const htmlAttributes = Object.fromEntries(
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <article class="looking"
-      style={
-    blurbBackgroundColor !== "none"
+  <article
+    class="looking"
+    style={blurbBackgroundColor !== "none"
       ? `background-color: var(--color-${blurbBackgroundColor});`
-      : undefined
-  }
+      : undefined}
   >
     <Text size="lg" alignX="center">
       {text}
@@ -37,7 +36,7 @@ const htmlAttributes = Object.fromEntries(
 
 <style>
   .blurb {
-        background-color: var(--color-bg-accent);
+    background-color: var(--color-bg-accent);
   }
 
   .looking {
