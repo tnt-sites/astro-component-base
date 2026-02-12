@@ -22,7 +22,12 @@ const htmlAttributes = Object.fromEntries(
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <article class="looking" style={`--blurb-color: ${blurbBackgroundColor};`}>
+  <article
+    class="looking"
+    style={blurbBackgroundColor !== "none"
+      ? `background-color: ${blurbBackgroundColor};`
+      : undefined}
+  >
     <Text size="lg" alignX="center">
       {text}
     </Text>
@@ -34,7 +39,6 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .looking {
-    background-color: var(--blurb-color);
     border-radius: 5px;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.17);
     margin: 100px auto;
