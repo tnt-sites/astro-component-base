@@ -13,6 +13,9 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+text:
+  type: markdown
+  comment: Main Text
 textColor:
   type: color
   comment: Color of the text.
