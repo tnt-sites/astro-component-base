@@ -1,0 +1,11 @@
+label: blurb
+icon: add
+description: Blurb section with the We Understand text.
+value:
+  _component: page-sections/ppc-blocks/blurb
+  text:
+  backgroundColor: none
+  textColor: "#000"
+  blurbBackgroundColor: none
+_inputs_from_glob:
+  - /src/components/page-sections/ppc-blocks/blurb/blurb.cloudcannon.inputs.yml
