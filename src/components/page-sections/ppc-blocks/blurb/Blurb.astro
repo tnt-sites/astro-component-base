@@ -25,7 +25,7 @@ const htmlAttributes = Object.fromEntries(
   <article
     class="looking"
     style={blurbBackgroundColor !== "none"
-      ? `background-color: ${blurbBackgroundColor};`
+      ? `background-color: var(--color-${blurbBackgroundColor});`
       : undefined}
   >
     <Text size="lg" alignX="center">
