@@ -14,19 +14,10 @@ backgroundColor:
       - id: highlight
         name: Highlight
 text:
-  type: markdown
+  type: html
   comment: Main Text
   options:
-    blockquote: false
-    bold: true
-    italic: true
-    link: true
-    strike: false
-    subscript: true
-    superscript: true
-    underline: false
-    bulletedlist: false
-    numberedlist: false
+    styles: ./cloudcannon/styles/editor.css
 textColor:
   type: color
   comment: Color of the text.
