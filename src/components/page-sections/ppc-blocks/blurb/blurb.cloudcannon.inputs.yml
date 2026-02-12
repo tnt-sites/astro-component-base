@@ -16,6 +16,8 @@ backgroundColor:
 text:
   type: markdown
   comment: Main Text
+  options:
+    bold: true
 textColor:
   type: color
   comment: Color of the text.

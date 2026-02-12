@@ -87,7 +87,6 @@ reviewText:
   options:
     blockquote: false
     bold: true
-    format:
     italic: true
     link: true
     strike: false
