@@ -27,7 +27,7 @@ ppcPageSections:
   - _component: page-sections/ppc-blocks/blurb
     text: Test **Big Text**
     backgroundColor: none
-    textColor: '#000000'
+    textColor: '#f50000'
     blurbBackgroundColor: none
   - _component: page-sections/ppc-blocks/reviews
     backgroundColor: dark
