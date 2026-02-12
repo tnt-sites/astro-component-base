@@ -4,8 +4,9 @@ import Text from "@core-elements/text/Text.astro";
 
 const {
   text = "",
-  backgroundColor = "base",
+  backgroundColor = "none",
   class: className,
+  blurbBackgroundColor = "none",
   editable = true,
   ...rest
 } = Astro.props;
@@ -17,14 +18,11 @@ const htmlAttributes = Object.fromEntries(
 
 <CustomSection
   class:list={["blurb", className]}
-  maxContentWidth="2xl"
-  paddingHorizontal="lg"
-  paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <article class="looking">
+  <article class="looking" style={`--blurb-color: ${blurbBackgroundColor};`}>
     <Text size="lg" alignX="center">
       {text}
     </Text>
@@ -33,10 +31,10 @@ const htmlAttributes = Object.fromEntries(
 
 <style>
   .blurb {
+    background-color: var(--blurb-color);
   }
 
   .looking {
-    background: #fff;
     border-radius: 5px;
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.17);
     margin: 100px auto;
