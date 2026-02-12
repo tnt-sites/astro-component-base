@@ -4,9 +4,9 @@ import Text from "@core-elements/text/Text.astro";
 
 const {
   text = "",
-  backgroundColor = "none",
+  backgroundColor = "base",
   class: className,
-  blurbBackgroundColor = "none",
+  blurbBackgroundColor = "none"
   editable = true,
   ...rest
 } = Astro.props;
@@ -22,8 +22,8 @@ const htmlAttributes = Object.fromEntries(
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <article
-    class:list={["looking", blurbBackgroundColor !== "none" && `bg-${blurbBackgroundColor}`]}
+  <article class="looking"
+    backgroundColor={blurbBackgroundColor}
   >
     <Text size="lg" alignX="center">
       {text}
@@ -33,6 +33,7 @@ const htmlAttributes = Object.fromEntries(
 
 <style>
   .blurb {
+        background-color: var(--color-bg-accent);
   }
 
   .looking {
