@@ -25,7 +25,7 @@ ppcPageSections:
     reverse: false
     backgroundColor: base
   - _component: page-sections/ppc-blocks/blurb
-    text: Test &lt;span&gt;Big Text&lt;/span&gt;
+    text: Test **Big Text**
     backgroundColor: none
     textColor: '#000000'
     blurbBackgroundColor: none
