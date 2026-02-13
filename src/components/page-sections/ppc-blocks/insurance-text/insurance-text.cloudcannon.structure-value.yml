@@ -6,5 +6,7 @@ value:
   heading: "Insurance Text Heading"
   text: "Insurance Text"
   backgroundColor: base
+  images:
+  imageType: logos
 _inputs_from_glob:
   - /src/components/page-sections/ppc-blocks/insurance-text/insurance-text.cloudcannon.inputs.yml
