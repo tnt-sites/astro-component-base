@@ -39,6 +39,15 @@ ppcPageSections:
     backgroundColor: accent
     textColor: black
     blurbBackgroundColor: white
+  - _component: page-sections/ppc-blocks/insurance-text
+    heading: Dental Insurance Welcome
+    text: >-
+      We realize the importance of taking care of your teeth, and we welcome
+      dental insurance as a partner in making exceptional dentistry affordable.
+      If you are fortunate enough to have dental insurance, call us. We help our
+      patients maximize their insurance benefits so they pay as little out of
+      pocket as possible.
+    backgroundColor: none
   - _component: page-sections/ppc-blocks/reviews
     backgroundColor: dark
     image:
