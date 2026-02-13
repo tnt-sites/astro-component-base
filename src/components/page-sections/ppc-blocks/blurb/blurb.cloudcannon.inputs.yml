@@ -13,14 +13,34 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: black
+        name: Black
+      - id: white
+        name: White
 text:
   type: html
   comment: Main Text
   options:
     styles: .cloudcannon/styles/editor.css
 textColor:
-  type: color
+  type: select
   comment: Color of the text.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: black
+        name: Black
+      - id: white
+        name: White
 blurbBackgroundColor:
   type: select
   comment: Background color used inside the box.
@@ -36,6 +56,11 @@ blurbBackgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: black
+        name: Black
+      - id: white
+        name: White
+
 # Add your other component inputs here
 # Example:
 # text:

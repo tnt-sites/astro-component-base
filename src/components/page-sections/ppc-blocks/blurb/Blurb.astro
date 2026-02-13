@@ -47,6 +47,28 @@ const htmlAttributes = Object.fromEntries(
     padding: 20px 30px;
   }
 
+  .looking > .bg-base {
+    background-color: var(--color-bg);
+  }
+
+  .looking > .bg-surface {
+    background-color: var(--color-bg-surface);
+  }
+
+  .looking > .bg-accent {
+    background-color: var(--color-bg-accent);
+  }
+
+  .looking > .bg-highlight {
+    background-color: var(--color-bg-highlight);
+  }
+  .looking > .bg-black {
+    background-color: var(--color-bg-black);
+  }
+  .looking > .bg-white {
+    background-color: var(--color-bg-white);
+  }
+
   .looking .text {
     font-size: 20px;
     font-weight: 500;
@@ -56,16 +78,8 @@ const htmlAttributes = Object.fromEntries(
     text-align: center;
   }
 
-  .looking .text strong,
-  .looking .text b {
+  .looking .text span.big-text {
     font-size: 30px;
     font-weight: 400;
-  }
-  span.big-text {
-    font-size: 24px;
-  }
-
-  span.blue-text {
-      color: blue;
   }
 </style>
