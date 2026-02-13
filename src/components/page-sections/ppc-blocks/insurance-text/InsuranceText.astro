@@ -71,12 +71,14 @@ const htmlAttributes = Object.fromEntries(
   }
 
   @media (max-width: 1024px) {
-    .streak:after {
-      bottom: 25px;
-      left: 50%;
-      margin: auto;
-      position: absolute;
-      transform: translateX(-50%);
+    .insurance-text--heading {
+      display: block;
+      text-align: center;
+    }
+    .insurance-text--heading:after {
+      display: block;
+      margin: 10px auto;
+      position: static;
       width: 180px;
     }
   }
