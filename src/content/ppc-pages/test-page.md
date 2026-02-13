@@ -48,6 +48,17 @@ ppcPageSections:
       patients maximize their insurance benefits so they pay as little out of
       pocket as possible.
     backgroundColor: none
+    images:
+      - _component: building-blocks/core-elements/image
+        source: /src/assets/images/ppc-er-np-2024-office-1.jpg
+        alt: ''
+      - _component: building-blocks/core-elements/image
+        source: /src/assets/images/ppc-er-np-2024-office-2.jpg
+        alt: ''
+      - _component: building-blocks/core-elements/image
+        source: /src/assets/images/ppc-er-np-2024-office-3.jpg
+        alt: ''
+    imageType: office
   - _component: page-sections/ppc-blocks/reviews
     backgroundColor: dark
     image:
