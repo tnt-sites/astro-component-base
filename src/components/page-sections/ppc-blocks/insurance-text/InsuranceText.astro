@@ -53,10 +53,18 @@ const htmlAttributes = Object.fromEntries(
     images.length > 0 ? (
       <div class={`insurance-text__images ${imageType}`}>
         {images.map((img) => (
-          <div>
-            <p>Test</p>
-            <img src={img.source} alt={img.alt || ""} class="insurance-text__image" />
-          </div>
+          <Image
+            source={img.source}
+            alt={img.alt || ""}
+            class="insurance-text__image"
+            rounded={false}
+            aspectRatio="none"
+            sizes="auto"
+            widths={[]}
+            editable={true}
+            data-prop-src="image.source"
+            data-prop-alt="image.alt"
+          />
         ))}
       </div>
     ) : null
