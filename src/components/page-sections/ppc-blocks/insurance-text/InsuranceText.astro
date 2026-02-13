@@ -51,17 +51,13 @@ const htmlAttributes = Object.fromEntries(
   {console.log("Images array: ", images)}
 
   {
-    images.length > 0 && (
+    images.length > 0 ? (
       <div class={`insurance-text__images ${imageType}`}>
         {images.map((img) => (
-          <Image
-            src={img.source || img.value?.source}
-            alt={img.alt || img.value?.alt}
-            class="insurance-text__image"
-          />
+          <Image src={img.source} alt={img.alt || ""} class="insurance-text__image" />
         ))}
       </div>
-    )
+    ) : null
   }
 </CustomSection>
 
