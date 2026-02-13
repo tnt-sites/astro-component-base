@@ -25,11 +25,11 @@ const htmlAttributes = Object.fromEntries(
   <article
     class="looking"
     style={blurbBackgroundColor !== "none"
-      ? `background-color: var(--color-${blurbBackgroundColor});`
+      ? `background-color: var(--bg-${blurbBackgroundColor});`
       : undefined}
   >
     <Text size="lg" alignX="center">
-      {text}
+      <Fragment set:html={text} />
     </Text>
   </article>
 </CustomSection>

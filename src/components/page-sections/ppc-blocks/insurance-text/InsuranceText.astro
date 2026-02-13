@@ -1,0 +1,60 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Text from "@core-elements/text/Text.astro";
+
+const {
+  heading = "",
+  text = "",
+  backgroundColor = "base",
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["insurance-text", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  <Heading
+    class:list={["insurance-text--heading", className]}
+    level="h2"
+    size="lg"
+    alignX="left"
+    data-prop="heading"
+  >
+    {heading}
+  </Heading>
+  <Text>
+    {text}
+  </Text>
+</CustomSection>
+
+<style>
+  .insurance-text--heading {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    position: relative;
+    text-align: left;
+    z-index: 2;
+  }
+  .insurance-text--heading:after {
+    background-color: #6a6869;
+    content: "";
+    flex: 1;
+    height: 2px;
+    margin-left: 30px;
+  }
+</style>
