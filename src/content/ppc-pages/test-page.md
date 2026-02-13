@@ -37,8 +37,8 @@ ppcPageSections:
       class="big-text">We want you to love </span>visiting Bell Road Dental Care
       of Phoenix.</p>
     backgroundColor: accent
-    textColor: '#f50000'
-    blurbBackgroundColor: base
+    textColor: black
+    blurbBackgroundColor: white
   - _component: page-sections/ppc-blocks/reviews
     backgroundColor: dark
     image:
