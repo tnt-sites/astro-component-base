@@ -33,7 +33,14 @@ const htmlAttributes = Object.fromEntries(
     alignX="left"
     data-prop="heading"
   >
-    {heading}
+    {
+      heading.split("||").map((line, i) => (
+        <>
+          {line}
+          {i === 0 ? <br class="mobile-break" /> : null}
+        </>
+      ))
+    }
   </Heading>
   <Text>
     {text}
@@ -59,6 +66,10 @@ const htmlAttributes = Object.fromEntries(
     margin-left: 30px;
   }
 
+  .mobile-break {
+    display: none;
+  }
+
   @media (max-width: 1024px) {
     .streak:after {
       bottom: 25px;
@@ -67,6 +78,12 @@ const htmlAttributes = Object.fromEntries(
       position: absolute;
       transform: translateX(-50%);
       width: 180px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mobile-break {
+      display: inline;
     }
   }
 </style>
