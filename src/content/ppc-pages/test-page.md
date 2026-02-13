@@ -25,10 +25,20 @@ ppcPageSections:
     reverse: false
     backgroundColor: base
   - _component: page-sections/ppc-blocks/blurb
-    text: Test **Big Text**
-    backgroundColor: base
-    textColor: '#f50000'
-    blurbBackgroundColor: none
+    text: >-
+      <p><span class="big-text">We understand.</span> Taking care of your teeth
+      and gums is not always your highest priority. In fact, many people do not
+      like going to the dentist. That is why we encourage you to give Bell Road
+      Dental Care of Phoenix a try.</p><p><span class="big-text">We are
+      different, </span>and we strive to make every visit amazing. Our team
+      starts with the highest clinical standards and personal attention to each
+      guest. Dental insurance is welcome. We offer same-day appointments, the
+      latest technology and a relaxing atmosphere.</p><p><span
+      class="big-text">We want you to love </span>visiting Bell Road Dental Care
+      of Phoenix.</p>
+    backgroundColor: accent
+    textColor: black
+    blurbBackgroundColor: white
   - _component: page-sections/ppc-blocks/reviews
     backgroundColor: dark
     image:
