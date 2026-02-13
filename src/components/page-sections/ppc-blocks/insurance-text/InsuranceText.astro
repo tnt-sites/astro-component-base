@@ -1,12 +1,15 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
 
 const {
   heading = "",
   text = "",
   backgroundColor = "base",
+  images = [],
+  imageType = "logos",
   class: className,
   editable = true,
   ...rest
@@ -27,7 +30,7 @@ const htmlAttributes = Object.fromEntries(
   {...htmlAttributes}
 >
   <Heading
-    class:list={["insurance-text--heading", className]}
+    class:list={["insurance-text__heading", className]}
     level="h2"
     size="xl"
     alignX="left"
@@ -45,10 +48,20 @@ const htmlAttributes = Object.fromEntries(
   <Text>
     {text}
   </Text>
+
+  {
+    images.length > 0 && (
+      <div class={`insurance-text__images ${imageType}`}>
+        {images.map((img) => (
+          <Image src={img.src} alt={img.alt} class="insurance-text__image" />
+        ))}
+      </div>
+    )
+  }
 </CustomSection>
 
 <style>
-  .insurance-text--heading {
+  .insurance-text__heading {
     align-items: center;
     display: flex;
     font-size: 50px;
@@ -58,7 +71,7 @@ const htmlAttributes = Object.fromEntries(
     text-align: left;
     z-index: 2;
   }
-  .insurance-text--heading:after {
+  .insurance-text__heading:after {
     background-color: #6a6869;
     content: "";
     flex: 1;
@@ -70,12 +83,38 @@ const htmlAttributes = Object.fromEntries(
     display: none;
   }
 
+  .insurance-text__images {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  /* Logos */
+  .insurance-text__images.logos .insurance-text__image {
+    box-shadow: none;
+    height: auto;
+    max-width: 150px;
+  }
+
+  /* Office images */
+  .insurance-text__images.office .insurance-text__image {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    height: auto;
+    max-width: 345px;
+  }
+
   @media (max-width: 1024px) {
-    .insurance-text--heading {
+    .insurance-text {
+      text-align: center;
+    }
+    .insurance-text__heading {
       display: block;
       text-align: center;
     }
-    .insurance-text--heading:after {
+    .insurance-text__heading:after {
       display: block;
       margin: 10px auto;
       position: static;
