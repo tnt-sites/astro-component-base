@@ -1,6 +1,5 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import RenderBlock from "@components/utils/renderBlock.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
@@ -55,16 +54,18 @@ const htmlAttributes = Object.fromEntries(
     images.length > 0 ? (
       <div class={`insurance-text__images ${imageType}`}>
         {images.map((img) => (
-          <p>Test</p>
-          <Image src={img.source} alt={img.alt || ""} class="insurance-text__image" />
+          <div>
+            <p>Test</p>
+            <Image src={img.source} alt={img.alt || ""} class="insurance-text__image" />
+          </div>
         ))}
       </div>
     ) : null
   }
 
-  <div class="insurance-text__images">
+  <!-- <div class="insurance-text__images">
     <RenderBlock contentSections={images} propName="images" editable={editable} />
-  </div>
+  </div> -->
 </CustomSection>
 
 <style>
