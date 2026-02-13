@@ -1,7 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
-import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
 
 const {
@@ -56,7 +55,7 @@ const htmlAttributes = Object.fromEntries(
         {images.map((img) => (
           <div>
             <p>Test</p>
-            <Image src={img.source} alt={img.alt || ""} class="insurance-text__image" />
+            <img src={img.source} alt={img.alt || ""} class="insurance-text__image" />
           </div>
         ))}
       </div>
