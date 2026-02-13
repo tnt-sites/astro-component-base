@@ -37,7 +37,7 @@ images:
   options:
     structures:
       values:
-        - label: Badge
+        - label: Image
           icon: workspace_premium
           value:
             _component: building-blocks/core-elements/image

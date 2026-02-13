@@ -53,7 +53,11 @@ const htmlAttributes = Object.fromEntries(
     images.length > 0 && (
       <div class={`insurance-text__images ${imageType}`}>
         {images.map((img) => (
-          <Image src={img.src} alt={img.alt} class="insurance-text__image" />
+          <Image
+            src={img.source || img.value?.source}
+            alt={img.alt || img.value?.alt}
+            class="insurance-text__image"
+          />
         ))}
       </div>
     )
