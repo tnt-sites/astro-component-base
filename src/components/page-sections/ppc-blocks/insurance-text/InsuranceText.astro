@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
 
 const {
@@ -62,8 +63,8 @@ const htmlAttributes = Object.fromEntries(
             sizes="auto"
             widths={[]}
             editable={true}
-            data-prop-src="image.source"
-            data-prop-alt="image.alt"
+            data-prop-src="img.source"
+            data-prop-alt="img.alt"
           />
         ))}
       </div>
