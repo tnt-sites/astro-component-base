@@ -29,7 +29,7 @@ const htmlAttributes = Object.fromEntries(
   <Heading
     class:list={["insurance-text--heading", className]}
     level="h2"
-    size="lg"
+    size="xl"
     alignX="left"
     data-prop="heading"
   >
@@ -44,6 +44,7 @@ const htmlAttributes = Object.fromEntries(
   .insurance-text--heading {
     align-items: center;
     display: flex;
+    font-size: 50px;
     justify-content: center;
     margin: 10px auto;
     position: relative;
@@ -56,5 +57,16 @@ const htmlAttributes = Object.fromEntries(
     flex: 1;
     height: 2px;
     margin-left: 30px;
+  }
+
+  @media (max-width: 1024px) {
+    .streak:after {
+      bottom: 25px;
+      left: 50%;
+      margin: auto;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 180px;
+    }
   }
 </style>

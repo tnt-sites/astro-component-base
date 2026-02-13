@@ -47,39 +47,40 @@ const htmlAttributes = Object.fromEntries(
     padding: 20px 30px;
   }
 
-  .looking > .bg-base {
+  .looking.bg-base {
     background-color: var(--color-bg);
   }
 
-  .looking > .bg-surface {
+  .looking.bg-surface {
     background-color: var(--color-bg-surface);
   }
 
-  .looking > .bg-accent {
+  .looking.bg-accent {
     background-color: var(--color-bg-accent);
   }
 
-  .looking > .bg-highlight {
+  .looking.bg-highlight {
     background-color: var(--color-bg-highlight);
   }
-  .looking > .bg-black {
+  .looking.bg-black {
     background-color: var(--color-bg-black);
   }
-  .looking > .bg-white {
+  .looking.bg-white {
     background-color: var(--color-bg-white);
   }
+  @layer components {
+    .looking .text {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.5;
+      margin: auto;
+      padding: 15px 10px;
+      text-align: center;
+    }
 
-  .looking .text {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.5;
-    margin: auto;
-    padding: 15px 10px;
-    text-align: center;
-  }
-
-  .looking .text span.big-text {
-    font-size: 30px;
-    font-weight: 400;
+    .looking .text span.big-text {
+      font-size: 30px;
+      font-weight: 400;
+    }
   }
 </style>
