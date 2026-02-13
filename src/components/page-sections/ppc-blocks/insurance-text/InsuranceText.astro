@@ -55,6 +55,7 @@ const htmlAttributes = Object.fromEntries(
     images.length > 0 ? (
       <div class={`insurance-text__images ${imageType}`}>
         {images.map((img) => (
+          <p>Test</p>
           <Image src={img.source} alt={img.alt || ""} class="insurance-text__image" />
         ))}
       </div>
@@ -99,14 +100,14 @@ const htmlAttributes = Object.fromEntries(
   }
 
   /* Logos */
-  .insurance-text__images.logos .insurance-text__image {
+  .insurance-text__images.logos .image {
     box-shadow: none;
     height: auto;
     max-width: 150px;
   }
 
   /* Office images */
-  .insurance-text__images.office .insurance-text__image {
+  .insurance-text__images.office .image {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     height: auto;
     max-width: 345px;
