@@ -7,15 +7,6 @@ belowBanner:
     icon: add
   definitions:
     component_name: BelowBanner
-    named_args:
-      - editor_key: heading
-        type: string
-        optional: true
-        remove_empty: true
-      - editor_key: backgroundColor
-        type: string
-        optional: true
-        remove_empty: true
     # Add your component arguments here
     # Example:
     # - editor_key: text
