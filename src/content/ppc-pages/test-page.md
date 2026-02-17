@@ -38,7 +38,7 @@ ppcPageSections:
       of Phoenix.</p>
     backgroundColor: accent
     textColor: white
-    blurbBackgroundColor: white
+    blurbBackgroundColor: black
   - _component: page-sections/ppc-blocks/insurance-text
     heading: Dental Insurance|| Welcome
     text: >-
