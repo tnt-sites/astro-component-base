@@ -1,6 +1,6 @@
 backgroundColor:
   type: select
-  comment: Background color behind the section
+  comment: Background color used behind the review.
   options:
     values:
       - id: none
@@ -13,7 +13,8 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
-
+      - id: dark
+        name: Dark
 items:
   type: list
   comment: Blocks for each image + heading + text
