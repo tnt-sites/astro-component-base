@@ -24,22 +24,34 @@ ppcPageSections:
         alt: ''
     reverse: false
     backgroundColor: base
-  - _component: page-sections/ppc-blocks/below-banner
-    backgroundColor: '#f26969'
+  - _component: page-sections/ppc-blocks/list-section
+    heading: list-section Heading
+    backgroundColor: surface
     items:
-      - headingPrefix: Looking for a
+      - headingPrefix: Looking for
         headingMain: New Dentist?
-        desktopImage: /uploads/ppc-er-np-2024-lists-1.jpg
+        desktopImage: /uploads/ppc-er-np-2024-lists-1-1.jpg
         mobileImage: /uploads/ppc-er-np-2024-lists-1-1.jpg
         alt: New Dentist
-        listText: Test
+        listText: |
+          <ul>
+            <li>Check-Ups & Cleanings</li>
+            <li>Dental Insurance Welcome</li>
+            <li>Friendly, Caring Staff</li>
+            <li>Crowns, Implants & More</li>
+          </ul>
       - headingPrefix: Have a
         headingMain: Dental Emergency?
-        desktopImage: /uploads/ppc-er-np-2024-lists-2.jpg
+        desktopImage: /uploads/ppc-er-np-2024-lists-2-1.jpg
         mobileImage: /uploads/ppc-er-np-2024-lists-2-1.jpg
         alt: Dental Emergency
-        listText: Test
-    heading: Test
+        listText: |
+          <ul>
+            <li>Tooth Pain & Sensitivity</li>
+            <li>Chipped or Fractured Tooth</li>
+            <li>Lost or Loose Crown</li>
+            <li>Bleeding or Swollen Gums</li>
+          </ul>
   - _component: page-sections/ppc-blocks/blurb
     text: >-
       <p><span class="big-text">We understand.</span> Taking care of your teeth
@@ -52,9 +64,9 @@ ppcPageSections:
       latest technology and a relaxing atmosphere.</p><p><span
       class="big-text">We want you to love </span>visiting Bell Road Dental Care
       of Phoenix.</p>
-    backgroundColor: accent
-    textColor: '#ffffff'
-    blurbBackgroundColor: '#000000'
+    backgroundColor: white
+    textColor: white
+    blurbBackgroundColor: black
   - _component: page-sections/ppc-blocks/insurance-text
     heading: Dental Insurance|| Welcome
     text: >-
