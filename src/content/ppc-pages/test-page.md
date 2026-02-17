@@ -24,6 +24,22 @@ ppcPageSections:
         alt: ''
     reverse: false
     backgroundColor: base
+  - _component: page-sections/ppc-blocks/below-banner
+    backgroundColor: '#f26969'
+    items:
+      - headingPrefix: Looking for a
+        headingMain: New Dentist?
+        desktopImage: /uploads/ppc-er-np-2024-lists-1.jpg
+        mobileImage: /uploads/ppc-er-np-2024-lists-1-1.jpg
+        alt: New Dentist
+        listText: Test
+      - headingPrefix: Have a
+        headingMain: Dental Emergency?
+        desktopImage: /uploads/ppc-er-np-2024-lists-2.jpg
+        mobileImage: /uploads/ppc-er-np-2024-lists-2-1.jpg
+        alt: Dental Emergency
+        listText: Test
+    heading: Test
   - _component: page-sections/ppc-blocks/blurb
     text: >-
       <p><span class="big-text">We understand.</span> Taking care of your teeth
@@ -37,8 +53,8 @@ ppcPageSections:
       class="big-text">We want you to love </span>visiting Bell Road Dental Care
       of Phoenix.</p>
     backgroundColor: accent
-    textColor: white
-    blurbBackgroundColor: black
+    textColor: '#ffffff'
+    blurbBackgroundColor: '#000000'
   - _component: page-sections/ppc-blocks/insurance-text
     heading: Dental Insurance|| Welcome
     text: >-
