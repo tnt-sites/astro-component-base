@@ -14,8 +14,6 @@ const htmlAttributes = Object.fromEntries(
 <CustomSection
   class:list={["lists-section", className]}
   maxContentWidth="3xl"
-  paddingHorizontal="lg"
-  paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
   {...htmlAttributes}
@@ -24,8 +22,26 @@ const htmlAttributes = Object.fromEntries(
     items.map((item) => (
       <div class="flex-ed">
         <figure>
-          <Image src={item.desktopImage} class="desktop-image" alt={item.alt} />
-          <Image src={item.mobileImage} class="mobile-image" alt={item.alt} />
+          <Image
+            source={item.desktopImage}
+            class="desktop-image"
+            alt={item.alt}
+            rounded={false}
+            aspectRatio="none"
+            sizes="auto"
+            data-prop-src="item.source"
+            data-prop-alt="item.alt"
+          />
+          <Image
+            source={item.mobileImage}
+            class="mobile-image"
+            alt={item.alt}
+            rounded={false}
+            aspectRatio="none"
+            sizes="auto"
+            data-prop-src="item.source"
+            data-prop-alt="item.alt"
+          />
         </figure>
         <div class="personalized">
           <Heading level="h2" size="lg" alignX="left" editable={false}>
@@ -128,5 +144,48 @@ const htmlAttributes = Object.fromEntries(
     left: -2px;
     position: absolute;
     top: 13px;
+  }
+
+  .desktop-image {
+    display: block;
+  }
+  .mobile-image {
+    display: none;
+  }
+
+  @media (max-width: 1024px) {
+    .list-section .flex-ed {
+      border: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 35px;
+    }
+
+    .personalized {
+      border: 3px solid rgba(0, 0, 0, 0.15);
+      padding: 15px 0 25px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .desktop-image {
+      display: none;
+    }
+
+    .mobile-image {
+      display: block;
+    }
+
+    .list-section {
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .personalized {
+      border-radius: 0;
+      margin: 15px auto;
+      padding: 20px 10px;
+    }
   }
 </style>
