@@ -62,6 +62,11 @@ const htmlAttributes = Object.fromEntries(
 </CustomSection>
 
 <style>
+  .split-section .flex-ed {
+    align-items: flex-start;
+    display: flex;
+    gap: 40px;
+  }
   .split-section figure {
     flex: 0 1 525px;
     position: relative;
@@ -116,7 +121,7 @@ const htmlAttributes = Object.fromEntries(
     text-transform: uppercase;
   }
 
-  /* .split-section h2 small:after {
+  .split-section h2 small:after {
     background: #6a6869;
     content: "";
     height: 1px;
@@ -125,7 +130,7 @@ const htmlAttributes = Object.fromEntries(
     top: 50%;
     transform: translateY(-50%);
     width: 42px;
-  } */
+  }
 
   .split-section .content p {
     color: #000;
