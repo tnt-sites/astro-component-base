@@ -37,7 +37,7 @@ ppcPageSections:
       class="big-text">We want you to love </span>visiting Bell Road Dental Care
       of Phoenix.</p>
     backgroundColor: accent
-    textColor: black
+    textColor: white
     blurbBackgroundColor: white
   - _component: page-sections/ppc-blocks/insurance-text
     heading: Dental Insurance|| Welcome
@@ -47,7 +47,7 @@ ppcPageSections:
       If you are fortunate enough to have dental insurance, call us. We help our
       patients maximize their insurance benefits so they pay as little out of
       pocket as possible.
-    backgroundColor: none
+    backgroundColor:
     images:
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/ppc-er-np-2024-office-1.jpg
@@ -58,7 +58,10 @@ ppcPageSections:
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/ppc-er-np-2024-office-3.jpg
         alt: ''
-    imageType: office
+      - _component: building-blocks/core-elements/image
+        source: /src/assets/images/ppc-er-np-2024-office-2.jpg
+        alt: ''
+    imageType: logos
   - _component: page-sections/ppc-blocks/reviews
     backgroundColor: dark
     image:
