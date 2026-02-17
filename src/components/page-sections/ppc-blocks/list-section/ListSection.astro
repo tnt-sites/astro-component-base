@@ -26,10 +26,11 @@ const htmlAttributes = Object.fromEntries(
 >
   {
     items.map((item) => (
+      console.log(item);
       <div class="flex-ed">
         <figure>
           <Image
-            source={item.desktopImage}
+            source={item.desktopImage.source}
             class="desktop-image"
             alt={item.alt}
             rounded={false}
@@ -40,7 +41,7 @@ const htmlAttributes = Object.fromEntries(
             data-prop-alt="item.desktopImage.alt"
           />
           <Image
-            source={item.mobileImage}
+            source={item.mobileImage.source}
             class="mobile-image"
             alt={item.alt}
             rounded={false}

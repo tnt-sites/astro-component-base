@@ -26,14 +26,51 @@ items:
         type: text
         comment: Main heading (e.g., "New Dentist?")
       desktopImage:
-        type: image
-        comment: Desktop image URL
+        type: object
+        comment: Image configuration for the section.
+        options:
+          structures:
+            values:
+              - label: Desktop Image
+                icon: image
+                value:
+                  _component: building-blocks/core-elements/image
+                  source: ""
+                  alt: ""
+                _inputs:
+                  source:
+                    type: image
+                    comment: The URL or path to the image.
+                    options:
+                      paths:
+                        uploads: src/assets/images
+                        static: ""
+                  alt:
+                    type: textarea
+                    comment: Alternative text for accessibility.
       mobileImage:
-        type: image
-        comment: Mobile image URL
-      alt:
-        type: text
-        comment: Alt text for images
+        type: object
+        comment: Image configuration for the mobile section.
+        options:
+          structures:
+            values:
+              - label: Mobile Image
+                icon: image
+                value:
+                  _component: building-blocks/core-elements/image
+                  source: ""
+                  alt: ""
+                _inputs:
+                  source:
+                    type: image
+                    comment: The URL or path to the image.
+                    options:
+                      paths:
+                        uploads: src/assets/images
+                        static: ""
+                  alt:
+                    type: textarea
+                    comment: Alternative text for accessibility.
       listText:
         type: markdown
         comment: Main Text
