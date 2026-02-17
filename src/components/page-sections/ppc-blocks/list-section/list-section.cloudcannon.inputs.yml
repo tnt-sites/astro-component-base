@@ -35,8 +35,19 @@ items:
         type: text
         comment: Alt text for images
       listText:
-        type: text
-        comment: Text below images
+        type: markdown
+        comment: Main Text
+        options:
+          blockquote: false
+          bold: true
+          italic: true
+          link: true
+          strike: false
+          subscript: true
+          superscript: true
+          underline: false
+          bulletedlist: true
+          numberedlist: false
 # Add your other component inputs here
 # Example:
 # text:
