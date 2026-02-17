@@ -253,15 +253,15 @@ pageSections:
     items:
       - _component: building-blocks/core-elements/list/list-item
         text: List item 1
-        iconName: stylised-check
+        iconName:
         iconColor: '#000000'
       - _component: building-blocks/core-elements/list/list-item
         text: List item 2
-        iconName: stylised-check
-        iconColor: default
+        iconName:
+        iconColor: '#000000'
       - _component: building-blocks/core-elements/list/list-item
         text: List item 3
-        iconName: stylised-check
-        iconColor: default
+        iconName:
+        iconColor: '#000000'
 description: ''
 ---
