@@ -29,7 +29,7 @@ const htmlAttributes = Object.fromEntries(
       <div class="flex-ed">
         <figure>
           <Image
-            source={item.desktopImage.source}
+            source={item.desktopImage}
             class="desktop-image"
             alt={item.alt}
             rounded={false}
@@ -40,7 +40,7 @@ const htmlAttributes = Object.fromEntries(
             data-prop-alt="item.alt"
           />
           <Image
-            source={item.mobileImage.source}
+            src={item.mobileImage}
             class="mobile-image"
             alt={item.alt}
             rounded={false}
