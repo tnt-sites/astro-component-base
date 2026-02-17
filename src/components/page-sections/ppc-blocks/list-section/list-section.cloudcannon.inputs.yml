@@ -14,7 +14,7 @@ backgroundColor:
       - id: highlight
         name: Highlight
 items:
-  type: list
+  type: array
   comment: Blocks for each image + heading + text
   item:
     type: object

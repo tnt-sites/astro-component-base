@@ -4,7 +4,7 @@ listSection:
   preview:
     text:
       - list-section
-    icon: add
+    icon: list
   definitions:
     component_name: ListSection
     named_args:
