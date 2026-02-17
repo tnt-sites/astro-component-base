@@ -104,13 +104,11 @@ ppcPageSections:
         mobileImage:
           source: /uploads/ppc-er-np-2024-lists-1.jpg
           alt: New Dentist
-        listText: |
-          <ul>
-            <li>Check-Ups & Cleanings</li>
-            <li>Dental Insurance Welcome</li>
-            <li>Friendly, Caring Staff</li>
-            <li>Crowns, Implants & More</li>
-          </ul>
+        listText: |-
+          * One
+          * Two
+          * Three
+          * Four
       - headingPrefix: Have a
         headingMain: Dental Emergency?
         desktopImage:
@@ -126,4 +124,25 @@ ppcPageSections:
             <li>Lost or Loose Crown</li>
             <li>Bleeding or Swollen Gums</li>
           </ul>
+  - _component: page-sections/ppc-blocks/split-section
+    backgroundColor: base
+    desktopImage:
+      _component: building-blocks/core-elements/image
+      source: /src/assets/images/ppc-er-np-2024-team.jpg
+      alt: ''
+    mobileImage:
+      _component: building-blocks/core-elements/image
+      source: /src/assets/images/ppc-er-np-2024-team.jpg
+      alt: ''
+    figcaption: Lily - Front Desk
+    headingPrefix: Personalized Dentistry
+    headingMain: It All Starts with You
+    content: >
+      <p>You will be amazed at the friendliness and thoroughness of all we do.
+      With a passion for helping people smile, our team provides you with a
+      complete assessment of your teeth, gums and jaw using the latest in
+      digital dental technology.</p>
+
+      <p>If a dental emergency is the reason for your visit, our first priority
+      is to get you out of pain.</p>
 ---
