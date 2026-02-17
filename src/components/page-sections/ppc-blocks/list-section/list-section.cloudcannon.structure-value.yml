@@ -1,0 +1,34 @@
+label: list-section
+icon: add
+description: Description for list-section component.
+value:
+  _component: page-sections/ppc-blocks/list-section
+  heading: "list-section Heading"
+  backgroundColor: base
+    items:
+    - headingPrefix: "Looking for"
+      headingMain: "New Dentist?"
+      desktopImage: ""
+      mobileImage: ""
+      alt: "New Dentist"
+      listText: |
+        <ul>
+          <li>Check-Ups & Cleanings</li>
+          <li>Dental Insurance Welcome</li>
+          <li>Friendly, Caring Staff</li>
+          <li>Crowns, Implants & More</li>
+        </ul>
+    - headingPrefix: "Have a"
+      headingMain: "Dental Emergency?"
+      desktopImage: ""
+      mobileImage: ""
+      alt: "Dental Emergency"
+      listText: |
+        <ul>
+          <li>Tooth Pain & Sensitivity</li>
+          <li>Chipped or Fractured Tooth</li>
+          <li>Lost or Loose Crown</li>
+          <li>Bleeding or Swollen Gums</li>
+        </ul>
+_inputs_from_glob:
+  - /src/components/page-sections/ppc-blocks/list-section/list-section.cloudcannon.inputs.yml
