@@ -3,9 +3,9 @@ icon: list
 description: Section with images, headings, and rich text lists
 value:
   _component: page-sections/ppc-blocks/below-banner
-  backgroundColor: base
+  backgroundColor: none
   items:
-    - headingPrefix: "Looking for a"
+    - headingPrefix: "Looking for"
       headingMain: "New Dentist?"
       desktopImage: "assets/images/ppc-er-np-2024-lists-1.jpg"
       mobileImage: "assets/images/ppc-er-np-2024-lists-1-mobile.jpg"
