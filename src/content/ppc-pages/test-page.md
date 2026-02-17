@@ -99,10 +99,10 @@ ppcPageSections:
       - headingPrefix: Looking for
         headingMain: New Dentist?
         desktopImage:
-          source: ''
+          source: /uploads/ppc-er-np-2024-lists-1.jpg
           alt: New Dentist
         mobileImage:
-          source: ''
+          source: /uploads/ppc-er-np-2024-lists-1.jpg
           alt: New Dentist
         listText: |
           <ul>
