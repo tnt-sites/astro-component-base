@@ -1,13 +1,12 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
-import Image from "@core-elements/image/Image.astro";
 import List from "@core-elements/list/List.astro";
 
 const {
   heading = "",
   backgroundColor = "base",
-  items = []
+  items = [],
   class: className,
   editable = true,
   ...rest
@@ -31,17 +30,11 @@ const htmlAttributes = Object.fromEntries(
     editable={false}
   /> -->
 
-  <Heading
-  level="h2"
-  size="lg"
-  alignX="center"
-  data-prop="heading"
-  >
+  <Heading level="h2" size="lg" alignX="center" data-prop="heading">
     {heading}
   </Heading>
 
-      <List items={items} direction="vertical" alignX="center" />
-
+  <List items={items} direction="vertical" alignX="center" />
 </CustomSection>
 
 <style>
@@ -49,7 +42,7 @@ const htmlAttributes = Object.fromEntries(
     text-transform: uppercase;
   }
 
-    .list {
+  .list {
     margin-bottom: var(--spacing-lg);
   }
 </style>
