@@ -24,34 +24,6 @@ ppcPageSections:
         alt: ''
     reverse: false
     backgroundColor: base
-  - _component: page-sections/ppc-blocks/list-section
-    heading: list-section Heading
-    backgroundColor: surface
-    items:
-      - headingPrefix: Looking for
-        headingMain: New Dentist?
-        desktopImage: /uploads/ppc-er-np-2024-lists-1-1.jpg
-        mobileImage: /uploads/ppc-er-np-2024-lists-1-1.jpg
-        alt: New Dentist
-        listText: |
-          <ul>
-            <li>Check-Ups & Cleanings</li>
-            <li>Dental Insurance Welcome</li>
-            <li>Friendly, Caring Staff</li>
-            <li>Crowns, Implants & More</li>
-          </ul>
-      - headingPrefix: Have a
-        headingMain: Dental Emergency?
-        desktopImage: /uploads/ppc-er-np-2024-lists-2-1.jpg
-        mobileImage: /uploads/ppc-er-np-2024-lists-2-1.jpg
-        alt: Dental Emergency
-        listText: |
-          <ul>
-            <li>Tooth Pain & Sensitivity</li>
-            <li>Chipped or Fractured Tooth</li>
-            <li>Lost or Loose Crown</li>
-            <li>Bleeding or Swollen Gums</li>
-          </ul>
   - _component: page-sections/ppc-blocks/blurb
     text: >-
       <p><span class="big-text">We understand.</span> Taking care of your teeth
@@ -120,4 +92,38 @@ ppcPageSections:
       and make every visit comfortable. The office is clean, welcoming, and
       always on time. Highly recommend for anyone looking for a great dentist in
       Phoenix!
+  - _component: page-sections/ppc-blocks/list-section
+    heading: list-section Heading
+    backgroundColor: base
+    items:
+      - headingPrefix: Looking for
+        headingMain: New Dentist?
+        desktopImage:
+          source: ''
+          alt: New Dentist
+        mobileImage:
+          source: ''
+          alt: New Dentist
+        listText: |
+          <ul>
+            <li>Check-Ups & Cleanings</li>
+            <li>Dental Insurance Welcome</li>
+            <li>Friendly, Caring Staff</li>
+            <li>Crowns, Implants & More</li>
+          </ul>
+      - headingPrefix: Have a
+        headingMain: Dental Emergency?
+        desktopImage:
+          source: ''
+          alt: Dental Emergency
+        mobileImage:
+          source: ''
+          alt: Dental Emergency
+        listText: |
+          <ul>
+            <li>Tooth Pain & Sensitivity</li>
+            <li>Chipped or Fractured Tooth</li>
+            <li>Lost or Loose Crown</li>
+            <li>Bleeding or Swollen Gums</li>
+          </ul>
 ---

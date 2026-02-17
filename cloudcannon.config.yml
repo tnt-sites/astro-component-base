@@ -118,6 +118,40 @@ collections_config:
     disable_url: false
     _enabled_editors:
       - visual
+    _inputs:
+      $.ppcPageSections[*].items[*].desktopImage.source:
+        type: image
+        cascade: true
+      $.ppcPageSections[*].items[*].mobileImage.source:
+        type: image
+        cascade: true
+      $.ppcPageSections[*].items[*].listText:
+        type: markdown
+        options:
+          allow_resize: true
+          allow_custom_markup: false
+          remove_custom_markup: false
+          initial_height: 320
+          image_size_attributes: true
+          required:
+          required_message:
+          min_length:
+          min_length_message:
+          max_length:
+          max_length_message:
+          pattern:
+          pattern_message:
+          min_graphemes:
+          min_graphemes_message:
+          max_graphemes:
+          max_graphemes_message:
+          min_words:
+          min_words_message:
+          max_words:
+          max_words_message:
+          locale:
+          empty_type:
+        cascade: true
     create:
     disable_add: false
     disable_add_folder: false
@@ -134,6 +168,9 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
+        _inputs:
+          $.ppcPageSections[*].items[*].listText:
+            cascade: true
       form-page:
         path: .cloudcannon/schemas/ppc/ppc-form.md
         reorder_inputs: true
