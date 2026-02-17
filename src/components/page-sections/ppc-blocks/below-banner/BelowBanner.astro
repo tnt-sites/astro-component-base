@@ -1,0 +1,90 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import Text from "@core-elements/text/Text.astro";
+
+const { items = [], backgroundColor = "base", class: className, ...rest } = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["lists-section", className]}
+  maxContentWidth="3xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {
+    items.map((item) => (
+      <div class="flex-ed">
+        <figure>
+          <Image src={item.desktopImage} class="desktop-image" alt={item.alt} />
+          <Image src={item.mobileImage} class="mobile-image" alt={item.alt} />
+        </figure>
+        <div class="personalized">
+          <Heading level="h2" size="lg" alignX="left">
+            <span>{item.headingPrefix}</span> {item.headingMain}
+          </Heading>
+          <div class="border-box">
+            <Text data-prop="listText">{item.listText}</Text>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</CustomSection>
+
+<style>
+  .lists-section {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 60px auto;
+    max-width: 1150px;
+    padding-bottom: 60px;
+    position: relative;
+  }
+
+  .lists-section .flex-ed {
+    border: 1px solid #6a6869;
+    border-left: none;
+    border-right: none;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .lists-section .flex-ed:first-of-type {
+    border-bottom: none;
+  }
+
+  .lists-section .flex-ed:first-of-type figure {
+    order: 2;
+  }
+
+  .lists-section .flex-ed:last-of-type {
+    border-top: none;
+  }
+
+  .lists-section .flex-ed figure {
+    border: 1px solid #6a6869;
+    position: relative;
+  }
+
+  .lists-section .flex-ed figure figcaption {
+    background: rgba(255, 255, 255, 0.8);
+    bottom: 0;
+    left: 0;
+    letter-spacing: 0.2em;
+    padding: 10px;
+    position: absolute;
+    text-transform: uppercase;
+    width: 100%;
+  }
+</style>
