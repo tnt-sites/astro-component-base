@@ -28,11 +28,13 @@ const htmlAttributes = Object.fromEntries(
           <Image src={item.mobileImage} class="mobile-image" alt={item.alt} />
         </figure>
         <div class="personalized">
-          <Heading level="h2" size="lg" alignX="left">
+          <Heading level="h2" size="lg" alignX="left" editable={true}>
             <span>{item.headingPrefix}</span> {item.headingMain}
           </Heading>
           <div class="border-box">
-            <Text data-prop="listText">{item.listText}</Text>
+            <Text editable={true} data-prop="listText">
+              {item.listText}
+            </Text>
           </div>
         </div>
       </div>
