@@ -33,22 +33,22 @@ const htmlAttributes = Object.fromEntries(
             class="desktop-image"
             alt={item.alt}
             rounded={false}
-            editable={false}
+            editable={true}
             aspectRatio="none"
             sizes="auto"
-            data-prop-src="item.source"
-            data-prop-alt="item.alt"
+            data-prop-src="item.desktopImage.source"
+            data-prop-alt="item.desktopImage.alt"
           />
           <Image
-            src={item.mobileImage}
+            source={item.mobileImage}
             class="mobile-image"
             alt={item.alt}
             rounded={false}
-            editable={false}
+            editable={true}
             aspectRatio="none"
             sizes="auto"
-            data-prop-src="item.source"
-            data-prop-alt="item.alt"
+            data-prop-src="item.mobileImage.source"
+            data-prop-alt="item.mobileImage.alt"
           />
         </figure>
         <div class="personalized">
@@ -84,6 +84,7 @@ const htmlAttributes = Object.fromEntries(
     flex-wrap: nowrap;
     gap: 1rem;
     justify-content: space-between;
+    text-align: center;
   }
 
   .lists-section .flex-ed:first-of-type {
