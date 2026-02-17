@@ -69,7 +69,7 @@ pageSections:
     colorScheme: default
     backgroundColor: none
   - _component: page-sections/builders/custom-section
-    label: ""
+    label: ''
     contentSections:
       - _component: building-blocks/core-elements/spacer
         size: md
@@ -91,8 +91,8 @@ pageSections:
     colorScheme: contrast
     backgroundColor: surface
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -170,7 +170,7 @@ pageSections:
     subtext: We're a group of stock photography faces that fill out this team grid.
     teamMembers:
       - _component: page-sections/people/team-grid/team-item
-        name: "Alex Smith "
+        name: 'Alex Smith '
         role: Lead Developer
         bio: >-
           As a fictional representation of a real employee, I exist solely to
@@ -247,4 +247,21 @@ pageSections:
     colorScheme: contrast
     backgroundColor: surface
     paddingVertical: 4xl
+  - _component: page-sections/info-blocks/why
+    heading: why Heading
+    backgroundColor: none
+    items:
+      - _component: building-blocks/core-elements/list/list-item
+        text: List item 1
+        iconName: stylised-check
+        iconColor: '#000000'
+      - _component: building-blocks/core-elements/list/list-item
+        text: List item 2
+        iconName: stylised-check
+        iconColor: default
+      - _component: building-blocks/core-elements/list/list-item
+        text: List item 3
+        iconName: stylised-check
+        iconColor: default
+description: ''
 ---
