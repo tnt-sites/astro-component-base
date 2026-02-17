@@ -27,7 +27,7 @@ items:
         comment: Main heading (e.g., "New Dentist?")
       desktopImage:
         type: object
-        comment: Image configuration for the section.
+        comment: Image configuration for the desktop section.
         options:
           structures:
             values:

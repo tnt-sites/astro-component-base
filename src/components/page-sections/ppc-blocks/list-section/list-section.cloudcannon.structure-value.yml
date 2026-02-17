@@ -8,9 +8,12 @@ value:
   items:
     - headingPrefix: "Looking for"
       headingMain: "New Dentist?"
-      desktopImage: ""
-      mobileImage: ""
-      alt: "New Dentist"
+      desktopImage:
+        source: ""
+        alt: "New Dentist"
+      mobileImage:
+        source: ""
+        alt: "New Dentist"
       listText: |
         <ul>
           <li>Check-Ups & Cleanings</li>
@@ -20,9 +23,12 @@ value:
         </ul>
     - headingPrefix: "Have a"
       headingMain: "Dental Emergency?"
-      desktopImage: ""
-      mobileImage: ""
-      alt: "Dental Emergency"
+      desktopImage:
+        source: ""
+        alt: "Dental Emergency"
+      mobileImage:
+        source: ""
+        alt: "Dental Emergency"
       listText: |
         <ul>
           <li>Tooth Pain & Sensitivity</li>
