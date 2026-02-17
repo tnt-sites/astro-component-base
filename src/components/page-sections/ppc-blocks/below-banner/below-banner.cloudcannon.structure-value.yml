@@ -1,9 +1,31 @@
-label: below-banner
-icon: add
-description: Description for below-banner component.
+label: Below Banner
+icon: list
+description: Section with images, headings, and rich text lists
 value:
   _component: page-sections/ppc-blocks/below-banner
-  heading: "below-banner Heading"
   backgroundColor: base
-_inputs_from_glob:
-  - /src/components/page-sections/ppc-blocks/below-banner/below-banner.cloudcannon.inputs.yml
+  items:
+    - headingPrefix: "Looking for a"
+      headingMain: "New Dentist?"
+      desktopImage: "assets/images/ppc-er-np-2024-lists-1.jpg"
+      mobileImage: "assets/images/ppc-er-np-2024-lists-1-mobile.jpg"
+      alt: "New Dentist"
+      listText: |
+        <ul>
+          <li>Check-Ups & Cleanings</li>
+          <li>Dental Insurance Welcome</li>
+          <li>Friendly, Caring Staff</li>
+          <li>Crowns, Implants & More</li>
+        </ul>
+    - headingPrefix: "Have a"
+      headingMain: "Dental Emergency?"
+      desktopImage: "assets/images/ppc-er-np-2024-lists-2.jpg"
+      mobileImage: "assets/images/ppc-er-np-2024-lists-2-mobile.jpg"
+      alt: "Dental Emergency"
+      listText: |
+        <ul>
+          <li>Tooth Pain & Sensitivity</li>
+          <li>Chipped or Fractured Tooth</li>
+          <li>Lost or Loose Crown</li>
+          <li>Bleeding or Swollen Gums</li>
+        </ul>
