@@ -1,6 +1,6 @@
 backgroundColor:
   type: select
-  comment: Background color used behind the grid.
+  comment: Background color used behind the section.
   options:
     values:
       - id: none
@@ -13,8 +13,29 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
-# Add your other component inputs here
-# Example:
-# text:
-#   type: text
-#   comment: The text content for the component.
+      - id: dark
+        name: Dark
+items:
+  type: list
+  comment: Blocks for each image + heading + text
+  item:
+    type: object
+    properties:
+      headingPrefix:
+        type: text
+        comment: First part of heading (e.g., "Looking for a")
+      headingMain:
+        type: text
+        comment: Main heading (e.g., "New Dentist?")
+      desktopImage:
+        type: image
+        comment: Desktop image URL
+      mobileImage:
+        type: image
+        comment: Mobile image URL
+      alt:
+        type: text
+        comment: Alt text for images
+      listText:
+        type: text
+        comment: Text below images

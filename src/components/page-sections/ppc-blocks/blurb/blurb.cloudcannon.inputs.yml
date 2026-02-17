@@ -1,6 +1,6 @@
 backgroundColor:
   type: select
-  comment: Background color used behind the review.
+  comment: Background color used behind the box.
   options:
     values:
       - id: none
@@ -13,29 +13,46 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
-      - id: dark
-        name: Dark
-items:
-  type: list
-  comment: Blocks for each image + heading + text
-  item:
-    type: object
-    properties:
-      headingPrefix:
-        type: text
-        comment: First part of heading (e.g., "Looking for a")
-      headingMain:
-        type: text
-        comment: Main heading (e.g., "New Dentist?")
-      desktopImage:
-        type: image
-        comment: Desktop image URL
-      mobileImage:
-        type: image
-        comment: Mobile image URL
-      alt:
-        type: text
-        comment: Alt text for images
-      listText:
-        type: text
-        comment: Text below images
+      - id: black
+        name: Black
+      - id: white
+        name: White
+text:
+  type: html
+  comment: Main Text
+  options:
+    styles: .cloudcannon/styles/editor.css
+textColor:
+  type: select
+  comment: Color of the text.
+  options:
+    values:
+      - id: black
+        name: Black
+      - id: white
+        name: White
+blurbBackgroundColor:
+  type: select
+  comment: Background color used inside the box.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: black
+        name: Black
+      - id: white
+        name: White
+
+# Add your other component inputs here
+# Example:
+# text:
+#   type: text
+#   comment: The text content for the component.
