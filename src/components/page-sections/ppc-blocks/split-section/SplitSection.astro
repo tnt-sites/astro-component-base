@@ -62,34 +62,6 @@ const htmlAttributes = Object.fromEntries(
 </CustomSection>
 
 <style>
-  .split-section {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    max-width: 1220px;
-    padding: 50px 10px 60px;
-    position: relative;
-    width: 100%;
-    z-index: 2;
-  }
-
-  .outer-content {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 1220px;
-    width: 100%;
-  }
-
-  .split-section .flex-ed {
-    align-items: flex-start;
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 2rem;
-    justify-content: center;
-    width: 100%;
-  }
-
   .split-section figure {
     flex: 0 1 525px;
     position: relative;
@@ -144,7 +116,7 @@ const htmlAttributes = Object.fromEntries(
     text-transform: uppercase;
   }
 
-  .split-section h2 small:after {
+  /* .split-section h2 small:after {
     background: #6a6869;
     content: "";
     height: 1px;
@@ -153,7 +125,7 @@ const htmlAttributes = Object.fromEntries(
     top: 50%;
     transform: translateY(-50%);
     width: 42px;
-  }
+  } */
 
   .split-section .content p {
     color: #000;
@@ -161,14 +133,6 @@ const htmlAttributes = Object.fromEntries(
     font-weight: 400;
     line-height: 1.4;
     margin-bottom: 1rem;
-  }
-
-  .desktop-image {
-    display: block;
-  }
-
-  .mobile-image {
-    display: none;
   }
 
   @media (max-width: 1024px) {
