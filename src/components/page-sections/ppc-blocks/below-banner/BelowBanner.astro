@@ -29,10 +29,11 @@ const htmlAttributes = Object.fromEntries(
       <div class="flex-ed">
         <figure>
           <Image
-            src={item.desktopImage}
+            source={item.desktopImage}
             class="desktop-image"
             alt={item.alt}
             rounded={false}
+            editable={false}
             aspectRatio="none"
             sizes="auto"
             data-prop-src="item.source"
@@ -43,6 +44,7 @@ const htmlAttributes = Object.fromEntries(
             class="mobile-image"
             alt={item.alt}
             rounded={false}
+            editable={false}
             aspectRatio="none"
             sizes="auto"
             data-prop-src="item.source"
