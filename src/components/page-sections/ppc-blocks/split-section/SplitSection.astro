@@ -23,7 +23,7 @@ const htmlAttributes = Object.fromEntries(
 
 <CustomSection
   id="dentist"
-  class:list={["split-section", "container", "split", "even", className]}
+  class:list={["split-section", "container", "even", className]}
   maxContentWidth="2xl"
   paddingHorizontal="lg"
   paddingVertical="4xl"
@@ -71,7 +71,12 @@ const htmlAttributes = Object.fromEntries(
     max-width: 1220px;
     padding: 50px 10px 60px;
     position: relative;
+    width: 100%;
     z-index: 2;
+  }
+
+  .outer-content {
+    width: 100%;
   }
 
   .split-section .flex-ed {
