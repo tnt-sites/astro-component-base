@@ -18,6 +18,7 @@ const htmlAttributes = Object.fromEntries(
 ---
 
 <CustomSection
+  id="lists"
   class:list={["list-section", className]}
   maxContentWidth="3xl"
   colorScheme="default"
@@ -36,8 +37,6 @@ const htmlAttributes = Object.fromEntries(
             editable={false}
             aspectRatio="none"
             sizes="auto"
-            data-prop-src="item.desktopImage.source"
-            data-prop-alt="item.desktopImage.alt"
           />
           <Image
             source={item.mobileImage.source}
@@ -47,8 +46,6 @@ const htmlAttributes = Object.fromEntries(
             editable={false}
             aspectRatio="none"
             sizes="auto"
-            data-prop-src="item.mobileImage.source"
-            data-prop-alt="item.mobileImage.alt"
           />
         </figure>
         <div class="personalized">
@@ -56,9 +53,11 @@ const htmlAttributes = Object.fromEntries(
             <span class="small-text">{item.headingPrefix}</span> {item.headingMain}
           </Heading>
           <div class="border-box">
-            <Text editable={false} data-prop="listText">
-              {item.listText}
-            </Text>
+            <div class="list">
+              <Text editable={false} data-prop="listText">
+                {item.listText}
+              </Text>
+            </div>
           </div>
         </div>
       </div>

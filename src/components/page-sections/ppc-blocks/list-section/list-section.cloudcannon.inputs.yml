@@ -44,7 +44,6 @@ items:
                     options:
                       paths:
                         uploads: src/assets/images
-                        static: ""
                   alt:
                     type: textarea
                     comment: Alternative text for accessibility.
@@ -67,7 +66,6 @@ items:
                     options:
                       paths:
                         uploads: src/assets/images
-                        static: ""
                   alt:
                     type: textarea
                     comment: Alternative text for accessibility.
