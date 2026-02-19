@@ -249,11 +249,11 @@ pageSections:
     paddingVertical: 4xl
   - _component: page-sections/info-blocks/why
     heading: why Heading
-    backgroundColor: none
+    backgroundColor: accent
     items:
       - _component: building-blocks/core-elements/list/list-item
         text: List item 1
-        iconName:
+        iconName: check
         iconColor: '#000000'
       - _component: building-blocks/core-elements/list/list-item
         text: List item 2
@@ -263,5 +263,36 @@ pageSections:
         text: List item 3
         iconName:
         iconColor: '#000000'
+  - _component: page-sections/people/team-grid
+    eyebrow: Our team
+    heading: Meet the team
+    subtext: Get to know the people behind our work.
+    teamMembers:
+      - _component: page-sections/people/team-grid/team-item
+        name: Team member name
+        role: Job title
+        bio: Brief bio or description of the team member.
+        imageSource: /src/assets/images/component-library/profile.jpg
+        imageAlt: Team member photo
+    colorScheme: inherit
+    backgroundColor: base
+  - _component: page-sections/ctas/cta-split
+    heading: Heading text
+    subtext: Subtext placeholder text that will be replaced with actual content.
+    imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
+    imageAlt: CTA image
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        text: My Button
+        hideText: false
+        link: ''
+        iconName: ''
+        iconPosition: before
+        variant: ghost
+        size: md
+    reverse: true
+    colorScheme: default
+    backgroundColor: base
+    rounded: false
 description: ''
 ---
