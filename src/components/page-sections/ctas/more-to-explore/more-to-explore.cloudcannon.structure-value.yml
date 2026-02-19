@@ -1,0 +1,18 @@
+label: More to Explore
+icon: add
+description: Description for More to Explore component.
+value:
+  _component: src\components\page-sections\ctas\more-to-explore
+  heading: "More to Explore Heading"
+  maxContentWidth: null
+  paddingHorizontal: sm
+  paddingVertical: sm
+  backgroundColor: base
+  backgroundColor: base
+  backgroundImage:
+    source: null
+    alt: null
+    positionVertical: top
+    positionHorizontal: center
+_inputs_from_glob:
+  - /src\components\page-sections\ctas\more-to-explore/more-to-explore.cloudcannon.inputs.yml
