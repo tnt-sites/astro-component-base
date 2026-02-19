@@ -1,7 +1,23 @@
 {
   "column2Heading": "Contact Us",
-  "infoLinks": [],
-  "buttonSections": [],
+  "infoLinks": [
+    {
+      "text": "(469) 972-0054",
+      "url": "tel:+14699720054"
+    }
+  ],
+  "buttonSections": [
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "Facebook",
+      "hideText": true,
+      "link": "https://www.facebook.com/bloomkidsdentist",
+      "iconName": "social/facebook",
+      "iconPosition": "before",
+      "variant": "primary",
+      "size": "lg"
+    }
+  ],
   "column3Heading": "Office Hours",
   "hours": [],
   "badge": {
