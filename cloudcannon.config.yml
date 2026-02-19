@@ -109,6 +109,23 @@ collection_groups:
   - heading: Data
     collections:
       - data
+file_config:
+  - glob: src/data/footer.json
+    _inputs:
+      infoLinks:
+        type: array
+        options:
+          structures:
+            values:
+              - label: Footer Link
+                icon: link
+                value:
+                  text: ""
+                  url: ""
+      buttonSections:
+        type: array
+        options:
+          structures: _structures.buttonSections
 _inputs:
   pageSections:
     comment: The main sections of the page.

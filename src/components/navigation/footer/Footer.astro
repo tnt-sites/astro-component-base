@@ -11,7 +11,7 @@ import GridItem from "@wrappers/grid/GridItem.astro";
 const {
   column2Heading = "",
   infoLinks = [],
-  socialButtonSections = [],
+  buttonSections = [],
   column3Heading = "",
   hours = [],
   badge = {
@@ -39,7 +39,7 @@ const {
       <GridItem>
         <Heading level="h2" size="lg">{column2Heading}</Heading>
         <ButtonGroup buttonSections={infoLinks} direction="column" />
-        <ButtonGroup buttonSections={socialButtonSections} direction="row" />
+        <ButtonGroup buttonSections={buttonSections} direction="row" />
       </GridItem>
       <GridItem> 
         <Heading level="h2" size="lg">{column3Heading}</Heading>
