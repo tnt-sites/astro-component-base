@@ -21,4 +21,4 @@ moreToExplore:
     # - editor_key: text
     #   type: string
   _inputs_from_glob:
-    - /src\components\page-sections\ctas\more-to-explore/more-to-explore.cloudcannon.inputs.yml
+    - /src/components/page-sections/ctas/more-to-explore/more-to-explore.cloudcannon.inputs.yml
