@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
@@ -48,11 +49,11 @@ const htmlAttributes = Object.fromEntries(
     background={true}
   />
   <Heading
-  class="more-to-explore__heading"
-  level="h6"
-  size="xl"
-  alignX="center"
-  data-prop="heading"
+    class="more-to-explore__heading"
+    level="h6"
+    size="xl"
+    alignX="center"
+    data-prop="heading"
   >
     {heading}
   </Heading>
@@ -61,10 +62,8 @@ const htmlAttributes = Object.fromEntries(
 
 <style>
   .more-to-explore {
-
-        > .background-image {
-        z-index: var(--layer-1);
-      }
-      
+    > .background-image {
+      z-index: var(--layer-1);
+    }
   }
 </style>

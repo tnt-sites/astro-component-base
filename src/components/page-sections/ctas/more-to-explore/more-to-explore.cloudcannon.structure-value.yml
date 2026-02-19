@@ -8,7 +8,6 @@ value:
   paddingHorizontal: sm
   paddingVertical: sm
   backgroundColor: base
-  backgroundColor: base
   backgroundImage:
     source: null
     alt: null
