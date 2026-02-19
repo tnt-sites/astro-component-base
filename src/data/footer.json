@@ -2,6 +2,7 @@
   "column2Heading": "Contact Us",
   "infoLinks": [
     {
+      "_component": "building-blocks/core-elements/button",
       "text": "(469) 972-0054",
       "url": "tel:+14699720054"
     }
