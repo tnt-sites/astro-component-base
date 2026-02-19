@@ -120,12 +120,17 @@ file_config:
               - label: Footer Link
                 icon: link
                 value:
+                  _component: "building-blocks/core-elements/button"
                   text: ""
-                  url: ""
+                  link: ""
       buttonSections:
         type: array
         options:
           structures: _structures.buttonSections
+      definitionList:
+        type: array
+        options:
+          structures: _structures.definitionList
 _inputs:
   pageSections:
     comment: The main sections of the page.
