@@ -46,7 +46,7 @@ pageSections:
     colorScheme: inherit
     backgroundColor: base
     rounded: false
-  - _component: src\components\page-sections\ctas\more-to-explore
+  - _component: page-sections\ctas\more-to-explore
     heading: More to Explore Heading
     buttonSections:
       - _component: building-blocks/core-elements/button
