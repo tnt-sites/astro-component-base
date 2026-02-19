@@ -28,7 +28,7 @@ export default defineConfig({
     port: 4321,
   },
   image: {
-    domains: ["picsum.photos"],
+    domains: ["assets.imgix.net", "picsum.photos", "placebear.com"],
   },
   integrations: [
     editableRegions(),
