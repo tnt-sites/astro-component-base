@@ -109,9 +109,6 @@ collection_groups:
   - heading: Data
     collections:
       - data
-  - heading: New Collections
-    collections:
-      - content
 _inputs:
   pageSections:
     comment: The main sections of the page.
