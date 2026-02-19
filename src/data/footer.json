@@ -20,7 +20,19 @@
     }
   ],
   "column3Heading": "Office Hours",
-  "hours": [],
+  "hours": [
+    {
+      "_component": "building-blocks/core-elements/definition-list",
+      "items": [
+        {
+          "_component": "building-blocks/core-elements/definition-list/definition-list-item",
+          "title": "Monday",
+          "text": "8:30 am - 5:00 pm"
+        }
+      ],
+      "alignX": "start"
+    }
+  ],
   "badge": {
     "source": "",
     "alt": ""
