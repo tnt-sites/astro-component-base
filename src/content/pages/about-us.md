@@ -46,71 +46,25 @@ pageSections:
     colorScheme: inherit
     backgroundColor: base
     rounded: false
-  - _component: page-sections/builders/custom-section
-    label: More to Explore
-    contentSections:
-      - _component: building-blocks/core-elements/heading
-        text: More to Explore
-        level: h6
-        size: xl
-        alignX: center
-        iconName:
+  - _component: src\components\page-sections\ctas\more-to-explore
+    heading: More to Explore Heading
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        text: My Button
+        hideText: false
+        link: ''
+        iconName: ''
         iconPosition: before
-      - _component: building-blocks/wrappers/button-group
-        label: More to Explore Buttons
-        buttonSections:
-          - _component: building-blocks/core-elements/button
-            text: My Button
-            hideText: false
-            link: ''
-            iconName: ''
-            iconPosition: before
-            variant: primary
-            size: md
-          - _component: building-blocks/core-elements/button
-            text: My Button
-            hideText: false
-            link: ''
-            iconName: ''
-            iconPosition: before
-            variant: primary
-            size: md
-          - _component: building-blocks/core-elements/button
-            text: My Button
-            hideText: false
-            link: ''
-            iconName: ''
-            iconPosition: before
-            variant: primary
-            size: md
-          - _component: building-blocks/core-elements/button
-            text: My Button
-            hideText: false
-            link: ''
-            iconName: ''
-            iconPosition: before
-            variant: primary
-            size: md
-          - _component: building-blocks/core-elements/button
-            text: View Our Services
-            hideText: false
-            link: ''
-            iconName: ''
-            iconPosition: before
-            variant: secondary
-            size: md
-        direction: row
-        alignX: center
-    maxContentWidth: 3xl
-    paddingHorizontal: md
-    paddingVertical: 3xl
-    colorScheme: inherit
-    backgroundColor: base
+        variant: primary
+        size: md
+    maxContentWidth:
+    paddingHorizontal: sm
+    paddingVertical: sm
+    backgroundColor: '#000000'
     backgroundImage:
-      source: /src/assets/images/component-library/castle.jpg
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
-    rounded: false
 description: ''
 ---
