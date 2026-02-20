@@ -22,8 +22,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -40,8 +40,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -56,8 +56,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -70,8 +70,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -80,9 +80,9 @@ pageSections:
     paddingVertical: sm
     backgroundColor: base
     backgroundImage:
-      source:
+      source: /src/assets/images/component-library/dunedin-cliff.jpg
       alt:
       positionVertical: top
       positionHorizontal: center
-description: ""
+description: ''
 ---
