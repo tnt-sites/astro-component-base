@@ -68,7 +68,7 @@ pageSections:
     label: ''
     contentSections:
       - _component: building-blocks/wrappers/carousel
-        label: ''
+        label: Carousel Test
         slides:
           - _component: building-blocks/wrappers/carousel/carousel-slide
             contentSections:
@@ -80,6 +80,18 @@ pageSections:
                 positionVertical: center
                 positionHorizontal: center
                 priority: false
+          - _component: building-blocks/wrappers/carousel/carousel-slide
+            contentSections:
+              - _component: building-blocks/core-elements/image
+                source: /src/assets/images/component-library/profile3.jpg
+                alt: ''
+                rounded: false
+                aspectRatio: none
+                positionVertical: center
+                positionHorizontal: center
+                priority: false
+          - _component: building-blocks/wrappers/carousel/carousel-slide
+            contentSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile5.jpg
                 alt: ''
@@ -88,17 +100,9 @@ pageSections:
                 positionVertical: center
                 positionHorizontal: center
                 priority: false
-              - _component: building-blocks/core-elements/image
-                source: /src/assets/images/component-library/profile4.jpg
-                alt: ''
-                rounded: false
-                aspectRatio: none
-                positionVertical: center
-                positionHorizontal: center
-                priority: false
-        autoPlay: true
-        autoScroll: true
-        slideWidthPercent: 50
+        autoPlay: false
+        autoScroll: false
+        slideWidthPercent: 100
         minSlideWidth: 0
     maxContentWidth: 2xl
     paddingHorizontal: md
