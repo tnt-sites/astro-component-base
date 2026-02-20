@@ -76,7 +76,7 @@ pageSections:
                 source: /src/assets/images/component-library/profile.jpg
                 alt: ''
                 rounded: false
-                aspectRatio: square
+                aspectRatio: none
                 positionVertical: center
                 positionHorizontal: center
                 priority: false
