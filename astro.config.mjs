@@ -1,6 +1,7 @@
 import sitemap from "@astrojs/sitemap";
 import editableRegions from "@cloudcannon/editable-regions/astro-integration";
 import postcssGlobalData from "@csstools/postcss-global-data";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import autoprefixer from "autoprefixer";
@@ -29,6 +30,9 @@ export default defineConfig({
   },
   image: {
     domains: ["assets.imgix.net", "picsum.photos", "placebear.com"],
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
   integrations: [
     editableRegions(),
