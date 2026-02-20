@@ -31,6 +31,24 @@ pageSections:
     colorScheme: default
     backgroundColor: base
     rounded: false
+  - _component: page-sections/ctas/cta-split
+    heading: Heading text
+    subtext: Subtext placeholder text that will be replaced with actual content.
+    imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
+    imageAlt: CTA image
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        text: My Button
+        hideText: false
+        link: ''
+        iconName: ''
+        iconPosition: before
+        variant: primary
+        size: md
+    reverse: true
+    colorScheme: default
+    backgroundColor: base
+    rounded: false
   - _component: page-sections/ctas/cta-center
     heading: Heading text
     subtext: Subtext placeholder text that will be replaced with actual content.
