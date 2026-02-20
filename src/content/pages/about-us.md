@@ -25,7 +25,7 @@ pageSections:
         link: ''
         iconName: ''
         iconPosition: before
-        variant: primary
+        variant: text
         size: md
     reverse: false
     colorScheme: default
@@ -63,6 +63,53 @@ pageSections:
         size: md
     colorScheme: inherit
     backgroundColor: base
+    rounded: false
+  - _component: page-sections/builders/custom-section
+    label: ''
+    contentSections:
+      - _component: building-blocks/wrappers/carousel
+        label: ''
+        slides:
+          - _component: building-blocks/wrappers/carousel/carousel-slide
+            contentSections:
+              - _component: building-blocks/core-elements/image
+                source: /src/assets/images/component-library/profile.jpg
+                alt: ''
+                rounded: false
+                aspectRatio: square
+                positionVertical: center
+                positionHorizontal: center
+                priority: false
+              - _component: building-blocks/core-elements/image
+                source: /src/assets/images/component-library/profile5.jpg
+                alt: ''
+                rounded: false
+                aspectRatio: none
+                positionVertical: center
+                positionHorizontal: center
+                priority: false
+              - _component: building-blocks/core-elements/image
+                source: /src/assets/images/component-library/profile4.jpg
+                alt: ''
+                rounded: false
+                aspectRatio: none
+                positionVertical: center
+                positionHorizontal: center
+                priority: false
+        autoPlay: true
+        autoScroll: true
+        slideWidthPercent: 50
+        minSlideWidth: 0
+    maxContentWidth: 2xl
+    paddingHorizontal: md
+    paddingVertical: md
+    colorScheme: inherit
+    backgroundColor: base
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     rounded: false
 description: ''
 ---
