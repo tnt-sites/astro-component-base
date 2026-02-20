@@ -75,7 +75,7 @@ pageSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile.jpg
                 alt: ''
-                rounded: false
+                rounded: true
                 aspectRatio: none
                 positionVertical: center
                 positionHorizontal: center
@@ -85,7 +85,7 @@ pageSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile3.jpg
                 alt: ''
-                rounded: false
+                rounded: true
                 aspectRatio: none
                 positionVertical: center
                 positionHorizontal: center
@@ -95,7 +95,7 @@ pageSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile5.jpg
                 alt: ''
-                rounded: false
+                rounded: true
                 aspectRatio: none
                 positionVertical: center
                 positionHorizontal: center
