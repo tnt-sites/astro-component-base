@@ -102,7 +102,7 @@ pageSections:
                 priority: false
         autoPlay: false
         autoScroll: false
-        slideWidthPercent: 100
+        slideWidthPercent: 50
         minSlideWidth: 0
     maxContentWidth: 2xl
     paddingHorizontal: md
