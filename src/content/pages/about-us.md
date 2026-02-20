@@ -22,8 +22,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -40,8 +40,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -56,22 +56,22 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
     colorScheme: inherit
     backgroundColor: base
     rounded: false
-  - _component: src\components\page-sections\ctas\more-to-explore
+  - _component: src/components/page-sections/ctas/more-to-explore
     heading: More to Explore Heading
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -84,5 +84,5 @@ pageSections:
       alt:
       positionVertical: top
       positionHorizontal: center
-description: ''
+description: ""
 ---
