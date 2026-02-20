@@ -46,8 +46,8 @@ pageSections:
     colorScheme: inherit
     backgroundColor: base
     rounded: false
-  - _component: page-sections/ctas/more-to-explore
-    heading: More to Explore
+  - _component: src\components\page-sections\ctas\more-to-explore
+    heading: More to Explore Heading
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: My Button
@@ -60,7 +60,7 @@ pageSections:
     maxContentWidth:
     paddingHorizontal: sm
     paddingVertical: sm
-    backgroundColor: '#ffffff'
+    backgroundColor: base
     backgroundImage:
       source:
       alt:
