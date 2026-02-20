@@ -64,25 +64,5 @@ pageSections:
     colorScheme: inherit
     backgroundColor: base
     rounded: false
-  - _component: page-sections/ctas/more-to-explore
-    heading: More to Explore Heading
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        text: My Button
-        hideText: false
-        link: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-    maxContentWidth:
-    paddingHorizontal: sm
-    paddingVertical: sm
-    backgroundColor: base
-    backgroundImage:
-      source: /src/assets/images/component-library/dunedin-cliff.jpg
-      alt:
-      positionVertical: top
-      positionHorizontal: center
 description: ''
 ---
