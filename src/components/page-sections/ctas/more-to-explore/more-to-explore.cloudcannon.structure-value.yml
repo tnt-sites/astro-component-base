@@ -2,7 +2,7 @@ label: More to Explore
 icon: add
 description: Description for More to Explore component.
 value:
-  _component: src/components/page-sections/ctas/more-to-explore
+  _component: page-sections/ctas/more-to-explore
   heading: "More to Explore Heading"
   buttonSections:
     - _component: building-blocks/core-elements/button
