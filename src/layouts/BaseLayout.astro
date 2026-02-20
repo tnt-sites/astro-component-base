@@ -1,6 +1,7 @@
 ---
 import StructuredData from "@components/utils/StructuredData.astro";
 import seoData from "@data/seo.json";
+import "../styles/global.css";
 import "@styles/style.pcss";
 import { SEO } from "astro-seo";
 
@@ -62,7 +63,12 @@ const pageImage = props.image || seoData.logoSource;
     <StructuredData site={seoData} />
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <slot name="head" />
   </head>
   <body>

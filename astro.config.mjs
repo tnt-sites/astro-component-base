@@ -1,7 +1,6 @@
 import sitemap from "@astrojs/sitemap";
 import editableRegions from "@cloudcannon/editable-regions/astro-integration";
 import postcssGlobalData from "@csstools/postcss-global-data";
-import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import autoprefixer from "autoprefixer";
@@ -13,6 +12,8 @@ import postcssImport from "postcss-import";
 import postcssNested from "postcss-nested";
 
 import mdx from "@astrojs/mdx";
+
+import tailwindcss from "@tailwindcss/vite";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -30,9 +31,6 @@ export default defineConfig({
   },
   image: {
     domains: ["assets.imgix.net", "picsum.photos", "placebear.com"],
-  },
-  vite: {
-    plugins: [tailwindcss()],
   },
   integrations: [
     editableRegions(),
@@ -67,6 +65,7 @@ export default defineConfig({
         ],
       },
     },
+
     resolve: {
       alias: {
         "@components": path.resolve(__dirname, "src/components"),
@@ -86,5 +85,7 @@ export default defineConfig({
         "@styles": path.resolve(__dirname, "src/styles"),
       },
     },
+
+    plugins: [tailwindcss()],
   },
 });
