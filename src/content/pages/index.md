@@ -430,7 +430,7 @@ pageSections:
         reverse: false
         firstColumnContentSections:
           - _component: building-blocks/core-elements/embed
-            html: <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13379.605321290872!2d-96.6127563!3d33.0327299!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c1ba067e53295%3A0xbddda0f22a6e1830!2sBloom%20Pediatric%20Dentistry!5e0!3m2!1sen!2sus!4v1702929861991!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            html: <iframe title="Pediatric dental office, conveniently located in downtown Murphy" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13379.605321290872!2d-96.6127563!3d33.0327299!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c1ba067e53295%3A0xbddda0f22a6e1830!2sBloom%20Pediatric%20Dentistry!5e0!3m2!1sen!2sus!4v1702929861991!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             title: Bloom Pediatric Dentistry Location Map
             aspectRatio: landscape
         secondColumnContentSections:
