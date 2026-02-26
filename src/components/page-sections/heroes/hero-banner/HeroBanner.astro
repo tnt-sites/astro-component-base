@@ -113,7 +113,7 @@ const htmlAttributes = Object.fromEntries(
       </Heading>
       <Text alignX="center" data-prop="bodyText" text={bodyText} class="hero-banner-body-text" />
       {secondaryVideo && (secondaryVideo.source || secondaryVideo.id) && (
-        <Button text="Play Video" iconName="play" editable={false} hideText={true} variant="secondary" rounded={true} class="hero-banner-play-button" size="lg" />
+        <Button text="Play Video" iconName="play" editable={false} hideText={true} variant="secondary" rounded={true} class="hero-banner-play-button" size="lg" element="button" />
       )}
     </Fragment>
   </Split>
@@ -127,6 +127,7 @@ const htmlAttributes = Object.fromEntries(
         class="hero-banner-close-video"
         editable={false}
         rounded={false}
+        element="button"
       />
       <Video {...secondaryVideo} class="hero-banner-secondary-video" />
     </CustomSection>
