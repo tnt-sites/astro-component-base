@@ -6,6 +6,7 @@ const {
   text = "",
   iconName,
   iconColor = "default",
+  showIcon = true,
   class: className,
   editable = true,
   "data-prop": customDataProp = "text",
@@ -24,35 +25,40 @@ const textDataAttributes =
     : {};
 ---
 
-<li class:list={["item", className]} {...htmlAttributes}>
-  <Icon name={iconName} color={iconColor} size="none" class="list-icon" aria-hidden="true" />
+<li
+  class:list={["item", showIcon && iconName && "list-item-has-icon", className]}
+  {...htmlAttributes}
+>
+  {
+    showIcon && iconName && (
+      <Icon name={iconName} color={iconColor} size="none" class="list-icon" aria-hidden="true" />
+    )
+  }
   <p {...textDataAttributes}>
     {text ? <Fragment set:html={md.renderInline(text)} /> : <slot />}
   </p>
 </li>
 
-<style lang="pcss" is:global>
+<style is:global>
   @layer components {
     .item {
-      display: block;
-      > p {
-        display: inline;
-        margin: 0;
-        font-size: inherit;
+      &.list-item-has-icon {
+        display: block;
       }
 
-    > p {
-      display: inline;
-      margin: 0;
-    }
+      > p {
+        display: inline;
+        font-size: inherit;
+        margin: 0;
+      }
 
-    > .list-icon {
-      display: inline-block;
-      flex-shrink: 0;
-      height: 1em;
-      margin-right: var(--spacing-em-xs);
-      vertical-align: -0.15em;
-      width: 1em;
+      > .list-icon {
+        display: inline-block;
+        flex-shrink: 0;
+        height: 1em;
+        margin-right: var(--spacing-em-xs);
+        vertical-align: -0.15em;
+        width: 1em;
 
         svg {
           display: block;
