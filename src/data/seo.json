@@ -10,8 +10,8 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Astro Component Starter",
-    "url": "https://example.com",
-    "logo": "https://example.com/images/logo.svg",
+    "url": "https://bloomkidsdentist.com",
+    "logo": "https://bloomkidsdentist.com/images/logo.svg",
     "description": "",
     "sameAs": ["https://x.com/yourusername", "https://github.com/yourusername"]
   }

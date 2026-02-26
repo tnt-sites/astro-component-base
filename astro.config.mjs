@@ -17,7 +17,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: process.env.NODE_ENV === "production" 
+    ? "https://bloomkidsdentist.com" 
+    : "http://localhost:4321",
   build: {
     inlineStylesheets: "always",
   },

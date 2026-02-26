@@ -4,6 +4,7 @@ import { defineCollection, z } from "astro:content";
 const pageSchema = z.object({
   title: z.string(),
   pageSections: z.array(z.any()),
+  description: z.string().optional(),
 });
 
 const docsPageSchema = z.object({

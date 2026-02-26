@@ -672,6 +672,5 @@ pageSections:
     paddingVertical: 3xl
     colorScheme: default
     backgroundColor: base
-
-description: ''
+description: "Looking for a pediatric dentist in Murphy? Bloom Pediatric Dentistry is dedicated to caring for kids' smiles in a gentle, kind, and fun environment!"
 ---
