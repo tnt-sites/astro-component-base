@@ -33,7 +33,7 @@ const {
     <Grid gap="md">
       <GridItem>
         <a href="/">
-          <Image source="" alt="" />
+          <Image source="/src/assets/images/footer-logo.svg" alt="Bloom Pediatric Dentistry" />
         </a>
       </GridItem>
       <GridItem>
@@ -43,30 +43,35 @@ const {
       </GridItem>
       <GridItem> 
         <Heading level="h2" size="lg">{column3Heading}</Heading>
-        <DefinitionList items={hours} />
-        <Image source={badge.source} alt={badge.alt} />
+        <DefinitionList items={hours} alignX="start" />
+        {badge.source && (
+          <Image source={badge.source} alt={badge.alt} />
+        )}
       </GridItem>
     </Grid>
 
-    <div>
-      <div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-links">
         <Text>{copyrightText}</Text>
         <ButtonGroup buttonSections={extraLinks} direction="row" />
       </div>
-      <div>
+      <div class="footer-bottom-attribution">
         <Text>{supportingText}</Text>
         <Image source={logoSource} alt={logoAlt} />
       </div>
     </div>
 
-    <Image editable={false} source="/src/assets/images/footer-wood.png" alt="" />
+    <Image editable={false} source="/src/assets/images/footer-wood.png" alt="" class="footer-wood" />
   </CustomSection>
 </footer>
 
 <style lang="pcss" is:global>
   @layer page-sections {
     .footer {
-      .content {
+      position: relative;
+      padding: var(--spacing-md);
+
+      > .custom-section > .outer-content > .content {
         max-width: 1400px;
         padding: 60px 50px 20px;
         background-color: #fff;
@@ -75,8 +80,75 @@ const {
         position: relative;
       }
 
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+
+        @media (--from-md) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
       .button.icon-only {
         border-radius: 100%;
+      }
+
+      .button {
+        text-align: start;
+      }
+
+      .definition-list {
+        font-size: var(--font-size-md);
+      }
+
+      .footer-bottom-links, .footer-bottom-attribution {
+        display: flex;
+        font-size: var(--font-size-md);
+        align-items: center;
+        gap: var(--spacing-sm);
+
+        .text {
+          flex-shrink: 0;
+        }
+
+        .image {
+          max-width: 100px;
+        }
+      }
+
+      .footer-wood {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 50%;
+        height: auto;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+        
+        @media (max-width: 768px) {
+          width: 80%;
+        }
+        
+        @keyframes woodAnimation2 {
+          from {
+            transform: translateX(100%);
+          }
+          to {
+            transform: translateX(0);
+          }
+        }
+        picture, img {
+          width: 100%;
+          height: auto;
+          animation: 1.5s ease-in 1s 1 alternate forwards running woodAnimation2;
+        }
+      }
+
+      .grid,
+      .footer-bottom {
+        position: relative;
+        z-index: 1;
       }
     }
   }

@@ -4,7 +4,23 @@
     {
       "_component": "building-blocks/core-elements/button",
       "text": "(469) 972-0054",
-      "url": "tel:+14699720054"
+      "link": "tel:+14699720054",
+      "variant": "text",
+      "size": "lg"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "1015 N Murphy Rd, Suite 400 Murphy, TX 75094",
+      "link": "https://maps.app.goo.gl/odyix7keM6WL66AB6",
+      "variant": "text",
+      "size": "md"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "info@bloomkidsdentist.com",
+      "link": "mailto:info@bloomkidsdentist.com",
+      "variant": "text",
+      "size": "md"
     }
   ],
   "buttonSections": [
@@ -15,31 +31,88 @@
       "link": "https://www.facebook.com/bloomkidsdentist",
       "iconName": "social/facebook",
       "iconPosition": "before",
-      "variant": "primary",
+      "variant": "brand",
+      "size": "lg"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "Google",
+      "hideText": true,
+      "link": "https://maps.app.goo.gl/odyix7keM6WL66AB6",
+      "iconName": "social/google",
+      "iconPosition": "before",
+      "variant": "brand-secondary",
+      "size": "lg"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "Instagram",
+      "hideText": true,
+      "link": "https://www.instagram.com/bloomkidsdentist/",
+      "iconName": "social/instagram",
+      "iconPosition": "before",
+      "variant": "brand-tertiary",
+      "size": "lg"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "TikTok",
+      "hideText": true,
+      "link": "https://www.tiktok.com/@bloomkidsdentist",
+      "iconName": "social/tiktok",
+      "iconPosition": "before",
+      "variant": "brand-accent",
       "size": "lg"
     }
   ],
   "column3Heading": "Office Hours",
   "hours": [
     {
-      "_component": "building-blocks/core-elements/definition-list",
-      "items": [
-        {
-          "_component": "building-blocks/core-elements/definition-list/definition-list-item",
-          "title": "Monday",
-          "text": "8:30 am - 5:00 pm"
-        }
-      ],
-      "alignX": "start"
+      "title": "Monday",
+      "text": "8:30 am - 5:00 pm"
+    },
+    {
+      "title": "Tuesday",
+      "text": "8:30 am - 5:00 pm"
+    },
+    {
+      "title": "Wednesday",
+      "text": "8:30 am - 5:00 pm"
+    },
+    {
+      "title": "Thursday",
+      "text": "8:30 am - 5:00 pm"
     }
   ],
   "badge": {
-    "source": "",
-    "alt": ""
+    "source": "/src/assets/images/logo-abpd.svg",
+    "alt": "American Board of Pediatric Dentistry Board Certified"
   },
   "copyrightText": "© 2026 Bloom Pediatric Dentistry",
-  "extraLinks": [],
-  "supportingText": "",
-  "logoSource": "",
-  "logoAlt": ""
+  "extraLinks": [
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "Sitemap",
+      "link": "/sitemap",
+      "variant": "text",
+      "size": "md"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "Privacy Policy",
+      "link": "/privacy-policy",
+      "variant": "text",
+      "size": "md"
+    },
+    {
+      "_component": "building-blocks/core-elements/button",
+      "text": "Terms and Conditions",
+      "link": "/terms-and-conditions",
+      "variant": "text",
+      "size": "md"
+    }
+  ],
+  "supportingText": "Site designed and maintained by",
+  "logoSource": "/src/assets/images/TnT-logo.png",
+  "logoAlt": "TnT Dental Logo"
 }
