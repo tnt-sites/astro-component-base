@@ -1,0 +1,76 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@components/building-blocks/core-elements/image/Image.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Text from "@core-elements/text/Text.astro";
+import Carousel from "@wrappers/carousel/Carousel.astro";
+import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
+import Split from "@wrappers/split/Split.astro";
+
+
+const {
+  carouselSlides = [],
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["bloom-carousel", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  {...htmlAttributes}
+>
+  <Carousel
+    label="Bloom Carousel"
+    slideWidthPercent={100}
+    minSlideWidth={0}
+    autoPlay={true}
+    autoScroll={false}
+    editable={false}
+  >
+    {carouselSlides.map((slide) => (
+      <CarouselSlide>
+        <Split distributionMode="third-two-thirds" verticalAlignment="center" minSplitWidth={500}>
+          <Fragment slot="first">
+            <Image source={slide.waveImageSource} alt={slide.waveImageAlt} rounded={true} editable={true} data-prop-src="imageSource" data-prop-alt="imageAlt" data-editable="image" />
+          </Fragment>
+          <Fragment slot="second">
+            <Image source={slide.imageSource} alt={slide.imageAlt} rounded={true} aspectRatio="square" editable={true} data-prop-src="imageSource" data-prop-alt="imageAlt" data-editable="image" />
+            <Heading level="h2" size="2xl" alignX="center" data-prop="heading">
+              {slide.heading}
+            </Heading>
+            <Text alignX="center" data-prop="subheading">
+              {slide.text}
+            </Text>
+          </Fragment>
+        </Split>
+        </CarouselSlide>
+      ))}
+  </Carousel>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .bloom-carousel {
+      .pane.first, .pane.first .image, .pane.first img, .pane.first picture {
+        height: 100%;
+      }
+      .pane.second .image, .pane.second img, .pane.second picture {
+        width: 200px;
+        margin: 0 auto;
+      }
+
+      .pane.second .text {
+        font-size: var(--font-size-lg);
+      }
+    }
+  }
+</style>

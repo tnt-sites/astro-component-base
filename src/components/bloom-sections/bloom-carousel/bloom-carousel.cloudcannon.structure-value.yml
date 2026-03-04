@@ -1,0 +1,8 @@
+label: Bloom-carousel
+icon: add
+description: Description for Bloom-carousel component.
+value:
+  _component: bloom-carousel
+  carouselSlides: []
+_inputs_from_glob:
+  - /src/components/bloom-carousel/bloom-carousel.cloudcannon.inputs.yml
