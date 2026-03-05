@@ -62,25 +62,39 @@ const htmlAttributes = Object.fromEntries(
     width={1135}
     height={652}
   />
-
-  {
-    doctors.map((doctor: any, index: number) => (
-      <Card key={index} {...doctor}>
-        <Heading level="h3" size="md" alignX="center" data-prop="name">
-          {doctor.name}
-        </Heading>
-        <Text level="p" size="sm" alignX="center" data-prop="title">
-          {doctor.title}
-        </Text>
-        <ButtonGroup class="buttons" buttonSections={doctor.buttonSections} alignX="center" />
-      </Card>
-    ))
-  }
+  <div class="meet-content">
+    {
+      doctors.map((doctor: any, index: number) => (
+        <Card key={index} {...doctor}>
+          <Heading level="h3" size="md" alignX="center" data-prop="name">
+            {doctor.name}
+          </Heading>
+          <Text level="p" size="sm" alignX="center" data-prop="title">
+            {doctor.title}
+          </Text>
+          <ButtonGroup class="buttons" buttonSections={doctor.buttonSections} alignX="center" />
+        </Card>
+      ))
+    }
+  </div>
 </CustomSection>
 
 <style lang="pcss" is:global>
   @layer page-sections {
     .meet-section {
+      position: relative;
+    }
+
+    .background-image{
+      position: absolute; top: 0; right: 0;
+    }
+
+    .meet-content{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+
     }
   }
 </style>

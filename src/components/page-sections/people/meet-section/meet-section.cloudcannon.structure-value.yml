@@ -61,14 +61,14 @@ _structures:
             - key: name
             - Doctor Card
           subtext:
-            - key: title
+            - key: text
             - Doctor description
         _inputs:
           name:
             type: text
             comment: Doctor name used as the card heading.
-          title:
-            type: textarea
+          text:
+            type: markdown
             comment: Doctor description text shown in the card body.
           buttonSections:
             type: array
