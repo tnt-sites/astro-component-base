@@ -24,5 +24,9 @@ officeTour:
         type: boolean
         optional: true
         remove_empty: true
+      - editor_key: floatingArrows
+        type: boolean
+        optional: true
+        remove_empty: true
   _inputs_from_glob:
     - /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml
