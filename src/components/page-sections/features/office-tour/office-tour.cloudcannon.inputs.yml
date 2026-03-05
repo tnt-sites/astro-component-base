@@ -8,33 +8,11 @@ tourSlides:
   options:
     structures:
       - label: Image Slide
-        icon: image
         value:
           _component: building-blocks/core-elements/image
-        _inputs:
-          src:
-            type: text
-            label: Image Source
-          alt:
-            type: text
-            label: Image Alt Text
-        preview:
-          icon: image
-          text: Image Slide
       - label: Video Slide
-        icon: video
         value:
           _component: building-blocks/core-elements/video
-        _inputs:
-          src:
-            type: text
-            label: Video Source
-          poster:
-            type: text
-            label: Video Poster
-        preview:
-          icon: video
-          text: Video Slide
 
 backgroundColor:
   type: select
