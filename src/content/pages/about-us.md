@@ -65,7 +65,7 @@ pageSections:
     backgroundColor: base
     rounded: false
   - _component: page-sections/builders/custom-section
-    label: ''
+    label: tour
     contentSections:
       - _component: building-blocks/wrappers/carousel
         label: Carousel Test
@@ -155,7 +155,13 @@ pageSections:
     heading: Office Tour
     tourSlides:
       - _component: building-blocks/core-elements/image
-      - _component: building-blocks/core-elements/video
+        src: /public/images/component-library/video-placeholder.jpg
+        alt: ''
+        rounded: false
+        aspectRatio: none
+        positionVertical: center
+        positionHorizontal: center
+        priority: false
     backgroundColor: base
 description: ''
 ---
