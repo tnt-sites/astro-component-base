@@ -21,7 +21,10 @@ tourSlides:
     structures: _structures.carouselSections
 
 slideNumbers:
-  type: boolean
+  type: switch
   label: "Show Slide Numbers"
   comment: "Toggle to display slide numbers (1/10) instead of indicator dots."
-  default: false
+floatingArrows:
+  type: switch
+  label: "Floating Arrows"
+  comment: "Toggle to display floating arrows on the carousel."
