@@ -66,11 +66,17 @@ const htmlAttributes = Object.fromEntries(
     {
       doctors.map((doctor: any, index: number) => (
         <Card key={index} {...doctor}>
-          <Heading level="h3" size="md" alignX="center" data-prop="name">
+          <Heading level="h3" size="md" alignX="center" data-prop={`doctors.${index}.name`}>
             {doctor.name}
           </Heading>
-          <Text level="p" size="sm" alignX="center" data-prop="title">
-            {doctor.title}
+          <Text
+            level="p"
+            size="sm"
+            alignX="center"
+            data-prop={`doctors.${index}.title`}
+            text={doctor.name || ""}
+          >
+            {doctor.text}
           </Text>
           <ButtonGroup class="buttons" buttonSections={doctor.buttonSections} alignX="center" />
         </Card>

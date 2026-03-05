@@ -61,7 +61,7 @@ _structures:
             - key: name
             - Doctor Card
           subtext:
-            - key: text
+            - key: title
             - Doctor description
         _inputs:
           name:
