@@ -16,6 +16,8 @@ collections_config:
       $.pageSections[*].tourSlides[*].src:
         type: image
         cascade: true
+      $.pageSections[*].tourSlides:
+        cascade: true
     add_options:
       - name: Add New Page
         icon: pages
@@ -34,6 +36,7 @@ collections_config:
         remove_empty_inputs: false
         remove_extra_inputs: false
         name: New Page
+        _inputs:
   blog:
     path: src/content/blog
     glob:
