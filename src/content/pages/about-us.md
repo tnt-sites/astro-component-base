@@ -151,5 +151,11 @@ pageSections:
       alt:
       positionVertical: top
       positionHorizontal: center
+  - _component: page-sections/features/office-tour
+    heading: Office Tour
+    tourSlides:
+      - _component: building-blocks/core-elements/image
+      - _component: building-blocks/core-elements/video
+    backgroundColor: base
 description: ''
 ---

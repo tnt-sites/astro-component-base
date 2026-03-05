@@ -13,6 +13,9 @@ collections_config:
         type: text
         comment: Controls the metadata title for the page.
         cascade: true
+      $.pageSections[*].tourSlides[*]._component:
+        type: image
+        cascade: true
     add_options:
       - name: Add New Page
         icon: pages
