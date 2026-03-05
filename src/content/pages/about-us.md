@@ -22,8 +22,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: text
         size: md
@@ -40,8 +40,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -56,8 +56,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -74,7 +74,7 @@ pageSections:
             contentSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile.jpg
-                alt: ''
+                alt: ""
                 rounded: true
                 aspectRatio: none
                 positionVertical: center
@@ -84,7 +84,7 @@ pageSections:
             contentSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile3.jpg
-                alt: ''
+                alt: ""
                 rounded: true
                 aspectRatio: none
                 positionVertical: center
@@ -94,7 +94,7 @@ pageSections:
             contentSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile5.jpg
-                alt: ''
+                alt: ""
                 rounded: true
                 aspectRatio: none
                 positionVertical: center
@@ -110,8 +110,8 @@ pageSections:
     colorScheme: inherit
     backgroundColor: base
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -121,24 +121,24 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: secondary
         size: md
@@ -153,10 +153,12 @@ pageSections:
       positionHorizontal: center
   - _component: page-sections/features/office-tour
     heading: Tour Our Office
+    slideNumbers: true
+    floatingArrows: false
     tourSlides:
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/castle.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
@@ -164,7 +166,7 @@ pageSections:
         priority: false
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/dunedin-cliff.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
@@ -172,12 +174,12 @@ pageSections:
         priority: false
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/castle.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
         positionHorizontal: center
         priority: false
     backgroundColor: base
-description: ''
+description: ""
 ---
