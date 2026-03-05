@@ -3,10 +3,8 @@ officeTour:
   inline: false
   preview:
     text:
-      - Office Tour
-    subtext:
-      - key: heading
-    icon: view_carousel
+      - office-tour
+    icon: add
   definitions:
     component_name: OfficeTour
     named_args:
@@ -17,10 +15,6 @@ officeTour:
       - editor_key: tourSlides
         type: array
       - editor_key: backgroundColor
-        type: string
-        optional: true
-        remove_empty: true
-      - editor_key: paddingVertical
         type: string
         optional: true
         remove_empty: true

@@ -1,63 +1,10 @@
-label: Office Tour
-icon: view_carousel
-description: Carousel section for showcasing office spaces and team environments.
-
+label: office-tour
+icon: add
+description: Description for office-tour component.
 value:
   _component: page-sections/features/office-tour
-  heading: Office Tour
+  heading: "office-tour Heading"
   tourSlides: []
   backgroundColor: base
-
-preview:
-  text:
-    - Office Tour
-  subtext:
-    - key: heading
-  icon: view_carousel
-
-picker_preview:
-  text: Office Tour
-  subtext: Carousel section for showcasing office spaces.
-
-_structures:
-  tourSlides:
-    values:
-      - label: Image
-        icon: image
-        value:
-          _component: building-blocks/core-elements/image
-          src: ""
-          alt: ""
-          rounded: false
-          aspectRatio: none
-          positionVertical: center
-          positionHorizontal: center
-          priority: false
-        _inputs_from_glob:
-          - /src/components/building-blocks/core-elements/image/image.cloudcannon.inputs.yml
-        preview:
-          text:
-            - Image
-          subtext:
-            - key: alt
-          icon: image
-      - label: Video
-        icon: videocam
-        value:
-          _component: building-blocks/core-elements/video
-          type: youtube
-          id: ""
-          title: ""
-          src: ""
-          thumbnail: ""
-        _inputs_from_glob:
-          - /src/components/building-blocks/core-elements/video/video.cloudcannon.inputs.yml
-        preview:
-          text:
-            - template: Video - {type}
-          subtext:
-            - key: title
-          icon: videocam
-
 _inputs_from_glob:
   - /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml

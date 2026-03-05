@@ -1,10 +1,9 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import Image from "@components/building-blocks/core-elements/image/Image.astro";
-import Video from "@components/building-blocks/core-elements/video/Video.astro";
-import Carousel from "@components/building-blocks/wrappers/carousel/Carousel.astro";
-import CarouselSlide from "@components/building-blocks/wrappers/carousel/CarouselSlide.astro";
+import Component from "@components/utils/renderBlock.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Carousel from "@wrappers/carousel/Carousel.astro";
+import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
 
 const {
   heading = "",
@@ -14,6 +13,10 @@ const {
   editable = true,
   ...rest
 } = Astro.props;
+
+const normalizedTourSlides = Array.isArray(tourSlides)
+  ? tourSlides.filter((slide) => slide && typeof slide === "object")
+  : [];
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
@@ -29,29 +32,39 @@ const htmlAttributes = Object.fromEntries(
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <Heading level="h2" size="lg" alignX="center" data-prop="heading">
-    {heading}
-  </Heading>
+  {
+    heading && (
+      <Heading level="h2" size="lg" alignX="center" data-prop="heading">
+        {heading}
+      </Heading>
+    )
+  }
+
   <Carousel
-    label="Left carousel"
+    label={heading || "Office tour"}
     slideWidthPercent={100}
     minSlideWidth={0}
     autoPlay={false}
     autoScroll={false}
+    data-prop="tourSlides"
     editable={editable}
   >
     {
-      Array.isArray(tourSlides) &&
-        tourSlides.length > 0 &&
-        tourSlides.map((slide, index) => (
-          <CarouselSlide aria-label={`Slide ${index + 1} of ${tourSlides.length}`}>
-            {slide?._component === "building-blocks/core-elements/image" ? (
-              <Image {...slide} data-index={index} />
-            ) : slide?._component === "building-blocks/core-elements/video" ? (
-              <Video {...slide} data-index={index} />
-            ) : null}
+      normalizedTourSlides.length > 0 &&
+        normalizedTourSlides.map((slide, index) => (
+          <CarouselSlide aria-label={`Slide ${index + 1} of ${normalizedTourSlides.length}`}>
+            <editable-array-item
+              data-component={slide._component || "building-blocks/core-elements/image"}
+            >
+              <Component contentSections={[slide]} editable={false} />
+            </editable-array-item>
           </CarouselSlide>
         ))
     }
   </Carousel>
 </CustomSection>
+
+<style>
+  .office-tour {
+  }
+</style>
