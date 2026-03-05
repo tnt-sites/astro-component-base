@@ -6,16 +6,7 @@ value:
   heading: "Tour Our Office"
   tourSlides: []
   backgroundColor: base
-  slideNumbers: true
+  slideNumbers: false
   floatingArrows: false
-_inputs:
-  slideNumbers:
-    type: switch
-    label: Slide Numbers
-    comment: Toggle to display slide numbers instead of indicator dots.
-  floatingArrows:
-    type: switch
-    label: Floating Arrows
-    comment: Toggle to display floating arrows on the carousel.
 _inputs_from_glob:
   - /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml
