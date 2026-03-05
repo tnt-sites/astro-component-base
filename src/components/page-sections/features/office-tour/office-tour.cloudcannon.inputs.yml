@@ -5,6 +5,8 @@ tourSlides:
   type: array
   label: Tour Slides
   comment: Slides displayed in the office tour carousel.
+  options:
+    structures: _structures.smileGallerySections
 
 backgroundColor:
   type: select
