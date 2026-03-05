@@ -1,3 +1,6 @@
+heading:
+  type: text
+  comment: Main heading shown above the image and doctor cards.
 backgroundColor:
   type: select
   comment: Background color used behind the grid.
@@ -16,6 +19,10 @@ backgroundColor:
 imageSource:
   type: image
   comment: The main image for the meet section.
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ""
 imageAlt:
   type: text
   comment: The alt text for the main image in the meet section.
@@ -40,9 +47,12 @@ backgroundImage.source:
     paths:
       uploads: src/assets/images
       static: ""
-
-# Add your other component inputs here
-# Example:
-# text:
-#   type: text
-#   comment: The text content for the component.
+backgroundImage.alt:
+  comment: Alt text for the background image.
+  type: text
+doctors:
+  type: array
+  label: Doctors
+  comment: Doctor info per card.
+  options:
+    structures: _structures.doctorCard

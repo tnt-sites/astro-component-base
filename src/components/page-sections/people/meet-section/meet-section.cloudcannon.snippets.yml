@@ -16,9 +16,19 @@ meetSection:
         type: string
         optional: true
         remove_empty: true
-    # Add your component arguments here
-    # Example:
-    # - editor_key: text
-    #   type: string
+      - editor_key: backgroundImage
+        type: object
+        optional: true
+      - editor_key: imageSource
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: imageAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: doctors
+        type: array
+        optional: true
   _inputs_from_glob:
     - /src/components/page-sections/people/meet-section/meet-section.cloudcannon.inputs.yml

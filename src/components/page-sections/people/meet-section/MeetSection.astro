@@ -1,8 +1,10 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@components/building-blocks/core-elements/image/Image.astro";
+import Text from "@components/building-blocks/core-elements/text/Text.astro";
+import Card from "@components/building-blocks/wrappers/card/Card.astro";
 import Heading from "@core-elements/heading/Heading.astro";
-
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 const {
   heading = "",
   backgroundColor = "base",
@@ -10,6 +12,7 @@ const {
   class: className,
   imageSource = "",
   imageAlt = "",
+  doctors = [],
 
   editable = true,
   ...rest
@@ -59,6 +62,20 @@ const htmlAttributes = Object.fromEntries(
     width={1135}
     height={652}
   />
+
+  {
+    doctors.map((doctor: any, index: number) => (
+      <Card key={index} {...doctor}>
+        <Heading level="h3" size="md" alignX="center" data-prop="name">
+          {doctor.name}
+        </Heading>
+        <Text level="p" size="sm" alignX="center" data-prop="title">
+          {doctor.title}
+        </Text>
+        <ButtonGroup class="buttons" buttonSections={doctor.buttonSections} alignX="center" />
+      </Card>
+    ))
+  }
 </CustomSection>
 
 <style lang="pcss" is:global>

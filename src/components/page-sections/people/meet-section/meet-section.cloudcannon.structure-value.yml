@@ -3,23 +3,77 @@ icon: add
 description: Description for Meet Section component.
 value:
   _component: page-sections/people/meet-section
-  heading: "Meet Section Heading"
+  heading: Our friendly pediatric dentists
   backgroundColor: base
   backgroundImage:
-    source: null
-    alt: null
-  buttonSections:
-    - _component: building-blocks/core-elements/button
-      text: My Button
-      hideText: false
-      link: ""
-      iconName: ""
-      iconPosition: before
-      variant: primary
-      size: md
-  firstHeadingText: "Nelson Hui, DMD"
-  firstText: "At the core of Dr. Nelson’s style of dentistry, he puts ethics and compassion above all else, ensuring that every child and parent knows that they have a voice when they’re with him."
-  secondHeadingText: "Josephine Yip, DMD"
-  secondText: "From infants to teens, Dr. JoJo takes the time to ask questions and learn more about her patients, allowing her to personalize the care she provides and create positive dental experiences that build trust."
+    source: ""
+    alt: ""
+  imageSource: /src/assets/images/index-meet.jpg
+  imageAlt: Two dentists
+  doctors:
+    - name: Nelson Hui, DMD
+      title: >-
+        At the core of Dr. Nelson’s style of dentistry, he puts ethics and compassion above
+        all else, ensuring that every child and parent knows that they have a voice when
+        they’re with him.
+      buttonSections:
+        - _component: building-blocks/core-elements/button
+          text: Meet Dr. Hui
+          hideText: false
+          link: ""
+          iconName: ""
+          iconPosition: before
+          variant: primary
+          size: md
+    - name: Josephine Yip, DMD
+      title: >-
+        From infants to teens, Dr. JoJo takes the time to ask questions and learn more about
+        her patients, allowing her to personalize the care she provides and create positive
+        dental experiences that build trust.
+      buttonSections:
+        - _component: building-blocks/core-elements/button
+          text: Meet Dr. JoJo
+          hideText: false
+          link: ""
+          iconName: ""
+          iconPosition: before
+          variant: primary
+          size: md
+_structures:
+  doctorCard:
+    values:
+      - label: Doctor Card
+        icon: person
+        value:
+          name: Doctor Name
+          title: Doctor bio or description.
+          buttonSections:
+            - _component: building-blocks/core-elements/button
+              text: Meet Doctor
+              hideText: false
+              link: ""
+              iconName: ""
+              iconPosition: before
+              variant: primary
+              size: md
+        preview:
+          text:
+            - key: name
+            - Doctor Card
+          subtext:
+            - key: title
+            - Doctor description
+        _inputs:
+          name:
+            type: text
+            comment: Doctor name used as the card heading.
+          title:
+            type: textarea
+            comment: Doctor description text shown in the card body.
+          buttonSections:
+            type: array
+            comment: Card call-to-action buttons.
+            options:
+              structures: _structures.buttonSections
 _inputs_from_glob:
   - /src/components/page-sections/people/meet-section/meet-section.cloudcannon.inputs.yml
