@@ -7,8 +7,44 @@ tourSlides:
   type: array
   label: "Tour Slides"
   comment: "Slides displayed in the office tour carousel."
-  options:
-    structures: _structures.tourSlides
+  item:
+    type: object
+    fields:
+      _component:
+        type: select
+        label: "Type"
+        options:
+          - label: Image
+            value: building-blocks/core-elements/image
+          - label: Video
+            value: building-blocks/core-elements/video
+      # Image fields
+      src:
+        type: file
+        label: "Image file / Video file"
+        accept: [".jpg", ".png", ".webp", ".mp4", ".mov"]
+        required: false
+      alt:
+        type: text
+        label: "Alt text (for images)"
+        required: false
+      caption:
+        type: text
+        label: "Caption / description"
+        required: false
+      # Video fields
+      type:
+        type: select
+        label: "Video type"
+        options:
+          - label: YouTube
+            value: youtube
+          - label: Vimeo
+            value: vimeo
+      id:
+        type: text
+        label: "Video ID / URL"
+        required: false
 
 backgroundColor:
   type: select
