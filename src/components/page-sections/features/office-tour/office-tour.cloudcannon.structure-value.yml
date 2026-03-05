@@ -22,8 +22,8 @@ _structures:
         icon: image
         value:
           _component: building-blocks/core-elements/image
-          source: ""
-          alt: ""
+          source: null
+          alt: null
           rounded: false
           aspectRatio: none
           positionVertical: center
@@ -44,8 +44,8 @@ _structures:
           type: youtube
           id: ""
           title: ""
-          source: ""
-          thumbnail: ""
+          source: null
+          thumbnail: null
         _inputs_from_glob:
           - /src/components/building-blocks/core-elements/video/video.cloudcannon.inputs.yml
         preview:
