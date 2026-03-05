@@ -1,0 +1,53 @@
+heading:
+  type: text
+  comment: Main heading for the office tour section.
+tourSlides:
+  type: array
+  label: Tour Slides
+  comment: Slides displayed in the office tour carousel.
+  options:
+    structures:
+      - label: Image Slide
+        icon: image
+        value:
+          _component: building-blocks/core-elements/image
+        _inputs:
+          src:
+            type: text
+            label: Image Source
+          alt:
+            type: text
+            label: Image Alt Text
+        preview:
+          icon: image
+          text: Image Slide
+      - label: Video Slide
+        icon: video
+        value:
+          _component: building-blocks/core-elements/video
+        _inputs:
+          src:
+            type: text
+            label: Video Source
+          poster:
+            type: text
+            label: Video Poster
+        preview:
+          icon: video
+          text: Video Slide
+
+backgroundColor:
+  type: select
+  comment: Background color used behind the office tour section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight

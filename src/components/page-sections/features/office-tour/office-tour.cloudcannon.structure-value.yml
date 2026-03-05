@@ -1,0 +1,19 @@
+label: Office Tour
+icon: view_carousel
+description: Carousel section for showcasing office spaces and team environments.
+value:
+  _component: page-sections/features/office-tour
+  heading: Office Tour
+  tourSlides: []
+  backgroundColor: base
+preview:
+  text:
+    - Office Tour
+  subtext:
+    - key: heading
+  icon: view_carousel
+picker_preview:
+  text: Office Tour
+  subtext: Carousel section for showcasing office spaces.
+_inputs_from_glob:
+  - /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml
