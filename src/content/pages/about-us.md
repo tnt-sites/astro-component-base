@@ -151,9 +151,5 @@ pageSections:
       alt:
       positionVertical: top
       positionHorizontal: center
-  - _component: page-sections/features/office-tour
-    heading: office-tour Heading
-    tourSlides: []
-    backgroundColor: base
 description: ''
 ---
