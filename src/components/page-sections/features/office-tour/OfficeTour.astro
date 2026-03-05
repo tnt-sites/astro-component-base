@@ -45,18 +45,13 @@ const htmlAttributes = Object.fromEntries(
         tourSlides.length > 0 &&
         tourSlides.map((slide, index) => (
           <CarouselSlide aria-label={`Slide ${index + 1} of ${tourSlides.length}`}>
-            {slide._component === "building-blocks/core-elements/image" ? (
+            {slide?._component === "building-blocks/core-elements/image" ? (
               <Image {...slide} data-index={index} />
-            ) : (
+            ) : slide?._component === "building-blocks/core-elements/video" ? (
               <Video {...slide} data-index={index} />
-            )}
+            ) : null}
           </CarouselSlide>
         ))
     }
   </Carousel>
 </CustomSection>
-
-<style>
-  .office-tour {
-  }
-</style>

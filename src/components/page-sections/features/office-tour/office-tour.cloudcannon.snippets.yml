@@ -14,7 +14,7 @@ officeTour:
         type: string
         optional: true
         remove_empty: true
-      - editor_key: slides
+      - editor_key: tourSlides
         type: array
       - editor_key: backgroundColor
         type: string

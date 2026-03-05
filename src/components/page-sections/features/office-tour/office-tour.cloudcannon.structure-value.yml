@@ -15,5 +15,45 @@ preview:
 picker_preview:
   text: Office Tour
   subtext: Carousel section for showcasing office spaces.
+_structures:
+  tourSlides:
+    values:
+      - label: Image
+        icon: image
+        value:
+          _component: building-blocks/core-elements/image
+          source: ""
+          alt: ""
+          rounded: false
+          aspectRatio: none
+          positionVertical: center
+          positionHorizontal: center
+          priority: false
+        _inputs_from_glob:
+          - /src/components/building-blocks/core-elements/image/image.cloudcannon.inputs.yml
+        preview:
+          text:
+            - Image
+          subtext:
+            - key: alt
+          icon: image
+      - label: Video
+        icon: videocam
+        value:
+          _component: building-blocks/core-elements/video
+          type: youtube
+          id: ""
+          title: ""
+          source: ""
+          thumbnail: ""
+        _inputs_from_glob:
+          - /src/components/building-blocks/core-elements/video/video.cloudcannon.inputs.yml
+        preview:
+          text:
+            - template: Video - {type}
+            - Video
+          subtext:
+            - key: title
+          icon: videocam
 _inputs_from_glob:
   - /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml
