@@ -9,6 +9,8 @@ const {
   heading = "",
   backgroundColor = "base",
   tourSlides = [],
+  slideNumbers = true,
+  floatingArrows = false,
   class: className,
   editable = true,
   ...rest
@@ -24,7 +26,7 @@ const htmlAttributes = Object.fromEntries(
 ---
 
 <CustomSection
-  class:list={["office-tour", className]}
+  class:list={["office-tour", className, slideNumbers ? "slide-numbers" : "", floatingArrows ? "floating-arrows" : ""]}
   maxContentWidth="2xl"
   paddingHorizontal="lg"
   paddingVertical="4xl"
@@ -48,23 +50,125 @@ const htmlAttributes = Object.fromEntries(
     autoScroll={false}
     data-prop="tourSlides"
     editable={editable}
+    client:load
   >
     {
-      normalizedTourSlides.length > 0 &&
-        normalizedTourSlides.map((slide, index) => (
-          <CarouselSlide aria-label={`Slide ${index + 1} of ${normalizedTourSlides.length}`}>
-            <editable-array-item
-              data-component={slide._component || "building-blocks/core-elements/image"}
-            >
-              <Component contentSections={[slide]} editable={false} />
-            </editable-array-item>
-          </CarouselSlide>
-        ))
+      normalizedTourSlides.map((slide, index) => (
+        <CarouselSlide aria-label={`Slide ${index + 1} of ${normalizedTourSlides.length}`}>
+          <editable-array-item
+            data-component={slide._component || "building-blocks/core-elements/image"}
+          >
+            <Component contentSections={[slide]} editable={false} />
+          </editable-array-item>
+        </CarouselSlide>
+      ))
     }
   </Carousel>
+
+  {
+    slideNumbers && normalizedTourSlides.length > 0 && (
+      <div id="carouselSlideNumber" class="carousel-slide-number">
+        1 / {normalizedTourSlides.length}
+      </div>
+    )
+  }
 </CustomSection>
 
-<style>
+
+
+<style is:global>
   .office-tour {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .office-tour .carousel {
+    position: relative;
+  }
+
+  .office-tour .carousel .viewport {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  .office-tour.floating-arrows .carousel > .controls-wrapper > .prev,
+  .office-tour.floating-arrows .carousel > .controls-wrapper > .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .office-tour .carousel > .controls-wrapper > .prev {
+    left: 0.5rem;
+  }
+
+  .office-tour .carousel > .controls-wrapper > .next {
+    right: 0.5rem;
+  }
+
+  /* Only hide the pager indicators if slideNumbers is true */
+  .office-tour.slide-numbers .carousel > .controls-wrapper > .indicators {
+    display: none;
+  }
+
+  /* Slide number overlay */
+  .carousel-slide-number {
+      display: table;
+    font-size: 1.2rem;
+      margin: 0;
+    text-align: center;
   }
 </style>
+
+<!-- Only run the slide number script if slideNumbers is true -->
+{slideNumbers && (
+  <script is:inline type="module">
+      const sections = document.querySelectorAll(".office-tour.slide-numbers");
+
+      sections.forEach((section) => {
+        const carousel = section.querySelector(".carousel");
+        const counter = section.querySelector(".carousel-slide-number");
+        const controlsWrapper = carousel?.querySelector(".controls-wrapper");
+
+        if (!carousel || !counter || !controlsWrapper) return;
+
+        const nextButton = controlsWrapper.querySelector(".next");
+        if (nextButton && !controlsWrapper.contains(counter)) {
+          controlsWrapper.insertBefore(counter, nextButton);
+        } else if (!controlsWrapper.contains(counter)) {
+          controlsWrapper.appendChild(counter);
+        }
+
+        const waitForIndicators = () => {
+          const indicators = carousel.querySelectorAll(".indicator");
+          if (indicators.length === 0) {
+            requestAnimationFrame(waitForIndicators);
+            return;
+          }
+
+          const updateCounter = () => {
+            const currentIndicators = Array.from(carousel.querySelectorAll(".indicator"));
+            const activeIndex = currentIndicators.findIndex(
+              (dot) =>
+                dot.getAttribute("aria-selected") === "true" ||
+                dot.getAttribute("data-selected") === "true"
+            );
+
+            counter.textContent = `${(activeIndex >= 0 ? activeIndex : 0) + 1} / ${currentIndicators.length}`;
+          };
+
+          updateCounter();
+
+          const observer = new MutationObserver(updateCounter);
+          observer.observe(carousel, {
+            subtree: true,
+            attributes: true,
+            attributeFilter: ["aria-selected", "data-selected"],
+          });
+        };
+
+        waitForIndicators();
+      });
+  </script>
+)}

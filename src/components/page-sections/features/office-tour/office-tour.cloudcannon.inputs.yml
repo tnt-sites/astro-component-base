@@ -19,3 +19,9 @@ tourSlides:
   comment: Slides rendered in the office tour carousel.
   options:
     structures: _structures.carouselSections
+
+slideNumbers:
+  type: boolean
+  label: "Show Slide Numbers"
+  comment: "Toggle to display slide numbers (1/10) instead of indicator dots."
+  default: false
