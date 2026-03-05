@@ -6,7 +6,7 @@ value:
   heading: "Tour Our Office"
   tourSlides: []
   backgroundColor: base
-  slideNumbers: false
-  floatingArrows: false
+  slideNumbers: true
+  floatingArrows: true
 _inputs_from_glob:
   - /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml

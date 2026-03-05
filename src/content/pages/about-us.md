@@ -141,7 +141,7 @@ pageSections:
         iconName: ""
         iconPosition: before
         variant: secondary
-        size: md
+        size: lg
     maxContentWidth:
     paddingHorizontal: sm
     paddingVertical: sm
