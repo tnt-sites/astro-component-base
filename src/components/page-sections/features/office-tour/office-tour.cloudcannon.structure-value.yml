@@ -1,12 +1,21 @@
-label: office-tour
-icon: add
+label: Office Tour
+icon: view_carousel
 description: Description for office-tour component.
 value:
   _component: page-sections/features/office-tour
-  heading: "office-tour Heading"
+  heading: "Tour Our Office"
   tourSlides: []
   backgroundColor: base
   slideNumbers: true
   floatingArrows: false
+_inputs:
+  slideNumbers:
+    type: switch
+    label: Slide Numbers
+    comment: Toggle to display slide numbers instead of indicator dots.
+  floatingArrows:
+    type: switch
+    label: Floating Arrows
+    comment: Toggle to display floating arrows on the carousel.
 _inputs_from_glob:
   - /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml
