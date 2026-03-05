@@ -151,5 +151,35 @@ pageSections:
       alt:
       positionVertical: top
       positionHorizontal: center
+  - _component: page-sections/features/office-tour
+    heading: office-tour Heading
+    tourSlides:
+      - _component: building-blocks/core-elements/image
+        source: /src/assets/images/component-library/castle.jpg
+        alt: ''
+        rounded: false
+        aspectRatio: none
+        positionVertical: center
+        positionHorizontal: center
+        priority: false
+      - _component: building-blocks/core-elements/image
+        source: /src/assets/images/component-library/dunedin-cliff.jpg
+        alt: ''
+        rounded: false
+        aspectRatio: none
+        positionVertical: center
+        positionHorizontal: center
+        priority: false
+      - _component: building-blocks/core-elements/image
+        source: /src/assets/images/component-library/profile5.jpg
+        alt: ''
+        rounded: false
+        aspectRatio: none
+        positionVertical: center
+        positionHorizontal: center
+        priority: false
+    backgroundColor: base
+    slideNumbers: false
+    floatingArrows: false
 description: ''
 ---
