@@ -1,16 +1,19 @@
 heading:
   type: text
-  comment: Main heading for the office tour section.
+  label: "Section Heading"
+  comment: "Main heading for the office tour section."
+
 tourSlides:
   type: array
-  label: Tour Slides
-  comment: Slides displayed in the office tour carousel.
+  label: "Tour Slides"
+  comment: "Slides displayed in the office tour carousel."
   options:
     structures: _structures.tourSlides
 
 backgroundColor:
   type: select
-  comment: Background color used behind the office tour section.
+  label: "Background Color"
+  comment: "Background color used behind the office tour section."
   options:
     values:
       - id: none
