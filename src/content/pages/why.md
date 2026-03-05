@@ -294,5 +294,9 @@ pageSections:
         text: List item 3
         iconName:
         iconColor: '#000000'
+  - _component: page-sections/features/office-tour
+    heading: office-tour Heading
+    tourSlides: []
+    backgroundColor: base
 description: ''
 ---
