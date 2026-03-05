@@ -40,23 +40,6 @@ backgroundImage.source:
     paths:
       uploads: src/assets/images
       static: ""
-firstHeadingText:
-  type: text
-  comment: The heading text for the first card in the meet section.
-firstText:
-  type: text
-  comment: The text content for the first card in the meet section.
-secondHeadingText:
-  type: text
-  comment: The heading text for the second card in the meet section.
-secondText:
-  type: text
-  comment: The text content for the second card in the meet section.
-buttonSections:
-  type: array
-  comment: Buttons for calls-to-action.
-  options:
-    structures: _structures.buttonSections
 
 # Add your other component inputs here
 # Example:
