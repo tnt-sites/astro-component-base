@@ -1,11 +1,11 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import ButtonGroup from "@components/building-blocks/core-elements/button/Button.astro";
 import Image from "@components/building-blocks/core-elements/image/Image.astro";
 import Text from "@components/building-blocks/core-elements/text/Text.astro";
 import Card from "@components/building-blocks/wrappers/card/Card.astro";
 import Split from "@components/building-blocks/wrappers/split/Split.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   heading = "",
@@ -24,7 +24,12 @@ const {
   ...rest
 } = Astro.props;
 
-const { source = "" } = backgroundImage || {};
+const {
+  source = "",
+  alt = "",
+  positionVertical = "top",
+  positionHorizontal = "center",
+} = backgroundImage || {};
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
@@ -43,8 +48,12 @@ const htmlAttributes = Object.fromEntries(
   <Image
     class:list={["background-image"]}
     source={source}
+    alt={alt}
     editable={editable}
     data-prop-src="backgroundImage.source"
+    data-prop-alt="backgroundImage.alt"
+    positionVertical={positionVertical}
+    positionHorizontal={positionHorizontal}
     background={true}
   />
   <Heading
@@ -68,40 +77,35 @@ const htmlAttributes = Object.fromEntries(
   />
 
   <Split>
-    <Fragment class="split-first">
-      <Card>
-        <Heading
-          level="h3"
-          size="md"
-          alignX="center"
-          data-prop="heading"
-          style="text-transform: uppercase;"
-        >
+    <Fragment slot="first">
+      <Card
+        class="meet-card"
+        border={true}
+        rounded={true}
+        paddingHorizontal="lg"
+        paddingVertical="lg"
+      >
+        <Heading level="h3" size="md" data-prop="firstHeadingText">
           {firstHeadingText}
         </Heading>
-        <Text data-prop="text">
-          {firstText}
-        </Text>
-
-        <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
+        <Text text={firstText} data-prop="firstText" />
+        <ButtonGroup class="meet-card-buttons" buttonSections={buttonSections} alignX="start" />
       </Card>
     </Fragment>
 
-    <Fragment class="split-second">
-      <Card>
-        <Heading
-          level="h3"
-          size="md"
-          alignX="center"
-          data-prop="heading"
-          style="text-transform: uppercase;"
-        >
+    <Fragment slot="second">
+      <Card
+        class="meet-card"
+        border={true}
+        rounded={true}
+        paddingHorizontal="lg"
+        paddingVertical="lg"
+      >
+        <Heading level="h3" size="md" data-prop="secondHeadingText">
           {secondHeadingText}
         </Heading>
-        <Text data-prop="text">
-          {secondText}
-        </Text>
-        <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
+        <Text text={secondText} data-prop="secondText" />
+        <ButtonGroup class="meet-card-buttons" buttonSections={buttonSections} alignX="start" />
       </Card>
     </Fragment>
   </Split>
@@ -110,6 +114,9 @@ const htmlAttributes = Object.fromEntries(
 <style lang="pcss" is:global>
   @layer page-sections {
     .meet-section {
+      .meet-card {
+        height: 100%;
+      }
     }
   }
 </style>
