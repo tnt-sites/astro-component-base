@@ -5,5 +5,21 @@ value:
   _component: page-sections/people/meet-section
   heading: "Meet Section Heading"
   backgroundColor: base
+  backgroundImage:
+    source: null
+    alt: null
+  buttonSections:
+    - _component: building-blocks/core-elements/button
+      text: My Button
+      hideText: false
+      link: ""
+      iconName: ""
+      iconPosition: before
+      variant: primary
+      size: md
+  firstHeadingText: "Nelson Hui, DMD"
+  firstText: "At the core of Dr. Nelson’s style of dentistry, he puts ethics and compassion above all else, ensuring that every child and parent knows that they have a voice when they’re with him."
+  secondHeadingText: "Josephine Yip, DMD"
+  secondText: "From infants to teens, Dr. JoJo takes the time to ask questions and learn more about her patients, allowing her to personalize the care she provides and create positive dental experiences that build trust."
 _inputs_from_glob:
   - /src/components/page-sections/people/meet-section/meet-section.cloudcannon.inputs.yml
