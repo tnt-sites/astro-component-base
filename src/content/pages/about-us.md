@@ -179,7 +179,7 @@ pageSections:
         positionHorizontal: center
         priority: false
     backgroundColor: base
-    slideNumbers: false
-    floatingArrows: false
+    slideNumbers: true
+    floatingArrows: true
 description: ''
 ---
