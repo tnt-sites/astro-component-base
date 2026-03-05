@@ -154,5 +154,42 @@ pageSections:
       positionVertical: top
       positionHorizontal: center
     rounded: false
+  - _component: page-sections/people/meet-section
+    heading: Our friendly pediatric dentists
+    backgroundColor: base
+    backgroundImage:
+      source: /src/assets/images/index-meet-decoration.png
+      alt: ''
+    imageSource: /src/assets/images/index-meet.jpg
+    imageAlt: Two dentists
+    doctors:
+      - name: Nelson Hui, DMD
+        title: >-
+          At the core of Dr. Nelson’s style of dentistry, he puts ethics and
+          compassion above all else, ensuring that every child and parent knows
+          that they have a voice when they’re with him.
+        buttonSections:
+          - _component: building-blocks/core-elements/button
+            text: Meet Dr. Hui
+            hideText: false
+            link: ''
+            iconName: ''
+            iconPosition: before
+            variant: primary
+            size: md
+      - name: Josephine Yip, DMD
+        title: >-
+          From infants to teens, Dr. JoJo takes the time to ask questions and
+          learn more about her patients, allowing her to personalize the care
+          she provides and create positive dental experiences that build trust.
+        buttonSections:
+          - _component: building-blocks/core-elements/button
+            text: Meet Dr. JoJo
+            hideText: false
+            link: ''
+            iconName: ''
+            iconPosition: before
+            variant: primary
+            size: md
 description: ''
 ---
