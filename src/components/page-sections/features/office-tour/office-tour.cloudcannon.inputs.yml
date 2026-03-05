@@ -13,16 +13,15 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
-tourSlides:
-  type: array
-  label: Tour Slides
-  comment: Slides rendered in the office tour carousel.
-  options:
-    structures: _structures.carouselSections
-
 slideNumbers:
   type: switch
   comment: "Toggle to display slide numbers (1/10) instead of indicator dots."
 floatingArrows:
   type: switch
   comment: "Toggle to display floating arrows on the carousel."
+tourSlides:
+  type: array
+  label: Tour Slides
+  comment: Slides rendered in the office tour carousel.
+  options:
+    structures: _structures.carouselSections
