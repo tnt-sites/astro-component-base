@@ -1,0 +1,124 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import ButtonGroup from "@components/building-blocks/core-elements/button/Button.astro";
+import Image from "@components/building-blocks/core-elements/image/Image.astro";
+import Text from "@components/building-blocks/core-elements/text/Text.astro";
+import Card from "@components/building-blocks/wrappers/card/Card.astro";
+import Split from "@components/building-blocks/wrappers/split/Split.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+
+const {
+  heading = "",
+  backgroundColor = "base",
+  backgroundImage,
+  class: className,
+  imageSource = "",
+  imageAlt = "",
+  firstHeadingText = "",
+  firstText = "",
+  secondHeadingText = "",
+  secondText = "",
+  buttonSections = [],
+
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const {
+  source = "",
+  alt = "",
+  positionVertical = "top",
+  positionHorizontal = "center",
+} = backgroundImage || {};
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["meet-section", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  <Image
+    class:list={["background-image"]}
+    source={source}
+    alt={alt}
+    editable={editable}
+    data-prop-src="backgroundImage.source"
+    data-prop-alt="backgroundImage.alt"
+    positionVertical={positionVertical}
+    positionHorizontal={positionHorizontal}
+    background={true}
+  />
+  <Heading
+    level="h2"
+    size="lg"
+    alignX="center"
+    data-prop="heading"
+    style="text-transform: uppercase;"
+  >
+    {heading}
+  </Heading>
+
+  <Image
+    source={imageSource}
+    alt={imageAlt}
+    editable={editable}
+    data-prop-src="imageSource"
+    data-prop-alt="imageAlt"
+    width={1135}
+    height={652}
+  />
+
+  <Split>
+    <Fragment class="split-first">
+      <Card>
+        <Heading
+          level="h3"
+          size="md"
+          alignX="center"
+          data-prop="heading"
+          style="text-transform: uppercase;"
+        >
+          {firstHeadingText}
+        </Heading>
+        <Text data-prop="text">
+          {firstText}
+        </Text>
+
+        <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
+      </Card>
+    </Fragment>
+
+    <Fragment class="split-second">
+      <Card>
+        <Heading
+          level="h3"
+          size="md"
+          alignX="center"
+          data-prop="heading"
+          style="text-transform: uppercase;"
+        >
+          {secondHeadingText}
+        </Heading>
+        <Text data-prop="text">
+          {secondText}
+        </Text>
+        <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
+      </Card>
+    </Fragment>
+  </Split>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .meet-section {
+    }
+  }
+</style>

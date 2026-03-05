@@ -1,0 +1,9 @@
+label: Meet Section
+icon: add
+description: Description for Meet Section component.
+value:
+  _component: page-sections/people/meet-section
+  heading: "Meet Section Heading"
+  backgroundColor: base
+_inputs_from_glob:
+  - /src/components/page-sections/people/meet-section/meet-section.cloudcannon.inputs.yml
