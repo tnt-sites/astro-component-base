@@ -4,7 +4,6 @@ description: Description for Meet Section component.
 value:
   _component: page-sections/people/meet-section
   heading: Our friendly pediatric dentists
-  backgroundColor: base
   backgroundImage:
     source: ""
     alt: ""
@@ -61,7 +60,7 @@ _structures:
             - key: name
             - Doctor Card
           subtext:
-            - key: title
+            - key: text
             - Doctor description
         _inputs:
           name:

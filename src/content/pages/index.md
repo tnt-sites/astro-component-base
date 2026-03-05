@@ -15,8 +15,8 @@ pageSections:
       _component: building-blocks/core-elements/video
       type: youtube
       id: UImqfGvKL2Y
-      title: ''
-      source: ''
+      title: ""
+      source: ""
       thumbnail:
   - _component: page-sections/builders/custom-section
     label: Meet
@@ -43,7 +43,7 @@ pageSections:
             label:
             contentSections:
               - _component: building-blocks/core-elements/heading
-                text: ' Nelson Hui, DMD'
+                text: " Nelson Hui, DMD"
                 level: h3
                 size: lg
                 alignX: center
@@ -62,8 +62,8 @@ pageSections:
                   - _component: building-blocks/core-elements/button
                     text: Meet Dr. Hui
                     hideText: false
-                    link: ''
-                    iconName: ''
+                    link: ""
+                    iconName: ""
                     iconPosition: before
                     variant: primary
                     size: md
@@ -90,7 +90,7 @@ pageSections:
             label:
             contentSections:
               - _component: building-blocks/core-elements/heading
-                text: ' Josephine Yip, DMD'
+                text: " Josephine Yip, DMD"
                 level: h3
                 size: lg
                 alignX: center
@@ -113,8 +113,8 @@ pageSections:
                   - _component: building-blocks/core-elements/button
                     text: Meet Dr. JoJo
                     hideText: false
-                    link: ''
-                    iconName: ''
+                    link: ""
+                    iconName: ""
                     iconPosition: before
                     variant: primary
                     size: md
@@ -149,8 +149,8 @@ pageSections:
     colorScheme: default
     backgroundColor: surface
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -159,12 +159,12 @@ pageSections:
     backgroundColor: base
     backgroundImage:
       source: /src/assets/images/index-meet-decoration.png
-      alt: ''
+      alt: ""
     imageSource: /src/assets/images/index-meet.jpg
     imageAlt: Two dentists
     doctors:
       - name: Nelson Hui, DMD
-        title: >-
+        text: >-
           At the core of Dr. Nelson’s style of dentistry, he puts ethics and
           compassion above all else, ensuring that every child and parent knows
           that they have a voice when they’re with him.
@@ -172,13 +172,13 @@ pageSections:
           - _component: building-blocks/core-elements/button
             text: Meet Dr. Hui
             hideText: false
-            link: ''
-            iconName: ''
+            link: ""
+            iconName: ""
             iconPosition: before
             variant: primary
             size: md
       - name: Josephine Yip, DMD
-        title: >-
+        text: >-
           From infants to teens, Dr. JoJo takes the time to ask questions and
           learn more about her patients, allowing her to personalize the care
           she provides and create positive dental experiences that build trust.
@@ -186,10 +186,10 @@ pageSections:
           - _component: building-blocks/core-elements/button
             text: Meet Dr. JoJo
             hideText: false
-            link: ''
-            iconName: ''
+            link: ""
+            iconName: ""
             iconPosition: before
             variant: primary
             size: md
-description: ''
+description: ""
 ---

@@ -7,7 +7,6 @@ import Heading from "@core-elements/heading/Heading.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 const {
   heading = "",
-  backgroundColor = "base",
   backgroundImage,
   class: className,
   imageSource = "",
@@ -31,7 +30,6 @@ const htmlAttributes = Object.fromEntries(
   paddingHorizontal="lg"
   paddingVertical="4xl"
   colorScheme="default"
-  backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
   <Image
@@ -69,13 +67,7 @@ const htmlAttributes = Object.fromEntries(
           <Heading level="h3" size="md" alignX="center" data-prop={`doctors.${index}.name`}>
             {doctor.name}
           </Heading>
-          <Text
-            level="p"
-            size="sm"
-            alignX="center"
-            data-prop={`doctors.${index}.title`}
-            text={doctor.name || ""}
-          >
+          <Text style="text-align: center" data-prop={`doctors.${index}.text`}>
             {doctor.text}
           </Text>
           <ButtonGroup class="buttons" buttonSections={doctor.buttonSections} alignX="center" />
@@ -89,18 +81,39 @@ const htmlAttributes = Object.fromEntries(
   @layer page-sections {
     .meet-section {
       position: relative;
+    background-color: #EBECF0;
+    width: 100%;
+    max-width: 1300px;
+    margin: 100px auto;;
     }
 
+    .bg-base{background-color: transparent;}
+
     .background-image{
-      position: absolute; top: 0; right: 0;
+      position: absolute;
+    opacity: 0.8;
+    left: auto;
+    right: 0;
+    top: 0;
+    z-index: -1;
+    max-width: 277px;
+    height: 534px;
     }
 
     .meet-content{
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: center;
+      gap: 10px;
+      justify-content: space-around;
 
+    }
+
+    .card{
+          max-width: 420px;
+    margin-top: 50px;display: block;; flex: 0 1 420px;
+
+    h3{font-size: 4rem; font-weight: normal;}
+    .text{font-size: 1.8rem; font-weight: 500;     max-width: 370px; margin: 0 auto;}
     }
   }
 </style>
