@@ -13,9 +13,6 @@ const {
   imageSource = "",
   imageAlt = "",
   reverse = false,
-  backgroundColor,
-  paddingVertical = "4xl",
-  rounded = false,
   class: className,
   editable = true,
   ...rest
@@ -26,15 +23,7 @@ const htmlAttributes = Object.fromEntries(
 );
 ---
 
-<CustomSection
-  class:list={["callouts", className]}
-  maxContentWidth="2xl"
-  paddingHorizontal="lg"
-  paddingVertical={paddingVertical}
-  colorScheme="default"
-  backgroundColor={backgroundColor}
-  {...htmlAttributes}
->
+<CustomSection class:list={["callouts", className]} maxContentWidth="2xl" {...htmlAttributes}>
   <Split
     class="split"
     distributionMode="fixed-flexible"
@@ -54,11 +43,8 @@ const htmlAttributes = Object.fromEntries(
           callouts.map((callout: any, index: number) => (
             <a href={callout.url} data-prop={`callouts.${index}.url`}>
               <figure>
-                <image src={`assets/images/index-callouts-icon-${index}.svg`} alt={callout.label} />
-                <image
-                  src={`assets/images/index-callouts-icon-hover-${index}.svg`}
-                  alt={callout.label}
-                />
+                <Image source={callout.icon} alt={callout.alt} />
+                <Image source={callout.iconHover} alt={callout.alt} />
               </figure>
 
               <article>
@@ -78,10 +64,12 @@ const htmlAttributes = Object.fromEntries(
     <Fragment slot="second">
       <Image
         source={imageSource}
-        rounded={true}
+        rounded={false}
         alt={imageAlt}
-        aspectRatio="landscape"
+        aspectRatio="none"
         editable={true}
+        width={600}
+        height={703}
         data-prop-src="imageSource"
         data-prop-alt="imageAlt"
         data-editable="image"
@@ -93,6 +81,10 @@ const htmlAttributes = Object.fromEntries(
 <style lang="pcss" is:global>
   @layer page-sections {
     .callouts {
+
+      .second{
+
+      }
     }
   }
 </style>

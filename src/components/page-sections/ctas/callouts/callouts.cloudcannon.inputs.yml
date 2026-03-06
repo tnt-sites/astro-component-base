@@ -20,7 +20,9 @@ callouts:
           name: Callout
           value:
             url: "#"
-            label: ""
+            icon: ""
+            iconHover: ""
+            alt: ""
             heading: ""
             text: ""
 
@@ -35,22 +37,6 @@ imageAlt:
 reverse:
   type: switch
   comment: Reverse the split layout order.
-
-backgroundColor:
-  type: select
-  comment: Background color used behind the section.
-  options:
-    values:
-      - id: none
-        name: None
-      - id: base
-        name: Base
-      - id: surface
-        name: Surface
-      - id: accent
-        name: Accent
-      - id: highlight
-        name: Highlight
 
 paddingVertical:
   type: select
@@ -75,15 +61,3 @@ paddingVertical:
         name: 3XL
       - id: 4xl
         name: 4XL
-
-rounded:
-  type: switch
-  comment: Enable rounded image corners.
-
-class:
-  type: text
-  comment: Additional CSS classes for the section wrapper.
-
-editable:
-  type: switch
-  comment: Enable/disable editor bindings.
