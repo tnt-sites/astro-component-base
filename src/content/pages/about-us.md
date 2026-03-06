@@ -115,42 +115,6 @@ pageSections:
       positionVertical: top
       positionHorizontal: center
     rounded: false
-  - _component: page-sections/ctas/more-to-explore
-    heading: More to Explore
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        text: My Button
-        hideText: false
-        link: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-      - _component: building-blocks/core-elements/button
-        text: My Button
-        hideText: false
-        link: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-      - _component: building-blocks/core-elements/button
-        text: My Button
-        hideText: false
-        link: ''
-        iconName: ''
-        iconPosition: before
-        variant: secondary
-        size: md
-    maxContentWidth:
-    paddingHorizontal: sm
-    paddingVertical: sm
-    backgroundColor: base
-    backgroundImage:
-      source:
-      alt:
-      positionVertical: top
-      positionHorizontal: center
   - _component: page-sections/features/office-tour
     heading: office-tour Heading
     tourSlides:
@@ -181,5 +145,25 @@ pageSections:
     backgroundColor: base
     slideNumbers: true
     floatingArrows: true
+  - _component: page-sections/ctas/more-to-explore
+    heading: More to <span class="color">Explore</span>
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        text: My Button
+        hideText: false
+        link: ''
+        iconName: ''
+        iconPosition: before
+        variant: primary
+        size: md
+    maxContentWidth:
+    paddingHorizontal: sm
+    paddingVertical: sm
+    backgroundColor: base
+    backgroundImage:
+      source:
+      alt:
+      positionVertical: top
+      positionHorizontal: center
 description: ''
 ---
