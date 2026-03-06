@@ -56,35 +56,23 @@ pageSections:
             size: md
     backgroundColor: base
   - _component: page-sections/ctas/callouts
-    heading: We treat every smile like one-of-aa-kind.
+    heading: We treat every smile like one-of-a-kind.
     subheading: How We're Different
-    subtext: Optional supporting text.
+    subtext: asdfsd
     callouts:
-      - url: about.html#care
-        label:
-        heading: Personalized Care
-        text: >-
-          We spend a lot of time with each child, asking questions to learn more
-          about their individual needs and building trust.
-      - url: about#mini
-        label: ''
-        heading: Minimally Invasive
-        text: >-
-          We inform parents of the pros and cons of each treatment option and
-          highly recommend the least-invasive plans.
-      - url: about#insurance
-        label: ''
-        heading: Dental Insurance Friendly
-        text: >-
-          We’re in-network with most PPO dental insurances and are happy to file
-          claims on your behalf to maximize your benefits.
+      - url: about#care
+        icon: ''
+        iconHover: ''
+        alt: ''
+        heading: ''
+        text: ''
     imageSource: /src/assets/images/index-callouts11.jpg
     imageAlt: Callouts image
     reverse: true
-    colorScheme: inherit
-    backgroundColor: base
-    paddingVertical:
     rounded: false
     editable: true
+    colorScheme: inherit
+    backgroundColor: '#000000'
+    paddingVertical:
 description: ''
 ---

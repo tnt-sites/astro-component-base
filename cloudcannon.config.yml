@@ -2,7 +2,7 @@ collections_config:
   pages:
     path: src/content/pages
     glob:
-      - "**/*.md"
+      - '**/*.md'
     icon: laptop_mac
     url: /[full_slug]/
     disable_url: false
@@ -13,12 +13,18 @@ collections_config:
         type: text
         comment: Controls the metadata title for the page.
         cascade: true
+      $.pageSections[*].callouts[*].icon:
+        type: image
+        cascade: true
+      $.pageSections[*].callouts[*].iconHover:
+        type: image
+        cascade: true
     add_options:
       - name: Add New Page
         icon: pages
         schema: default
     create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
+      path: '[relative_base_path]/{filename|slugify|lowercase}.md'
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -34,7 +40,7 @@ collections_config:
   blog:
     path: src/content/blog
     glob:
-      - "**/*.mdx"
+      - '**/*.mdx'
     icon: accessibility_new
     url: /blog/[full_slug]/
     disable_url: false
@@ -48,6 +54,7 @@ collections_config:
       description:
         type: text
         comment: A brief description of the blog post.
+        cascade: true
       date:
         type: date
         comment: The publication date.
@@ -58,23 +65,23 @@ collections_config:
         cascade: true
       image:
         type: image
-        comment: Optional image path for the blog post.
         options:
           paths:
             uploads: src/assets/images
+        comment: Optional image path for the blog post.
         cascade: true
       tags:
         type: array
         cascade: true
     create:
-      path: "[relative_base_path]/{filename|slugify|lowercase}.mdx"
+      path: '[relative_base_path]/{filename|slugify|lowercase}.mdx'
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
   data:
     path: src/data
     glob:
-      - "**/*.json"
+      - '**/*.json'
     icon: database
     disable_url: false
     _enabled_editors:
@@ -87,20 +94,22 @@ collections_config:
     name: landing_pages
     icon: wysiwyg
     disable_url: false
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
     _inputs:
       logoSource:
         type: image
         options:
           paths:
             uploads: src/assets/images
+        cascade: true
       image:
         type: image
         options:
           paths:
             uploads: src/assets/images
+        cascade: true
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
 collection_groups:
   - heading: Content
     collections:
@@ -109,28 +118,6 @@ collection_groups:
   - heading: Data
     collections:
       - data
-file_config:
-  - glob: src/data/footer.json
-    _inputs:
-      infoLinks:
-        type: array
-        options:
-          structures:
-            values:
-              - label: Footer Link
-                icon: link
-                value:
-                  _component: "building-blocks/core-elements/button"
-                  text: ""
-                  link: ""
-      buttonSections:
-        type: array
-        options:
-          structures: _structures.buttonSections
-      definitionList:
-        type: array
-        options:
-          structures: _structures.definitionList
 _inputs:
   pageSections:
     comment: The main sections of the page.
@@ -831,6 +818,32 @@ _select_data:
       name: X Mark
 _snippets_imports:
   mdx: true
+file_config:
+  - glob: src/data/footer.json
+    _inputs:
+      infoLinks:
+        type: array
+        options:
+          structures:
+            style: select
+            values:
+              - icon: link
+                label: Footer Link
+                value:
+                  _component: building-blocks/core-elements/button
+                  text: ''
+                  link: ''
+        cascade: true
+      buttonSections:
+        type: array
+        options:
+          structures: _structures.buttonSections
+        cascade: true
+      definitionList:
+        type: array
+        options:
+          structures: _structures.definitionList
+        cascade: true
 timezone: Etc/UTC
 _structures_from_glob:
   - /.cloudcannon/structures/*.cloudcannon.structures.yml
