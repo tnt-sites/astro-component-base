@@ -61,11 +61,13 @@ pageSections:
     subtext: asdfsd
     callouts:
       - url: about#care
-        icon: ''
-        iconHover: ''
+        icon: /uploads/index-callouts-icon-1.svg
+        iconHover: /uploads/index-callouts-icon-hover-1.svg
         alt: ''
-        heading: ''
-        text: ''
+        heading: Personalized Care
+        text: >-
+          We spend a lot of time with each child, asking questions to learn more
+          about their individual needs and building trust.
     imageSource: /src/assets/images/index-callouts11.jpg
     imageAlt: Callouts image
     reverse: true
