@@ -34,17 +34,6 @@ callouts:
       - editor_key: reverse
         type: boolean
         optional: true
-      - editor_key: backgroundColor
-        type: string
-        optional: true
-        remove_empty: true
-      - editor_key: paddingVertical
-        type: string
-        optional: true
-        remove_empty: true
-      - editor_key: rounded
-        type: boolean
-        optional: true
       - editor_key: class
         type: string
         optional: true

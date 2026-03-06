@@ -14,17 +14,47 @@ callouts:
   type: array
   comment: Callout link items.
   options:
-    structures:
-      values:
-        - id: callout
-          name: Callout
-          value:
-            url: "#"
-            icon: ""
-            iconHover: ""
-            alt: ""
-            heading: ""
-            text: ""
+    structures: _structures.callouts
+
+_structures:
+  callouts:
+    values:
+      - label: Callout
+        icon: image
+        value:
+          url: "#"
+          icon: ""
+          iconHover: ""
+          alt: ""
+          heading: ""
+          text: ""
+        _inputs:
+          url:
+            type: text
+            comment: Link URL for this callout.
+          icon:
+            type: image
+            comment: Default icon image.
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          iconHover:
+            type: image
+            comment: Hover-state icon image.
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          alt:
+            type: text
+            comment: Alt text for both callout icons.
+          heading:
+            type: text
+            comment: Callout heading text.
+          text:
+            type: textarea
+            comment: Callout description text.
 
 imageSource:
   type: image

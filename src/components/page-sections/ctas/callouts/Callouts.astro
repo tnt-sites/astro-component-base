@@ -43,8 +43,18 @@ const htmlAttributes = Object.fromEntries(
           callouts.map((callout: any, index: number) => (
             <a href={callout.url} data-prop={`callouts.${index}.url`}>
               <figure>
-                <Image source={callout.icon} alt={callout.alt} />
-                <Image source={callout.iconHover} alt={callout.alt} />
+                <Image
+                  source={callout.icon}
+                  alt={callout.alt}
+                  data-prop-src={`callouts.${index}.icon`}
+                  data-prop-alt={`callouts.${index}.alt`}
+                />
+                <Image
+                  source={callout.iconHover}
+                  alt={callout.alt}
+                  data-prop-src={`callouts.${index}.iconHover`}
+                  data-prop-alt={`callouts.${index}.alt`}
+                />
               </figure>
 
               <article>
