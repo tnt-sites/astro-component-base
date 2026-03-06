@@ -16,6 +16,27 @@
       "name": "Blog",
       "path": "/blog/",
       "children": []
+    },
+    {
+      "name": "Our Services",
+      "path": "/our-services",
+      "children": [
+        {
+          "name": "Preventive Dentistry",
+          "path": "/preventive-dentistry",
+          "children": []
+        },
+        {
+          "name": "Dental Implants",
+          "path": "/dental-implants",
+          "children": [
+            {
+              "name": "More Implants",
+              "path": "/dental-implants"
+            }
+          ]
+        }
+      ]
     }
   ],
   "buttonSections": [
