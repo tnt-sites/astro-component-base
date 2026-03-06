@@ -8,16 +8,6 @@
       "children": []
     },
     {
-      "name": "Why",
-      "path": "/why/",
-      "children": []
-    },
-    {
-      "name": "Blog",
-      "path": "/blog/",
-      "children": []
-    },
-    {
       "name": "Our Services",
       "path": "/our-services",
       "children": [
@@ -37,6 +27,16 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Why",
+      "path": "/why/",
+      "children": []
+    },
+    {
+      "name": "Blog",
+      "path": "/blog/",
+      "children": []
     }
   ],
   "buttonSections": [
