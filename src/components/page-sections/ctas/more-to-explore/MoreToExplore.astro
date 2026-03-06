@@ -57,7 +57,7 @@ const htmlAttributes = Object.fromEntries(
     alignX="center"
     data-prop="heading"
   >
-    {heading}
+        <Fragment set:html={heading} />
   </Heading>
   <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
 </CustomSection>
@@ -67,5 +67,9 @@ const htmlAttributes = Object.fromEntries(
     > .background-image {
       z-index: var(--layer-1);
     }
+  }
+
+  .more-to-explore__heading span.color{
+    color: red;
   }
 </style>
