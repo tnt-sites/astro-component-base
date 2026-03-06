@@ -1,3 +1,8 @@
+heading:
+  type: html
+  comment: Headline for the CTA. Supports inline span wrappers/classes for highlighted words.
+  options:
+    styles: .cloudcannon/styles/editor.css
 maxContentWidth:
   type: select
   comment: Maximum width constraint for the content.
