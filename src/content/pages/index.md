@@ -61,13 +61,19 @@ pageSections:
     subtext: asdfsd
     callouts:
       - url: about#care
-        icon: /uploads/index-callouts-icon-1.svg
-        iconHover: /uploads/index-callouts-icon-hover-1.svg
+        icon: /src/assets/images/index-callouts-icon-1.svg
+        iconHover: /src/assets/images/index-callouts-icon-hover-1.svg
         alt: ''
         heading: Personalized Care
         text: >-
           We spend a lot of time with each child, asking questions to learn more
           about their individual needs and building trust.
+      - url: about/#mini
+        icon: /src/assets/images/index-callouts-icon-2.png
+        iconHover: /src/assets/images/index-callouts-icon-hover-2.svg
+        alt: Stars
+        heading: Minimally Invasive
+        text: Lorem Ipsum bacon getsum
     imageSource: /src/assets/images/index-callouts11.jpg
     imageAlt: Callouts image
     reverse: true
