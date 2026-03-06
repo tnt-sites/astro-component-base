@@ -1,0 +1,27 @@
+label: Callouts
+icon: add
+description: Description for Callouts component.
+value:
+  _component: page-sections/ctas/callouts
+  heading: Callouts Heading
+  subheading: Callouts Subheading
+  subtext: Optional supporting text.
+  callouts:
+    - heading: First callout
+      text: Description for the first callout.
+      url: "#"
+      label: First callout icon
+    - heading: Second callout
+      text: Description for the second callout.
+      url: "#"
+      label: Second callout icon
+  imageSource: ""
+  imageAlt: Callouts image
+  reverse: false
+  colorScheme: inherit
+  backgroundColor: base
+  paddingVertical: 4xl
+  rounded: false
+  editable: true
+_inputs_from_glob:
+  - /src/components/page-sections/ctas/callouts/callouts.cloudcannon.inputs.yml

@@ -1,0 +1,89 @@
+heading:
+  type: text
+  comment: Main heading text.
+
+subheading:
+  type: text
+  comment: Small heading text shown above the main heading.
+
+subtext:
+  type: textarea
+  comment: Supporting text for the section.
+
+callouts:
+  type: array
+  comment: Callout link items.
+  options:
+    structures:
+      values:
+        - id: callout
+          name: Callout
+          value:
+            url: "#"
+            label: ""
+            heading: ""
+            text: ""
+
+imageSource:
+  type: image
+  comment: Image shown in the second split column.
+
+imageAlt:
+  type: text
+  comment: Alt text for the image.
+
+reverse:
+  type: switch
+  comment: Reverse the split layout order.
+
+backgroundColor:
+  type: select
+  comment: Background color used behind the section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+
+paddingVertical:
+  type: select
+  comment: Vertical padding for the section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: xs
+        name: XS
+      - id: sm
+        name: SM
+      - id: md
+        name: MD
+      - id: lg
+        name: LG
+      - id: xl
+        name: XL
+      - id: 2xl
+        name: 2XL
+      - id: 3xl
+        name: 3XL
+      - id: 4xl
+        name: 4XL
+
+rounded:
+  type: switch
+  comment: Enable rounded image corners.
+
+class:
+  type: text
+  comment: Additional CSS classes for the section wrapper.
+
+editable:
+  type: switch
+  comment: Enable/disable editor bindings.

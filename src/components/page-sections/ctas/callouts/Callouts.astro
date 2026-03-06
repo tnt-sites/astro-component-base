@@ -1,0 +1,98 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@components/building-blocks/core-elements/heading/Heading.astro";
+import Image from "@components/building-blocks/core-elements/image/Image.astro";
+import Text from "@components/building-blocks/core-elements/text/Text.astro";
+import Split from "@wrappers/split/Split.astro";
+
+const {
+  heading = "",
+  subheading = "",
+  subtext = "",
+  callouts = [],
+  imageSource = "",
+  imageAlt = "",
+  reverse = false,
+  backgroundColor,
+  paddingVertical = "4xl",
+  rounded = false,
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["callouts", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  <Split
+    class="split"
+    distributionMode="fixed-flexible"
+    fixedWidth="400"
+    verticalAlignment="center"
+    reverse={reverse}
+    minSplitWidth={640}
+  >
+    <Fragment slot="first">
+      <heading level h2 size="xs" data-prop="subheading">{subheading}</heading>
+      <Heading level="h3" size="xl" data-prop="heading">
+        {heading}
+      </Heading>
+
+      <div class="links">
+        {
+          callouts.map((callout: any, index: number) => (
+            <a href={callout.url} data-prop={`callouts.${index}.url`}>
+              <figure>
+                <image src={`assets/images/index-callouts-icon-${index}.svg`} alt={callout.label} />
+                <image
+                  src={`assets/images/index-callouts-icon-hover-${index}.svg`}
+                  alt={callout.label}
+                />
+              </figure>
+
+              <article>
+                <Heading level="h4" size="sm" data-prop={`callouts.${index}.heading`}>
+                  {callout.heading}
+                </Heading>
+
+                <Text size="sm" data-prop={`callouts.${index}.text`}>
+                  {callout.text}
+                </Text>
+              </article>
+            </a>
+          ))
+        }
+      </div>
+    </Fragment>
+    <Fragment slot="second">
+      <Image
+        source={imageSource}
+        rounded={true}
+        alt={imageAlt}
+        aspectRatio="landscape"
+        editable={true}
+        data-prop-src="imageSource"
+        data-prop-alt="imageAlt"
+        data-editable="image"
+      />
+    </Fragment>
+  </Split>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .callouts {
+    }
+  }
+</style>
