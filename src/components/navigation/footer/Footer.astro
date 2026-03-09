@@ -1,31 +1,106 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import Bar from "@components/navigation/bar/Bar.astro";
 import Button from "@core-elements/button/Button.astro";
 import Divider from "@core-elements/divider/Divider.astro";
 import Image from "@core-elements/image/Image.astro";
-import Text from "@core-elements/text/Text.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   links = [],
   socials = [],
-  footerText = "",
+  sitename = "",
+  legalLinks = [],
+  contactTitle = "Contact Us",
+  phoneText = "",
+  phoneHref = "",
+  addressHref = "",
+  addressLines = [],
+  officeHoursTitle = "Office Hours",
+  officeHours = [],
   logoSource,
   logoAlt,
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const copyYear = new Date().getFullYear();
 ---
 
 <footer class="footer" {...htmlAttributes}>
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="2xl">
     <div class="footer-content">
       <div class="content-container">
-        <Image source={logoSource} alt={logoAlt} class="footer-logo" editable={false} />
+        <a href="/">
+          <Image source={logoSource} alt={logoAlt} class="footer-logo" editable={false} />
+        </a>
       </div>
-      <div class="content-container">
+      <!-- <div class="content-container">
         <Bar navData={links} />
+      </div> -->
+    </div>
+
+    <div id="fo-content" class="fo-content block lg:flex justify-around items-start text-center">
+      <div class="fo-info">
+        <span class="fo-title">{contactTitle}</span>
+        {
+          phoneText && (
+            <a href={phoneHref || "#"} class="pho">
+              {phoneText}
+            </a>
+          )
+        }
+        {
+          addressLines.length > 0 && (
+            <a href={addressHref || "#"} class="phy" target="_blank" rel="noopener noreferrer">
+              {addressLines.map((line: string, index: number) => (
+                <>
+                  {line}
+                  {index < addressLines.length - 1 && <br />}
+                </>
+              ))}
+            </a>
+          )
+        }
+
+        {
+          socials.length > 0 && (
+            <div class="social">
+              <ButtonGroup alignX="center">
+                {socials.map((social: any) => (
+                  <Button
+                    variant="ghost"
+                    size="lg"
+                    iconName={social.icon}
+                    link={social.link}
+                    hideText="true"
+                    aria-label={`Visit our ${social.icon} page`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  />
+                ))}
+              </ButtonGroup>
+            </div>
+          )
+        }
+      </div>
+
+      <div class="fo-hours">
+        <div class="hours">
+          <span class="fo-title">{officeHoursTitle}</span>
+          <div class="hours-list">
+            {
+              officeHours.map((item: any) => (
+                <div class="hours-row">
+                  <div class="hours-line">
+                    <span class="hours-day">{item.day || ""}</span>
+                    <span class="hours-time">{item.hours || ""}</span>
+                  </div>
+                  {item.note && <small class="hours-note">{item.note}</small>}
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
 
@@ -33,25 +108,32 @@ const {
 
     <div class="footer-content">
       <div class="content-container">
-        <Text class="footer-legal-text" text={footerText || ""} data-prop="" />
-      </div>
-      <div class="content-container">
-        <ButtonGroup alignX="end">
+        <div class="footer-legal-text" id="copy">
+          &copy;<span class="inline" id="copyDate">{copyYear}</span>
+          {sitename}
+          <span class="hidden lg:inline mx-2">|</span>
+          <br class="inline lg:hidden" />
           {
-            socials.map((social: any) => (
-              <Button
-                variant="ghost"
-                size="lg"
-                iconName={social.icon}
-                link={social.link}
-                hideText="true"
-                aria-label={`Visit our ${social.icon} page`}
-                target="_blank"
-                rel="noopener noreferrer"
-              />
+            legalLinks.map((item: any, index: number) => (
+              <>
+                <a href={item.path || "#"}>{item.name || "Link"}</a>
+                {index < legalLinks.length - 1 && <span class="mx-2">|</span>}
+              </>
             ))
           }
-        </ButtonGroup>
+          {
+            legalLinks.length > 0 && (
+              <>
+                <span class="hidden lg:inline mx-2">|</span>
+                <br class="inline lg:hidden" />
+              </>
+            )
+          }
+          Site designed and maintained by{" "}
+          <a href="https://www.tntdental.com" target="_blank" rel="noopener noreferrer">
+            TNT Dental
+          </a>
+        </div>
       </div>
     </div>
   </CustomSection>
@@ -74,6 +156,8 @@ const {
             justify-content: center;
           }
         }
+
+
       }
 
       .footer-content {
@@ -86,6 +170,11 @@ const {
 
         .content-container {
           flex: 1;
+
+          > a {
+            display: block;
+            text-align: center;
+          }
         }
       }
 
@@ -102,14 +191,8 @@ const {
         margin-top: 0 !important;
 
         img {
-          margin-inline: auto;
-          margin-bottom: var(--spacing-md);
-          max-height: 2em;
-          max-width: min(20em, 100%);
+          margin: 0 auto 30px;
           width: auto;
-          @container (min-width: 600px) {
-            margin: 0;
-          }
         }
       }
 
@@ -118,6 +201,92 @@ const {
         @container (min-width: 600px) {
           flex-direction: row;
           justify-content: end;
+        }
+      }
+
+      .fo-content {
+        margin-block: var(--spacing-lg);
+
+        @container (min-width: 700px) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .fo-title {
+          color: var(--color-text-strong);
+          display: block;
+          font-weight: var(--font-weight-semibold);
+          margin-bottom: var(--spacing-sm);
+          text-align: center;
+        }
+
+        .pho,
+        .phy {
+          color: var(--color-text);
+          display: block;
+          margin-bottom: var(--spacing-sm);
+          text-decoration: none;
+
+          &:hover,
+          &:focus-visible {
+            color: var(--color-link-hover);
+          }
+        }
+
+        .hours {
+          display: table;
+          margin: 10px auto;
+          text-align: left !important;
+
+          .fo-title{text-align: center;}
+
+          .hours-list {
+            color: var(--color-text);
+            margin: 0;
+          }
+
+          .hours-row + .hours-row {
+            margin-top: 4px;
+          }
+
+          .hours-line {
+            display: block;
+          }
+
+          .hours-day {
+            color: var(--color-text-strong);
+            display: inline-block;
+            font-weight: var(--font-weight-semibold);
+            width: 120px;
+          }
+
+          .hours-note {
+            color: var(--color-text-muted);
+            display: block;
+            font-size: var(--font-size-xs);
+            margin-left: 120px;
+          }
+        }
+
+        .social {
+          margin-top: var(--spacing-sm); 
+
+          .button{min-width: auto;}
+        }
+      }
+    }
+
+    #copy {
+      font-size: var(--font-size-sm);
+      line-height: 1.5;
+      padding: var(--spacing-md) var(--spacing-sm);
+      text-align: center;
+
+      a {
+        color: var(--color-link);
+
+        &:hover,
+        &:focus-visible {
+          color: var(--color-link-hover);
         }
       }
     }

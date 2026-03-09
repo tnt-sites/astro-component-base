@@ -7,43 +7,33 @@ logoAlt:
 links:
   type: array
   comment: "Array of navigation links to display in the footer."
-  options:
-    structures: _structures.linkItems
 socials:
   type: array
   comment: "Array of social media links to display in the footer."
-  options:
-    structures: _structures.socialItems
-footerText:
+sitename:
   type: text
-  comment: "Legal text or copyright information to display at the bottom of the footer."
-_structures:
-  linkItems:
-    values:
-      - label: Navigation Link
-        icon: link
-        value:
-          name: ""
-          path: ""
-        _inputs:
-          name:
-            type: text
-            comment: "Display text for the navigation link."
-          path:
-            type: text
-            comment: "URL path for the navigation link."
-  socialItems:
-    values:
-      - label: Social Link
-        icon: share
-        value:
-          icon: ""
-          link: ""
-        _inputs:
-          icon:
-            type: text
-            comment: "Icon name for the social media platform."
-          link:
-            type: text
-            comment: "URL link to the social media profile."
-
+  comment: "Business or site name used in the footer copyright line."
+contactTitle:
+  type: text
+  comment: "Heading for the contact column (e.g. Contact Us)."
+phoneText:
+  type: text
+  comment: "Visible phone number text."
+phoneHref:
+  type: text
+  comment: "Phone link URL (e.g. tel:+12092163530)."
+addressHref:
+  type: text
+  comment: "Map/location link URL for the address block."
+addressLines:
+  type: array
+  comment: "Address lines shown as stacked text."
+officeHoursTitle:
+  type: text
+  comment: "Heading for office hours column."
+officeHours:
+  type: array
+  comment: "Office hours entries with day, hours, and optional note shown beneath each row."
+legalLinks:
+  type: array
+  comment: "Legal/utility links shown next to Sitemap/Privacy Policy (e.g. HIPAA Notice)."

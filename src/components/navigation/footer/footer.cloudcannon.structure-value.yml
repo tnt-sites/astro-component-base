@@ -1,5 +1,5 @@
 label: Footer
-icon: footer
+icon: page_footer
 description: "Footer block with logo, links, and legal information."
 value:
   _component: navigation/footer
@@ -7,15 +7,39 @@ value:
   logoAlt: "Logo"
   links: []
   socials: []
-  footerText: ""
+  sitename: "Turlock Dental Studio"
+  contactTitle: Contact Us
+  phoneText: "(209) 216-3530"
+  phoneHref: tel:+12092163530
+  addressHref: https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A
+  addressLines:
+    - 1801 Colorado Ave. Suite 280
+    - Turlock, CA 95382
+  officeHoursTitle: Office Hours
+  officeHours:
+    - day: Monday
+      hours: 8:00 am - 5:00 pm
+    - day: Tuesday
+      hours: 8:00 am - 5:00 pm
+    - day: Wednesday
+      hours: 8:00 am - 5:00 pm
+      note: (Alternating Wednesdays)
+    - day: Thursday
+      hours: 8:00 am - 5:00 pm
+    - day: Friday
+      hours: 8:00 am - 2:00 pm
+  legalLinks:
+    - name: Sitemap
+      path: sitemap.html
+    - name: Privacy Policy
+      path: privacy-policy.html
 preview:
   text:
     - Footer
-  icon: footer
+  icon: page_footer
 picker_preview:
   text: Footer
   subtext: "Footer block with logo, links, and legal information."
-  icon: footer
+  icon: page_footer
 _inputs_from_glob:
   - /src/components/navigation/footer/footer.cloudcannon.inputs.yml
-
