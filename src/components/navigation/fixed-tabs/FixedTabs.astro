@@ -1,0 +1,227 @@
+---
+import Icon from "@core-elements/icon/Icon.astro";
+
+type FixedTab = {
+  enabled?: boolean;
+  itemClass?: string;
+  href?: string;
+  icon?: string;
+  textBefore?: string;
+  textStrong?: string;
+  textAfter?: string;
+  target?: string;
+  rel?: string;
+};
+
+const {
+  tabs = [],
+  id = "fixed-tabs",
+  class: className,
+  _component,
+  ...rest
+} = Astro.props as {
+  tabs?: FixedTab[];
+  id?: string;
+  class?: string;
+  _component?: string;
+  [key: string]: any;
+};
+
+if (!_component && tabs.length === 0) {
+  return;
+}
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "editable")
+);
+
+const visibleTabs = tabs.filter((tab) => tab?.enabled !== false);
+
+if (!_component && visibleTabs.length === 0) {
+  return;
+}
+---
+
+<ul id={id} class:list={["fixed-tabs", className]} {...htmlAttributes}>
+  {
+    visibleTabs.map((tab) => {
+      const target = tab.target?.trim() || undefined;
+      const rel = tab.rel?.trim() || (target === "_blank" ? "noopener noreferrer" : undefined);
+
+      return (
+        <li class={tab.itemClass}>
+          <a href={tab.href || "#"} target={target} rel={rel}>
+            <span>{tab.icon && <Icon name={tab.icon} size="none" />}</span>
+            <span>
+              {tab.textBefore}
+              {tab.textStrong && <strong>{tab.textStrong}</strong>}
+              {tab.textAfter}
+            </span>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style lang="pcss">
+  .fixed-tabs {
+    position: fixed;
+    right: 0;
+    text-align: center;
+    line-height: 1;
+    font-size: 0;
+    z-index: var(--layer-3);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      flex: 1;
+    }
+
+    a {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text-inverse);
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+
+      &:focus-visible {
+        box-shadow: 0 0 0 2px var(--color-focus-ring) inset;
+        outline: none;
+      }
+    }
+
+    :global(.icon) {
+      display: block;
+      margin: 0 auto !important;
+    }
+
+    :global(.icon svg) {
+      display: block;
+      height: 16px;
+      width: 16px;
+      margin: 0 auto !important;
+    }
+
+    .ra {
+      background-color: var(--color-brand);
+    }
+
+    .call {
+      background-color: var(--color-brand-muted);
+    }
+
+    .map,
+    .fr {
+      background-color: var(--color-text);
+    }
+
+    .fb {
+      background-color: var(--color-social-facebook);
+    }
+
+    .gg {
+      background-color: var(--color-social-google);
+    }
+
+    .ig,
+    .instagram {
+      background-color: var(--color-social-instagram);
+    }
+
+    .tw,
+    .twitter {
+      background-color: var(--color-social-twitter);
+    }
+
+    .tt,
+    .tiktok {
+      background-color: var(--color-social-tiktok);
+    }
+
+    .yp,
+    .yelp {
+      background-color: var(--color-social-yelp);
+    }
+
+    .bs,
+    .bluesky {
+      background-color: var(--color-social-bluesky);
+    }
+
+    .yt,
+    .youtube {
+      background-color: var(--color-social-youtube);
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .fixed-tabs {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .fixed-tabs {
+      bottom: 0;
+      width: 100%;
+      display: flex;
+
+      a {
+        padding: 12px 0;
+        flex: 1;
+
+        span {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+
+      .call,
+      .map {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .fixed-tabs {
+      .fr,
+      .gg,
+      .fb,
+      .ig,
+      .instagram,
+      .tw,
+      .twitter,
+      .tt,
+      .tiktok,
+      .yp,
+      .yelp,
+      .bs,
+      .bluesky,
+      .yt,
+      .youtube {
+        display: none;
+      }
+
+      .call,
+      .map {
+        display: block;
+      }
+    }
+  }
+
+  @media (max-width: 730px) {
+    .fixed-tabs .ra strong {
+      display: none;
+    }
+
+    .fixed-tabs .ra {
+      flex: 2;
+    }
+  }
+</style>

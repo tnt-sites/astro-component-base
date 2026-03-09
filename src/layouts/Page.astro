@@ -1,7 +1,9 @@
 ---
+import FixedTabs from "@components/navigation/fixed-tabs/FixedTabs.astro";
 import Footer from "@components/navigation/footer/Footer.astro";
 import MainNavigation from "@components/navigation/main-nav/MainNav.astro";
 import Components from "@components/utils/renderBlock.astro";
+import fixedTabsData from "@data/fixedTabs.json";
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
 import Layout from "@layouts/BaseLayout.astro";
@@ -22,6 +24,7 @@ type Props = {
   canonical?: string;
   mainNav?: Record<string, any>;
   footer?: Record<string, any>;
+  fixedTabs?: Record<string, any>;
 };
 
 const {
@@ -33,6 +36,7 @@ const {
   canonical: canonicalProp,
   mainNav = mainNavData,
   footer = footerData,
+  fixedTabs = fixedTabsData,
 } = Astro.props as Props;
 
 const title = frontmatter?.title ?? titleProp ?? "";
@@ -43,6 +47,8 @@ const canonical = frontmatter?.canonical ?? canonicalProp;
 const pageSections = frontmatter?.pageSections;
 const hasPageSections = pageSections && pageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
+const fixedTabItems = Array.isArray(fixedTabs?.tabs) ? fixedTabs.tabs : [];
+const hasActiveFixedTabs = fixedTabItems.some((tab: any) => tab?.enabled !== false);
 ---
 
 <Layout
@@ -52,7 +58,7 @@ const hasSlotContent = Astro.slots.has("default");
   image={image}
   canonical={canonical}
 >
-  <MainNavigation {...mainNav} />
+  <MainNavigation {...mainNav} socials={footer?.socials || []} />
   <main data-pagefind-body>
     {
       hasPageSections ? (
@@ -62,5 +68,6 @@ const hasSlotContent = Astro.slots.has("default");
       ) : null
     }
   </main>
-  <Footer {...footer} />
+  <Footer {...footer} data-fixed-tabs-active={hasActiveFixedTabs ? "true" : undefined} />
+  <FixedTabs {...fixedTabs} />
 </Layout>

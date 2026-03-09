@@ -1,0 +1,103 @@
+{
+  "tabs": [
+    {
+      "itemClass": "ra",
+      "href": "request-an-appointment.html",
+      "icon": "calendar-days",
+      "textBefore": "Request",
+      "textStrong": " an Appointment"
+    },
+    {
+      "itemClass": "call",
+      "href": "tel:+12092163530",
+      "icon": "phone",
+      "textBefore": "Call ",
+      "textStrong": "Us"
+    },
+    {
+      "itemClass": "map",
+      "href": "https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A",
+      "target": "_blank",
+      "icon": "map-pin",
+      "textStrong": "View ",
+      "textAfter": "Map"
+    },
+    {
+      "itemClass": "fr",
+      "href": "for-patients.html#forms",
+      "icon": "document-arrow-down",
+      "textBefore": "Download ",
+      "textStrong": "Forms "
+    },
+    {
+      "itemClass": "fb",
+      "href": "https://www.facebook.com/Ishaya.DDS/photos/?locale=ms_MY",
+      "target": "_blank",
+      "icon": "social/facebook",
+      "textStrong": "Follow ",
+      "textAfter": "Us"
+    },
+    {
+      "itemClass": "gg",
+      "href": "https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A",
+      "target": "_blank",
+      "icon": "social/google",
+      "textBefore": "Read",
+      "textStrong": " Reviews "
+    },
+    {
+      "itemClass": "ig",
+      "enabled": false,
+      "href": "https://www.instagram.com/",
+      "target": "_blank",
+      "icon": "social/instagram",
+      "textBefore": "Follow ",
+      "textStrong": "Instagram"
+    },
+    {
+      "itemClass": "tw",
+      "enabled": false,
+      "href": "https://x.com/",
+      "target": "_blank",
+      "icon": "social/x",
+      "textBefore": "Follow ",
+      "textStrong": "Twitter"
+    },
+    {
+      "itemClass": "tt",
+      "enabled": false,
+      "href": "https://www.tiktok.com/",
+      "target": "_blank",
+      "icon": "social/tiktok",
+      "textBefore": "Follow ",
+      "textStrong": "TikTok"
+    },
+    {
+      "itemClass": "yp",
+      "enabled": false,
+      "href": "https://www.yelp.com/",
+      "target": "_blank",
+      "icon": "social/yelp",
+      "textBefore": "Read ",
+      "textStrong": "Yelp Reviews"
+    },
+    {
+      "itemClass": "bs",
+      "enabled": false,
+      "href": "https://bsky.app/",
+      "target": "_blank",
+      "icon": "social/bluesky",
+      "textBefore": "Follow ",
+      "textStrong": "Bluesky"
+    },
+    {
+      "itemClass": "yt",
+      "enabled": false,
+      "href": "https://www.youtube.com/",
+      "target": "_blank",
+      "icon": "social/youtube",
+      "textBefore": "Watch ",
+      "textStrong": "YouTube"
+    }
+  ]
+}

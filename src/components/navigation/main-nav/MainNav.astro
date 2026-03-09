@@ -10,6 +10,7 @@ const {
   logoAlt = "logo",
   navData = [],
   buttonSections = [],
+  socials = [],
   class: className,
   _component,
   ...htmlAttributes
@@ -50,6 +51,7 @@ const mobileNavData = [
     logoSource={logoSource}
     logoAlt={logoAlt}
     navData={mobileNavData}
+    socials={socials}
     class="mobile-main-nav"
   />
 </CustomSection>
@@ -110,5 +112,14 @@ const mobileNavData = [
         }
       }
     }
+    .mobile-nav-button{min-width: 10px;border-radius: 0; border: none; height: 70px; width: 70px; background-color: var(--color-brand); color: #fff; display: flex; align-items: center; justify-content: center;}
+    .mobile-nav-close {}
+
+
+    @media (max-width: 1024px) {
+      .main-nav{padding: 0;}
+      .main-nav > .outer-content > .content{padding-right: 0;}
+    }
   }
+
 </style>

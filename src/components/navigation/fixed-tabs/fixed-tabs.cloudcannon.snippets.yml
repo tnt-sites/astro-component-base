@@ -1,0 +1,14 @@
+fixedTabs:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - Fixed Tabs
+    icon: add
+  definitions:
+    component_name: FixedTabs
+    named_args:
+      - editor_key: tabs
+        type: array
+  _inputs_from_glob:
+    - /src/components/navigation/fixed-tabs/fixed-tabs.cloudcannon.inputs.yml

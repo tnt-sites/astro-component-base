@@ -1,0 +1,3 @@
+tabs:
+  type: array
+  comment: "Fixed tab items rendered in the bottom navigation. Each item supports enabled, itemClass, href, target, icon, textBefore, textStrong, and textAfter."

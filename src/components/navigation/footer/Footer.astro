@@ -62,6 +62,12 @@ const {
     .footer {
       container-type: inline-size;
 
+      &[data-fixed-tabs-active="true"] {
+        @media (max-width: 1024px) {
+          padding-bottom: calc(72px + env(safe-area-inset-bottom));
+        }
+      }
+
       .button-group {
         &.align-end {
           @container (max-width: 599px) {

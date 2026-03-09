@@ -7,6 +7,7 @@ const {
   logoSource,
   logoAlt,
   navData = [],
+  socials = [],
   class: className,
   _component,
   ...htmlAttributes
@@ -220,6 +221,25 @@ function createNavItemData(item, level, parentGroupId) {
         })
       }
     </ul>
+
+    {
+      socials.length > 0 && (
+        <div class="mobile-socials">
+          {socials.map((social: any) => (
+            <Button
+              variant="ghost"
+              size="lg"
+              iconName={social.icon}
+              link={social.link}
+              hideText="true"
+              aria-label={`Visit our ${social.icon} page`}
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+          ))}
+        </div>
+      )
+    }
   </div>
 </nav>
 
@@ -418,6 +438,16 @@ function createNavItemData(item, level, parentGroupId) {
           list-style: none;
           margin: 0;
           padding: 0;
+        }
+
+        .mobile-socials {
+          align-items: center;
+          border-top: 1px solid var(--color-border-subtle);
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--spacing-sm);
+          justify-content: center;
+          padding: var(--spacing-lg) var(--spacing-md);
         }
       }
 
