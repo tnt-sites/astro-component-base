@@ -29,12 +29,12 @@
       "link": "https://linkedin.com"
     }
   ],
-  "sitename": "Turlock Dental Studio",
+  "sitename": "Dental Studio",
   "contactTitle": "Contact Us",
-  "phoneText": "(209) 216-3530",
-  "phoneHref": "tel:+12092163530",
-  "addressHref": "https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A",
-  "addressLines": ["1801 Colorado Ave. Suite 280", "Turlock, CA 95382"],
+  "phoneText": "(123) 456-7890",
+  "phoneHref": "tel:+1",
+  "addressHref": "https://google.com",
+  "addressLines": ["123, Street Name", "City, ST 12345"],
   "officeHoursTitle": "Office Hours",
   "officeHours": [
     {
