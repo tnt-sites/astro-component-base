@@ -10,6 +10,7 @@ value:
   iconPosition: before
   variant: primary
   size: md
+  width: xs
 preview:
   text:
     - Button

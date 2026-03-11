@@ -22,8 +22,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: text
         size: md
@@ -40,12 +40,39 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
     reverse: true
+    colorScheme: default
+    backgroundColor: base
+    rounded: false
+  - _component: page-sections/ctas/cta-split-learn-more
+    heading: Keep Your Smile Healthy Year-Round
+    subtext: Our preventive dentistry appointments focus on early detection, professional cleaning, and practical home-care guidance.
+    imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
+    imageAlt: Preventive dentistry consultation
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        text: Book Preventive Visit
+        hideText: false
+        link: ""
+        iconName: ""
+        iconPosition: before
+        variant: primary
+        size: md
+    learnMoreButtonText: Learn More About Preventive Dentistry
+    learnMoreSections:
+      - _component: building-blocks/core-elements/heading
+        text: What’s Included in Preventive Care
+        level: h3
+        size: lg
+        alignX: start
+      - _component: building-blocks/core-elements/text
+        text: Preventive care includes routine exams, digital x-rays when needed, personalized hygiene recommendations, and early treatment planning to help avoid more complex procedures.
+    reverse: false
     colorScheme: default
     backgroundColor: base
     rounded: false
@@ -56,8 +83,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -74,7 +101,7 @@ pageSections:
             contentSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile.jpg
-                alt: ''
+                alt: ""
                 rounded: true
                 aspectRatio: none
                 positionVertical: center
@@ -84,7 +111,7 @@ pageSections:
             contentSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile3.jpg
-                alt: ''
+                alt: ""
                 rounded: true
                 aspectRatio: none
                 positionVertical: center
@@ -94,7 +121,7 @@ pageSections:
             contentSections:
               - _component: building-blocks/core-elements/image
                 source: /src/assets/images/component-library/profile5.jpg
-                alt: ''
+                alt: ""
                 rounded: true
                 aspectRatio: none
                 positionVertical: center
@@ -110,8 +137,8 @@ pageSections:
     colorScheme: inherit
     backgroundColor: base
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -120,7 +147,7 @@ pageSections:
     tourSlides:
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/castle.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
@@ -128,7 +155,7 @@ pageSections:
         priority: false
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/dunedin-cliff.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
@@ -136,7 +163,7 @@ pageSections:
         priority: false
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/profile5.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
@@ -151,8 +178,8 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ''
-        iconName: ''
+        link: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -165,5 +192,5 @@ pageSections:
       alt:
       positionVertical: top
       positionHorizontal: center
-description: ''
+description: ""
 ---
