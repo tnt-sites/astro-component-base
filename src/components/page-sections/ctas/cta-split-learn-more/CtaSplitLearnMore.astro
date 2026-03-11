@@ -1,4 +1,5 @@
 ---
+import Component from "@components/utils/renderBlock.astro";
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Button from "@core-elements/button/Button.astro";
 import Heading from "@core-elements/heading/Heading.astro";
@@ -91,13 +92,14 @@ const learnMoreId = `learn-more-${crypto.randomUUID()}`;
       <div id={learnMoreId} class="learn-more-content" hidden>
         <CustomSection
           class="learn-more-section"
-          contentSections={learnMoreSections}
           maxContentWidth="2xl"
           paddingHorizontal="none"
           paddingVertical="lg"
           colorScheme="inherit"
           backgroundColor="none"
-        />
+        >
+          <Component contentSections={learnMoreSections} propName="learnMoreSections" />
+        </CustomSection>
       </div>
     )
   }
