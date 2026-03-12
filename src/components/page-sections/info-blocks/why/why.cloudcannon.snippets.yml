@@ -16,6 +16,9 @@ why:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: backgroundImage
+        type: object
+        optional: true
     # Add your component arguments here
     # Example:
     # - editor_key: text

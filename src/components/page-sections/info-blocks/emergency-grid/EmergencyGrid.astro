@@ -10,9 +10,9 @@ const {
   heading = "",
   subtext = "",
   emergencyItems = [],
-  enableModals = false,
-  backgroundColor = "base",
+  backgroundColor = "none",
   backgroundImage,
+  gridIndex,
   class: className,
   ...rest
 } = Astro.props;
@@ -28,9 +28,20 @@ const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
 
-const emergencyGridId = `emergency-grid-${crypto.randomUUID()}`;
+const toSafeIndex = (value: unknown) => {
+  if (typeof value === "number" && Number.isInteger(value) && value >= 0) return value;
+  if (typeof value === "string" && /^\d+$/.test(value.trim())) return Number.parseInt(value, 10);
+  return undefined;
+};
 
-const emergencyIconPresetNames = new Set([
+const dataPropMatch =
+  typeof htmlAttributes["data-prop"] === "string"
+    ? htmlAttributes["data-prop"].match(/(?:^|\.)pageSections\.(\d+)(?:\.|$)/)
+    : null;
+const resolvedGridIndex = toSafeIndex(gridIndex) ?? toSafeIndex(dataPropMatch?.[1]) ?? 0;
+const emergencyGridId = `emergency-grid-${resolvedGridIndex}`;
+
+const emergencyIconNames = new Set([
   "toothache",
   "chipped-tooth",
   "cracked-tooth",
@@ -44,31 +55,6 @@ const emergencyIconPresetNames = new Set([
   "stuck-between-teeth",
 ]);
 
-const emergencyIconPresetAliases: Record<string, string> = {
-  toothache: "toothache",
-  toothaches: "toothache",
-  chipped: "chipped-tooth",
-  "chipped-tooth": "chipped-tooth",
-  "cracked-tooth": "cracked-tooth",
-  cracked: "cracked-tooth",
-  sensitivity: "sensitivity-hot-cold",
-  "sensitivity-to-hot-and-cold": "sensitivity-hot-cold",
-  "sensitivity-to-hot-cold": "sensitivity-hot-cold",
-  "hot-cold-sensitivity": "sensitivity-hot-cold",
-  "knocked-out-tooth": "knocked-out-tooth",
-  "knocked-out": "knocked-out-tooth",
-  "lost-filling-crown": "lost-filling-crown",
-  "lost-filling-or-crown": "lost-filling-crown",
-  "broken-denture": "broken-denture",
-  "loose-tooth": "loose-tooth",
-  "gum-lip-tongue-injury": "gum-lip-tongue-injury",
-  "gums-lips-or-tongue-injury": "gum-lip-tongue-injury",
-  "jaw-pain-clenching": "jaw-pain-clenching",
-  "jaw-pain-or-clenching": "jaw-pain-clenching",
-  "stuck-between-teeth": "stuck-between-teeth",
-  "something-stuck-between-teeth": "stuck-between-teeth",
-};
-
 const normalizeKey = (value: string) =>
   value
     .trim()
@@ -77,47 +63,22 @@ const normalizeKey = (value: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 
-const resolveEmergencyIconPreset = (iconPreset: string, title: string) => {
-  const fromPreset = normalizeKey(iconPreset);
-  if (fromPreset && emergencyIconPresetNames.has(fromPreset)) {
-    return fromPreset;
-  }
-
-  const aliasFromPreset = emergencyIconPresetAliases[fromPreset];
-  if (aliasFromPreset && emergencyIconPresetNames.has(aliasFromPreset)) {
-    return aliasFromPreset;
-  }
-
-  const fromTitle = normalizeKey(title);
-  if (fromTitle && emergencyIconPresetNames.has(fromTitle)) {
-    return fromTitle;
-  }
-
-  const aliasFromTitle = emergencyIconPresetAliases[fromTitle];
-  if (aliasFromTitle && emergencyIconPresetNames.has(aliasFromTitle)) {
-    return aliasFromTitle;
-  }
-
-  return "";
-};
-
-const resolvedItems = emergencyItems.map((item: any, index: number) => {
+const items = emergencyItems.map((item: any, index: number) => {
   const title = typeof item?.title === "string" ? item.title.trim() : "";
   const iconPresetRaw = typeof item?.iconPreset === "string" ? item.iconPreset.trim() : "";
   const contentSections = Array.isArray(item?.contentSections) ? item.contentSections : [];
-  const hasModal = Boolean(enableModals && contentSections.length > 0);
-  const iconPreset = resolveEmergencyIconPreset(iconPresetRaw, title);
+  const normalizedIconPreset = normalizeKey(iconPresetRaw);
+  const iconPreset = emergencyIconNames.has(normalizedIconPreset) ? normalizedIconPreset : "";
 
   return {
     title,
     iconPreset,
     contentSections,
-    hasModal,
-    dialogId: `${emergencyGridId}-modal-${index + 1}`,
+    modalId: `${emergencyGridId}-modal-${index + 1}`,
   };
 });
 
-const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
+const hasModalItems = items.some((item: any) => item.contentSections.length > 0);
 ---
 
 <CustomSection
@@ -127,11 +88,8 @@ const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
   paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
-  data-emergency-grid-id={emergencyGridId}
-  data-emergency-grid-modals={hasModalItems ? "true" : undefined}
   {...htmlAttributes}
 >
-  <!-- Background image -->
   {
     source && (
       <Image
@@ -156,20 +114,20 @@ const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
 
   <div class="emergency-grid-icons" data-prop="emergencyItems">
     {
-      resolvedItems.map((item: any) => {
+      items.map((item: any) => {
         const title = item.title;
         const iconName = item.iconPreset ? `emergency/${item.iconPreset}` : "emergency/toothache";
 
         return (
-          <Fragment>
-            {item.hasModal ? (
-              // If it has a modal
+          <editable-array-item data-component="page-sections/info-blocks/emergency-grid/emergency-item">
+            {item.contentSections.length > 0 ? (
+              // If the item has a modal, render a button that triggers the modal
               <button
                 type="button"
                 class="emergency-grid-item"
-                data-modal-target={item.dialogId}
+                data-modal-target={item.modalId}
                 aria-haspopup="dialog"
-                aria-controls={item.dialogId}
+                aria-controls={item.modalId}
               >
                 <div class="emergency-grid-item-icon" aria-hidden="true">
                   <Icon name={iconName} size="none" />
@@ -177,7 +135,7 @@ const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
                 <h3 class="emergency-grid-item-title">{title}</h3>
               </button>
             ) : (
-              // If it does not have a modal
+              // If the item does not have a modal, render a div
               <div class="emergency-grid-item">
                 <div class="emergency-grid-item-icon" aria-hidden="true">
                   <Icon name={iconName} size="none" />
@@ -185,28 +143,28 @@ const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
                 <h3 class="emergency-grid-item-title">{title}</h3>
               </div>
             )}
-          </Fragment>
+          </editable-array-item>
         );
       })
     }
   </div>
 
-  <!-- If there is modal content, render the modals -->
   {
     hasModalItems && (
       <div class="emergency-grid-popups">
-        {resolvedItems.map((item: any, index: number) => {
-          if (!item.hasModal) return null;
+        {items.map((item: any, index: number) => {
+          if (item.contentSections.length === 0) return null;
 
           const closeLabel = item.title
             ? `Close ${item.title}`
             : `Close Emergency Item ${index + 1}`;
           return (
             <Modal
-              id={item.dialogId}
+              id={item.modalId}
               class="emergency-grid-modal"
               closeLabel={closeLabel}
               contentSections={item.contentSections}
+              propName={`emergencyItems.${index}.contentSections`}
             />
           );
         })}

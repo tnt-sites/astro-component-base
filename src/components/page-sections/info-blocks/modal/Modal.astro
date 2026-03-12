@@ -1,6 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import RenderBlock from "@components/utils/renderBlock.astro";
+import Component from "@components/utils/renderBlock.astro";
 import Icon from "@core-elements/icon/Icon.astro";
 
 const {
@@ -36,7 +36,7 @@ const htmlAttributes = Object.fromEntries(
           colorScheme="inherit"
           backgroundColor="none"
         >
-          <RenderBlock contentSections={contentSections} propName="contentSections" />
+          <Component contentSections={contentSections} propName="contentSections" />
         </CustomSection>
       )
     }
@@ -45,14 +45,16 @@ const htmlAttributes = Object.fromEntries(
 
 <script>
   (() => {
+    // If modal already initialized, do nothing
     if (window.__modalControllerInitialized) return;
+
     window.__modalControllerInitialized = true;
 
-    const getDialogFromTarget = (target) => {
+    const getTargetModal = (target) => {
       if (!target) return null;
 
-      const normalizedTarget = target.replace(/^#/, "");
-      const dialog = document.getElementById(normalizedTarget);
+      const noHash = target.replace(/^#/, "");
+      const dialog = document.getElementById(noHash);
       return dialog instanceof HTMLDialogElement ? dialog : null;
     };
 
@@ -88,7 +90,7 @@ const htmlAttributes = Object.fromEntries(
 
         const modalTarget =
           openTrigger.getAttribute("data-modal-target") || openTrigger.getAttribute("href");
-        const dialog = getDialogFromTarget(modalTarget);
+        const dialog = getTargetModal(modalTarget);
         if (!dialog) return;
 
         openDialog(dialog);

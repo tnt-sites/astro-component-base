@@ -1,16 +1,25 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
 import List from "@core-elements/list/List.astro";
 
 const {
   heading = "",
   backgroundColor = "base",
+  backgroundImage,
   items = [],
   class: className,
   editable = true,
   ...rest
 } = Astro.props;
+
+const {
+  source = "",
+  alt = "",
+  positionVertical = "top",
+  positionHorizontal = "center",
+} = backgroundImage || {};
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
@@ -23,12 +32,20 @@ const htmlAttributes = Object.fromEntries(
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <!-- <Image
-    source="/src/assets/images/why-bg.jpg"
-    alt=""
-    class="background-image-why-bg"
-    editable={false}
-  /> -->
+  {
+    source && (
+      <Image
+        class="background-image"
+        source={source}
+        alt={alt}
+        data-prop-src="backgroundImage.source"
+        data-prop-alt="backgroundImage.alt"
+        positionVertical={positionVertical}
+        positionHorizontal={positionHorizontal}
+        background={true}
+      />
+    )
+  }
 
   <Heading level="h2" size="lg" alignX="center" data-prop="heading">
     {heading}

@@ -5,6 +5,11 @@ value:
   _component: page-sections/info-blocks/why
   heading: "why Heading"
   backgroundColor: none
+  backgroundImage:
+    source: ""
+    alt: ""
+    positionVertical: top
+    positionHorizontal: center
   items:
     - _component: building-blocks/core-elements/list/list-item
       text: List item 1
