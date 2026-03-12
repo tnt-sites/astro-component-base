@@ -14,7 +14,12 @@
         {
           "name": "Preventive Dentistry",
           "path": "/preventive-dentistry",
-          "children": []
+          "children": [
+            {
+              "name": "Checkups",
+              "path": "/preventive-dentistry#checkups"
+            }
+          ]
         },
         {
           "name": "Dental Implants",
@@ -48,7 +53,8 @@
       "iconName": "magnifying-glass",
       "iconPosition": "before",
       "variant": "ghost",
-      "size": "lg"
+      "size": "lg",
+      "width": "xs"
     }
   ]
 }
