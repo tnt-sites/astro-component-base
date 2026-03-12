@@ -15,7 +15,7 @@ pageSections:
     backgroundColor: none
   - _component: page-sections/ctas/cta-split
     heading: Heading text
-    anchorName: ""
+    anchorName: ''
     subtext: Subtext placeholder text that will be replaced with actual content.
     imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
     imageAlt: CTA image
@@ -23,8 +23,9 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: text
         size: md
@@ -35,7 +36,7 @@ pageSections:
     rounded: false
   - _component: page-sections/ctas/cta-split
     heading: Heading text
-    anchorName: ""
+    anchorName: ''
     subtext: Subtext placeholder text that will be replaced with actual content.
     imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
     imageAlt: CTA image
@@ -43,8 +44,9 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -55,7 +57,7 @@ pageSections:
     rounded: false
   - _component: page-sections/ctas/cta-split-learn-more
     heading: Keep Your Smile Healthy Year-Round
-    anchorName: ""
+    anchorName: ''
     subtext: >-
       Our preventive dentistry appointments focus on early detection,
       professional cleaning, and practical home-care guidance.
@@ -65,8 +67,9 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: Book Preventive Visit
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -125,21 +128,28 @@ pageSections:
     subtext: Subtext placeholder text that will be replaced with actual content.
     buttonSections:
       - _component: building-blocks/core-elements/button
-        text: My Button
+        text: Modal Button
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        modalTarget: sample-modal
+        iconName:
         iconPosition: before
         variant: primary
         size: md
-        width: xs
+        width: lg
     colorScheme: inherit
     backgroundColor: base
     rounded: false
   - _component: page-sections/info-blocks/emergency-grid
     heading: Most Common Dental Emergencies
-    subtext: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+    subtext: >-
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     emergencyItems:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Toothache
@@ -150,12 +160,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Chipped Tooth
         iconPreset: chipped-tooth
@@ -165,12 +176,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Cracked Tooth
         iconPreset: cracked-tooth
@@ -180,12 +192,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Sensitivity to Hot and Cold
         iconPreset: sensitivity-hot-cold
@@ -195,12 +208,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Loose Tooth
         iconPreset: loose-tooth
@@ -210,12 +224,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Jaw Pain or Clenching
         iconPreset: jaw-pain-clenching
@@ -225,12 +240,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Knocked-Out Tooth
         iconPreset: knocked-out-tooth
@@ -240,12 +256,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Lost Filling or Crown
         iconPreset: lost-filling-crown
@@ -255,12 +272,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Broken Denture
         iconPreset: broken-denture
@@ -270,12 +288,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Gum, Lip or Tongue Injury
         iconPreset: gum-lip-tongue-injury
@@ -285,12 +304,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Something Stuck Between Teeth
         iconPreset: stuck-between-teeth
@@ -300,12 +320,13 @@ pageSections:
             level: h3
             size: default
             alignX: start
-            iconName: null
+            iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            alignX: start
     enableModals: true
     backgroundColor: base
   - _component: page-sections/features/office-tour
@@ -313,7 +334,7 @@ pageSections:
     tourSlides:
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/castle.jpg
-        alt: ""
+        alt: ''
         rounded: false
         aspectRatio: none
         positionVertical: center
@@ -321,7 +342,7 @@ pageSections:
         priority: false
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/dunedin-cliff.jpg
-        alt: ""
+        alt: ''
         rounded: false
         aspectRatio: none
         positionVertical: center
@@ -329,7 +350,7 @@ pageSections:
         priority: false
       - _component: building-blocks/core-elements/image
         source: /src/assets/images/component-library/profile5.jpg
-        alt: ""
+        alt: ''
         rounded: false
         aspectRatio: none
         positionVertical: center
@@ -344,8 +365,9 @@ pageSections:
       - _component: building-blocks/core-elements/button
         text: My Button
         hideText: false
-        link: ""
-        iconName: ""
+        link: ''
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -359,5 +381,27 @@ pageSections:
       alt:
       positionVertical: top
       positionHorizontal: center
-description: ""
+  - _component: page-sections/info-blocks/modal
+    id: sample-modal
+    closeLabel: Close modal
+    showCloseButton: true
+    class: ''
+    contentSections:
+      - _component: building-blocks/core-elements/heading
+        text: Modal Heading
+        level: h3
+        size: default
+        alignX: start
+        iconName:
+        iconPosition: before
+      - _component: building-blocks/core-elements/text
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        alignX: start
+      - _component: building-blocks/core-elements/video
+        type: youtube
+        id: 0NyaGRNH2zE
+        title: Some video
+        source: ''
+        thumbnail: ''
+description: ''
 ---
