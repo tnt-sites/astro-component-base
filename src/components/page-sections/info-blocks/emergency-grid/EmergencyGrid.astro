@@ -3,8 +3,8 @@ import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import Icon from "@core-elements/icon/Icon.astro";
 import Image from "@core-elements/image/Image.astro";
-import Modal from "@page-sections/info-blocks/modal/Modal.astro";
 import Text from "@core-elements/text/Text.astro";
+import Modal from "@page-sections/info-blocks/modal/Modal.astro";
 
 const {
   heading = "",
@@ -104,8 +104,6 @@ const resolveEmergencyIconPreset = (iconPreset: string, title: string) => {
 const resolvedItems = emergencyItems.map((item: any, index: number) => {
   const title = typeof item?.title === "string" ? item.title.trim() : "";
   const iconPresetRaw = typeof item?.iconPreset === "string" ? item.iconPreset.trim() : "";
-  const iconName = typeof item?.iconName === "string" ? item.iconName.trim() : "";
-  const link = typeof item?.link === "string" ? item.link.trim() : "";
   const contentSections = Array.isArray(item?.contentSections) ? item.contentSections : [];
   const hasModal = Boolean(enableModals && contentSections.length > 0);
   const iconPreset = resolveEmergencyIconPreset(iconPresetRaw, title);
@@ -113,8 +111,6 @@ const resolvedItems = emergencyItems.map((item: any, index: number) => {
   return {
     title,
     iconPreset,
-    iconName,
-    link,
     contentSections,
     hasModal,
     dialogId: `${emergencyGridId}-modal-${index + 1}`,
@@ -135,6 +131,7 @@ const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
   data-emergency-grid-modals={hasModalItems ? "true" : undefined}
   {...htmlAttributes}
 >
+  <!-- Background image -->
   {
     source && (
       <Image
@@ -161,15 +158,13 @@ const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
     {
       resolvedItems.map((item: any) => {
         const title = item.title;
-        const iconName = item.iconPreset
-          ? `emergency/${item.iconPreset}`
-          : item.iconName || "emergency/toothache";
-        const iconClass =
-          iconName === "emergency/knocked-out-tooth" ? "icon-knocked-out-tooth" : undefined;
+        const iconName = `emergency/${item.iconPreset}`;
+        const iconClass = iconName;
 
         return (
           <Fragment>
             {item.hasModal ? (
+              // If it has a modal
               <button
                 type="button"
                 class="emergency-grid-item"
@@ -182,14 +177,8 @@ const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
                 </div>
                 <h3 class="emergency-grid-item-title">{title}</h3>
               </button>
-            ) : item.link ? (
-              <a class="emergency-grid-item" href={item.link}>
-                <div class="emergency-grid-item-icon" aria-hidden="true">
-                  <Icon name={iconName} size="none" class={iconClass} />
-                </div>
-                <h3 class="emergency-grid-item-title">{title}</h3>
-              </a>
             ) : (
+              // If it does not have a modal
               <div class="emergency-grid-item">
                 <div class="emergency-grid-item-icon" aria-hidden="true">
                   <Icon name={iconName} size="none" class={iconClass} />
@@ -203,6 +192,7 @@ const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
     }
   </div>
 
+  <!-- If there is modal content, render the modals -->
   {
     hasModalItems && (
       <div class="emergency-grid-popups">
