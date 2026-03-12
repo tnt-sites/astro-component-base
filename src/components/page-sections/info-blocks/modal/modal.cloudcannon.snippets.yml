@@ -19,5 +19,8 @@ modal:
         optional: true
       - editor_key: contentSections
         type: array
+      - editor_key: class
+        type: string
+        optional: true
   _inputs_from_glob:
     - /src/components/page-sections/info-blocks/modal/modal.cloudcannon.inputs.yml
