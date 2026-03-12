@@ -15,6 +15,7 @@ pageSections:
     backgroundColor: none
   - _component: page-sections/ctas/cta-split
     heading: Heading text
+    anchorName: ''
     subtext: Subtext placeholder text that will be replaced with actual content.
     imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
     imageAlt: CTA image
@@ -34,6 +35,7 @@ pageSections:
     rounded: false
   - _component: page-sections/ctas/cta-split
     heading: Heading text
+    anchorName: ''
     subtext: Subtext placeholder text that will be replaced with actual content.
     imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
     imageAlt: CTA image
@@ -53,6 +55,7 @@ pageSections:
     rounded: false
   - _component: page-sections/ctas/cta-split-learn-more
     heading: Keep Your Smile Healthy Year-Round
+    anchorName: ''
     subtext: >-
       Our preventive dentistry appointments focus on early detection,
       professional cleaning, and practical home-care guidance.
@@ -117,7 +120,8 @@ pageSections:
     backgroundColor: base
     rounded: false
   - _component: page-sections/ctas/cta-center
-    heading: Heading text
+    heading: Checkups
+    anchorName: '#checkups'
     subtext: Subtext placeholder text that will be replaced with actual content.
     buttonSections:
       - _component: building-blocks/core-elements/button
@@ -131,57 +135,6 @@ pageSections:
         width: xs
     colorScheme: inherit
     backgroundColor: base
-    rounded: false
-  - _component: page-sections/builders/custom-section
-    label: tour
-    contentSections:
-      - _component: building-blocks/wrappers/carousel
-        label: Carousel Test
-        slides:
-          - _component: building-blocks/wrappers/carousel/carousel-slide
-            contentSections:
-              - _component: building-blocks/core-elements/image
-                source: /src/assets/images/component-library/profile.jpg
-                alt: ''
-                rounded: true
-                aspectRatio: none
-                positionVertical: center
-                positionHorizontal: center
-                priority: false
-          - _component: building-blocks/wrappers/carousel/carousel-slide
-            contentSections:
-              - _component: building-blocks/core-elements/image
-                source: /src/assets/images/component-library/profile3.jpg
-                alt: ''
-                rounded: true
-                aspectRatio: none
-                positionVertical: center
-                positionHorizontal: center
-                priority: false
-          - _component: building-blocks/wrappers/carousel/carousel-slide
-            contentSections:
-              - _component: building-blocks/core-elements/image
-                source: /src/assets/images/component-library/profile5.jpg
-                alt: ''
-                rounded: true
-                aspectRatio: none
-                positionVertical: center
-                positionHorizontal: center
-                priority: false
-        autoPlay: false
-        autoScroll: false
-        slideWidthPercent: 60
-        minSlideWidth: 0
-    maxContentWidth: 2xl
-    paddingHorizontal: md
-    paddingVertical: md
-    colorScheme: inherit
-    backgroundColor: base
-    backgroundImage:
-      source: ''
-      alt: ''
-      positionVertical: top
-      positionHorizontal: center
     rounded: false
   - _component: page-sections/features/office-tour
     heading: office-tour Heading
