@@ -1,18 +1,127 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Icon from "@core-elements/icon/Icon.astro";
+import Image from "@core-elements/image/Image.astro";
+import Modal from "@page-sections/info-blocks/modal/Modal.astro";
+import Text from "@core-elements/text/Text.astro";
 
 const {
   heading = "",
+  subtext = "",
+  emergencyItems = [],
+  enableModals = false,
   backgroundColor = "base",
+  backgroundImage,
   class: className,
-  editable = true,
   ...rest
 } = Astro.props;
+
+const {
+  source = "",
+  alt = "",
+  positionVertical = "top",
+  positionHorizontal = "center",
+} = backgroundImage || {};
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
+
+const emergencyGridId = `emergency-grid-${crypto.randomUUID()}`;
+
+const emergencyIconPresetNames = new Set([
+  "toothache",
+  "chipped-tooth",
+  "cracked-tooth",
+  "sensitivity-hot-cold",
+  "knocked-out-tooth",
+  "lost-filling-crown",
+  "broken-denture",
+  "loose-tooth",
+  "gum-lip-tongue-injury",
+  "jaw-pain-clenching",
+  "stuck-between-teeth",
+]);
+
+const emergencyIconPresetAliases: Record<string, string> = {
+  toothache: "toothache",
+  toothaches: "toothache",
+  chipped: "chipped-tooth",
+  "chipped-tooth": "chipped-tooth",
+  "cracked-tooth": "cracked-tooth",
+  cracked: "cracked-tooth",
+  sensitivity: "sensitivity-hot-cold",
+  "sensitivity-to-hot-and-cold": "sensitivity-hot-cold",
+  "sensitivity-to-hot-cold": "sensitivity-hot-cold",
+  "hot-cold-sensitivity": "sensitivity-hot-cold",
+  "knocked-out-tooth": "knocked-out-tooth",
+  "knocked-out": "knocked-out-tooth",
+  "lost-filling-crown": "lost-filling-crown",
+  "lost-filling-or-crown": "lost-filling-crown",
+  "broken-denture": "broken-denture",
+  "loose-tooth": "loose-tooth",
+  "gum-lip-tongue-injury": "gum-lip-tongue-injury",
+  "gums-lips-or-tongue-injury": "gum-lip-tongue-injury",
+  "jaw-pain-clenching": "jaw-pain-clenching",
+  "jaw-pain-or-clenching": "jaw-pain-clenching",
+  "stuck-between-teeth": "stuck-between-teeth",
+  "something-stuck-between-teeth": "stuck-between-teeth",
+};
+
+const normalizeKey = (value: string) =>
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+const resolveEmergencyIconPreset = (iconPreset: string, title: string) => {
+  const fromPreset = normalizeKey(iconPreset);
+  if (fromPreset && emergencyIconPresetNames.has(fromPreset)) {
+    return fromPreset;
+  }
+
+  const aliasFromPreset = emergencyIconPresetAliases[fromPreset];
+  if (aliasFromPreset && emergencyIconPresetNames.has(aliasFromPreset)) {
+    return aliasFromPreset;
+  }
+
+  const fromTitle = normalizeKey(title);
+  if (fromTitle && emergencyIconPresetNames.has(fromTitle)) {
+    return fromTitle;
+  }
+
+  const aliasFromTitle = emergencyIconPresetAliases[fromTitle];
+  if (aliasFromTitle && emergencyIconPresetNames.has(aliasFromTitle)) {
+    return aliasFromTitle;
+  }
+
+  return "";
+};
+
+const resolvedItems = emergencyItems.map((item: any, index: number) => {
+  const title = typeof item?.title === "string" ? item.title.trim() : "";
+  const iconPresetRaw = typeof item?.iconPreset === "string" ? item.iconPreset.trim() : "";
+  const iconName = typeof item?.iconName === "string" ? item.iconName.trim() : "";
+  const link = typeof item?.link === "string" ? item.link.trim() : "";
+  const contentSections = Array.isArray(item?.contentSections) ? item.contentSections : [];
+  const hasModal = Boolean(enableModals && contentSections.length > 0);
+  const iconPreset = resolveEmergencyIconPreset(iconPresetRaw, title);
+
+  return {
+    title,
+    iconPreset,
+    iconName,
+    link,
+    contentSections,
+    hasModal,
+    dialogId: `${emergencyGridId}-modal-${index + 1}`,
+  };
+});
+
+const hasModalItems = resolvedItems.some((item: any) => item.hasModal);
 ---
 
 <CustomSection
@@ -22,19 +131,189 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
+  data-emergency-grid-id={emergencyGridId}
+  data-emergency-grid-modals={hasModalItems ? "true" : undefined}
   {...htmlAttributes}
 >
-  <Heading
-  level="h2"
-  size="lg"
-  alignX="center"
-  data-prop="heading"
-  >
+  {
+    source && (
+      <Image
+        class="background-image"
+        source={source}
+        alt={alt}
+        data-prop-src="backgroundImage.source"
+        data-prop-alt="backgroundImage.alt"
+        positionVertical={positionVertical}
+        positionHorizontal={positionHorizontal}
+        background={true}
+      />
+    )
+  }
+  <Heading level="h2" size="lg" alignX="center" data-prop="heading">
     {heading}
   </Heading>
+
+  <Text alignX="center" data-prop="subtext">
+    {subtext}
+  </Text>
+
+  <div class="emergency-grid-icons" data-prop="emergencyItems">
+    {
+      resolvedItems.map((item: any) => {
+        const title = item.title;
+        const iconName = item.iconPreset
+          ? `emergency/${item.iconPreset}`
+          : item.iconName || "emergency/toothache";
+        const iconClass =
+          iconName === "emergency/knocked-out-tooth" ? "icon-knocked-out-tooth" : undefined;
+
+        return (
+          <Fragment>
+            {item.hasModal ? (
+              <button
+                type="button"
+                class="emergency-grid-item"
+                data-modal-target={item.dialogId}
+                aria-haspopup="dialog"
+                aria-controls={item.dialogId}
+              >
+                <div class="emergency-grid-item-icon" aria-hidden="true">
+                  <Icon name={iconName} size="none" class={iconClass} />
+                </div>
+                <h3 class="emergency-grid-item-title">{title}</h3>
+              </button>
+            ) : item.link ? (
+              <a class="emergency-grid-item" href={item.link}>
+                <div class="emergency-grid-item-icon" aria-hidden="true">
+                  <Icon name={iconName} size="none" class={iconClass} />
+                </div>
+                <h3 class="emergency-grid-item-title">{title}</h3>
+              </a>
+            ) : (
+              <div class="emergency-grid-item">
+                <div class="emergency-grid-item-icon" aria-hidden="true">
+                  <Icon name={iconName} size="none" class={iconClass} />
+                </div>
+                <h3 class="emergency-grid-item-title">{title}</h3>
+              </div>
+            )}
+          </Fragment>
+        );
+      })
+    }
+  </div>
+
+  {
+    hasModalItems && (
+      <div class="emergency-grid-popups">
+        {resolvedItems.map((item: any, index: number) => {
+          if (!item.hasModal) return null;
+
+          const closeLabel = item.title
+            ? `Close ${item.title}`
+            : `Close Emergency Item ${index + 1}`;
+          return (
+            <Modal
+              id={item.dialogId}
+              class="emergency-grid-modal"
+              closeLabel={closeLabel}
+              contentSections={item.contentSections}
+            />
+          );
+        })}
+      </div>
+    )
+  }
 </CustomSection>
 
-<style>
-  .emergency-grid {
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .emergency-grid {
+      .emergency-grid-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 20px auto;
+        max-width: 1400px;
+        text-align: center;
+
+        > * {
+          display: block;
+          flex: 0 1 180px;
+          margin: 10px auto;
+          padding: 5px;
+        }
+      }
+
+      .emergency-grid-item {
+        background: transparent;
+        border: 0;
+        color: var(--color-text-strong);
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      .emergency-grid-item-icon {
+        align-items: center;
+        display: flex;
+        height: 80px;
+        justify-content: center;
+
+        .icon {
+          align-items: center;
+          color: var(--color-text-strong);
+          display: flex;
+          flex-direction: column;
+          height: 80px;
+          justify-content: center;
+          width: 80px;
+
+          svg {
+            height: 100%;
+            width: 100%;
+          }
+
+
+          .ic-color {
+            color: var(--color-brand);
+            fill: var(--color-brand);
+            stroke: var(--color-brand);
+          }
+
+          path:not(.ic-color),
+          circle:not(.ic-color),
+          ellipse:not(.ic-color),
+          polygon:not(.ic-color),
+          rect:not(.ic-color) {
+            fill: currentColor;
+          }
+        }
+      }
+
+      .emergency-grid-item-title {
+        font-size: 22px;
+        line-height: 1.1;
+        margin: 5px auto;
+      }
+
+      .emergency-grid-item:hover,
+      .emergency-grid-item:focus-visible {
+        .emergency-grid-item-title {
+          color: var(--color-brand);
+        }
+
+        .emergency-grid-item-icon .icon .ic-color {
+          color: var(--color-brand);
+          fill: var(--color-brand);
+          stroke: var(--color-brand);
+        }
+      }
+
+      .emergency-grid-modal-body {
+        margin-top: 0;
+      }
+    }
   }
 </style>

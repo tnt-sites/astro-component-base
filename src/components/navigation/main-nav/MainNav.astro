@@ -56,6 +56,37 @@ const mobileNavData = [
   />
 </CustomSection>
 
+<!-- Adds --site-header-height CSS variable based on header height. Works with multiple screen sizes. -->
+<script>
+  const initMainNavHeaderHeight = () => {
+    document.querySelectorAll(".main-nav").forEach((mainNav) => {
+      if (mainNav.getAttribute("data-header-height-initialized") === "true") return;
+
+      const syncHeaderHeight = () => {
+        document.documentElement.style.setProperty(
+          "--site-header-height",
+          `${Math.round(mainNav.getBoundingClientRect().height)}px`
+        );
+      };
+
+      syncHeaderHeight();
+
+      if (typeof ResizeObserver !== "undefined") {
+        const resizeObserver = new ResizeObserver(syncHeaderHeight);
+        resizeObserver.observe(mainNav);
+      }
+
+      mainNav.setAttribute("data-header-height-initialized", "true");
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initMainNavHeaderHeight);
+  } else {
+    initMainNavHeaderHeight();
+  }
+</script>
+
 <style lang="pcss" is:global>
   @layer page-sections {
     .main-nav {

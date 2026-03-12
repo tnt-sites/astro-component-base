@@ -10,6 +10,7 @@ const {
   size = "md",
   width = "xs",
   link,
+  modalTarget,
   element = "a",
   class: className,
   editable = true,
@@ -17,6 +18,9 @@ const {
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const normalizedModalTarget =
+  typeof modalTarget === "string" ? modalTarget.trim().replace(/^#/, "") : "";
 
 const textDataAttributes =
   editable && customDataProp
@@ -30,9 +34,20 @@ if (hideText && !htmlAttributes["aria-label"]) {
   htmlAttributes["aria-label"] = text;
 }
 
-const Tag = element as any;
+const Tag = (normalizedModalTarget ? "button" : element) as any;
 
-const tagProps = Tag === "a" && link ? { href: link } : Tag === "button" ? { type: "button" } : {};
+const tagProps = normalizedModalTarget
+  ? {
+      type: "button",
+      "data-modal-target": normalizedModalTarget,
+      "aria-haspopup": "dialog",
+      "aria-controls": normalizedModalTarget,
+    }
+  : Tag === "a" && link
+  ? { href: link }
+  : Tag === "button"
+  ? { type: "button" }
+  : {};
 
 const hasText = text?.trim().length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
@@ -208,7 +223,7 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
       }
     }
 
-
+<style lang="pcss" is:global>
     @media (max-width: 768px) {
       .button {
         min-width: auto;

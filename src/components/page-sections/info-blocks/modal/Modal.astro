@@ -1,0 +1,169 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import RenderBlock from "@components/utils/renderBlock.astro";
+import Icon from "@core-elements/icon/Icon.astro";
+
+const {
+  id,
+  closeLabel = "Close modal",
+  showCloseButton = true,
+  contentSections,
+  class: className,
+  _component,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<dialog id={id} class:list={["modal", className]} tabindex="-1" {...htmlAttributes}>
+  {
+    showCloseButton && (
+      <button type="button" class="modal-close" data-modal-close aria-label={closeLabel}>
+        <Icon name="x-mark" size="none" />
+      </button>
+    )
+  }
+  <div class="modal-body">
+    {
+      contentSections && contentSections.length > 0 && (
+        <CustomSection
+          maxContentWidth="2xl"
+          paddingHorizontal="none"
+          paddingVertical="none"
+          colorScheme="inherit"
+          backgroundColor="none"
+        >
+          <RenderBlock contentSections={contentSections} propName="contentSections" />
+        </CustomSection>
+      )
+    }
+  </div>
+</dialog>
+
+<script>
+  (() => {
+    if (window.__modalControllerInitialized) return;
+    window.__modalControllerInitialized = true;
+
+    const getDialogFromTarget = (target) => {
+      if (!target) return null;
+
+      const normalizedTarget = target.replace(/^#/, "");
+      const dialog = document.getElementById(normalizedTarget);
+      return dialog instanceof HTMLDialogElement ? dialog : null;
+    };
+
+    const openDialog = (dialog) => {
+      if (!(dialog instanceof HTMLDialogElement)) return;
+
+      if (typeof dialog.showModal === "function") {
+        dialog.showModal();
+      } else {
+        dialog.setAttribute("open", "");
+      }
+
+      dialog.focus();
+    };
+
+    const closeDialog = (dialog) => {
+      if (!(dialog instanceof HTMLDialogElement)) return;
+
+      if (typeof dialog.close === "function") {
+        dialog.close();
+      } else {
+        dialog.removeAttribute("open");
+      }
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const openTrigger = target.closest("[data-modal-target], a[class*='modal'][href^='#']");
+      if (openTrigger instanceof HTMLElement) {
+        event.preventDefault();
+
+        const modalTarget =
+          openTrigger.getAttribute("data-modal-target") || openTrigger.getAttribute("href");
+        const dialog = getDialogFromTarget(modalTarget);
+        if (!dialog) return;
+
+        openDialog(dialog);
+        return;
+      }
+
+      const closeTrigger = target.closest("[data-modal-close], .modal-close");
+      if (closeTrigger instanceof HTMLElement) {
+        event.preventDefault();
+
+        const dialog = closeTrigger.closest("dialog");
+        if (dialog instanceof HTMLDialogElement) {
+          closeDialog(dialog);
+        }
+        return;
+      }
+
+      if (target instanceof HTMLDialogElement && target.classList.contains("modal")) {
+        closeDialog(target);
+      }
+    });
+  })();
+</script>
+
+<style lang="pcss" is:global>
+  @layer components {
+    .modal {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      inset: 0;
+      margin: auto;
+      max-width: min(680px, calc(100vw - 2rem));
+      padding: var(--spacing-xl);
+      position: fixed;
+      width: 100%;
+
+      &::backdrop {
+        background: rgb(0 0 0 / 45%);
+      }
+    }
+
+    
+
+    .modal-header {
+      align-items: flex-start;
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      margin: 0;
+    }
+
+    .modal-close {
+      align-items: center;
+      background-color: var(--color-brand);
+      color: #fff;
+      cursor: pointer;
+      display: inline-flex;
+      flex-shrink: 0;
+      justify-content: center;
+      min-height: 2rem;
+      min-width: 2rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .modal-body {
+      margin-top: var(--spacing-lg);
+
+      > :first-child {
+        margin-top: 0;
+      }
+    }
+  }
+</style>

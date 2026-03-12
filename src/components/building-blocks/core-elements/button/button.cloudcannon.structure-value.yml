@@ -6,6 +6,7 @@ value:
   text: My Button
   hideText: false
   link: ""
+  modalTarget: ""
   iconName: ""
   iconPosition: before
   variant: primary

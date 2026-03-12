@@ -34,7 +34,7 @@ const {
   rounded={rounded}
   {...htmlAttributes}
 >
-  {anchorName && <a name={anchorName}></a>}
+  {anchorName && <a name={anchorName} class="anchor-name-offset" aria-hidden="true"></a>}
   <Split
     class="split"
     distributionMode="fixed-flexible"

@@ -1,5 +1,5 @@
 ---
-import Component from "@components/utils/renderBlock.astro";
+import RenderBlock from "@components/utils/renderBlock.astro";
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Button from "@core-elements/button/Button.astro";
 import Heading from "@core-elements/heading/Heading.astro";
@@ -44,7 +44,7 @@ const learnMoreId = `learn-more-${crypto.randomUUID()}`;
   rounded={rounded}
   {...htmlAttributes}
 >
-  {anchorName && <a name={anchorName}></a>}
+  {anchorName && <a name={anchorName} class="anchor-name-offset" aria-hidden="true" />}
   <Split
     class="split"
     distributionMode="fixed-flexible"
@@ -100,7 +100,7 @@ const learnMoreId = `learn-more-${crypto.randomUUID()}`;
           colorScheme="inherit"
           backgroundColor="none"
         >
-          <Component contentSections={learnMoreSections} propName="learnMoreSections" />
+          <RenderBlock contentSections={learnMoreSections} propName="learnMoreSections" />
         </CustomSection>
       </div>
     )

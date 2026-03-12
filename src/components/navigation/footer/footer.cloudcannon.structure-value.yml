@@ -1,6 +1,6 @@
 label: Footer
 icon: page_footer
-description: "Footer block with logo, links, and legal information."
+description: "Footer block with logo, links, and copyright information."
 value:
   _component: navigation/footer
   logoSource: ""

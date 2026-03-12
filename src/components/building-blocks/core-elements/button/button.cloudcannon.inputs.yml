@@ -5,6 +5,11 @@ text:
 link:
   type: url
   comment: The URL to which the button should link.
+  hidden: modalTarget
+modalTarget:
+  type: text
+  comment: The ID of a modal element to open when the button is clicked.
+  hidden: link
 iconName:
   type: select
   comment: The name of the icon to display. See the Icon component documentation for more information.
