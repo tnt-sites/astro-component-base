@@ -144,8 +144,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Toothache
         iconPreset: toothache
-        iconName: exclamation-circle
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Toothaches
@@ -161,8 +159,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Chipped Tooth
         iconPreset: chipped-tooth
-        iconName: shield-exclamation
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Chipped Tooth
@@ -178,8 +174,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Cracked Tooth
         iconPreset: cracked-tooth
-        iconName: bolt
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Cracked Tooth
@@ -195,8 +189,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Sensitivity to Hot and Cold
         iconPreset: sensitivity-hot-cold
-        iconName: fire
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Sensitivity to Hot and Cold
@@ -212,8 +204,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Loose Tooth
         iconPreset: loose-tooth
-        iconName: hand-raised
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Loose Tooth
@@ -229,8 +219,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Jaw Pain or Clenching
         iconPreset: jaw-pain-clenching
-        iconName: face-frown
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Jaw Pain or Clenching
@@ -246,8 +234,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Knocked-Out Tooth
         iconPreset: knocked-out-tooth
-        iconName: ""
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Knocked-Out Tooth
@@ -263,8 +249,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Lost Filling or Crown
         iconPreset: lost-filling-crown
-        iconName: ""
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Lost Filling or Crown
@@ -280,8 +264,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Broken Denture
         iconPreset: broken-denture
-        iconName: ""
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Broken Denture
@@ -297,8 +279,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Gum, Lip or Tongue Injury
         iconPreset: gum-lip-tongue-injury
-        iconName: ""
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Gum, Lip or Tongue Injury
@@ -314,8 +294,6 @@ pageSections:
       - _component: page-sections/info-blocks/emergency-grid/emergency-item
         title: Something Stuck Between Teeth
         iconPreset: stuck-between-teeth
-        iconName: ""
-        link: ""
         contentSections:
           - _component: building-blocks/core-elements/heading
             text: Something Stuck Between Teeth
