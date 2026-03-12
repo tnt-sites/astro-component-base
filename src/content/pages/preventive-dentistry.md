@@ -121,7 +121,7 @@ pageSections:
     rounded: false
   - _component: page-sections/ctas/cta-center
     heading: Checkups
-    anchorName: '#checkups'
+    anchorName: checkups
     subtext: Subtext placeholder text that will be replaced with actual content.
     buttonSections:
       - _component: building-blocks/core-elements/button
