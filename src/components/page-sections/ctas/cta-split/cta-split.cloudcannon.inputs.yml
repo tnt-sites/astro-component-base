@@ -1,6 +1,9 @@
 heading:
   type: text
   comment: Headline for the CTA.
+anchorName:
+  type: text
+  comment: Optional anchor name rendered above the split CTA.
 subtext:
   type: markdown
   comment: Supporting copy beneath the headline.

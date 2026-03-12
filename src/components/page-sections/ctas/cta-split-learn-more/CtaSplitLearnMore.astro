@@ -9,6 +9,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 import Split from "@wrappers/split/Split.astro";
 
 const {
+  anchorName = "",
   heading = "",
   subtext = "",
   buttonSections = [],
@@ -43,6 +44,7 @@ const learnMoreId = `learn-more-${crypto.randomUUID()}`;
   rounded={rounded}
   {...htmlAttributes}
 >
+  {anchorName && <a name={anchorName}></a>}
   <Split
     class="split"
     distributionMode="fixed-flexible"

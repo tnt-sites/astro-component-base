@@ -10,6 +10,10 @@ ctaCenter:
   definitions:
     component_name: CtaCenter
     named_args:
+      - editor_key: anchorName
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: heading
         type: string
         optional: true
