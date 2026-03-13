@@ -112,7 +112,13 @@ const hasModalItems = items.some((item: any) => item.contentSections.length > 0)
     {subtext}
   </Text>
 
-  <div class="emergency-grid-icons" data-prop="emergencyItems">
+  <editable-array
+    class="emergency-grid-icons"
+    data-editable="array"
+    data-component-key="_component"
+    data-id-key="_component"
+    data-prop="emergencyItems"
+  >
     {
       items.map((item: any) => {
         const title = item.title;
@@ -147,7 +153,7 @@ const hasModalItems = items.some((item: any) => item.contentSections.length > 0)
         );
       })
     }
-  </div>
+  </editable-array>
 
   {
     hasModalItems && (
