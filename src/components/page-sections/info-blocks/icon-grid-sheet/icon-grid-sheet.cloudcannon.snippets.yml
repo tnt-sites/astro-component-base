@@ -21,4 +21,4 @@ iconGridSheet:
     # - editor_key: text
     #   type: string
   _inputs_from_glob:
-    - /src/components/utils/icon-grid-sheet/icon-grid-sheet.cloudcannon.inputs.yml
+    - /src/components/page-sections/info-blocks/icon-grid-sheet/icon-grid-sheet.cloudcannon.inputs.yml
