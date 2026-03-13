@@ -1,5 +1,5 @@
 label: Emergency Grid
-icon: warning
+icon: shield-check
 description: Service-icons style emergency card grid with optional modal dialogs.
 value:
   _component: page-sections/info-blocks/emergency-grid
@@ -184,7 +184,7 @@ _structures:
   emergencyItems:
     values:
       - label: Emergency Item
-        icon: warning
+        icon: shield-check
         value:
           _component: page-sections/info-blocks/emergency-grid/emergency-item
           title: Emergency Item
