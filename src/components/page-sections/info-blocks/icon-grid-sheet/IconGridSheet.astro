@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Icon from "@core-elements/icon/Icon.astro";
 
 const { heading = "", backgroundColor = "base", class: className, ...rest } = Astro.props;
 
@@ -8,24 +9,18 @@ const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
 
-const iconModules = import.meta.glob("/src/icons/**/*.svg", {
-  eager: true,
-  import: "default",
-}) as Record<string, string>;
+const iconFiles = Object.keys(import.meta.glob("/src/icons/**/*.svg"));
 
-const iconItems = Object.keys(iconModules)
+const iconItems = iconFiles
   .map((filePath) => {
     const relativePath = filePath.replace("/src/icons/", "");
     const iconName = relativePath.replace(/\.svg$/i, "");
-    const fileName = relativePath.split("/").pop() || `${iconName}.svg`;
-    const source = iconModules[filePath];
-
-    return {
-      iconName,
-      relativePath,
-      fileName,
-      source,
-    };
+    const fileName =
+      relativePath
+        .split("/")
+        .pop()
+        ?.replace(/\.svg$/i, "") ?? iconName;
+    return { iconName, relativePath, fileName };
   })
   .sort((a, b) => a.relativePath.localeCompare(b.relativePath));
 ---
@@ -43,88 +38,62 @@ const iconItems = Object.keys(iconModules)
     {heading}
   </Heading>
 
-  {
-    iconItems.length > 0 ? (
-      <ul class="icon-grid-sheet-grid" aria-label="Available icons">
-        {iconItems.map((item) => (
-          <li class="icon-grid-sheet-item">
-            <div class="icon-grid-sheet-preview" aria-hidden="true">
-              <img src={item.source} alt="" loading="lazy" decoding="async" />
-            </div>
-            <p class="icon-grid-sheet-filename">{item.fileName}</p>
-            {item.relativePath !== item.fileName && (
-              <p class="icon-grid-sheet-path">{item.relativePath}</p>
-            )}
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p class="icon-grid-sheet-empty">No icons found in src/icons.</p>
-    )
-  }
+  <div>
+    {
+      iconItems.length > 0 ? (
+        <ul class="icon-grid-sheet-grid" aria-label="Available icons">
+          {iconItems.map((item) => (
+            <li class="icon-grid-sheet-item">
+              <div class="icon-grid-sheet-preview" aria-hidden="true">
+                <Icon name={item.iconName} size="lg" color="default" />
+              </div>
+              <p class="icon-grid-sheet-filename">{item.fileName}</p>
+              {item.relativePath !== `${item.fileName}.svg` && (
+                <p class="icon-grid-sheet-path">{item.relativePath}</p>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="icon-grid-sheet-empty">No icons found in src/icons.</p>
+      )
+    }
+  </div>
 </CustomSection>
 
 <style lang="pcss" is:global>
   .icon-grid-sheet {
     .icon-grid-sheet-grid {
-      display: grid;
-      gap: var(--spacing-md);
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      list-style: none;
-      margin: var(--spacing-lg) 0 0;
-      padding: 0;
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 50px auto;
     }
 
     .icon-grid-sheet-item {
       background-color: var(--color-bg-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
+      border-radius: 5px;
       display: grid;
-      gap: var(--spacing-2xs);
+      gap: 10px;
       justify-items: center;
-      min-height: 132px;
-      padding: var(--spacing-sm);
+      padding: 20px;
       text-align: center;
     }
 
     .icon-grid-sheet-preview {
       align-items: center;
-      color: var(--color-text-strong);
       display: flex;
       height: 52px;
       justify-content: center;
       width: 52px;
-
-      img {
-        display: block;
-        height: 100%;
-        object-fit: contain;
-        width: 100%;
-      }
     }
 
     .icon-grid-sheet-filename,
     .icon-grid-sheet-path {
       margin: 0;
-      overflow-wrap: anywhere;
     }
 
-    .icon-grid-sheet-filename {
-      color: var(--color-text-strong);
-      font-size: var(--font-size-xs);
-      font-weight: var(--font-weight-semibold);
-      line-height: 1.25;
-    }
-
-    .icon-grid-sheet-path {
-      color: var(--color-text-muted);
-      font-size: var(--font-size-xs);
-      line-height: 1.25;
-    }
-
-    .icon-grid-sheet-empty {
-      margin-top: var(--spacing-lg);
-      text-align: center;
-    }
   }
 </style>
