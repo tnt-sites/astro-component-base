@@ -1,0 +1,69 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Text from "@components/building-blocks/core-elements/text/Text.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
+
+const {
+  heading = "",
+  subtext = "",
+  buttonSections = [],
+  backgroundColor = "base",
+  backgroundImage,
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const {
+  source = "",
+  alt = "",
+  positionVertical = "top",
+  positionHorizontal = "center",
+} = backgroundImage || {};
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["review-video-switcher", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {
+    source && (
+      <Image
+        class="background-image"
+        source={source}
+        alt={alt}
+        data-prop-src="backgroundImage.source"
+        data-prop-alt="backgroundImage.alt"
+        positionVertical={positionVertical}
+        positionHorizontal={positionHorizontal}
+        background={true}
+      />
+    )
+  }
+
+  <Heading level="h2" size="lg" alignX="center" data-prop="heading">
+    {heading}
+  </Heading>
+
+  <Text alignX="center" data-prop="subtext">
+    {subtext}
+  </Text>
+
+  <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
+</CustomSection>
+
+<style>
+  .review-video-switcher {
+  }
+</style>

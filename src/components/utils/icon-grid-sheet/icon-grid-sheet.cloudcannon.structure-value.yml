@@ -1,0 +1,9 @@
+label: Icon Grid Sheet
+icon: add
+description: Description for Icon Grid Sheet component.
+value:
+  _component: utils/icon-grid-sheet
+  heading: "Icon Grid Sheet Heading"
+  backgroundColor: base
+_inputs_from_glob:
+  - /src/components/utils/icon-grid-sheet/icon-grid-sheet.cloudcannon.inputs.yml

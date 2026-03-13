@@ -1,0 +1,32 @@
+reviewVideoSwitcher:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - Review Video Switcher
+    subtext:
+      - key: heading
+    icon: add
+  definitions:
+    component_name: ReviewVideoSwitcher
+    named_args:
+      - editor_key: heading
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: subtext
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: buttonSections
+        type: array
+        optional: true
+      - editor_key: backgroundImage
+        type: object
+        optional: true
+      - editor_key: backgroundColor
+        type: string
+        optional: true
+        remove_empty: true
+  _inputs_from_glob:
+    - /src/components/page-sections/info-blocks/review-video-switcher/review-video-switcher.cloudcannon.inputs.yml
