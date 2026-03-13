@@ -45,12 +45,14 @@ const htmlAttributes = Object.fromEntries(
 
 <script>
   (() => {
+    const modalWindow = window as Window & { __modalControllerInitialized?: boolean };
+
     // If modal already initialized, do nothing
-    if (window.__modalControllerInitialized) return;
+    if (modalWindow.__modalControllerInitialized) return;
 
-    window.__modalControllerInitialized = true;
+    modalWindow.__modalControllerInitialized = true;
 
-    const getTargetModal = (target) => {
+    const getTargetModal = (target: string | null) => {
       if (!target) return null;
 
       const noHash = target.replace(/^#/, "");
@@ -58,7 +60,66 @@ const htmlAttributes = Object.fromEntries(
       return dialog instanceof HTMLDialogElement ? dialog : null;
     };
 
-    const openDialog = (dialog) => {
+    const stopModalVids = (dialog: HTMLDialogElement | null) => {
+      if (!(dialog instanceof HTMLDialogElement)) return;
+
+      const mediaElements = dialog.querySelectorAll("video, audio");
+      mediaElements.forEach((media) => {
+        if (media instanceof HTMLMediaElement) {
+          media.pause();
+          if (Number.isFinite(media.currentTime)) {
+            media.currentTime = 0;
+          }
+        }
+      });
+
+      // Generic iframe handling
+      const iframeElements = dialog.querySelectorAll("iframe");
+      iframeElements.forEach((iframe) => {
+        const src = iframe.getAttribute("src");
+        if (!src) return;
+
+        // Reset iframe src to stop third-party players like YouTube/Vimeo.
+        iframe.setAttribute("src", src);
+      });
+
+      // Lite YouTube player handling
+      const liteYoutubeVids = dialog.querySelectorAll("lite-youtube");
+      liteYoutubeVids.forEach((player) => {
+        const litePlayer = player as unknown as {
+          shadowRoot: ShadowRoot | null;
+          isIframeLoaded?: boolean;
+        };
+        const shadowRoot = litePlayer.shadowRoot;
+        if (!shadowRoot) return;
+
+        const iframe = shadowRoot.querySelector("iframe");
+        iframe?.contentWindow?.postMessage(
+          '{"event":"command","func":"pauseVideo","args":""}',
+          "*"
+        );
+        iframe?.remove();
+        shadowRoot.querySelector("#frame")?.classList.remove("activated");
+        litePlayer.isIframeLoaded = false;
+      });
+
+      // Lite Vimeo player handling
+      const liteVimeoVids = dialog.querySelectorAll("lite-vimeo");
+      liteVimeoVids.forEach((player) => {
+        const litePlayer = player as unknown as {
+          shadowRoot: ShadowRoot | null;
+          iframeLoaded?: boolean;
+        };
+        const shadowRoot = litePlayer.shadowRoot;
+        if (!shadowRoot) return;
+
+        shadowRoot.querySelector("iframe")?.remove();
+        shadowRoot.querySelector("#frame")?.classList.remove("lvo-activated");
+        litePlayer.iframeLoaded = false;
+      });
+    };
+
+    const openDialog = (dialog: HTMLDialogElement | null) => {
       if (!(dialog instanceof HTMLDialogElement)) return;
 
       if (typeof dialog.showModal === "function") {
@@ -70,15 +131,23 @@ const htmlAttributes = Object.fromEntries(
       dialog.focus();
     };
 
-    const closeDialog = (dialog) => {
+    const closeDialog = (dialog: HTMLDialogElement | null) => {
       if (!(dialog instanceof HTMLDialogElement)) return;
 
       if (typeof dialog.close === "function") {
         dialog.close();
       } else {
         dialog.removeAttribute("open");
+        stopModalVids(dialog);
       }
     };
+
+    const modals = document.querySelectorAll<HTMLDialogElement>("dialog.modal");
+    modals.forEach((modal) => {
+      modal.addEventListener("close", () => {
+        stopModalVids(modal);
+      });
+    });
 
     document.addEventListener("click", (event) => {
       const target = event.target;
