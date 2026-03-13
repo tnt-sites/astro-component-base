@@ -403,5 +403,8 @@ pageSections:
         title: Some video
         source: ''
         thumbnail: ''
+  - _component: page-sections/info-blocks/icon-grid-sheet
+    heading: Icon Grid Sheet Heading
+    backgroundColor: base
 description: ''
 ---
