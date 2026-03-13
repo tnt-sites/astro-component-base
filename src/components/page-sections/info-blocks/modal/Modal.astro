@@ -8,6 +8,7 @@ const {
   closeLabel = "Close modal",
   showCloseButton = true,
   contentSections,
+  propName = "contentSections",
   class: className,
   _component,
   ...rest
@@ -36,7 +37,7 @@ const htmlAttributes = Object.fromEntries(
           colorScheme="inherit"
           backgroundColor="none"
         >
-          <Component contentSections={contentSections} propName="contentSections" />
+          <Component contentSections={contentSections} propName={propName} />
         </CustomSection>
       )
     }
