@@ -97,6 +97,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
     const {
       heading = "",
       backgroundColor = "base",
+      id = "",
       backgroundImage,
       class: className,
       editable = true,
