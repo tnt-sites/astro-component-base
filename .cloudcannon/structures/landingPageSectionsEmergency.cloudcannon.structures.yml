@@ -3,3 +3,4 @@ landingPageSectionsEmergency:
   style: modal
   values_from_glob:
     - /src/components/landing-page-components/emergency/**/*.cloudcannon.structure-value.yml
+    - /src/components/navigation/fixed-tabs/fixed-tabs.cloudcannon.structure-value.yml

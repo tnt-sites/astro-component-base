@@ -1,9 +1,7 @@
 ---
-import LandingFixedTabs from "@components/navigation/landing/LandingFixedTabs.astro";
 import LandingFooter from "@components/navigation/landing/LandingFooter.astro";
 import LandingHeader from "@components/navigation/landing/LandingHeader.astro";
 import LandingComponents from "@components/utils/renderLandingBlock.astro";
-import fixedTabsData from "@data/fixedTabs.json";
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
 import siteInfoData from "@data/siteInfo.json";
@@ -20,7 +18,6 @@ type Props = {
     landingStyle?: string;
     landingMainNav?: Record<string, any>;
     landingFooter?: Record<string, any>;
-    landingFixedTabs?: Record<string, any>;
     landingPageSections?: any[];
   };
   title?: string;
@@ -32,7 +29,6 @@ type Props = {
   mainNav?: Record<string, any>;
   footer?: Record<string, any>;
   siteInfo?: Record<string, any>;
-  fixedTabs?: Record<string, any>;
 };
 
 const {
@@ -46,7 +42,6 @@ const {
   mainNav = mainNavData,
   footer = footerData,
   siteInfo = siteInfoData,
-  fixedTabs = fixedTabsData,
 } = Astro.props as Props;
 
 const title = frontmatter?.title ?? titleProp ?? "";
@@ -57,13 +52,41 @@ const canonical = frontmatter?.canonical ?? canonicalProp;
 const resolvedLandingStyle = normalizeLandingStyle(frontmatter?.landingStyle ?? landingStyleProp);
 const resolvedMainNav = frontmatter?.landingMainNav ?? mainNav;
 const resolvedFooter = frontmatter?.landingFooter ?? footer;
-const resolvedFixedTabs = frontmatter?.landingFixedTabs ?? fixedTabs;
 const landingPageSections = frontmatter?.landingPageSections;
 const hasPageSections = landingPageSections && landingPageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
 const resolvedFooterSocials = (resolvedFooter as any)?.socials || [];
-const fixedTabItems = Array.isArray(resolvedFixedTabs?.tabs) ? resolvedFixedTabs.tabs : [];
-const hasActiveFixedTabs = fixedTabItems.some((tab: any) => tab?.enabled !== false);
+
+const normalizeComponentPath = (value: unknown) =>
+  typeof value === "string"
+    ? value
+        .trim()
+        .replace(/^\/+/, "")
+        .replace(/^src\/components\//, "")
+        .replace(/^\.\.\//, "")
+        .toLowerCase()
+    : "";
+
+const isFixedTabsSection = (section: any) => {
+  const componentPath = normalizeComponentPath(section?._component);
+
+  return (
+    componentPath === "navigation/fixed-tabs" ||
+    componentPath.endsWith("/fixed-tabs") ||
+    componentPath.endsWith("/landing-emergency-fixed-tabs") ||
+    componentPath.endsWith("/landing-new-patient-emergency-combo-fixed-tabs")
+  );
+};
+
+const fixedTabsSections = Array.isArray(landingPageSections)
+  ? landingPageSections.filter((section: any) => isFixedTabsSection(section))
+  : [];
+
+const hasActiveFixedTabs = fixedTabsSections.some((section: any) => {
+  const tabs = Array.isArray(section?.tabs) ? section.tabs : [];
+
+  return tabs.some((tab: any) => tab?.enabled !== false);
+});
 ---
 
 <Layout
@@ -100,5 +123,4 @@ const hasActiveFixedTabs = fixedTabItems.some((tab: any) => tab?.enabled !== fal
     socials={siteInfo?.socials || resolvedFooterSocials}
     data-fixed-tabs-active={hasActiveFixedTabs ? "true" : undefined}
   />
-  <LandingFixedTabs {...resolvedFixedTabs} landingStyle={resolvedLandingStyle} />
 </Layout>
