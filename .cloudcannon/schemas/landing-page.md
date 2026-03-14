@@ -1,5 +1,4 @@
 ---
 title:
-landingStyle: new-patient-emergency-combo
 landingPageSections: []
 ---
