@@ -1,12 +1,11 @@
 ---
-import LandingFooter from "@components/navigation/landing/LandingFooter.astro";
-import LandingHeader from "@components/navigation/landing/LandingHeader.astro";
-import LandingComponents from "@components/utils/renderLandingBlock.astro";
+import Footer from "@components/navigation/footer/Footer.astro";
+import MainNavigation from "@components/navigation/main-nav/MainNav.astro";
+import Components from "@components/utils/renderBlock.astro";
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
 import siteInfoData from "@data/siteInfo.json";
 import Layout from "@layouts/BaseLayout.astro";
-import { normalizeLandingStyle } from "@layouts/landing/landingStyles";
 
 type Props = {
   frontmatter?: {
@@ -15,9 +14,6 @@ type Props = {
     keywords?: string[];
     image?: string;
     canonical?: string;
-    landingStyle?: string;
-    landingMainNav?: Record<string, any>;
-    landingFooter?: Record<string, any>;
     landingPageSections?: any[];
   };
   title?: string;
@@ -25,7 +21,6 @@ type Props = {
   keywords?: string[];
   image?: string;
   canonical?: string;
-  landingStyle?: string;
   mainNav?: Record<string, any>;
   footer?: Record<string, any>;
   siteInfo?: Record<string, any>;
@@ -38,7 +33,6 @@ const {
   keywords: keywordsProp,
   image: imageProp,
   canonical: canonicalProp,
-  landingStyle: landingStyleProp,
   mainNav = mainNavData,
   footer = footerData,
   siteInfo = siteInfoData,
@@ -49,44 +43,10 @@ const description = frontmatter?.description ?? descriptionProp;
 const keywords = frontmatter?.keywords ?? keywordsProp;
 const image = frontmatter?.image ?? imageProp;
 const canonical = frontmatter?.canonical ?? canonicalProp;
-const resolvedLandingStyle = normalizeLandingStyle(frontmatter?.landingStyle ?? landingStyleProp);
-const resolvedMainNav = frontmatter?.landingMainNav ?? mainNav;
-const resolvedFooter = frontmatter?.landingFooter ?? footer;
 const landingPageSections = frontmatter?.landingPageSections;
 const hasPageSections = landingPageSections && landingPageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
-const resolvedFooterSocials = (resolvedFooter as any)?.socials || [];
-
-const normalizeComponentPath = (value: unknown) =>
-  typeof value === "string"
-    ? value
-        .trim()
-        .replace(/^\/+/, "")
-        .replace(/^src\/components\//, "")
-        .replace(/^\.\.\//, "")
-        .toLowerCase()
-    : "";
-
-const isFixedTabsSection = (section: any) => {
-  const componentPath = normalizeComponentPath(section?._component);
-
-  return (
-    componentPath === "navigation/fixed-tabs" ||
-    componentPath.endsWith("/fixed-tabs") ||
-    componentPath.endsWith("/landing-emergency-fixed-tabs") ||
-    componentPath.endsWith("/landing-new-patient-emergency-combo-fixed-tabs")
-  );
-};
-
-const fixedTabsSections = Array.isArray(landingPageSections)
-  ? landingPageSections.filter((section: any) => isFixedTabsSection(section))
-  : [];
-
-const hasActiveFixedTabs = fixedTabsSections.some((section: any) => {
-  const tabs = Array.isArray(section?.tabs) ? section.tabs : [];
-
-  return tabs.some((tab: any) => tab?.enabled !== false);
-});
+const resolvedFooterSocials = (footer as any)?.socials || [];
 ---
 
 <Layout
@@ -96,31 +56,20 @@ const hasActiveFixedTabs = fixedTabsSections.some((section: any) => {
   image={image}
   canonical={canonical}
 >
-  <LandingHeader
-    {...resolvedMainNav}
-    landingStyle={resolvedLandingStyle}
-    offices={siteInfo?.offices}
-    socials={siteInfo?.socials || resolvedFooterSocials}
-  />
+  <MainNavigation {...mainNav} socials={siteInfo?.socials || resolvedFooterSocials} />
   <main data-pagefind-body>
     {
       hasPageSections ? (
-        <LandingComponents
-          contentSections={landingPageSections}
-          propName="landingPageSections"
-          landingStyle={resolvedLandingStyle}
-        />
+        <Components contentSections={landingPageSections} propName="landingPageSections" />
       ) : hasSlotContent ? (
         <slot />
       ) : null
     }
   </main>
-  <LandingFooter
-    {...resolvedFooter}
-    landingStyle={resolvedLandingStyle}
+  <Footer
+    {...footer}
     siteName={siteInfo?.siteName}
     offices={siteInfo?.offices}
     socials={siteInfo?.socials || resolvedFooterSocials}
-    data-fixed-tabs-active={hasActiveFixedTabs ? "true" : undefined}
   />
 </Layout>
