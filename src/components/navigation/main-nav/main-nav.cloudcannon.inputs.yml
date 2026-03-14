@@ -14,12 +14,12 @@ buttonSections:
   comment: "Buttons shown with the main navigation row (e.g. search icon button)."
   options:
     structures: _structures.buttonSections
-    _inputs_from_glob:
-      - /src/components/building-blocks/core-elements/button/button.cloudcannon.inputs.yml
+  _inputs_from_glob:
+    - /src/components/building-blocks/core-elements/button/button.cloudcannon.inputs.yml
 hdButtonSections:
   type: array
   comment: "Button section for Request an Appointment and Form Buttons."
   options:
     structures: _structures.buttonSections
-    _inputs_from_glob:
-      - /src/components/building-blocks/core-elements/button/button.cloudcannon.inputs.yml
+  _inputs_from_glob:
+    - /src/components/building-blocks/core-elements/button/button.cloudcannon.inputs.yml
