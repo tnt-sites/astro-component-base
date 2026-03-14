@@ -38,5 +38,25 @@ picker_preview:
   text: Main Nav
   subtext: "Header navigation with logo, links, search, and page buttons."
   icon: navigation
-_inputs_from_glob:
-  - /src/components/navigation/main-nav/main-nav.cloudcannon.inputs.yml
+_inputs:
+  logoSource:
+    type: image
+    comment: "Logo image source URL or path. Leave empty to hide the logo."
+  logoAlt:
+    type: text
+    comment: "Alt text for the logo image for accessibility."
+  navData:
+    type: array
+    comment: "Array of navigation items to render in the navigation bar."
+    options:
+      structures: _structures.navData
+  buttonSections:
+    type: array
+    comment: "Buttons shown with the main navigation row (e.g. search icon button)."
+    options:
+      structures: _structures.buttonSections
+  pageButtons:
+    type: array
+    comment: "Page Buttons shown to the right of the main navigation. Delete all to hide this area."
+    options:
+      structures: _structures.buttonSections
