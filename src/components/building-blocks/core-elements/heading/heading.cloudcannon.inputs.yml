@@ -1,7 +1,18 @@
 text:
   comment: The text content of the heading. Supports inline span wrappers/classes for highlighted words.
-  type: html
+  type: markdown
   options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
     styles: .cloudcannon/styles/editor.css
 level:
   comment: The heading level or type.
@@ -62,4 +73,3 @@ iconPosition:
         name: Before
       - id: after
         name: After
-

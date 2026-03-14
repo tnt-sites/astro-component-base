@@ -1,7 +1,18 @@
 heading:
-  type: html
+  type: markdown
   comment: Headline for the CTA. Supports inline span wrappers/classes for highlighted words.
   options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
     styles: .cloudcannon/styles/editor.css
 maxContentWidth:
   type: select

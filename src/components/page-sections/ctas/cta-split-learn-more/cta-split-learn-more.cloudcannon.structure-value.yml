@@ -32,12 +32,12 @@ value:
   rounded: false
 preview:
   text:
-    - CTA Split Learn MOre
+    - CTA Split Learn More
   subtext:
     - key: heading
   icon: hero
 picker_preview:
   text: CTA Split Learn More
-  subtext: Split layout CTA with button stack.
+  subtext: Split layout CTA with button stack and hidden learn more content.
 _inputs_from_glob:
   - /src/components/page-sections/ctas/cta-split-learn-more/cta-split-learn-more.cloudcannon.inputs.yml
