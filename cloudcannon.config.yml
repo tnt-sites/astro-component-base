@@ -144,10 +144,10 @@ collections_config:
         comment: Landing page style that controls the layout and available section components.
         options:
           values:
-            - id: new-patient-emergency-combo
-              name: New Patient Emergency Combo
-            - id: emergency
-              name: Emergency
+            - value: new-patient-emergency-combo
+              label: New Patient Emergency Combo
+            - value: emergency
+              label: Emergency
         cascade: true
       landingPageSections:
         type: array
@@ -199,10 +199,10 @@ collections_config:
             type: select
             options:
               values:
-                - id: new-patient-emergency-combo
-                  name: New Patient Emergency Combo
-                - id: emergency
-                  name: Emergency
+                - value: new-patient-emergency-combo
+                  label: New Patient Emergency Combo
+                - value: emergency
+                  label: Emergency
             cascade: true
           landingPageSections:
             type: array
@@ -226,10 +226,10 @@ collections_config:
             type: select
             options:
               values:
-                - id: new-patient-emergency-combo
-                  name: New Patient Emergency Combo
-                - id: emergency
-                  name: Emergency
+                - value: new-patient-emergency-combo
+                  label: New Patient Emergency Combo
+                - value: emergency
+                  label: Emergency
             cascade: true
           landingPageSections:
             type: array
@@ -253,10 +253,10 @@ collections_config:
             type: select
             options:
               values:
-                - id: new-patient-emergency-combo
-                  name: New Patient Emergency Combo
-                - id: emergency
-                  name: Emergency
+                - value: new-patient-emergency-combo
+                  label: New Patient Emergency Combo
+                - value: emergency
+                  label: Emergency
             cascade: true
           landingPageSections:
             type: array
