@@ -1,4 +1,5 @@
 ---
 title:
+landingStyle: custom
 landingPageSections: []
 ---

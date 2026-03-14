@@ -1,0 +1,21 @@
+---
+import Footer from "@components/navigation/footer/Footer.astro";
+import { normalizeLandingStyle } from "@layouts/landing/landingStyles";
+
+const {
+  landingStyle,
+  class: className,
+  ...props
+} = Astro.props as {
+  landingStyle?: string;
+  class?: string;
+  [key: string]: any;
+};
+
+const resolvedLandingStyle = normalizeLandingStyle(landingStyle);
+const combinedClassName = ["landing-footer", `landing-footer--${resolvedLandingStyle}`, className]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<Footer {...props} class={combinedClassName} />

@@ -95,8 +95,18 @@ const blogCollection = defineCollection({
   schema: blogPostSchema,
 });
 
+const landingStyles = [
+  "cosmetic",
+  "count-on-us",
+  "custom",
+  "dental-implants",
+  "emergency",
+  "new-patient-emergency-combo",
+] as const;
+
 const landingPageSchema = z.object({
   title: z.string(),
+  landingStyle: z.enum(landingStyles).optional(),
   landingPageSections: z.array(z.any()).optional(),
 });
 

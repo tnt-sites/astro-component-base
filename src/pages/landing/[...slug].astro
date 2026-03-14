@@ -1,7 +1,15 @@
 ---
-import footerData from "@data/footer.json";
-import mainNavData from "@data/mainNav.json";
-import LandingPage from "@layouts/LandingPage.astro";
+import {
+  getLandingStyleFromPageId,
+  normalizeLandingStyle,
+  type LandingStyle,
+} from "@layouts/landing/landingStyles";
+import CosmeticLandingPage from "@layouts/landing/styles/CosmeticLandingPage.astro";
+import CountOnUsLandingPage from "@layouts/landing/styles/CountOnUsLandingPage.astro";
+import CustomLandingPage from "@layouts/landing/styles/CustomLandingPage.astro";
+import DentalImplantsLandingPage from "@layouts/landing/styles/DentalImplantsLandingPage.astro";
+import EmergencyLandingPage from "@layouts/landing/styles/EmergencyLandingPage.astro";
+import NewPatientEmergencyComboLandingPage from "@layouts/landing/styles/NewPatientEmergencyComboLandingPage.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -11,7 +19,7 @@ export interface Props {
 export async function getStaticPaths() {
   const pages = await getCollection("landing-pages");
 
-  return pages.map((page) => {
+  return pages.map((page: CollectionEntry<"landing-pages">) => {
     const slug = page.id.replace(/index$/, "");
 
     if (slug.length === 0) return { params: { slug: undefined }, props: { page } };
@@ -21,8 +29,22 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 const { Content } = await render(page);
+const resolvedLandingStyle = normalizeLandingStyle(
+  page.data?.landingStyle ?? getLandingStyleFromPageId(page.id)
+);
+
+const landingLayoutMap = {
+  cosmetic: CosmeticLandingPage,
+  "count-on-us": CountOnUsLandingPage,
+  custom: CustomLandingPage,
+  "dental-implants": DentalImplantsLandingPage,
+  emergency: EmergencyLandingPage,
+  "new-patient-emergency-combo": NewPatientEmergencyComboLandingPage,
+} as const;
+
+const LandingLayout = landingLayoutMap[resolvedLandingStyle as LandingStyle] || CustomLandingPage;
 ---
 
-<LandingPage frontmatter={page.data} mainNav={mainNavData} footer={footerData}>
+<LandingLayout frontmatter={page.data} landingStyle={resolvedLandingStyle}>
   <Content />
-</LandingPage>
+</LandingLayout>

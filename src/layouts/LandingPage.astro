@@ -1,11 +1,14 @@
 ---
-import Footer from "@components/navigation/footer/Footer.astro";
-import MainNavigation from "@components/navigation/main-nav/MainNav.astro";
-import Components from "@components/utils/renderBlock.astro";
+import LandingFixedTabs from "@components/navigation/landing/LandingFixedTabs.astro";
+import LandingFooter from "@components/navigation/landing/LandingFooter.astro";
+import LandingHeader from "@components/navigation/landing/LandingHeader.astro";
+import LandingComponents from "@components/utils/renderLandingBlock.astro";
+import fixedTabsData from "@data/fixedTabs.json";
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
 import siteInfoData from "@data/siteInfo.json";
 import Layout from "@layouts/BaseLayout.astro";
+import { normalizeLandingStyle } from "@layouts/landing/landingStyles";
 
 type Props = {
   frontmatter?: {
@@ -14,6 +17,10 @@ type Props = {
     keywords?: string[];
     image?: string;
     canonical?: string;
+    landingStyle?: string;
+    landingMainNav?: Record<string, any>;
+    landingFooter?: Record<string, any>;
+    landingFixedTabs?: Record<string, any>;
     landingPageSections?: any[];
   };
   title?: string;
@@ -21,9 +28,11 @@ type Props = {
   keywords?: string[];
   image?: string;
   canonical?: string;
+  landingStyle?: string;
   mainNav?: Record<string, any>;
   footer?: Record<string, any>;
   siteInfo?: Record<string, any>;
+  fixedTabs?: Record<string, any>;
 };
 
 const {
@@ -33,9 +42,11 @@ const {
   keywords: keywordsProp,
   image: imageProp,
   canonical: canonicalProp,
+  landingStyle: landingStyleProp,
   mainNav = mainNavData,
   footer = footerData,
   siteInfo = siteInfoData,
+  fixedTabs = fixedTabsData,
 } = Astro.props as Props;
 
 const title = frontmatter?.title ?? titleProp ?? "";
@@ -43,9 +54,16 @@ const description = frontmatter?.description ?? descriptionProp;
 const keywords = frontmatter?.keywords ?? keywordsProp;
 const image = frontmatter?.image ?? imageProp;
 const canonical = frontmatter?.canonical ?? canonicalProp;
+const resolvedLandingStyle = normalizeLandingStyle(frontmatter?.landingStyle ?? landingStyleProp);
+const resolvedMainNav = frontmatter?.landingMainNav ?? mainNav;
+const resolvedFooter = frontmatter?.landingFooter ?? footer;
+const resolvedFixedTabs = frontmatter?.landingFixedTabs ?? fixedTabs;
 const landingPageSections = frontmatter?.landingPageSections;
 const hasPageSections = landingPageSections && landingPageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
+const resolvedFooterSocials = (resolvedFooter as any)?.socials || [];
+const fixedTabItems = Array.isArray(resolvedFixedTabs?.tabs) ? resolvedFixedTabs.tabs : [];
+const hasActiveFixedTabs = fixedTabItems.some((tab: any) => tab?.enabled !== false);
 ---
 
 <Layout
@@ -55,20 +73,32 @@ const hasSlotContent = Astro.slots.has("default");
   image={image}
   canonical={canonical}
 >
-  <MainNavigation {...mainNav} socials={siteInfo?.socials || footer?.socials || []} />
+  <LandingHeader
+    {...resolvedMainNav}
+    landingStyle={resolvedLandingStyle}
+    offices={siteInfo?.offices}
+    socials={siteInfo?.socials || resolvedFooterSocials}
+  />
   <main data-pagefind-body>
     {
       hasPageSections ? (
-        <Components contentSections={landingPageSections} propName="landingPageSections" />
+        <LandingComponents
+          contentSections={landingPageSections}
+          propName="landingPageSections"
+          landingStyle={resolvedLandingStyle}
+        />
       ) : hasSlotContent ? (
         <slot />
       ) : null
     }
   </main>
-  <Footer
-    {...footer}
+  <LandingFooter
+    {...resolvedFooter}
+    landingStyle={resolvedLandingStyle}
     siteName={siteInfo?.siteName}
     offices={siteInfo?.offices}
-    socials={siteInfo?.socials || footer?.socials || []}
+    socials={siteInfo?.socials || resolvedFooterSocials}
+    data-fixed-tabs-active={hasActiveFixedTabs ? "true" : undefined}
   />
+  <LandingFixedTabs {...resolvedFixedTabs} landingStyle={resolvedLandingStyle} />
 </Layout>
