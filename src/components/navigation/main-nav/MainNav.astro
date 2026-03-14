@@ -10,6 +10,7 @@ const {
   logoAlt = "logo",
   navData = [],
   buttonSections = [],
+  pageButtons = [],
   socials = [],
   class: className,
   offices = [],
@@ -56,9 +57,18 @@ const normalizedSearchButtonSections = resolvedSearchButtonSections.map((button:
   sanitizeButtonSection(button)
 );
 
+const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).map(
+  (button: any) => sanitizeButtonSection(button)
+);
+
 const mobileNavData = [
   ...navData,
   ...normalizedSearchButtonSections.map((button: any) => ({
+    name: button.text || "Button",
+    path: button.link || button.href || "#",
+    children: [],
+  })),
+  ...normalizedPageButtons.map((button: any) => ({
     name: button.text || "Button",
     path: button.link || button.href || "#",
     children: [],
@@ -181,6 +191,18 @@ const formatAddressLines = (address: any) => {
       </div>
       <!-- End Desktop Nav -->
     </div>
+
+    {normalizedPageButtons.length > 0 && (
+      <div class="page-buttons">
+        <ButtonGroup
+          direction="row"
+          align="center"
+          class="desktop-button-group"
+          buttonSections={normalizedPageButtons}
+          editable={false}
+        />
+      </div>
+    )}
   </div>
   <!-- Mobile Nav -->
   <Mobile
@@ -302,6 +324,15 @@ const formatAddressLines = (address: any) => {
         flex: 0 0 30px;
         margin-top: 0;
         width: auto;
+      }
+
+      > .outer-content .hd-content .page-buttons {
+        flex: 0 0 auto;
+
+        > .button-group {
+          container-type: normal;
+          margin-left: 0;
+        }
       }
     }
 

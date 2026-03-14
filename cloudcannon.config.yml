@@ -112,6 +112,21 @@ collections_config:
           paths:
             uploads: src/assets/images
         cascade: true
+      navData:
+        type: array
+        options:
+          structures: _structures.navData
+        cascade: true
+      buttonSections:
+        type: array
+        options:
+          structures: _structures.buttonSections
+        cascade: true
+      pageButtons:
+        type: array
+        options:
+          structures: _structures.buttonSections
+        cascade: true
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false

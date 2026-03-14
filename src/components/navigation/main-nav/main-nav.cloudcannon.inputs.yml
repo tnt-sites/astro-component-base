@@ -14,3 +14,8 @@ buttonSections:
   comment: "Buttons shown with the main navigation row (e.g. search icon button)."
   options:
     structures: _structures.buttonSections
+pageButtons:
+  type: array
+  comment: "Page Buttons shown to the right of the main navigation. Delete all to hide this area."
+  options:
+    structures: _structures.buttonSections

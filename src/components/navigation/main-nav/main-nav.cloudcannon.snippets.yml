@@ -24,5 +24,12 @@ mainNav:
       - editor_key: buttonSections
         type: array
         optional: true
+        options:
+          structures: _structures.buttonSections
+      - editor_key: pageButtons
+        type: array
+        optional: true
+        options:
+          structures: _structures.buttonSections
   _inputs_from_glob:
     - /src/components/navigation/main-nav/main-nav.cloudcannon.inputs.yml
