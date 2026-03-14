@@ -14,8 +14,4 @@ buttonSections:
   comment: "Buttons shown with the main navigation row (e.g. search icon button)."
   options:
     structures: _structures.buttonSections
-hdButtonSections:
-  type: array
-  comment: "Buttons shown in the separate hd-btns area to the right of nav and contact info. Button variants/sizes/styles are configurable per button."
-  options:
-    structures: _structures.buttonSections
+

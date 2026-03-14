@@ -20,16 +20,6 @@ value:
       variant: ghost
       size: lg
       width: xs
-  hdButtonSections:
-    - _component: building-blocks/core-elements/button
-      text: Request an Appointment
-      hideText: false
-      link: /request-an-appointment/
-      iconName: ""
-      iconPosition: before
-      variant: primary
-      size: md
-      width: md
 preview:
   text:
     - Main Nav
