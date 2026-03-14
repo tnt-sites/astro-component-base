@@ -3,6 +3,7 @@ icon: shield-check
 description: Service-icons style emergency card grid with optional modal dialogs.
 value:
   _component: page-sections/info-blocks/emergency-grid
+  id: ""
   heading: Most Common Dental Emergencies
   subtext: ""
   backgroundImage:

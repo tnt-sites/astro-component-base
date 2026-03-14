@@ -3,6 +3,7 @@ icon: help_outline
 description: Section displaying frequently asked questions in an accordion format.
 value:
   _component: page-sections/info-blocks/faq-section
+  id: ""
   heading: Frequently Asked Questions
   headingLevel: h2
   headingSize: lg

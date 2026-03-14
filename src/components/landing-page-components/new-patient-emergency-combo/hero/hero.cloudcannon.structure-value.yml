@@ -3,6 +3,7 @@ icon: title
 description: A hero for PPC landing pages, with image and content.
 value:
   _component: landing-page-components/new-patient-emergency-combo/hero
+  id: ""
   image:
     source: https://placehold.co/600x400
     alt: A placeholder image

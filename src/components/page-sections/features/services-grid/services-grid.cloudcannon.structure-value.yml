@@ -1,0 +1,15 @@
+label: Services Grid
+icon: add
+description: Description for Services Grid component.
+value:
+  _component: page-sections/features/services-grid
+  id: ""
+  heading: "Services Grid <span class="heading-color">Heading</span>"
+  backgroundColor: base
+  backgroundImage:
+    source: null
+    alt: null
+    positionVertical: top
+    positionHorizontal: center
+_inputs_from_glob:
+  - /src/components/page-sections/features/services-grid/services-grid.cloudcannon.inputs.yml

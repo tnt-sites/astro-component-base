@@ -3,6 +3,7 @@ icon: view_carousel
 description: Description for office-tour component.
 value:
   _component: page-sections/features/office-tour
+  id: ""
   heading: office-tour Heading
   tourSlides: []
   backgroundColor: base

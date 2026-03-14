@@ -3,6 +3,7 @@ icon: add
 description: Description for Fixed Tabs component.
 value:
   _component: navigation/fixed-tabs
+  id: ""
   tabs:
     - itemClass: ra
       href: request-an-appointment.html

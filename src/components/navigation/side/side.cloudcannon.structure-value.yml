@@ -3,6 +3,7 @@ icon: sidebar
 description: "Sidebar navigation with expandable sections."
 value:
   _component: navigation/side
+  id: ""
   navData: []
 preview:
   text:
@@ -13,4 +14,3 @@ picker_preview:
   icon: sidebar
 _inputs_from_glob:
   - /src/components/navigation/side/side.cloudcannon.inputs.yml
-

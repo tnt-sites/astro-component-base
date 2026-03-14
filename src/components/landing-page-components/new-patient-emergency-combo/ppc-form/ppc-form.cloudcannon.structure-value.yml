@@ -3,6 +3,7 @@ icon: add
 description: Description for PPC Form component.
 value:
   _component: landing-page-components/new-patient-emergency-combo/ppc-form
+  id: ""
   heading: "PPC Form Heading"
   text: "PPC Form content."
   textAlignment: center

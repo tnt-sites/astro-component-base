@@ -3,6 +3,7 @@ icon: image
 description: Optimized image component for local and remote sources.
 value:
   _component: building-blocks/core-elements/image
+  id: ""
   source: ""
   alt: ""
   rounded: false

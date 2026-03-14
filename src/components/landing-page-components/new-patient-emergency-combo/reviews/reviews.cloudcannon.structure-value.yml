@@ -4,6 +4,7 @@ description: A Review section for PPC landing pages, with background image.
 
 value:
   _component: landing-page-components/new-patient-emergency-combo/reviews
+  id: ""
   backgroundColor: base
   image:
     source: https://placehold.co/600x400

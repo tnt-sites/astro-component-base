@@ -3,6 +3,7 @@ icon: star
 description: Side-by-side CTA with copy on one side and stacked buttons on the other. Includes feature for hidden learn more content.
 value:
   _component: page-sections/ctas/cta-split-learn-more
+  id: ""
   heading: Heading text
   anchorName: ""
   subtext: Subtext placeholder text that will be replaced with actual content.

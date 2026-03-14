@@ -3,6 +3,7 @@ icon: add
 description: Why section.
 value:
   _component: page-sections/info-blocks/why
+  id: ""
   heading: "why Heading"
   backgroundColor: none
   backgroundImage:

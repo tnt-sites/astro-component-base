@@ -3,6 +3,7 @@ icon: hero
 description: Prominent section block for landing pages.
 value:
   _component: page-sections/heroes/hero-split
+  id: ""
   eyebrow: Eyebrow text
   heading: Heading text
   subtext: Subtitle placeholder text that will be replaced with actual content.

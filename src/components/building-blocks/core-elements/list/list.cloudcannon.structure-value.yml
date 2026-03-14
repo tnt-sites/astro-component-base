@@ -3,6 +3,7 @@ icon: list
 description: Lists items with icons, bullets, or numbers as markers.
 value:
   _component: building-blocks/core-elements/list
+  id: ""
   items:
     - _component: building-blocks/core-elements/list/list-item
       text: List item 1

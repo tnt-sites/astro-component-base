@@ -3,6 +3,7 @@ icon: hero
 description: Centered hero with heading, supporting text, and buttons.
 value:
   _component: page-sections/heroes/hero-center
+  id: ""
   eyebrow: Eyebrow text
   heading: Heading text
   subtext: Subtext placeholder text that will be replaced with actual content.

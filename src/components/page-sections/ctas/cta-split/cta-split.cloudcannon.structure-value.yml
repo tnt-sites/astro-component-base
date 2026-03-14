@@ -3,6 +3,7 @@ icon: hero
 description: Side-by-side CTA with copy on one side and stacked buttons on the other.
 value:
   _component: page-sections/ctas/cta-split
+  id: ""
   heading: Heading text
   anchorName: ""
   subtext: Subtext placeholder text that will be replaced with actual content.

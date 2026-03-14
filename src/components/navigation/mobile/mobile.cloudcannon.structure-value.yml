@@ -3,6 +3,7 @@ icon: device-phone-mobile
 description: "Mobile navigation with full-screen overlay."
 value:
   _component: navigation/mobile
+  id: ""
   logoSource: null
   logoAlt: null
   navData: []
@@ -15,4 +16,3 @@ picker_preview:
   icon: device-phone-mobile
 _inputs_from_glob:
   - /src/components/navigation/mobile/mobile.cloudcannon.inputs.yml
-

@@ -3,6 +3,7 @@ icon: hero
 description: Side-by-side CTA with copy and form on one side and image on the other.
 value:
   _component: page-sections/ctas/cta-form
+  id: ""
   heading: Get in touch
   subtext: Fill out the form below and we'll get back to you as soon as possible.
   formAction: ./

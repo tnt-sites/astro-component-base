@@ -3,6 +3,7 @@ icon: star
 description: SVG icon component.
 value:
   _component: building-blocks/core-elements/icon
+  id: ""
   name: bolt
   size: lg
   color: default

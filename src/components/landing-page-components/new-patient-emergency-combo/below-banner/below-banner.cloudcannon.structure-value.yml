@@ -3,6 +3,7 @@ icon: list
 description: Section with images, headings, and rich text lists
 value:
   _component: landing-page-components/new-patient-emergency-combo/below-banner
+  id: ""
   backgroundColor: base
   items:
     - headingPrefix: "Looking for"

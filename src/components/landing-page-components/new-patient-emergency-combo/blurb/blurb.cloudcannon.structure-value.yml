@@ -3,6 +3,7 @@ icon: add
 description: Blurb section with the We Understand text.
 value:
   _component: landing-page-components/new-patient-emergency-combo/blurb
+  id: ""
   text:
   backgroundColor: none
   textColor: "#000"

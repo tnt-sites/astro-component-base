@@ -3,6 +3,7 @@ icon: horizontal_rule
 description: Visual separator for dividing content sections.
 value:
   _component: building-blocks/core-elements/divider
+  id: ""
   paddingVertical: lg
 preview:
   text:

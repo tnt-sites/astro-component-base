@@ -3,6 +3,7 @@ icon: eye-slash
 description: Hidden form field for storing data.
 value:
   _component: building-blocks/forms/hidden
+  id: ""
   name: ""
   value: ""
 preview:

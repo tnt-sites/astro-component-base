@@ -3,6 +3,7 @@ icon: dns
 description: Lists term/definition pairs for structured content.
 value:
   _component: building-blocks/core-elements/definition-list
+  id: ""
   items: []
   alignX: start
 preview:

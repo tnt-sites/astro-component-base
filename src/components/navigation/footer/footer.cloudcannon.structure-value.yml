@@ -3,6 +3,7 @@ icon: page_footer
 description: "Footer block with logo, links, and copyright information."
 value:
   _component: navigation/footer
+  id: ""
   logoSource: ""
   logoAlt: "Logo"
   links: []

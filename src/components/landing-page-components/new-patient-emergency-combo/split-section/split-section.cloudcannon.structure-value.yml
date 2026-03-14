@@ -3,6 +3,7 @@ icon: add
 description: A split section with image and content for PPC landing pages.
 value:
   _component: landing-page-components/new-patient-emergency-combo/split-section
+  id: ""
   backgroundColor: base
   desktopImage:
     source: ""

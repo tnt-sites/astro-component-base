@@ -3,6 +3,7 @@ icon: add
 description: CTA section with background image support and centered button group.
 value:
   _component: page-sections/ctas/more-to-explore
+  id: ""
   heading: More to <span class="color">Explore</span>
   buttonSections:
     - _component: building-blocks/core-elements/button

@@ -3,6 +3,7 @@ icon: edit_note
 description: Content component for markdown-formatted text.
 value:
   _component: building-blocks/core-elements/text
+  id: ""
   text: My text goes here.
   alignX: start
 preview:

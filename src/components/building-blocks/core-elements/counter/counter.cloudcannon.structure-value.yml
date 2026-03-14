@@ -3,6 +3,7 @@ icon: speed
 description: Animated counter for highlighting key stats or figures.
 value:
   _component: building-blocks/core-elements/counter
+  id: ""
   number: 100
   prefix: $
   suffix: M

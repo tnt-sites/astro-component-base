@@ -3,6 +3,7 @@ icon: space_bar
 description: Adds adjustable spacing between content sections.
 value:
   _component: building-blocks/core-elements/spacer
+  id: ""
   size: md
 preview:
   text:

@@ -3,6 +3,7 @@ icon: navigation
 description: "Header navigation combining logo, links, and actions."
 value:
   _component: navigation/main-nav
+  id: ""
   logoSource: ""
   logoAlt: "Logo"
   navData: []
@@ -17,4 +18,3 @@ picker_preview:
   icon: navigation
 _inputs_from_glob:
   - /src/components/navigation/main-nav/main-nav.cloudcannon.inputs.yml
-
