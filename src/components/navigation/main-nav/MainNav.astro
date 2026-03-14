@@ -192,17 +192,15 @@ const formatAddressLines = (address: any) => {
       <!-- End Desktop Nav -->
     </div>
 
-    {normalizedHdButtonSections.length > 0 && (
-      <div class="hd-btns">
-        <ButtonGroup
-          direction="row"
-          align="center"
-          class="desktop-button-group"
-          buttonSections={normalizedHdButtonSections}
-          editable={false}
-        />
-      </div>
-    )}
+    <div class="hd-btns">
+      <ButtonGroup
+        direction="row"
+        align="center"
+        class="desktop-button-group"
+        buttonSections={normalizedHdButtonSections}
+        editable={false}
+      />
+    </div>
   </div>
   <!-- Mobile Nav -->
   <Mobile
