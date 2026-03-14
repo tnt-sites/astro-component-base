@@ -2,8 +2,21 @@ eyebrow:
   type: text
   comment: Optional eyebrow text displayed above the heading.
 heading:
-  type: text
+  type: markdown
   comment: Main heading for the slider section.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 subtext:
   type: textarea
   comment: Supporting copy beneath the heading.
@@ -13,46 +26,60 @@ slides:
   comment: Structured feature slides rendered inside the carousel.
   options:
     structures:
-      - label: Feature slide
-        icon: view_carousel
-        value:
-          _component: page-sections/features/feature-slider/feature-slider-item
-          eyebrow: ""
-          title: Slide title
-          description: Short description for this slide.
-          imageSource: /src/assets/images/component-library/sunset.jpg
-          imageAlt: Slide image alt text
-          minSplitWidth: 0
-        preview:
-          text:
-            - key: title
-            - Feature slide
-          subtext:
-            - key: description
-            - Add description for this slide
-        _inputs:
-          eyebrow:
-            type: text
-            comment: Optional eyebrow text displayed above the title.
-          title:
-            type: text
-            comment: Heading text shown on the slide.
-          description:
-            type: markdown
-            comment: Supporting body copy shown on the slide.
-          imageSource:
-            type: image
-            comment: Image shown on the side of the slide.
-            options:
-              paths:
-                uploads: src/assets/images
-                static: ""
-          imageAlt:
-            type: text
-            comment: Alt text describing the slide image.
-          minSplitWidth:
-            type: number
-            comment: Container width (in px) before the split stacks vertically.
+      values:
+        - label: Feature slide
+          icon: view_carousel
+          value:
+            _component: page-sections/features/feature-slider/feature-slider-item
+            eyebrow: ""
+            title: Slide title
+            description: Short description for this slide.
+            imageSource: /src/assets/images/component-library/sunset.jpg
+            imageAlt: Slide image alt text
+            minSplitWidth: 0
+          preview:
+            text:
+              - key: title
+              - Feature slide
+            subtext:
+              - key: description
+              - Add description for this slide
+          _inputs:
+            eyebrow:
+              type: text
+              comment: Optional eyebrow text displayed above the title.
+            title:
+              type: markdown
+              comment: Heading text shown on the slide.
+              options:
+                blockquote: false
+                bold: true
+                format: p
+                italic: true
+                link: true
+                strike: false
+                subscript: true
+                superscript: true
+                underline: false
+                bulletedlist: false
+                numberedlist: false
+                styles: /.cloudcannon/styles/editor.css
+            description:
+              type: markdown
+              comment: Supporting body copy shown on the slide.
+            imageSource:
+              type: image
+              comment: Image shown on the side of the slide.
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            imageAlt:
+              type: text
+              comment: Alt text describing the slide image.
+            minSplitWidth:
+              type: number
+              comment: Container width (in px) before the split stacks vertically.
 colorScheme:
   type: select
   comment: Color scheme theme applied to the section wrapper.

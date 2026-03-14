@@ -2,15 +2,28 @@ eyebrow:
   type: text
   comment: Optional label displayed above the hero heading.
 heading:
-  type: text
+  type: markdown
   comment: Main heading text for the hero section.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 subtext:
   type: markdown
   comment: Subtitle text displayed below the main heading.
   options:
     blockquote: false
     bold: true
-    format:
+    format: p
     italic: true
     link: true
     strike: false
@@ -78,4 +91,3 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
-

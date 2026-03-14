@@ -2,8 +2,21 @@ eyebrow:
   type: text
   comment: Optional eyebrow text shown above the heading.
 heading:
-  type: text
+  type: markdown
   comment: Main heading for the team grid.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 subtext:
   type: textarea
   comment: Supporting copy beneath the heading.
@@ -39,4 +52,3 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
-

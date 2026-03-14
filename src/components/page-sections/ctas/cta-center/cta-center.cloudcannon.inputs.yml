@@ -1,6 +1,19 @@
 heading:
-  type: text
+  type: markdown
   comment: Headline for the CTA.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 anchorName:
   type: text
   comment: Optional anchor name rendered above the centered CTA.
@@ -10,7 +23,7 @@ subtext:
   options:
     blockquote: false
     bold: true
-    format:
+    format: p
     italic: true
     link: true
     strike: false
@@ -53,4 +66,3 @@ backgroundColor:
 rounded:
   type: switch
   comment: Add rounded corners to the CTA section.
-

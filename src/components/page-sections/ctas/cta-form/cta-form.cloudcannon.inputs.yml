@@ -1,13 +1,26 @@
 heading:
-  type: text
+  type: markdown
   comment: Headline for the CTA.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 subtext:
   type: markdown
   comment: Supporting copy beneath the headline.
   options:
     blockquote: false
     bold: true
-    format:
+    format: p
     italic: true
     link: true
     strike: false
@@ -63,4 +76,3 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
-

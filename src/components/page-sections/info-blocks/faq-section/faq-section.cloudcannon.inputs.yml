@@ -1,6 +1,19 @@
 heading:
-  type: text
+  type: markdown
   comment: Main heading for the FAQ section.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 headingLevel:
   type: select
   comment: HTML heading level (h1-h6).
@@ -128,4 +141,3 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
-

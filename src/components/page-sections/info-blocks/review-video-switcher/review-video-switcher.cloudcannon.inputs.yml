@@ -1,6 +1,19 @@
 heading:
-  type: text
+  type: markdown
   comment: Main heading displayed above the video controls.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 subtext:
   type: textarea
   comment: Supporting copy displayed beneath the heading.
