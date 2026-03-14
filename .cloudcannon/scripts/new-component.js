@@ -141,7 +141,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
     value:
       _component: ${relativePath.replace("src/components/", "")}
       id: ""
-      heading: "${componentName} <span class=\"heading-color\">Heading</span>"
+      heading: ${componentName} <span class="heading-color">Heading</span>
       backgroundColor: base
       backgroundImage:
         source: null
@@ -325,7 +325,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
 
     const componentFolderPath = path.join(targetFolder, kebabName);
 
-    createComponent(componentName, kebabName, componentFolderPath);
+    await createComponent(componentName, kebabName, componentFolderPath);
   } finally {
     rl.close();
   }

@@ -4,7 +4,7 @@ description: Description for Services Grid component.
 value:
   _component: page-sections/ctas/services-grid
   id: ""
-  heading: "Services Grid <span class="heading-color">Heading</span>"
+  heading: Services Grid Heading
   backgroundColor: base
   backgroundImage:
     source: null
