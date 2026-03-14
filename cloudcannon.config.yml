@@ -36,7 +36,6 @@ collections_config:
         remove_empty_inputs: false
         remove_extra_inputs: false
         name: New Page
-        _inputs:
   blog:
     path: src/content/blog
     glob:
@@ -118,12 +117,15 @@ collections_config:
     disable_file_actions: false
   landing_pages:
     path: src/content/landing-pages
+    glob:
+      - "**/*.md"
     name: Landing Pages
     icon: stars
     url: "[full_slug]/"
     disable_url: false
     _enabled_editors:
       - visual
+      - content
     _inputs:
       $.landingPageSections[*].items[*].desktopImage.source:
         type: image
@@ -139,29 +141,25 @@ collections_config:
           remove_custom_markup: false
           initial_height: 320
           image_size_attributes: true
-          required:
-          required_message:
-          min_length:
-          min_length_message:
-          max_length:
-          max_length_message:
-          pattern:
-          pattern_message:
-          min_graphemes:
-          min_graphemes_message:
-          max_graphemes:
-          max_graphemes_message:
-          min_words:
-          min_words_message:
-          max_words:
-          max_words_message:
-          locale:
-          empty_type:
         cascade: true
+    add_options:
+      - name: Add New Landing Page
+        icon: stars
+        schema: default
     create:
+      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
+    new_preview_url: /
+    schemas:
+      default:
+        path: .cloudcannon/schemas/landing-page.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: New Landing Page
 collection_groups:
   - heading: Content
     collections:
