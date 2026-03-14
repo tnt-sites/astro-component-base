@@ -2,11 +2,11 @@ label: Insurance Text
 icon: add
 description: Description for Insurance Text component.
 value:
-  _component: page-sections/ppc-blocks/insurance-text
+  _component: landing-page-components/new-patient-emergency-combo/insurance-text
   heading: "Insurance Text Heading"
   text: "Insurance Text"
   backgroundColor: base
   images:
   imageType: logos
 _inputs_from_glob:
-  - /src/components/page-sections/ppc-blocks/insurance-text/insurance-text.cloudcannon.inputs.yml
+  - /src/components/landing-page-components/new-patient-emergency-combo/insurance-text/insurance-text.cloudcannon.inputs.yml

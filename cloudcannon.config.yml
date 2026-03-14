@@ -126,10 +126,10 @@ collections_config:
     _inputs:
       landingPageSections:
         type: array
-        comment: The main sections of the landing page.
+        comment: Landing Page Sections
         cascade: true
         options:
-          structures: _structures.pageSections
+          structures: _structures.landingPageSections
       $.landingPageSections[*].items[*].desktopImage.source:
         type: image
         cascade: true

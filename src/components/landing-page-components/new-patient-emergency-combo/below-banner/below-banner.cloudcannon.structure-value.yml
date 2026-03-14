@@ -2,7 +2,7 @@ label: Below Banner
 icon: list
 description: Section with images, headings, and rich text lists
 value:
-  _component: page-sections/ppc-blocks/below-banner
+  _component: landing-page-components/new-patient-emergency-combo/below-banner
   backgroundColor: base
   items:
     - headingPrefix: "Looking for"

@@ -3,7 +3,7 @@ icon: add
 description: A Review section for PPC landing pages, with background image.
 
 value:
-  _component: page-sections/ppc-blocks/reviews
+  _component: landing-page-components/new-patient-emergency-combo/reviews
   backgroundColor: base
   image:
     source: https://placehold.co/600x400
@@ -20,4 +20,4 @@ value:
   authorAlignX: left
   starColor: "#febb21"
 _inputs_from_glob:
-  - /src/components/page-sections/ppc-blocks/reviews/reviews.cloudcannon.inputs.yml
+  - /src/components/landing-page-components/new-patient-emergency-combo/reviews/reviews.cloudcannon.inputs.yml
