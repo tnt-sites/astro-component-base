@@ -43,29 +43,13 @@ const defaultSearchButtonSections = [
   },
 ];
 
-const defaultHdButtonSections = [
-  {
-    _component: "building-blocks/core-elements/button",
-    text: "Request an Appointment",
-    hideText: false,
-    link: "/request-an-appointment/",
-    iconName: "",
-    iconPosition: "before",
-    variant: "primary",
-    size: "md",
-    width: "md",
-  },
-];
-
 const resolvedSearchButtonSections =
   Array.isArray(buttonSections) && buttonSections.length > 0
     ? buttonSections
     : defaultSearchButtonSections;
 
 const resolvedHdButtonSections =
-  Array.isArray(hdButtonSections) && hdButtonSections.length > 0
-    ? hdButtonSections
-    : defaultHdButtonSections;
+  Array.isArray(hdButtonSections) ? hdButtonSections : [];
 
 const sanitizeButtonSection = (button: any) => ({
   ...button,
