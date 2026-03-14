@@ -4,6 +4,7 @@ import MainNavigation from "@components/navigation/main-nav/MainNav.astro";
 import Components from "@components/utils/renderBlock.astro";
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
+import siteInfoData from "@data/siteInfo.json";
 import Layout from "@layouts/BaseLayout.astro";
 
 type Props = {
@@ -22,6 +23,7 @@ type Props = {
   canonical?: string;
   mainNav?: Record<string, any>;
   footer?: Record<string, any>;
+  siteInfo?: Record<string, any>;
 };
 
 const {
@@ -33,6 +35,7 @@ const {
   canonical: canonicalProp,
   mainNav = mainNavData,
   footer = footerData,
+  siteInfo = siteInfoData,
 } = Astro.props as Props;
 
 const title = frontmatter?.title ?? titleProp ?? "";
@@ -52,7 +55,7 @@ const hasSlotContent = Astro.slots.has("default");
   image={image}
   canonical={canonical}
 >
-  <MainNavigation {...mainNav} />
+  <MainNavigation {...mainNav} socials={siteInfo?.socials || footer?.socials || []} />
   <main data-pagefind-body>
     {
       hasPageSections ? (
@@ -62,5 +65,10 @@ const hasSlotContent = Astro.slots.has("default");
       ) : null
     }
   </main>
-  <Footer {...footer} />
+  <Footer
+    {...footer}
+    siteName={siteInfo?.siteName}
+    offices={siteInfo?.offices}
+    socials={siteInfo?.socials || footer?.socials || []}
+  />
 </Layout>

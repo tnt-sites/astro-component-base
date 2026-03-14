@@ -11,7 +11,12 @@ navData:
     structures: _structures.navItemLevel1
 buttonSections:
   type: array
-  comment: "Array of button components to display in the navigation bar. See the Button component documentation for more information."
+  comment: "Buttons shown with the main navigation row (e.g. search icon button)."
+hdButtonSections:
+  type: array
+  comment: "Buttons shown in the separate hd-btns area to the right of nav and contact info. Button variants/sizes/styles are configurable per button."
+  options:
+    structures: _structures.buttonSections
 _structures:
   navItemLevel1:
     values:
@@ -67,4 +72,3 @@ _structures:
           path:
             type: text
             comment: "URL path for the grandchild navigation item."
-

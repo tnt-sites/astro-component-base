@@ -34,6 +34,12 @@ officeHoursTitle:
 officeHours:
   type: array
   comment: "Office hours entries with day, hours, and optional note shown beneath each row."
+officeHoursNote:
+  type: text
+  comment: "General note displayed below the full office hours list (e.g. Closed on Sundays)."
+officeHoursNotes:
+  type: array
+  comment: "Optional list of general notes displayed below the full office hours list."
 legalLinks:
   type: array
   comment: "Legal/utility links shown next to Sitemap/Privacy Policy (e.g. HIPAA Notice)."

@@ -1,0 +1,71 @@
+{
+  "siteName": "Dental Studio",
+  "socials": [
+    {
+      "label": "Facebook",
+      "icon": "social/facebook",
+      "link": "https://facebook.com"
+    },
+    {
+      "label": "Instagram",
+      "icon": "social/instagram",
+      "link": "https://instagram.com"
+    },
+    {
+      "label": "LinkedIn",
+      "icon": "social/linkedin",
+      "link": "https://linkedin.com"
+    }
+  ],
+  "offices": [
+    {
+      "name": "",
+      "addresses": [
+        {
+          "lines": ["123 Main Street", "Suite 200"],
+          "city": "Dunedin",
+          "state": "FL",
+          "postalCode": "34698",
+          "country": "USA",
+          "mapUrl": "https://maps.google.com"
+        }
+      ],
+      "phones": [
+        {
+          "display": "(123) 456-7890",
+          "href": "tel:+11234567890"
+        }
+      ],
+      "emails": [
+        {
+          "display": "info@dentalstudio.com",
+          "href": "mailto:info@dentalstudio.com"
+        }
+      ],
+      "officeHours": [
+        {
+          "day": "Monday",
+          "hours": "8:00 am - 5:00 pm"
+        },
+        {
+          "day": "Tuesday",
+          "hours": "8:00 am - 5:00 pm"
+        },
+        {
+          "day": "Wednesday",
+          "hours": "8:00 am - 5:00 pm"
+        },
+        {
+          "day": "Thursday",
+          "hours": "8:00 am - 5:00 pm"
+        },
+        {
+          "day": "Friday",
+          "hours": "8:00 am - 2:00 pm",
+          "note": "Closed for lunch from 12:00 pm - 1:00 pm"
+        }
+      ],
+      "officeHoursNote": "Closed on Sundays"
+    }
+  ]
+}

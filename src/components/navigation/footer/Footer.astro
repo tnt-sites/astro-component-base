@@ -8,20 +8,86 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 const {
   links = [],
   socials = [],
+  siteName = "",
   sitename = "",
+  offices = [],
   legalLinks = [],
   contactTitle = "Contact Us",
   phoneText = "",
   phoneHref = "",
   addressHref = "",
   addressLines = [],
+  emailHref = "",
+  emailText = [],
   officeHoursTitle = "Office Hours",
   officeHours = [],
+  officeHoursNote = "",
+  officeHoursNotes = [],
   logoSource,
   logoAlt,
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const normalizedOffices =
+  Array.isArray(offices) && offices.length > 0
+    ? offices
+    : [
+        {
+          name: "",
+          addresses:
+            Array.isArray(addressLines) && addressLines.length > 0
+              ? [
+                  {
+                    lines: addressLines,
+                    mapUrl: addressHref || "",
+                  },
+                ]
+              : [],
+          phones: phoneText
+            ? [
+                {
+                  display: phoneText,
+                  href: phoneHref || "",
+                },
+              ]
+            : [],
+          officeHours,
+          officeHoursNote,
+          officeHoursNotes,
+          socials,
+        },
+      ];
+
+const displaySiteName = siteName || sitename;
+const sharedSocials =
+  Array.isArray(socials) && socials.length > 0
+    ? socials
+    : Array.isArray(normalizedOffices[0]?.socials)
+      ? normalizedOffices[0].socials
+      : [];
+
+const formatAddressLines = (address: any) => {
+  const lineItems = Array.isArray(address?.lines) ? address.lines : [];
+  const stateAndPostal = [address?.state, address?.postalCode].filter(Boolean).join(" ");
+  const cityStatePostal = [address?.city, stateAndPostal].filter(Boolean).join(", ");
+  const locationLine = [cityStatePostal, address?.country].filter(Boolean).join(", ");
+
+  return [...lineItems, locationLine].filter(
+    (line) => typeof line === "string" && line.trim().length > 0
+  );
+};
+
+const getOfficeHoursGeneralNotes = (office: any) => {
+  const notes = [
+    office?.officeHoursNote,
+    office?.["office-hours-note"],
+    ...(Array.isArray(office?.officeHoursNotes) ? office.officeHoursNotes : []),
+    ...(Array.isArray(office?.["office-hours-notes"]) ? office["office-hours-notes"] : []),
+  ];
+
+  return notes.filter((note) => typeof note === "string" && note.trim().length > 0);
+};
 
 const copyYear = new Date().getFullYear();
 ---
@@ -43,30 +109,56 @@ const copyYear = new Date().getFullYear();
       <div class="fo-info">
         <span class="fo-title">{contactTitle}</span>
         {
-          phoneText && (
-            <a href={phoneHref || "#"} class="pho">
-              {phoneText}
-            </a>
-          )
-        }
-        {
-          addressLines.length > 0 && (
-            <a href={addressHref || "#"} class="phy" target="_blank" rel="noopener noreferrer">
-              {addressLines.map((line: string, index: number) => (
-                <>
-                  {line}
-                  {index < addressLines.length - 1 && <br />}
-                </>
-              ))}
-            </a>
-          )
+          normalizedOffices.map((office: any) => (
+            <div class="office-block">
+              {office?.name && <span class="office-name">{office.name}</span>}
+              {Array.isArray(office?.phones) &&
+                office.phones.map((phone: any) =>
+                  phone?.display ? (
+                    <a href={phone?.href || "#"} class="pho">
+                      {phone?.label ? `${phone.label}: ` : ""}
+                      {phone.display}
+                    </a>
+                  ) : null
+                )}
+              {Array.isArray(office?.emails) &&
+                office.emails.map((email: any) =>
+                  email?.display ? (
+                    <a href={email?.href || "#"} class="pho">
+                      {email?.label ? `${email.label}: ` : ""}
+                      {email.display}
+                    </a>
+                  ) : null
+                )}
+              {Array.isArray(office?.addresses) &&
+                office.addresses.map((address: any) => {
+                  const formattedLines = formatAddressLines(address);
+
+                  return formattedLines.length > 0 ? (
+                    <a
+                      href={address?.mapUrl || "#"}
+                      class="phy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {formattedLines.map((line: string, index: number) => (
+                        <>
+                          {line}
+                          {index < formattedLines.length - 1 && <br />}
+                        </>
+                      ))}
+                    </a>
+                  ) : null;
+                })}
+            </div>
+          ))
         }
 
         {
-          socials.length > 0 && (
+          sharedSocials.length > 0 && (
             <div class="social">
               <ButtonGroup alignX="center">
-                {socials.map((social: any) => (
+                {sharedSocials.map((social: any) => (
                   <Button
                     variant="ghost"
                     size="lg"
@@ -85,22 +177,36 @@ const copyYear = new Date().getFullYear();
       </div>
 
       <div class="fo-hours">
-        <div class="hours">
-          <span class="fo-title">{officeHoursTitle}</span>
-          <div class="hours-list">
-            {
-              officeHours.map((item: any) => (
-                <div class="hours-row">
-                  <div class="hours-line">
-                    <span class="hours-day">{item.day || ""}</span>
-                    <span class="hours-time">{item.hours || ""}</span>
+        <span class="fo-title">{officeHoursTitle}</span>
+        {
+          normalizedOffices.map((office: any) => (
+            <div class="hours office-hours-block">
+              {office?.name && <span class="office-name">{office.name}</span>}
+              <div class="hours-list">
+                {(office?.officeHours || []).map((item: any) => (
+                  <div class="hours-row">
+                    <div class="hours-line">
+                      <span class="hours-day">{item.day || ""}</span>
+                      <span class="hours-time">{item.hours || ""}</span>
+                    </div>
+                    {(item?.note || item?.hoursNote || item?.["hours-note"]) && (
+                      <small class="hours-note">
+                        {item?.note || item?.hoursNote || item?.["hours-note"]}
+                      </small>
+                    )}
                   </div>
-                  {item.note && <small class="hours-note">{item.note}</small>}
+                ))}
+              </div>
+              {getOfficeHoursGeneralNotes(office).length > 0 && (
+                <div class="hours-general-notes">
+                  {getOfficeHoursGeneralNotes(office).map((note: string) => (
+                    <small class="hours-general-note">{note}</small>
+                  ))}
                 </div>
-              ))
-            }
-          </div>
-        </div>
+              )}
+            </div>
+          ))
+        }
       </div>
     </div>
 
@@ -110,7 +216,7 @@ const copyYear = new Date().getFullYear();
       <div class="content-container">
         <div class="footer-legal-text" id="copy">
           &copy;<span class="inline" id="copyDate">{copyYear}</span>
-          {sitename}
+          {displaySiteName}
           <span class="hidden lg:inline mx-2">|</span>
           <br class="inline lg:hidden" />
           {
@@ -219,6 +325,18 @@ const copyYear = new Date().getFullYear();
           text-align: center;
         }
 
+        .office-block,
+        .office-hours-block {
+          margin-bottom: var(--spacing-md);
+        }
+
+        .office-name {
+          color: var(--color-text-strong);
+          display: block;
+          font-weight: var(--font-weight-semibold);
+          margin-bottom: var(--spacing-xs);
+        }
+
         .pho,
         .phy {
           color: var(--color-text);
@@ -264,6 +382,16 @@ const copyYear = new Date().getFullYear();
             display: block;
             font-size: var(--font-size-xs);
             margin-left: 120px;
+          }
+
+          .hours-general-notes {
+            margin-top: var(--spacing-xs);
+          }
+
+          .hours-general-note {
+            color: var(--color-text-muted);
+            display: block;
+            font-size: var(--font-size-xs);
           }
         }
 

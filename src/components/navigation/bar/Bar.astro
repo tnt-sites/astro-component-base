@@ -59,6 +59,9 @@ function createNavItemData(item, level, parentGroupId) {
               aria-controls={itemData.contentId}
               autocomplete="off"
             />
+            <a href={itemData.path} aria-current={itemData.isCurrent ? "page" : undefined}>
+              {itemData.name}
+            </a>
             <label
               for={itemData.dropdownId}
               class="nav-item-trigger"
@@ -67,7 +70,6 @@ function createNavItemData(item, level, parentGroupId) {
               tabindex="0"
               aria-current={itemData.isCurrent ? "page" : undefined}
             >
-              {itemData.name}
               <span class="nav-item-icon">
                 <Icon name="chevron-right" size="none" aria-hidden="true" />
               </span>
@@ -107,15 +109,20 @@ function createNavItemData(item, level, parentGroupId) {
                         aria-controls={childData.contentId}
                         autocomplete="off"
                       />
+                      <a
+                        href={childData.path}
+                        aria-current={childData.isCurrent ? "page" : undefined}
+                      >
+                        {childData.name}
+                      </a>
                       <label
                         for={childData.dropdownId}
                         class="nav-item-trigger"
                         role="button"
                         aria-controls={childData.contentId}
                         tabindex="0"
-                        aria-current={childData.isCurrent ? "page" : undefined}
+                        aria-label={`Toggle ${childData.name} submenu`}
                       >
-                        {childData.name}
                         <span class="nav-item-icon">
                           <Icon name="chevron-right" size="none" aria-hidden="true" />
                         </span>
@@ -317,10 +324,10 @@ function createNavItemData(item, level, parentGroupId) {
 
       .nav-item {
         position: relative;
+        display: flex;;
       }
 
-      .nav-item > a,
-      .nav-item > .nav-item-trigger {
+      .nav-item > a{
         border-radius: var(--radius-xs);
         color: var(--color-text-strong);
         cursor: pointer;
@@ -338,15 +345,50 @@ function createNavItemData(item, level, parentGroupId) {
         }
 
         &:hover {
-          background: var(--color-state-hover);
-          color: var(--color-text-strong);
+          /* background: var(--color-state-hover); */
+          color: var(--color-brand-secondary);
         }
       }
 
+
+
       .nav-item-trigger {
         align-items: center;
-        display: flex;
+        border: 1px solid var(--color-border-subtle);
+        border-radius: var(--radius-xs);
+        color: var(--color-text-muted);
+        cursor: pointer;
+        display: inline-flex;
+        flex-shrink: 0;
         gap: var(--spacing-xs);
+        justify-content: center;
+        min-height: 1.75rem;
+        min-width: 1.75rem;
+        transition:
+          background-color var(--animation-normal) ease-in-out,
+          border-color var(--animation-normal) ease-in-out,
+          color var(--animation-normal) ease-in-out;
+
+        .icon svg{
+          path {
+            stroke: currentColor;
+          }
+        }
+
+        &:hover,
+        &:focus-visible {
+          background: var(--color-brand-secondary);
+          border-color: var(--color-brand-secondary);
+          color: var(--color-text-inverse);
+        }
+      }
+
+      .nav-item.has-children {
+        column-gap: var(--spacing-xs);
+
+        > a {
+          padding-right: 2px;
+        }
       }
 
       .nav-item-icon {
@@ -359,8 +401,9 @@ function createNavItemData(item, level, parentGroupId) {
         transform-origin: 50% 60%;
       }
 
-      .nav-item-trigger:hover .nav-item-icon {
-        color: var(--color-text-strong);
+      .nav-item-trigger:hover .nav-item-icon,
+      .nav-item-trigger:focus-visible .nav-item-icon {
+        color: currentColor;
       }
 
       .nav-item-toggle:checked ~ .nav-item-trigger .nav-item-icon {
@@ -404,9 +447,23 @@ function createNavItemData(item, level, parentGroupId) {
         display: block;
       }
 
-      .nav-item-content .nav-item > a,
-      .nav-item-content .nav-item > .nav-item-trigger {
+      .nav-item-content .nav-item.has-children {
+        align-items: center;
+        column-gap: var(--spacing-xs);
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .nav-item-content .nav-item.has-children > .nav-item-nested {
+        grid-column: 1 / -1;
+      }
+
+      .nav-item-content .nav-item > a {
         border-radius: 0;
+      }
+
+      .nav-item-content .nav-item > .nav-item-trigger {
+        margin-inline-start: var(--spacing-xs);
       }
 
       .nav-item-nested .nav-item > a {

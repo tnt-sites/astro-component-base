@@ -6,6 +6,7 @@ import Components from "@components/utils/renderBlock.astro";
 import fixedTabsData from "@data/fixedTabs.json";
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
+import siteInfoData from "@data/siteInfo.json";
 import Layout from "@layouts/BaseLayout.astro";
 
 type Props = {
@@ -24,6 +25,7 @@ type Props = {
   canonical?: string;
   mainNav?: Record<string, any>;
   footer?: Record<string, any>;
+  siteInfo?: Record<string, any>;
   fixedTabs?: Record<string, any>;
 };
 
@@ -36,6 +38,7 @@ const {
   canonical: canonicalProp,
   mainNav = mainNavData,
   footer = footerData,
+  siteInfo = siteInfoData,
   fixedTabs = fixedTabsData,
 } = Astro.props as Props;
 
@@ -58,7 +61,11 @@ const hasActiveFixedTabs = fixedTabItems.some((tab: any) => tab?.enabled !== fal
   image={image}
   canonical={canonical}
 >
-  <MainNavigation {...mainNav} socials={footer?.socials || []} />
+  <MainNavigation
+    {...mainNav}
+    offices={siteInfo?.offices}
+    socials={siteInfo?.socials || footer?.socials || []}
+  />
   <main data-pagefind-body>
     {
       hasPageSections ? (
@@ -68,6 +75,12 @@ const hasActiveFixedTabs = fixedTabItems.some((tab: any) => tab?.enabled !== fal
       ) : null
     }
   </main>
-  <Footer {...footer} data-fixed-tabs-active={hasActiveFixedTabs ? "true" : undefined} />
+  <Footer
+    {...footer}
+    siteName={siteInfo?.siteName}
+    offices={siteInfo?.offices}
+    socials={siteInfo?.socials || footer?.socials || []}
+    data-fixed-tabs-active={hasActiveFixedTabs ? "true" : undefined}
+  />
   <FixedTabs {...fixedTabs} />
 </Layout>

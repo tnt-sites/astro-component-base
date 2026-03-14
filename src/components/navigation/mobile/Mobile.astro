@@ -8,6 +8,9 @@ const {
   logoAlt,
   navData = [],
   socials = [],
+  officeHoursTitle = "Office Hours",
+  normalizedOffices = [],
+  sharedSocials = [],
   class: className,
   _component,
   ...htmlAttributes
@@ -43,6 +46,17 @@ function createNavItemData(item, level, parentGroupId) {
     parentGroupId: parentGroupId || crypto.randomUUID(),
   };
 }
+
+const getOfficeHoursGeneralNotes = (office: any) => {
+  const notes = [
+    office?.officeHoursNote,
+    office?.["office-hours-note"],
+    ...(Array.isArray(office?.officeHoursNotes) ? office.officeHoursNotes : []),
+    ...(Array.isArray(office?.["office-hours-notes"]) ? office["office-hours-notes"] : []),
+  ];
+
+  return notes.filter((note) => typeof note === "string" && note.trim().length > 0);
+};
 ---
 
 <input type="checkbox" id={toggleId} class="nav-toggle" autocomplete="off" />
@@ -94,6 +108,25 @@ function createNavItemData(item, level, parentGroupId) {
   </div>
 
   <div class="mobile-content">
+    {
+      sharedSocials.length > 0 && (
+        <div class="mobile-socials">
+          {sharedSocials.map((social: any) => (
+            <Button
+              variant="ghost"
+              size="lg"
+              iconName={social.icon}
+              link={social.link}
+              hideText="true"
+              aria-label={`Visit our ${social.icon} page`}
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+          ))}
+        </div>
+      )
+    }
+
     <ul class="mobile-list">
       {
         navData.map((item) => {
@@ -221,25 +254,38 @@ function createNavItemData(item, level, parentGroupId) {
         })
       }
     </ul>
-
-    {
-      socials.length > 0 && (
-        <div class="mobile-socials">
-          {socials.map((social: any) => (
-            <Button
-              variant="ghost"
-              size="lg"
-              iconName={social.icon}
-              link={social.link}
-              hideText="true"
-              aria-label={`Visit our ${social.icon} page`}
-              target="_blank"
-              rel="noopener noreferrer"
-            />
-          ))}
-        </div>
-      )
-    }
+    <div class="hd-hours">
+      <span class="hd-title">{officeHoursTitle}</span>
+      {
+        normalizedOffices.map((office: any) => (
+          <div class="hours office-hours-block">
+            {office?.name && <span class="office-name">{office.name}</span>}
+            <div class="hours-list">
+              {(office?.officeHours || []).map((item: any) => (
+                <div class="hours-row">
+                  <div class="hours-line">
+                    <span class="hours-day">{item.day || ""}</span>
+                    <span class="hours-time">{item.hours || ""}</span>
+                  </div>
+                  {(item?.note || item?.hoursNote || item?.["hours-note"]) && (
+                    <small class="hours-note">
+                      {item?.note || item?.hoursNote || item?.["hours-note"]}
+                    </small>
+                  )}
+                </div>
+              ))}
+            </div>
+            {getOfficeHoursGeneralNotes(office).length > 0 && (
+              <div class="hours-general-notes">
+                {getOfficeHoursGeneralNotes(office).map((note: string) => (
+                  <small class="hours-general-note">{note}</small>
+                ))}
+              </div>
+            )}
+          </div>
+        ))
+      }
+    </div>
   </div>
 </nav>
 
@@ -535,6 +581,74 @@ function createNavItemData(item, level, parentGroupId) {
           > .nav-item-trigger {
             padding: var(--spacing-md) var(--spacing-2xl);
             width: 100%;
+          }
+        }
+      }
+
+      .hd-title {
+        color: var(--color-text-strong);
+        display: block;
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--spacing-sm);
+        text-align: center;
+      }
+
+      .hd-hours {
+        padding: var(--spacing-md);
+
+        .office-name {
+          color: var(--color-text-strong);
+          display: block;
+          font-weight: var(--font-weight-semibold);
+          margin-bottom: var(--spacing-xs);
+        }
+
+        .office-hours-block {
+          margin-bottom: var(--spacing-md);
+        }
+
+        .hours {
+          display: table;
+          margin: 10px auto;
+          text-align: left;
+
+          .hd-title { text-align: center; }
+
+          .hours-list {
+            color: var(--color-text);
+            margin: 0;
+          }
+
+          .hours-row + .hours-row {
+            margin-top: 4px;
+          }
+
+          .hours-line {
+            display: block;
+          }
+
+          .hours-day {
+            color: var(--color-text-strong);
+            display: inline-block;
+            font-weight: var(--font-weight-semibold);
+            width: 120px;
+          }
+
+          .hours-note {
+            color: var(--color-text-muted);
+            display: block;
+            font-size: var(--font-size-xs);
+            margin-left: 120px;
+          }
+
+          .hours-general-notes {
+            margin-top: var(--spacing-xs);
+          }
+
+          .hours-general-note {
+            color: var(--color-text-muted);
+            display: block;
+            font-size: var(--font-size-xs);
           }
         }
       }
