@@ -67,14 +67,27 @@ const resolvedHdButtonSections =
     ? hdButtonSections
     : defaultHdButtonSections;
 
+const sanitizeButtonSection = (button: any) => ({
+  ...button,
+  text: typeof button?.text === "string" ? button.text : "",
+});
+
+const normalizedSearchButtonSections = resolvedSearchButtonSections.map((button: any) =>
+  sanitizeButtonSection(button)
+);
+
+const normalizedHdButtonSections = resolvedHdButtonSections.map((button: any) =>
+  sanitizeButtonSection(button)
+);
+
 const mobileNavData = [
   ...navData,
-  ...resolvedSearchButtonSections.map((button: any) => ({
+  ...normalizedSearchButtonSections.map((button: any) => ({
     name: button.text || "Button",
     path: button.link || button.href || "#",
     children: [],
   })),
-  ...resolvedHdButtonSections.map((button: any) => ({
+  ...normalizedHdButtonSections.map((button: any) => ({
     name: button.text || "Button",
     path: button.link || button.href || "#",
     children: [],
@@ -190,7 +203,7 @@ const formatAddressLines = (address: any) => {
             direction="row"
             align="center"
             class="desktop-button-group"
-            buttonSections={resolvedSearchButtonSections}
+            buttonSections={normalizedSearchButtonSections}
             editable={false}
           />
         </div>
@@ -203,7 +216,7 @@ const formatAddressLines = (address: any) => {
         direction="row"
         align="center"
         class="desktop-button-group"
-        buttonSections={resolvedHdButtonSections}
+        buttonSections={normalizedHdButtonSections}
         editable={false}
       />
     </div>
