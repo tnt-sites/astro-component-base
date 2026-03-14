@@ -20,7 +20,9 @@ const docsComponentSchema = z.object({
   spacing: z.string().optional().nullable(),
   component: z.string().optional(),
   component_path: z.string().optional(),
-  blocks: z.union([z.record(z.string(), z.any()), z.array(z.record(z.string(), z.any()))]).optional(),
+  blocks: z
+    .union([z.record(z.string(), z.any()), z.array(z.record(z.string(), z.any()))])
+    .optional(),
   slots: z
     .array(
       z.object({
@@ -93,9 +95,20 @@ const blogCollection = defineCollection({
   schema: blogPostSchema,
 });
 
+const landingPageSchema = z.object({
+  title: z.string(),
+  landingPageSections: z.array(z.any()).optional(),
+});
+
+const landingPagesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/landing-pages" }),
+  schema: landingPageSchema,
+});
+
 export const collections = {
   pages: pagesCollection,
   "docs-pages": docsPagesCollection,
   "docs-components": docsComponentsCollection,
   blog: blogCollection,
+  "landing-pages": landingPagesCollection,
 };

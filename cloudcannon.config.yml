@@ -117,16 +117,19 @@ collections_config:
     disable_file_actions: false
   landing_pages:
     path: src/content/landing-pages
-    glob:
-      - "**/*.md"
     name: Landing Pages
     icon: stars
-    url: "[full_slug]/"
+    url: /landing/[full_slug]/
     disable_url: false
     _enabled_editors:
       - visual
-      - content
     _inputs:
+      landingPageSections:
+        type: array
+        comment: The main sections of the landing page.
+        cascade: true
+        options:
+          structures: _structures.pageSections
       $.landingPageSections[*].items[*].desktopImage.source:
         type: image
         cascade: true
@@ -142,24 +145,21 @@ collections_config:
           initial_height: 320
           image_size_attributes: true
         cascade: true
-    add_options:
-      - name: Add New Landing Page
-        icon: stars
-        schema: default
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.md"
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
-    new_preview_url: /
+    new_preview_url: /test-page/
     schemas:
-      default:
+      landing-page:
         path: .cloudcannon/schemas/landing-page.md
         reorder_inputs: true
         hide_extra_inputs: false
         remove_empty_inputs: false
         remove_extra_inputs: false
-        name: New Landing Page
+        name: Landing Page
+        icon: stars
         _enabled_editors:
           - visual
         _inputs:
@@ -170,19 +170,19 @@ collection_groups:
     collections:
       - pages
       - blog
-      - landing_pages
   - heading: Data
     collections:
       - data
   - heading: New Collections
     collections:
-      - src
+      - landing_pages
 _inputs:
   pageSections:
     comment: The main sections of the page.
     cascade: true
   logoSource:
     type: image
+    comment: The logo image for the top navigation.
     cascade: true
 _select_data:
   icons:

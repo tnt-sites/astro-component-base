@@ -1,0 +1,28 @@
+---
+import footerData from "@data/footer.json";
+import mainNavData from "@data/mainNav.json";
+import LandingPage from "@layouts/LandingPage.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+export interface Props {
+  page: CollectionEntry<"landing-pages">;
+}
+
+export async function getStaticPaths() {
+  const pages = await getCollection("landing-pages");
+
+  return pages.map((page) => {
+    const slug = page.id.replace(/index$/, "");
+
+    if (slug.length === 0) return { params: { slug: undefined }, props: { page } };
+    return { params: { slug }, props: { page } };
+  });
+}
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<LandingPage frontmatter={page.data} mainNav={mainNavData} footer={footerData}>
+  <Content />
+</LandingPage>
