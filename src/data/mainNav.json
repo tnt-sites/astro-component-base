@@ -47,9 +47,11 @@
   "buttonSections": [
     {
       "_component": "building-blocks/core-elements/button",
+      "id": "",
       "text": "Search",
       "hideText": true,
       "link": "/search/",
+      "modalTarget": "",
       "iconName": "magnifying-glass",
       "iconPosition": "before",
       "variant": "ghost",
@@ -61,7 +63,7 @@
     {
       "_component": "building-blocks/core-elements/button",
       "text": "Request an Appointment",
-      "hideText": false,
+      "hideText": true,
       "link": "/request-an-appointment/",
       "iconName": "",
       "iconPosition": "before",
