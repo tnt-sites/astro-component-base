@@ -15,49 +15,8 @@
       "path": "/blog/"
     }
   ],
-  "socials": [
-    {
-      "icon": "social/github",
-      "link": "https://github.com"
-    },
-    {
-      "icon": "social/x",
-      "link": "https://twitter.com"
-    },
-    {
-      "icon": "social/linkedin",
-      "link": "https://linkedin.com"
-    }
-  ],
-  "sitename": "Dental Studio",
   "contactTitle": "Contact Us",
-  "phoneText": "(123) 456-7890",
-  "phoneHref": "tel:+1",
-  "addressHref": "https://google.com",
-  "addressLines": ["123, Street Name", "City, ST 12345"],
   "officeHoursTitle": "Office Hours",
-  "officeHours": [
-    {
-      "day": "Monday",
-      "hours": "8:00 am - 5:00 pm"
-    },
-    {
-      "day": "Tuesday",
-      "hours": "8:00 am - 5:00 pm"
-    },
-    {
-      "day": "Wednesday",
-      "hours": "8:00 am - 5:00 pm"
-    },
-    {
-      "day": "Thursday",
-      "hours": "8:00 am - 5:00 pm"
-    },
-    {
-      "day": "Friday",
-      "hours": "8:00 am - 2:00 pm"
-    }
-  ],
   "legalLinks": [
     {
       "name": "Sitemap",
