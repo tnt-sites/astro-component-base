@@ -3,7 +3,7 @@ import { defineCollection } from "astro:content";
 import { z } from "zod";
 
 const pageSchema = z.object({
-  title: z.string(),
+  title: z.string().nullish().transform((v) => v ?? ""),
   pageSections: z.array(z.any()),
 });
 
@@ -105,7 +105,7 @@ const landingStyles = [
 ] as const;
 
 const landingPageSchema = z.object({
-  title: z.string(),
+  title: z.string().nullish().transform((v) => v ?? ""),
   landingStyle: z.enum(landingStyles).optional(),
   landingPageSections: z.array(z.any()).optional(),
 });

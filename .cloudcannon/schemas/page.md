@@ -1,5 +1,5 @@
 ---
-title:
+title: New Page
 pageSections: []
 description: ""
 ---
