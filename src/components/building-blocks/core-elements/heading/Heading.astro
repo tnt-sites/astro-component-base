@@ -26,12 +26,21 @@ const textDataAttributes =
     : {};
 
 const md = MarkdownIt({ html: true });
-let MarkdownText = text ? md.renderInline(text) : "";
+
+const normalizedText =
+  typeof text === "string"
+    ? text
+        .trim()
+        .replace(/^<p(?:\s[^>]*)?>/i, "")
+        .replace(/<\/p>\s*$/i, "")
+    : text;
+
+let MarkdownText = normalizedText ? md.renderInline(normalizedText) : "";
 
 MarkdownText = MarkdownText.replace(/\n/g, "<br />");
 const Tag = level;
 
-const hasText = text?.trim().length > 0;
+const hasText = typeof normalizedText === "string" ? normalizedText.trim().length > 0 : false;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 
@@ -55,7 +64,7 @@ if (!_component && !hasText && !hasSlotContent) return;
   }
   <span class="heading-text" {...textDataAttributes}>
     <slot>
-      {text && <Fragment set:html={MarkdownText} />}
+      {normalizedText && <Fragment set:html={MarkdownText} />}
     </slot>
   </span>
   {
