@@ -160,6 +160,11 @@ collections_config:
         remove_empty_inputs: false
         remove_extra_inputs: false
         name: New Landing Page
+        _enabled_editors:
+          - visual
+        _inputs:
+          $.landingPageSections[*].items[*].listText:
+            cascade: true
 collection_groups:
   - heading: Content
     collections:
