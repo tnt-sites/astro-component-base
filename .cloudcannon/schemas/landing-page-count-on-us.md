@@ -1,7 +1,7 @@
 ---
-_schema: landing-page-custom
-title: New Custom Landing Page
-landingStyle: custom
+_schema: landing-page-count-on-us
+title: New Count On Us Landing Page
+landingStyle: count-on-us
 landingMainNav:
   - _component: navigation/main-nav/landing-header
     logoSource: /images/logo.svg
@@ -11,7 +11,7 @@ landingMainNav:
         id: ""
         text: Request an Appointment
         hideText: false
-        link: /request-an-appointment/
+        link: /new-patient-special-form/
         modalTarget: ""
         iconName: ""
         iconPosition: before

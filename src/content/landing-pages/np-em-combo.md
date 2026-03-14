@@ -1,7 +1,7 @@
 ---
-_schema: landing-page-custom
-title: New Custom Landing Page
-landingStyle: custom
+_schema: landing-page-new-patient-emergency-combo
+title:
+landingStyle: new-patient-emergency-combo
 landingMainNav:
   - _component: navigation/main-nav/landing-header
     logoSource: /images/logo.svg
@@ -50,5 +50,11 @@ landingFooter:
         phones:
           - display: (123) 456-7890
             href: tel:+11234567890
-landingPageSections: []
+landingPageSections:
+  - _component: landing-page-components/new-patient-emergency-combo/blurb
+    id: ""
+    text: <p>We understand, life is hard.</p>
+    backgroundColor: none
+    textColor: "#000"
+    blurbBackgroundColor: none
 ---

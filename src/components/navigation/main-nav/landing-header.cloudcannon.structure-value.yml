@@ -1,0 +1,27 @@
+label: Landing Header
+icon: web
+description: "Landing header with logo, contact details, and CTA buttons."
+value:
+  _component: navigation/main-nav/landing-header
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      text: Request an Appointment
+      hideText: false
+      link: /request-an-appointment/
+      iconName: ""
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+preview:
+  text:
+    - Landing Header
+  icon: web
+picker_preview:
+  text: Landing Header
+  subtext: "Logo + contact + CTA header for landing pages."
+  icon: web
+_inputs_from_glob:
+  - /src/components/navigation/main-nav/landing-header.cloudcannon.inputs.yml

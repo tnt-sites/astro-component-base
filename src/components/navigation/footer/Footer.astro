@@ -23,6 +23,8 @@ const {
   officeHours = [],
   officeHoursNote = "",
   officeHoursNotes = [],
+  mapEmbedUrl = "",
+  legalBlurb = "",
   logoSource,
   logoAlt,
   _component,
@@ -90,6 +92,10 @@ const getOfficeHoursGeneralNotes = (office: any) => {
 };
 
 const copyYear = new Date().getFullYear();
+const normalizedMapEmbedUrl =
+  typeof mapEmbedUrl === "string" && mapEmbedUrl.trim().length > 0 ? mapEmbedUrl.trim() : "";
+const normalizedLegalBlurb =
+  typeof legalBlurb === "string" && legalBlurb.trim().length > 0 ? legalBlurb.trim() : "";
 ---
 
 <footer class="footer" {...htmlAttributes}>
@@ -210,6 +216,20 @@ const copyYear = new Date().getFullYear();
       </div>
     </div>
 
+    {
+      normalizedMapEmbedUrl && (
+        <div class="footer-map-embed" aria-label="Map location">
+          <iframe
+            src={normalizedMapEmbedUrl}
+            title="Office location map"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          />
+        </div>
+      )
+    }
+
     <Divider />
 
     <div class="footer-content">
@@ -240,6 +260,7 @@ const copyYear = new Date().getFullYear();
             TNT Dental
           </a>
         </div>
+        {normalizedLegalBlurb && <p class="footer-legal-blurb">{normalizedLegalBlurb}</p>}
       </div>
     </div>
   </CustomSection>
@@ -284,9 +305,33 @@ const copyYear = new Date().getFullYear();
         }
       }
 
+      .footer-map-embed {
+        margin-block: var(--spacing-lg);
+
+        iframe {
+          aspect-ratio: 16 / 9;
+          border: 0;
+          border-radius: var(--radius-md);
+          display: block;
+          width: 100%;
+        }
+      }
+
       .footer-legal-text {
         color: var(--color-text-muted);
         text-align: center;
+        @container (min-width: 600px) {
+          text-align: start;
+        }
+      }
+
+      .footer-legal-blurb {
+        color: var(--color-text-muted);
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-relaxed);
+        margin-top: var(--spacing-sm);
+        text-align: center;
+
         @container (min-width: 600px) {
           text-align: start;
         }

@@ -1,7 +1,7 @@
 ---
-_schema: landing-page-custom
-title: New Custom Landing Page
-landingStyle: custom
+_schema: landing-page-emergency
+title: New Emergency Landing Page
+landingStyle: emergency
 landingMainNav:
   - _component: navigation/main-nav/landing-header
     logoSource: /images/logo.svg
@@ -11,7 +11,7 @@ landingMainNav:
         id: ""
         text: Request an Appointment
         hideText: false
-        link: /request-an-appointment/
+        link: /em-special-form/
         modalTarget: ""
         iconName: ""
         iconPosition: before

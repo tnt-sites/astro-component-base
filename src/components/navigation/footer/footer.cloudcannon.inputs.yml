@@ -43,3 +43,9 @@ officeHoursNotes:
 legalLinks:
   type: array
   comment: "Legal/utility links shown next to Sitemap/Privacy Policy (e.g. HIPAA Notice)."
+mapEmbedUrl:
+  type: text
+  comment: "Optional Google Maps embed URL (iframe src value)."
+legalBlurb:
+  type: textarea
+  comment: "Optional legal/disclaimer text shown below the copyright row."

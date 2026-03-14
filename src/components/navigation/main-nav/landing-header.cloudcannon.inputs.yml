@@ -1,0 +1,14 @@
+logoSource:
+  type: image
+  comment: "Logo image source URL or path."
+logoAlt:
+  type: text
+  comment: "Alt text for the logo image for accessibility."
+pageButtons:
+  type: array
+  comment: "Header CTA buttons shown on the right."
+  options:
+    structures: _structures.buttonSections
+offices:
+  type: array
+  comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."

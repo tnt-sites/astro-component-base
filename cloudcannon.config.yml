@@ -139,6 +139,36 @@ collections_config:
     _enabled_editors:
       - visual
     _inputs:
+      landingStyle:
+        type: select
+        comment: Choose a style as a starting point for this landing page version.
+        cascade: true
+        options:
+          values:
+            - id: cosmetic
+              name: Cosmetic
+            - id: count-on-us
+              name: Count On Us
+            - id: custom
+              name: Custom
+            - id: dental-implants
+              name: Dental Implants
+            - id: emergency
+              name: Emergency
+            - id: new-patient-emergency-combo
+              name: New Patient Emergency Combo
+      landingMainNav:
+        type: array
+        comment: Add one header component for this landing page. Each page can choose a different header style/structure.
+        cascade: true
+        options:
+          structures: _structures.landingHeaderSections
+      landingFooter:
+        type: array
+        comment: Add one footer component for this landing page. Each page can choose a different footer style/structure.
+        cascade: true
+        options:
+          structures: _structures.landingFooterSections
       landingPageSections:
         type: array
         comment: Landing Page Sections
@@ -163,25 +193,117 @@ collections_config:
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.md"
     add_options:
-      - name: Landing Page
+      - name: Landing Page (Cosmetic)
         icon: stars
-        schema: landing-page
+        schema: landing-page-cosmetic
+      - name: Landing Page (Count On Us)
+        icon: stars
+        schema: landing-page-count-on-us
+      - name: Landing Page (Custom)
+        icon: stars
+        schema: landing-page-custom
+      - name: Landing Page (Dental Implants)
+        icon: stars
+        schema: landing-page-dental-implants
+      - name: Landing Page (Emergency)
+        icon: stars
+        schema: landing-page-emergency
+      - name: Landing Page (New Patient Emergency Combo)
+        icon: stars
+        schema: landing-page-new-patient-emergency-combo
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
     new_preview_url: /test-page/
     schemas:
-      landing-page:
+      landing-page-cosmetic:
+        path: .cloudcannon/schemas/landing-page-cosmetic.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Cosmetic)
+        icon: stars
+        _enabled_editors:
+          - visual
+      landing-page-count-on-us:
+        path: .cloudcannon/schemas/landing-page-count-on-us.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Count On Us)
+        icon: stars
+        _enabled_editors:
+          - visual
+      landing-page-custom:
         path: .cloudcannon/schemas/landing-page.md
         reorder_inputs: true
         hide_extra_inputs: false
         remove_empty_inputs: false
         remove_extra_inputs: false
-        name: Landing Page
+        name: Landing Page (Custom)
+        icon: stars
+        _enabled_editors:
+          - visual
+      landing-page-dental-implants:
+        path: .cloudcannon/schemas/landing-page-dental-implants.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Dental Implants)
+        icon: stars
+        _enabled_editors:
+          - visual
+      landing-page-emergency:
+        path: .cloudcannon/schemas/landing-page-emergency.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Emergency)
+        icon: stars
+        _enabled_editors:
+          - visual
+      landing-page-new-patient-emergency-combo:
+        path: .cloudcannon/schemas/landing-page-new-patient-emergency-combo.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (New Patient Emergency Combo)
         icon: stars
         _enabled_editors:
           - visual
         _inputs:
+          landingStyle:
+            type: select
+            cascade: true
+            options:
+              values:
+                - id: cosmetic
+                  name: Cosmetic
+                - id: count-on-us
+                  name: Count On Us
+                - id: custom
+                  name: Custom
+                - id: dental-implants
+                  name: Dental Implants
+                - id: emergency
+                  name: Emergency
+                - id: new-patient-emergency-combo
+                  name: New Patient Emergency Combo
+          landingMainNav:
+            type: array
+            options:
+              structures: _structures.landingHeaderSections
+            cascade: true
+          landingFooter:
+            type: array
+            options:
+              structures: _structures.landingFooterSections
+            cascade: true
           landingPageSections:
             type: array
             options:

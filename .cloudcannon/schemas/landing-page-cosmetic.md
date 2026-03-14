@@ -1,7 +1,7 @@
 ---
-_schema: landing-page-custom
-title: New Custom Landing Page
-landingStyle: custom
+_schema: landing-page-cosmetic
+title: New Cosmetic Landing Page
+landingStyle: cosmetic
 landingMainNav:
   - _component: navigation/main-nav/landing-header
     logoSource: /images/logo.svg
@@ -11,7 +11,7 @@ landingMainNav:
         id: ""
         text: Request an Appointment
         hideText: false
-        link: /request-an-appointment/
+        link: /cosmetic-special-form/
         modalTarget: ""
         iconName: ""
         iconPosition: before

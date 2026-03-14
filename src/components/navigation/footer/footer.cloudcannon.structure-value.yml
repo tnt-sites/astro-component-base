@@ -35,6 +35,8 @@ value:
       path: sitemap.html
     - name: Privacy Policy
       path: privacy-policy.html
+  mapEmbedUrl: ""
+  legalBlurb: ""
 preview:
   text:
     - Footer

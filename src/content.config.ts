@@ -95,8 +95,25 @@ const blogCollection = defineCollection({
   schema: blogPostSchema,
 });
 
+const landingStyles = [
+  "cosmetic",
+  "count-on-us",
+  "custom",
+  "dental-implants",
+  "emergency",
+  "new-patient-emergency-combo",
+] as const;
+
+const landingComponentConfigSchema = z.union([
+  z.record(z.string(), z.any()),
+  z.array(z.record(z.string(), z.any())),
+]);
+
 const landingPageSchema = z.object({
   title: z.string().nullish().transform((v) => v ?? ""),
+  landingStyle: z.enum(landingStyles).optional(),
+  landingMainNav: landingComponentConfigSchema.optional(),
+  landingFooter: landingComponentConfigSchema.optional(),
   landingPageSections: z.array(z.any()).optional(),
 });
 
