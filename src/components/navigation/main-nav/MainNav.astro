@@ -10,6 +10,7 @@ const {
   logoAlt = "logo",
   navData = [],
   buttonSections = [],
+  hdButtonSections = [],
   socials = [],
   class: className,
   offices = [],
@@ -56,9 +57,18 @@ const normalizedSearchButtonSections = resolvedSearchButtonSections.map((button:
   sanitizeButtonSection(button)
 );
 
+const normalizedHdButtonSections = (Array.isArray(hdButtonSections) ? hdButtonSections : []).map(
+  (button: any) => sanitizeButtonSection(button)
+);
+
 const mobileNavData = [
   ...navData,
   ...normalizedSearchButtonSections.map((button: any) => ({
+    name: button.text || "Button",
+    path: button.link || button.href || "#",
+    children: [],
+  })),
+  ...normalizedHdButtonSections.map((button: any) => ({
     name: button.text || "Button",
     path: button.link || button.href || "#",
     children: [],
@@ -182,7 +192,17 @@ const formatAddressLines = (address: any) => {
       <!-- End Desktop Nav -->
     </div>
 
-
+    {normalizedHdButtonSections.length > 0 && (
+      <div class="hd-btns">
+        <ButtonGroup
+          direction="row"
+          align="center"
+          class="desktop-button-group"
+          buttonSections={normalizedHdButtonSections}
+          editable={false}
+        />
+      </div>
+    )}
   </div>
   <!-- Mobile Nav -->
   <Mobile
