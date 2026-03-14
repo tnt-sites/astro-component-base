@@ -97,6 +97,9 @@ const blogCollection = defineCollection({
 
 const landingPageSchema = z.object({
   title: z.string(),
+  landingStyle: z
+    .enum(["new-patient-emergency-combo", "emergency"])
+    .default("new-patient-emergency-combo"),
   landingPageSections: z.array(z.any()).optional(),
 });
 

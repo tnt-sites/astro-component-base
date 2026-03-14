@@ -1,6 +1,7 @@
 ---
-_schema: landing-page
+_schema: landing-page-new-patient-emergency-combo
 title: Landing Page
+landingStyle: new-patient-emergency-combo
 landingPageSections:
   - _component: landing-page-components/new-patient-emergency-combo/blurb
     text: <p><span class="color">We Understand</span></p>

@@ -139,6 +139,16 @@ collections_config:
     _enabled_editors:
       - visual
     _inputs:
+      landingStyle:
+        type: select
+        comment: Landing page style that controls the layout and available section components.
+        options:
+          values:
+            - id: new-patient-emergency-combo
+              name: New Patient Emergency Combo
+            - id: emergency
+              name: Emergency
+        cascade: true
       landingPageSections:
         type: array
         comment: Landing Page Sections
@@ -162,6 +172,13 @@ collections_config:
         cascade: true
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.md"
+    add_options:
+      - name: New Patient Emergency Combo Landing Page
+        icon: stars
+        schema: landing-page-new-patient-emergency-combo
+      - name: Emergency Landing Page
+        icon: local_hospital
+        schema: landing-page-emergency
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -178,6 +195,74 @@ collections_config:
         _enabled_editors:
           - visual
         _inputs:
+          landingStyle:
+            type: select
+            options:
+              values:
+                - id: new-patient-emergency-combo
+                  name: New Patient Emergency Combo
+                - id: emergency
+                  name: Emergency
+            cascade: true
+          landingPageSections:
+            type: array
+            options:
+              structures: _structures.landingPageSections
+            cascade: true
+          $.landingPageSections[*].items[*].listText:
+            cascade: true
+      landing-page-new-patient-emergency-combo:
+        path: .cloudcannon/schemas/landing-page-new-patient-emergency-combo.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: New Patient Emergency Combo
+        icon: stars
+        _enabled_editors:
+          - visual
+        _inputs:
+          landingStyle:
+            type: select
+            options:
+              values:
+                - id: new-patient-emergency-combo
+                  name: New Patient Emergency Combo
+                - id: emergency
+                  name: Emergency
+            cascade: true
+          landingPageSections:
+            type: array
+            options:
+              structures: _structures.landingPageSectionsNewPatientEmergencyCombo
+            cascade: true
+          $.landingPageSections[*].items[*].listText:
+            cascade: true
+      landing-page-emergency:
+        path: .cloudcannon/schemas/landing-page-emergency.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Emergency
+        icon: local_hospital
+        _enabled_editors:
+          - visual
+        _inputs:
+          landingStyle:
+            type: select
+            options:
+              values:
+                - id: new-patient-emergency-combo
+                  name: New Patient Emergency Combo
+                - id: emergency
+                  name: Emergency
+            cascade: true
+          landingPageSections:
+            type: array
+            options:
+              structures: _structures.landingPageSectionsEmergency
+            cascade: true
           $.landingPageSections[*].items[*].listText:
             cascade: true
 collection_groups:

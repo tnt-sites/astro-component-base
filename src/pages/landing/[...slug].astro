@@ -1,7 +1,8 @@
 ---
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
-import LandingPage from "@layouts/LandingPage.astro";
+import EmergencyLayout from "@layouts/landing-page-styles/EmergencyLayout.astro";
+import NewPatientEmergencyComboLayout from "@layouts/landing-page-styles/NewPatientEmergencyComboLayout.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -11,7 +12,7 @@ export interface Props {
 export async function getStaticPaths() {
   const pages = await getCollection("landing-pages");
 
-  return pages.map((page) => {
+  return pages.map((page: CollectionEntry<"landing-pages">) => {
     const slug = page.id.replace(/index$/, "");
 
     if (slug.length === 0) return { params: { slug: undefined }, props: { page } };
@@ -21,8 +22,20 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 const { Content } = await render(page);
+
+const landingLayoutMap = {
+  "new-patient-emergency-combo": NewPatientEmergencyComboLayout,
+  emergency: EmergencyLayout,
+} as const;
+
+type LandingStyle = keyof typeof landingLayoutMap;
+
+const requestedLandingStyle = page.data?.landingStyle as LandingStyle | undefined;
+const LandingLayout =
+  (requestedLandingStyle && landingLayoutMap[requestedLandingStyle]) ||
+  NewPatientEmergencyComboLayout;
 ---
 
-<LandingPage frontmatter={page.data} mainNav={mainNavData} footer={footerData}>
+<LandingLayout frontmatter={page.data} mainNav={mainNavData} footer={footerData}>
   <Content />
-</LandingPage>
+</LandingLayout>
