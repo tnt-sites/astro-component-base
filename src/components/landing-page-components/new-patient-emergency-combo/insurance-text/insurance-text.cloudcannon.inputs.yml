@@ -15,8 +15,21 @@ backgroundColor:
         name: Highlight
 
 heading:
-  type: text
+  type: markdown
   comment: Main heading text. Use "||" for mobile line breaks.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 text:
   type: markdown
   comment: Main Text

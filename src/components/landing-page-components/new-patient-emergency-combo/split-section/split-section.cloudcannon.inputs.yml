@@ -63,11 +63,37 @@ figcaption:
   type: text
   comment: Figure caption text (e.g., "Lily - Front Desk Receptionist")
 headingPrefix:
-  type: text
+  type: markdown
   comment: Prefix text for heading (e.g., "Personalized Dentistry")
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 headingMain:
-  type: text
+  type: markdown
   comment: Main heading text (e.g., "It All Starts with You")
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 content:
   type: html
   comment: Main content text

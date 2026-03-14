@@ -21,7 +21,7 @@ text:
   type: html
   comment: Main Text
   options:
-    styles: .cloudcannon/styles/editor.css
+    styles: /.cloudcannon/styles/editor.css
 textColor:
   type: select
   comment: Color of the text.

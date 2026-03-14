@@ -13,7 +13,7 @@ heading:
     underline: false
     bulletedlist: false
     numberedlist: false
-    styles: .cloudcannon/styles/editor.css
+    styles: /.cloudcannon/styles/editor.css
 maxContentWidth:
   type: select
   comment: Maximum width constraint for the content.

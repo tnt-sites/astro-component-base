@@ -13,7 +13,7 @@ text:
     underline: false
     bulletedlist: false
     numberedlist: false
-    styles: .cloudcannon/styles/editor.css
+    styles: /.cloudcannon/styles/editor.css
 level:
   comment: The heading level or type.
   type: select

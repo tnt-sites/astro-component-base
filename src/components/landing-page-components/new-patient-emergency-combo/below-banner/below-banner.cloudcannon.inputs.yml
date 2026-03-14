@@ -14,26 +14,62 @@ backgroundColor:
       - id: highlight
         name: Highlight
 items:
-  type: list
+  type: array
   comment: Blocks for each image + heading + text
-  item:
-    type: object
-    properties:
-      headingPrefix:
-        type: text
-        comment: First part of heading (e.g., "Looking for a")
-      headingMain:
-        type: text
-        comment: Main heading (e.g., "New Dentist?")
-      desktopImage:
-        type: image
-        comment: Desktop image URL
-      mobileImage:
-        type: image
-        comment: Mobile image URL
-      alt:
-        type: text
-        comment: Alt text for images
-      listText:
-        type: text
-        comment: Text below images
+$.items[*].headingPrefix:
+  type: markdown
+  comment: First part of heading (e.g., "Looking for a")
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
+$.items[*].headingMain:
+  type: markdown
+  comment: Main heading (e.g., "New Dentist?")
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
+$.items[*].desktopImage:
+  type: image
+  comment: Desktop image URL
+$.items[*].mobileImage:
+  type: image
+  comment: Mobile image URL
+$.items[*].alt:
+  type: text
+  comment: Alt text for images
+$.items[*].listText:
+  type: markdown
+  comment: Text below images
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: true
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css

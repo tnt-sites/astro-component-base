@@ -16,76 +16,66 @@ backgroundColor:
 items:
   type: array
   comment: Blocks for each image + heading + text
-  item:
-    type: object
-    properties:
-      headingPrefix:
-        type: text
-        comment: First part of heading (e.g., "Looking for a")
-      headingMain:
-        type: text
-        comment: Main heading (e.g., "New Dentist?")
-      desktopImage:
-        type: object
-        comment: Image configuration for the desktop section.
-        options:
-          structures:
-            values:
-              - label: Desktop Image
-                icon: image
-                value:
-                  _component: building-blocks/core-elements/image
-                  source: ""
-                  alt: ""
-                _inputs:
-                  source:
-                    type: image
-                    comment: The URL or path to the image.
-                    options:
-                      paths:
-                        uploads: src/assets/images
-                        static: ""
-                  alt:
-                    type: textarea
-                    comment: Alternative text for accessibility.
-      mobileImage:
-        type: object
-        comment: Image configuration for the mobile section.
-        options:
-          structures:
-            values:
-              - label: Mobile Image
-                icon: image
-                value:
-                  _component: building-blocks/core-elements/image
-                  source: ""
-                  alt: ""
-                _inputs:
-                  source:
-                    type: image
-                    comment: The URL or path to the image.
-                    options:
-                      paths:
-                        uploads: src/assets/images
-                        static: ""
-                  alt:
-                    type: textarea
-                    comment: Alternative text for accessibility.
-      listText:
-        type: markdown
-        comment: Main Text
-        options:
-          rich: true
-          blockquote: false
-          bold: true
-          italic: true
-          link: true
-          strike: false
-          subscript: true
-          superscript: true
-          underline: false
-          bulletedlist: true
-          numberedlist: false
+$.items[*].headingPrefix:
+  type: markdown
+  comment: First part of heading (e.g., "Looking for a")
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
+$.items[*].headingMain:
+  type: markdown
+  comment: Main heading (e.g., "New Dentist?")
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
+$.items[*].desktopImage.source:
+  type: image
+  comment: Desktop image source
+$.items[*].desktopImage.alt:
+  type: textarea
+  comment: Desktop image alt text
+$.items[*].mobileImage.source:
+  type: image
+  comment: Mobile image source
+$.items[*].mobileImage.alt:
+  type: textarea
+  comment: Mobile image alt text
+$.items[*].listText:
+  type: markdown
+  comment: Main Text
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: true
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 # Add your other component inputs here
 # Example:
 # text:
