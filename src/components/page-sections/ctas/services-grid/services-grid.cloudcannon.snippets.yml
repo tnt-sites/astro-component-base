@@ -28,4 +28,4 @@ servicesGrid:
     # - editor_key: text
     #   type: string
   _inputs_from_glob:
-    - /src/components/page-sections/features/services-grid/services-grid.cloudcannon.inputs.yml
+    - /src/components/page-sections/ctas/services-grid/services-grid.cloudcannon.inputs.yml

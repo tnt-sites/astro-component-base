@@ -325,7 +325,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
 
     const componentFolderPath = path.join(targetFolder, kebabName);
 
-    await createComponent(componentName, kebabName, componentFolderPath);
+    createComponent(componentName, kebabName, componentFolderPath);
   } finally {
     rl.close();
   }
