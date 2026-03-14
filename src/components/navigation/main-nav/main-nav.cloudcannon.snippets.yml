@@ -1,0 +1,29 @@
+mainNav:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - Main Nav
+    icon: navigation
+  definitions:
+    component_name: MainNav
+    named_args:
+      - editor_key: logoSource
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: logoAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: navData
+        type: array
+        optional: true
+      - editor_key: buttonSections
+        type: array
+        optional: true
+      - editor_key: hdButtonSections
+        type: array
+        optional: true
+  _inputs_from_glob:
+    - /src/components/navigation/main-nav/main-nav.cloudcannon.inputs.yml

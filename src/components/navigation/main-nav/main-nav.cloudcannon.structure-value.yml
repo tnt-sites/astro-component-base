@@ -1,12 +1,15 @@
 label: Main Nav
 icon: navigation
-description: "Header navigation combining logo, links, and actions."
+description: "Header navigation with logo, multi-level links, search, and appointment CTA."
 value:
   _component: navigation/main-nav
   id: ""
-  logoSource: ""
+  logoSource: /images/logo.svg
   logoAlt: "Logo"
-  navData: []
+  navData:
+    - name: Home
+      path: /
+      children: []
   buttonSections:
     - _component: building-blocks/core-elements/button
       text: Search
@@ -33,7 +36,7 @@ preview:
   icon: navigation
 picker_preview:
   text: Main Nav
-  subtext: "Header navigation combining logo, links, and actions."
+  subtext: "Header navigation with logo, links, search, and CTA buttons."
   icon: navigation
 _inputs_from_glob:
   - /src/components/navigation/main-nav/main-nav.cloudcannon.inputs.yml
