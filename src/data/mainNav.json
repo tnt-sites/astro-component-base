@@ -58,20 +58,5 @@
       "size": "lg",
       "width": "xs"
     }
-  ],
-  "hdButtonSections": [
-    {
-      "_component": "building-blocks/core-elements/button",
-      "id": "",
-      "text": "Request an Appointment",
-      "hideText": false,
-      "link": "/request-an-appointment/",
-      "modalTarget": "",
-      "iconName": "",
-      "iconPosition": "before",
-      "variant": "primary",
-      "size": "md",
-      "width": "xs"
-    }
   ]
 }

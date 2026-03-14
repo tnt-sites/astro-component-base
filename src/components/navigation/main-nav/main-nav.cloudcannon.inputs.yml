@@ -14,8 +14,3 @@ buttonSections:
   comment: "Buttons shown with the main navigation row (e.g. search icon button)."
   options:
     structures: _structures.buttonSections
-hdButtonSections:
-  type: array
-  comment: "Button section for Request an Appointment and Form Buttons."
-  options:
-    structures: _structures.buttonSections

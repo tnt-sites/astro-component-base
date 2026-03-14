@@ -24,8 +24,5 @@ mainNav:
       - editor_key: buttonSections
         type: array
         optional: true
-      - editor_key: hdButtonSections
-        type: array
-        optional: true
   _inputs_from_glob:
     - /src/components/navigation/main-nav/main-nav.cloudcannon.inputs.yml

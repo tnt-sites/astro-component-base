@@ -1,6 +1,6 @@
 label: Main Nav
 icon: navigation
-description: "Header navigation with logo, multi-level links, search, and appointment CTA."
+description: "Header navigation with logo, multi-level links, and search."
 value:
   _component: navigation/main-nav
   id: ""
@@ -20,23 +20,13 @@ value:
       variant: ghost
       size: lg
       width: xs
-  hdButtonSections:
-    - _component: building-blocks/core-elements/button
-      text: Request an Appointment
-      hideText: false
-      link: /request-an-appointment/
-      iconName: ""
-      iconPosition: before
-      variant: primary
-      size: md
-      width: md
 preview:
   text:
     - Main Nav
   icon: navigation
 picker_preview:
   text: Main Nav
-  subtext: "Header navigation with logo, links, search, and CTA buttons."
+  subtext: "Header navigation with logo, links, and search."
   icon: navigation
 _inputs_from_glob:
   - /src/components/navigation/main-nav/main-nav.cloudcannon.inputs.yml
