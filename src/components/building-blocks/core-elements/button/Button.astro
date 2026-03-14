@@ -2,7 +2,7 @@
 import Icon from "@core-elements/icon/Icon.astro";
 
 const {
-  text,
+  text: textValue = "",
   iconName,
   iconPosition = "before",
   hideText = false,
@@ -19,6 +19,8 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
+const text = typeof textValue === "string" ? textValue : "";
+
 const normalizedModalTarget =
   typeof modalTarget === "string" ? modalTarget.trim().replace(/^#/, "") : "";
 
@@ -30,7 +32,7 @@ const textDataAttributes =
       }
     : {};
 
-if (hideText && !htmlAttributes["aria-label"]) {
+if (hideText && !htmlAttributes["aria-label"] && text) {
   htmlAttributes["aria-label"] = text;
 }
 
