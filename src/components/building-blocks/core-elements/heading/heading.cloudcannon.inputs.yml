@@ -1,6 +1,8 @@
 text:
-  comment: The text content of the heading.
-  type: textarea
+  comment: The text content of the heading. Supports inline span wrappers/classes for highlighted words.
+  type: html
+  options:
+    styles: .cloudcannon/styles/editor.css
 level:
   comment: The heading level or type.
   type: select

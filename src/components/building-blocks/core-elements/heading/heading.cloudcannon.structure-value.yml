@@ -3,7 +3,7 @@ icon: title
 description: Headings for content hierarchy.
 value:
   _component: building-blocks/core-elements/heading
-  text: My Heading
+  text: My <span class="color">Heading</span>
   level: h2
   size: default
   alignX: start

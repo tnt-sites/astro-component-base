@@ -141,8 +141,3 @@ backgroundImage.positionHorizontal:
         name: Center
       - id: right
         name: Right
-# Add your other component inputs here
-# Example:
-# text:
-#   type: text
-#   comment: The text content for the component.
