@@ -31,7 +31,7 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
-const normalizedOffices =
+const resolvedOffices =
   Array.isArray(offices) && offices.length > 0
     ? offices
     : [
@@ -65,8 +65,8 @@ const displaySiteName = siteName || sitename;
 const sharedSocials =
   Array.isArray(socials) && socials.length > 0
     ? socials
-    : Array.isArray(normalizedOffices[0]?.socials)
-      ? normalizedOffices[0].socials
+    : Array.isArray(resolvedOffices[0]?.socials)
+      ? resolvedOffices[0].socials
       : [];
 
 const formatAddressLines = (address: any) => {
@@ -92,10 +92,8 @@ const getOfficeHoursGeneralNotes = (office: any) => {
 };
 
 const copyYear = new Date().getFullYear();
-const normalizedMapEmbedUrl =
-  typeof mapEmbedUrl === "string" && mapEmbedUrl.trim().length > 0 ? mapEmbedUrl.trim() : "";
-const normalizedLegalBlurb =
-  typeof legalBlurb === "string" && legalBlurb.trim().length > 0 ? legalBlurb.trim() : "";
+const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
+const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
 ---
 
 <footer class="footer" {...htmlAttributes}>
@@ -115,7 +113,7 @@ const normalizedLegalBlurb =
       <div class="fo-info">
         <span class="fo-title">{contactTitle}</span>
         {
-          normalizedOffices.map((office: any) => (
+          resolvedOffices.map((office: any) => (
             <div class="office-block">
               {office?.name && <span class="office-name">{office.name}</span>}
               {Array.isArray(office?.phones) &&
@@ -185,18 +183,18 @@ const normalizedLegalBlurb =
       <div class="fo-hours">
         <span class="fo-title">{officeHoursTitle}</span>
         {
-          normalizedOffices.map((office: any) => (
-            <div class="hours office-hours-block">
+          resolvedOffices.map((office: any) => (
+            <div class="office-hours">
               {office?.name && <span class="office-name">{office.name}</span>}
-              <div class="hours-list">
+              <div class="office-hours-list">
                 {(office?.officeHours || []).map((item: any) => (
-                  <div class="hours-row">
-                    <div class="hours-line">
-                      <span class="hours-day">{item.day || ""}</span>
-                      <span class="hours-time">{item.hours || ""}</span>
+                  <div class="office-hours-row">
+                    <div class="office-hours-line">
+                      <span class="office-hours-day">{item.day || ""}</span>
+                      <span class="office-hours-time">{item.hours || ""}</span>
                     </div>
                     {(item?.note || item?.hoursNote || item?.["hours-note"]) && (
-                      <small class="hours-note">
+                      <small class="office-hours-note">
                         {item?.note || item?.hoursNote || item?.["hours-note"]}
                       </small>
                     )}
@@ -204,9 +202,9 @@ const normalizedLegalBlurb =
                 ))}
               </div>
               {getOfficeHoursGeneralNotes(office).length > 0 && (
-                <div class="hours-general-notes">
+                <div class="office-hours-general-notes">
                   {getOfficeHoursGeneralNotes(office).map((note: string) => (
-                    <small class="hours-general-note">{note}</small>
+                    <small class="office-hours-general-note">{note}</small>
                   ))}
                 </div>
               )}
@@ -217,10 +215,10 @@ const normalizedLegalBlurb =
     </div>
 
     {
-      normalizedMapEmbedUrl && (
+      embedSrc && (
         <div class="footer-map-embed" aria-label="Map location">
           <iframe
-            src={normalizedMapEmbedUrl}
+            src={embedSrc}
             title="Office location map"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -260,7 +258,7 @@ const normalizedLegalBlurb =
             TNT Dental
           </a>
         </div>
-        {normalizedLegalBlurb && <p class="footer-legal-blurb">{normalizedLegalBlurb}</p>}
+        {blurb && <p class="footer-legal-blurb">{blurb}</p>}
       </div>
     </div>
   </CustomSection>
@@ -395,49 +393,12 @@ const normalizedLegalBlurb =
           }
         }
 
-        .hours {
+        .office-hours {
           display: table;
           margin: 10px auto;
-          text-align: left !important;
+          text-align: left;
 
-          .fo-title{text-align: center;}
-
-          .hours-list {
-            color: var(--color-text);
-            margin: 0;
-          }
-
-          .hours-row + .hours-row {
-            margin-top: 4px;
-          }
-
-          .hours-line {
-            display: block;
-          }
-
-          .hours-day {
-            color: var(--color-text-strong);
-            display: inline-block;
-            font-weight: var(--font-weight-semibold);
-            width: 120px;
-          }
-
-          .hours-note {
-            color: var(--color-text-muted);
-            display: block;
-            font-size: var(--font-size-xs);
-            margin-left: 120px;
-          }
-
-          .hours-general-notes {
-            margin-top: var(--spacing-xs);
-          }
-
-          .hours-general-note {
-            color: var(--color-text-muted);
-            display: block;
-            font-size: var(--font-size-xs);
-          }
+          .fo-title { text-align: center; }
         }
 
         .social {

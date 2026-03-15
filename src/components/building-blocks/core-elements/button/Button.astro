@@ -8,11 +8,12 @@ const {
   hideText = false,
   variant = "primary",
   size = "md",
-  width = "xs",
+  width = "md",
   borderRadius = "default",
   borderWidth = "default",
   borderColor = "default",
   textColor = "default",
+  uppercase = false,
   link,
   modalTarget,
   element = "a",
@@ -24,6 +25,7 @@ const {
 } = Astro.props;
 
 const text = typeof textValue === "string" ? textValue : "";
+const normalizedText = text.replace(/\r\n?/g, "\n").replace(/\n{2,}/g, "\n");
 
 const resolveSelectValue = (value: any): string | undefined => {
   if (typeof value === "string") return value.trim().toLowerCase();
@@ -66,6 +68,8 @@ const normalizedTextColor = normalizeChoice(
   ["default", "text", "text-strong", "text-muted", "brand", "text-on-brand", "text-inverse"],
   "default"
 );
+const normalizedUppercase =
+  typeof uppercase === "string" ? uppercase.trim().toLowerCase() === "true" : !!uppercase;
 const normalizedIconPosition = normalizeChoice(iconPosition, ["before", "after"], "before");
 const normalizedHideText =
   typeof hideText === "string" ? hideText.trim().toLowerCase() === "true" : !!hideText;
@@ -82,7 +86,7 @@ const textDataAttributes =
     : {};
 
 if (normalizedHideText && !htmlAttributes["aria-label"] && text) {
-  htmlAttributes["aria-label"] = text;
+  htmlAttributes["aria-label"] = normalizedText;
 }
 
 const Tag = (normalizedModalTarget ? "button" : element) as any;
@@ -101,8 +105,6 @@ const tagProps = normalizedModalTarget
       : {};
 
 const hasText = text?.trim().length > 0;
-const textSegments = text.split(/<br\s*\/?\s*>|\n/gi);
-const hasTextBreaks = textSegments.length > 1;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 const hasIcon = iconName?.trim().length > 0;
@@ -120,6 +122,7 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
     `border-width-${normalizedBorderWidth}`,
     `border-color-${normalizedBorderColor}`,
     `text-color-${normalizedTextColor}`,
+    normalizedUppercase && "text-uppercase",
     normalizedIconPosition === "after" && "icon-after",
     normalizedHideText && "icon-only",
     className,
@@ -131,18 +134,7 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
   {
     !normalizedHideText && (
       <span class="label-text" {...textDataAttributes}>
-        <slot>
-          {
-            hasTextBreaks
-              ? textSegments.map((segment: string, index: number) => (
-                  <>
-                    {segment}
-                    {index < textSegments.length - 1 && <br />}
-                  </>
-                ))
-              : text
-          }
-        </slot>
+        {normalizedText}
       </span>
     )
   }
@@ -171,6 +163,7 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
       transition-property: background-color, color, border-color;
       transition-timing-function: ease-in-out;
       vertical-align: middle;
+      line-height: 1.2;
 
       &:hover {
         background-color: var(--color-bg-muted);
@@ -210,6 +203,17 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
 
       &.width-xl {
         min-width: 240px;
+      }
+
+      .label-text {
+        display: inline-block;
+        line-height: 1.2;
+        margin: 0;
+        white-space: pre-line;
+      }
+
+      &.text-uppercase .label-text {
+        text-transform: uppercase;
       }
 
       &.radius-default {
@@ -386,15 +390,16 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
       }
 
       &.variant-secondary {
-        background-color: var(--color-bg-muted);
+        background-color: var(--color-bg-brand-secondary);
         border-color: transparent;
-        color: var(--color-text-strong);
+          color: var(--color-text-on-brand);
 
         &:hover,
         &:focus {
-          background-color: var(--color-state-hover);
+
+          background-color: var(--color-bg-brand-muted);
           border-color: transparent;
-          color: var(--color-text-strong);
+          color: #fff;
         }
       }
 
@@ -449,9 +454,20 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
       &.size-lg {
         font-size: var(--font-size-xl);
       }
+
+      &.width-sm {
+        min-width: 200px;
+      }
+
+      &.size-md {
+        min-width: 230px;
+      }
+
+      &.size-lg {
+        min-width: 300px;
+      }
     }
 
-<style lang="pcss" is:global>
     @media (max-width: 768px) {
       .button {
         min-width: auto;

@@ -3,4 +3,5 @@ landingFooterSections:
   style: modal
   values_from_glob:
     - /src/components/navigation/landing/landing-footer.cloudcannon.structure-value.yml
+    - /src/components/navigation/landing/landing-footer-logo-top.cloudcannon.structure-value.yml
     - /src/components/navigation/footer/footer.cloudcannon.structure-value.yml

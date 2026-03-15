@@ -9,7 +9,7 @@ const {
   navData = [],
   socials = [],
   officeHoursTitle = "Office Hours",
-  normalizedOffices = [],
+  offices = [],
   sharedSocials = [],
   class: className,
   _component,
@@ -257,7 +257,7 @@ const getOfficeHoursGeneralNotes = (office: any) => {
     <div class="hd-hours">
       <span class="hd-title">{officeHoursTitle}</span>
       {
-        normalizedOffices.map((office: any) => (
+        offices.map((office: any) => (
           <div class="hours office-hours-block">
             {office?.name && <span class="office-name">{office.name}</span>}
             <div class="hours-list">

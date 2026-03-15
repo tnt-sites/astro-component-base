@@ -17,6 +17,7 @@ value:
   borderWidth: default
   borderColor: default
   textColor: default
+  uppercase: false
 preview:
   text:
     - Button

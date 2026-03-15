@@ -63,15 +63,39 @@ const normalizeLandingBlocks = (value: unknown, fallbackComponent: string) => {
     .map((block) => ({ _component: fallbackComponent, ...block }));
 };
 
-const headerBlocks = normalizeLandingBlocks(frontmatter?.landingMainNav ?? mainNav, "navigation/landing/landing-header");
-const footerBlocks = normalizeLandingBlocks(frontmatter?.landingFooter ?? footer, "navigation/footer");
-const primaryHeader: LandingComponentBlock =
-  headerBlocks[0] ?? { _component: "navigation/landing/landing-header" };
-const primaryFooter: LandingComponentBlock =
-  footerBlocks[0] ?? { _component: "navigation/footer" };
+const headerBlocks = normalizeLandingBlocks(
+  frontmatter?.landingMainNav ?? mainNav,
+  "navigation/landing/landing-header"
+);
+const footerBlocks = normalizeLandingBlocks(
+  frontmatter?.landingFooter ?? footer,
+  "navigation/footer"
+);
+const primaryHeader: LandingComponentBlock = headerBlocks[0] ?? {
+  _component: "navigation/landing/landing-header",
+};
+const primaryFooter: LandingComponentBlock = footerBlocks[0] ?? { _component: "navigation/footer" };
 const landingPageSections = frontmatter?.landingPageSections;
 const hasPageSections = landingPageSections && landingPageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
+const siteInfoOffices: any[] = siteInfo?.offices || [];
+
+// Merge hours from siteInfo into page-level offices that don't define their own
+const enrichOfficesWithHours = (offices: any[], fallback: any[]) => {
+  if (!offices.length) return fallback;
+  return offices.map((office: any, i: number) => {
+    const hasHours = Array.isArray(office?.officeHours) && office.officeHours.length > 0;
+    if (hasHours) return office;
+    const src = fallback[i] ?? fallback[0];
+    if (!src) return office;
+    return {
+      ...office,
+      officeHours: src.officeHours ?? [],
+      officeHoursNote: office.officeHoursNote ?? src.officeHoursNote,
+    };
+  });
+};
+
 const resolvedHeaderOffices =
   siteInfo?.offices || primaryHeader?.offices || primaryFooter?.offices || [];
 const resolvedFooterOffices =
@@ -98,14 +122,14 @@ const hasActiveFixedTabs = fixedTabsSections.some((section: any) => {
 
 const resolvedHeader = {
   ...primaryHeader,
-  offices: primaryHeader?.offices ?? resolvedHeaderOffices,
+  offices: enrichOfficesWithHours(primaryHeader?.offices ?? resolvedHeaderOffices, siteInfoOffices),
 };
 
 const resolvedFooter = {
   ...primaryFooter,
   sitename: primaryFooter?.sitename ?? primaryFooter?.siteName ?? resolvedSiteName,
   siteName: primaryFooter?.siteName ?? primaryFooter?.sitename ?? resolvedSiteName,
-  offices: primaryFooter?.offices ?? resolvedFooterOffices,
+  offices: enrichOfficesWithHours(primaryFooter?.offices ?? resolvedFooterOffices, siteInfoOffices),
   socials: primaryFooter?.socials ?? resolvedSocials,
   "data-fixed-tabs-active": hasActiveFixedTabs ? "true" : undefined,
 };

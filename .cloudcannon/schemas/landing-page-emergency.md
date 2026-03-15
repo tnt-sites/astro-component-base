@@ -19,7 +19,7 @@ landingMainNav:
         size: md
         width: md
 landingFooter:
-  - _component: navigation/landing/landing-footer
+  - _component: navigation/landing/LandingFooter
     logoSource: /images/logo.svg
     logoAlt: Logo
     siteName: Dental Studio

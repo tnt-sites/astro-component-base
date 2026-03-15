@@ -53,29 +53,27 @@ const sanitizeButtonSection = (button: any) => ({
   text: typeof button?.text === "string" ? button.text : "",
 });
 
-const normalizedSearchButtonSections = resolvedSearchButtonSections.map((button: any) =>
+const searchButtons = resolvedSearchButtonSections.map((button: any) =>
   sanitizeButtonSection(button)
 );
 
-const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).map(
-  (button: any) => sanitizeButtonSection(button)
-);
+const buttons = pageButtons.map((button: any) => sanitizeButtonSection(button));
 
 const mobileNavData = [
   ...navData,
-  ...normalizedSearchButtonSections.map((button: any) => ({
+  ...searchButtons.map((button: any) => ({
     name: button.text || "Button",
     path: button.link || button.href || "#",
     children: [],
   })),
-  ...normalizedPageButtons.map((button: any) => ({
+  ...buttons.map((button: any) => ({
     name: button.text || "Button",
     path: button.link || button.href || "#",
     children: [],
   })),
 ];
 
-const normalizedOffices =
+const resolvedOffices =
   Array.isArray(offices) && offices.length > 0
     ? offices
     : [
@@ -108,8 +106,8 @@ const normalizedOffices =
 const sharedSocials =
   Array.isArray(socials) && socials.length > 0
     ? socials
-    : Array.isArray(normalizedOffices[0]?.socials)
-      ? normalizedOffices[0].socials
+    : Array.isArray(resolvedOffices[0]?.socials)
+      ? resolvedOffices[0].socials
       : [];
 
 const formatAddressLines = (address: any) => {
@@ -140,7 +138,7 @@ const formatAddressLines = (address: any) => {
       <!-- Phone and Address -->
       <div class="hd-info">
         {
-          normalizedOffices.map((office: any) => (
+          resolvedOffices.map((office: any) => (
             <>
               {Array.isArray(office?.phones) &&
                 office.phones.map((phone: any) =>
@@ -184,7 +182,7 @@ const formatAddressLines = (address: any) => {
             direction="row"
             align="center"
             class="desktop-button-group"
-            buttonSections={normalizedSearchButtonSections}
+            buttonSections={searchButtons}
             editable={false}
           />
         </div>
@@ -192,17 +190,19 @@ const formatAddressLines = (address: any) => {
       <!-- End Desktop Nav -->
     </div>
 
-    {normalizedPageButtons.length > 0 && (
-      <div class="page-buttons">
-        <ButtonGroup
-          direction="row"
-          align="center"
-          class="desktop-button-group"
-          buttonSections={normalizedPageButtons}
-          editable={false}
-        />
-      </div>
-    )}
+    {
+      buttons.length > 0 && (
+        <div class="page-buttons">
+          <ButtonGroup
+            direction="row"
+            align="center"
+            class="desktop-button-group"
+            buttonSections={buttons}
+            editable={false}
+          />
+        </div>
+      )
+    }
   </div>
   <!-- Mobile Nav -->
   <Mobile
@@ -210,7 +210,7 @@ const formatAddressLines = (address: any) => {
     logoAlt={logoAlt}
     navData={mobileNavData}
     class="mobile-main-nav"
-    normalizedOffices={normalizedOffices}
+    offices={resolvedOffices}
     sharedSocials={sharedSocials}
   />
   <!-- End Mobile Nav -->
@@ -337,10 +337,10 @@ const formatAddressLines = (address: any) => {
     }
 
     .hd-info{display: flex; justify-content: space-between; align-items: center;}
-    .phy{display: block; text-transform: uppercase; letter-spacing: 2px; color: var(--color-text); line-height: 1; transition: .3s;}
-    .pho{font-weight: var(--font-weight-bold); color: var(--color-brand); font-size: var(--font-size-2xl); line-height: 1; margin-right: 20px;  transition: .3s;}
+    .main-nav .phy{display: block; text-transform: uppercase; letter-spacing: 2px; color: var(--color-text); line-height: 1; transition: .3s;}
+    .main-nav .pho{font-weight: var(--font-weight-bold); color: var(--color-brand); font-size: var(--font-size-2xl); line-height: 1; margin-right: 20px;  transition: .3s;}
 
-    .pho:hover, .phy:hover{color: var(--color-brand-secondary)}
+    .main-nav .pho:hover, .main-nav .phy:hover{color: var(--color-brand-secondary)}
 
     .mobile-nav-button{min-width: 10px;border-radius: 0; border: none; height: 70px; width: 70px; background-color: var(--color-brand); color: #fff; display: flex; align-items: center; justify-content: center;}
     .nav-hamburger .mobile-nav-button .icon {

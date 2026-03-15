@@ -19,8 +19,6 @@ const {
   [key: string]: any;
 };
 
-const normalizedOffices = Array.isArray(offices) ? offices : [];
-
 const formatAddressLines = (address: any) => {
   const lineItems = Array.isArray(address?.lines) ? address.lines : [];
   const stateAndPostal = [address?.state, address?.postalCode].filter(Boolean).join(" ");
@@ -32,12 +30,10 @@ const formatAddressLines = (address: any) => {
   );
 };
 
-const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).map(
-  (button: any) => ({
-    ...button,
-    text: typeof button?.text === "string" ? button.text : "",
-  })
-);
+const buttons = pageButtons.map((button: any) => ({
+  ...button,
+  text: typeof button?.text === "string" ? button.text : "",
+}));
 ---
 
 <CustomSection
@@ -50,7 +46,7 @@ const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).ma
   <div class="landing-header-split-inner">
     <div class="landing-header-split-contact">
       {
-        normalizedOffices.map((office: any) => (
+        offices.map((office: any) => (
           <div class="landing-header-split-office">
             {Array.isArray(office?.phones) &&
               office.phones.map((phone: any) =>
@@ -92,13 +88,13 @@ const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).ma
     </a>
 
     {
-      normalizedPageButtons.length > 0 && (
+      buttons.length > 0 && (
         <div class="landing-header-split-buttons">
           <ButtonGroup
             direction="row"
             align="center"
             class="landing-header-split-button-group"
-            buttonSections={normalizedPageButtons}
+            buttonSections={buttons}
             editable={false}
           />
         </div>

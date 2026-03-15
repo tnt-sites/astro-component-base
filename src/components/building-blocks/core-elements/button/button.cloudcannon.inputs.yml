@@ -63,7 +63,7 @@ variant:
         name: Text
 size:
   type: select
-  comment: The size of the button.
+  comment: The font size of the button.
   options:
     values:
       - id: sm
@@ -165,3 +165,6 @@ textColor:
         name: On Brand
       - id: text-inverse
         name: Inverse
+uppercase:
+  type: switch
+  comment: Toggle button label text to uppercase.

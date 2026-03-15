@@ -8,37 +8,36 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: |-
           Request
-
           an Appointment
         hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
+        link: ""
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
-        variant: primary
+        variant: secondary
         size: md
-        width: xs
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
+        width: md
+        borderRadius: sm
+        borderWidth: md
+        borderColor: standard
         textColor: default
 landingFooter:
-  - _component: navigation/landing/landing-footer
+  - _component: navigation/landing/LandingFooterLogoTop
     logoSource: /images/logo.svg
     logoAlt: Logo
     siteName: Dental Studio
     contactTitle: Contact Us
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -59,7 +58,7 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ''
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3346.9897786184288!2d-96.7204199871591!3d32.97767147347015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c23374904d86b%3A0x1d6d5ef027560e48!2sTNT%20Dental!5e0!3m2!1sen!2sus!4v1773543813203!5m2!1sen!2sus"
     legalBlurb: >-
       Our New Patient Offer is a great way to become familiar with Our Practice.
       New patients only. Requires payment at first visit. Includes all necessary
@@ -69,14 +68,14 @@ landingFooter:
       insurance give us a call for details. Not valid if gum disease is present.
       Restrictions apply. One per lifetime.
     offices:
-      - name: ''
+      - name: ""
         addresses:
           - lines:
               - 123 Main Street
               - Suite 200
             city: Dunedin
             state: FL
-            postalCode: '34698'
+            postalCode: "34698"
             country: USA
             mapUrl: https://maps.google.com
         phones:

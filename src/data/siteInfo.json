@@ -62,10 +62,10 @@
         {
           "day": "Friday",
           "hours": "8:00 am - 2:00 pm",
-          "note": "Closed for lunch from 12:00 pm - 1:00 pm"
+          "note": ""
         }
       ],
-      "officeHoursNote": "Closed on Sundays"
+      "officeHoursNote": ""
     }
   ]
 }

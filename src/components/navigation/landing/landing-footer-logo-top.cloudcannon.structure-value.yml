@@ -1,12 +1,12 @@
-label: Landing Footer
+label: Landing Footer Logo Top
 icon: page_footer
-description: "Simple landing footer with logo, contact details, socials, and legal links."
+description: "Landing footer with top logo, separate contact and office hours columns, map embed, and legal row."
 value:
-  _component: navigation/landing/LandingFooter
+  _component: navigation/landing/LandingFooterLogoTop
   logoSource: /images/logo.svg
   logoAlt: Logo
   siteName: Dental Studio
-  contactTitle: Contact Us
+  contactTitle: Learn More
   pageButtons:
     - _component: building-blocks/core-elements/button
       text: Request an Appointment
@@ -30,11 +30,11 @@ value:
   legalBlurb: "Our New Patient Offer is a great way to become familiar with Our Practice. New patients only. Requires payment at first visit. Includes all necessary x-rays only. May not be used more than once and cannot be combined with other offers for discounted fees. No cash value. New Patient offer available for patients without dental insurance. Patients with dental insurance give us a call for details. Not valid if gum disease is present. Restrictions apply. One per lifetime."
 preview:
   text:
-    - Landing Footer
+    - Landing Footer Logo Top
   icon: page_footer
 picker_preview:
-  text: Landing Footer
-  subtext: "Compact footer variant for landing pages."
+  text: Landing Footer Logo Top
+  subtext: "Top logo with contact, hours, map, and centered legal row."
   icon: page_footer
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
