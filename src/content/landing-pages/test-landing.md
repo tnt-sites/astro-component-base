@@ -9,7 +9,10 @@ landingMainNav:
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ''
-        text: Request an Appointment
+        text: |-
+          <span class="big-text">Request</span>
+
+          an Appointment
         hideText: false
         link: /np-em-special-form/
         modalTarget: ''
@@ -29,6 +32,12 @@ landingFooter:
     logoAlt: Logo
     siteName: Dental Studio
     contactTitle: Office Hours
+    formTitle: Ask A Question
+    formAction: >-
+      https://tnt-adder.herokuapp.com/submit/c70a62c1-fdfc-493f-9d62-24992c692224
+    formSubject: PPC TMJ Footer Form
+    formRedirect: thanks.html
+    formSubmitLabel: Submit
     legalLinks:
       - name: Sitemap
         path: sitemap.html
