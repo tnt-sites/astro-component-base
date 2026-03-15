@@ -50,7 +50,7 @@ landingFooter:
     footerLinksBackgroundColor: '#6480ec'
     footerLinksHoverBackgroundColor: '#000000'
     mapEmbedUrl: ''
-    contactCardBackgroundColor:
+    contactCardBackgroundColor: '#ed9f9f'
     servicesCardBackgroundColor:
     formCardBackgroundColor:
     legalLinks:
