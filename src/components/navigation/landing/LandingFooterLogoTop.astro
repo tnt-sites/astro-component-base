@@ -16,6 +16,7 @@ const {
   backgroundImage = "",
   backgroundGradient = "",
   legalBlurb = "",
+  id: elementId,
   class: className,
   ...htmlAttributes
 } = Astro.props;
@@ -151,6 +152,7 @@ const getOfficeHoursEntries = (office: any) => {
 
 <footer
   class:list={["landing-footer", "landing-footer-logo-top", className]}
+  id={elementId || undefined}
   style={footerBackgroundStyle || undefined}
   {...htmlAttributes}
 >
@@ -268,41 +270,39 @@ const getOfficeHoursEntries = (office: any) => {
     </div>
 
     <div class="copy uppercase letter-spacing-widest text-center">
-      <span>
+      <span class="footer-legal-line footer-legal-line--primary">
         &copy; {copyYear}
         {displaySiteName}
       </span>
 
       {
         legalLinks.length > 0 && (
-          <>
-            <br class="inline lg:hidden" />
-            <span class="mx-2 hidden lg:inline-block">|</span>
-          </>
+          <span class="footer-legal-separator" aria-hidden="true">
+            |
+          </span>
         )
       }
 
       {
-        legalLinks.map((item: any, index: number) => (
-          <>
-            <a href={item?.path || "#"}>{item?.name || "Link"}</a>
-            {index < legalLinks.length - 1 && <span class="mx-2">|</span>}
-          </>
-        ))
-      }
-
-      {
-        (legalLinks.length > 0 || displaySiteName) && (
-          <>
-            <br class="inline lg:hidden" />
-            <span class="mx-2 hidden lg:inline-block">|</span>
-          </>
+        legalLinks.length > 0 && (
+          <span class="footer-legal-line footer-legal-line--links">
+            {legalLinks.map((item: any, index: number) => (
+              <>
+                <a href={item?.path || "#"}>{item?.name || "Link"}</a>
+                {index < legalLinks.length - 1 && <span class="mx-2">|</span>}
+              </>
+            ))}
+          </span>
         )
       }
 
-      Site designed and maintained by <a href="https://www.tntdental.com" target="blank"
-        >TNT Dental</a
-      >
+      <span class="footer-legal-separator" aria-hidden="true">|</span>
+
+      <span class="footer-legal-line footer-legal-line--credit">
+        Site designed and maintained by <a href="https://www.tntdental.com" target="blank"
+          >TNT Dental</a
+        >
+      </span>
 
       {blurb && <p class="copy-blurb text-center">{blurb}</p>}
     </div>
@@ -456,6 +456,15 @@ const getOfficeHoursEntries = (office: any) => {
         line-height: 1.5;
         padding: 20px 10px;
         text-align: center;
+
+        .footer-legal-line {
+          display: inline;
+        }
+
+        .footer-legal-separator {
+          display: inline;
+          margin: 0 0.5rem;
+        }
       }
 
       .copy-blurb {
@@ -466,6 +475,22 @@ const getOfficeHoursEntries = (office: any) => {
         margin: 20px auto 0;
         max-width: 1150px;
         text-transform: none;
+      }
+
+      @media (max-width: 1024px) {
+        .copy {
+          .footer-legal-line {
+            display: block;
+          }
+
+          .footer-legal-line + .footer-legal-line {
+            margin-top: 0.25rem;
+          }
+
+          .footer-legal-separator {
+            display: none;
+          }
+        }
       }
 
       @container (max-width: 899px) {

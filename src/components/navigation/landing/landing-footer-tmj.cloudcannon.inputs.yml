@@ -4,6 +4,9 @@ logoSource:
 logoAlt:
   type: text
   comment: "Alt text for the logo image for accessibility."
+id:
+  type: text
+  comment: "Developer use only. Optional HTML id attribute for this footer section."
 siteName:
   type: text
   comment: "Business or site name used in legal copy."
@@ -23,6 +26,21 @@ contactTitle:
     bulletedlist: false
     numberedlist: false
     styles: /.cloudcannon/styles/editor.css
+formTitle:
+  type: text
+  comment: "Heading for the TMJ footer form column."
+formAction:
+  type: text
+  comment: "Form action URL for submissions."
+formSubject:
+  type: text
+  comment: "Hidden _subject value sent with the form."
+formRedirect:
+  type: text
+  comment: "Hidden _redirect value sent with the form."
+formSubmitLabel:
+  type: text
+  comment: "Button label for the form submit button."
 legalLinks:
   type: array
   comment: "Legal links displayed in the footer legal row."

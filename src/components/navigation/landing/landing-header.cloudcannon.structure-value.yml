@@ -30,6 +30,9 @@ _inputs:
   logoAlt:
     type: text
     comment: "Alt text for the logo image for accessibility."
+  id:
+    type: text
+    comment: "Developer use only. Optional HTML id attribute for this header section."
   pageButtons:
     type: array
     comment: "Header CTA buttons shown on the right."

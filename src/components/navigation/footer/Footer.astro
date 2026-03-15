@@ -233,30 +233,36 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
     <div class="footer-content">
       <div class="content-container">
         <div class="footer-legal-text" id="copy">
-          &copy;<span class="inline" id="copyDate">{copyYear}</span>
-          {displaySiteName}
-          <span class="hidden lg:inline mx-2">|</span>
-          <br class="inline lg:hidden" />
+          <span class="footer-legal-line footer-legal-line--primary">
+            &copy;<span class="inline" id="copyDate">{copyYear}</span>
+            {displaySiteName}
+          </span>
           {
-            legalLinks.map((item: any, index: number) => (
-              <>
-                <a href={item.path || "#"}>{item.name || "Link"}</a>
-                {index < legalLinks.length - 1 && <span class="mx-2">|</span>}
-              </>
-            ))
+            legalLinks.length > 0 && (
+              <span class="footer-legal-separator" aria-hidden="true">
+                |
+              </span>
+            )
           }
           {
             legalLinks.length > 0 && (
-              <>
-                <span class="hidden lg:inline mx-2">|</span>
-                <br class="inline lg:hidden" />
-              </>
+              <span class="footer-legal-line footer-legal-line--links">
+                {legalLinks.map((item: any, index: number) => (
+                  <>
+                    <a href={item.path || "#"}>{item.name || "Link"}</a>
+                    {index < legalLinks.length - 1 && <span class="mx-2">|</span>}
+                  </>
+                ))}
+              </span>
             )
           }
-          Site designed and maintained by{" "}
-          <a href="https://www.tntdental.com" target="_blank" rel="noopener noreferrer">
-            TNT Dental
-          </a>
+          <span class="footer-legal-separator" aria-hidden="true">|</span>
+          <span class="footer-legal-line footer-legal-line--credit">
+            Site designed and maintained by{" "}
+            <a href="https://www.tntdental.com" target="_blank" rel="noopener noreferrer">
+              TNT Dental
+            </a>
+          </span>
         </div>
         {blurb && <p class="footer-legal-blurb">{blurb}</p>}
       </div>
@@ -415,12 +421,35 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       padding: var(--spacing-md) var(--spacing-sm);
       text-align: center;
 
+      .footer-legal-line {
+        display: inline;
+      }
+
+      .footer-legal-separator {
+        display: inline;
+        margin: 0 0.5rem;
+      }
+
       a {
         color: var(--color-link);
 
         &:hover,
         &:focus-visible {
           color: var(--color-link-hover);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .footer-legal-line {
+          display: block;
+        }
+
+        .footer-legal-line + .footer-legal-line {
+          margin-top: 0.25rem;
+        }
+
+        .footer-legal-separator {
+          display: none;
         }
       }
     }

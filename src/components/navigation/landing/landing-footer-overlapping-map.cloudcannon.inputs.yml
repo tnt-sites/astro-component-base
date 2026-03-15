@@ -4,6 +4,9 @@ logoSource:
 logoAlt:
   type: text
   comment: "Alt text for the logo image for accessibility."
+id:
+  type: text
+  comment: "Developer use only. Optional HTML id attribute for this footer section."
 siteName:
   type: text
   comment: "Business or site name used in legal copy."

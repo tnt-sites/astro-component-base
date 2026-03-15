@@ -1,6 +1,4 @@
 ---
-import Icon from "@core-elements/icon/Icon.astro";
-
 const {
   logoSource,
   logoAlt = "Logo",
@@ -14,6 +12,12 @@ const {
   legalBlurb = "",
   getStartedTitle = "How to Get Started",
   getStartedText = "",
+  formTitle = "Ask A Question",
+  formAction = "",
+  formSubject = "PPC TMJ Footer Form",
+  formRedirect = "thanks.html",
+  formSubmitLabel = "Submit",
+  id: elementId,
   class: className,
   ...htmlAttributes
 } = Astro.props;
@@ -23,9 +27,16 @@ const copyYear = new Date().getFullYear();
 const backgroundImageValue = typeof backgroundImage === "string" ? backgroundImage.trim() : "";
 const backgroundGradientValue =
   typeof backgroundGradient === "string" ? backgroundGradient.trim() : "";
+const formActionValue = typeof formAction === "string" ? formAction.trim() : "";
+const formSubjectValue = typeof formSubject === "string" ? formSubject.trim() : "";
+const formRedirectValue = typeof formRedirect === "string" ? formRedirect.trim() : "";
+const formSubmitLabelValue =
+  typeof formSubmitLabel === "string" && formSubmitLabel.trim().length > 0
+    ? formSubmitLabel.trim()
+    : "Submit";
 const footerBackgroundStyle = [
-  backgroundImageValue ? `--lf-tmj-bg-image: url("${backgroundImageValue}")` : "",
-  backgroundGradientValue ? `--lf-tmj-bg-gradient: ${backgroundGradientValue}` : "",
+  backgroundImageValue ? `--lp-footer-tmj-bg-image: url("${backgroundImageValue}")` : "",
+  backgroundGradientValue ? `--lp-footer-tmj-bg-gradient: ${backgroundGradientValue}` : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -149,47 +160,86 @@ const getOfficeHoursEntries = (office: any) => {
 
 <footer
   class:list={["landing-footer", "landing-footer-tmj", className]}
+  id={elementId || undefined}
   style={footerBackgroundStyle || undefined}
   {...htmlAttributes}
 >
-  <div class="lf-tmj-body">
-    <div class="lf-tmj-container">
+  <div class="lp-footer-tmj-body">
+    <div class="lp-footer-tmj-container">
+      <section class="lp-footer-tmj-section lp-footer-tmj-form-section">
+        {
+          formTitle && (
+            <h3 class="lp-footer-tmj-section-title" data-prop="formTitle">
+              {formTitle}
+            </h3>
+          )
+        }
+        <form
+          action={formActionValue || "#"}
+          method="post"
+          class="lp-footer-tmj-form"
+          data-prop="formAction"
+        >
+          <input class="lp-footer-tmj-input" name="Name" placeholder="Name" required type="text" />
+          <input
+            class="lp-footer-tmj-input"
+            name="email"
+            placeholder="Email"
+            required
+            type="email"
+          />
+          <input class="lp-footer-tmj-input" name="phone" placeholder="Phone Number" type="text" />
+          <textarea
+            class="lp-footer-tmj-input lp-footer-tmj-textarea"
+            name="Message"
+            placeholder="Questions/Comments"></textarea>
+          <button class="lp-footer-tmj-submit" type="submit">{formSubmitLabelValue}</button>
+          {formSubjectValue && <input name="_subject" value={formSubjectValue} type="hidden" />}
+          {formRedirectValue && <input name="_redirect" value={formRedirectValue} type="hidden" />}
+        </form>
+      </section>
+
+      <span class="lp-footer-tmj-divider" aria-hidden="true"></span>
+
       <!-- Office Hours column -->
-      <section class="lf-tmj-section lf-tmj-hours-section">
-        <h3 class="lf-tmj-section-title" set:html={contactTitle} />
+      <section class="lp-footer-tmj-section lp-footer-tmj-hours-section">
+        <h3 class="lp-footer-tmj-section-title" set:html={contactTitle} />
         {
           offices.map((office: any) => {
             const officeHours = getOfficeHoursEntries(office);
 
             return (
               <div class="landing-footer-office">
-                {office?.name && <span class="landing-footer-office-name">{office.name}</span>}
+                {/* Office Name */}
+                {/* {office?.name && <span class="landing-footer-office-name">{office.name}</span>} */}
 
-                {Array.isArray(office?.phones) &&
+                {/* Phone */}
+                {/* {Array.isArray(office?.phones) &&
                   office.phones.map((phone: any) =>
                     phone?.display ? (
-                      <a href={phone?.href || "#"} class="lf-tmj-phone">
-                        <Icon name="phone" size="none" class="lf-tmj-icon" aria-hidden="true" />
+                      <a href={phone?.href || "#"} class="lp-footer-tmj-phone">
+                        <Icon name="phone" size="none" class="lp-footer-tmj-icon" aria-hidden="true" />
                         <span>
                           {phone?.label ? `${phone.label}: ` : ""}
                           {phone.display}
                         </span>
                       </a>
                     ) : null
-                  )}
+                  )} */}
 
-                {Array.isArray(office?.addresses) &&
+                {/* Address */}
+                {/* {Array.isArray(office?.addresses) &&
                   office.addresses.map((address: any) => {
                     const formattedLines = formatAddressLines(address);
 
                     return formattedLines.length > 0 ? (
                       <a
                         href={address?.mapUrl || "#"}
-                        class="lf-tmj-address"
+                        class="lp-footer-tmj-address"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <Icon name="map-pin" size="none" class="lf-tmj-icon" aria-hidden="true" />
+                        <Icon name="map-pin" size="none" class="lp-footer-tmj-icon" aria-hidden="true" />
                         <span>
                           {formattedLines.map((line: string, index: number) => (
                             <>
@@ -200,10 +250,10 @@ const getOfficeHoursEntries = (office: any) => {
                         </span>
                       </a>
                     ) : null;
-                  })}
+                  })} */}
 
                 {officeHours.length > 0 && (
-                  <div class="office-hours office-hours--left lf-tmj-office-hours">
+                  <div class="office-hours office-hours--left lp-footer-tmj-office-hours">
                     <div class="office-hours-list">
                       {officeHours.map((hoursItem: any) => (
                         <div class="office-hours-row">
@@ -217,6 +267,8 @@ const getOfficeHoursEntries = (office: any) => {
                         </div>
                       ))}
                     </div>
+
+                    <strong>Same Day Emergency? Call Us!</strong>
                   </div>
                 )}
               </div>
@@ -225,14 +277,14 @@ const getOfficeHoursEntries = (office: any) => {
         }
       </section>
 
-      <span class="lf-tmj-divider" aria-hidden="true"></span>
+      <span class="lp-footer-tmj-divider" aria-hidden="true"></span>
 
       <!-- How to Get Started column -->
-      <section class="lf-tmj-section lf-tmj-started-section">
-        {getStartedTitle && <h2 class="lf-tmj-started-title">{getStartedTitle}</h2>}
+      <section class="lp-footer-tmj-section lp-footer-tmj-started-section">
+        {getStartedTitle && <h2 class="lp-footer-tmj-started-title">{getStartedTitle}</h2>}
         {
           getStartedText && (
-            <p class="lf-tmj-started-text" data-prop="getStartedText">
+            <p class="lp-footer-tmj-started-text" data-prop="getStartedText">
               {getStartedText}
             </p>
           )
@@ -241,29 +293,37 @@ const getOfficeHoursEntries = (office: any) => {
     </div>
   </div>
 
-  <div class="lf-tmj-copyright">
-    <span>
+  <div class="lp-footer-tmj-copyright">
+    <span class="footer-legal-line footer-legal-line--primary">
       Copyright &copy;{copyYear}
       {displaySiteName}
     </span>
     {
       legalLinks.length > 0 && (
-        <>
-          <em>|</em>
+        <em class="footer-legal-separator" aria-hidden="true">
+          |
+        </em>
+      )
+    }
+    {
+      legalLinks.length > 0 && (
+        <span class="footer-legal-line footer-legal-line--links">
           {legalLinks.map((item: any, index: number) => (
             <>
               <a href={item?.path || "#"}>{item?.name || "Link"}</a>
               {index < legalLinks.length - 1 && <em>|</em>}
             </>
           ))}
-        </>
+        </span>
       )
     }
-    <em>|</em>
-    Site designed and maintained by <a href="https://www.tntdental.com" target="_blank"
-      >TNT Dental</a
-    >
-    {blurb && <p class="lf-tmj-blurb">{blurb}</p>}
+    <em class="footer-legal-separator" aria-hidden="true">|</em>
+    <span class="footer-legal-line footer-legal-line--credit">
+      Site designed and maintained by <a href="https://www.tntdental.com" target="_blank"
+        >TNT Dental</a
+      >
+    </span>
+    {blurb && <p class="lp-footer-tmj-blurb">{blurb}</p>}
   </div>
 </footer>
 
@@ -271,22 +331,14 @@ const getOfficeHoursEntries = (office: any) => {
   @layer page-sections {
     .landing-footer.landing-footer-tmj {
       background-color: #fff;
-      background-image:
-        var(--lf-tmj-bg-gradient, none),
-        var(--lf-tmj-bg-image, none);
       background-position: center;
       background-size: cover;
       color: var(--color-text, #313131);
-      padding: 0 10px;
       position: relative;
       text-align: center;
 
-      .lf-tmj-body {
-        background-color: #fff;
-      }
-
-      .lf-tmj-container {
-        align-items: flex-start;
+      .lp-footer-tmj-container {
+        align-items: center;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -295,7 +347,7 @@ const getOfficeHoursEntries = (office: any) => {
         padding: 90px 10px;
       }
 
-      .lf-tmj-divider {
+      .lp-footer-tmj-divider {
         background-color: #e9e9e9;
         display: inline-block;
         height: 237px;
@@ -303,23 +355,69 @@ const getOfficeHoursEntries = (office: any) => {
         width: 2px;
       }
 
-      .lf-tmj-section {
+      .lp-footer-tmj-section {
         padding: 0 20px;
       }
 
-      /* Office Hours column */
-      .lf-tmj-hours-section {
+      .lp-footer-tmj-form-section,
+      .lp-footer-tmj-hours-section {
         flex: 0 1 320px;
         text-align: left;
       }
+      .lp-footer-tmj-form-section{
+        text-align: center;
+      }
 
-      .lf-tmj-section-title {
+      .lp-footer-tmj-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .lp-footer-tmj-input {
+        background: #fff;
+        border: 1px solid #d6d6d6;
+        border-radius: 6px;
+        color: var(--color-text, #313131);
+        font-size: 16px;
+        line-height: 1.4;
+        padding: 0.7rem 0.8rem;
+        width: 100%;
+      }
+
+      .lp-footer-tmj-textarea {
+        min-height: 118px;
+        resize: vertical;
+      }
+
+      .lp-footer-tmj-submit {
+        align-self: center;
+        background-color: var(--color-bg-brand, #1689a5);
+        border: 0;
+        border-radius: 999px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1;
+        padding: 0.8rem 1.6rem;
+        text-transform: uppercase;
+      }
+
+      .lp-footer-tmj-submit:hover,
+      .lp-footer-tmj-submit:focus-visible {
+        background-color: color-mix(in srgb, var(--color-bg-brand, #1689a5) 85%, black);
+      }
+
+      /* Office Hours column */
+      .lp-footer-tmj-section-title {
         color: var(--color-text, #000);
         font-size: 22px;
         font-weight: 300;
         line-height: 1;
         margin: 0 0 var(--spacing-md, 1rem);
         text-transform: none;
+        text-align: center;
 
         p {
           margin: 0;
@@ -330,8 +428,8 @@ const getOfficeHoursEntries = (office: any) => {
         margin-top: var(--spacing-md);
       }
 
-      .lf-tmj-phone,
-      .lf-tmj-address {
+      .lp-footer-tmj-phone,
+      .lp-footer-tmj-address {
         align-items: flex-start;
         color: var(--color-text, #313131);
         display: flex;
@@ -343,7 +441,7 @@ const getOfficeHoursEntries = (office: any) => {
           color: var(--color-text-strong, #000);
         }
 
-        .lf-tmj-icon {
+        .lp-footer-tmj-icon {
           color: var(--color-bg-brand, #1689a5);
           flex-shrink: 0;
           font-size: 18px;
@@ -351,23 +449,21 @@ const getOfficeHoursEntries = (office: any) => {
         }
       }
 
-      .lf-tmj-office-hours {
+      .lp-footer-tmj-office-hours {
         --office-hours-color: var(--color-text, #313131);
         --office-hours-day-color: var(--color-text-strong, #000);
         --office-hours-note-color: var(--color-text-muted, #666);
-        --office-hours-day-width: 110px;
         margin-top: var(--spacing-sm, 0.75rem);
-        max-width: 350px;
       }
 
       /* How to Get Started column */
-      .lf-tmj-started-section {
+      .lp-footer-tmj-started-section {
         align-self: center;
         flex: 0 1 525px;
         text-align: center;
       }
 
-      .lf-tmj-started-title {
+      .lp-footer-tmj-started-title {
         color: var(--color-text, #000);
         font-size: 45px;
         font-weight: 400;
@@ -376,7 +472,7 @@ const getOfficeHoursEntries = (office: any) => {
         text-align: left;
       }
 
-      .lf-tmj-started-text {
+      .lp-footer-tmj-started-text {
         font-size: 17px;
         line-height: 1.67;
         margin: 25px auto 0;
@@ -385,7 +481,7 @@ const getOfficeHoursEntries = (office: any) => {
       }
 
       /* Copyright bar */
-      .lf-tmj-copyright {
+      .lp-footer-tmj-copyright {
         color: #313131;
         font-size: 15px;
         letter-spacing: 0.1em;
@@ -399,6 +495,14 @@ const getOfficeHoursEntries = (office: any) => {
           margin: 0 6px;
         }
 
+        .footer-legal-line {
+          display: inline;
+        }
+
+        .footer-legal-separator {
+          display: inline;
+        }
+
         a {
           color: var(--color-bg-brand, #1689a5);
           text-decoration: none;
@@ -409,7 +513,7 @@ const getOfficeHoursEntries = (office: any) => {
         }
       }
 
-      .lf-tmj-blurb {
+      .lp-footer-tmj-blurb {
         font-size: var(--font-size-xs);
         letter-spacing: 0;
         margin: var(--spacing-sm) auto 0;
@@ -420,36 +524,67 @@ const getOfficeHoursEntries = (office: any) => {
 
       /* Responsive */
       @media (max-width: 900px) {
-        .lf-tmj-container {
+        .lp-footer-tmj-container {
           flex-direction: column;
           align-items: center;
           padding: 60px 20px;
         }
 
-        .lf-tmj-divider {
+        .lp-footer-tmj-divider {
           height: 2px;
           width: 80%;
           margin: 30px auto;
         }
 
-        .lf-tmj-section {
+        .lp-footer-tmj-section {
           width: 100%;
         }
 
-        .lf-tmj-hours-section,
-        .lf-tmj-started-section {
+        .lp-footer-tmj-form-section,
+        .lp-footer-tmj-hours-section,
+        .lp-footer-tmj-started-section {
           flex: none;
           max-width: 500px;
           text-align: left;
         }
 
-        .lf-tmj-started-section {
+        .lp-footer-tmj-submit {
+          align-self: center;
+        }
+
+        .lp-footer-tmj-hours-section{
+            strong{
+                margin-top: 30px;
+                display: block;
+                font-weight: 700;
+                text-align: center;
+                color: var(--color-brand-secondary);
+            }
+        }
+
+        .lp-footer-tmj-started-section {
           text-align: center;
         }
 
-        .lf-tmj-started-title,
-        .lf-tmj-started-text {
+        .lp-footer-tmj-started-title,
+        .lp-footer-tmj-started-text {
           text-align: center;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .lp-footer-tmj-copyright {
+          .footer-legal-line {
+            display: block;
+          }
+
+          .footer-legal-line + .footer-legal-line {
+            margin-top: 0.25rem;
+          }
+
+          .footer-legal-separator {
+            display: none;
+          }
         }
       }
     }

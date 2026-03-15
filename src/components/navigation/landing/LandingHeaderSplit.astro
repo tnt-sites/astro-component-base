@@ -8,6 +8,7 @@ const {
   logoAlt = "Logo",
   pageButtons = [],
   offices = [],
+  id: elementId,
   class: className,
   ...htmlAttributes
 } = Astro.props as {
@@ -15,6 +16,7 @@ const {
   logoAlt?: string;
   pageButtons?: any[];
   offices?: any[];
+  id?: string;
   class?: string;
   [key: string]: any;
 };
@@ -40,6 +42,7 @@ const buttons = pageButtons.map((button: any) => ({
   maxContentWidth="2xl"
   paddingHorizontal="lg"
   paddingVertical="none"
+  id={elementId || undefined}
   class:list={["landing-header-split", className]}
   {...htmlAttributes}
 >

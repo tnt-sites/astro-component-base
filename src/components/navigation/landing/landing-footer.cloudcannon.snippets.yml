@@ -16,6 +16,10 @@ landingFooter:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: id
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: siteName
         type: string
         optional: true
@@ -67,11 +71,35 @@ landingFooterTMJ:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: id
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: siteName
         type: string
         optional: true
         remove_empty: true
       - editor_key: contactTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formAction
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formSubject
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formRedirect
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formSubmitLabel
         type: string
         optional: true
         remove_empty: true
@@ -116,6 +144,10 @@ landingFooterLogoTop:
         optional: true
         remove_empty: true
       - editor_key: logoAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: id
         type: string
         optional: true
         remove_empty: true
@@ -175,6 +207,10 @@ landingFooterOverlappingMap:
         optional: true
         remove_empty: true
       - editor_key: logoAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: id
         type: string
         optional: true
         remove_empty: true
