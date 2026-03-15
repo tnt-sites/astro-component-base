@@ -27,6 +27,8 @@ value:
     - name: Privacy Policy
       path: privacy-policy.html
   mapEmbedUrl: ""
+  backgroundImage: ""
+  backgroundGradient: "linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary) 88%, black) 0%, var(--color-bg-brand-secondary) 100%)"
   legalBlurb: "Our New Patient Offer is a great way to become familiar with Our Practice. New patients only. Requires payment at first visit. Includes all necessary x-rays only. May not be used more than once and cannot be combined with other offers for discounted fees. No cash value. New Patient offer available for patients without dental insurance. Patients with dental insurance give us a call for details. Not valid if gum disease is present. Restrictions apply. One per lifetime."
 preview:
   text:

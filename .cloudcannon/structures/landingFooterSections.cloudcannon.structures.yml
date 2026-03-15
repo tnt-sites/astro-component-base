@@ -4,3 +4,4 @@ landingFooterSections:
   values_from_glob:
     - /src/components/navigation/landing/landing-footer.cloudcannon.structure-value.yml
     - /src/components/navigation/landing/landing-footer-logo-top.cloudcannon.structure-value.yml
+    - /src/components/navigation/landing/landing-footer-overlapping-map.cloudcannon.structure-value.yml

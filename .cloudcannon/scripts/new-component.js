@@ -99,6 +99,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
       backgroundColor = "base",
       id = "",
       backgroundImage,
+      backgroundGradient = "",
       class: className,
       editable = true,
       ...rest
@@ -117,6 +118,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
       colorScheme="default"
       backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
+      style={backgroundGradient ? "--section-bg-gradient: " + backgroundGradient : undefined}
       {...htmlAttributes}
     >
       <Heading level="h2" size="lg" alignX="center" text={heading} data-prop="heading" />
@@ -124,6 +126,11 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
 
     <style>
       .${kebabName} {
+        background:
+          var(
+            --section-bg-gradient,
+            linear-gradient(transparent, transparent)
+          );
       }
     </style>
     `.trim();
@@ -143,6 +150,7 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
       id: ""
       heading: ${componentName} <span class="heading-color">Heading</span>
       backgroundColor: base
+      backgroundGradient: ""
       backgroundImage:
         source: null
         alt: null
@@ -196,6 +204,9 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
             name: Accent
           - id: highlight
             name: Highlight
+    backgroundGradient:
+      type: textarea
+      comment: Optional CSS gradient applied behind the section content (for example: linear-gradient(120deg, #0f172a, #1d4ed8)).
     backgroundImage:
       type: object
       comment: Background image configuration for the section.
@@ -275,6 +286,10 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
             optional: true
             remove_empty: true
           - editor_key: backgroundColor
+            type: string
+            optional: true
+            remove_empty: true
+          - editor_key: backgroundGradient
             type: string
             optional: true
             remove_empty: true

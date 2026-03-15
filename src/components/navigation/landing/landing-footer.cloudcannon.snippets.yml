@@ -1,0 +1,180 @@
+landingFooter:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - Landing Footer
+    icon: page_footer
+  definitions:
+    component_name: LandingFooter
+    named_args:
+      - editor_key: logoSource
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: logoAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: siteName
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: contactTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: pageButtons
+        type: array
+        optional: true
+        options:
+          structures: _structures.buttonSections
+      - editor_key: offices
+        type: array
+        optional: true
+      - editor_key: socials
+        type: array
+        optional: true
+      - editor_key: legalLinks
+        type: array
+        optional: true
+      - editor_key: mapEmbedUrl
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: backgroundImage
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: backgroundGradient
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: legalBlurb
+        type: string
+        optional: true
+        remove_empty: true
+  _inputs_from_glob:
+    - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+
+landingFooterLogoTop:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - Landing Footer Logo Top
+    icon: page_footer
+  definitions:
+    component_name: LandingFooterLogoTop
+    named_args:
+      - editor_key: logoSource
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: logoAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: siteName
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: contactTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: pageButtons
+        type: array
+        optional: true
+        options:
+          structures: _structures.buttonSections
+      - editor_key: offices
+        type: array
+        optional: true
+      - editor_key: socials
+        type: array
+        optional: true
+      - editor_key: legalLinks
+        type: array
+        optional: true
+      - editor_key: mapEmbedUrl
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: backgroundImage
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: backgroundGradient
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: legalBlurb
+        type: string
+        optional: true
+        remove_empty: true
+  _inputs_from_glob:
+    - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+
+landingFooterOverlappingMap:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - Landing Footer Overlapping Map
+    icon: page_footer
+  definitions:
+    component_name: LandingFooterOverlappingMap
+    named_args:
+      - editor_key: logoSource
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: logoAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: siteName
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: contactTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: pageButtons
+        type: array
+        optional: true
+        options:
+          structures: _structures.buttonSections
+      - editor_key: offices
+        type: array
+        optional: true
+      - editor_key: socials
+        type: array
+        optional: true
+      - editor_key: legalLinks
+        type: array
+        optional: true
+      - editor_key: mapEmbedUrl
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: backgroundImage
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: backgroundGradient
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: cardBackgroundColor
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: legalBlurb
+        type: string
+        optional: true
+        remove_empty: true
+  _inputs_from_glob:
+    - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml

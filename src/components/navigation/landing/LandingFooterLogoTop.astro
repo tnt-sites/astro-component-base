@@ -13,6 +13,8 @@ const {
   legalLinks = [],
   pageButtons = [],
   mapEmbedUrl = "",
+  backgroundImage = "",
+  backgroundGradient = "",
   legalBlurb = "",
   class: className,
   ...htmlAttributes
@@ -21,6 +23,15 @@ const {
 const displaySiteName = siteName || sitename;
 const copyYear = new Date().getFullYear();
 const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
+const backgroundImageValue = typeof backgroundImage === "string" ? backgroundImage.trim() : "";
+const backgroundGradientValue =
+  typeof backgroundGradient === "string" ? backgroundGradient.trim() : "";
+const footerBackgroundStyle = [
+  backgroundImageValue ? `--landing-footer-bg-image: url("${backgroundImageValue}")` : "",
+  backgroundGradientValue ? `--landing-footer-bg-gradient: ${backgroundGradientValue}` : "",
+]
+  .filter(Boolean)
+  .join("; ");
 const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
 
 const formatAddressLines = (address: any) => {
@@ -138,7 +149,11 @@ const getOfficeHoursEntries = (office: any) => {
 };
 ---
 
-<footer class:list={["landing-footer", "landing-footer-logo-top", className]} {...htmlAttributes}>
+<footer
+  class:list={["landing-footer", "landing-footer-logo-top", className]}
+  style={footerBackgroundStyle || undefined}
+  {...htmlAttributes}
+>
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="xl">
     <a href="/" class="landing-footer-logo-link">
       <Image source={logoSource} alt={logoAlt} class="landing-footer-logo" editable={false} />
@@ -297,8 +312,19 @@ const getOfficeHoursEntries = (office: any) => {
 <style lang="pcss" is:global>
   @layer page-sections {
     .landing-footer.landing-footer-logo-top {
-      background:
-        linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary) 88%, black) 0%, var(--color-bg-brand-secondary) 100%);
+      background-color: var(--color-bg-brand-secondary);
+      background-image:
+        var(
+          --landing-footer-bg-gradient,
+          linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--color-bg-brand-secondary) 88%, black) 0%,
+            var(--color-bg-brand-secondary) 100%
+          )
+        ),
+        var(--landing-footer-bg-image, none);
+      background-position: center;
+      background-size: cover;
       border-top: 6px solid var(--color-bg-brand);
       color: #fff;
       container-type: inline-size;
