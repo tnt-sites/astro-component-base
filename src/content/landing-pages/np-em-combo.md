@@ -33,7 +33,7 @@ landingFooter:
         modalTarget: ''
         iconName: ''
         iconPosition: before
-        variant: primary
+        variant: tertiary
         size: md
         width: md
     socials:
@@ -49,14 +49,7 @@ landingFooter:
       - name: Privacy Policy
         path: privacy-policy.html
     mapEmbedUrl: ''
-    legalBlurb: >-
-      Our New Patient Offer is a great way to become familiar with Our Practice.
-      New patients only. Requires payment at first visit. Includes all necessary
-      x-rays only. May not be used more than once and cannot be combined with
-      other offers for discounted fees. No cash value. New Patient offer
-      available for patients without dental insurance. Patients with dental
-      insurance give us a call for details. Not valid if gum disease is present.
-      Restrictions apply. One per lifetime.
+    legalBlurb:
     offices:
       - name: ''
         addresses:
