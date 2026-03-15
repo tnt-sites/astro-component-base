@@ -139,24 +139,6 @@ collections_config:
     _enabled_editors:
       - visual
     _inputs:
-      landingStyle:
-        type: select
-        comment: Choose a style as a starting point for this landing page version.
-        cascade: true
-        options:
-          values:
-            - id: cosmetic
-              name: Cosmetic
-            - id: count-on-us
-              name: Count On Us
-            - id: custom
-              name: Custom
-            - id: dental-implants
-              name: Dental Implants
-            - id: emergency
-              name: Emergency
-            - id: new-patient-emergency-combo
-              name: New Patient Emergency Combo
       landingMainNav:
         type: array
         comment: Add one header component for this landing page. Each page can choose a different header style/structure.
@@ -277,23 +259,6 @@ collections_config:
         _enabled_editors:
           - visual
         _inputs:
-          landingStyle:
-            type: select
-            cascade: true
-            options:
-              values:
-                - id: cosmetic
-                  name: Cosmetic
-                - id: count-on-us
-                  name: Count On Us
-                - id: custom
-                  name: Custom
-                - id: dental-implants
-                  name: Dental Implants
-                - id: emergency
-                  name: Emergency
-                - id: new-patient-emergency-combo
-                  name: New Patient Emergency Combo
           landingMainNav:
             type: array
             options:

@@ -1,7 +1,84 @@
 landingHeaderSections:
   id_key: _component
   style: modal
-  values_from_glob:
-    - /src/components/navigation/landing/landing-header.cloudcannon.structure-value.yml
-    - /src/components/navigation/landing/landing-header-split.cloudcannon.structure-value.yml
-    - /src/components/navigation/main-nav/main-nav.cloudcannon.structure-value.yml
+  values:
+    - label: Landing Header
+      icon: web
+      description: "Landing header with logo, contact details, and CTA buttons."
+      value:
+        _component: navigation/landing/landing-header
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        pageButtons:
+          - _component: building-blocks/core-elements/button
+            text: Request an Appointment
+            hideText: false
+            link: /request-an-appointment/
+            iconName: ""
+            iconPosition: before
+            variant: primary
+            size: md
+            width: md
+      preview:
+        text:
+          - Landing Header
+        icon: web
+      picker_preview:
+        text: Landing Header
+        subtext: "Logo + contact + CTA header for landing pages."
+        icon: web
+      _inputs:
+        logoSource:
+          type: image
+          comment: "Logo image source URL or path."
+        logoAlt:
+          type: text
+          comment: "Alt text for the logo image for accessibility."
+        pageButtons:
+          type: array
+          comment: "Header CTA buttons shown on the right."
+          options:
+            structures: _structures.buttonSections
+        offices:
+          type: array
+          comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
+    - label: Landing Header Split
+      icon: view_column
+      description: "Landing header with contact on the left, centered logo, and CTA buttons on the right."
+      value:
+        _component: navigation/landing/landing-header-split
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        pageButtons:
+          - _component: building-blocks/core-elements/button
+            text: Request an Appointment
+            hideText: false
+            link: /request-an-appointment/
+            iconName: ""
+            iconPosition: before
+            variant: primary
+            size: md
+            width: md
+      preview:
+        text:
+          - Landing Header Split
+        icon: view_column
+      picker_preview:
+        text: Landing Header Split
+        subtext: "Contact left, centered logo, CTA right."
+        icon: view_column
+      _inputs:
+        logoSource:
+          type: image
+          comment: "Logo image source URL or path."
+        logoAlt:
+          type: text
+          comment: "Alt text for the logo image for accessibility."
+        pageButtons:
+          type: array
+          comment: "Header CTA buttons shown on the right."
+          options:
+            structures: _structures.buttonSections
+        offices:
+          type: array
+          comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."

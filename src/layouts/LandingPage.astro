@@ -64,17 +64,19 @@ const normalizeLandingBlocks = (value: unknown, fallbackComponent: string) => {
 };
 
 const headerBlocks = normalizeLandingBlocks(
-  frontmatter?.landingMainNav ?? mainNav,
+  frontmatter?.landingMainNav,
   "navigation/landing/landing-header"
 );
 const footerBlocks = normalizeLandingBlocks(
-  frontmatter?.landingFooter ?? footer,
-  "navigation/footer"
+  frontmatter?.landingFooter,
+  "navigation/landing/landing-footer"
 );
 const primaryHeader: LandingComponentBlock = headerBlocks[0] ?? {
   _component: "navigation/landing/landing-header",
 };
-const primaryFooter: LandingComponentBlock = footerBlocks[0] ?? { _component: "navigation/footer" };
+const primaryFooter: LandingComponentBlock = footerBlocks[0] ?? {
+  _component: "navigation/landing/landing-footer",
+};
 const landingPageSections = frontmatter?.landingPageSections;
 const hasPageSections = landingPageSections && landingPageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
