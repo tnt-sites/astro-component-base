@@ -103,6 +103,10 @@ landingFooterTMJ:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: mapEmbedUrl
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: contactCardBackgroundColor
         type: string
         optional: true
@@ -328,6 +332,14 @@ landingFooter3Cards:
         optional: true
         remove_empty: true
       - editor_key: formSubmitLabel
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: footerLinksBackgroundColor
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: footerLinksHoverBackgroundColor
         type: string
         optional: true
         remove_empty: true

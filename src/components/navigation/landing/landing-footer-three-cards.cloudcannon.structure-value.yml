@@ -22,6 +22,9 @@ value:
   formSubject: Landing Footer Form
   formRedirect: thanks.html
   formSubmitLabel: Submit
+  footerLinksBackgroundColor: brand
+  footerLinksHoverBackgroundColor: brand-secondary
+  mapEmbedUrl: ""
   contactCardBackgroundColor: ""
   servicesCardBackgroundColor: ""
   formCardBackgroundColor: ""

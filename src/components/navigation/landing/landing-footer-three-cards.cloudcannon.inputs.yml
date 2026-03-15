@@ -52,6 +52,43 @@ formRedirect:
 formSubmitLabel:
   type: text
   comment: "Button label for the form submit button."
+footerLinksBackgroundColor:
+  type: select
+  comment: "Background color preset for featured service link tiles."
+  options:
+    values:
+      - id: brand
+        name: Brand
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: accent
+        name: Accent (#fa5f30)
+      - id: dark
+        name: Dark (#2c363c)
+      - id: black
+        name: Black (#101926)
+      - id: white
+        name: White
+footerLinksHoverBackgroundColor:
+  type: select
+  comment: "Hover background color preset for featured service link tiles."
+  options:
+    values:
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand
+        name: Brand
+      - id: accent
+        name: Accent (#fa5f30)
+      - id: dark
+        name: Dark (#2c363c)
+      - id: black
+        name: Black (#101926)
+      - id: white
+        name: White
+mapEmbedUrl:
+  type: text
+  comment: "Optional map iframe embed URL for the contact card; replaced by logo on mobile (<=768px)."
 contactCardBackgroundColor:
   type: text
   comment: "Optional CSS color value for the contact card background (e.g. #ffffff or rgb(...))."

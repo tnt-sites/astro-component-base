@@ -16,9 +16,12 @@ const {
   formSubject = "Landing Footer Form",
   formRedirect = "thanks.html",
   formSubmitLabel = "Submit",
+  footerLinksBackgroundColor = "brand",
+  footerLinksHoverBackgroundColor = "brand-secondary",
   contactCardBackgroundColor = "",
   servicesCardBackgroundColor = "",
   formCardBackgroundColor = "",
+  mapEmbedUrl = "",
   legalLinks = [],
   backgroundImage = "",
   backgroundGradient = "",
@@ -46,9 +49,40 @@ const servicesCardBackgroundColorValue =
   typeof servicesCardBackgroundColor === "string" ? servicesCardBackgroundColor.trim() : "";
 const formCardBackgroundColorValue =
   typeof formCardBackgroundColor === "string" ? formCardBackgroundColor.trim() : "";
+const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
+const LINK_COLOR_CHOICES: Record<string, string> = {
+  brand: "var(--color-brand)",
+  "brand-secondary": "var(--color-brand-secondary)",
+  brandsecondary: "var(--color-brand-secondary)",
+  accent: "#fa5f30",
+  dark: "#2c363c",
+  black: "#101926",
+  white: "#ffffff",
+};
+
+const resolveLinkColorChoice = (value: any, fallback: string) => {
+  if (typeof value !== "string") return fallback;
+
+  const normalized = value.trim().toLowerCase();
+
+  if (!normalized) return fallback;
+
+  return LINK_COLOR_CHOICES[normalized] || value.trim();
+};
+
+const footerLinksBackgroundColorValue = resolveLinkColorChoice(
+  footerLinksBackgroundColor,
+  "var(--color-brand)"
+);
+const footerLinksHoverBackgroundColorValue = resolveLinkColorChoice(
+  footerLinksHoverBackgroundColor,
+  "var(--color-brand-secondary)"
+);
 const footerBackgroundStyle = [
   backgroundImageValue ? `--lp-footer-bg-image: url("${backgroundImageValue}")` : "",
   backgroundGradientValue ? `--lp-footer-bg-gradient: ${backgroundGradientValue}` : "",
+  `--lp-footer-links-bg: ${footerLinksBackgroundColorValue}`,
+  `--lp-footer-links-hover-bg: ${footerLinksHoverBackgroundColorValue}`,
 ]
   .filter(Boolean)
   .join("; ");
@@ -77,22 +111,51 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
 >
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="xl">
     <div class="lp-footer-shell">
-      {
-        logoSource && (
-          <a href="/" class="lp-footer-logo-link">
-            <Image source={logoSource} alt={logoAlt} class="lp-footer-logo" editable={false} />
-          </a>
-        )
-      }
-
-      <div class="lp-footer-grid">
+      <div class="lp-footer-content">
         <section
-          class="lp-footer-card"
+          class="lp-footer-card lp-footer-card--contact"
           style={contactCardBackgroundColorValue
             ? `--lp-footer-card-bg: ${contactCardBackgroundColorValue}`
             : undefined}
         >
           <h3 class="lp-footer-card-title" set:html={contactTitle} />
+
+          {
+            embedSrc && (
+              <div class="lp-footer-map-slot" aria-label="Office location map">
+                <iframe
+                  src={embedSrc}
+                  title="Office location map"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                />
+                {logoSource && (
+                  <a href="/" class="lp-footer-mobile-logo" aria-label="Home">
+                    <Image
+                      source={logoSource}
+                      alt={logoAlt}
+                      class="lp-footer-logo"
+                      editable={false}
+                    />
+                  </a>
+                )}
+              </div>
+            )
+          }
+
+          {
+            !embedSrc && logoSource && (
+              <a
+                href="/"
+                class="lp-footer-mobile-logo lp-footer-mobile-logo--standalone"
+                aria-label="Home"
+              >
+                <Image source={logoSource} alt={logoAlt} class="lp-footer-logo" editable={false} />
+              </a>
+            )
+          }
+
           {
             normalizedOffices.map((office: any) => (
               <div class="lp-footer-office">
@@ -103,7 +166,12 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
                     const formattedLines = formatAddressLines(address);
 
                     return formattedLines.length > 0 ? (
-                      <a href={address?.mapUrl || "#"} target="_blank" rel="noopener noreferrer">
+                      <a
+                        href={address?.mapUrl || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="phy"
+                      >
                         {formattedLines.map((line: string, index: number) => (
                           <>
                             {line}
@@ -116,7 +184,11 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
 
                 {Array.isArray(office?.phones) &&
                   office.phones.map((phone: any) =>
-                    phone?.display ? <a href={phone?.href || "#"}>{phone.display}</a> : null
+                    phone?.display ? (
+                      <a href={phone?.href || "#"} class="pho">
+                        {phone.display}
+                      </a>
+                    ) : null
                   )}
               </div>
             ))
@@ -124,7 +196,7 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
         </section>
 
         <section
-          class="lp-footer-card"
+          class="lp-footer-card lp-footer-card--services"
           style={servicesCardBackgroundColorValue
             ? `--lp-footer-card-bg: ${servicesCardBackgroundColorValue}`
             : undefined}
@@ -142,7 +214,7 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
         </section>
 
         <section
-          class="lp-footer-card"
+          class="lp-footer-card lp-footer-card--form"
           style={formCardBackgroundColorValue
             ? `--lp-footer-card-bg: ${formCardBackgroundColorValue}`
             : undefined}
@@ -206,62 +278,85 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
 <style lang="pcss" is:global>
   @layer page-sections {
     .landing-footer.landing-footer-three-cards {
-      background-color: #1f2633;
+    
+
+      background-color: #2c363c;
       background-image:
         var(
           --lp-footer-bg-gradient,
-          linear-gradient(180deg, color-mix(in srgb, #1f2633 88%, black) 0%, #1f2633 100%)
+          linear-gradient(180deg, color-mix(in srgb, #2c363c 88%, black) 0%, #2c363c 100%)
         ),
         var(--lp-footer-bg-image, none);
       background-position: center;
       background-size: cover;
       color: #fff;
+      padding: 20px;
+      padding-top: 1.4rem;
 
       .lp-footer-shell {
         margin: 0 auto;
-        max-width: 1320px;
-      }
-
-      .lp-footer-logo-link {
-        display: inline-flex;
-        margin: 0 auto 2rem;
+        max-width: 1360px;
       }
 
       .lp-footer-logo {
         margin: 0 !important;
       }
 
-      .lp-footer-grid {
-        display: grid;
+      .lp-footer-content {
+        display: flex;
+        align-items: center;
         gap: 1.25rem;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        justify-content: center;
       }
 
       .lp-footer-card {
         background: var(--lp-footer-card-bg, #fff);
-        border-radius: 10px;
+        border-radius: 15px;
+        box-shadow: 1px 3px 7px 0 rgba(0, 0, 0, 0.35);
         color: #1f2633;
-        min-height: 100%;
-        padding: 1.5rem 1.25rem;
+        min-height: 430px;
+        padding: 1.25rem;
+        text-align: center;
       }
 
       .lp-footer-card-title {
-        color: #111827;
-        font-size: 1.35rem;
-        font-weight: 700;
+        color: #101926;
+        font-family: var(--font-body, sans-serif);
+        font-size: 1.9rem;
+        font-weight: 300;
         line-height: 1.1;
-        margin: 0 0 1rem;
+        margin: 1rem 0 1.25rem;
         text-transform: none;
       }
 
+      .lp-footer-card--services {
+        order: 1;
+      }
+
+      .lp-footer-card--contact {
+        min-height: 520px;
+        order: 2;
+        padding: 1.5rem 1rem;
+        flex: 0 1 540px;
+      }
+
+      .lp-footer-card--contact .lp-footer-card-title {
+        font-size: clamp(2.2rem, 4vw, 3.15rem);
+      }
+
+      .lp-footer-card--form {
+        order: 3;
+      }
+
       .lp-footer-office + .lp-footer-office {
-        margin-top: 0.75rem;
+        margin-top: 1rem;
       }
 
       .lp-footer-office-name {
         display: block;
+        font-size: 1.15rem;
         font-weight: 700;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.6rem;
       }
 
       .lp-footer-office a,
@@ -271,63 +366,166 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
         text-decoration: none;
       }
 
-      .lp-footer-office a,
-      .lp-footer-links a {
+      .lp-footer-office a {
         display: block;
-        margin-top: 0.35rem;
+        margin-top: 0.55rem;
+      }
+
+      .pho {
+        color: var(--color-brand) !important;
+        font-family: var(--font-body, sans-serif);
+        font-size: clamp(1.6rem, 2.6vw, 2.5rem);
+        font-weight: 700;
+        letter-spacing: 0.28px;
+        line-height: 1.1;
+      }
+
+      .pho:hover {
+        color: var(--color-brand-secondary) !important;
+      }
+
+      .phy {
+        color: #000 !important;
+        font-size: 1.25rem;
+        line-height: 1.1;
+        margin-top: 1rem;
+      }
+
+      .phy:hover {
+        color: var(--color-brand-secondary) !important;
+      }
+
+      .lp-footer-map-slot {
+        border-radius: 10px;
+        display: block;
+        margin-top: 1.25rem;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .lp-footer-map-slot iframe {
+        border: 0;
+        display: block;
+        height: 220px;
+        width: 100%;
+      }
+
+      .lp-footer-mobile-logo {
+        display: none;
+      }
+
+      .lp-footer-mobile-logo--standalone {
+        margin-top: 1.25rem;
       }
 
       .lp-footer-links {
         list-style: none;
-        margin: 0;
+        margin: 1.25rem 0 0.5rem;
         padding: 0;
       }
 
-      .lp-footer-links li + li {
-        margin-top: 0.5rem;
+      .lp-footer-links li {
+        background-color: var(--lp-footer-links-bg, var(--color-brand));
+        border: 1px solid var(--lp-footer-links-bg, var(--color-brand));
+        border-radius: 0;
+        list-style: none;
+        margin: 0.65rem auto;
+        text-align: center;
+        transition: background-color var(--animation-normal) ease-in-out;
+      }
+
+      .lp-footer-links li a {
+        color: #fff;
+        display: block;
+        font-family: var(--font-body, sans-serif);
+        font-size: 1.125rem;
+        font-weight: 700;
+        letter-spacing: 1.8px;
+        padding: 1.1rem 1rem 1rem;
+        text-transform: uppercase;
+      }
+
+      .lp-footer-links li:hover {
+        background-color: var(--lp-footer-links-hover-bg, var(--color-brand-secondary));
+        border-color: var(--lp-footer-links-hover-bg, var(--color-brand-secondary));
       }
 
       .lp-footer-form {
         display: flex;
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 0.25rem;
+        margin: 1.15rem 0 0.35rem;
       }
 
       .lp-footer-input {
-        background: #fff;
-        border: 1px solid #d1d5db;
-        border-radius: 6px;
-        color: #1f2633;
-        font-size: 1rem;
+        background: #ededed;
+        border: 0;
+        border-radius: 0;
+        color: #000;
+        font-size: 1.125rem;
         line-height: 1.4;
-        padding: 0.65rem 0.75rem;
-        width: 100%;
+        margin: 3px auto;
+        outline: 0;
+        padding: 0.4rem 0.65rem;
+        width: 90%;
+      }
+
+      .lp-footer-input::placeholder {
+        color: #000;
+      }
+      .lp-footer-input:focus {
+        background-color: #f7f4f4;
+        box-shadow: inset 0 3px 0 var(--color-brand);
       }
 
       .lp-footer-textarea {
-        min-height: 110px;
+        min-height: 90px;
+        padding-top: 8px;
         resize: vertical;
       }
 
       .lp-footer-submit {
-        align-self: flex-start;
-        background: var(--color-bg-brand, #1689a5);
+        align-self: center;
+        background: var(--color-brand);
         border: 0;
-        border-radius: 999px;
+        border-radius: 0;
+        box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.25);
         color: #fff;
         cursor: pointer;
+        font-size: 1.125rem;
         font-weight: 700;
-        letter-spacing: 0.04em;
-        padding: 0.7rem 1.5rem;
+        letter-spacing: 0;
+        min-width: auto;
+        padding: 0.95rem 0.65rem;
         text-transform: uppercase;
+        width: 90%;
+      }
+
+      .lp-footer-submit:hover,
+      .lp-footer-submit:focus {
+        background: #2c363c;
+        color: #fff;
       }
 
       .lp-footer-copy {
         color: #fff;
-        font-size: var(--font-size-sm);
-        line-height: 1.5;
+        font: 400 1.125rem/1.4 var(--font-body, sans-serif);
+        line-height: 1.4;
         margin-top: 2rem;
+        padding: 0.65rem 0 3.75rem;
         text-align: center;
+      }
+
+      .lp-footer-copy a {
+        color: var(--color-brand);
+      }
+
+      .lp-footer-copy a:hover {
+        color: #fff;
+      }
+
+      .footer-legal-line--credit a {
+        color: #fff;
       }
 
       .footer-legal-line {
@@ -347,23 +545,48 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
         text-transform: none;
       }
 
-      @media (max-width: 1100px) {
-        .lp-footer-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+      @media (max-width: 1024px) {
+
+         .lp-footer-content {
+            display: block;
         }
 
-        .lp-footer-card:last-child {
-          grid-column: 1 / -1;
+        .lp-footer-card--services,
+        .lp-footer-card--contact,
+        .lp-footer-card--form {
+          margin: 20px auto;
         }
+
+        .lp-footer-card--contact {
+          min-height: 100%;
+        }
+
       }
 
-      @media (max-width: 760px) {
-        .lp-footer-grid {
-          grid-template-columns: 1fr;
+      @media (max-width: 768px) {
+       
+
+        .lp-footer-card--form {
+          grid-column: auto;
         }
 
-        .lp-footer-card:last-child {
-          grid-column: auto;
+        .lp-footer-card-title {
+          font-size: 2rem;
+        }
+
+        .lp-footer-card--contact .lp-footer-card-title {
+          font-size: 2.4rem;
+        }
+
+        .lp-footer-map-slot iframe {
+          display: none;
+        }
+
+        .lp-footer-mobile-logo {
+          align-items: center;
+          display: inline-flex;
+          justify-content: center;
+          margin: 0.5rem auto;
         }
       }
 
