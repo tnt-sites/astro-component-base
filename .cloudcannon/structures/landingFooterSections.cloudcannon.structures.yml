@@ -1,8 +1,121 @@
 landingFooterSections:
   id_key: _component
   style: modal
-  values_from_glob:
-    - /src/components/navigation/landing/landing-footer.cloudcannon.structure-value.yml
-    - /src/components/navigation/landing/landing-footer-logo-top.cloudcannon.structure-value.yml
-    - /src/components/navigation/landing/landing-footer-overlapping-map.cloudcannon.structure-value.yml
-    - /src/components/navigation/landing/landing-footer-tmj.cloudcannon.structure-value.yml
+  values:
+    - label: Landing Footer
+      icon: page_footer
+      description: "Simple landing footer with logo, contact details, socials, and legal links."
+      value:
+        _component: navigation/landing/landing-footer
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        siteName: Dental Studio
+        contactTitle: Contact Us
+        pageButtons:
+          - _component: building-blocks/core-elements/button
+            text: Request an Appointment
+            hideText: false
+            link: /request-an-appointment/
+            iconName: ""
+            iconPosition: before
+            variant: primary
+            size: md
+            width: md
+        socials:
+          - label: Facebook
+            icon: social/facebook
+            link: https://facebook.com
+        legalLinks:
+          - name: Sitemap
+            path: sitemap.html
+          - name: Privacy Policy
+            path: privacy-policy.html
+        mapEmbedUrl: ""
+        backgroundImage: ""
+        backgroundGradient: ""
+        legalBlurb: "Our New Patient Offer is a great way to become familiar with Our Practice. New patients only. Requires payment at first visit. Includes all necessary x-rays only. May not be used more than once and cannot be combined with other offers for discounted fees. No cash value. New Patient offer available for patients without dental insurance. Patients with dental insurance give us a call for details. Not valid if gum disease is present. Restrictions apply. One per lifetime."
+    - label: Landing Footer Logo Top
+      icon: page_footer
+      description: "Landing footer with top logo, separate contact and office hours columns, map embed, and legal row."
+      value:
+        _component: navigation/landing/landing-footer-logo-top
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        siteName: Dental Studio
+        contactTitle: Learn More
+        pageButtons:
+          - _component: building-blocks/core-elements/button
+            text: Request an Appointment
+            hideText: false
+            link: /request-an-appointment/
+            iconName: ""
+            iconPosition: before
+            variant: primary
+            size: md
+            width: md
+        socials:
+          - label: Facebook
+            icon: social/facebook
+            link: https://facebook.com
+        legalLinks:
+          - name: Sitemap
+            path: sitemap.html
+          - name: Privacy Policy
+            path: privacy-policy.html
+        mapEmbedUrl: ""
+        backgroundImage: ""
+        backgroundGradient: "linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary) 88%, black) 0%, var(--color-bg-brand-secondary) 100%)"
+        legalBlurb: "Our New Patient Offer is a great way to become familiar with Our Practice. New patients only. Requires payment at first visit. Includes all necessary x-rays only. May not be used more than once and cannot be combined with other offers for discounted fees. No cash value. New Patient offer available for patients without dental insurance. Patients with dental insurance give us a call for details. Not valid if gum disease is present. Restrictions apply. One per lifetime."
+    - label: Landing Footer Overlapping Map
+      icon: page_footer
+      description: "Landing footer with an overlapping map and contact card layout."
+      value:
+        _component: navigation/landing/landing-footer-overlapping-map
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        siteName: Dental Studio
+        contactTitle: Schedule Your Visit Today!
+        cardBackgroundColor: "#343434"
+        pageButtons:
+          - _component: building-blocks/core-elements/button
+            text: Request an Appointment
+            hideText: false
+            link: /request-an-appointment/
+            iconName: ""
+            iconPosition: before
+            variant: primary
+            size: md
+            width: md
+        socials:
+          - label: Facebook
+            icon: social/facebook
+            link: https://facebook.com
+        legalLinks:
+          - name: Sitemap
+            path: sitemap.html
+          - name: Privacy Policy
+            path: privacy-policy.html
+        mapEmbedUrl: ""
+        backgroundImage: ""
+        backgroundGradient: "linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary) 86%, black) 0%, var(--color-bg-brand-secondary) 100%)"
+        legalBlurb: ""
+    - label: Landing Footer TMJ
+      icon: page_footer
+      description: "Light-background landing footer with office hours and a 'How to Get Started' column."
+      value:
+        _component: navigation/landing/landing-footer-tmj
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        siteName: Dental Studio
+        contactTitle: Office Hours
+        offices: []
+        legalLinks:
+          - name: Sitemap
+            path: sitemap.html
+          - name: Privacy Policy
+            path: privacy-policy.html
+        backgroundImage: ""
+        backgroundGradient: ""
+        getStartedTitle: How to Get Started
+        getStartedText: "Thank you for taking the time to consider us. We look forward to having the opportunity to speak with you and to meet in person. Please feel free to give us a call or complete the form on this page, and we promise to get back to you as soon as possible."
+        legalBlurb: ""
