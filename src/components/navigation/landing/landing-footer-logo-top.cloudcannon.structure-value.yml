@@ -39,4 +39,4 @@ picker_preview:
   subtext: "Top logo with contact, hours, map, and centered legal row."
   icon: page_footer
 _inputs_from_glob:
-  - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+  - /src/components/navigation/landing/landing-footer-logo-top.cloudcannon.inputs.yml

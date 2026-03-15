@@ -40,6 +40,12 @@ legalLinks:
 mapEmbedUrl:
   type: text
   comment: "Optional Google Maps embed URL (iframe src value)."
+backgroundImage:
+  type: image
+  comment: "Optional footer background image URL/path."
+backgroundGradient:
+  type: text
+  comment: "Optional CSS gradient value layered over background (e.g. linear-gradient(...))."
 legalBlurb:
   type: textarea
   comment: "Optional legal/disclaimer text shown below the copyright row."

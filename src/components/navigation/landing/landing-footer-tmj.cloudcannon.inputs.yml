@@ -23,23 +23,21 @@ contactTitle:
     bulletedlist: false
     numberedlist: false
     styles: /.cloudcannon/styles/editor.css
-offices:
-  type: array
-  comment: "Optional office contact override for this landing footer."
-pageButtons:
-  type: array
-  comment: "Optional CTA buttons shown near the logo."
-  options:
-    structures: _structures.buttonSections
-socials:
-  type: array
-  comment: "Social links or icons for this landing footer."
 legalLinks:
   type: array
   comment: "Legal links displayed in the footer legal row."
-mapEmbedUrl:
+backgroundImage:
+  type: image
+  comment: "Optional footer background image URL/path."
+backgroundGradient:
   type: text
-  comment: "Optional Google Maps embed URL (iframe src value)."
+  comment: "Optional CSS gradient value layered over background (e.g. linear-gradient(...))."
+getStartedTitle:
+  type: text
+  comment: "Heading for the 'How to Get Started' column."
+getStartedText:
+  type: textarea
+  comment: "Body text for the 'How to Get Started' column."
 legalBlurb:
   type: textarea
   comment: "Optional legal/disclaimer text shown below the copyright row."

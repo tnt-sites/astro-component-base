@@ -42,14 +42,6 @@ landingFooter:
         type: string
         optional: true
         remove_empty: true
-      - editor_key: backgroundImage
-        type: string
-        optional: true
-        remove_empty: true
-      - editor_key: backgroundGradient
-        type: string
-        optional: true
-        remove_empty: true
       - editor_key: legalBlurb
         type: string
         optional: true
@@ -107,7 +99,7 @@ landingFooterTMJ:
         optional: true
         remove_empty: true
   _inputs_from_glob:
-    - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+    - /src/components/navigation/landing/landing-footer-tmj.cloudcannon.inputs.yml
 
 landingFooterLogoTop:
   template: mdx_component
@@ -166,7 +158,7 @@ landingFooterLogoTop:
         optional: true
         remove_empty: true
   _inputs_from_glob:
-    - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+    - /src/components/navigation/landing/landing-footer-logo-top.cloudcannon.inputs.yml
 
 landingFooterOverlappingMap:
   template: mdx_component
@@ -229,4 +221,4 @@ landingFooterOverlappingMap:
         optional: true
         remove_empty: true
   _inputs_from_glob:
-    - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+    - /src/components/navigation/landing/landing-footer-overlapping-map.cloudcannon.inputs.yml

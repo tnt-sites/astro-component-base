@@ -40,4 +40,4 @@ picker_preview:
   subtext: "Card-style contact block with overlapping map."
   icon: page_footer
 _inputs_from_glob:
-  - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+  - /src/components/navigation/landing/landing-footer-overlapping-map.cloudcannon.inputs.yml

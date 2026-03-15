@@ -26,4 +26,4 @@ picker_preview:
   subtext: "Light footer with office hours and a How to Get Started column."
   icon: page_footer
 _inputs_from_glob:
-  - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+  - /src/components/navigation/landing/landing-footer-tmj.cloudcannon.inputs.yml
