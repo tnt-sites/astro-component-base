@@ -28,9 +28,6 @@ pageButtons:
   comment: "Optional CTA buttons shown near the logo."
   options:
     structures: _structures.buttonSections
-offices:
-  type: array
-  comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
 socials:
   type: array
   comment: "Social links or icons for this landing footer."
