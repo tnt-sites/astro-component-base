@@ -28,7 +28,11 @@ value:
     - name: Privacy Policy
       path: privacy-policy.html
   mapEmbedUrl: ""
-  backgroundImage: ""
+  backgroundImage:
+    source: null
+    alt: null
+    positionVertical: top
+    positionHorizontal: center
   backgroundGradient: "linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary) 86%, black) 0%, var(--color-bg-brand-secondary) 100%)"
   legalBlurb: ""
 preview:

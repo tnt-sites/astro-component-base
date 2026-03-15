@@ -1,4 +1,6 @@
 ---
+import Image from "@core-elements/image/Image.astro";
+
 const {
   logoSource,
   logoAlt = "Logo",
@@ -7,7 +9,7 @@ const {
   contactTitle = "Office Hours",
   offices = [],
   legalLinks = [],
-  backgroundImage = "",
+  backgroundImage,
   backgroundGradient = "",
   legalBlurb = "",
   getStartedTitle = "How to Get Started",
@@ -24,7 +26,12 @@ const {
 
 const displaySiteName = siteName || sitename;
 const copyYear = new Date().getFullYear();
-const backgroundImageValue = typeof backgroundImage === "string" ? backgroundImage.trim() : "";
+const {
+  source = "",
+  alt = "",
+  positionVertical = "top",
+  positionHorizontal = "center",
+} = backgroundImage || {};
 const backgroundGradientValue =
   typeof backgroundGradient === "string" ? backgroundGradient.trim() : "";
 const formActionValue = typeof formAction === "string" ? formAction.trim() : "";
@@ -35,7 +42,6 @@ const formSubmitLabelValue =
     ? formSubmitLabel.trim()
     : "Submit";
 const footerBackgroundStyle = [
-  backgroundImageValue ? `--lp-footer-tmj-bg-image: url("${backgroundImageValue}")` : "",
   backgroundGradientValue ? `--lp-footer-tmj-bg-gradient: ${backgroundGradientValue}` : "",
 ]
   .filter(Boolean)
@@ -164,6 +170,17 @@ const getOfficeHoursEntries = (office: any) => {
   style={footerBackgroundStyle || undefined}
   {...htmlAttributes}
 >
+  <Image
+    class:list={["background-image"]}
+    source={source}
+    alt={alt}
+    editable={false}
+    data-prop-src="backgroundImage.source"
+    data-prop-alt="backgroundImage.alt"
+    positionVertical={positionVertical}
+    positionHorizontal={positionHorizontal}
+    background={true}
+  />
   <div class="lp-footer-tmj-body">
     <div class="lp-footer-tmj-container">
       <section class="lp-footer-tmj-section lp-footer-tmj-form-section">
@@ -330,12 +347,24 @@ const getOfficeHoursEntries = (office: any) => {
 <style lang="pcss" is:global>
   @layer page-sections {
     .landing-footer.landing-footer-tmj {
+      overflow: hidden;
       background-color: #fff;
+      background-image: var(--lp-footer-tmj-bg-gradient, none);
       background-position: center;
       background-size: cover;
       color: var(--color-text, #313131);
       position: relative;
       text-align: center;
+
+      > .background-image {
+        z-index: var(--layer-1);
+      }
+
+      .lp-footer-tmj-body,
+      .lp-footer-tmj-copyright {
+        position: relative;
+        z-index: var(--layer-2);
+      }
 
       .lp-footer-tmj-container {
         align-items: center;

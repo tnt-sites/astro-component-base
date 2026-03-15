@@ -43,6 +43,55 @@ legalLinks:
 mapEmbedUrl:
   type: text
   comment: "Optional Google Maps embed URL (iframe src value)."
+backgroundImage:
+  type: object
+  comment: Background image configuration for the footer section.
+  options:
+    preview:
+      icon: image
+      text:
+        - key: alt
+        - Background Image
+      subtext:
+        - key: source
+        - Add an image source
+      image:
+        - key: source
+backgroundImage.source:
+  comment: URL or path to the background image.
+  type: image
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ""
+backgroundImage.alt:
+  comment: Alt text for the background image.
+  type: textarea
+backgroundImage.positionVertical:
+  comment: Vertical position of the background image.
+  type: select
+  options:
+    values:
+      - id: top
+        name: Top
+      - id: center
+        name: Center
+      - id: bottom
+        name: Bottom
+backgroundImage.positionHorizontal:
+  comment: Horizontal position of the background image.
+  type: select
+  options:
+    values:
+      - id: left
+        name: Left
+      - id: center
+        name: Center
+      - id: right
+        name: Right
+backgroundGradient:
+  type: text
+  comment: "Optional CSS gradient value layered over background (e.g. linear-gradient(...))."
 legalBlurb:
   type: textarea
   comment: "Optional legal/disclaimer text shown below the copyright row."

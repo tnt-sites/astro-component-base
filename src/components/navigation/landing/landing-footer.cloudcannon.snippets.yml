@@ -46,6 +46,13 @@ landingFooter:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: backgroundImage
+        type: object
+        optional: true
+      - editor_key: backgroundGradient
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: legalBlurb
         type: string
         optional: true
@@ -111,9 +118,8 @@ landingFooterTMJ:
         type: array
         optional: true
       - editor_key: backgroundImage
-        type: string
+        type: object
         optional: true
-        remove_empty: true
       - editor_key: backgroundGradient
         type: string
         optional: true
@@ -182,9 +188,8 @@ landingFooterLogoTop:
         optional: true
         remove_empty: true
       - editor_key: backgroundImage
-        type: string
+        type: object
         optional: true
-        remove_empty: true
       - editor_key: backgroundGradient
         type: string
         optional: true
@@ -245,9 +250,8 @@ landingFooterOverlappingMap:
         optional: true
         remove_empty: true
       - editor_key: backgroundImage
-        type: string
+        type: object
         optional: true
-        remove_empty: true
       - editor_key: backgroundGradient
         type: string
         optional: true
