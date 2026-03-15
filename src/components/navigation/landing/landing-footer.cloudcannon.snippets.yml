@@ -107,18 +107,6 @@ landingFooterTMJ:
         type: string
         optional: true
         remove_empty: true
-      - editor_key: contactCardBackgroundColor
-        type: string
-        optional: true
-        remove_empty: true
-      - editor_key: servicesCardBackgroundColor
-        type: string
-        optional: true
-        remove_empty: true
-      - editor_key: formCardBackgroundColor
-        type: string
-        optional: true
-        remove_empty: true
       - editor_key: legalLinks
         type: array
         optional: true
@@ -340,6 +328,22 @@ landingFooter3Cards:
         optional: true
         remove_empty: true
       - editor_key: footerLinksHoverBackgroundColor
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: mapEmbedUrl
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: contactCardBackgroundColor
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: servicesCardBackgroundColor
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formCardBackgroundColor
         type: string
         optional: true
         remove_empty: true
