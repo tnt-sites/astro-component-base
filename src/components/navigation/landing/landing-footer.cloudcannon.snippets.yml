@@ -103,6 +103,18 @@ landingFooterTMJ:
         type: string
         optional: true
         remove_empty: true
+      - editor_key: contactCardBackgroundColor
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: servicesCardBackgroundColor
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formCardBackgroundColor
+        type: string
+        optional: true
+        remove_empty: true
       - editor_key: legalLinks
         type: array
         optional: true
@@ -258,3 +270,81 @@ landingFooterOverlappingMap:
         remove_empty: true
   _inputs_from_glob:
     - /src/components/navigation/landing/landing-footer-overlapping-map.cloudcannon.inputs.yml
+
+landingFooter3Cards:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - Landing Footer 3 Cards
+    icon: page_footer
+  definitions:
+    component_name: LandingFooterThreeCards
+    named_args:
+      - editor_key: logoSource
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: logoAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: id
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: siteName
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: contactTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: offices
+        type: array
+        optional: true
+      - editor_key: featuredServicesTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: featuredServicesLinks
+        type: array
+        optional: true
+      - editor_key: formTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formAction
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formSubject
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formRedirect
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: formSubmitLabel
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: legalLinks
+        type: array
+        optional: true
+      - editor_key: backgroundImage
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: backgroundGradient
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: legalBlurb
+        type: string
+        optional: true
+        remove_empty: true
+  _inputs_from_glob:
+    - /src/components/navigation/landing/landing-footer-three-cards.cloudcannon.inputs.yml

@@ -1,5 +1,7 @@
 ---
 import Icon from "@core-elements/icon/Icon.astro";
+// @ts-ignore
+import MarkdownIt from "markdown-it";
 
 const {
   text: textValue = "",
@@ -25,7 +27,20 @@ const {
 } = Astro.props;
 
 const text = typeof textValue === "string" ? textValue : "";
-const normalizedText = text.replace(/\r\n?/g, "\n").replace(/\n{2,}/g, "\n");
+const normalizedText = text
+  .replace(/\r\n?/g, "\n")
+  .replace(/\n{2,}/g, "\n")
+  .trim()
+  .replace(/^<p(?:\s[^>]*)?>/i, "")
+  .replace(/<\/p>\s*$/i, "");
+
+const md = MarkdownIt({ html: true });
+let markdownText = normalizedText ? md.renderInline(normalizedText) : "";
+markdownText = markdownText.replace(/\n/g, "<br />");
+const textForAria = markdownText
+  .replace(/<[^>]*>/g, " ")
+  .replace(/\s+/g, " ")
+  .trim();
 
 const resolveSelectValue = (value: any): string | undefined => {
   if (typeof value === "string") return value.trim().toLowerCase();
@@ -85,8 +100,8 @@ const textDataAttributes =
       }
     : {};
 
-if (normalizedHideText && !htmlAttributes["aria-label"] && text) {
-  htmlAttributes["aria-label"] = normalizedText;
+if (normalizedHideText && !htmlAttributes["aria-label"] && textForAria) {
+  htmlAttributes["aria-label"] = textForAria;
 }
 
 const Tag = (normalizedModalTarget ? "button" : element) as any;
@@ -104,7 +119,7 @@ const tagProps = normalizedModalTarget
       ? { type: "button" }
       : {};
 
-const hasText = text?.trim().length > 0;
+const hasText = normalizedText.length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 const hasIcon = iconName?.trim().length > 0;
@@ -134,7 +149,7 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
   {
     !normalizedHideText && (
       <span class="label-text" {...textDataAttributes}>
-        {normalizedText}
+        {normalizedText && <Fragment set:html={markdownText} />}
       </span>
     )
   }
@@ -210,6 +225,18 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
         line-height: 1.2;
         margin: 0;
         white-space: pre-line;
+
+        .color,
+        .heading-color {
+          color: var(--color-brand);
+        }
+
+        .heading-font {
+          font-family: var(--font-body);
+          font-style: normal;
+          font-weight: var(--font-weight-semibold);
+          letter-spacing: 0.02em;
+        }
       }
 
       &.text-uppercase .label-text {

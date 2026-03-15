@@ -1,4 +1,3 @@
-span.color,
 span.heading-color {
   color: var(--color-brand, red);
 }
@@ -8,4 +7,8 @@ span.heading-font {
   font-style: normal;
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+span.big-text {
+  font-size: 1.6rem;
 }

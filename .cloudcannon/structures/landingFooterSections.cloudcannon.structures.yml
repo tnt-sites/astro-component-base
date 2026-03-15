@@ -123,3 +123,35 @@ landingFooterSections:
         getStartedTitle: How to Get Started
         getStartedText: "Thank you for taking the time to consider us. We look forward to having the opportunity to speak with you and to meet in person. Please feel free to give us a call or complete the form on this page, and we promise to get back to you as soon as possible."
         legalBlurb: ""
+    - label: Landing Footer 3 Cards
+      icon: page_footer
+      description: "Three-card landing footer with contact, featured services, and ask-a-question form."
+      value:
+        _component: navigation/landing/landing-footer-three-cards
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        siteName: Dental Studio
+        contactTitle: Contact Us
+        featuredServicesTitle: Featured Services
+        featuredServicesLinks:
+          - name: Dental Implants
+            path: /dental-implants/
+          - name: Implant Bridge
+            path: /dental-bridges/
+          - name: Implant Dentures
+            path: /implant-retained-dentures/
+          - name: All-on-4
+            path: /all-on-4/
+        formTitle: Ask A Question
+        formAction: ""
+        formSubject: Landing Footer Form
+        formRedirect: thanks.html
+        formSubmitLabel: Submit
+        legalLinks:
+          - name: Sitemap
+            path: sitemap.html
+          - name: Privacy Policy
+            path: privacy-policy.html
+        backgroundImage: ""
+        backgroundGradient: ""
+        legalBlurb: ""

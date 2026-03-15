@@ -1,0 +1,75 @@
+logoSource:
+  type: image
+  comment: "Logo image source URL or path."
+logoAlt:
+  type: text
+  comment: "Alt text for the logo image for accessibility."
+id:
+  type: text
+  comment: "Developer use only. Optional HTML id attribute for this footer section."
+siteName:
+  type: text
+  comment: "Business or site name used in legal copy."
+contactTitle:
+  type: markdown
+  comment: "Heading for the contact card. Supports inline span wrappers/classes for highlighted words."
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: false
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
+offices:
+  type: array
+  comment: "Optional office contact override for this landing footer."
+featuredServicesTitle:
+  type: text
+  comment: "Heading for the featured services card."
+featuredServicesLinks:
+  type: array
+  comment: "Links shown in the featured services card."
+  options:
+    structures: _structures.links
+formTitle:
+  type: text
+  comment: "Heading for the ask-a-question form card."
+formAction:
+  type: text
+  comment: "Form action URL for submissions."
+formSubject:
+  type: text
+  comment: "Hidden _subject value sent with the form."
+formRedirect:
+  type: text
+  comment: "Hidden _redirect value sent with the form."
+formSubmitLabel:
+  type: text
+  comment: "Button label for the form submit button."
+contactCardBackgroundColor:
+  type: text
+  comment: "Optional CSS color value for the contact card background (e.g. #ffffff or rgb(...))."
+servicesCardBackgroundColor:
+  type: text
+  comment: "Optional CSS color value for the featured services card background."
+formCardBackgroundColor:
+  type: text
+  comment: "Optional CSS color value for the form card background."
+legalLinks:
+  type: array
+  comment: "Legal links displayed in the footer legal row."
+backgroundImage:
+  type: image
+  comment: "Optional footer background image URL/path."
+backgroundGradient:
+  type: text
+  comment: "Optional CSS gradient value layered over background (e.g. linear-gradient(...))."
+legalBlurb:
+  type: textarea
+  comment: "Optional legal/disclaimer text shown below the copyright row."

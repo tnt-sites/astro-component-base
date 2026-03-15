@@ -13,6 +13,7 @@ text:
     underline: true
     bulletedlist: false
     numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
   hidden: hideText
 link:
   type: url
