@@ -15,10 +15,10 @@ landingMainNav:
         modalTarget: ''
         iconName: ''
         iconPosition: before
-        variant: tertiary
+        variant: secondary
         size: sm
         width: md
-        borderRadius: 4xl
+        borderRadius: xs
         borderWidth: md
         borderColor: brand
         textColor: text
