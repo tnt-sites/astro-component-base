@@ -15,13 +15,13 @@ landingMainNav:
         modalTarget: ''
         iconName: ''
         iconPosition: before
-        variant: primary
-        size: md
+        variant: tertiary
+        size: sm
         width: md
-        borderRadius: default
+        borderRadius: 4xl
         borderWidth: md
         borderColor: brand
-        textColor: default
+        textColor: text
 landingFooter:
   - _component: navigation/landing/landing-footer
     logoSource: /images/logo.svg
