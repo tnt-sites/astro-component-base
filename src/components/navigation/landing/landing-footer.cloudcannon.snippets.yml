@@ -351,9 +351,8 @@ landingFooter3Cards:
         type: array
         optional: true
       - editor_key: backgroundImage
-        type: string
+        type: object
         optional: true
-        remove_empty: true
       - editor_key: backgroundGradient
         type: string
         optional: true

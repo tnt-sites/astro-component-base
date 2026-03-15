@@ -23,7 +23,7 @@ const {
   formCardBackgroundColor = "",
   mapEmbedUrl = "",
   legalLinks = [],
-  backgroundImage = "",
+  backgroundImage,
   backgroundGradient = "",
   legalBlurb = "",
   id: elementId,
@@ -33,7 +33,12 @@ const {
 
 const displaySiteName = siteName || sitename;
 const copyYear = new Date().getFullYear();
-const backgroundImageValue = typeof backgroundImage === "string" ? backgroundImage.trim() : "";
+const {
+  source = "",
+  alt = "",
+  positionVertical = "top",
+  positionHorizontal = "center",
+} = backgroundImage || {};
 const backgroundGradientValue =
   typeof backgroundGradient === "string" ? backgroundGradient.trim() : "";
 const formActionValue = typeof formAction === "string" ? formAction.trim() : "";
@@ -54,9 +59,9 @@ const LINK_COLOR_CHOICES: Record<string, string> = {
   brand: "var(--color-brand)",
   "brand-secondary": "var(--color-brand-secondary)",
   brandsecondary: "var(--color-brand-secondary)",
-  accent: "#fa5f30",
+  accent: "var(--color-accent)",
   dark: "#2c363c",
-  black: "#101926",
+  black: "#000000",
   white: "#ffffff",
 };
 
@@ -79,7 +84,6 @@ const footerLinksHoverBackgroundColorValue = resolveLinkColorChoice(
   "var(--color-brand-secondary)"
 );
 const footerBackgroundStyle = [
-  backgroundImageValue ? `--lp-footer-bg-image: url("${backgroundImageValue}")` : "",
   backgroundGradientValue ? `--lp-footer-bg-gradient: ${backgroundGradientValue}` : "",
   `--lp-footer-links-bg: ${footerLinksBackgroundColorValue}`,
   `--lp-footer-links-hover-bg: ${footerLinksHoverBackgroundColorValue}`,
@@ -109,6 +113,17 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
   style={footerBackgroundStyle || undefined}
   {...htmlAttributes}
 >
+  <Image
+    class:list={["background-image"]}
+    source={source}
+    alt={alt}
+    editable={true}
+    data-prop-src="backgroundImage.source"
+    data-prop-alt="backgroundImage.alt"
+    positionVertical={positionVertical}
+    positionHorizontal={positionHorizontal}
+    background={true}
+  />
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="xl">
     <div class="lp-footer-shell">
       <div class="lp-footer-content">
@@ -278,20 +293,24 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
 <style lang="pcss" is:global>
   @layer page-sections {
     .landing-footer.landing-footer-three-cards {
-    
+      position: relative;
+      overflow: hidden;
 
       background-color: #2c363c;
       background-image:
         var(
           --lp-footer-bg-gradient,
           linear-gradient(180deg, color-mix(in srgb, #2c363c 88%, black) 0%, #2c363c 100%)
-        ),
-        var(--lp-footer-bg-image, none);
+        );
       background-position: center;
       background-size: cover;
       color: #fff;
       padding: 20px;
       padding-top: 1.4rem;
+
+      > .background-image {
+        z-index: var(--layer-1);
+      }
 
       .lp-footer-shell {
         margin: 0 auto;

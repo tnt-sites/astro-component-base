@@ -158,7 +158,11 @@ landingFooterSections:
             path: sitemap.html
           - name: Privacy Policy
             path: privacy-policy.html
-        backgroundImage: ""
+        backgroundImage:
+          source: null
+          alt: null
+          positionVertical: top
+          positionHorizontal: center
         backgroundGradient: ""
         legalBlurb: ""
       _inputs:
@@ -189,10 +193,52 @@ landingFooterSections:
               - id: brand
                 name: Brand
               - id: accent
-                name: Accent (#fa5f30)
-              - id: dark
-                name: Dark (#2c363c)
-              - id: black
-                name: Black (#101926)
+                name: Accent
               - id: white
                 name: White
+        backgroundImage:
+          type: object
+          comment: Background image configuration for the footer section.
+          options:
+            preview:
+              icon: image
+              text:
+                - key: alt
+                - Background Image
+              subtext:
+                - key: source
+                - Add an image source
+              image:
+                - key: source
+        backgroundImage.source:
+          type: image
+          comment: URL or path to the background image.
+          options:
+            paths:
+              uploads: src/assets/images
+              static: ""
+        backgroundImage.alt:
+          type: textarea
+          comment: Alt text for the background image.
+        backgroundImage.positionVertical:
+          type: select
+          comment: Vertical position of the background image.
+          options:
+            values:
+              - id: top
+                name: Top
+              - id: center
+                name: Center
+              - id: bottom
+                name: Bottom
+        backgroundImage.positionHorizontal:
+          type: select
+          comment: Horizontal position of the background image.
+          options:
+            values:
+              - id: left
+                name: Left
+              - id: center
+                name: Center
+              - id: right
+                name: Right

@@ -33,7 +33,11 @@ value:
       path: sitemap.html
     - name: Privacy Policy
       path: privacy-policy.html
-  backgroundImage: ""
+  backgroundImage:
+    source: null
+    alt: null
+    positionVertical: top
+    positionHorizontal: center
   backgroundGradient: ""
   legalBlurb: ""
 preview:

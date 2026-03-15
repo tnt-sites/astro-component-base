@@ -62,11 +62,11 @@ footerLinksBackgroundColor:
       - id: brand-secondary
         name: Brand Secondary
       - id: accent
-        name: Accent (#fa5f30)
+        name: Accent
       - id: dark
-        name: Dark (#2c363c)
+        name: Dark
       - id: black
-        name: Black (#101926)
+        name: Black
       - id: white
         name: White
 footerLinksHoverBackgroundColor:
@@ -79,19 +79,19 @@ footerLinksHoverBackgroundColor:
       - id: brand
         name: Brand
       - id: accent
-        name: Accent (#fa5f30)
+        name: Accent
       - id: dark
-        name: Dark (#2c363c)
+        name: Dark
       - id: black
-        name: Black (#101926)
+        name: Black
       - id: white
         name: White
 mapEmbedUrl:
   type: text
-  comment: "Optional map iframe embed URL for the contact card; replaced by logo on mobile (<=768px)."
+  comment: "Map iframe embed URL for the contact card; replaced by logo on mobile (<=768px)."
 contactCardBackgroundColor:
   type: text
-  comment: "Optional CSS color value for the contact card background (e.g. #ffffff or rgb(...))."
+  comment: "Optional CSS color value for the contact card background."
 servicesCardBackgroundColor:
   type: text
   comment: "Optional CSS color value for the featured services card background."
@@ -102,8 +102,51 @@ legalLinks:
   type: array
   comment: "Legal links displayed in the footer legal row."
 backgroundImage:
+  type: object
+  comment: Background image configuration for the footer section.
+  options:
+    preview:
+      icon: image
+      text:
+        - key: alt
+        - Background Image
+      subtext:
+        - key: source
+        - Add an image source
+      image:
+        - key: source
+backgroundImage.source:
+  comment: URL or path to the background image.
   type: image
-  comment: "Optional footer background image URL/path."
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ""
+backgroundImage.alt:
+  comment: Alt text for the background image.
+  type: textarea
+backgroundImage.positionVertical:
+  comment: Vertical position of the background image.
+  type: select
+  options:
+    values:
+      - id: top
+        name: Top
+      - id: center
+        name: Center
+      - id: bottom
+        name: Bottom
+backgroundImage.positionHorizontal:
+  comment: Horizontal position of the background image.
+  type: select
+  options:
+    values:
+      - id: left
+        name: Left
+      - id: center
+        name: Center
+      - id: right
+        name: Right
 backgroundGradient:
   type: text
   comment: "Optional CSS gradient value layered over background (e.g. linear-gradient(...))."
