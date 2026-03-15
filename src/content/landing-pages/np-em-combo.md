@@ -3,21 +3,17 @@ _schema: landing-page-new-patient-emergency-combo
 title:
 landingStyle: new-patient-emergency-combo
 landingMainNav:
-<<<<<<< HEAD
-  - _component: navigation/main-nav/landing-header-split
-=======
-  - _component: navigation/landing/landing-header
->>>>>>> 2201e3e8 (Added more options for buttons)
+  - _component: navigation/landing/landing-header-split
     logoSource: /images/logo.svg
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -30,12 +26,12 @@ landingFooter:
     contactTitle: Contact Us
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: tertiary
         size: md
@@ -52,17 +48,17 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ''
+    mapEmbedUrl: ""
     legalBlurb:
     offices:
-      - name: ''
+      - name: ""
         addresses:
           - lines:
               - 123 Main Street
               - Suite 200
             city: Dunedin
             state: FL
-            postalCode: '34698'
+            postalCode: "34698"
             country: USA
             mapUrl: https://maps.google.com
         phones:
@@ -70,9 +66,9 @@ landingFooter:
             href: tel:+11234567890
 landingPageSections:
   - _component: landing-page-components/new-patient-emergency-combo/blurb
-    id: ''
+    id: ""
     text: <p>We understand, life is hard.</p>
     backgroundColor: none
-    textColor: '#000'
+    textColor: "#000"
     blurbBackgroundColor: none
 ---
