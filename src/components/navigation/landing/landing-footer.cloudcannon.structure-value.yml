@@ -2,7 +2,7 @@ label: Landing Footer
 icon: page_footer
 description: "Simple landing footer with logo, contact details, socials, and legal links."
 value:
-  _component: navigation/landing/LandingFooter
+  _component: navigation/landing/landing-footer
   logoSource: /images/logo.svg
   logoAlt: Logo
   siteName: Dental Studio

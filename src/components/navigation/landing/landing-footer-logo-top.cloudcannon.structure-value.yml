@@ -2,7 +2,7 @@ label: Landing Footer Logo Top
 icon: page_footer
 description: "Landing footer with top logo, separate contact and office hours columns, map embed, and legal row."
 value:
-  _component: navigation/landing/LandingFooterLogoTop
+  _component: navigation/landing/landing-footer-logo-top
   logoSource: /images/logo.svg
   logoAlt: Logo
   siteName: Dental Studio

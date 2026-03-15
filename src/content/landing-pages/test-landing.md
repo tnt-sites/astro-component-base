@@ -23,7 +23,7 @@ landingMainNav:
         borderColor: default
         textColor: default
 landingFooter:
-  - _component: navigation/landing/LandingFooter
+  - _component: navigation/landing/landing-footer
     logoSource: /images/logo.svg
     logoAlt: Logo
     siteName: Dental Studio
