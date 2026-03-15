@@ -63,10 +63,10 @@ const normalizeLandingBlocks = (value: unknown, fallbackComponent: string) => {
     .map((block) => ({ _component: fallbackComponent, ...block }));
 };
 
-const headerBlocks = normalizeLandingBlocks(frontmatter?.landingMainNav ?? mainNav, "navigation/main-nav/landing-header");
+const headerBlocks = normalizeLandingBlocks(frontmatter?.landingMainNav ?? mainNav, "navigation/landing/landing-header");
 const footerBlocks = normalizeLandingBlocks(frontmatter?.landingFooter ?? footer, "navigation/footer");
 const primaryHeader: LandingComponentBlock =
-  headerBlocks[0] ?? { _component: "navigation/main-nav/landing-header" };
+  headerBlocks[0] ?? { _component: "navigation/landing/landing-header" };
 const primaryFooter: LandingComponentBlock =
   footerBlocks[0] ?? { _component: "navigation/footer" };
 const landingPageSections = frontmatter?.landingPageSections;

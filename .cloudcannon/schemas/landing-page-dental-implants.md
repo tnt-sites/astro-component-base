@@ -3,7 +3,7 @@ _schema: landing-page-dental-implants
 title: New Dental Implants Landing Page
 landingStyle: dental-implants
 landingMainNav:
-  - _component: navigation/main-nav/landing-header
+  - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg
     logoAlt: Logo
     pageButtons:

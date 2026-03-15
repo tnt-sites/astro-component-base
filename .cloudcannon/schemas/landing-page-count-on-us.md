@@ -3,7 +3,7 @@ _schema: landing-page-count-on-us
 title: New Count On Us Landing Page
 landingStyle: count-on-us
 landingMainNav:
-  - _component: navigation/main-nav/landing-header
+  - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg
     logoAlt: Logo
     pageButtons:

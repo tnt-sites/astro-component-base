@@ -3,7 +3,7 @@ _schema: landing-page-emergency
 title: New Emergency Landing Page
 landingStyle: emergency
 landingMainNav:
-  - _component: navigation/main-nav/landing-header
+  - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg
     logoAlt: Logo
     pageButtons:

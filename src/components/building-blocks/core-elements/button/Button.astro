@@ -9,6 +9,10 @@ const {
   variant = "primary",
   size = "md",
   width = "xs",
+  borderRadius = "default",
+  borderWidth = "default",
+  borderColor = "default",
+  textColor = "default",
   link,
   modalTarget,
   element = "a",
@@ -21,6 +25,51 @@ const {
 
 const text = typeof textValue === "string" ? textValue : "";
 
+const resolveSelectValue = (value: any): string | undefined => {
+  if (typeof value === "string") return value.trim().toLowerCase();
+  if (value && typeof value === "object") {
+    const candidate = value.id ?? value.value ?? value.name;
+    if (typeof candidate === "string") return candidate.trim().toLowerCase();
+  }
+  return undefined;
+};
+
+const normalizeChoice = (value: any, allowed: string[], fallback: string) => {
+  const normalized = resolveSelectValue(value);
+  return normalized && allowed.includes(normalized) ? normalized : fallback;
+};
+
+const normalizedVariant = normalizeChoice(
+  variant,
+  ["primary", "secondary", "tertiary", "ghost", "text"],
+  "primary"
+);
+const normalizedSize = normalizeChoice(size, ["sm", "md", "lg"], "md");
+const normalizedWidth = normalizeChoice(width, ["none", "xs", "sm", "md", "lg", "xl"], "xs");
+const normalizedBorderRadius = normalizeChoice(
+  borderRadius,
+  ["default", "none", "xs", "sm", "md", "lg", "xl", "2xl", "3xl", "4xl", "full"],
+  "default"
+);
+const normalizedBorderWidth = normalizeChoice(
+  borderWidth,
+  ["default", "none", "xs", "sm", "md"],
+  "default"
+);
+const normalizedBorderColor = normalizeChoice(
+  borderColor,
+  ["default", "standard", "subtle", "strong", "brand", "transparent"],
+  "default"
+);
+const normalizedTextColor = normalizeChoice(
+  textColor,
+  ["default", "text", "text-strong", "text-muted", "brand", "text-on-brand", "text-inverse"],
+  "default"
+);
+const normalizedIconPosition = normalizeChoice(iconPosition, ["before", "after"], "before");
+const normalizedHideText =
+  typeof hideText === "string" ? hideText.trim().toLowerCase() === "true" : !!hideText;
+
 const normalizedModalTarget =
   typeof modalTarget === "string" ? modalTarget.trim().replace(/^#/, "") : "";
 
@@ -32,7 +81,7 @@ const textDataAttributes =
       }
     : {};
 
-if (hideText && !htmlAttributes["aria-label"] && text) {
+if (normalizedHideText && !htmlAttributes["aria-label"] && text) {
   htmlAttributes["aria-label"] = text;
 }
 
@@ -62,11 +111,15 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
 <Tag
   class:list={[
     "button",
-    `variant-${variant}`,
-    `size-${size}`,
-    `width-${width}`,
-    iconPosition === "after" && "icon-after",
-    hideText && "icon-only",
+    `variant-${normalizedVariant}`,
+    `size-${normalizedSize}`,
+    `width-${normalizedWidth}`,
+    `radius-${normalizedBorderRadius}`,
+    `border-width-${normalizedBorderWidth}`,
+    `border-color-${normalizedBorderColor}`,
+    `text-color-${normalizedTextColor}`,
+    normalizedIconPosition === "after" && "icon-after",
+    normalizedHideText && "icon-only",
     className,
   ]}
   {...tagProps}
@@ -74,7 +127,7 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
 >
   <Icon name={iconName} size="none" />
   {
-    !hideText && (
+    !normalizedHideText && (
       <span class="label-text" {...textDataAttributes}>
         <slot>{text}</slot>
       </span>
@@ -144,6 +197,166 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
 
       &.width-xl {
         min-width: 240px;
+      }
+
+      &.radius-default {
+        border-radius: 30px;
+      }
+
+      &.radius-none {
+        border-radius: var(--radius-none);
+      }
+
+      &.radius-xs {
+        border-radius: var(--radius-xs);
+      }
+
+      &.radius-sm {
+        border-radius: var(--radius-sm);
+      }
+
+      &.radius-md {
+        border-radius: var(--radius-md);
+      }
+
+      &.radius-lg {
+        border-radius: var(--radius-lg);
+      }
+
+      &.radius-xl {
+        border-radius: var(--radius-xl);
+      }
+
+      &.radius-2xl {
+        border-radius: var(--radius-2xl);
+      }
+
+      &.radius-3xl {
+        border-radius: var(--radius-3xl);
+      }
+
+      &.radius-4xl {
+        border-radius: var(--radius-4xl);
+      }
+
+      &.radius-full {
+        border-radius: var(--radius-full);
+      }
+
+      &.border-width-default,
+      &.border-width-xs {
+        border-width: 1px;
+      }
+
+      &.border-width-none {
+        border-width: 0;
+      }
+
+      &.border-width-sm {
+        border-width: 2px;
+      }
+
+      &.border-width-md {
+        border-width: 3px;
+      }
+
+      &.border-color-standard {
+        border-color: var(--color-border) !important;
+
+        &:hover,
+        &:focus {
+          border-color: var(--color-border) !important;
+        }
+      }
+
+      &.border-color-subtle {
+        border-color: var(--color-border-subtle) !important;
+
+        &:hover,
+        &:focus {
+          border-color: var(--color-border-subtle) !important;
+        }
+      }
+
+      &.border-color-strong {
+        border-color: var(--color-border-strong) !important;
+
+        &:hover,
+        &:focus {
+          border-color: var(--color-border-strong) !important;
+        }
+      }
+
+      &.border-color-brand {
+        border-color: var(--color-brand) !important;
+
+        &:hover,
+        &:focus {
+          border-color: var(--color-brand) !important;
+        }
+      }
+
+      &.border-color-transparent {
+        border-color: transparent !important;
+
+        &:hover,
+        &:focus {
+          border-color: transparent !important;
+        }
+      }
+
+      &.text-color-text {
+        color: var(--color-text) !important;
+
+        &:hover,
+        &:focus {
+          color: var(--color-text) !important;
+        }
+      }
+
+      &.text-color-text-strong {
+        color: var(--color-text-strong) !important;
+
+        &:hover,
+        &:focus {
+          color: var(--color-text-strong) !important;
+        }
+      }
+
+      &.text-color-text-muted {
+        color: var(--color-text-muted) !important;
+
+        &:hover,
+        &:focus {
+          color: var(--color-text-muted) !important;
+        }
+      }
+
+      &.text-color-brand {
+        color: var(--color-brand) !important;
+
+        &:hover,
+        &:focus {
+          color: var(--color-brand) !important;
+        }
+      }
+
+      &.text-color-text-on-brand {
+        color: var(--color-text-on-brand) !important;
+
+        &:hover,
+        &:focus {
+          color: var(--color-text-on-brand) !important;
+        }
+      }
+
+      &.text-color-text-inverse {
+        color: var(--color-text-inverse) !important;
+
+        &:hover,
+        &:focus {
+          color: var(--color-text-inverse) !important;
+        }
       }
 
       &.variant-primary {

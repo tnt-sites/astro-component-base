@@ -2,6 +2,6 @@ landingHeaderSections:
   id_key: _component
   style: modal
   values_from_glob:
-    - /src/components/navigation/main-nav/landing-header.cloudcannon.structure-value.yml
-    - /src/components/navigation/main-nav/landing-header-split.cloudcannon.structure-value.yml
+    - /src/components/navigation/landing/landing-header.cloudcannon.structure-value.yml
+    - /src/components/navigation/landing/landing-header-split.cloudcannon.structure-value.yml
     - /src/components/navigation/main-nav/main-nav.cloudcannon.structure-value.yml

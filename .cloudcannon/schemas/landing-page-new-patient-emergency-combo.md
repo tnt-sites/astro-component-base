@@ -3,7 +3,7 @@ _schema: landing-page-new-patient-emergency-combo
 title: New Patient Emergency Combo Landing Page
 landingStyle: new-patient-emergency-combo
 landingMainNav:
-  - _component: navigation/main-nav/landing-header
+  - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg
     logoAlt: Logo
     pageButtons:

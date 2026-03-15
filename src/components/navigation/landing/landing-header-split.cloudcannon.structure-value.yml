@@ -1,8 +1,8 @@
-label: Landing Header
-icon: web
-description: "Landing header with logo, contact details, and CTA buttons."
+label: Landing Header Split
+icon: view_column
+description: "Landing header with contact on the left, centered logo, and CTA buttons on the right."
 value:
-  _component: navigation/main-nav/landing-header
+  _component: navigation/landing/landing-header-split
   logoSource: /images/logo.svg
   logoAlt: Logo
   pageButtons:
@@ -17,12 +17,12 @@ value:
       width: md
 preview:
   text:
-    - Landing Header
-  icon: web
+    - Landing Header Split
+  icon: view_column
 picker_preview:
-  text: Landing Header
-  subtext: "Logo + contact + CTA header for landing pages."
-  icon: web
+  text: Landing Header Split
+  subtext: "Contact left, centered logo, CTA right."
+  icon: view_column
 _inputs:
   logoSource:
     type: image

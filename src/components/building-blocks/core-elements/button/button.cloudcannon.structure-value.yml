@@ -13,6 +13,10 @@ value:
   variant: primary
   size: md
   width: xs
+  borderRadius: default
+  borderWidth: default
+  borderColor: default
+  textColor: default
 preview:
   text:
     - Button

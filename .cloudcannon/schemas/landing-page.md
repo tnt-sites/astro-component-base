@@ -3,7 +3,7 @@ _schema: landing-page-custom
 title: New Custom Landing Page
 landingStyle: custom
 landingMainNav:
-  - _component: navigation/main-nav/landing-header
+  - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg
     logoAlt: Logo
     pageButtons:

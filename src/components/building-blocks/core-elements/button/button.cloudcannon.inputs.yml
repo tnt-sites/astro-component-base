@@ -75,3 +75,81 @@ width:
         name: Large
       - id: xl
         name: Extra Large
+borderRadius:
+  type: select
+  comment: Border radius preset for the button shape.
+  options:
+    values:
+      - id: default
+        name: Default
+      - id: none
+        name: None
+      - id: xs
+        name: Extra Small
+      - id: sm
+        name: Small
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+      - id: xl
+        name: Extra Large
+      - id: 2xl
+        name: 2XL
+      - id: 3xl
+        name: 3XL
+      - id: 4xl
+        name: 4XL
+      - id: full
+        name: Full (Pill)
+borderWidth:
+  type: select
+  comment: Border width preset.
+  options:
+    values:
+      - id: default
+        name: Default
+      - id: none
+        name: None
+      - id: xs
+        name: 1px
+      - id: sm
+        name: 2px
+      - id: md
+        name: 3px
+borderColor:
+  type: select
+  comment: Border color preset.
+  options:
+    values:
+      - id: default
+        name: Default
+      - id: standard
+        name: Standard
+      - id: subtle
+        name: Subtle
+      - id: strong
+        name: Strong
+      - id: brand
+        name: Brand
+      - id: transparent
+        name: Transparent
+textColor:
+  type: select
+  comment: Text color preset.
+  options:
+    values:
+      - id: default
+        name: Default
+      - id: text
+        name: Body Text
+      - id: text-strong
+        name: Strong Text
+      - id: text-muted
+        name: Muted Text
+      - id: brand
+        name: Brand
+      - id: text-on-brand
+        name: On Brand
+      - id: text-inverse
+        name: Inverse

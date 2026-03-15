@@ -3,7 +3,11 @@ _schema: landing-page-new-patient-emergency-combo
 title:
 landingStyle: new-patient-emergency-combo
 landingMainNav:
+<<<<<<< HEAD
   - _component: navigation/main-nav/landing-header-split
+=======
+  - _component: navigation/landing/landing-header
+>>>>>>> 2201e3e8 (Added more options for buttons)
     logoSource: /images/logo.svg
     logoAlt: Logo
     pageButtons:
