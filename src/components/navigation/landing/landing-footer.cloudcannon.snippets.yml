@@ -83,9 +83,6 @@ landingFooterTMJ:
         type: string
         optional: true
         remove_empty: true
-      - editor_key: offices
-        type: array
-        optional: true
       - editor_key: legalLinks
         type: array
         optional: true
