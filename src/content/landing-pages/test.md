@@ -29,7 +29,6 @@ landingFooter:
     logoAlt: Logo
     siteName: Dental Studio
     contactTitle: Office Hours
-    offices: []
     legalLinks:
       - name: Sitemap
         path: sitemap.html
