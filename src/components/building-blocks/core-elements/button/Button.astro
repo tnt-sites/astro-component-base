@@ -101,6 +101,8 @@ const tagProps = normalizedModalTarget
       : {};
 
 const hasText = text?.trim().length > 0;
+const textSegments = text.split(/<br\s*\/?\s*>|\n/gi);
+const hasTextBreaks = textSegments.length > 1;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
 const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
 const hasIcon = iconName?.trim().length > 0;
@@ -129,7 +131,18 @@ if (!_component && !hasText && !hasSlotContent && !hasIcon) return;
   {
     !normalizedHideText && (
       <span class="label-text" {...textDataAttributes}>
-        <slot>{text}</slot>
+        <slot>
+          {
+            hasTextBreaks
+              ? textSegments.map((segment: string, index: number) => (
+                  <>
+                    {segment}
+                    {index < textSegments.length - 1 && <br />}
+                  </>
+                ))
+              : text
+          }
+        </slot>
       </span>
     )
   }
