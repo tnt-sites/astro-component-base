@@ -161,3 +161,38 @@ landingFooterSections:
         backgroundImage: ""
         backgroundGradient: ""
         legalBlurb: ""
+      _inputs:
+        footerLinksBackgroundColor:
+          type: select
+          comment: "Background color preset for featured service link tiles."
+          options:
+            values:
+              - id: brand
+                name: Brand
+              - id: brand-secondary
+                name: Brand Secondary
+              - id: accent
+                name: Accent (#fa5f30)
+              - id: dark
+                name: Dark (#2c363c)
+              - id: black
+                name: Black (#101926)
+              - id: white
+                name: White
+        footerLinksHoverBackgroundColor:
+          type: select
+          comment: "Hover background color preset for featured service link tiles."
+          options:
+            values:
+              - id: brand-secondary
+                name: Brand Secondary
+              - id: brand
+                name: Brand
+              - id: accent
+                name: Accent (#fa5f30)
+              - id: dark
+                name: Dark (#2c363c)
+              - id: black
+                name: Black (#101926)
+              - id: white
+                name: White
