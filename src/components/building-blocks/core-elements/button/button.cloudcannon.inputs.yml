@@ -1,6 +1,18 @@
 text:
-  type: text
+  type: markdown
   comment: The text that goes inside the button.
+  options:
+    blockquote: false
+    bold: true
+    format: span
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: true
+    bulletedlist: false
+    numberedlist: false
   hidden: hideText
 link:
   type: url
