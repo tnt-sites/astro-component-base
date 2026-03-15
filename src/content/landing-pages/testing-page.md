@@ -9,19 +9,19 @@ landingMainNav:
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ''
-        text: Request an Appointment
+        text: Request br an Appointment
         hideText: false
-        link: /np-em-special-form/
+        link: ''
         modalTarget: ''
         iconName: ''
         iconPosition: before
-        variant: secondary
-        size: sm
-        width: md
-        borderRadius: xs
-        borderWidth: md
-        borderColor: brand
-        textColor: text
+        variant: primary
+        size: md
+        width: xs
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
 landingFooter:
   - _component: navigation/landing/landing-footer
     logoSource: /images/logo.svg
