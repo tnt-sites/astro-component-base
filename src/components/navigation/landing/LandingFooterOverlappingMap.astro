@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Icon from "@core-elements/icon/Icon.astro";
 
 const {
   logoSource,
@@ -162,7 +163,7 @@ const getOfficeHoursEntries = (office: any) => {
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="xl">
     <div class="landing-footer-main" id="fo-contents">
       <div class="landing-footer-contact fo-info" style={cardStyle}>
-        <span class="fo-title">{contactTitle}</span>
+        <span class="fo-title" set:html={contactTitle} />
 
         {
           offices.map((office: any) => {
@@ -183,7 +184,7 @@ const getOfficeHoursEntries = (office: any) => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <i class="icon-location" aria-hidden="true" />
+                        <Icon name="map-pin" size="none" class="fo-icon" aria-hidden="true" />
                         <span>
                           {formattedLines.map((line: string, index: number) => (
                             <>
@@ -200,7 +201,7 @@ const getOfficeHoursEntries = (office: any) => {
                   office.phones.map((phone: any) =>
                     phone?.display ? (
                       <a href={phone?.href || "#"} class="pho">
-                        <i class="icon-phone" aria-hidden="true" />
+                        <Icon name="phone" size="none" class="fo-icon" aria-hidden="true" />
                         <span>
                           {phone?.label ? `${phone.label}: ` : ""}
                           {phone.display}
@@ -211,16 +212,23 @@ const getOfficeHoursEntries = (office: any) => {
 
                 {officeHours.length > 0 && (
                   <div class="fo-hours">
-                    <i class="icon-clock" aria-hidden="true" />
-                    <div class="hours">
-                      <p>
+                    <Icon name="clock" size="none" class="fo-icon" aria-hidden="true" />
+                    <div class="office-hours office-hours--left">
+                      <div class="office-hours-list">
                         {officeHours.map((hoursItem: any) => (
-                          <span>
-                            <label>{hoursItem.day || ""}</label>
-                            {hoursItem.hours || ""}
-                          </span>
+                          <div class="office-hours-row">
+                            <div class="office-hours-line">
+                              {hoursItem.day && (
+                                <span class="office-hours-day">{hoursItem.day}</span>
+                              )}
+                              <span class="office-hours-time">{hoursItem.hours}</span>
+                            </div>
+                            {hoursItem.note && (
+                              <small class="office-hours-note">{hoursItem.note}</small>
+                            )}
+                          </div>
                         ))}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -283,8 +291,8 @@ const getOfficeHoursEntries = (office: any) => {
 <style lang="pcss" is:global>
   @layer page-sections {
     .landing-footer.landing-footer-overlapping-map {
-      background-color: var(--color-bg-brand-secondary);
-      background-image:
+      background-color: #fff;
+      /* background-image:
         var(
           --landing-footer-bg-gradient,
           linear-gradient(
@@ -293,7 +301,7 @@ const getOfficeHoursEntries = (office: any) => {
             var(--color-bg-brand-secondary) 100%
           )
         ),
-        var(--landing-footer-bg-image, none);
+        var(--landing-footer-bg-image, none); */
       background-position: center;
       background-size: cover;
       color: #fff;
@@ -332,6 +340,9 @@ const getOfficeHoursEntries = (office: any) => {
         color: #fff;
       }
 
+      .fo-title{font-size: 80px; font-weight: 700; line-height: 1.1; text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.9)}
+      
+
       .landing-footer-office + .landing-footer-office {
         margin-top: var(--spacing-md);
       }
@@ -340,8 +351,9 @@ const getOfficeHoursEntries = (office: any) => {
       .phy,
       .fo-hours {
         display: flex;
+        align-items: flex-start;
 
-        i {
+        .fo-icon {
           color: #8bd3eb;
           display: inline-block;
           flex: 0 0 40px;
@@ -357,6 +369,16 @@ const getOfficeHoursEntries = (office: any) => {
         }
       }
 
+      .fo-hours .office-hours {
+        --office-hours-color: #fff;
+        --office-hours-day-color: #fff;
+        --office-hours-note-color: color-mix(in srgb, #fff 80%, transparent);
+        --office-hours-day-width: 140px;
+        flex: 0 1 350px;
+        margin: 0;
+        max-width: 350px;
+      }
+
       .pho {
         font-size: clamp(2rem, 3vw, 2.375rem);
         font-weight: 700;
@@ -369,30 +391,6 @@ const getOfficeHoursEntries = (office: any) => {
         font-weight: 400;
         line-height: 1.25;
         margin: 20px auto;
-      }
-
-      .hours {
-        flex: 0 1 350px;
-        margin: 0;
-
-        p {
-          margin: 0;
-        }
-
-        span {
-          align-items: center;
-          display: flex;
-          gap: var(--spacing-xs);
-          justify-content: space-between;
-        }
-
-        label {
-          font-size: clamp(0.95rem, 1.5vw, 1.25rem);
-          letter-spacing: 0.2em;
-          min-width: 140px;
-          text-align: left;
-          text-transform: uppercase;
-        }
       }
 
       .landing-footer-map-embed {

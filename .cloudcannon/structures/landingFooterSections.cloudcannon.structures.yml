@@ -5,3 +5,4 @@ landingFooterSections:
     - /src/components/navigation/landing/landing-footer.cloudcannon.structure-value.yml
     - /src/components/navigation/landing/landing-footer-logo-top.cloudcannon.structure-value.yml
     - /src/components/navigation/landing/landing-footer-overlapping-map.cloudcannon.structure-value.yml
+    - /src/components/navigation/landing/landing-footer-tmj.cloudcannon.structure-value.yml

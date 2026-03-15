@@ -57,6 +57,61 @@ landingFooter:
   _inputs_from_glob:
     - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
 
+landingFooterTMJ:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - Landing Footer TMJ
+    icon: page_footer
+  definitions:
+    component_name: LandingFooterTMJ
+    named_args:
+      - editor_key: logoSource
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: logoAlt
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: siteName
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: contactTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: offices
+        type: array
+        optional: true
+      - editor_key: legalLinks
+        type: array
+        optional: true
+      - editor_key: backgroundImage
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: backgroundGradient
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: getStartedTitle
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: getStartedText
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: legalBlurb
+        type: string
+        optional: true
+        remove_empty: true
+  _inputs_from_glob:
+    - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+
 landingFooterLogoTop:
   template: mdx_component
   inline: false

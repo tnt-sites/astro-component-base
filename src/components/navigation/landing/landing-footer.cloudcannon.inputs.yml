@@ -8,8 +8,21 @@ siteName:
   type: text
   comment: "Business or site name used in legal copy."
 contactTitle:
-  type: text
-  comment: "Heading for the contact area."
+  type: markdown
+  comment: "Heading for the contact area. Supports inline span wrappers/classes for highlighted words."
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: false
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 pageButtons:
   type: array
   comment: "Optional CTA buttons shown near the logo."
@@ -39,3 +52,9 @@ legalBlurb:
 cardBackgroundColor:
   type: color
   comment: "Optional card background color for footer variants that use a .fo-info card."
+getStartedTitle:
+  type: text
+  comment: "Heading for the 'How to Get Started' column (Landing Footer TMJ)."
+getStartedText:
+  type: textarea
+  comment: "Body text for the 'How to Get Started' column (Landing Footer TMJ)."
