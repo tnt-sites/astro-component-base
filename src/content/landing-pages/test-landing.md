@@ -24,57 +24,24 @@ landingMainNav:
         textColor: default
         uppercase: false
 landingFooter:
-  - _component: navigation/landing/landing-footer
+  - _component: navigation/landing/landing-footer-tmj
     logoSource: /images/logo.svg
     logoAlt: Logo
     siteName: Dental Studio
-    contactTitle: Contact Us
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        text: Request an Appointment
-        hideText: false
-        link: /request-an-appointment/
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-    socials:
-      - label: Facebook
-        icon: social/facebook
-        link: https://facebook.com
-      - label: Instagram
-        icon: social/instagram
-        link: https://instagram.com
+    contactTitle: Office Hours
     legalLinks:
       - name: Sitemap
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ''
     backgroundImage: ''
     backgroundGradient: ''
-    legalBlurb: >-
-      Our New Patient Offer is a great way to become familiar with Our Practice.
-      New patients only. Requires payment at first visit. Includes all necessary
-      x-rays only. May not be used more than once and cannot be combined with
-      other offers for discounted fees. No cash value. New Patient offer
-      available for patients without dental insurance. Patients with dental
-      insurance give us a call for details. Not valid if gum disease is present.
-      Restrictions apply. One per lifetime.
-    offices:
-      - name: ''
-        addresses:
-          - lines:
-              - 123 Main Street
-              - Suite 200
-            city: Dunedin
-            state: FL
-            postalCode: '34698'
-            country: USA
-            mapUrl: https://maps.google.com
-        phones:
-          - display: (123) 456-7890
-            href: tel:+11234567890
+    getStartedTitle: How to Get Started
+    getStartedText: >-
+      Thank you for taking the time to consider us. We look forward to having
+      the opportunity to speak with you and to meet in person. Please feel free
+      to give us a call or complete the form on this page, and we promise to get
+      back to you as soon as possible.
+    legalBlurb: ''
 landingPageSections: []
 ---
