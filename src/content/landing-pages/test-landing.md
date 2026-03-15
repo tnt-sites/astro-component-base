@@ -58,7 +58,10 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    backgroundImage: /public/images/component-library/video-placeholder.jpg
+    backgroundImage:
+      source: /src/assets/images/component-library/dunedin-cliff.jpg
+      positionVertical: top
+      positionHorizontal: center
     backgroundGradient: ''
     legalBlurb: ''
 landingPageSections: []
