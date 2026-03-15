@@ -52,7 +52,7 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    backgroundImage: ''
+    backgroundImage: /public/images/component-library/video-placeholder.jpg
     backgroundGradient: ''
     legalBlurb: ''
 landingPageSections: []
