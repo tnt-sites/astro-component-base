@@ -47,7 +47,7 @@ landingFooter:
     formSubject: Landing Footer Form
     formRedirect: thanks.html
     formSubmitLabel: Submit
-    footerLinksBackgroundColor: '#6480ec'
+    footerLinksBackgroundColor: accent
     footerLinksHoverBackgroundColor: '#000000'
     mapEmbedUrl: ''
     contactCardBackgroundColor: '#ed9f9f'
