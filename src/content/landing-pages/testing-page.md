@@ -9,7 +9,10 @@ landingMainNav:
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ''
-        text: Request br an Appointment
+        text: |-
+          Request
+
+          an Appointment
         hideText: false
         link: ''
         modalTarget: ''
