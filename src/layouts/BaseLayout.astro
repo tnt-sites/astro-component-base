@@ -12,12 +12,42 @@ export interface Props {
   image?: string | null;
   canonical?: string | null;
   contentSections?: any;
+  siteInfo?: any;
+  headScripts?: string[];
+  head_scripts?: string[];
+  footerScripts?: string[];
+  footer_scripts?: string[];
 }
 
 const props = Astro.props;
 const formattedTitle = seoData.titleFormat.replace("{title}", props.title);
 const pageDescription = props.description || seoData.description;
 const pageImage = props.image || seoData.logoSource;
+
+const getScriptArray = (value: unknown): string[] =>
+  Array.isArray(value)
+    ? value.filter((script): script is string => typeof script === "string" && script.trim().length > 0)
+    : [];
+
+const uniqueScripts = (scripts: string[]) => Array.from(new Set(scripts));
+
+const headScripts = uniqueScripts([
+  ...getScriptArray(props.headScripts),
+  ...getScriptArray(props.head_scripts),
+  ...getScriptArray(props.contentSections?.headScripts),
+  ...getScriptArray(props.contentSections?.head_scripts),
+  ...getScriptArray(props.siteInfo?.headScripts),
+  ...getScriptArray(props.siteInfo?.head_scripts),
+]);
+
+const footerScripts = uniqueScripts([
+  ...getScriptArray(props.footerScripts),
+  ...getScriptArray(props.footer_scripts),
+  ...getScriptArray(props.contentSections?.footerScripts),
+  ...getScriptArray(props.contentSections?.footer_scripts),
+  ...getScriptArray(props.siteInfo?.footerScripts),
+  ...getScriptArray(props.siteInfo?.footer_scripts),
+]);
 ---
 
 <!doctype html>
@@ -70,6 +100,7 @@ const pageImage = props.image || seoData.logoSource;
       rel="stylesheet"
     />
     <slot name="head" />
+    {headScripts.map((script: string) => <script is:inline>{script}</script>)}
   </head>
   <body>
     <main>
@@ -79,5 +110,6 @@ const pageImage = props.image || seoData.logoSource;
       import "@choctawnationofoklahoma/lite-vimeo";
       import "@justinribeiro/lite-youtube";
     </script>
+    {footerScripts.map((script: string) => <script is:inline>{script}</script>)}
   </body>
 </html>

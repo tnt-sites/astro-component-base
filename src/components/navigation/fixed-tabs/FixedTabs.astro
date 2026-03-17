@@ -6,9 +6,11 @@ type FixedTab = {
   itemClass?: string;
   href?: string;
   icon?: string;
-  textMObile?: string;
+  textMobile?: string;
   textStrong?: string;
   textAfter?: string;
+  modalTarget?: string;
+  newTab?: boolean | string;
   target?: string;
   rel?: string;
 };
@@ -45,19 +47,41 @@ if (!_component && visibleTabs.length === 0) {
 <ul id={id} class:list={["fixed-tabs", className]} {...htmlAttributes}>
   {
     visibleTabs.map((tab) => {
-      const target = tab.target?.trim() || undefined;
+      const normalizedModalTarget =
+        typeof tab.modalTarget === "string" ? tab.modalTarget.trim().replace(/^#/, "") : "";
+      const openInNewTab =
+        typeof tab.newTab === "string"
+          ? tab.newTab.trim().toLowerCase() === "true"
+          : !!tab.newTab;
+      const target = tab.target?.trim() || (openInNewTab ? "_blank" : undefined);
       const rel = tab.rel?.trim() || (target === "_blank" ? "noopener noreferrer" : undefined);
+      const tabContent = (
+        <>
+          <span>{tab.icon && <Icon name={tab.icon} size="none" />}</span>
+          <span>
+            {tab.textMobile}
+            {tab.textStrong && <strong>{tab.textStrong}</strong>}
+            {tab.textAfter}
+          </span>
+        </>
+      );
 
       return (
         <li class={tab.itemClass}>
-          <a href={tab.href || "#"} target={target} rel={rel}>
-            <span>{tab.icon && <Icon name={tab.icon} size="none" />}</span>
-            <span>
-              {tab.textMobile}
-              {tab.textStrong && <strong>{tab.textStrong}</strong>}
-              {tab.textAfter}
-            </span>
-          </a>
+          {normalizedModalTarget ? (
+            <button
+              type="button"
+              data-modal-target={normalizedModalTarget}
+              aria-haspopup="dialog"
+              aria-controls={normalizedModalTarget}
+            >
+              {tabContent}
+            </button>
+          ) : (
+            <a href={tab.href || "#"} target={target} rel={rel}>
+              {tabContent}
+            </a>
+          )}
         </li>
       );
     })
@@ -80,7 +104,8 @@ if (!_component && visibleTabs.length === 0) {
       flex: 1;
     }
 
-    a {
+    a,
+    button {
       display: block;
       font-size: 14px;
       font-weight: 700;
@@ -88,6 +113,12 @@ if (!_component && visibleTabs.length === 0) {
       position: relative;
       overflow: hidden;
       text-decoration: none;
+      width: 100%;
+      border: none;
+      background: transparent;
+      font: inherit;
+      cursor: pointer;
+      margin: 0;
 
       &:focus-visible {
         box-shadow: 0 0 0 2px var(--color-focus-ring) inset;
@@ -171,7 +202,8 @@ if (!_component && visibleTabs.length === 0) {
       width: 100%;
       display: flex;
 
-      a {
+      a,
+      button {
         padding: 12px 0;
         flex: 1;
 

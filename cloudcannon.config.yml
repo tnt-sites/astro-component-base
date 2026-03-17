@@ -284,7 +284,7 @@ collection_groups:
   - heading: Data
     collections:
       - data
-  - heading: New Collections
+  - heading: Landing Pages
     collections:
       - landing_pages
 file_config:
@@ -299,20 +299,23 @@ file_config:
         comment: Select an icon for the tab.
         options:
           values: _select_data.icons
+          preview:
+            text:
+              - key: name
+            image:
+              - template: src/icons/{id}.svg
         cascade: true
       $.tabs[*].href:
         type: text
         comment: URL the tab links to.
         cascade: true
+      $.tabs[*].modalTarget:
+        type: text
+        comment: Modal ID to open for this tab (without #). When set, this overrides href.
+        cascade: true
       $.tabs[*].newTab:
         type: switch
         comment: Open this link in a new tab.
-        cascade: true
-      $.tabs[*].icon:
-        type: select
-        comment: Select an icon for the tab.
-        options:
-          values: _select_data.icons
         cascade: true
       $.tabs[*].textMobile:
         type: text
@@ -383,6 +386,22 @@ file_config:
       $.offices[*].officeHours[*].note:
         type: text
         comment: Optional note shown with each office hour entry.
+        cascade: true
+      $.head_scripts:
+        type: array
+        comment: Scripts injected into the head. Add multiple entries as needed.
+        cascade: true
+      $.head_scripts[*]:
+        type: textarea
+        comment: A single script tag or script snippet for the head.
+        cascade: true
+      $.footer_scripts:
+        type: array
+        comment: Scripts injected before the closing body tag. Add multiple entries as needed.
+        cascade: true
+      $.footer_scripts[*]:
+        type: textarea
+        comment: A single script tag or script snippet for the footer.
         cascade: true
 _inputs:
   pageSections:
