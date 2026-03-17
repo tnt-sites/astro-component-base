@@ -307,11 +307,11 @@ file_config:
         cascade: true
       $.tabs[*].href:
         type: text
-        comment: URL the tab links to.
+        comment: URL the tab links to (use "#modal-id" to open a modal).
         cascade: true
-      $.tabs[*].modalTarget:
-        type: text
-        comment: Modal ID to open for this tab (without #). When set, this overrides href.
+      $.tabs[*].modal:
+        type: switch
+        comment: Open this tab as a modal (Used to open modals to show multiple offices, etc).
         cascade: true
       $.tabs[*].newTab:
         type: switch
@@ -386,6 +386,32 @@ file_config:
       $.offices[*].officeHours[*].note:
         type: text
         comment: Optional note shown with each office hour entry.
+        cascade: true
+      $.modals:
+        type: array
+        comment: Global modals rendered on every page (use IDs from fixed tab links).
+        cascade: true
+      $.modals[*].id:
+        type: text
+        comment: Unique modal ID (without #).
+        cascade: true
+      $.modals[*].closeLabel:
+        type: text
+        comment: Accessible label for the close button.
+        cascade: true
+      $.modals[*].showCloseButton:
+        type: switch
+        comment: Toggle close button visibility.
+        cascade: true
+      $.modals[*].class:
+        type: text
+        comment: Optional custom class name for modal styling.
+        cascade: true
+      $.modals[*].contentSections:
+        type: array
+        comment: Content blocks rendered inside the modal body.
+        options:
+          structures: _structures.cardSections
         cascade: true
       $.head_scripts:
         type: array

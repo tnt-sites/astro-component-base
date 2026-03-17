@@ -9,6 +9,7 @@ type FixedTab = {
   textMobile?: string;
   textStrong?: string;
   textAfter?: string;
+  modal?: boolean | string;
   modalTarget?: string;
   newTab?: boolean | string;
   target?: string;
@@ -47,13 +48,21 @@ if (!_component && visibleTabs.length === 0) {
 <ul id={id} class:list={["fixed-tabs", className]} {...htmlAttributes}>
   {
     visibleTabs.map((tab) => {
+      const isModal =
+        typeof tab.modal === "string" ? tab.modal.trim().toLowerCase() === "true" : !!tab.modal;
+      const normalizedHref = typeof tab.href === "string" ? tab.href.trim() : "";
       const normalizedModalTarget =
-        typeof tab.modalTarget === "string" ? tab.modalTarget.trim().replace(/^#/, "") : "";
+        typeof tab.modalTarget === "string" && tab.modalTarget.trim().length > 0
+          ? tab.modalTarget.trim().replace(/^#/, "")
+          : normalizedHref.replace(/^#/, "");
+      const isModalLink = isModal && normalizedModalTarget.length > 0;
       const openInNewTab =
         typeof tab.newTab === "string"
           ? tab.newTab.trim().toLowerCase() === "true"
           : !!tab.newTab;
-      const target = tab.target?.trim() || (openInNewTab ? "_blank" : undefined);
+      const target = isModalLink
+        ? undefined
+        : tab.target?.trim() || (openInNewTab ? "_blank" : undefined);
       const rel = tab.rel?.trim() || (target === "_blank" ? "noopener noreferrer" : undefined);
       const tabContent = (
         <>
@@ -68,20 +77,17 @@ if (!_component && visibleTabs.length === 0) {
 
       return (
         <li class={tab.itemClass}>
-          {normalizedModalTarget ? (
-            <button
-              type="button"
-              data-modal-target={normalizedModalTarget}
-              aria-haspopup="dialog"
-              aria-controls={normalizedModalTarget}
-            >
-              {tabContent}
-            </button>
-          ) : (
-            <a href={tab.href || "#"} target={target} rel={rel}>
-              {tabContent}
-            </a>
-          )}
+          <a
+            href={normalizedHref || "#"}
+            target={target}
+            rel={rel}
+            class:list={[isModalLink && "modal-trigger"]}
+            data-modal-target={isModalLink ? normalizedModalTarget : undefined}
+            aria-haspopup={isModalLink ? "dialog" : undefined}
+            aria-controls={isModalLink ? normalizedModalTarget : undefined}
+          >
+            {tabContent}
+          </a>
         </li>
       );
     })
@@ -104,8 +110,7 @@ if (!_component && visibleTabs.length === 0) {
       flex: 1;
     }
 
-    a,
-    button {
+    a {
       display: block;
       font-size: 14px;
       font-weight: 700;
@@ -114,12 +119,6 @@ if (!_component && visibleTabs.length === 0) {
       overflow: hidden;
       text-decoration: none;
       width: 100%;
-      border: none;
-      background: transparent;
-      font: inherit;
-      cursor: pointer;
-      margin: 0;
-
       &:focus-visible {
         box-shadow: 0 0 0 2px var(--color-focus-ring) inset;
         outline: none;
@@ -202,8 +201,7 @@ if (!_component && visibleTabs.length === 0) {
       width: 100%;
       display: flex;
 
-      a,
-      button {
+      a {
         padding: 12px 0;
         flex: 1;
 

@@ -1,6 +1,7 @@
 ---
 import StructuredData from "@components/utils/StructuredData.astro";
 import seoData from "@data/seo.json";
+import Modal from "@page-sections/info-blocks/modal/Modal.astro";
 import "@styles/global.css";
 import "@styles/style.pcss";
 import { SEO } from "astro-seo";
@@ -13,6 +14,9 @@ export interface Props {
   canonical?: string | null;
   contentSections?: any;
   siteInfo?: any;
+  modals?: any[];
+  globalModals?: any[];
+  global_modals?: any[];
   headScripts?: string[];
   head_scripts?: string[];
   footerScripts?: string[];
@@ -30,6 +34,10 @@ const getScriptArray = (value: unknown): string[] =>
     : [];
 
 const uniqueScripts = (scripts: string[]) => Array.from(new Set(scripts));
+const getModalArray = (value: unknown): Record<string, any>[] =>
+  Array.isArray(value)
+    ? value.filter((item): item is Record<string, any> => !!item && typeof item === "object")
+    : [];
 
 const headScripts = uniqueScripts([
   ...getScriptArray(props.headScripts),
@@ -48,6 +56,15 @@ const footerScripts = uniqueScripts([
   ...getScriptArray(props.siteInfo?.footerScripts),
   ...getScriptArray(props.siteInfo?.footer_scripts),
 ]);
+
+const globalModals = [
+  ...getModalArray(props.modals),
+  ...getModalArray(props.globalModals),
+  ...getModalArray(props.global_modals),
+  ...getModalArray(props.siteInfo?.modals),
+  ...getModalArray(props.siteInfo?.globalModals),
+  ...getModalArray(props.siteInfo?.global_modals),
+].filter((modal) => typeof modal.id === "string" && modal.id.trim().length > 0);
 ---
 
 <!doctype html>
@@ -106,6 +123,18 @@ const footerScripts = uniqueScripts([
     <main>
       <slot />
     </main>
+    {
+      globalModals.map((modal, index) => (
+        <Modal
+          id={modal.id.trim().replace(/^#/, "")}
+          closeLabel={modal.closeLabel}
+          showCloseButton={modal.showCloseButton}
+          class={modal.class}
+          contentSections={modal.contentSections}
+          propName={`siteInfo.modals.${index}.contentSections`}
+        />
+      ))
+    }
     <script>
       import "@choctawnationofoklahoma/lite-vimeo";
       import "@justinribeiro/lite-youtube";
