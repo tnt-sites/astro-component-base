@@ -328,27 +328,27 @@ file_config:
         cascade: true
   - glob: src/data/siteInfo.json
     _inputs:
-      $.offices[].name:
+      $.offices[*].name:
         type: text
         comment: Name of the office location (Leave blank if not applicable).
         cascade: true
-      $.offices[].addresses[*].lines:
+      $.offices[*].addresses[*].lines:
         type: array
         comment: Address lines for the office location.
         cascade: true
-      $.offices[].addresses[*].city:
+      $.offices[*].addresses[*].city:
         type: text
         comment: City for the office location.
         cascade: true
-      $.offices[].addresses[*].state:
+      $.offices[*].addresses[*].state:
         type: text
         comment: State for the office location.
         cascade: true
-      $.offices[].addresses[*].postalCode:
+      $.offices[*].addresses[*].postalCode:
         type: text
         comment: Postal code for the office location.
         cascade: true
-      $.offices[].addresses[*].country:
+      $.offices[*].addresses[*].country:
         type: text
         comment: Country for the office location.
         cascade: true
