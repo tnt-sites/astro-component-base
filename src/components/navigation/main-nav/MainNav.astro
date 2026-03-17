@@ -170,6 +170,18 @@ const formatAddressLines = (address: any) => {
                     </a>
                   ) : null;
                 })}
+
+              {buttons.length > 0 && (
+                <div class="page-buttons">
+                  <ButtonGroup
+                    direction="row"
+                    align="center"
+                    class="desktop-button-group"
+                    buttonSections={buttons}
+                    editable={false}
+                  />
+                </div>
+              )}
             </>
           ))
         }
@@ -189,20 +201,6 @@ const formatAddressLines = (address: any) => {
       </div>
       <!-- End Desktop Nav -->
     </div>
-
-    {
-      buttons.length > 0 && (
-        <div class="page-buttons">
-          <ButtonGroup
-            direction="row"
-            align="center"
-            class="desktop-button-group"
-            buttonSections={buttons}
-            editable={false}
-          />
-        </div>
-      )
-    }
   </div>
   <!-- Mobile Nav -->
   <Mobile
@@ -258,7 +256,7 @@ const formatAddressLines = (address: any) => {
 
       .desktop-main-nav.bar,
       .desktop-button-group.button-group {
-        @container (max-width: 768px) {
+        @media (max-width: 1024px) {
           display: none;
         }
       }
@@ -268,7 +266,7 @@ const formatAddressLines = (address: any) => {
       }
 
       .nav-hamburger.mobile-button {
-        @container (min-width: 769px) {
+        @media (min-width: 1025px) {
           display: none;
         }
       }
