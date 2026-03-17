@@ -390,28 +390,8 @@ file_config:
       $.modals:
         type: array
         comment: Global modals rendered on every page (use IDs from fixed tab links).
-        cascade: true
-      $.modals[*].id:
-        type: text
-        comment: Unique modal ID (without #).
-        cascade: true
-      $.modals[*].closeLabel:
-        type: text
-        comment: Accessible label for the close button.
-        cascade: true
-      $.modals[*].showCloseButton:
-        type: switch
-        comment: Toggle close button visibility.
-        cascade: true
-      $.modals[*].class:
-        type: text
-        comment: Optional custom class name for modal styling.
-        cascade: true
-      $.modals[*].contentSections:
-        type: array
-        comment: Content blocks rendered inside the modal body.
         options:
-          structures: _structures.cardSections
+          structures: _structures.siteModals
         cascade: true
       $.head_scripts:
         type: array

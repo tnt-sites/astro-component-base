@@ -1,0 +1,41 @@
+siteModals:
+  style: modal
+  values:
+    - label: Global Modal
+      icon: window
+      description: A modal rendered on every page and opened from fixed tabs or other modal links.
+      value:
+        id: ""
+        closeLabel: Close modal
+        showCloseButton: true
+        class: ""
+        contentSections: []
+      preview:
+        text:
+          - key: id
+          - Global Modal
+        subtext:
+          - key: closeLabel
+          - Close modal
+      picker_preview:
+        text: Global Modal
+        subtext: Rendered on every page.
+        icon: window
+      _inputs:
+        id:
+          type: text
+          comment: Unique modal ID used by links (without #).
+        closeLabel:
+          type: text
+          comment: Accessible label for the close button.
+        showCloseButton:
+          type: switch
+          comment: Toggle close button visibility.
+        class:
+          type: text
+          comment: Optional custom class for modal styling.
+        contentSections:
+          type: array
+          comment: Content blocks rendered inside the modal body.
+          options:
+            structures: _structures.cardSections
