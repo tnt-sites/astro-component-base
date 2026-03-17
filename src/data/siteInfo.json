@@ -19,13 +19,16 @@
   ],
   "offices": [
     {
-      "name": "",
+      "name": "Test Office",
       "addresses": [
         {
-          "lines": ["123 Main Street", "Suite 200"],
-          "city": "Dunedin",
-          "state": "FL",
-          "postalCode": "34698",
+          "lines": [
+            "123 Main Street",
+            "Suite 200"
+          ],
+          "city": "City",
+          "state": "ST",
+          "postalCode": "12345",
           "country": "USA",
           "mapUrl": "https://maps.google.com"
         }
