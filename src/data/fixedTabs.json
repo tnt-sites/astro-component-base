@@ -11,10 +11,10 @@
     {
       "itemClass": "call",
       "enabled": true,
-      "href": "tel:+12092163530",
+      "href": "#modal-contact",
       "icon": "phone",
-      "textMobile": "Call ",
-      "textStrong": "Us"
+      "textMobile": "Offices",
+      "textStrong": null
     },
     {
       "itemClass": "map",
