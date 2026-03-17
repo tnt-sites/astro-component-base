@@ -24,7 +24,7 @@ siteModals:
       _inputs:
         id:
           type: text
-          comment: Unique modal ID used by links (without #).
+          comment: Unique modal ID used by links (without \#).
         closeLabel:
           type: text
           comment: Accessible label for the close button.

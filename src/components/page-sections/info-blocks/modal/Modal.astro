@@ -154,15 +154,16 @@ const htmlAttributes = Object.fromEntries(
       const target = event.target;
       if (!(target instanceof Element)) return;
 
-      const openTrigger = target.closest("[data-modal-target], a[class*='modal'][href^='#']");
+      const openTrigger = target.closest(
+        "[data-modal-target], a[class*='modal'][href^='#'], a[href^='#']"
+      );
       if (openTrigger instanceof HTMLElement) {
-        event.preventDefault();
-
         const modalTarget =
           openTrigger.getAttribute("data-modal-target") || openTrigger.getAttribute("href");
         const dialog = getTargetModal(modalTarget);
         if (!dialog) return;
 
+        event.preventDefault();
         openDialog(dialog);
         return;
       }

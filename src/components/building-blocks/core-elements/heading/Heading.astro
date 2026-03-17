@@ -27,6 +27,14 @@ const textDataAttributes =
 
 const md = MarkdownIt({ html: true });
 
+const decodeHtmlEntities = (value: string) =>
+  value
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&amp;/g, "&");
+
 const normalizedText =
   typeof text === "string"
     ? text
@@ -35,16 +43,24 @@ const normalizedText =
         .replace(/<\/p>\s*$/i, "")
     : text;
 
-let MarkdownText = normalizedText ? md.renderInline(normalizedText) : "";
+const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : "";
+const normalizedSlotContent =
+  typeof slotContent === "string" ? decodeHtmlEntities(slotContent.trim()) : "";
+const renderSource =
+  typeof normalizedSlotContent === "string" && normalizedSlotContent.length > 0
+    ? normalizedSlotContent
+    : typeof normalizedText === "string"
+      ? normalizedText
+      : "";
+
+let MarkdownText = renderSource ? md.renderInline(renderSource) : "";
 
 MarkdownText = MarkdownText.replace(/\n/g, "<br />");
 const Tag = level;
 
-const hasText = typeof normalizedText === "string" ? normalizedText.trim().length > 0 : false;
-const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
-const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
+const hasRenderableContent = renderSource.trim().length > 0;
 
-if (!_component && !hasText && !hasSlotContent) return;
+if (!_component && !hasRenderableContent) return;
 ---
 
 <Tag
@@ -63,9 +79,7 @@ if (!_component && !hasText && !hasSlotContent) return;
     )
   }
   <span class="heading-text" {...textDataAttributes}>
-    <slot>
-      {normalizedText && <Fragment set:html={MarkdownText} />}
-    </slot>
+    {MarkdownText && <Fragment set:html={MarkdownText} />}
   </span>
   {
     iconPosition === "after" && (
