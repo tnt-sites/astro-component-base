@@ -22,7 +22,10 @@
       "name": "Test Office",
       "addresses": [
         {
-          "lines": ["123 Main Street", "Suite 200"],
+          "lines": [
+            "123 Main Street",
+            "Suite 200"
+          ],
           "city": "City",
           "state": "ST",
           "postalCode": "12345",
@@ -73,7 +76,32 @@
       "officeHoursNote": ""
     }
   ],
-  "modals": [],
+  "modals": [
+    {
+      "id": "modal-contact",
+      "closeLabel": "Close modal",
+      "showCloseButton": true,
+      "class": "text-center",
+      "contentSections": [
+        {
+          "_component": "building-blocks/core-elements/heading",
+          "id": "",
+          "text": "Contact Us",
+          "level": "h6",
+          "size": "default",
+          "alignX": "center",
+          "iconName": null,
+          "iconPosition": "before"
+        },
+        {
+          "_component": "building-blocks/core-elements/text",
+          "id": "",
+          "text": "Call Us: [(123) 456-7890](tel:+11234567890 \"Phone\")",
+          "alignX": "center"
+        }
+      ]
+    }
+  ],
   "head_scripts": [],
   "footer_scripts": []
 }
