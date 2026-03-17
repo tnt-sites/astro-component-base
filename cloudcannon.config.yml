@@ -127,10 +127,6 @@ collections_config:
         options:
           structures: _structures.buttonSections
         cascade: true
-      $.offices[*].officeHours[*].note:
-        type: text
-        comment: Optional note shown with each office hour entry.
-        cascade: true
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -294,9 +290,99 @@ collection_groups:
 file_config:
   - glob: src/data/fixedTabs.json
     _inputs:
+      $.tabs[*].title:
+        type: text
+        comment: Title of the tab.
+        cascade: true
+      $.tabs[*].icon:
+        type: select
+        comment: Select an icon for the tab.
+        options:
+          values: _select_data.icons
+        cascade: true
+      $.tabs[*].href:
+        type: text
+        comment: URL the tab links to.
+        cascade: true
+      $.tabs[*].newTab:
+        type: switch
+        comment: Open this link in a new tab.
+        cascade: true
+      $.tabs[*].icon:
+        type: select
+        comment: Select an icon for the tab.
+        options:
+          values: _select_data.icons
+        cascade: true
+      $.tabs[*].textMobile:
+        type: text
+        comment: Text to display on mobile devices.
+        cascade: true
+      $.tabs[*].textStrong:
+        type: text
+        comment: Strong text for the tab (displayed on side tabs and larger screens).
+        cascade: true
       $.tabs[*].enabled:
         type: switch
         comment: Toggle this tab on or off.
+        cascade: true
+  - glob: src/data/siteInfo.json
+    _inputs:
+      $.offices[].name:
+        type: text
+        comment: Name of the office location (Leave blank if not applicable).
+        cascade: true
+      $.offices[].addresses[*].lines:
+        type: array
+        comment: Address lines for the office location.
+        cascade: true
+      $.offices[].addresses[*].city:
+        type: text
+        comment: City for the office location.
+        cascade: true
+      $.offices[].addresses[*].state:
+        type: text
+        comment: State for the office location.
+        cascade: true
+      $.offices[].addresses[*].postalCode:
+        type: text
+        comment: Postal code for the office location.
+        cascade: true
+      $.offices[].addresses[*].country:
+        type: text
+        comment: Country for the office location.
+        cascade: true
+      $.offices[*].phones[*].type:
+        type: select
+        comment: Select the phone number type.
+        options:
+          values:
+            - id: phone
+              name: Phone
+            - id: fax
+              name: Fax
+            - id: mobile
+              name: Mobile
+        cascade: true
+      $.offices[*].phones[*].display:
+        type: textarea
+        comment: Display number format.
+        cascade: true
+      $.offices[*].phones[*].href:
+        type: text
+        comment: Link format for the phone number.
+        cascade: true
+      $.offices[*].officeHours[*].day:
+        type: text
+        comment: Day of the week for the office hours.
+        cascade: true
+      $.offices[*].officeHours[*].hours:
+        type: text
+        comment: Operating hours for the specified day.
+        cascade: true
+      $.offices[*].officeHours[*].note:
+        type: text
+        comment: Optional note shown with each office hour entry.
         cascade: true
 _inputs:
   pageSections:

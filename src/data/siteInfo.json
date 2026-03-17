@@ -22,10 +22,7 @@
       "name": "Test Office",
       "addresses": [
         {
-          "lines": [
-            "123 Main Street",
-            "Suite 200"
-          ],
+          "lines": ["123 Main Street", "Suite 200"],
           "city": "City",
           "state": "ST",
           "postalCode": "12345",
@@ -35,6 +32,7 @@
       ],
       "phones": [
         {
+          "type": "phone",
           "display": "(123) 456-7890",
           "href": "tel:+11234567890"
         }

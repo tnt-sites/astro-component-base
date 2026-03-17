@@ -8,12 +8,12 @@ value:
     - itemClass: ra
       href: request-an-appointment.html
       icon: calendar-days
-      textBefore: Request
+      textMobile: Request
       textStrong: " an Appointment"
     - itemClass: call
       href: tel:+1
       icon: phone
-      textBefore: "Call "
+      textMobile: "Call "
       textStrong: Us
     - itemClass: map
       href: https://maps.app.goo.gl/
@@ -24,7 +24,7 @@ value:
     - itemClass: fr
       href: for-patients.html#forms
       icon: document-arrow-down
-      textBefore: "Download "
+      textMobile: "Download "
       textStrong: "Forms "
     - itemClass: fb
       href: https://www.facebook.com/
@@ -36,43 +36,43 @@ value:
       href: https://maps.app.goo.gl/
       target: _blank
       icon: social/google
-      textBefore: Read
+      textMobile: Read
       textStrong: " Reviews "
     # - itemClass: ig
     #   href: https://www.instagram.com/
     #   target: _blank
     #   icon: social/instagram
-    #   textBefore: "Follow "
+    #   textMobile: "Follow "
     #   textStrong: Instagram
     # - itemClass: tw
     #   href: https://x.com/
     #   target: _blank
     #   icon: social/x
-    #   textBefore: "Follow "
+    #   textMobile: "Follow "
     #   textStrong: Twitter
     # - itemClass: tt
     #   href: https://www.tiktok.com/
     #   target: _blank
     #   icon: social/tiktok
-    #   textBefore: "Follow "
+    #   textMobile: "Follow "
     #   textStrong: TikTok
     # - itemClass: yp
     #   href: https://www.yelp.com/
     #   target: _blank
     #   icon: social/yelp
-    #   textBefore: "Read "
+    #   textMobile: "Read "
     #   textStrong: Yelp Reviews
     # - itemClass: bs
     #   href: https://bsky.app/
     #   target: _blank
     #   icon: social/bluesky
-    #   textBefore: "Follow "
+    #   textMobile: "Follow "
     #   textStrong: Bluesky
     # - itemClass: yt
     #   href: https://www.youtube.com/
     #   target: _blank
     #   icon: social/youtube
-    #   textBefore: "Watch "
+    #   textMobile: "Watch "
     #   textStrong: YouTube
 _inputs_from_glob:
   - /src/components/navigation/fixed-tabs/fixed-tabs.cloudcannon.inputs.yml

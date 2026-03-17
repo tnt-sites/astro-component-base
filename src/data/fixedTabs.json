@@ -5,7 +5,7 @@
       "enabled": true,
       "href": "request-an-appointment.html",
       "icon": "calendar-days",
-      "textBefore": "Request",
+      "textMobile": "Request",
       "textStrong": " an Appointment"
     },
     {
@@ -13,7 +13,7 @@
       "enabled": true,
       "href": "tel:+12092163530",
       "icon": "phone",
-      "textBefore": "Call ",
+      "textMobile": "Call ",
       "textStrong": "Us"
     },
     {
@@ -30,7 +30,7 @@
       "enabled": true,
       "href": "for-patients.html#forms",
       "icon": "document-arrow-down",
-      "textBefore": "Download ",
+      "textMobile": "Download ",
       "textStrong": "Forms "
     },
     {
@@ -48,7 +48,7 @@
       "href": "https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A",
       "target": "_blank",
       "icon": "social/google",
-      "textBefore": "Read",
+      "textMobile": "Read",
       "textStrong": " Reviews "
     },
     {
@@ -57,7 +57,7 @@
       "href": "https://www.instagram.com/",
       "target": "_blank",
       "icon": "social/instagram",
-      "textBefore": "Follow ",
+      "textMobile": "Follow ",
       "textStrong": "Instagram"
     },
     {
@@ -66,7 +66,7 @@
       "href": "https://x.com/",
       "target": "_blank",
       "icon": "social/x",
-      "textBefore": "Follow ",
+      "textMobile": "Follow ",
       "textStrong": "Twitter"
     },
     {
@@ -75,7 +75,7 @@
       "href": "https://www.tiktok.com/",
       "target": "_blank",
       "icon": "social/tiktok",
-      "textBefore": "Follow ",
+      "textMobile": "Follow ",
       "textStrong": "TikTok"
     },
     {
@@ -84,7 +84,7 @@
       "href": "https://www.yelp.com/",
       "target": "_blank",
       "icon": "social/yelp",
-      "textBefore": "Read ",
+      "textMobile": "Read ",
       "textStrong": "Yelp Reviews"
     },
     {
@@ -93,7 +93,7 @@
       "href": "https://bsky.app/",
       "target": "_blank",
       "icon": "social/bluesky",
-      "textBefore": "Follow ",
+      "textMobile": "Follow ",
       "textStrong": "Bluesky"
     },
     {
@@ -102,7 +102,7 @@
       "href": "https://www.youtube.com/",
       "target": "_blank",
       "icon": "social/youtube",
-      "textBefore": "Watch ",
+      "textMobile": "Watch ",
       "textStrong": "YouTube"
     }
   ]

@@ -6,7 +6,7 @@ type FixedTab = {
   itemClass?: string;
   href?: string;
   icon?: string;
-  textBefore?: string;
+  textMObile?: string;
   textStrong?: string;
   textAfter?: string;
   target?: string;
@@ -53,7 +53,7 @@ if (!_component && visibleTabs.length === 0) {
           <a href={tab.href || "#"} target={target} rel={rel}>
             <span>{tab.icon && <Icon name={tab.icon} size="none" />}</span>
             <span>
-              {tab.textBefore}
+              {tab.textMobile}
               {tab.textStrong && <strong>{tab.textStrong}</strong>}
               {tab.textAfter}
             </span>
