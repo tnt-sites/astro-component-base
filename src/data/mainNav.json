@@ -56,7 +56,12 @@
       "iconPosition": "before",
       "variant": "ghost",
       "size": "lg",
-      "width": "xs"
+      "width": "none",
+      "borderRadius": "default",
+      "borderWidth": "default",
+      "borderColor": "default",
+      "textColor": "default",
+      "uppercase": false
     }
   ],
   "pageButtons": [
@@ -71,7 +76,12 @@
       "iconPosition": "before",
       "variant": "primary",
       "size": "md",
-      "width": "md"
+      "width": "md",
+      "borderRadius": "default",
+      "borderWidth": "default",
+      "borderColor": "default",
+      "textColor": "default",
+      "uppercase": false
     }
   ]
 }
