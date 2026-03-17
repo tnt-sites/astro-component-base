@@ -127,6 +127,10 @@ collections_config:
         options:
           structures: _structures.buttonSections
         cascade: true
+      $.offices[*].officeHours[*].note:
+        type: text
+        comment: Optional note shown with each office hour entry.
+        cascade: true
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -287,6 +291,13 @@ collection_groups:
   - heading: New Collections
     collections:
       - landing_pages
+file_config:
+  - glob: src/data/fixedTabs.json
+    _inputs:
+      $.tabs[*].enabled:
+        type: switch
+        comment: Toggle this tab on or off.
+        cascade: true
 _inputs:
   pageSections:
     comment: The main sections of the page.

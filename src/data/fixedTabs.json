@@ -2,6 +2,7 @@
   "tabs": [
     {
       "itemClass": "ra",
+      "enabled": true,
       "href": "request-an-appointment.html",
       "icon": "calendar-days",
       "textBefore": "Request",
@@ -9,6 +10,7 @@
     },
     {
       "itemClass": "call",
+      "enabled": true,
       "href": "tel:+12092163530",
       "icon": "phone",
       "textBefore": "Call ",
@@ -16,6 +18,7 @@
     },
     {
       "itemClass": "map",
+      "enabled": true,
       "href": "https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A",
       "target": "_blank",
       "icon": "map-pin",
@@ -24,6 +27,7 @@
     },
     {
       "itemClass": "fr",
+      "enabled": true,
       "href": "for-patients.html#forms",
       "icon": "document-arrow-down",
       "textBefore": "Download ",
@@ -31,6 +35,7 @@
     },
     {
       "itemClass": "fb",
+      "enabled": true,
       "href": "https://www.facebook.com/Ishaya.DDS/photos/?locale=ms_MY",
       "target": "_blank",
       "icon": "social/facebook",
@@ -39,6 +44,7 @@
     },
     {
       "itemClass": "gg",
+      "enabled": true,
       "href": "https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A",
       "target": "_blank",
       "icon": "social/google",
