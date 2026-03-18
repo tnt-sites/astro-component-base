@@ -1,0 +1,77 @@
+---
+import Image from "@core-elements/image/Image.astro";
+
+const {
+  title = "Service",
+  href = "#",
+  imageSource = "",
+  imageAlt = "",
+  wide = false,
+  links = [],
+  _component,
+  class: className,
+  ...htmlAttributes
+} = Astro.props;
+
+const isTrue = (value: unknown) =>
+  typeof value === "string" ? value.trim().toLowerCase() === "true" : !!value;
+
+const normalizedLinks = Array.isArray(links)
+  ? links.filter(
+      (link): link is { label?: string; text?: string; href?: string } =>
+        !!link && typeof link === "object"
+    )
+  : [];
+---
+
+<div class:list={["services-grid-item", isTrue(wide) && "is-wide", className]} {...htmlAttributes}>
+  {
+    imageSource && (
+      <figure class="services-grid-figure">
+        <Image
+          source={imageSource}
+          alt={imageAlt}
+          data-editable="image"
+          data-prop-src="imageSource"
+          data-prop-alt="imageAlt"
+        />
+      </figure>
+    )
+  }
+
+  <article class="services-grid-content">
+    <h3 class="services-grid-title">
+      <a href={href} data-editable="text" data-prop="title">{title}</a>
+    </h3>
+
+    {
+      normalizedLinks.length > 0 && (
+        <ul
+          class="services-grid-links"
+          data-editable="array"
+          data-component-key="_component"
+          data-id-key="_component"
+          data-prop="links"
+        >
+          {normalizedLinks.map((link) => {
+            const label =
+              typeof link.label === "string" && link.label.trim().length > 0
+                ? link.label.trim()
+                : typeof link.text === "string"
+                  ? link.text.trim()
+                  : "";
+            const linkHref =
+              typeof link.href === "string" && link.href.trim().length > 0 ? link.href : "#";
+            return (
+              <editable-array-item data-component="page-sections/ctas/services-grid/service-link">
+                <a href={linkHref} data-editable="text" data-prop="label">
+                  {label}
+                </a>
+              </editable-array-item>
+            );
+          })}
+        </ul>
+      )
+    }
+  </article>
+</div>
