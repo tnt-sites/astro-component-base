@@ -182,7 +182,7 @@ _structures:
             type: text
             comment: Alt text for the card image.
           title:
-            type: text
+            type: markdown
             comment: Card heading text.
           href:
             type: text

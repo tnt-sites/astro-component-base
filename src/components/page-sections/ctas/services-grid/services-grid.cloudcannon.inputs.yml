@@ -1,22 +1,6 @@
 id:
   type: text
   comment: Optional HTML id attribute for this component.
-heading:
-  type: markdown
-  comment: Main heading text above the services grid.
-  options:
-    blockquote: false
-    bold: true
-    format: p
-    italic: true
-    link: true
-    strike: false
-    subscript: true
-    superscript: true
-    underline: false
-    bulletedlist: false
-    numberedlist: false
-    styles: /.cloudcannon/styles/editor.css
 services:
   type: array
   label: Services
@@ -44,8 +28,20 @@ ctaCard.href:
   type: text
   comment: Link URL for the CTA tile.
 ctaCard.heading:
-  type: text
+  type: markdown
   comment: Main CTA heading text.
+  options:
+    blockquote: false
+    bold: true
+    format:
+    italic: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
 ctaCard.buttonText:
   type: text
   comment: Button-style label shown inside the CTA tile.

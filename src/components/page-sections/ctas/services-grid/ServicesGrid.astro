@@ -186,15 +186,17 @@ const htmlAttributes = Object.fromEntries(
                   data-prop={editable ? "links" : undefined}
                 >
                   {service.links.map((link) => (
-                    <editable-array-item data-component="page-sections/ctas/services-grid/service-link">
-                      <a
-                        href={link.href}
-                        data-editable={editable ? "text" : undefined}
-                        data-prop={editable ? "label" : undefined}
-                      >
-                        {link.label}
-                      </a>
-                    </editable-array-item>
+                    <li>
+                      <editable-array-item data-component="page-sections/ctas/services-grid/service-link">
+                        <a
+                          href={link.href}
+                          data-editable={editable ? "text" : undefined}
+                          data-prop={editable ? "label" : undefined}
+                        >
+                          {link.label}
+                        </a>
+                      </editable-array-item>
+                    </li>
                   ))}
                 </ul>
               )}
@@ -237,6 +239,7 @@ const htmlAttributes = Object.fromEntries(
         align-items: stretch;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 20px;
         margin: 40px auto 0;
       }
@@ -247,7 +250,7 @@ const htmlAttributes = Object.fromEntries(
         box-shadow: 0 3px 6px rgb(0 0 0 / 60%);
         display: flex;
         flex-direction: column;
-        flex: 0 1 400px;
+        flex: 0 1 360px;
         overflow: hidden;
       }
 
@@ -264,6 +267,8 @@ const htmlAttributes = Object.fromEntries(
           display: block;
           width: 100%;
         }
+
+        .image{margin-top: 0;}
       }
 
       .services-grid-content {
@@ -298,7 +303,7 @@ const htmlAttributes = Object.fromEntries(
       .services-grid-links {
         display: table;
         margin: 20px auto;
-        padding-inline-start: 1.2rem;
+       
 
         editable-array-item {
           display: list-item;
