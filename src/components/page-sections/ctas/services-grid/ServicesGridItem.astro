@@ -20,6 +20,7 @@ const titleHtml =
   typeof title === "string" && title.trim().length > 0
     ? title
         .trim()
+        .replace(/<\/p>\s*<p(?:\s[^>]*)?>/gi, "<br>")
         .replace(/^<p(?:\s[^>]*)?>/i, "")
         .replace(/<\/p>\s*$/i, "")
     : "Service";

@@ -47,6 +47,7 @@ const isTrue = (value: unknown) =>
 const stripP = (value: string) =>
   value
     .trim()
+    .replace(/<\/p>\s*<p(?:\s[^>]*)?>/gi, "<br>")
     .replace(/^<p(?:\s[^>]*)?>/i, "")
     .replace(/<\/p>\s*$/i, "");
 
