@@ -10,7 +10,7 @@ links:
 socials:
   type: array
   comment: "Array of social media links to display in the footer."
-sitename:
+siteName:
   type: text
   comment: "Business or site name used in the footer copyright line."
 contactTitle:

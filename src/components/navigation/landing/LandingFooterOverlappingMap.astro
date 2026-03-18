@@ -7,7 +7,6 @@ const {
   logoSource,
   logoAlt = "Logo",
   siteName = "",
-  sitename = "",
   contactTitle = "Contact Us",
   offices = [],
   socials = [],
@@ -23,7 +22,7 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
-const displaySiteName = siteName || sitename;
+const displaySiteName = siteName;
 const copyYear = new Date().getFullYear();
 const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
 const {

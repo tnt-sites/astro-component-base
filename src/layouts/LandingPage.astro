@@ -102,7 +102,7 @@ const resolvedHeaderOffices =
   siteInfo?.offices || primaryHeader?.offices || primaryFooter?.offices || [];
 const resolvedFooterOffices =
   primaryFooter?.offices || primaryHeader?.offices || siteInfo?.offices || [];
-const resolvedSiteName = primaryFooter?.siteName || primaryFooter?.sitename || siteInfo?.siteName;
+const resolvedSiteName = primaryFooter?.siteName || siteInfo?.siteName;
 const resolvedSocials = primaryFooter?.socials || siteInfo?.socials || [];
 
 const isFixedTabsSection = (section: any) => {
@@ -129,8 +129,7 @@ const resolvedHeader = {
 
 const resolvedFooter = {
   ...primaryFooter,
-  sitename: primaryFooter?.sitename ?? primaryFooter?.siteName ?? resolvedSiteName,
-  siteName: primaryFooter?.siteName ?? primaryFooter?.sitename ?? resolvedSiteName,
+  siteName: primaryFooter?.siteName ?? resolvedSiteName,
   offices: enrichOfficesWithHours(primaryFooter?.offices ?? resolvedFooterOffices, siteInfoOffices),
   socials: primaryFooter?.socials ?? resolvedSocials,
   "data-fixed-tabs-active": hasActiveFixedTabs ? "true" : undefined,

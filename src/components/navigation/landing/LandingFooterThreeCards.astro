@@ -6,7 +6,6 @@ const {
   logoSource,
   logoAlt = "Logo",
   siteName = "",
-  sitename = "",
   contactTitle = "Contact Us",
   offices = [],
   featuredServicesTitle = "Featured Services",
@@ -31,7 +30,7 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
-const displaySiteName = siteName || sitename;
+const displaySiteName = siteName;
 const copyYear = new Date().getFullYear();
 const {
   source = "",
