@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@core-elements/image/Image.astro";
 
 type ServiceLink = {
   _component?: string;
@@ -147,19 +148,20 @@ const htmlAttributes = Object.fromEntries(
   {
     (hasServices || hasCtaCard) && (
       <div class="services-grid-items" {...servicesArrayDataAttributes}>
-        {normalizedServices.map((service, index) => (
+        {normalizedServices.map((service) => (
           <editable-array-item
             data-component="page-sections/ctas/services-grid/services-grid-item"
             class:list={["services-grid-item", service.wide && "is-wide"]}
           >
             {service.imageSource && (
               <figure class="services-grid-figure">
-                <img
-                  src={service.imageSource}
+                <Image
+                  source={service.imageSource}
                   alt={service.imageAlt}
-                  data-editable={editable ? "image" : undefined}
-                  data-prop={editable ? `services.${index}.imageSource` : undefined}
-                  data-prop-alt={editable ? `services.${index}.imageAlt` : undefined}
+                  editable={editable}
+                  data-editable="image"
+                  data-prop-src="imageSource"
+                  data-prop-alt="imageAlt"
                 />
               </figure>
             )}
@@ -169,7 +171,7 @@ const htmlAttributes = Object.fromEntries(
                 <a
                   href={service.href}
                   data-editable={editable ? "text" : undefined}
-                  data-prop={editable ? `services.${index}.title` : undefined}
+                  data-prop={editable ? "title" : undefined}
                 >
                   {service.title}
                 </a>
@@ -181,16 +183,14 @@ const htmlAttributes = Object.fromEntries(
                   data-editable={editable ? "array" : undefined}
                   data-component-key={editable ? "_component" : undefined}
                   data-id-key={editable ? "_component" : undefined}
-                  data-prop={editable ? `services.${index}.links` : undefined}
+                  data-prop={editable ? "links" : undefined}
                 >
-                  {service.links.map((link, linkIndex) => (
+                  {service.links.map((link) => (
                     <editable-array-item data-component="page-sections/ctas/services-grid/service-link">
                       <a
                         href={link.href}
                         data-editable={editable ? "text" : undefined}
-                        data-prop={
-                          editable ? `services.${index}.links.${linkIndex}.label` : undefined
-                        }
+                        data-prop={editable ? "label" : undefined}
                       >
                         {link.label}
                       </a>
