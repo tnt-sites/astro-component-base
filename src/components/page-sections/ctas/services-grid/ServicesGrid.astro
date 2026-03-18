@@ -1,6 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import Image from "@core-elements/image/Image.astro";
+import ServicesGridItem from "./ServicesGridItem.astro";
 
 type ServiceLink = {
   _component?: string;
@@ -44,6 +44,9 @@ const {
 const isTrue = (value: unknown) =>
   typeof value === "string" ? value.trim().toLowerCase() === "true" : !!value;
 
+const cleanText = (value: unknown, fallback = "") =>
+  typeof value === "string" && value.trim().length > 0 ? value.trim() : fallback;
+
 const stripP = (value: string) =>
   value
     .trim()
@@ -51,71 +54,46 @@ const stripP = (value: string) =>
     .replace(/^<p(?:\s[^>]*)?>/i, "")
     .replace(/<\/p>\s*$/i, "");
 
+const normalizeLabel = (link: ServiceLink) => cleanText(link.label, cleanText(link.text));
+
+const normalizeLinks = (links: unknown) =>
+  Array.isArray(links)
+    ? links
+        .filter((link): link is ServiceLink => !!link && typeof link === "object")
+        .map((link) => ({
+          label: normalizeLabel(link),
+          href: cleanText(link.href, "#"),
+        }))
+        .filter((link) => link.label.length > 0)
+    : [];
+
 const normalizedServices = Array.isArray(services)
   ? services
       .filter((service): service is ServiceItem => !!service && typeof service === "object")
-      .map((service) => {
-        const title =
+      .map((service) => ({
+        title:
           typeof service.title === "string" && service.title.trim().length > 0
             ? stripP(service.title)
-            : "Service";
-        const href =
-          typeof service.href === "string" && service.href.trim().length > 0
-            ? service.href.trim()
-            : "#";
-        const imageSource =
-          typeof service.imageSource === "string" && service.imageSource.trim().length > 0
-            ? service.imageSource.trim()
-            : "";
-        const imageAlt = typeof service.imageAlt === "string" ? service.imageAlt.trim() : "";
-        const links = Array.isArray(service.links)
-          ? service.links
-              .filter((link): link is ServiceLink => !!link && typeof link === "object")
-              .map((link) => ({
-                label:
-                  typeof link.label === "string" && link.label.trim().length > 0
-                    ? link.label.trim()
-                    : typeof link.text === "string"
-                      ? link.text.trim()
-                      : "",
-                href:
-                  typeof link.href === "string" && link.href.trim().length > 0
-                    ? link.href.trim()
-                    : "#",
-              }))
-              .filter((link) => link.label.length > 0)
-          : [];
-
-        return {
-          title,
-          href,
-          imageSource,
-          imageAlt,
-          wide: isTrue(service.wide),
-          links,
-        };
-      })
+            : "Service",
+        href: cleanText(service.href, "#"),
+        imageSource: cleanText(service.imageSource),
+        imageAlt: cleanText(service.imageAlt),
+        wide: isTrue(service.wide),
+        links: normalizeLinks(service.links),
+      }))
   : [];
 
 const rawCtaCard = !!ctaCard && typeof ctaCard === "object" ? (ctaCard as ServicesGridCta) : {};
 const normalizedCtaCard = {
   enabled: rawCtaCard.enabled === undefined ? false : isTrue(rawCtaCard.enabled),
   id:
-    typeof rawCtaCard.id === "string" && rawCtaCard.id.trim().length > 0
-      ? rawCtaCard.id.trim().replace(/^#/, "")
-      : "all",
-  href:
-    typeof rawCtaCard.href === "string" && rawCtaCard.href.trim().length > 0
-      ? rawCtaCard.href.trim()
-      : "request-an-appointment.html",
+    cleanText(rawCtaCard.id, "all").replace(/^#/, "") || "all",
+  href: cleanText(rawCtaCard.href, "request-an-appointment.html"),
   heading:
     typeof rawCtaCard.heading === "string" && rawCtaCard.heading.trim().length > 0
       ? stripP(rawCtaCard.heading)
       : "Get Started Now",
-  buttonText:
-    typeof rawCtaCard.buttonText === "string" && rawCtaCard.buttonText.trim().length > 0
-      ? rawCtaCard.buttonText.trim()
-      : "Request an Appointment",
+  buttonText: cleanText(rawCtaCard.buttonText, "Request an Appointment"),
   wide: rawCtaCard.wide === undefined ? true : isTrue(rawCtaCard.wide),
 };
 
@@ -160,54 +138,7 @@ const htmlAttributes = Object.fromEntries(
             data-component="page-sections/ctas/services-grid/services-grid-item"
             class:list={["services-grid-item", service.wide && "is-wide"]}
           >
-            {service.imageSource && (
-              <figure class="services-grid-figure">
-                <Image
-                  source={service.imageSource}
-                  alt={service.imageAlt}
-                  editable={editable}
-                  data-editable="image"
-                  data-prop-src="imageSource"
-                  data-prop-alt="imageAlt"
-                />
-              </figure>
-            )}
-
-            <article class="services-grid-content">
-              <h3 class="services-grid-title">
-                <a
-                  href={service.href}
-                  data-editable={editable ? "text" : undefined}
-                  data-prop={editable ? "title" : undefined}
-                >
-                  <Fragment set:html={service.title} />
-                </a>
-              </h3>
-
-              {service.links.length > 0 && (
-                <ul
-                  class="services-grid-links"
-                  data-editable={editable ? "array" : undefined}
-                  data-component-key={editable ? "_component" : undefined}
-                  data-id-key={editable ? "_component" : undefined}
-                  data-prop={editable ? "links" : undefined}
-                >
-                  {service.links.map((link) => (
-                    <li>
-                      <editable-array-item data-component="page-sections/ctas/services-grid/service-link">
-                        <a
-                          href={link.href}
-                          data-editable={editable ? "text" : undefined}
-                          data-prop={editable ? "label" : undefined}
-                        >
-                          {link.label}
-                        </a>
-                      </editable-array-item>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </article>
+            <ServicesGridItem {...service} editable={editable} />
           </editable-array-item>
         ))}
 

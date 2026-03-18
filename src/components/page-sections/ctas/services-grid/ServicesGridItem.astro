@@ -8,6 +8,7 @@ const {
   imageAlt = "",
   wide = false,
   links = [],
+  editable = true,
   _component,
   class: className,
   ...htmlAttributes
@@ -40,9 +41,10 @@ const normalizedLinks = Array.isArray(links)
         <Image
           source={imageSource}
           alt={imageAlt}
-          data-editable="image"
-          data-prop-src="imageSource"
-          data-prop-alt="imageAlt"
+          editable={editable}
+          data-editable={editable ? "image" : undefined}
+          data-prop-src={editable ? "imageSource" : undefined}
+          data-prop-alt={editable ? "imageAlt" : undefined}
         />
       </figure>
     )
@@ -50,17 +52,23 @@ const normalizedLinks = Array.isArray(links)
 
   <article class="services-grid-content">
     <h3 class="services-grid-title">
-      <a href={href} data-editable="text" data-prop="title"><Fragment set:html={titleHtml} /></a>
+      <a
+        href={href}
+        data-editable={editable ? "text" : undefined}
+        data-prop={editable ? "title" : undefined}
+      >
+        <Fragment set:html={titleHtml} />
+      </a>
     </h3>
 
     {
       normalizedLinks.length > 0 && (
         <ul
           class="services-grid-links"
-          data-editable="array"
-          data-component-key="_component"
-          data-id-key="_component"
-          data-prop="links"
+          data-editable={editable ? "array" : undefined}
+          data-component-key={editable ? "_component" : undefined}
+          data-id-key={editable ? "_component" : undefined}
+          data-prop={editable ? "links" : undefined}
         >
           {normalizedLinks.map((link) => {
             const label =
@@ -73,7 +81,11 @@ const normalizedLinks = Array.isArray(links)
               typeof link.href === "string" && link.href.trim().length > 0 ? link.href : "#";
             return (
               <editable-array-item data-component="page-sections/ctas/services-grid/service-link">
-                <a href={linkHref} data-editable="text" data-prop="label">
+                <a
+                  href={linkHref}
+                  data-editable={editable ? "text" : undefined}
+                  data-prop={editable ? "label" : undefined}
+                >
                   {label}
                 </a>
               </editable-array-item>

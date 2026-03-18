@@ -7,7 +7,7 @@ value:
   heading: Our Services
   services:
     - _component: page-sections/ctas/services-grid/services-grid-item
-      imageSource: /assets/images/our-services-1.png
+      imageSource: ""
       imageAlt: Preventive dentistry
       title: I Need a Checkup or Cleaning
       href: preventive-dentistry.html
@@ -32,7 +32,7 @@ value:
           label: Nightguards for Bruxism
           href: preventive-dentistry.html#night
     - _component: page-sections/ctas/services-grid/services-grid-item
-      imageSource: /assets/images/our-services-2.png
+      imageSource: ""
       imageAlt: Restorative dentistry
       title: I Have a Cavity or Broken Tooth
       href: restorative-dentistry.html
@@ -45,7 +45,7 @@ value:
           label: Tooth-Colored Fillings
           href: restorative-dentistry.html#fill
     - _component: page-sections/ctas/services-grid/services-grid-item
-      imageSource: /assets/images/our-services-3.png
+      imageSource: ""
       imageAlt: Missing teeth treatments
       title: I am Missing One or More Teeth
       href: missing-teeth.html
@@ -61,7 +61,7 @@ value:
           label: Dental Implants
           href: dental-implants.html
     - _component: page-sections/ctas/services-grid/services-grid-item
-      imageSource: /assets/images/our-services-4.png
+      imageSource: ""
       imageAlt: Cosmetic dentistry
       title: I Want to Enhance My Smile
       href: cosmetic-dentistry.html
@@ -77,7 +77,7 @@ value:
           label: Teeth Whitening
           href: cosmetic-dentistry.html#white
     - _component: page-sections/ctas/services-grid/services-grid-item
-      imageSource: /assets/images/our-services-5.png
+      imageSource: ""
       imageAlt: Sleep apnea treatment
       title: I Snore or Have Sleep Apnea
       href: sleep-apnea-treatment.html
@@ -93,7 +93,7 @@ value:
           label: Oral Appliance Treatment
           href: sleep-apnea-treatment.html#oral
     - _component: page-sections/ctas/services-grid/services-grid-item
-      imageSource: /assets/images/our-services-6.png
+      imageSource: ""
       imageAlt: TMJ therapy
       title: I Have Jaw Pain
       href: tmj-therapy.html
@@ -109,14 +109,14 @@ value:
           label: Occlusal Splints
           href: tmj-therapy.html#occl
     - _component: page-sections/ctas/services-grid/services-grid-item
-      imageSource: /assets/images/our-services-7.png
+      imageSource: ""
       imageAlt: Root canal therapy
       title: I Need a Root Canal
       href: root-canal-therapy.html
       wide: false
       links: []
     - _component: page-sections/ctas/services-grid/services-grid-item
-      imageSource: /assets/images/our-services-8.png
+      imageSource: ""
       imageAlt: Tooth removal
       title: I Need a Tooth Removed
       href: tooth-removal.html
@@ -153,7 +153,7 @@ _structures:
         icon: list
         value:
           _component: page-sections/ctas/services-grid/services-grid-item
-          imageSource: /assets/images/our-services-1.png
+          imageSource: ""
           imageAlt: Service image
           title: Service title
           href: service-page.html
