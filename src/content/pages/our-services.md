@@ -33,7 +33,10 @@ pageSections:
       - _component: page-sections/ctas/services-grid/services-grid-item
         imageSource: /src/assets/images/component-library/profile.jpg
         imageAlt: Preventive dentistry
-        title: I Need a Checkup or Cleaning
+        title: |-
+          I Need a Checkup
+
+          or Cleaning
         href: preventive-dentistry.html
         wide: false
         links:
