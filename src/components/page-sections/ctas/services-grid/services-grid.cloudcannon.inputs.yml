@@ -3,7 +3,7 @@ id:
   comment: Optional HTML id attribute for this component.
 heading:
   type: markdown
-  comment: Main heading text for the component. Supports inline span wrappers/classes for highlighted words.
+  comment: Main heading text above the services grid.
   options:
     blockquote: false
     bold: true
@@ -17,6 +17,41 @@ heading:
     bulletedlist: false
     numberedlist: false
     styles: /.cloudcannon/styles/editor.css
+services:
+  type: array
+  label: Services
+  comment: Grid cards for service categories and optional sub-links.
+  options:
+    structures: _structures.servicesGridItems
+ctaCard:
+  type: object
+  comment: Optional CTA tile (defaults to id="all") displayed in the same grid.
+  options:
+    preview:
+      icon: ads_click
+      text:
+        - key: heading
+        - CTA card
+      subtext:
+        - key: href
+ctaCard.enabled:
+  type: switch
+  comment: Show the CTA tile in the grid.
+ctaCard.id:
+  type: text
+  comment: HTML id for the CTA tile. Use all to match the legacy #all style.
+ctaCard.href:
+  type: text
+  comment: Link URL for the CTA tile.
+ctaCard.heading:
+  type: text
+  comment: Main CTA heading text.
+ctaCard.buttonText:
+  type: text
+  comment: Button-style label shown inside the CTA tile.
+ctaCard.wide:
+  type: switch
+  comment: Make the CTA tile span two grid columns on larger screens.
 backgroundColor:
   type: select
   comment: Background color used behind the section.
@@ -78,8 +113,3 @@ backgroundImage.positionHorizontal:
         name: Center
       - id: right
         name: Right
-# Add your other component inputs here
-# Example:
-# text:
-#   type: text
-#   comment: The text content for the component.
