@@ -26,36 +26,6 @@ pageSections:
         uppercase: false
     colorScheme: inherit
     backgroundColor: base
-  - _component: page-sections/ctas/more-to-explore
-    id: ''
-    heading: More to <span class="color">Explore</span>
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        id: ''
-        text: My Button
-        hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-        width: xs
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    maxContentWidth:
-    paddingHorizontal: sm
-    paddingVertical: sm
-    colorScheme: default
-    backgroundColor: base
-    backgroundImage:
-      source:
-      alt:
-      positionVertical: top
-      positionHorizontal: center
   - _component: page-sections/ctas/services-grid
     id: ''
     heading: Our Services
@@ -183,6 +153,36 @@ pageSections:
       heading: Get Started Now
       buttonText: Request an Appointment
       wide: true
+    backgroundColor: base
+    backgroundImage:
+      source:
+      alt:
+      positionVertical: top
+      positionHorizontal: center
+  - _component: page-sections/ctas/more-to-explore
+    id: ''
+    heading: More to <span class="color">Explore</span>
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        id: ''
+        text: My Button
+        hideText: false
+        link: ''
+        modalTarget: ''
+        iconName: ''
+        iconPosition: before
+        variant: primary
+        size: md
+        width: xs
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
+    maxContentWidth:
+    paddingHorizontal: sm
+    paddingVertical: sm
+    colorScheme: default
     backgroundColor: base
     backgroundImage:
       source:
