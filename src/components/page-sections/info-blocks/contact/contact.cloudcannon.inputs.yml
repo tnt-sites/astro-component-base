@@ -65,33 +65,9 @@ backgroundImage.positionHorizontal:
         name: Center
       - id: right
         name: Right
-siteName:
-  type: text
-  comment: "Business or site name used."
-phoneText:
-  type: text
-  comment: "Visible phone number text."
-phoneHref:
-  type: text
-  comment: "Phone link URL (e.g. tel:+12092163530)."
-addressHref:
-  type: text
-  comment: "Map/location link URL for the address block."
-addressLines:
-  type: array
-  comment: "Address lines shown as stacked text."
 officeHoursTitle:
   type: text
-  comment: "Heading for office hours."
-officeHours:
-  type: array
-  comment: "Office hours entries with day, hours, and optional note shown beneath each row."
-officeHoursNote:
-  type: text
-  comment: "General note displayed below the full office hours list (e.g. Closed on Sundays)."
-officeHoursNotes:
-  type: array
-  comment: "Optional list of general notes displayed below the full office hours list."
+  comment: "Heading for office hours. Office details come from siteInfo.json."
 mapEmbedUrl:
   type: text
   comment: "Optional Google Maps embed URL (iframe src value)."

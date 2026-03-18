@@ -9,64 +9,17 @@ const {
   id = "",
   backgroundImage,
   backgroundGradient = "",
-  siteName = "",
-  offices = [],
   siteInfo,
-  phoneText = "",
-  phoneHref = "",
-  addressHref = "",
-  addressLines = [],
-  emailHref = "",
-  emailText = [],
   officeHoursTitle = "Office Hours",
-  officeHours = [],
-  officeHoursNote = "",
-  officeHoursNotes = [],
   mapEmbedUrl = "",
   class: className,
   editable = true,
   ...rest
 } = Astro.props;
 
-const siteInfoOffices =
-  Array.isArray(siteInfo?.offices) && siteInfo.offices.length > 0
-    ? siteInfo.offices
-    : Array.isArray(siteInfoData?.offices)
-      ? siteInfoData.offices
-      : [];
-
-const resolvedOffices =
-  Array.isArray(offices) && offices.length > 0
-    ? offices
-    : siteInfoOffices.length > 0
-      ? siteInfoOffices
-    : [
-        {
-          name: "",
-          addresses:
-            Array.isArray(addressLines) && addressLines.length > 0
-              ? [
-                  {
-                    lines: addressLines,
-                    mapUrl: addressHref || "",
-                  },
-                ]
-              : [],
-          phones: phoneText
-            ? [
-                {
-                  display: phoneText,
-                  href: phoneHref || "",
-                },
-              ]
-            : [],
-          officeHours,
-          officeHoursNote,
-          officeHoursNotes,
-        },
-      ];
-
-const displaySiteName = siteName || siteInfo?.siteName || siteInfoData?.siteName || "";
+const resolvedSiteInfo = siteInfo && typeof siteInfo === "object" ? siteInfo : siteInfoData;
+const resolvedOffices = Array.isArray(resolvedSiteInfo?.offices) ? resolvedSiteInfo.offices : [];
+const displaySiteName = resolvedSiteInfo?.siteName || "";
 
 const formatAddressLines = (address: any) => {
   const lineItems = Array.isArray(address?.lines) ? address.lines : [];
@@ -92,8 +45,23 @@ const getOfficeHoursGeneralNotes = (office: any) => {
 
 const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
 
+const ignoredPropKeys = new Set([
+  "siteName",
+  "sitename",
+  "offices",
+  "phoneText",
+  "phoneHref",
+  "addressHref",
+  "addressLines",
+  "emailHref",
+  "emailText",
+  "officeHours",
+  "officeHoursNote",
+  "officeHoursNotes",
+]);
+
 const htmlAttributes = Object.fromEntries(
-  Object.entries(rest).filter(([key]) => key !== "_component")
+  Object.entries(rest).filter(([key]) => key !== "_component" && !ignoredPropKeys.has(key))
 );
 ---
 

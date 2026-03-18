@@ -11,27 +11,7 @@ value:
     alt: null
     positionVertical: top
     positionHorizontal: center
-  siteName: "Turlock Dental Studio"
-  phoneText: "(123) 456-7890"
-  phoneHref: tel:+11234567890
-  addressHref: https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A
-  addressLines:
-    - 1801 Colorado Ave. Suite 280
-    - Turlock, CA 95382
   officeHoursTitle: Office Hours
-  officeHours:
-    - day: Monday
-      hours: 8:00 am - 5:00 pm
-    - day: Tuesday
-      hours: 8:00 am - 5:00 pm
-    - day: Wednesday
-      hours: 8:00 am - 5:00 pm
-      note: (Alternating Wednesdays)
-    - day: Thursday
-      hours: 8:00 am - 5:00 pm
-    - day: Friday
-      hours: 8:00 am - 2:00 pm
-  officeHoursNote: ""
   mapEmbedUrl: ""
 _inputs_from_glob:
   - /src/components/page-sections/info-blocks/contact/contact.cloudcannon.inputs.yml
