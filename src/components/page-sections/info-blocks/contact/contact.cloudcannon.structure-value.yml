@@ -12,6 +12,8 @@ value:
     positionVertical: top
     positionHorizontal: center
   officeHoursTitle: Office Hours
+  doctorNames:
+    - First Lastname, DDS
   mapEmbedUrl: ""
 _inputs_from_glob:
   - /src/components/page-sections/info-blocks/contact/contact.cloudcannon.inputs.yml

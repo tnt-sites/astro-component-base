@@ -68,6 +68,9 @@ backgroundImage.positionHorizontal:
 officeHoursTitle:
   type: text
   comment: "Heading for office hours. Office details come from siteInfo.json."
+doctorNames:
+  type: array
+  comment: "Doctor names shown above the office details. Add one name per row."
 mapEmbedUrl:
   type: text
   comment: "Optional Google Maps embed URL (iframe src value)."

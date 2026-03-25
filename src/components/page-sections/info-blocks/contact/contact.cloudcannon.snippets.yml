@@ -27,6 +27,9 @@ contact:
       - editor_key: backgroundImage
         type: object
         optional: true
+      - editor_key: doctorNames
+        type: array
+        optional: true
     # Add your component arguments here
     # Example:
     # - editor_key: text
