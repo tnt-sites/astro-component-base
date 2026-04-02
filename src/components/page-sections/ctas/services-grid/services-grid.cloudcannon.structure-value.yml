@@ -130,6 +130,7 @@ value:
     buttonText: Request an Appointment
     wide: true
   backgroundColor: base
+  backgroundGradient: ""
   backgroundImage:
     source: null
     alt: null

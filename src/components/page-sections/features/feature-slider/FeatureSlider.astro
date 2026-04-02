@@ -7,6 +7,7 @@ import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
 const {
   colorScheme = "inherit",
   backgroundColor,
+  backgroundGradient = "",
   paddingVertical = "4xl",
   class: className,
   slides = [],
@@ -22,6 +23,7 @@ const {
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  backgroundGradient={backgroundGradient}
   {...htmlAttributes}
 >
   <Carousel

@@ -6,5 +6,6 @@ value:
   id: ""
   heading: "Icon Grid Sheet Heading"
   backgroundColor: base
+  backgroundGradient: ""
 _inputs_from_glob:
   - /src/components/page-sections/info-blocks/icon-grid-sheet/icon-grid-sheet.cloudcannon.inputs.yml

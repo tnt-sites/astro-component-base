@@ -16,6 +16,7 @@ value:
       variant: primary
       size: md
   backgroundColor: base
+  backgroundGradient: ""
   backgroundImage:
     source: ""
     alt: ""

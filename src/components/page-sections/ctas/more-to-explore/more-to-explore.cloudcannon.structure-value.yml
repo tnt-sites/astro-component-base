@@ -19,6 +19,7 @@ value:
   paddingVertical: sm
   colorScheme: default
   backgroundColor: base
+  backgroundGradient: ""
   backgroundImage:
     source: null
     alt: null

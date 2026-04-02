@@ -179,6 +179,7 @@ value:
             tempor incididunt ut labore et dolore magna aliqua.
   enableModals: true
   backgroundColor: base
+  backgroundGradient: ""
 _inputs_from_glob:
   - /src/components/page-sections/info-blocks/emergency-grid/emergency-grid.cloudcannon.inputs.yml
 _structures:

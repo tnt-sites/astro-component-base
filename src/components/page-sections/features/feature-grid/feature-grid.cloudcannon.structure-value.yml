@@ -13,6 +13,7 @@ value:
   features: []
   colorScheme: inherit
   backgroundColor: base
+  backgroundGradient: ""
 preview:
   text:
     - Feature Grid

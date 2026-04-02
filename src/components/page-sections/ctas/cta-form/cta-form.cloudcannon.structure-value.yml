@@ -30,6 +30,7 @@ value:
   reverse: false
   colorScheme: inherit
   backgroundColor: base
+  backgroundGradient: ""
 preview:
   text:
     - CTA Form

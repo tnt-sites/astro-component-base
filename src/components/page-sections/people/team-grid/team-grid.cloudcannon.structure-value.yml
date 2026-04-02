@@ -10,6 +10,7 @@ value:
   teamMembers: []
   colorScheme: inherit
   backgroundColor: base
+  backgroundGradient: ""
 preview:
   text:
     - Team Grid

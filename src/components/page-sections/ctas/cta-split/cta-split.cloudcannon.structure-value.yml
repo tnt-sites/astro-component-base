@@ -21,6 +21,7 @@ value:
   reverse: false
   colorScheme: default
   backgroundColor: base
+  backgroundGradient: ""
   rounded: false
 preview:
   text:

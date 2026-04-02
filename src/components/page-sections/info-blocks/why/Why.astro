@@ -7,6 +7,7 @@ import List from "@core-elements/list/List.astro";
 const {
   heading = "",
   backgroundColor = "base",
+  backgroundGradient = "",
   backgroundImage,
   items = [],
   class: className,
@@ -30,6 +31,7 @@ const htmlAttributes = Object.fromEntries(
   class:list={["why", className]}
   colorScheme="default"
   backgroundColor={backgroundColor}
+  backgroundGradient={backgroundGradient}
   {...htmlAttributes}
 >
   {

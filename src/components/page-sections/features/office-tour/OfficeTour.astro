@@ -8,6 +8,7 @@ import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
 const {
   heading = "",
   backgroundColor = "base",
+  backgroundGradient = "",
   tourSlides = [],
   slideNumbers = true,
   floatingArrows = false,
@@ -32,6 +33,7 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
+  backgroundGradient={backgroundGradient}
   {...htmlAttributes}
 >
   {

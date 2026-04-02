@@ -10,6 +10,7 @@ const {
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
+  backgroundGradient = "",
   class: className,
   _component,
   ...htmlAttributes
@@ -24,6 +25,7 @@ const {
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  backgroundGradient={backgroundGradient}
 >
   <Heading level="h2" size="lg" alignX="center" text={heading} data-prop="heading" />
   <Accordion label={label} singleOpen={true} openFirst={false} items={items} />

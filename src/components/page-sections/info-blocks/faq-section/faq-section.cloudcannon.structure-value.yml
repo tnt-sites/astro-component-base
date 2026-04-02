@@ -15,6 +15,7 @@ value:
   paddingVertical: 4xl
   colorScheme: inherit
   backgroundColor: base
+  backgroundGradient: ""
 preview:
   text:
     - FAQ Section

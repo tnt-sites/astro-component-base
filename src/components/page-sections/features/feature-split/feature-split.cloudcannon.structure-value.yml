@@ -15,6 +15,7 @@ value:
   reverse: false
   colorScheme: inherit
   backgroundColor: base
+  backgroundGradient: ""
 preview:
   text:
     - Feature Split

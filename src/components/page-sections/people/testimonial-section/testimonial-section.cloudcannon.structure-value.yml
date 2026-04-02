@@ -14,6 +14,7 @@ value:
   paddingVertical: sm
   colorScheme: inherit
   backgroundColor: surface
+  backgroundGradient: ""
 preview:
   text:
     - Testimonial Section

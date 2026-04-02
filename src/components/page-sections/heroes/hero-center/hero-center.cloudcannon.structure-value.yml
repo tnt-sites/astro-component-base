@@ -18,6 +18,7 @@ value:
       size: md
   colorScheme: inherit
   backgroundColor: base
+  backgroundGradient: ""
 preview:
   text:
     - Hero Center

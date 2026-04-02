@@ -11,6 +11,7 @@ const {
   subtext = "",
   emergencyItems = [],
   backgroundColor = "none",
+  backgroundGradient = "",
   backgroundImage,
   gridIndex,
   class: className,
@@ -88,6 +89,7 @@ const hasModalItems = items.some((item: any) => item.contentSections.length > 0)
   paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
+  backgroundGradient={backgroundGradient}
   {...htmlAttributes}
 >
   {

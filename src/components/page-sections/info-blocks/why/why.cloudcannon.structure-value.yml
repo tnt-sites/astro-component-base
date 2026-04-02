@@ -6,6 +6,7 @@ value:
   id: ""
   heading: "why Heading"
   backgroundColor: none
+  backgroundGradient: ""
   backgroundImage:
     source: ""
     alt: ""

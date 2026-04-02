@@ -10,6 +10,7 @@ const {
   paddingVertical = "4xl",
   colorScheme = "inherit",
   backgroundColor,
+  backgroundGradient = "",
   backgroundImage,
   rounded = false,
   class: className,
@@ -40,6 +41,7 @@ if (!htmlAttributes.id && label) {
 <section
   class:list={["custom-section", rounded && "rounded", className]}
   data-theme={colorScheme && colorScheme !== "inherit" ? colorScheme : undefined}
+  style={backgroundGradient ? "--section-bg-gradient: " + backgroundGradient : undefined}
   {...htmlAttributes}
 >
   <Image

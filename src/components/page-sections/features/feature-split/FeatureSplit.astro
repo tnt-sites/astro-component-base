@@ -19,6 +19,7 @@ const {
   reverse = false,
   colorScheme = "inherit",
   backgroundColor,
+  backgroundGradient = "",
   paddingVertical = "4xl",
   class: className,
   _component,
@@ -36,6 +37,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  backgroundGradient={backgroundGradient}
   data-feature-split-id={featureSplitId}
   {...htmlAttributes}
 >
