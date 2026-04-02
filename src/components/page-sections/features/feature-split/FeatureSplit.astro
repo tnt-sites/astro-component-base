@@ -57,9 +57,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
       <SimpleText class="eyebrow" data-prop="eyebrow">
         {eyebrow}
       </SimpleText>
-      <Heading level="h2" size="lg" data-prop="heading">
-        {heading}
-      </Heading>
+      <Heading level="h2" size="lg" data-prop="heading" text={heading} />
       <Text class="subtext" data-prop="subtext" text={subtext} />
       <ButtonGroup
         class="feature-buttons"

@@ -58,9 +58,7 @@ const learnMoreId = `learn-more-${crypto.randomUUID()}`;
     minSplitWidth={640}
   >
     <Fragment slot="first">
-      <Heading level="h2" size="xl" data-prop="heading">
-        {heading}
-      </Heading>
+      <Heading level="h2" size="xl" data-prop="heading" text={heading} />
       <Text data-prop="subtext" text={subtext} />
       <ButtonGroup class="buttons" buttonSections={buttonSections} direction="row" alignX="start" />
       {

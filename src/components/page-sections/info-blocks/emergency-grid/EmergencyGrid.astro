@@ -106,9 +106,7 @@ const hasModalItems = items.some((item: any) => item.contentSections.length > 0)
       />
     )
   }
-  <Heading level="h2" size="lg" alignX="center" data-prop="heading">
-    {heading}
-  </Heading>
+  <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />
 
   <Text alignX="center" data-prop="subtext">
     {subtext}
