@@ -32,22 +32,10 @@ subtext:
 formAction:
   type: url
   comment: URL that processes the form submission.
-leftBlocks:
-  type: array
-  label: Left Column Fields
-  comment: Form fields displayed in the left column.
-  options:
-    structures: _structures.formBlocks
-rightBlocks:
-  type: array
-  label: Right Column Fields
-  comment: Form fields displayed in the right column.
-  options:
-    structures: _structures.formBlocks
 formBlocks:
   type: array
-  label: Bottom Fields
-  comment: Full-width fields below the columns (textarea, submit, etc.).
+  label: Form Fields
+  comment: All form fields. Odd/even items pair into two columns; hidden fields and submit span full width.
   options:
     structures: _structures.formBlocks
 id:

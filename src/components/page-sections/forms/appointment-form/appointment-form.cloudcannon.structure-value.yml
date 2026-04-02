@@ -7,50 +7,12 @@ value:
   heading: Request an Appointment
   subtext: ""
   formAction: ./
-  leftBlocks:
+  formBlocks:
     - _component: building-blocks/forms/input
       label: Name
       name: name
       type: text
       required: true
-    - _component: building-blocks/forms/input
-      label: Phone
-      name: phone
-      type: tel
-      required: true
-    - _component: building-blocks/forms/input
-      label: Email
-      name: email
-      type: email
-      required: true
-    - _component: building-blocks/forms/input
-      label: Your Dental Insurance
-      name: insurance
-      type: text
-      required: false
-    - _component: building-blocks/forms/choice-group
-      title: Preferred Day(s) of the Week
-      name: day
-      multiple: true
-      required: false
-      orientation: horizontal
-      options:
-        - value: monday
-          label: Monday
-          checked: false
-        - value: tuesday
-          label: Tuesday
-          checked: false
-        - value: wednesday
-          label: Wednesday
-          checked: false
-        - value: thursday
-          label: Thursday
-          checked: false
-        - value: friday
-          label: Friday
-          checked: false
-  rightBlocks:
     - _component: building-blocks/forms/select
       label: Are You a...
       name: patient
@@ -61,6 +23,11 @@ value:
           label: New Patient
         - value: existing-patient
           label: Existing Patient
+    - _component: building-blocks/forms/input
+      label: Phone
+      name: phone
+      type: tel
+      required: true
     - _component: building-blocks/forms/select
       label: Preferred Method of Communication
       name: communication
@@ -73,6 +40,11 @@ value:
           label: Text
         - value: email
           label: Email
+    - _component: building-blocks/forms/input
+      label: Email
+      name: email
+      type: email
+      required: true
     - _component: building-blocks/forms/select
       label: How'd You Hear About Us?
       name: hear
@@ -89,6 +61,11 @@ value:
           label: Social Media
         - value: other
           label: Other
+    - _component: building-blocks/forms/input
+      label: Your Dental Insurance
+      name: insurance
+      type: text
+      required: false
     - _component: building-blocks/forms/select
       label: I Am Interested In...
       name: interested
@@ -123,11 +100,32 @@ value:
           label: Emergency Dental Care
         - value: other
           label: Other
+    - _component: building-blocks/forms/choice-group
+      title: Preferred Day(s) of the Week
+      name: day
+      multiple: true
+      required: false
+      orientation: horizontal
+      options:
+        - value: monday
+          label: Monday
+          checked: false
+        - value: tuesday
+          label: Tuesday
+          checked: false
+        - value: wednesday
+          label: Wednesday
+          checked: false
+        - value: thursday
+          label: Thursday
+          checked: false
+        - value: friday
+          label: Friday
+          checked: false
     - _component: building-blocks/forms/textarea
       label: Questions or Comments
       name: comment
       required: false
-  formBlocks:
     - _component: building-blocks/forms/hidden
       name: _subject
       value: Request Appointment

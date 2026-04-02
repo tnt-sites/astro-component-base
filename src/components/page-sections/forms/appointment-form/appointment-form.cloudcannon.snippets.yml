@@ -24,12 +24,6 @@ appointmentForm:
         type: string
         optional: true
         remove_empty: true
-      - editor_key: leftBlocks
-        type: array
-        optional: true
-      - editor_key: rightBlocks
-        type: array
-        optional: true
       - editor_key: formBlocks
         type: array
         optional: true

@@ -1,6 +1,5 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import RenderBlock from "@components/utils/renderBlock.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import Text from "@core-elements/text/Text.astro";
 import Form from "@forms/form/Form.astro";
@@ -9,8 +8,6 @@ const {
   heading = "Request an Appointment",
   subtext = "",
   formAction = "./",
-  leftBlocks = [],
-  rightBlocks = [],
   formBlocks = [],
   backgroundColor = "base",
   id = "",
@@ -47,18 +44,8 @@ const htmlAttributes = Object.fromEntries(
       </Text>
     )
   }
-  <Form action={formAction} formBlocks={[]}>
-    <div class="appt-form-columns">
-      <div class="appt-form-left">
-        <RenderBlock contentSections={leftBlocks} propName="leftBlocks" />
-      </div>
-      <div class="appt-form-right">
-        <RenderBlock contentSections={rightBlocks} propName="rightBlocks" />
-      </div>
-    </div>
-    <div class="appt-form-bottom">
-      <RenderBlock contentSections={formBlocks} propName="formBlocks" />
-    </div>
+  <Form class="appt-form" action={formAction} formBlocks={formBlocks?.length > 0 ? formBlocks : []}>
+    <slot />
   </Form>
 </CustomSection>
 
@@ -67,39 +54,37 @@ const htmlAttributes = Object.fromEntries(
     .appointment-form {
       background: var(--section-bg-gradient, linear-gradient(transparent, transparent));
 
-      .appt-form-columns {
+      .appt-form.form {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0 var(--spacing-xl);
 
-        editable-array {
+        > editable-array {
+          display: contents;
+        }
+
+        editable-array-item {
           display: block;
-          width: 100%;
+          min-width: 0;
+        }
+
+        editable-array-item:has(.hidden) {
+          display: contents;
+        }
+
+        editable-array-item:has(.submit) {
+          grid-column: 1 / -1;
+          display: flex;
+          justify-content: center;
+        }
+
+        .submit {
+          display: block;
+          margin-inline: auto;
         }
 
         @media (max-width: 750px) {
           grid-template-columns: 1fr;
-        }
-      }
-
-      .appt-form-bottom {
-        .textarea { width: 100%; }
-        .submit { display: block; margin-inline: auto; }
-
-        editable-array {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 100%;
-        }
-
-        editable-array-item {
-          width: 100%;
-
-          &:has(.submit) {
-            display: flex;
-            justify-content: center;
-          }
         }
       }
     }
