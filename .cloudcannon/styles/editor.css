@@ -12,3 +12,9 @@ span.heading-font {
 span.big-text {
   font-size: 1.6rem;
 }
+
+ul.no-check {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}

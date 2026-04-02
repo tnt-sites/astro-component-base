@@ -1,0 +1,107 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import RenderBlock from "@components/utils/renderBlock.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Text from "@core-elements/text/Text.astro";
+import Form from "@forms/form/Form.astro";
+
+const {
+  heading = "Request an Appointment",
+  subtext = "",
+  formAction = "./",
+  leftBlocks = [],
+  rightBlocks = [],
+  formBlocks = [],
+  backgroundColor = "base",
+  id = "",
+  backgroundImage,
+  backgroundGradient = "",
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["appointment-form", className]}
+  maxContentWidth="xl"
+  paddingHorizontal="lg"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  backgroundImage={backgroundImage}
+  style={backgroundGradient ? "--section-bg-gradient: " + backgroundGradient : undefined}
+  {...htmlAttributes}
+>
+  <Heading level="h2" size="xl" alignX="center" data-prop="heading">
+    {heading}
+  </Heading>
+  {
+    subtext && (
+      <Text alignX="center" data-prop="subtext">
+        {subtext}
+      </Text>
+    )
+  }
+  <Form action={formAction} formBlocks={[]}>
+    <div class="appt-form-columns">
+      <div class="appt-form-left">
+        <RenderBlock contentSections={leftBlocks} propName="leftBlocks" />
+      </div>
+      <div class="appt-form-right">
+        <RenderBlock contentSections={rightBlocks} propName="rightBlocks" />
+      </div>
+    </div>
+    <div class="appt-form-bottom">
+      <RenderBlock contentSections={formBlocks} propName="formBlocks" />
+    </div>
+  </Form>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .appointment-form {
+      background: var(--section-bg-gradient, linear-gradient(transparent, transparent));
+
+      .appt-form-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 var(--spacing-xl);
+
+        editable-array {
+          display: block;
+          width: 100%;
+        }
+
+        @media (max-width: 750px) {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .appt-form-bottom {
+        .textarea { width: 100%; }
+        .submit { display: block; margin-inline: auto; }
+
+        editable-array {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        editable-array-item {
+          width: 100%;
+
+          &:has(.submit) {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+</style>

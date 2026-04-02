@@ -32,9 +32,9 @@ value:
   officeHoursNote: Closed on Sundays
   legalLinks:
     - name: Sitemap
-      path: sitemap.html
+      path: /sitemap
     - name: Privacy Policy
-      path: privacy-policy.html
+      path: /privacy-policy
   mapEmbedUrl: ""
   legalBlurb: ""
 preview:

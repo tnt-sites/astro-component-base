@@ -30,7 +30,9 @@ const pageImage = props.image || seoData.logoSource;
 
 const getScriptArray = (value: unknown): string[] =>
   Array.isArray(value)
-    ? value.filter((script): script is string => typeof script === "string" && script.trim().length > 0)
+    ? value.filter(
+        (script): script is string => typeof script === "string" && script.trim().length > 0
+      )
     : [];
 
 const uniqueScripts = (scripts: string[]) => Array.from(new Set(scripts));
@@ -110,6 +112,8 @@ const globalModals = [
     <StructuredData site={seoData} />
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
+    <link href="https://tntwebsites.com/tnticons/css/fontello.css" rel="stylesheet" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
