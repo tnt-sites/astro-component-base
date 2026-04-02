@@ -26,6 +26,7 @@ pageSections:
         uppercase: false
     colorScheme: inherit
     backgroundColor: base
+    backgroundGradient: ''
   - _component: page-sections/ctas/services-grid
     id: ''
     heading: Our Services
@@ -153,7 +154,8 @@ pageSections:
       heading: Get Started Now
       buttonText: Request an Appointment
       wide: true
-    backgroundColor: base
+    backgroundColor: '#000000'
+    backgroundGradient: ''
     backgroundImage:
       source:
       alt:
@@ -184,6 +186,7 @@ pageSections:
     paddingVertical: sm
     colorScheme: default
     backgroundColor: base
+    backgroundGradient: ''
     backgroundImage:
       source:
       alt:

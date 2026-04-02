@@ -14,6 +14,12 @@ pageSections:
     reverse: false
     colorScheme: inherit
     backgroundColor: none
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
   - _component: page-sections/ctas/cta-split
     id: ''
     heading: Heading text
@@ -41,6 +47,12 @@ pageSections:
     reverse: false
     colorScheme: default
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     rounded: false
   - _component: page-sections/ctas/cta-split
     id: ''
@@ -69,10 +81,16 @@ pageSections:
     reverse: true
     colorScheme: default
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     rounded: false
   - _component: page-sections/ctas/cta-split-learn-more
     id: ''
-    heading: Keep Your Smile Healthy Year-Round
+    heading: Keep Your Smile Healthy Year-Roun
     anchorName: ''
     subtext: >-
       Our preventive dentistry appointments focus on early detection,
@@ -149,6 +167,12 @@ pageSections:
     reverse: false
     colorScheme: default
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     rounded: false
   - _component: page-sections/ctas/cta-center
     id: ''
@@ -174,6 +198,12 @@ pageSections:
         uppercase: false
     colorScheme: inherit
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     rounded: false
   - _component: page-sections/info-blocks/emergency-grid
     id: ''
@@ -387,6 +417,7 @@ pageSections:
             alignX: start
     enableModals: true
     backgroundColor: base
+    backgroundGradient: ''
   - _component: page-sections/features/office-tour
     id: ''
     heading: office-tour Heading
@@ -419,6 +450,12 @@ pageSections:
         positionHorizontal: center
         priority: false
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     slideNumbers: true
     floatingArrows: false
   - _component: page-sections/ctas/more-to-explore
@@ -446,6 +483,7 @@ pageSections:
     paddingVertical: sm
     colorScheme: default
     backgroundColor: base
+    backgroundGradient: ''
     backgroundImage:
       source:
       alt:
@@ -713,5 +751,11 @@ pageSections:
     id: ''
     heading: Icon Grid Sheet Heading
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
 description: ''
 ---
