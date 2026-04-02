@@ -15,6 +15,11 @@ value:
   colorScheme: inherit
   backgroundColor: surface
   backgroundGradient: ""
+  backgroundImage:
+    source: ""
+    alt: ""
+    positionVertical: top
+    positionHorizontal: center
 preview:
   text:
     - Testimonial Section

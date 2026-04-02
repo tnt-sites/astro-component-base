@@ -8,6 +8,11 @@ value:
   tourSlides: []
   backgroundColor: base
   backgroundGradient: ""
+  backgroundImage:
+    source: ""
+    alt: ""
+    positionVertical: top
+    positionHorizontal: center
   slideNumbers: false
   floatingArrows: false
 _inputs_from_glob:

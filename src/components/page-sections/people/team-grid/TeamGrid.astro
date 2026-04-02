@@ -14,6 +14,7 @@ const {
   colorScheme = "inherit",
   backgroundColor,
   backgroundGradient = "",
+  backgroundImage,
   paddingVertical = "4xl",
   class: className,
 } = Astro.props;
@@ -27,6 +28,7 @@ const {
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
   backgroundGradient={backgroundGradient}
+  backgroundImage={backgroundImage}
 >
   <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
     {eyebrow}

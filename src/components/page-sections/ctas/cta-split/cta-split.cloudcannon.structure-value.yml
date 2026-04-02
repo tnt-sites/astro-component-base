@@ -22,6 +22,11 @@ value:
   colorScheme: default
   backgroundColor: base
   backgroundGradient: ""
+  backgroundImage:
+    source: ""
+    alt: ""
+    positionVertical: top
+    positionHorizontal: center
   rounded: false
 preview:
   text:

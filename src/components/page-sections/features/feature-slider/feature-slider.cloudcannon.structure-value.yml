@@ -8,6 +8,11 @@ value:
   colorScheme: inherit
   backgroundColor: base
   backgroundGradient: ""
+  backgroundImage:
+    source: ""
+    alt: ""
+    positionVertical: top
+    positionHorizontal: center
 preview:
   text:
     - Feature Slider
