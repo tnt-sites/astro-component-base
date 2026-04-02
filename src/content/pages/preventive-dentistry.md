@@ -591,7 +591,7 @@ pageSections:
         iconPosition: before
         hideText: false
         disabled: false
-    backgroundColor: "#000000"
+    backgroundColor: base
     backgroundGradient: ""
     backgroundImage:
       source:
@@ -668,7 +668,7 @@ pageSections:
         iconPosition: before
         hideText: false
         disabled: false
-    backgroundColor: "#000000"
+    backgroundColor: base
     backgroundGradient: ""
     backgroundImage:
       source:
