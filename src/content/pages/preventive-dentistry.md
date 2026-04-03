@@ -58,7 +58,10 @@ pageSections:
     id: ''
     heading: Heading text
     anchorName: ''
-    subtext: Subtext placeholder text that will be replaced with actual content.
+    subtext: |-
+      Subtext placeholder text that will be replaced with actual content.
+
+      &nbsp;
     imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
     imageAlt: CTA image
     buttonSections:
@@ -90,11 +93,14 @@ pageSections:
     rounded: false
   - _component: page-sections/ctas/cta-split-learn-more
     id: ''
-    heading: Keep Your Smile Healthy Year-Roun
+    heading: Keep Your Smile Healthy <span class="heading-font">Year-Round</span>
     anchorName: ''
     subtext: >-
       Our preventive dentistry appointments focus on early detection,
       professional cleaning, and practical home-care guidance.
+
+
+      &nbsp;
     imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
     imageAlt: Preventive dentistry consultation
     buttonSections:
