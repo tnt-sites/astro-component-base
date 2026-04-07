@@ -22,4 +22,16 @@ slideWidthPercent:
 minSlideWidth:
   comment: Minimum width of slides in pixels. Prevents slides from getting too small.
   type: number
-
+arrowStyle:
+  comment: Visual style of the previous/next navigation arrows.
+  type: select
+  options:
+    values:
+      - id: default
+        name: Default
+      - id: chevron
+        name: Chevron
+      - id: circle
+        name: Circle
+      - id: arrow
+        name: Arrow

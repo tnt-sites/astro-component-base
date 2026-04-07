@@ -1,5 +1,5 @@
 ---
-import Button from "@core-elements/button/Button.astro";
+import { Icon as AstroIcon } from "astro-icon/components";
 import CarouselSlide from "./CarouselSlide.astro";
 
 const {
@@ -8,13 +8,23 @@ const {
   autoScroll = false,
   slideWidthPercent = 100,
   minSlideWidth = 0,
+  maxSlideWidth = 0,
   style = "",
   label,
+  arrowStyle = "default",
   "data-prop": customDataProp = "slides",
   editable = true,
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+// Maps arrowStyle to the prev/next icon names from src/icons/
+const arrowIcons: Record<string, [string, string]> = {
+  chevron: ["chevron-left", "chevron-right"],
+  circle: ["arrow-left-circle", "arrow-right-circle"],
+  arrow: ["arrow-left", "arrow-right"],
+};
+const [prevIcon, nextIcon] = arrowIcons[arrowStyle] ?? [null, null];
 
 const slugifyLabel = (label: string) => {
   return label
@@ -64,6 +74,7 @@ const carouselClasses = "carousel";
 const carouselStyles = `
   --slide-width: ${slideWidthPercent}%;
   --min-slide-width: ${minSlideWidth}px;
+  ${maxSlideWidth > 0 ? `--max-slide-width: ${maxSlideWidth}px;` : ""}
   ${style}
 `.trim();
 ---
@@ -106,55 +117,56 @@ const carouselStyles = `
   </div>
 
   <div class="controls-wrapper">
-    <!-- <Button
-      iconName="arrow-left"
-      size="md"
-      variant="tertiary"
-      hideText={true}
-      aria-label="Previous slide"
-      class="prev"
-      element="button"
-    /> -->
     <button class="button prev" type="button" aria-label="Previous slide">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="49.498"
-        height="49.498"
-        viewBox="0 0 49.498 49.498"
-        ><path
-          id="Union_2"
-          data-name="Union 2"
-          d="M-612,7.5V-23h-30.5a1.5,1.5,0,0,1-1.5-1.5,1.5,1.5,0,0,1,1.5-1.5h32a1.5,1.5,0,0,1,1.5,1.5v32A1.5,1.5,0,0,1-610.5,9,1.5,1.5,0,0,1-612,7.5Z"
-          transform="translate(461.741 473.762) rotate(45)"
-          fill="#e3e3e3"></path></svg
-      >
+      <slot name="prev-arrow">
+        {
+          prevIcon ? (
+            <AstroIcon name={prevIcon} is:inline />
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="49.498"
+              height="49.498"
+              viewBox="0 0 49.498 49.498"
+            >
+              <path
+                id="Union_2"
+                data-name="Union 2"
+                d="M-612,7.5V-23h-30.5a1.5,1.5,0,0,1-1.5-1.5,1.5,1.5,0,0,1,1.5-1.5h32a1.5,1.5,0,0,1,1.5,1.5v32A1.5,1.5,0,0,1-610.5,9,1.5,1.5,0,0,1-612,7.5Z"
+                transform="translate(461.741 473.762) rotate(45)"
+                fill="#e3e3e3"
+              />
+            </svg>
+          )
+        }
+      </slot>
     </button>
 
     <div class="indicators"></div>
 
-    <!-- <Button
-      iconName="arrow-right"
-      size="md"
-      variant="tertiary"
-      hideText={true}
-      aria-label="Next slide"
-      class="next"
-      element="button"
-    /> -->
-
     <button class="button next" type="button" aria-label="Next slide">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="49.498"
-        height="49.498"
-        viewBox="0 0 49.498 49.498"
-        ><path
-          id="Union_2"
-          data-name="Union 2"
-          d="M-612,7.5V-23h-30.5a1.5,1.5,0,0,1-1.5-1.5,1.5,1.5,0,0,1,1.5-1.5h32a1.5,1.5,0,0,1,1.5,1.5v32A1.5,1.5,0,0,1-610.5,9,1.5,1.5,0,0,1-612,7.5Z"
-          transform="translate(461.741 473.762) rotate(45)"
-          fill="#e3e3e3"></path></svg
-      >
+      <slot name="next-arrow">
+        {
+          nextIcon ? (
+            <AstroIcon name={nextIcon} is:inline />
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="49.498"
+              height="49.498"
+              viewBox="0 0 49.498 49.498"
+            >
+              <path
+                id="Union_2"
+                data-name="Union 2"
+                d="M-612,7.5V-23h-30.5a1.5,1.5,0,0,1-1.5-1.5,1.5,1.5,0,0,1,1.5-1.5h32a1.5,1.5,0,0,1,1.5,1.5v32A1.5,1.5,0,0,1-610.5,9,1.5,1.5,0,0,1-612,7.5Z"
+                transform="translate(461.741 473.762) rotate(45)"
+                fill="#e3e3e3"
+              />
+            </svg>
+          )
+        }
+      </slot>
     </button>
   </div>
 </section>
@@ -163,6 +175,7 @@ const carouselStyles = `
   import EmblaCarousel from "embla-carousel";
   import AutoScroll from "embla-carousel-auto-scroll";
   import Autoplay from "embla-carousel-autoplay";
+  import ClassNames from "embla-carousel-class-names";
 
   function setupCarousels() {
     const carousels = document.querySelectorAll(".carousel");
@@ -187,9 +200,12 @@ const carouselStyles = `
       const slidesToScroll = carousel.hasAttribute("data-slides-to-scroll")
         ? Number(carousel.getAttribute("data-slides-to-scroll")) || "auto"
         : "auto";
-      const align = carousel.getAttribute("data-align") || "start";
+      const align = (carousel.getAttribute("data-align") || "start") as "start" | "center" | "end";
+      const containScroll = carousel.hasAttribute("data-no-contain-scroll")
+        ? false
+        : ("trimSnaps" as const);
 
-      const plugins = [];
+      const plugins = [ClassNames()];
       if (carousel.hasAttribute("data-autoplay")) {
         const autoplayInterval = Number(carousel.getAttribute("data-autoplay")) * 1000 || 3000;
         plugins.push(Autoplay({ delay: autoplayInterval, stopOnInteraction: false }));
@@ -209,6 +225,7 @@ const carouselStyles = `
           loop,
           slidesToScroll,
           align,
+          containScroll,
           watchDrag,
           duration: 20,
           startIndex: 0,
@@ -218,22 +235,41 @@ const carouselStyles = `
         plugins
       );
 
+      // Store embla instance on the element so external scripts can access it.
+      (carousel as any)._embla = embla;
+
       // Mark this carousel as initialized
       carousel.setAttribute("data-embla-initialized", "true");
 
-      // Navigation
+      // Navigation buttons — wired up once, always.
       const prevButton = carousel.querySelector(".prev") as HTMLButtonElement;
       const nextButton = carousel.querySelector(".next") as HTMLButtonElement;
+
+      if (prevButton) prevButton.addEventListener("click", () => embla.scrollPrev());
+      if (nextButton) nextButton.addEventListener("click", () => embla.scrollNext());
 
       const updateButtons = () => {
         if (prevButton) prevButton.disabled = !embla.canScrollPrev();
         if (nextButton) nextButton.disabled = !embla.canScrollNext();
       };
 
-      updateButtons();
+      // Show/hide arrows and indicators based on snap availability.
+      // Called on both init and reInit so carousels that start hidden
+      // (e.g. in a tab panel) recover correctly once they become visible.
+      const updateControls = () => {
+        const hasSnaps = embla.scrollSnapList().length > 1;
+        carousel.setAttribute("data-show-arrows", hasSnaps ? "true" : "false");
+        carousel.setAttribute("data-show-indicators", hasSnaps ? "true" : "false");
+        if (!hasSnaps) {
+          embla.plugins()?.autoplay?.stop?.();
+        } else {
+          updateButtons();
+        }
+      };
+
+      updateControls();
       embla.on("select", updateButtons);
-      if (prevButton) prevButton.addEventListener("click", () => embla.scrollPrev());
-      if (nextButton) nextButton.addEventListener("click", () => embla.scrollNext());
+      embla.on("reInit", updateControls);
 
       // Setup indicators
       if (indicatorsContainer) {
@@ -297,10 +333,12 @@ const carouselStyles = `
         > editable-array-item, > .slide {
           flex-shrink: 0;
           flex-basis: calc(max(var(--slide-width, 100%), var(--min-slide-width, 0px)));
+          max-width: var(--max-slide-width, none);
         }
 
         > editable-array-item > .slide {
           width: 100%;
+          max-width: var(--max-slide-width, none);
         }
       }
 
@@ -325,6 +363,19 @@ const carouselStyles = `
 
         &:hover {
           svg{path, line{fill: var(--color-brand);}}
+        }
+
+        /* Icon-based arrows (chevron / circle / arrow variants) */
+        svg[data-icon] {
+          width: 2rem;
+          height: 2rem;
+          stroke: currentcolor;
+          fill: none;
+          transition: color var(--animation-normal) ease;
+        }
+
+        &:hover svg[data-icon] {
+          color: var(--color-brand);
         }
       }
       > .controls-wrapper > .prev svg{

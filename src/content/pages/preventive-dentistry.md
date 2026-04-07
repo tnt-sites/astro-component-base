@@ -3,7 +3,7 @@ _schema: default
 title: Preventive Dentistry
 pageSections:
   - _component: page-sections/heroes/hero-split
-    id: ''
+    id: ""
     eyebrow: Service - City, ST
     heading: Preventive Dentistry
     subtext: Subtitle placeholder text that will be replaced with actual content.
@@ -14,27 +14,27 @@ pageSections:
     reverse: false
     colorScheme: inherit
     backgroundColor: none
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/ctas/cta-split
-    id: ''
+    id: ""
     heading: Heading text
-    anchorName: ''
+    anchorName: ""
     subtext: Subtext placeholder text that will be replaced with actual content.
     imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
     imageAlt: CTA image
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: My Button
         hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
+        link: ""
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: text
         size: md
@@ -47,17 +47,17 @@ pageSections:
     reverse: false
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     rounded: false
   - _component: page-sections/ctas/cta-split
-    id: ''
+    id: ""
     heading: Heading text
-    anchorName: ''
+    anchorName: ""
     subtext: |-
       Subtext placeholder text that will be replaced with actual content.
 
@@ -66,12 +66,12 @@ pageSections:
     imageAlt: CTA image
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: My Button
         hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
+        link: ""
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -84,17 +84,17 @@ pageSections:
     reverse: true
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     rounded: false
   - _component: page-sections/ctas/cta-split-learn-more
-    id: ''
+    id: ""
     heading: Keep Your Smile Healthy <span class="heading-font">Year-Round</span>
-    anchorName: ''
+    anchorName: ""
     subtext: >-
       Our preventive dentistry appointments focus on early detection,
       professional cleaning, and practical home-care guidance.
@@ -105,12 +105,12 @@ pageSections:
     imageAlt: Preventive dentistry consultation
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Book Preventive Visit
         hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
+        link: ""
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -123,25 +123,25 @@ pageSections:
     learnMoreButtonText: Learn More About Preventive Dentistry
     learnMoreSections:
       - _component: building-blocks/core-elements/heading
-        id: ''
+        id: ""
         text: What’s Included in Preventive Care
         level: h3
         size: lg
         alignX: start
         iconPosition: before
       - _component: building-blocks/core-elements/text
-        id: ''
+        id: ""
         text: >-
           Preventive care includes routine exams, digital x-rays when needed,
           personalized hygiene recommendations, and early treatment planning to
           help avoid more complex procedures.
         alignX: start
       - _component: building-blocks/wrappers/split
-        id: ''
+        id: ""
         label: Learn Something
         firstColumnContentSections:
           - _component: building-blocks/core-elements/image
-            id: ''
+            id: ""
             source: /src/assets/images/component-library/profile.jpg
             alt: Sad man
             rounded: false
@@ -151,7 +151,7 @@ pageSections:
             priority: false
         secondColumnContentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Look at the Sad Man
             level: h2
             size: default
@@ -159,7 +159,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/simple-text
-            id: ''
+            id: ""
             text: He is so sad.
             alignX: start
             size: md
@@ -173,24 +173,24 @@ pageSections:
     reverse: false
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     rounded: false
   - _component: page-sections/ctas/cta-center
-    id: ''
+    id: ""
     heading: Checkups
     anchorName: checkups
     subtext: Subtext placeholder text that will be replaced with actual content.
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Modal Button
         hideText: false
-        link: ''
+        link: ""
         modalTarget: sample-modal
         iconName:
         iconPosition: before
@@ -204,22 +204,22 @@ pageSections:
         uppercase: false
     colorScheme: inherit
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     rounded: false
   - _component: page-sections/info-blocks/emergency-grid
-    id: ''
+    id: ""
     heading: Most Common Dental Emergencies
     subtext: >-
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     emergencyItems:
@@ -228,7 +228,7 @@ pageSections:
         iconPreset: toothache
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Toothaches
             level: h3
             size: default
@@ -236,7 +236,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -246,7 +246,7 @@ pageSections:
         iconPreset: chipped-tooth
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Chipped Tooth
             level: h3
             size: default
@@ -254,7 +254,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -264,7 +264,7 @@ pageSections:
         iconPreset: cracked-tooth
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Cracked Tooth
             level: h3
             size: default
@@ -272,7 +272,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -282,7 +282,7 @@ pageSections:
         iconPreset: sensitivity-hot-cold
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Sensitivity to Hot and Cold
             level: h3
             size: default
@@ -290,7 +290,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -300,7 +300,7 @@ pageSections:
         iconPreset: loose-tooth
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Loose Tooth
             level: h3
             size: default
@@ -308,7 +308,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -318,7 +318,7 @@ pageSections:
         iconPreset: jaw-pain-clenching
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Jaw Pain or Clenching
             level: h3
             size: default
@@ -326,7 +326,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -336,7 +336,7 @@ pageSections:
         iconPreset: knocked-out-tooth
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Knocked-Out Tooth
             level: h3
             size: default
@@ -344,7 +344,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -354,7 +354,7 @@ pageSections:
         iconPreset: lost-filling-crown
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Lost Filling or Crown
             level: h3
             size: default
@@ -362,7 +362,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -372,7 +372,7 @@ pageSections:
         iconPreset: broken-denture
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Broken Denture
             level: h3
             size: default
@@ -380,7 +380,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -390,7 +390,7 @@ pageSections:
         iconPreset: gum-lip-tongue-injury
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Gum, Lip or Tongue Injury
             level: h3
             size: default
@@ -398,7 +398,7 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -408,7 +408,7 @@ pageSections:
         iconPreset: stuck-between-teeth
         contentSections:
           - _component: building-blocks/core-elements/heading
-            id: ''
+            id: ""
             text: Something Stuck Between Teeth
             level: h3
             size: default
@@ -416,65 +416,66 @@ pageSections:
             iconName:
             iconPosition: before
           - _component: building-blocks/core-elements/text
-            id: ''
+            id: ""
             text: >-
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
     enableModals: true
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
   - _component: page-sections/features/office-tour
-    id: ''
+    id: ""
+    class: peek
     heading: office-tour Heading
     tourSlides:
       - _component: building-blocks/core-elements/image
-        id: ''
+        id: ""
         source: /src/assets/images/component-library/castle.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
         positionHorizontal: center
         priority: false
       - _component: building-blocks/core-elements/image
-        id: ''
+        id: ""
         source: /src/assets/images/component-library/dunedin-cliff.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
         positionHorizontal: center
         priority: false
       - _component: building-blocks/core-elements/image
-        id: ''
+        id: ""
         source: /src/assets/images/component-library/profile5.jpg
-        alt: ''
+        alt: ""
         rounded: false
         aspectRatio: none
         positionVertical: center
         positionHorizontal: center
         priority: false
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
     slideNumbers: true
     floatingArrows: false
   - _component: page-sections/ctas/more-to-explore
-    id: ''
+    id: ""
     heading: More to <span class="color">Explore</span>
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: My Button
         hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
+        link: ""
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -489,26 +490,26 @@ pageSections:
     paddingVertical: sm
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
       source:
       alt:
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/forms/appointment-form
-    id: ''
+    id: ""
     heading: Request an Appointment
-    subtext: ''
+    subtext: ""
     formAction: ./
     formBlocks:
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Name
         name: name
         type: text
         required: true
       - _component: building-blocks/forms/select
-        id: ''
+        id: ""
         label: Are You a...
         name: patient
         required: true
@@ -519,13 +520,13 @@ pageSections:
             label: Existing Patient
         placeholder: Select one
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Phone
         name: phone
         type: tel
         required: true
       - _component: building-blocks/forms/select
-        id: ''
+        id: ""
         label: Preferred Method of Communication
         name: communication
         required: false
@@ -538,13 +539,13 @@ pageSections:
             label: Email
         placeholder: Select one
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Email
         name: email
         type: email
         required: true
       - _component: building-blocks/forms/select
-        id: ''
+        id: ""
         label: How'd You Hear About Us?
         name: hear
         required: true
@@ -561,13 +562,13 @@ pageSections:
             label: Other
         placeholder: Select one
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Your Dental Insurance
         name: insurance
         type: text
         required: false
       - _component: building-blocks/forms/select
-        id: ''
+        id: ""
         label: I Am Interested In...
         name: interested
         required: false
@@ -602,7 +603,7 @@ pageSections:
             label: Other
         placeholder: Select one
       - _component: building-blocks/forms/choice-group
-        id: ''
+        id: ""
         title: Preferred Day(s) of the Week
         name: day
         required: false
@@ -625,20 +626,20 @@ pageSections:
         orientation: horizontal
         multiple: true
       - _component: building-blocks/forms/textarea
-        id: ''
+        id: ""
         label: Questions or Comments
         name: comment
         required: false
       - _component: building-blocks/forms/hidden
-        id: ''
+        id: ""
         name: _subject
         value: Request Appointment
       - _component: building-blocks/forms/hidden
-        id: ''
+        id: ""
         name: _redirect
         value: /thanks
       - _component: building-blocks/forms/submit
-        id: ''
+        id: ""
         text: Submit
         variant: primary
         size: md
@@ -646,20 +647,20 @@ pageSections:
         hideText: false
         disabled: false
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
       source:
       alt:
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/forms/referral-form
-    id: ''
+    id: ""
     heading: Refer a Patient
-    subtext: ''
+    subtext: ""
     formAction: ./
     formBlocks:
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Your Name
         name: name
         type: text
@@ -667,55 +668,55 @@ pageSections:
         required: true
         value:
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Your Email
         name: email
         type: email
         required: true
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Your Phone
         name: phone
         type: tel
         required: false
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Patient's Name
         name: patient-name
         type: text
         required: true
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Patient's Email
         name: patient-email
         type: email
         required: true
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Patient's Phone
         name: patient-phone
         type: tel
         required: true
       - _component: building-blocks/forms/textarea
-        id: ''
+        id: ""
         label: Reason for Referral
         name: reason
         required: true
       - _component: building-blocks/forms/textarea
-        id: ''
+        id: ""
         label: Description of Previous Treatments
         name: treatments
         required: true
       - _component: building-blocks/forms/hidden
-        id: ''
+        id: ""
         name: _subject
         value: Refer a Patient
       - _component: building-blocks/forms/hidden
-        id: ''
+        id: ""
         name: _redirect
         value: /thanks
       - _component: building-blocks/forms/submit
-        id: ''
+        id: ""
         text: Submit
         variant: primary
         size: md
@@ -733,10 +734,10 @@ pageSections:
     id: sample-modal
     closeLabel: Close modal
     showCloseButton: true
-    class: ''
+    class: ""
     contentSections:
       - _component: building-blocks/core-elements/heading
-        id: ''
+        id: ""
         text: Modal Heading
         level: h3
         size: default
@@ -744,24 +745,24 @@ pageSections:
         iconName:
         iconPosition: before
       - _component: building-blocks/core-elements/text
-        id: ''
+        id: ""
         text: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         alignX: start
       - _component: building-blocks/core-elements/video
         type: youtube
         id: 0NyaGRNH2zE
         title: Some video
-        source: ''
-        thumbnail: ''
+        source: ""
+        thumbnail: ""
   - _component: page-sections/info-blocks/icon-grid-sheet
-    id: ''
+    id: ""
     heading: Icon Grid Sheet Heading
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
       positionVertical: top
       positionHorizontal: center
-description: ''
+description: ""
 ---

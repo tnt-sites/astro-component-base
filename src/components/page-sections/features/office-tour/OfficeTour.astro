@@ -25,12 +25,17 @@ const normalizedTourSlides = Array.isArray(tourSlides)
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
+
+// Peek mode: add class="peek" in the CMS to show flanking slides at reduced opacity.
+const isPeek = String(className ?? "")
+  .split(" ")
+  .includes("peek");
 ---
 
 <CustomSection
   class:list={["office-tour", className, slideNumbers ? "slide-numbers" : "", floatingArrows ? "floating-arrows" : ""]}
-  maxContentWidth="2xl"
-  paddingHorizontal="lg"
+  maxContentWidth={isPeek ? undefined : "2xl"}
+  paddingHorizontal="none"
   paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={backgroundColor}
@@ -46,13 +51,13 @@ const htmlAttributes = Object.fromEntries(
 
   <Carousel
     label={heading || "Office tour"}
-    slideWidthPercent={100}
-    minSlideWidth={0}
+    class="office-tour-carousel"
+    maxSlideWidth={isPeek ? 800 : 0}
     autoPlay={false}
     autoScroll={false}
     data-prop="tourSlides"
     editable={editable}
-    client:load
+    {...(isPeek ? { "data-no-contain-scroll": true, "data-slides-to-scroll": "1" } : {})}
   >
     {
       normalizedTourSlides.map((slide, index) => (
@@ -81,6 +86,7 @@ const htmlAttributes = Object.fromEntries(
 <style is:global>
   .office-tour {
     margin: 0 auto;
+    padding: 0;
     position: relative;
   }
 
@@ -88,9 +94,37 @@ const htmlAttributes = Object.fromEntries(
     position: relative;
   }
 
-  .office-tour .carousel .viewport {
+  .office-tour:not(.peek) .carousel .viewport {
     margin: 0 auto;
     max-width: 1000px;
+  }
+
+  /* PEEK LAYOUT — add class="peek" in the CMS */
+  .office-tour.peek .office-tour-carousel {
+    margin-inline: calc(-1 * var(--spacing-lg));
+    width: calc(100% + 2 * var(--spacing-lg));
+  }
+
+  .office-tour.peek {
+    overflow: hidden;
+  }
+
+  .office-tour.peek .office-tour-carousel > .viewport {
+    overflow: visible;
+  }
+
+  .office-tour .viewport > .track {
+    align-items: center;
+  }
+
+  .office-tour.peek .slide {
+    margin: 0 20px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .office-tour.peek .slide.is-snapped {
+    opacity: 1;
   }
 
   .office-tour.floating-arrows .carousel > .controls-wrapper > .prev,

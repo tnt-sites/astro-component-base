@@ -124,9 +124,9 @@ const globalModals = [
     {headScripts.map((script: string) => <script is:inline>{script}</script>)}
   </head>
   <body>
-    <main>
+    <Fragment>
       <slot />
-    </main>
+    </Fragment>
     {
       globalModals.map((modal, index) => (
         <Modal

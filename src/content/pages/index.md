@@ -13,7 +13,7 @@ pageSections:
         text: Explore Components
         hideText: false
         link: /component-library/
-        iconName: ''
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -21,7 +21,7 @@ pageSections:
         text: View in GitHub
         hideText: false
         link: https://github.com/CloudCannon/astro-component-starter
-        iconName: ''
+        iconName: ""
         iconPosition: before
         variant: secondary
         size: md
@@ -135,6 +135,72 @@ pageSections:
     colorScheme: default
     backgroundColor: surface
     align: center
+  - _component: page-sections/homepage-blocks/review-video-switcher
+    id: reviews
+    heading: Nobody Says It Better
+    watchLabel: Watch
+    readLabel: Read
+    videos:
+      - youtubeId: hlWiI4xVXKY
+        title: Patient Testimonial — Helen Ws
+    reviews:
+      - text: >-
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+          vehicula felis nec urna tincidunt, vitae fermentum nulla condimentum.
+        authorName: First L.
+        socialIcon: social/google
+        reviewerImage: ""
+      - text: >-
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Proin euismod erat vel ligula facilisis.
+        authorName: First L.
+        socialIcon: social/google
+        reviewerImage: ""
+      - text: >-
+          Sed posuere consectetur est at lobortis. Donec sed odio dui. Cras
+          mattis consectetur purus sit amet fermentum.
+        authorName: First L.
+        socialIcon: social/google
+        reviewerImage: ""
+    showQuoteIcon: true
+    backgroundColor: base
+    backgroundGradient: ""
+    backgroundImage:
+      source: ""
+      alt: ""
+      positionVertical: top
+      positionHorizontal: center
+  - _component: page-sections/homepage-blocks/index-reviews
+    class: peek
+    id: patient-reviews
+    heading: What Our Patients Say
+    reviews:
+      - text: >-
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+          vehicula felis nec urna tincidunt, vitae fermentum nulla condimentum.
+        authorName: First L.
+        socialIcon: social/google
+        reviewerImage: ""
+      - text: >-
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Proin euismod erat vel ligula facilisis.
+        authorName: First L.
+        socialIcon: social/google
+        reviewerImage: ""
+      - text: >-
+          Sed posuere consectetur est at lobortis. Donec sed odio dui. Cras
+          mattis consectetur purus sit amet fermentum.
+        authorName: First L.
+        socialIcon: social/google
+        reviewerImage: ""
+    showQuoteIcon: true
+    backgroundColor: surface
+    backgroundGradient: ""
+    backgroundImage:
+      source: ""
+      alt: ""
+      positionVertical: top
+      positionHorizontal: center
   - _component: page-sections/ctas/cta-center
     heading: Ready to start building?
     subtext: >-
@@ -146,7 +212,7 @@ pageSections:
         text: Explore Components
         hideText: false
         link: /component-library/
-        iconName: ''
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -154,11 +220,24 @@ pageSections:
         text: View in GitHub
         hideText: false
         link: https://github.com/CloudCannon/astro-component-starter
-        iconName: ''
+        iconName: ""
         iconPosition: before
         variant: tertiary
         size: md
     colorScheme: contrast
     backgroundColor: surface
     rounded: false
+  - _component: page-sections/ctas/request-bar
+    id: ""
+    heading: Ready to Get Started?
+    buttonText: Request an Appointment
+    buttonLink: /request-an-appointment
+    buttonVariant: primary
+    backgroundColor: base
+    backgroundGradient: ""
+    backgroundImage:
+      source: ""
+      alt: ""
+      positionVertical: top
+      positionHorizontal: center
 ---
