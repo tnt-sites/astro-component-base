@@ -455,15 +455,15 @@ pageSections:
         positionVertical: center
         positionHorizontal: center
         priority: false
-    backgroundColor: base
+    slideNumbers: true
+    floatingArrows: false
+    backgroundColor: none
     backgroundGradient: ''
     backgroundImage:
       source: ''
       alt: ''
       positionVertical: top
       positionHorizontal: center
-    slideNumbers: true
-    floatingArrows: false
     class: peek
   - _component: page-sections/ctas/more-to-explore
     id: ''
@@ -723,7 +723,7 @@ pageSections:
         iconPosition: before
         hideText: false
         disabled: false
-    backgroundColor:
+    backgroundColor: none
     backgroundGradient: linear-gradient(0deg,rgba(11, 79, 86, 1) 0%, rgba(55, 167, 81, 1) 100%)
     backgroundImage:
       source:

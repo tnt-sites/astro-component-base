@@ -227,7 +227,7 @@ pageSections:
     buttonText: Request an Appointment
     buttonLink: /request-an-appointment
     buttonVariant: primary
-    backgroundColor: base
+    backgroundColor: '#000000'
     backgroundGradient: ''
     backgroundImage:
       source: ''
