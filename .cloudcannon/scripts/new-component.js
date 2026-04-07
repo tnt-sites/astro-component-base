@@ -158,6 +158,10 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
         positionHorizontal: center
     _inputs_from_glob:
       - /${relativePath}/${kebabName}.cloudcannon.inputs.yml
+    # IMPORTANT: If you add a _structures block, keep it AFTER _inputs_from_glob.
+    # CloudCannon applies _inputs_from_glob in document order — if _structures
+    # appears first, _inputs_from_glob is ignored and inputs fall back to
+    # auto-detected types (e.g. color picker instead of dropdown).
     `.trim();
 
     const structureValuePath = path.join(

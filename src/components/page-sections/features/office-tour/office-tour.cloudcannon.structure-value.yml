@@ -15,6 +15,8 @@ value:
     alt: ""
     positionVertical: top
     positionHorizontal: center
+_inputs_from_glob:
+  - /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml
 _structures:
   carouselSections:
     values:
@@ -38,6 +40,3 @@ _structures:
             type: textarea
           caption:
             type: text
-_inputs_from_glob:
-  - >-
-    /src/components/page-sections/features/office-tour/office-tour.cloudcannon.inputs.yml
