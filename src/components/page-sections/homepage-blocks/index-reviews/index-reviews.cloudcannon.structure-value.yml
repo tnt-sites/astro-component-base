@@ -28,6 +28,8 @@ value:
     alt: null
     positionVertical: top
     positionHorizontal: center
+_inputs_from_glob:
+  - /src/components/page-sections/homepage-blocks/index-reviews/index-reviews.cloudcannon.inputs.yml
 _structures:
   reviewItems:
     values:
@@ -66,5 +68,3 @@ _structures:
               paths:
                 uploads: src/assets/images
                 static: ""
-_inputs_from_glob:
-  - /src/components/page-sections/homepage-blocks/index-reviews/index-reviews.cloudcannon.inputs.yml
