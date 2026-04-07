@@ -33,8 +33,8 @@ pageSections:
     colorScheme: default
     backgroundColor: base
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     rounded: false

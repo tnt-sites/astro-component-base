@@ -201,8 +201,8 @@ pageSections:
     colorScheme: inherit
     backgroundColor: base
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     rounded: false

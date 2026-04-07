@@ -1,14 +1,6 @@
 label: Index Reviews
 icon: format_quote
 description: A carousel of written patient reviews with star ratings.
-preview:
-  text: Index Reviews
-  subtext: Reviews Carousel
-  icon: format_quote
-picker_preview:
-  text: Index Reviews
-  subtext: Reviews Carousel
-  icon: format_quote
 value:
   _component: page-sections/homepage-blocks/index-reviews
   id: ""
@@ -28,6 +20,16 @@ value:
     alt: null
     positionVertical: top
     positionHorizontal: center
+preview:
+  text:
+    - Index Reviews
+  subtext:
+    - key: heading
+  icon: format_quote
+picker_preview:
+  text: Index Reviews
+  subtext: Patient reviews carousel with star ratings.
+  icon: format_quote
 _inputs_from_glob:
   - /src/components/page-sections/homepage-blocks/index-reviews/index-reviews.cloudcannon.inputs.yml
 _structures:

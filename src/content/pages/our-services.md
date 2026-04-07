@@ -3,18 +3,18 @@ _schema: default
 title: Our Services
 pageSections:
   - _component: page-sections/heroes/hero-center
-    id: ''
+    id: ""
     eyebrow: Services - City, ST
     heading: Our Really Cool Dental Services
     subtext: Subtext placeholder text that will be replaced with actual content.
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: My Button
         hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
+        link: ""
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -26,9 +26,9 @@ pageSections:
         uppercase: false
     colorScheme: inherit
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
   - _component: page-sections/ctas/services-grid
-    id: ''
+    id: ""
     heading: Our Services
     services:
       - _component: page-sections/ctas/services-grid/services-grid-item
@@ -154,24 +154,24 @@ pageSections:
       heading: Get Started Now
       buttonText: Request an Appointment
       wide: true
-    backgroundColor: '#000000'
-    backgroundGradient: ''
+    backgroundColor: base
+    backgroundGradient: ""
     backgroundImage:
       source:
       alt:
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/ctas/more-to-explore
-    id: ''
+    id: ""
     heading: More to <span class="color">Explore</span>
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: My Button
         hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
+        link: ""
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -186,11 +186,11 @@ pageSections:
     paddingVertical: sm
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ''
+    backgroundGradient: ""
     backgroundImage:
       source:
       alt:
       positionVertical: top
       positionHorizontal: center
-description: ''
+description: ""
 ---

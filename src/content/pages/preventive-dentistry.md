@@ -16,8 +16,8 @@ pageSections:
     backgroundColor: none
     backgroundGradient: ''
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/ctas/cta-split
@@ -49,8 +49,8 @@ pageSections:
     backgroundColor: base
     backgroundGradient: ''
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -86,8 +86,8 @@ pageSections:
     backgroundColor: base
     backgroundGradient: ''
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -175,8 +175,8 @@ pageSections:
     backgroundColor: base
     backgroundGradient: ''
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -206,8 +206,8 @@ pageSections:
     backgroundColor: base
     backgroundGradient: ''
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -218,8 +218,8 @@ pageSections:
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     emergencyItems:
@@ -460,8 +460,8 @@ pageSections:
     backgroundColor: none
     backgroundGradient: ''
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     class: peek
@@ -760,8 +760,8 @@ pageSections:
     backgroundColor: base
     backgroundGradient: ''
     backgroundImage:
-      source: ''
-      alt: ''
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
 description: ''
