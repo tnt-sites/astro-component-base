@@ -3,7 +3,7 @@ _schema: default
 title: Astro Component Starter
 pageSections:
   - _component: page-sections/heroes/hero-center
-    id: ""
+    id: ''
     eyebrow:
     heading: The Astro Component Starter for building any site
     subtext: >-
@@ -11,12 +11,12 @@ pageSections:
       maintain.
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Explore Components
         hideText: false
         link: /component-library/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -27,12 +27,12 @@ pageSections:
         textColor: default
         uppercase: false
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: View in GitHub
         hideText: false
         link: https://github.com/CloudCannon/astro-component-starter
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: secondary
         size: md
@@ -44,14 +44,14 @@ pageSections:
         uppercase: false
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ""
+    backgroundGradient: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/features/feature-split
-    id: ""
+    id: ''
     eyebrow: Built for Astro
     heading: Fast, modern, and easy to work with
     subtext: >-
@@ -66,14 +66,14 @@ pageSections:
     reverse: false
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ""
+    backgroundGradient: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/features/feature-split
-    id: ""
+    id: ''
     eyebrow: CloudCannon Ready
     heading: Easy visual editing
     subtext: >-
@@ -89,15 +89,15 @@ pageSections:
     reverse: true
     colorScheme:
     backgroundColor:
-    backgroundGradient: ""
+    backgroundGradient: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
     paddingVertical: lg
   - _component: page-sections/features/feature-split
-    id: ""
+    id: ''
     eyebrow: Performance
     heading: Fast by architecture, not by accident
     subtext: >-
@@ -112,14 +112,14 @@ pageSections:
     reverse: false
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ""
+    backgroundGradient: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/features/feature-split
-    id: ""
+    id: ''
     eyebrow: Documentation
     heading: Every component, clearly documented
     subtext: >-
@@ -134,10 +134,10 @@ pageSections:
     reverse: true
     colorScheme: default
     backgroundColor: base
-    backgroundGradient: ""
+    backgroundGradient: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/homepage-blocks/index-reviews
@@ -155,16 +155,16 @@ pageSections:
           fames ac turpis egestas. Proin euismod erat vel ligula facilisis.
         authorName: First L.
         socialIcon: social/google
-        reviewerImage: ""
+        reviewerImage: ''
       - text: >-
           Sed posuere consectetur est at lobortis. Donec sed odio dui. Cras
           mattis consectetur purus sit amet fermentum.
         authorName: First L.
         socialIcon: social/google
-        reviewerImage: ""
+        reviewerImage: ''
     showQuoteIcon: true
-    backgroundColor: base
-    backgroundGradient: ""
+    backgroundColor: none
+    backgroundGradient: ''
     backgroundImage:
       source:
       alt:
@@ -172,21 +172,21 @@ pageSections:
       positionHorizontal: center
     class: peek
   - _component: page-sections/ctas/cta-center
-    id: ""
+    id: ''
     heading: Ready to start building?
-    anchorName: ""
+    anchorName: ''
     subtext: >-
       Browse the complete Astro Component Starter and see live examples of every
       component in action. All components are ready to use in CloudCannon and
       are fully customizable.
     buttonSections:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Explore Components
         hideText: false
         link: /component-library/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -197,12 +197,12 @@ pageSections:
         textColor: default
         uppercase: false
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: View in GitHub
         hideText: false
         link: https://github.com/CloudCannon/astro-component-starter
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: tertiary
         size: md
@@ -214,7 +214,7 @@ pageSections:
         uppercase: false
     colorScheme: contrast
     backgroundColor: surface
-    backgroundGradient: ""
+    backgroundGradient: ''
     backgroundImage:
       source:
       alt:
@@ -222,17 +222,17 @@ pageSections:
       positionHorizontal: center
     rounded: false
   - _component: page-sections/ctas/request-bar
-    id: ""
+    id: ''
     heading: Ready to Get Started?
     buttonText: Request an Appointment
     buttonLink: /request-an-appointment
     buttonVariant: primary
-    backgroundColor: base
-    backgroundGradient: ""
+    backgroundColor: none
+    backgroundGradient: ''
     backgroundImage:
-      source:
-      alt:
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
-description: ""
+description: ''
 ---
