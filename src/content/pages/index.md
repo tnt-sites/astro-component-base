@@ -3,6 +3,7 @@ _schema: default
 title: Astro Component Starter
 pageSections:
   - _component: page-sections/heroes/hero-center
+    id: ''
     eyebrow:
     heading: The Astro Component Starter for building any site
     subtext: >-
@@ -10,24 +11,47 @@ pageSections:
       maintain.
     buttonSections:
       - _component: building-blocks/core-elements/button
+        id: ''
         text: Explore Components
         hideText: false
         link: /component-library/
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
+        width: xs
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
       - _component: building-blocks/core-elements/button
+        id: ''
         text: View in GitHub
         hideText: false
         link: https://github.com/CloudCannon/astro-component-starter
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: secondary
         size: md
+        width: xs
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
     colorScheme: default
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
   - _component: page-sections/features/feature-split
+    id: ''
     eyebrow: Built for Astro
     heading: Fast, modern, and easy to work with
     subtext: >-
@@ -42,7 +66,14 @@ pageSections:
     reverse: false
     colorScheme: default
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
   - _component: page-sections/features/feature-split
+    id: ''
     eyebrow: CloudCannon Ready
     heading: Easy visual editing
     subtext: >-
@@ -58,8 +89,15 @@ pageSections:
     reverse: true
     colorScheme:
     backgroundColor:
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     paddingVertical: lg
   - _component: page-sections/features/feature-split
+    id: ''
     eyebrow: Performance
     heading: Fast by architecture, not by accident
     subtext: >-
@@ -74,7 +112,14 @@ pageSections:
     reverse: false
     colorScheme: default
     backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
   - _component: page-sections/features/feature-split
+    id: ''
     eyebrow: Documentation
     heading: Every component, clearly documented
     subtext: >-
@@ -89,155 +134,105 @@ pageSections:
     reverse: true
     colorScheme: default
     backgroundColor: base
-  - _component: page-sections/features/feature-grid
-    eyebrow: Principles
-    heading: Built for real-world web projects
-    subtext: No trends. No noise. Just reliability.
-    gap: xl
-    minItemWidth: 280
-    maxItemWidth: 360
-    features:
-      - _component: page-sections/features/feature-grid/feature-item
-        title: Web fundamentals
-        description: >-
-          Semantic HTML. Lean CSS. JavaScript only when it's needed. The stack
-          is boring by design, and that’s exactly why it works.
-        iconName: cube
-        iconColor: blue
-      - _component: page-sections/features/feature-grid/feature-item
-        title: Built for speed
-        description: >-
-          Static-rendered, minimal payloads, zero waste. Built to be extremely
-          fast from the first byte.
-        iconName: bolt
-        iconColor: yellow
-      - _component: page-sections/features/feature-grid/feature-item
-        title: Everything just fits
-        description: >-
-          Simple, predictable components that play nice together. Build bigger
-          pieces without creating a maintenance mess.
-        iconName: puzzle-piece
-        iconColor: green
-      - _component: page-sections/features/feature-grid/feature-item
-        title: Controlled editing
-        description: >-
-          Enough freedom for editors to move fast. Enough structure for
-          developers to sleep at night.
-        iconName: pencil
-        iconColor: purple
-      - _component: page-sections/features/feature-grid/feature-item
-        title: Adaptable
-        description: >-
-          Purposefully plain styling. The whole component starter adapts to your
-          designs without a fight.
-        iconName: paint-brush
-        iconColor: pink
-    colorScheme: default
-    backgroundColor: surface
-    align: center
-  - _component: page-sections/homepage-blocks/review-video-switcher
-    id: reviews
-    heading: Nobody Says It Better
-    watchLabel: Watch
-    readLabel: Read
-    videos:
-      - youtubeId: hlWiI4xVXKY
-        title: Patient Testimonial — Helen Ws
-    reviews:
-      - text: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          vehicula felis nec urna tincidunt, vitae fermentum nulla condimentum.
-        authorName: First L.
-        socialIcon: social/google
-        reviewerImage: ""
-      - text: >-
-          Pellentesque habitant morbi tristique senectus et netus et malesuada
-          fames ac turpis egestas. Proin euismod erat vel ligula facilisis.
-        authorName: First L.
-        socialIcon: social/google
-        reviewerImage: ""
-      - text: >-
-          Sed posuere consectetur est at lobortis. Donec sed odio dui. Cras
-          mattis consectetur purus sit amet fermentum.
-        authorName: First L.
-        socialIcon: social/google
-        reviewerImage: ""
-    showQuoteIcon: true
-    backgroundColor: base
-    backgroundGradient: ""
+    backgroundGradient: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
   - _component: page-sections/homepage-blocks/index-reviews
-    class: peek
-    id: patient-reviews
+    id: reviews
     heading: What Our Patients Say
     reviews:
       - text: >-
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
           vehicula felis nec urna tincidunt, vitae fermentum nulla condimentum.
         authorName: First L.
-        socialIcon: social/google
-        reviewerImage: ""
+        socialIcon:
+        reviewerImage: /src/assets/images/component-library/profile1.jpg
       - text: >-
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames ac turpis egestas. Proin euismod erat vel ligula facilisis.
         authorName: First L.
         socialIcon: social/google
-        reviewerImage: ""
+        reviewerImage: ''
       - text: >-
           Sed posuere consectetur est at lobortis. Donec sed odio dui. Cras
           mattis consectetur purus sit amet fermentum.
         authorName: First L.
         socialIcon: social/google
-        reviewerImage: ""
+        reviewerImage: ''
     showQuoteIcon: true
-    backgroundColor: surface
-    backgroundGradient: ""
+    backgroundColor: '#000000'
+    backgroundGradient: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
+    class: peek
   - _component: page-sections/ctas/cta-center
+    id: ''
     heading: Ready to start building?
+    anchorName: ''
     subtext: >-
       Browse the complete Astro Component Starter and see live examples of every
       component in action. All components are ready to use in CloudCannon and
       are fully customizable.
     buttonSections:
       - _component: building-blocks/core-elements/button
+        id: ''
         text: Explore Components
         hideText: false
         link: /component-library/
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
+        width: xs
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
       - _component: building-blocks/core-elements/button
+        id: ''
         text: View in GitHub
         hideText: false
         link: https://github.com/CloudCannon/astro-component-starter
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: tertiary
         size: md
+        width: xs
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
     colorScheme: contrast
     backgroundColor: surface
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
     rounded: false
   - _component: page-sections/ctas/request-bar
-    id: ""
+    id: ''
     heading: Ready to Get Started?
     buttonText: Request an Appointment
     buttonLink: /request-an-appointment
     buttonVariant: primary
     backgroundColor: base
-    backgroundGradient: ""
+    backgroundGradient: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
+description: ''
 ---
