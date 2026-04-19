@@ -74,13 +74,23 @@
   .hero-center .eyebrow,
   .cta-split .eyebrow,
   .cta-center .eyebrow,
-  .feature-split .eyebrow {
+  .feature-split .eyebrow,
+  .hero-eyebrow {
     color: var(--color-cta);
     text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
     margin-bottom: var(--spacing-md);
+  }
+
+  /* ─── SEO Hero variant (tnt/heroes/hero-split-seo): eyebrow is H1 styled small ─── */
+  /* The H1 is styled to look like an eyebrow but remains semantically the page's H1 */
+  h1.hero-eyebrow {
+    font-family: var(--font-body) !important;
+    font-size: 0.85rem !important;
+    line-height: 1.2 !important;
+    margin: 0 0 var(--spacing-md);
   }
 
   /* ─── Buttons: Astra-style (square, uppercase, letter-spaced) ─────── */

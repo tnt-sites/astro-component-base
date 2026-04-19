@@ -1,0 +1,23 @@
+label: Hero Split (SEO)
+icon: hero
+description: Split hero with eyebrow as H1 (location) + headline as H2. For local SEO ranking.
+value:
+  _component: page-sections/tnt/heroes/hero-split-seo
+  eyebrow: Wilmington Dentist
+  heading: Smile Brighter, Live Happier
+  subtext: Welcome message goes here.
+  imageSource: /src/assets/images/component-docs/dunedin-cliff.jpg
+  imageAlt: Hero image
+  buttonSections: []
+  reverse: false
+  colorScheme: inherit
+  backgroundColor: base
+preview:
+  text:
+    - Hero Split SEO
+  subtext:
+    - key: heading
+  icon: hero
+picker_preview:
+  text: Hero Split SEO
+  subtext: Hero with location-based H1 for local SEO + visual H2 headline.
