@@ -1,0 +1,106 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Text from "@core-elements/text/Text.astro";
+
+const {
+  heading = "",
+  intro = "",
+  plans = [],
+  colorScheme = "inherit",
+  backgroundColor = "base",
+  paddingVertical = "4xl",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+---
+
+<CustomSection
+  class:list={["tnt-pricing-section", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {heading && (
+    <Heading level="h2" size="lg" alignX="center" data-prop="heading">
+      {heading}
+    </Heading>
+  )}
+  {intro && <Text text={intro} alignX="center" data-prop="intro" />}
+
+  <div class="tnt-pricing-grid" data-prop="plans">
+    {plans.map((plan: {
+      name: string; savings: string; monthly: string; annual: string; features: string[]
+    }) => (
+      <div class="tnt-pricing-card">
+        <div class="tnt-pricing-header">
+          <h3 class="tnt-pricing-name">{plan.name}</h3>
+          {plan.savings && <span class="tnt-pricing-savings">{plan.savings}</span>}
+        </div>
+        {(plan.monthly || plan.annual) && (
+          <div class="tnt-pricing-price">
+            {plan.monthly && <span class="tnt-pricing-monthly">{plan.monthly}<small>/mo</small></span>}
+            {plan.annual  && <span class="tnt-pricing-annual">{plan.annual}<small>/yr</small></span>}
+          </div>
+        )}
+        {plan.features && plan.features.length > 0 && (
+          <ul class="tnt-pricing-features">
+            {plan.features.map((f: string) => <li>{f}</li>)}
+          </ul>
+        )}
+      </div>
+    ))}
+  </div>
+</CustomSection>
+
+<style>
+  .tnt-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+  }
+  .tnt-pricing-card {
+    border: 1px solid var(--color-border, #e2e8f0);
+    border-radius: var(--radius-md, 8px);
+    padding: var(--spacing-xl);
+    background: var(--color-surface, #fff);
+  }
+  .tnt-pricing-header { margin-bottom: var(--spacing-md); }
+  .tnt-pricing-name { font-size: var(--font-size-lg); font-weight: 600; margin: 0; }
+  .tnt-pricing-savings {
+    display: inline-block;
+    margin-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-cta, #278575);
+    font-weight: 500;
+  }
+  .tnt-pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  .tnt-pricing-monthly { font-size: 2rem; font-weight: 700; color: var(--color-base); }
+  .tnt-pricing-annual  { font-size: 1.25rem; color: var(--color-text-muted, #64748b); }
+  .tnt-pricing-monthly small, .tnt-pricing-annual small { font-size: 0.75em; font-weight: 400; }
+  .tnt-pricing-features { list-style: none; padding: 0; margin: 0; }
+  .tnt-pricing-features li {
+    padding: var(--spacing-xs) 0;
+    padding-left: var(--spacing-md);
+    border-top: 1px solid var(--color-border, #e2e8f0);
+    font-size: var(--font-size-sm);
+    position: relative;
+  }
+  .tnt-pricing-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-cta, #278575);
+    font-weight: 700;
+  }
+</style>

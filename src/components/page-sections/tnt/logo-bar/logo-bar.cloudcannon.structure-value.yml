@@ -1,0 +1,20 @@
+label: Logo Bar
+icon: image
+description: Horizontal strip of partner, certification, or brand logos.
+value:
+  _component: page-sections/tnt/logo-bar
+  heading: ""
+  logos:
+    - src: /src/assets/images/logo-placeholder.svg
+      alt: Partner logo
+  colorScheme: inherit
+  backgroundColor: base
+preview:
+  text:
+    - Logo Bar
+  subtext:
+    - key: heading
+  icon: image
+picker_preview:
+  text: Logo Bar
+  subtext: Strip of partner or certification logos.

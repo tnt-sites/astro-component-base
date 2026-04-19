@@ -1,0 +1,63 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+
+const {
+  heading = "",
+  logos = [],
+  colorScheme = "inherit",
+  backgroundColor = "base",
+  paddingVertical = "xl",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+---
+
+<CustomSection
+  class:list={["tnt-logo-bar", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {heading && (
+    <Heading level="h2" size="sm" alignX="center" data-prop="heading">
+      {heading}
+    </Heading>
+  )}
+  <div class="tnt-logo-bar-logos" data-prop="logos">
+    {logos.map((logo: { src: string; alt: string }) => (
+      <img
+        src={logo.src}
+        alt={logo.alt}
+        class="tnt-logo-bar-logo"
+        loading="lazy"
+        decoding="async"
+      />
+    ))}
+  </div>
+</CustomSection>
+
+<style>
+  .tnt-logo-bar-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+  }
+  .tnt-logo-bar-logo {
+    max-height: 60px;
+    max-width: 160px;
+    object-fit: contain;
+    filter: grayscale(0.3);
+    transition: filter 0.2s;
+  }
+  .tnt-logo-bar-logo:hover {
+    filter: grayscale(0);
+  }
+</style>

@@ -1,0 +1,71 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+
+const {
+  items = [],
+  colorScheme = "inherit",
+  backgroundColor = "base",
+  paddingVertical = "lg",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+---
+
+<CustomSection
+  class:list={["tnt-contact-bar", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  <div class="tnt-contact-bar-items" data-prop="items">
+    {items.map((item: { label: string; description: string; url: string }) => (
+      <div class="tnt-contact-bar-item">
+        {item.label && <strong class="tnt-contact-label">{item.label}</strong>}
+        {item.description && <span class="tnt-contact-desc">{item.description}</span>}
+        {item.url && (
+          <a href={item.url} class="tnt-contact-link">
+            {item.url.startsWith('tel:') ? '📞' : item.url.startsWith('mailto:') ? '✉️' : '→'}
+          </a>
+        )}
+      </div>
+    ))}
+  </div>
+</CustomSection>
+
+<style>
+  .tnt-contact-bar-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .tnt-contact-bar-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    text-align: center;
+    min-width: 160px;
+  }
+  .tnt-contact-label {
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted, #64748b);
+  }
+  .tnt-contact-desc {
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+  }
+  .tnt-contact-link {
+    font-size: var(--font-size-sm);
+    color: var(--color-cta, #278575);
+    text-decoration: none;
+  }
+</style>

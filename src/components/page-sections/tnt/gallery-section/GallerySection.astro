@@ -1,0 +1,76 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+
+const {
+  heading = "",
+  items = [],
+  colorScheme = "inherit",
+  backgroundColor = "base",
+  paddingVertical = "4xl",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+---
+
+<CustomSection
+  class:list={["tnt-gallery-section", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {heading && (
+    <Heading level="h2" size="lg" alignX="center" data-prop="heading">
+      {heading}
+    </Heading>
+  )}
+  <div class="tnt-gallery-grid" data-prop="items">
+    {items.map((item: { src: string; alt: string; caption: string }) => (
+      <figure class="tnt-gallery-item">
+        <img
+          src={item.src}
+          alt={item.alt}
+          class="tnt-gallery-image"
+          loading="lazy"
+          decoding="async"
+        />
+        {item.caption && <figcaption class="tnt-gallery-caption">{item.caption}</figcaption>}
+      </figure>
+    ))}
+  </div>
+</CustomSection>
+
+<style>
+  .tnt-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+  }
+  .tnt-gallery-item {
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--radius-md, 8px);
+    background: var(--color-surface, #f8fafc);
+  }
+  .tnt-gallery-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .tnt-gallery-item:hover .tnt-gallery-image {
+    transform: scale(1.03);
+  }
+  .tnt-gallery-caption {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted, #64748b);
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,26 @@
+label: Pricing Section
+icon: tag
+description: Pricing tiers with monthly/annual prices and feature lists.
+value:
+  _component: page-sections/tnt/pricing-section
+  heading: ""
+  intro: ""
+  plans:
+    - name: Basic Plan
+      savings: ""
+      monthly: "$29"
+      annual: "$290"
+      features:
+        - Feature one
+        - Feature two
+  colorScheme: inherit
+  backgroundColor: base
+preview:
+  text:
+    - Pricing Section
+  subtext:
+    - key: heading
+  icon: tag
+picker_preview:
+  text: Pricing Section
+  subtext: Pricing tiers with features — great for membership plans.
