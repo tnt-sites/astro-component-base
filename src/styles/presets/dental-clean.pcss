@@ -1,0 +1,148 @@
+/**
+ * Dental Clean Preset
+ *
+ * Customization preset for medical / dental practice sites with a modern,
+ * minimal aesthetic. Layers on top of the base CC components without
+ * modifying them. Uses CSS custom properties from _tnt-brand.pcss for
+ * brand colors, fonts, and spacing.
+ *
+ * Visual treatment:
+ *  - Borderless icon-on-top features (vs. bordered cards)
+ *  - Eyebrow text in CTA color above headlines
+ *  - Astra-style buttons (square corners, padding, uppercase, letter-spacing)
+ *  - Highlighted span accent (gold/cta underline behind key words)
+ *  - Clean testimonial cards with brand color accent
+ *  - Large hero with serif heading
+ *  - Spaced-out logo bar
+ *
+ * Used by: Azalea Dental, Bortnem Orthodontics, PPF Dental, Heart Dental,
+ *          Mustang Dentistry, etc.
+ *
+ * To use in a site:  @import "../presets/dental-clean.pcss";
+ */
+
+@layer overrides {
+
+  /* ─── Typography enforcement ─────────────────────────────────────── */
+  h1, h2, h3, h4, h5, h6,
+  .heading {
+    font-family: var(--font-headings) !important;
+  }
+  body, p, .text {
+    font-family: var(--font-body) !important;
+  }
+
+  /* ─── Feature Grid: borderless icon-on-top ─────────────────────────── */
+  .feature-grid {
+    .feature-grid-grid {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    }
+    .feature-item {
+      background: transparent !important;
+      border: none !important;
+      padding: var(--spacing-md) !important;
+      text-align: center !important;
+    }
+    .feature-icon {
+      margin-inline: auto !important;
+      margin-bottom: var(--spacing-md) !important;
+      color: var(--color-cta) !important;
+    }
+    .feature-icon .icon-background {
+      background: color-mix(in srgb, var(--color-cta) 10%, transparent);
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-title {
+      text-align: center !important;
+      font-family: var(--font-headings) !important;
+      font-weight: 700 !important;
+    }
+    .feature-description {
+      text-align: center !important;
+      font-size: 0.95rem !important;
+      color: var(--color-text-muted, #555) !important;
+    }
+  }
+
+  /* ─── Eyebrow text on hero / cta / feature splits ─────────────────── */
+  .hero-split .eyebrow,
+  .hero-center .eyebrow,
+  .cta-split .eyebrow,
+  .cta-center .eyebrow,
+  .feature-split .eyebrow {
+    color: var(--color-cta);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+  }
+
+  /* ─── Buttons: Astra-style (square, uppercase, letter-spaced) ─────── */
+  .button.variant-primary {
+    background: var(--color-cta) !important;
+    border-color: var(--color-cta) !important;
+    border-radius: var(--button-radius, 4px) !important;
+    padding: var(--button-padding, 16px 30px) !important;
+    font-weight: var(--button-font-weight, 500) !important;
+    letter-spacing: var(--button-letter-spacing, 0.5px) !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+  .button.variant-primary:hover {
+    background: var(--color-cta-hover, var(--color-brand-muted)) !important;
+    border-color: var(--color-cta-hover, var(--color-brand-muted)) !important;
+  }
+  .button.variant-secondary {
+    background: var(--color-brand) !important;
+    border-color: var(--color-brand) !important;
+    color: white !important;
+    border-radius: var(--button-radius, 4px) !important;
+    padding: var(--button-padding, 16px 30px) !important;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── Highlight span (e.g. "Happier" with underline accent) ───────── */
+  .highlight {
+    background-image: linear-gradient(
+      to top,
+      color-mix(in srgb, var(--color-cta) 30%, transparent) 30%,
+      transparent 30%
+    );
+    padding: 0 4px;
+  }
+
+  /* ─── Logo Bar: spaced, slightly muted ─────────────────────────────── */
+  .tnt-logo-bar-logos {
+    gap: 60px !important;
+    padding: var(--spacing-2xl) 0;
+  }
+  .tnt-logo-bar-logo {
+    max-height: 40px !important;
+    filter: none !important;
+    opacity: 0.85;
+  }
+
+  /* ─── Testimonials: clean card with brand accent ──────────────────── */
+  .tnt-testimonials-grid .tnt-testimonial-card {
+    background: white !important;
+    border-left: 4px solid var(--color-cta);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  /* ─── Section spacing: tighter than the default 4xl ───────────────── */
+  .feature-grid,
+  .hero-split,
+  .feature-split,
+  .cta-split {
+    padding-block: var(--spacing-3xl, 4rem) !important;
+  }
+}
