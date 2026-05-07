@@ -8,15 +8,15 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: |-
           <span class="big-text">Request</span>
 
           an Appointment
         hideText: false
         link: /np-em-special-form/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -48,13 +48,13 @@ landingFooter:
       alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ''
+    backgroundGradient: ""
     getStartedTitle: How to Get Started
     getStartedText: >-
       Thank you for taking the time to consider us. We look forward to having
       the opportunity to speak with you and to meet in person. Please feel free
       to give us a call or complete the form on this page, and we promise to get
       back to you as soon as possible.
-    legalBlurb: ''
+    legalBlurb: ""
 landingPageSections: []
 ---

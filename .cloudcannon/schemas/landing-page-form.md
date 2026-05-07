@@ -1,5 +1,6 @@
 ---
-title: Landing Page Form
+_schema: landing-page-form
+title: New Landing Page Form
 landingMainNav:
   - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg

@@ -193,6 +193,9 @@ collections_config:
       - name: Landing Page (New Patient Emergency Combo)
         icon: stars
         schema: landing-page-new-patient-emergency-combo
+      - name: Landing Page (Form)
+        icon: stars
+        schema: landing-page-form
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -276,6 +279,16 @@ collections_config:
             cascade: true
           $.landingPageSections[*].items[*].listText:
             cascade: true
+      landing-page-form:
+        path: .cloudcannon/schemas/landing-page-form.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Form)
+        icon: stars
+        _enabled_editors:
+          - visual
 collection_groups:
   - heading: Content
     collections:
