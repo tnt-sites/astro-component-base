@@ -1,14 +1,13 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
-import siteInfo from "@data/siteInfo.json";
 import Text from "@core-elements/text/Text.astro";
-import Form from "@forms/form/Form.astro";
+import siteInfo from "@data/siteInfo.json";
+import Hidden from "@forms/hidden/Hidden.astro";
 import Input from "@forms/input/Input.astro";
 import Select from "@forms/select/Select.astro";
-import Textarea from "@forms/textarea/Textarea.astro";
 import Submit from "@forms/submit/Submit.astro";
-import Hidden from "@forms/hidden/Hidden.astro";
+import Textarea from "@forms/textarea/Textarea.astro";
 
 const {
   heading = "Request an Appointment",
@@ -44,7 +43,7 @@ const htmlAttributes = Object.fromEntries(
 >
   <Heading level="h2" size="xl" alignX="center" data-prop="heading" text={heading} />
   {subtext && <Text alignX="center" data-prop="subtext" text={subtext} />}
-  <Form class="lp-form" action={formAction}>
+  <form class="lp-form form" method="post" action={formAction}>
     <Input name="Name" label="Name" placeholder="Name" required={true} />
     <Input name="Phone" label="Phone Number" placeholder="Phone" required={true} />
     <Input name="email" label="Email Address" type="email" placeholder="Email" required={true} />
@@ -73,7 +72,7 @@ const htmlAttributes = Object.fromEntries(
     <Submit text={submitText} />
     <Hidden name="_subject" value={subjectLine} />
     <Hidden name="_redirect" value={redirectUrl} />
-  </Form>
+  </form>
 </CustomSection>
 
 <style lang="pcss" is:global>
