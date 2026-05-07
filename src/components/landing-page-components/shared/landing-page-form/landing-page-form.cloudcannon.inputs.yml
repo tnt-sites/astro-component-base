@@ -81,27 +81,9 @@ backgroundImage.positionHorizontal:
         name: Center
       - id: right
         name: Right
-subtext:
-  type: markdown
-  comment: Optional description paragraph below the heading.
-  options:
-    blockquote: false
-    bold: true
-    format: p
-    italic: true
-    link: true
-    strike: false
-    subscript: false
-    superscript: false
-    underline: false
-    bulletedlist: false
-    numberedlist: false
 formAction:
   type: text
   comment: URL the form submits to.
-submitText:
-  type: text
-  comment: Label text for the submit button.
 subjectLine:
   type: text
   comment: Value for the hidden _subject field sent with the form submission.

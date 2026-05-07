@@ -1,19 +1,15 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
-import Text from "@core-elements/text/Text.astro";
 import siteInfo from "@data/siteInfo.json";
 import Hidden from "@forms/hidden/Hidden.astro";
 import Input from "@forms/input/Input.astro";
 import Select from "@forms/select/Select.astro";
-import Submit from "@forms/submit/Submit.astro";
 import Textarea from "@forms/textarea/Textarea.astro";
 
 const {
   heading = "Request an Appointment",
-  subtext = `Thank you for your interest in ${siteInfo.siteName}. Please fill out your information in the form below and a member of our team will reach out to you soon.`,
   formAction = "",
-  submitText = "Send",
   subjectLine = `New Patient Request an Appointment - ${siteInfo.siteName}`,
   redirectUrl = "thanks.html",
   backgroundColor = "base",
@@ -42,7 +38,8 @@ const htmlAttributes = Object.fromEntries(
   {...htmlAttributes}
 >
   <Heading level="h2" size="xl" alignX="center" data-prop="heading" text={heading} />
-  {subtext && <Text alignX="center" data-prop="subtext" text={subtext} />}
+  `Thank you for your interest in ${siteInfo.siteName}. Please fill out your information in the form
+  below and a member of our team will reach out to you soon.`
   <form class="lp-form form" method="post" action={formAction}>
     <Input name="Name" label="Name" placeholder="Name" required={true} />
     <Input name="Phone" label="Phone Number" placeholder="Phone" required={true} />
@@ -69,7 +66,7 @@ const htmlAttributes = Object.fromEntries(
       ]}
     />
     <Textarea name="CommentArea" label="Comments" placeholder="Comments" />
-    <Submit text={submitText} />
+    <Submit text="Submit" />
     <Hidden name="_subject" value={subjectLine} />
     <Hidden name="_redirect" value={redirectUrl} />
   </form>

@@ -4,9 +4,7 @@ landingPageSections:
   - _component: landing-page-components/shared/landing-page-form
     id: ""
     heading: Request an Appointment
-    subtext: ""
     formAction: ""
-    submitText: Send
     subjectLine: New Patient Request an Appointment
     redirectUrl: thanks.html
     backgroundColor: base
