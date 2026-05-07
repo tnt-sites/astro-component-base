@@ -82,11 +82,11 @@ backgroundImage.positionHorizontal:
       - id: right
         name: Right
 formAction:
-  type: text
-  comment: URL the form submits to.
-subjectLine:
-  type: text
-  comment: Value for the hidden _subject field sent with the form submission.
-redirectUrl:
-  type: text
-  comment: URL to redirect to after successful form submission (hidden _redirect field).
+  type: url
+  comment: URL that processes the form submission.
+formBlocks:
+  type: array
+  label: Form Fields
+  comment: The form fields to display.
+  options:
+    structures: _structures.formBlocks

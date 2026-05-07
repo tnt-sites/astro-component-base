@@ -20,14 +20,9 @@ landingPageForm:
         type: string
         optional: true
         remove_empty: true
-      - editor_key: subjectLine
-        type: string
+      - editor_key: formBlocks
+        type: array
         optional: true
-        remove_empty: true
-      - editor_key: redirectUrl
-        type: string
-        optional: true
-        remove_empty: true
       - editor_key: backgroundColor
         type: string
         optional: true
