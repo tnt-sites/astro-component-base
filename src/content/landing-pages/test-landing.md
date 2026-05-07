@@ -27,42 +27,34 @@ landingMainNav:
         textColor: default
         uppercase: false
 landingFooter:
-  - _component: navigation/landing/landing-footer-three-cards
+  - _component: navigation/landing/landing-footer-tmj
     logoSource: /images/logo.svg
     logoAlt: Logo
     siteName: Dental Studio
-    contactTitle: Contact Us
-    featuredServicesTitle: Featured Services
-    featuredServicesLinks:
-      - name: Dental Implants
-        path: /dental-implants/
-      - name: Implant Bridge
-        path: /dental-bridges/
-      - name: Implant Dentures
-        path: /implant-retained-dentures/
-      - name: All-on-4
-        path: /all-on-4/
+    contactTitle: Office Hours
     formTitle: Ask A Question
-    formAction: ''
-    formSubject: Landing Footer Form
+    formAction: >-
+      https://tnt-adder.herokuapp.com/submit/c70a62c1-fdfc-493f-9d62-24992c692224
+    formSubject: PPC TMJ Footer Form
     formRedirect: thanks.html
     formSubmitLabel: Submit
-    footerLinksBackgroundColor: accent
-    footerLinksHoverBackgroundColor: '#000000'
-    mapEmbedUrl: ''
-    contactCardBackgroundColor: '#ed9f9f'
-    servicesCardBackgroundColor:
-    formCardBackgroundColor:
     legalLinks:
       - name: Sitemap
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
     backgroundImage:
-      source: /src/assets/images/component-library/dunedin-cliff.jpg
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
     backgroundGradient: ''
+    getStartedTitle: How to Get Started
+    getStartedText: >-
+      Thank you for taking the time to consider us. We look forward to having
+      the opportunity to speak with you and to meet in person. Please feel free
+      to give us a call or complete the form on this page, and we promise to get
+      back to you as soon as possible.
     legalBlurb: ''
 landingPageSections: []
 ---
