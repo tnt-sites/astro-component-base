@@ -140,7 +140,6 @@ const formatAddressLines = (address: any) => {
         {
           resolvedOffices.map((office: any) => (
             <>
-        <div>
               {Array.isArray(office?.phones) &&
                 office.phones.map((phone: any) =>
                   phone?.display ? (
@@ -170,10 +169,8 @@ const formatAddressLines = (address: any) => {
                       ))}
                     </a>
                   ) : null;
-        </div>
                 })}
-      </div>
-      </div>
+
               {buttons.length > 0 && (
                 <div class="page-buttons">
                   <ButtonGroup
@@ -188,6 +185,7 @@ const formatAddressLines = (address: any) => {
             </>
           ))
         }
+      </div>
       <div class="hd-nav">
         <div class="nav-end">
           <Bar navData={navData} class="desktop-main-nav" />
@@ -292,8 +290,10 @@ const formatAddressLines = (address: any) => {
       }
 
       > .outer-content .hd-content .hd-right {
-        display: block;
+        display: flex;
         flex: 0 1 700px;
+        flex-direction: column;
+        gap: var(--spacing-sm);
         margin-left: auto;
         align-items: end;
         margin-right: 20px;
@@ -334,9 +334,9 @@ const formatAddressLines = (address: any) => {
       }
     }
 
-    .hd-info{display: flex; justify-content: space-between; align-items: center; text-align: center;}
+    .hd-info{display: flex; justify-content: space-between; align-items: center;}
     .main-nav .phy{display: block; text-transform: uppercase; letter-spacing: 2px; color: var(--color-text); line-height: 1; transition: .3s;}
-    .main-nav .pho{font-weight: var(--font-weight-bold); color: var(--color-brand); font-size: var(--font-size-2xl); line-height: 1; display: block; margin: 0 auto 5px;  transition: .3s;}
+    .main-nav .pho{font-weight: var(--font-weight-bold); color: var(--color-brand); font-size: var(--font-size-2xl); line-height: 1; margin-right: 20px;  transition: .3s;}
 
     .main-nav .pho:hover, .main-nav .phy:hover{color: var(--color-brand-secondary)}
 
