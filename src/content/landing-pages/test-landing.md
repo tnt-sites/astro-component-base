@@ -8,15 +8,15 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: |-
           <span class="big-text">Request</span>
 
           an Appointment
         hideText: false
         link: /np-em-special-form/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -27,17 +27,32 @@ landingMainNav:
         textColor: default
         uppercase: false
 landingFooter:
-  - _component: navigation/landing/landing-footer-tmj
+  - _component: navigation/landing/landing-footer-three-cards
     logoSource: /images/logo.svg
     logoAlt: Logo
     siteName: Dental Studio
-    contactTitle: Office Hours
+    contactTitle: Contact Us
+    featuredServicesTitle: Featured Services
+    featuredServicesLinks:
+      - name: Dental Implants
+        path: /dental-implants/
+      - name: Implant Bridge
+        path: /dental-bridges/
+      - name: Implant Dentures
+        path: /implant-retained-dentures/
+      - name: All-on-4
+        path: /all-on-4/
     formTitle: Ask A Question
-    formAction: >-
-      https://tnt-adder.herokuapp.com/submit/c70a62c1-fdfc-493f-9d62-24992c692224
-    formSubject: PPC TMJ Footer Form
+    formAction: ''
+    formSubject: Landing Footer Form
     formRedirect: thanks.html
     formSubmitLabel: Submit
+    footerLinksBackgroundColor: brand
+    footerLinksHoverBackgroundColor: brand-secondary
+    mapEmbedUrl: ''
+    contactCardBackgroundColor: ''
+    servicesCardBackgroundColor: ''
+    formCardBackgroundColor: ''
     legalLinks:
       - name: Sitemap
         path: sitemap.html
@@ -48,13 +63,7 @@ landingFooter:
       alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ""
-    getStartedTitle: How to Get Started
-    getStartedText: >-
-      Thank you for taking the time to consider us. We look forward to having
-      the opportunity to speak with you and to meet in person. Please feel free
-      to give us a call or complete the form on this page, and we promise to get
-      back to you as soon as possible.
-    legalBlurb: ""
+    backgroundGradient: ''
+    legalBlurb: ''
 landingPageSections: []
 ---
