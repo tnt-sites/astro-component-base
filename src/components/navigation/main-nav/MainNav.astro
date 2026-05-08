@@ -140,6 +140,7 @@ const formatAddressLines = (address: any) => {
         {
           resolvedOffices.map((office: any) => (
             <>
+        <div>
               {Array.isArray(office?.phones) &&
                 office.phones.map((phone: any) =>
                   phone?.display ? (
@@ -169,6 +170,7 @@ const formatAddressLines = (address: any) => {
                       ))}
                     </a>
                   ) : null;
+        </div>
                 })}
 
       </div>
@@ -290,10 +292,8 @@ const formatAddressLines = (address: any) => {
       }
 
       > .outer-content .hd-content .hd-right {
-        display: flex;
+        display: block;
         flex: 0 1 700px;
-        flex-direction: column;
-        gap: var(--spacing-sm);
         margin-left: auto;
         align-items: end;
         margin-right: 20px;
