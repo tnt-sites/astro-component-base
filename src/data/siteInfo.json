@@ -15,11 +15,15 @@
       "label": "LinkedIn",
       "icon": "social/linkedin",
       "link": "https://linkedin.com"
+    },
+    {
+      "icon": "social/youtube",
+      "link": "youtube.com"
     }
   ],
   "offices": [
     {
-      "name": "Test Office",
+      "name": null,
       "addresses": [
         {
           "lines": [
@@ -29,7 +33,7 @@
           "city": "City",
           "state": "ST",
           "postalCode": "12345",
-          "country": "USA",
+          "country": null,
           "mapUrl": "https://maps.google.com"
         }
       ],
@@ -70,6 +74,48 @@
         {
           "day": "Friday",
           "hours": "8:00 am - 2:00 pm",
+          "note": ""
+        }
+      ],
+      "officeHoursNote": ""
+    },
+    {
+      "name": "Test Office 2",
+      "addresses": [
+        {
+          "lines": [
+            "123",
+            "Address"
+          ],
+          "city": "Dallas",
+          "state": "TX",
+          "postalCode": "75001",
+          "country": null,
+          "mapUrl": "https://maps.google.com"
+        }
+      ],
+      "phones": [
+        {
+          "type": "mobile",
+          "display": "(123) 456-0987",
+          "href": ""
+        }
+      ],
+      "emails": [
+        {
+          "display": "",
+          "href": ""
+        }
+      ],
+      "officeHours": [
+        {
+          "day": "Monday",
+          "hours": "8:00 am - 2:00pm",
+          "note": ""
+        },
+        {
+          "day": "Tuesday",
+          "hours": "CLOSED",
           "note": ""
         }
       ],
