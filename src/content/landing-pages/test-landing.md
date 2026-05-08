@@ -49,7 +49,7 @@ landingFooter:
     formSubmitLabel: Submit
     footerLinksBackgroundColor: brand
     footerLinksHoverBackgroundColor: brand-secondary
-    mapEmbedUrl: ''
+    mapEmbedUrl: youtube.com
     contactCardBackgroundColor: ''
     servicesCardBackgroundColor: ''
     formCardBackgroundColor: ''
