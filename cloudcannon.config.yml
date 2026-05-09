@@ -289,6 +289,14 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
+        _inputs:
+          parentLandingPage:
+            type: text
+            comment: >-
+              Optional. Enter the ID of a landing page to inherit its header and footer
+              (e.g. "my-landing-page" for the file src/content/landing-pages/my-landing-page.md).
+              Leave blank to use the header and footer defined below.
+            cascade: true
 collection_groups:
   - heading: Content
     collections:

@@ -11,18 +11,34 @@ export interface Props {
 export async function getStaticPaths() {
   const pages = await getCollection("landing-pages");
 
+  // Build a lookup map so form pages can inherit a parent's header/footer
+  const pageById = new Map(pages.map((p: CollectionEntry<"landing-pages">) => [p.id, p]));
+
   return pages.map((page: CollectionEntry<"landing-pages">) => {
     const slug = page.id.replace(/index$/, "");
 
-    if (slug.length === 0) return { params: { slug: undefined }, props: { page } };
-    return { params: { slug }, props: { page } };
+    if (slug.length === 0) return { params: { slug: undefined }, props: { page, pageById } };
+    return { params: { slug }, props: { page, pageById } };
   });
 }
 
-const { page } = Astro.props;
+const { page, pageById } = Astro.props as Props & {
+  pageById: Map<string, CollectionEntry<"landing-pages">>;
+};
 const { Content } = await render(page);
+
+// If a parentLandingPage is set, inherit its landingMainNav / landingFooter
+const parentId = page.data.parentLandingPage;
+const parentPage = parentId ? pageById.get(parentId) : undefined;
+const frontmatter = parentPage
+  ? {
+      ...page.data,
+      landingMainNav: parentPage.data.landingMainNav ?? page.data.landingMainNav,
+      landingFooter: parentPage.data.landingFooter ?? page.data.landingFooter,
+    }
+  : page.data;
 ---
 
-<LandingPage frontmatter={page.data} mainNav={mainNavData} footer={footerData}>
+<LandingPage frontmatter={frontmatter} mainNav={mainNavData} footer={footerData}>
   <Content />
 </LandingPage>
