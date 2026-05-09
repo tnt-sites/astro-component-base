@@ -193,6 +193,9 @@ collections_config:
       - name: Landing Page (New Patient Emergency Combo)
         icon: stars
         schema: landing-page-new-patient-emergency-combo
+      - name: Landing Page (New Patient Split Banner)
+        icon: stars
+        schema: landing-page-new-patient-split-banner
       - name: Landing Page (Form)
         icon: stars
         schema: landing-page-form
@@ -221,6 +224,12 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
+        _inputs:
+          landingPageSections:
+            type: array
+            options:
+              structures: _structures.countOnUsSections
+            cascade: true
       landing-page-custom:
         path: .cloudcannon/schemas/landing-page.md
         reorder_inputs: true
@@ -251,6 +260,22 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
+      landing-page-new-patient-split-banner:
+        path: .cloudcannon/schemas/landing-page-new-patient-split-banner.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (New Patient Split Banner)
+        icon: stars
+        _enabled_editors:
+          - visual
+        _inputs:
+          landingPageSections:
+            type: array
+            options:
+              structures: _structures.npSplitBannerSections
+            cascade: true
       landing-page-new-patient-emergency-combo:
         path: .cloudcannon/schemas/landing-page-new-patient-emergency-combo.md
         reorder_inputs: true
@@ -275,7 +300,7 @@ collections_config:
           landingPageSections:
             type: array
             options:
-              structures: _structures.landingPageSections
+              structures: _structures.npEmergencyComboSections
             cascade: true
           $.landingPageSections[*].items[*].listText:
             cascade: true
