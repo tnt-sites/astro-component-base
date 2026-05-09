@@ -294,10 +294,11 @@ collections_config:
             type: text
             comment: >-
               Optional — link this form page to a main landing page so it shares the same header and footer.
-              To find the ID: open the main landing page in CloudCannon, look at its file path in
-              src/content/landing-pages/, and use the filename without the .md extension.
-              For a file at src/content/landing-pages/my-landing-page.md, enter: my-landing-page.
-              For a file in a subfolder like src/content/landing-pages/MyFolder/my-page.md, enter: MyFolder/my-page.
+              To find the ID: look at the file path under src/content/landing-pages/ and use the path
+              without the .md extension.
+              Example: for src/content/landing-pages/my-landing-page.md, enter: my-landing-page.
+              Example: for src/content/landing-pages/MyFolder/my-page.md, enter: MyFolder/my-page.
+              Note: folder names are case-insensitive — MyFolder and myfolder both work.
               Leave blank to use the header and footer configured in the sections below.
             cascade: true
 collection_groups:

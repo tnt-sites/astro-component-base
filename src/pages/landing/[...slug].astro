@@ -27,7 +27,10 @@ const parentId = page.data.parentLandingPage;
 let parentPage: CollectionEntry<"landing-pages"> | undefined;
 if (parentId) {
   const allPages = await getCollection("landing-pages");
-  parentPage = allPages.find((p: CollectionEntry<"landing-pages">) => p.id === parentId);
+  const normalizedParentId = parentId.toLowerCase();
+  parentPage = allPages.find(
+    (p: CollectionEntry<"landing-pages">) => p.id.toLowerCase() === normalizedParentId
+  );
 }
 
 const frontmatter = parentPage
