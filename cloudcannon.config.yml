@@ -293,9 +293,12 @@ collections_config:
           parentLandingPage:
             type: text
             comment: >-
-              Optional. Enter the ID of a landing page to inherit its header and footer
-              (e.g. "my-landing-page" for the file src/content/landing-pages/my-landing-page.md).
-              Leave blank to use the header and footer defined below.
+              Optional — link this form page to a main landing page so it shares the same header and footer.
+              To find the ID: open the main landing page in CloudCannon, look at its file path in
+              src/content/landing-pages/, and use the filename without the .md extension.
+              For a file at src/content/landing-pages/my-landing-page.md, enter: my-landing-page.
+              For a file in a subfolder like src/content/landing-pages/MyFolder/my-page.md, enter: MyFolder/my-page.
+              Leave blank to use the header and footer configured in the sections below.
             cascade: true
 collection_groups:
   - heading: Content

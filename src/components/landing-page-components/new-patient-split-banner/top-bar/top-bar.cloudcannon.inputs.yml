@@ -3,6 +3,10 @@ backgroundColor:
   comment: Background color of the top bar.
   options:
     values:
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
       - id: none
         name: None
       - id: base
