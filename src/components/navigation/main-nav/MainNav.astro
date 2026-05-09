@@ -141,6 +141,7 @@ const formatAddressLines = (address: any) => {
         {
           resolvedOffices.map((office: any) => (
             <>
+        <div>
               {Array.isArray(office?.phones) &&
                 office.phones.map((phone: any) =>
                   phone?.display ? (
@@ -171,6 +172,7 @@ const formatAddressLines = (address: any) => {
                     </a>
                   ) : null;
                 })}
+        </div>
 
 
             </>
