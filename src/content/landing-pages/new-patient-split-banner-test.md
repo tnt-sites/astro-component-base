@@ -7,115 +7,138 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
         width: md
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
 landingFooter:
-  - _component: navigation/landing/landing-footer
+  - _component: navigation/landing/landing-footer-logo-top
     logoSource: /images/logo.svg
     logoAlt: Logo
-    siteName: Dental Practice
+    siteName: Dental Studio
     contactTitle: Learn More
+    pageButtons:
+      - _component: building-blocks/core-elements/button
+        id: ''
+        text: Request an Appointment
+        hideText: false
+        link: /request-an-appointment/
+        modalTarget: ''
+        iconName: ''
+        iconPosition: before
+        variant: primary
+        size: md
+        width: md
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
+    socials:
+      - label: Facebook
+        icon: social/facebook
+        link: https://facebook.com
     legalLinks:
       - name: Sitemap
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    offices:
-      - name: ""
-        addresses:
-          - lines:
-              - 123 Main Street
-              - Suite 100
-            city: Anytown
-            state: FL
-            postalCode: "00000"
-            country: USA
-            mapUrl: ""
-        phones:
-          - display: (555) 555-5555
-            href: tel:+15555555555
-        officeHours:
-          - label: Monday
-            hours: "8:00 am – 5:00 pm"
-          - label: Tuesday
-            hours: "8:00 am – 5:00 pm"
-          - label: Wednesday
-            hours: "8:00 am – 5:00 pm"
-          - label: Thursday
-            hours: "8:00 am – 5:00 pm"
-          - label: Friday
-            hours: By Appt Only
-    mapEmbedUrl: ""
+    mapEmbedUrl: ''
     backgroundImage:
-      source: ""
-      alt: ""
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ""
+    backgroundGradient: >-
+      linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary)
+      88%, black) 0%, var(--color-bg-brand-secondary) 100%)
+    legalBlurb: >-
+      Our New Patient Offer is a great way to become familiar with Our Practice.
+      New patients only. Requires payment at first visit. Includes all necessary
+      x-rays only. May not be used more than once and cannot be combined with
+      other offers for discounted fees. No cash value. New Patient offer
+      available for patients without dental insurance. Patients with dental
+      insurance give us a call for details. Not valid if gum disease is present.
+      Restrictions apply. One per lifetime.
 landingPageSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
-    id: ""
+    id: ''
     backgroundColor: base
-    textColor: "var(--color-text)"
+    textColor: var(--color-text)
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
   - _component: landing-page-components/new-patient-split-banner/banner
-    id: ""
+    id: ''
     backgroundColor: base
     subheading: Your City's
-    heading: "Top-Rated<br>Dental Expert"
-    text: ""
+    heading: Top-Rated<br>Dental Expert
+    text: ''
     badgeImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
     image:
       source: https://placehold.co/800x700
       alt: Doctor photo
     figcaption: Dr. Jane Smith
     buttonSections: []
+    fontHeadings: ''
+    fontBody: ''
+    borderColor: var(--color-brand)
   - _component: landing-page-components/new-patient-split-banner/insurance
-    id: ""
+    id: ''
     backgroundColor: surface
     blocks:
       - heading: Dental Insurance Welcome
         text: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. We welcome dental insurance as a partner in making exceptional dentistry affordable. Our team will help you understand and maximize your benefits.
-      - heading: "No Insurance?<br> No Worries!"
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. We welcome
+          dental insurance as a partner in making exceptional dentistry
+          affordable. Our team will help you understand and maximize your
+          benefits.
+      - heading: No Insurance?<br> No Worries!
         text: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. We offer an in-house Dental Savings Plan. For a low monthly fee, individuals and families can receive routine preventive care along with significant discounts on other services. No limits. No deductibles. No surprises.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. We offer an
+          in-house Dental Savings Plan. For a low monthly fee, individuals and
+          families can receive routine preventive care along with significant
+          discounts on other services. No limits. No deductibles. No surprises.
+    headingColor: var(--color-text)
+    dividerColor: var(--color-brand)
+    fontHeadings: ''
   - _component: landing-page-components/new-patient-split-banner/count
-    id: ""
+    id: ''
     backgroundColor: base
     items:
       - image:
           source: https://placehold.co/80x80
-          alt: ""
-        text: "Personalized<br>Cosmetic<br>Dentistry"
+          alt: ''
+        text: Personalized<br>Cosmetic<br>Dentistry
       - image:
           source: https://placehold.co/80x80
-          alt: ""
-        text: "Extensive<br>Training &<br>Experience"
+          alt: ''
+        text: Extensive<br>Training &<br>Experience
       - image:
           source: https://placehold.co/80x80
-          alt: ""
-        text: "Comfortable<br>Office<br>Atmosphere"
+          alt: ''
+        text: Comfortable<br>Office<br>Atmosphere
       - image:
           source: https://placehold.co/80x80
-          alt: ""
-        text: "Team of Highly<br>Qualified<br>Professionals"
+          alt: ''
+        text: Team of Highly<br>Qualified<br>Professionals
   - _component: landing-page-components/new-patient-split-banner/split-section
     id: services
     backgroundColor: base
-    headingPrefix: ""
+    headingPrefix: ''
     heading: Services We Offer
     listItems:
       - Service One
@@ -129,24 +152,30 @@ landingPageSections:
       source: https://placehold.co/480x400
       alt: Our Office
     figcaption: Our Office
+    checkImage: ''
     reverse: false
     twoColumnList: true
-    headingColor: "var(--color-text)"
-    prefixColor: "var(--color-text)"
+    headingColor: var(--color-text)
+    prefixColor: var(--color-text)
+    fontHeadings: ''
+    fontBody: ''
   - _component: landing-page-components/new-patient-split-banner/reviews
-    id: ""
+    id: ''
     backgroundColor: base
     backgroundImage:
       source: https://placehold.co/1920x600
-      alt: ""
+      alt: ''
     heading: Hear From Our Patients
     reviewText: >-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. The team was incredibly kind and professional. I would highly recommend this practice to anyone looking for a great dental experience!
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. The team was
+      incredibly kind and professional. I would highly recommend this practice
+      to anyone looking for a great dental experience!
     author: Jane D.
     googleLogoImage:
-      source: ""
+      source: ''
       alt: Google Reviews
-    starColor: "#FEBB21"
+    starColor: '#FEBB21'
+    fontHeadings: ''
   - _component: landing-page-components/new-patient-split-banner/split-section
     id: about
     backgroundColor: base
@@ -161,8 +190,11 @@ landingPageSections:
       source: https://placehold.co/480x400
       alt: Our Dental Team
     figcaption: Our Amazing Dental Team
+    checkImage: ''
     reverse: true
     twoColumnList: false
-    headingColor: "var(--color-text)"
-    prefixColor: "var(--color-text)"
+    headingColor: var(--color-text)
+    prefixColor: var(--color-text)
+    fontHeadings: ''
+    fontBody: ''
 ---
