@@ -135,6 +135,7 @@ const formatAddressLines = (address: any) => {
     </a>
     <!-- Desktop Nav -->
     <div class="hd-right">
+      
       <!-- Phone and Address -->
       <div class="hd-info">
         {
@@ -171,8 +172,13 @@ const formatAddressLines = (address: any) => {
                   ) : null;
                 })}
 
-              {buttons.length > 0 && (
-                <div class="page-buttons">
+
+            </>
+          ))
+        }
+      </div>
+                    {buttons.length > 0 && (
+                <div class="hd-btns page-buttons">
                   <ButtonGroup
                     direction="row"
                     align="center"
@@ -182,10 +188,6 @@ const formatAddressLines = (address: any) => {
                   />
                 </div>
               )}
-            </>
-          ))
-        }
-      </div>
       <div class="hd-nav">
         <div class="nav-end">
           <Bar navData={navData} class="desktop-main-nav" />
