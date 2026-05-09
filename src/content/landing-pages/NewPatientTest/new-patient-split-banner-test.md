@@ -74,19 +74,19 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
     id: ''
-    backgroundColor: base
-    textColor: var(--color-text)
+    backgroundColor: brand
+    textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
   - _component: landing-page-components/new-patient-split-banner/banner
     id: ''
-    backgroundColor: base
+    backgroundColor: none
     subheading: Your City's
     heading: Top-Rated<br>Dental Expert
     text: ''
     badgeImage:
-      source: ''
+      source:
       alt: ''
     image:
       source: https://placehold.co/800x700
