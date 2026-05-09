@@ -1,7 +1,7 @@
 ---
 _schema: landing-page-form
 title: New Landing Page Form
-parentLandingPage: new-patient-split-banner-test
+parentLandingPage: NewPatientTest/new-patient-split-banner-form
 landingMainNav:
   - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg
