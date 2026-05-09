@@ -1,0 +1,91 @@
+backgroundColor:
+  type: select
+  comment: Background color of the insurance section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+
+blocks:
+  type: array
+  comment: Insurance text blocks. Each block has a heading and body text.
+  options:
+    structures:
+      values:
+        - label: Insurance Block
+          icon: health_and_safety
+          value:
+            heading: ""
+            text: ""
+          _inputs:
+            heading:
+              type: text
+              comment: Block heading. Supports <br> for line breaks.
+            text:
+              type: markdown
+              comment: Body text for this insurance block.
+              options:
+                bold: true
+                italic: true
+                link: true
+                bulletedlist: false
+                numberedlist: false
+                strike: false
+
+ruleColor:
+  type: select
+  comment: Color of the horizontal ruled lines on either side of each heading.
+  options:
+    values:
+      - id: "var(--color-border)"
+        name: Border (default)
+      - id: "var(--color-border-strong)"
+        name: Border Strong
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Muted
+      - id: "var(--cyan-dark)"
+        name: Cyan
+      - id: "var(--blue-dark)"
+        name: Blue
+      - id: "var(--color-text)"
+        name: Body Text
+
+headingColor:
+  type: select
+  comment: Color of the heading text.
+  options:
+    values:
+      - id: "var(--color-text)"
+        name: Body Text
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Muted
+      - id: "var(--cyan-dark)"
+        name: Cyan
+      - id: "var(--blue-dark)"
+        name: Blue
+      - id: "var(--color-text-inverse)"
+        name: White
+
+fontHeadings:
+  type: text
+  comment: Override the heading font family (e.g. "Georgia, serif"). Leave blank to use the site default.
+
+fontBody:
+  type: text
+  comment: Override the body text font family (e.g. "Arial, sans-serif"). Leave blank to use the site default.
