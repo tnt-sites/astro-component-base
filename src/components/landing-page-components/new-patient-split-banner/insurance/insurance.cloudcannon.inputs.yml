@@ -1,0 +1,93 @@
+backgroundColor:
+  type: select
+  comment: Background color of the insurance section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+
+blocks:
+  type: array
+  comment: Insurance text blocks. Each block has a heading and body text.
+  options:
+    structures:
+      values:
+        - label: Insurance Block
+          icon: health_and_safety
+          value:
+            heading: ""
+            text: ""
+          _inputs:
+            heading:
+              type: text
+              comment: Block heading. Supports <br> for line breaks.
+            text:
+              type: markdown
+              comment: Body text for this insurance block.
+              options:
+                bold: true
+                italic: true
+                link: true
+                bulletedlist: false
+                numberedlist: false
+                strike: false
+
+headingColor:
+  type: select
+  comment: Color of the h2 heading text.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Muted
+      - id: "var(--cyan-dark)"
+        name: Cyan
+      - id: "var(--cyan-light)"
+        name: Cyan Light
+      - id: "var(--blue-dark)"
+        name: Blue
+      - id: "var(--blue-light)"
+        name: Blue Light
+      - id: "var(--color-text)"
+        name: Body Text
+      - id: "var(--color-text-inverse)"
+        name: White
+
+dividerColor:
+  type: select
+  comment: Color of the decorative underline divider below each heading.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Muted
+      - id: "var(--cyan-dark)"
+        name: Cyan
+      - id: "var(--cyan-light)"
+        name: Cyan Light
+      - id: "var(--blue-dark)"
+        name: Blue
+      - id: "var(--blue-light)"
+        name: Blue Light
+      - id: "var(--color-border)"
+        name: Border
+      - id: "var(--color-border-strong)"
+        name: Border Strong
+
+fontHeadings:
+  type: text
+  comment: Override the heading font family (e.g. "Georgia, serif"). Leave blank to use the site default.
