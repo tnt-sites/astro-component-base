@@ -68,7 +68,7 @@
     {
       "_component": "building-blocks/core-elements/button",
       "id": "",
-      "text": "<span class=\"big-text\">Request</span> an Appointment",
+      "text": "Request an Appointment",
       "hideText": false,
       "link": "/request-an-appointment/",
       "modalTarget": "",
