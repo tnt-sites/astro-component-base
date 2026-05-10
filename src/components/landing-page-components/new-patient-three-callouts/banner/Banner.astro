@@ -97,10 +97,12 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .nptc-banner article {
+    align-self: center;
     display: flex;
-    flex: 1 0 520px;
+    flex: 0 1 520px;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
     order: 1;
     padding: 60px 20px 150px 50px;
     position: relative;
@@ -113,7 +115,9 @@ const htmlAttributes = Object.fromEntries(
     border-bottom: 4px solid var(--nptc-accent-color, var(--color-brand));
     border-left: 4px solid var(--nptc-accent-color, var(--color-brand));
     border-top: 4px solid var(--nptc-accent-color, var(--color-brand));
-    bottom: 160px;
+
+    /* Move bottom up to overlap with badge, if needed */
+    bottom: 120px;
     content: "";
     left: 0;
     pointer-events: none;
@@ -153,6 +157,10 @@ const htmlAttributes = Object.fromEntries(
     flex: 0 1 50%;
     order: 2;
     position: relative;
+  }
+
+  .nptc-banner figure .image {
+    margin-top: 0;
   }
 
   .nptc-banner figure :global(img) {

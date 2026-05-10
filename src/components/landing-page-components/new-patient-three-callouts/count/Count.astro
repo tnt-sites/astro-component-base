@@ -23,8 +23,8 @@ const {
 } = Astro.props;
 
 const inlineStyle = [
-  overlapBanner && "margin-top: -100px; position: relative; z-index: 5;",
   primaryCardColor && `--nptc-card-color: ${primaryCardColor}`,
+
   accentCardColor && `--nptc-accent-card-color: ${accentCardColor}`,
   accentCardTextColor && `--nptc-accent-card-text-color: ${accentCardTextColor}`,
   bulletColor && `--nptc-bullet-color: ${bulletColor}`,
@@ -40,9 +40,9 @@ const htmlAttributes = Object.fromEntries(
 ---
 
 <CustomSection
-  class:list={["nptc-count", className]}
-  paddingVertical="4xl"
+  class:list={["nptc-count", overlapBanner && "overlap-banner", className]}
   paddingHorizontal="md"
+  paddingVertical="none"
   colorScheme="default"
   backgroundColor={backgroundColor}
   style={inlineStyle || undefined}
@@ -80,7 +80,11 @@ const htmlAttributes = Object.fromEntries(
 </CustomSection>
 
 <style>
-  /* ── Cards row ──────────────────────────────────────────────────────────── */
+  .nptc-count .content {
+    padding: 0;
+  }
+
+  /*  Cards row  */
   .nptc-count .cards {
     display: flex;
     gap: 0;
@@ -102,7 +106,6 @@ const htmlAttributes = Object.fromEntries(
     padding: 1.5rem 1.25rem;
   }
 
-  /* Pill ends — rounded left on first, rounded right on last */
   .nptc-count .card:first-child {
     border-radius: 2.8125rem 0 0 2.8125rem;
   }
@@ -111,7 +114,7 @@ const htmlAttributes = Object.fromEntries(
     border-radius: 0 2.8125rem 2.8125rem 0;
   }
 
-  /* Middle (accent) card */
+  /* Middle card */
   .nptc-count .card:nth-child(2) {
     background-color: var(--nptc-accent-card-color, var(--color-bg-brand));
     color: var(--nptc-accent-card-text-color, var(--color-text-inverse));
@@ -121,7 +124,7 @@ const htmlAttributes = Object.fromEntries(
     color: var(--nptc-accent-card-text-color, var(--color-text-inverse));
   }
 
-  /* ── Icon image ─────────────────────────────────────────────────────────── */
+  /*  Icon image  */
   .nptc-count .img {
     align-items: center;
     display: flex;
@@ -136,17 +139,16 @@ const htmlAttributes = Object.fromEntries(
     width: auto;
   }
 
-  /* ── Card text ──────────────────────────────────────────────────────────── */
+  /*  Card text  */
   .nptc-count .text {
     display: block;
     font-family: var(--nptc-font-headings, var(--font-headings));
-    font-size: 2.1875rem;
-    letter-spacing: 0.21875rem;
+    font-size: 2rem;
     line-height: 1.2;
     text-align: center;
   }
 
-  /* ── List ───────────────────────────────────────────────────────────────── */
+  /*  List  */
   .nptc-count ul {
     font-family: var(--nptc-font-body, var(--font-body));
     list-style: none;
@@ -171,7 +173,16 @@ const htmlAttributes = Object.fromEntries(
     top: 0;
   }
 
-  /* ── Responsive ─────────────────────────────────────────────────────────── */
+  /*  Responsive  */
+
+  @media (min-width: 1025px) {
+    .nptc-count.overlap-banner {
+      margin-top: -100px;
+      position: relative;
+      z-index: 5;
+    }
+  }
+
   @media (max-width: 1024px) {
     .nptc-count .cards {
       display: block;
