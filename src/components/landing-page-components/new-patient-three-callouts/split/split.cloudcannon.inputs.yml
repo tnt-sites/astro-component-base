@@ -14,35 +14,23 @@ backgroundColor:
       - id: highlight
         name: Highlight
 
-headingPrefix:
-  type: text
-  comment: Optional small label displayed above the main heading.
-
 heading:
   type: text
-  comment: Main section heading. Supports <br> for line breaks.
+  comment: Section heading (h2). Supports <br> for manual line breaks.
 
 listItems:
   type: array
-  comment: Checklist items displayed in the article. Supports inline HTML.
+  comment: Bullet list items displayed below the heading. Each item gets a + marker.
   options:
     structures:
       values:
         - label: List Item
-          icon: check_circle
+          icon: add
           value: ""
-
-checkImage:
-  type: image
-  comment: Optional checkmark image used as the list bullet. Leave blank to use the default ✓ symbol.
-  options:
-    paths:
-      uploads: src/assets/images
-      static: ""
 
 image:
   type: object
-  comment: Image displayed on the opposite side of the content.
+  comment: Photo displayed on the opposite side of the content.
   options:
     structures:
       values:
@@ -54,7 +42,7 @@ image:
           _inputs:
             source:
               type: image
-              comment: Path or URL to the image.
+              comment: Path or URL to the photo.
               options:
                 paths:
                   uploads: src/assets/images
@@ -65,19 +53,21 @@ image:
 
 figcaption:
   type: text
-  comment: Optional caption below the image.
+  comment: Optional caption displayed below the photo.
 
 reverse:
   type: checkbox
-  comment: When enabled, the image appears on the left and text on the right.
+  comment: When enabled, the photo appears on the left and content on the right.
 
-twoColumnList:
-  type: checkbox
-  comment: When enabled, the list renders in two columns on desktop.
+buttonSections:
+  type: array
+  comment: Optional CTA button(s) displayed below the list.
+  options:
+    structures: _structures.buttonSections
 
-headingColor:
+accentColor:
   type: select
-  comment: Color of the main h2 heading text.
+  comment: Color of the + bullet markers and the H2 heading.
   options:
     values:
       - id: "var(--color-brand)"
@@ -91,26 +81,24 @@ headingColor:
       - id: "var(--color-text-inverse)"
         name: White
 
-prefixColor:
+headingColor:
   type: select
-  comment: Color of the small prefix label above the heading. Defaults to the heading color when left unset.
+  comment: Color of the H2 heading. Overrides accentColor for the heading only.
   options:
     values:
       - id: "var(--color-brand)"
         name: Brand
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
-      - id: "var(--color-brand-muted)"
-        name: Brand Tertiary
-      - id: "#000"
-        name: Black
+      - id: "var(--color-text)"
+        name: Body Text
       - id: "var(--color-text-inverse)"
         name: White
 
 fontHeadings:
   type: text
-  comment: Override the heading font family (e.g. "Georgia, serif"). Leave blank to use the site default.
+  comment: Override the heading font family. Leave blank for site default.
 
 fontBody:
   type: text
-  comment: Override the body/prefix font family (e.g. "Arial, sans-serif"). Leave blank to use the site default.
+  comment: Override the list font family. Leave blank for site default.

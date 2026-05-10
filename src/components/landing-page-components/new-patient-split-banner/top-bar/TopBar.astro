@@ -1,7 +1,13 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 
-const { items = [], textColor = "", backgroundColor = "base", class: className, ...rest } = Astro.props;
+const {
+  items = [],
+  textColor = "",
+  backgroundColor = "base",
+  class: className,
+  ...rest
+} = Astro.props;
 
 const inlineStyle = textColor ? `--np-text-color: ${textColor}` : undefined;
 

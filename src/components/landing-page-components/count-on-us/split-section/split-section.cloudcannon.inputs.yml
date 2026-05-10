@@ -73,13 +73,9 @@ accentColor:
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
       - id: "var(--color-brand-muted)"
-        name: Brand Muted
-      - id: "var(--cyan-dark)"
-        name: Cyan
-      - id: "var(--blue-dark)"
-        name: Blue
-      - id: "var(--color-text)"
-        name: Body Text
+        name: Brand Tertiary
+      - id: "#000"
+        name: Black
       - id: "var(--color-text-inverse)"
         name: White
 
@@ -114,18 +110,14 @@ headingColor:
   comment: Color of the main h2 heading text.
   options:
     values:
-      - id: "var(--color-text)"
-        name: Body Text
       - id: "var(--color-brand)"
         name: Brand
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
       - id: "var(--color-brand-muted)"
-        name: Brand Muted
-      - id: "var(--cyan-dark)"
-        name: Cyan
-      - id: "var(--blue-dark)"
-        name: Blue
+        name: Brand Tertiary
+      - id: "#000"
+        name: Black
       - id: "var(--color-text-inverse)"
         name: White
 
@@ -134,18 +126,14 @@ prefixColor:
   comment: Color of the small prefix label above the heading. Defaults to heading color when unset.
   options:
     values:
-      - id: "var(--color-text-muted)"
-        name: Muted Text
-      - id: "var(--color-text)"
-        name: Body Text
       - id: "var(--color-brand)"
         name: Brand
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
-      - id: "var(--cyan-dark)"
-        name: Cyan
-      - id: "var(--blue-dark)"
-        name: Blue
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
+      - id: "#000"
+        name: Black
       - id: "var(--color-text-inverse)"
         name: White
 

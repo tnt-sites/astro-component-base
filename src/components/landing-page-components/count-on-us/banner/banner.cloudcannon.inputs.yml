@@ -92,15 +92,9 @@ borderColor:
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
       - id: "var(--color-brand-muted)"
-        name: Brand Muted
-      - id: "var(--cyan-dark)"
-        name: Cyan
-      - id: "var(--cyan-light)"
-        name: Cyan Light
-      - id: "var(--blue-dark)"
-        name: Blue
-      - id: "var(--color-text)"
-        name: Body Text
+        name: Brand Tertiary
+      - id: "#000"
+        name: Black
       - id: "var(--color-text-inverse)"
         name: White
 

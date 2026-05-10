@@ -1,0 +1,20 @@
+label: Fontello Icon
+icon: star
+description: Icon from the TNT fontello library, with optional repeat count for star rows etc.
+value:
+  _component: building-blocks/core-elements/fontello-icon
+  id: ""
+  name: icon-star
+  count: 1
+  size: md
+preview:
+  text:
+    - Fontello Icon
+  subtext:
+    - key: name
+  icon: star
+picker_preview:
+  text: Fontello Icon
+  subtext: TNT icon font glyph.
+_inputs_from_glob:
+  - /src/components/building-blocks/core-elements/fontello-icon/fontello-icon.cloudcannon.inputs.yml

@@ -1,0 +1,131 @@
+name:
+  type: select
+  comment: Icon name from the TNT fontello library. See tntwebsites.com/tnticons/demo.html for all options.
+  options:
+    values:
+      - id: icon-mail
+        name: Mail
+      - id: icon-mail-alt
+        name: Mail (alt)
+      - id: icon-comment-empty
+        name: Comment
+      - id: icon-rss
+        name: RSS
+      - id: icon-user
+        name: User
+      - id: icon-user-md
+        name: User MD
+      - id: icon-facebook
+        name: Facebook
+      - id: icon-twitter
+        name: Twitter
+      - id: icon-menu
+        name: Menu
+      - id: icon-location
+        name: Location
+      - id: icon-map
+        name: Map
+      - id: icon-map-marker
+        name: Map Marker
+      - id: icon-map-o
+        name: Map (outline)
+      - id: icon-phone
+        name: Phone
+      - id: icon-phone-squared
+        name: Phone (squared)
+      - id: icon-star
+        name: Star
+      - id: icon-star-half
+        name: Star Half
+      - id: icon-star-empty
+        name: Star (empty)
+      - id: icon-calendar
+        name: Calendar
+      - id: icon-calendar-1
+        name: Calendar 1
+      - id: icon-calendar-2
+        name: Calendar 2
+      - id: icon-calendar-plus-o
+        name: Calendar Plus
+      - id: icon-tag
+        name: Tag
+      - id: icon-yelp
+        name: Yelp
+      - id: icon-google
+        name: Google
+      - id: icon-healthgrades
+        name: Healthgrades
+      - id: icon-localmed
+        name: LocalMed
+      - id: icon-tooth
+        name: Tooth
+      - id: icon-endo
+        name: Endodontics
+      - id: icon-ortho
+        name: Orthodontics
+      - id: icon-perio
+        name: Periodontics
+      - id: icon-toothcosmetic
+        name: Tooth (cosmetic)
+      - id: icon-toothbrush
+        name: Toothbrush
+      - id: icon-toothbrush-paste
+        name: Toothbrush & Paste
+      - id: icon-home
+        name: Home
+      - id: icon-building
+        name: Building
+      - id: icon-ok
+        name: Checkmark
+      - id: icon-ok-1
+        name: Checkmark 1
+      - id: icon-ok-circled
+        name: Checkmark (circled)
+      - id: icon-ok-circle
+        name: Checkmark (circle)
+      - id: icon-dollar
+        name: Dollar
+      - id: icon-clock
+        name: Clock
+      - id: icon-chat
+        name: Chat
+      - id: icon-quote
+        name: Quote
+      - id: icon-search
+        name: Search
+      - id: icon-right-big
+        name: Arrow Right
+      - id: icon-left-big
+        name: Arrow Left
+      - id: icon-angle-left
+        name: Angle Left
+      - id: icon-angle-right
+        name: Angle Right
+      - id: icon-angle-up
+        name: Angle Up
+      - id: icon-angle-down
+        name: Angle Down
+      - id: icon-circle
+        name: Circle
+      - id: icon-tnt
+        name: TNT
+
+count:
+  type: number
+  comment: Number of times to repeat the icon (e.g. 5 for five stars). Min 1, max 10.
+
+size:
+  type: select
+  comment: Size of the icon glyphs.
+  options:
+    values:
+      - id: sm
+        name: Small
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+      - id: xl
+        name: Extra Large
+      - id: 2xl
+        name: 2XL

@@ -1,0 +1,98 @@
+---
+const glyphs: Record<string, string> = {
+  "icon-mail": "\ue800",
+  "icon-mail-alt": "\ue801",
+  "icon-comment-empty": "\ue802",
+  "icon-rss": "\ue803",
+  "icon-user": "\ue804",
+  "icon-facebook": "\ue805",
+  "icon-twitter": "\ue807",
+  "icon-menu": "\ue808",
+  "icon-location": "\ue809",
+  "icon-map": "\ue80a",
+  "icon-phone": "\ue80b",
+  "icon-star": "\ue80f",
+  "icon-star-half": "\ue810",
+  "icon-star-empty": "\ue81b",
+  "icon-calendar": "\ue815",
+  "icon-calendar-1": "\ue816",
+  "icon-calendar-2": "\ue836",
+  "icon-calendar-plus-o": "\ue930",
+  "icon-tag": "\ue81c",
+  "icon-yelp": "\ue81d",
+  "icon-tooth": "\ue82b",
+  "icon-endo": "\ue82a",
+  "icon-ortho": "\ue82c",
+  "icon-perio": "\ue82d",
+  "icon-toothcosmetic": "\ue82e",
+  "icon-toothbrush": "\ue849",
+  "icon-toothbrush-paste": "\ue848",
+  "icon-home": "\ue830",
+  "icon-building": "\ue831",
+  "icon-ok": "\ue901",
+  "icon-ok-1": "\ue832",
+  "icon-ok-circled": "\ue914",
+  "icon-ok-circle": "\ue949",
+  "icon-phone-squared": "\ue934",
+  "icon-user-md": "\ue918",
+  "icon-healthgrades": "\ue947",
+  "icon-map-marker": "\ue948",
+  "icon-map-o": "\ue931",
+  "icon-google": "\ue950",
+  "icon-localmed": "\ue954",
+  "icon-dollar": "\ue941",
+  "icon-clock": "\ue839",
+  "icon-chat": "\ue835",
+  "icon-quote": "\ue838",
+  "icon-search": "\ue847",
+  "icon-right-big": "\ue904",
+  "icon-left-big": "\ue903",
+  "icon-angle-left": "\ue819",
+  "icon-angle-right": "\ue81a",
+  "icon-angle-up": "\ue83a",
+  "icon-angle-down": "\ue825",
+  "icon-circle": "\ue933",
+  "icon-tnt": "\ue824",
+};
+
+const { name = "", count = 1, size = "md", class: className, _component, ...rest } = Astro.props;
+
+const glyph = name ? glyphs[name] : undefined;
+const safeCount = Math.max(1, Math.min(10, Number(count) || 1));
+
+if (!glyph) return;
+---
+
+<span class:list={["fontello-icon", `size-${size}`, className]} aria-hidden="true" {...rest}>
+  {Array.from({ length: safeCount }).map(() => <span class="glyph">{glyph}</span>)}
+</span>
+
+<style>
+  .fontello-icon {
+    display: inline-flex;
+    gap: 0.05em;
+    line-height: 1;
+  }
+
+  .fontello-icon .glyph {
+    font-family: fontello;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  .fontello-icon.size-sm .glyph {
+    font-size: 0.875rem;
+  }
+  .fontello-icon.size-md .glyph {
+    font-size: 1.25rem;
+  }
+  .fontello-icon.size-lg .glyph {
+    font-size: 1.75rem;
+  }
+  .fontello-icon.size-xl .glyph {
+    font-size: 2.25rem;
+  }
+  .fontello-icon.size-2xl .glyph {
+    font-size: 3rem;
+  }
+</style>

@@ -1,4 +1,4 @@
-label: COU Banner
+label: Banner
 icon: dashboard
 description: Hero banner with a heading and optional badge images on the left, and a full-height photo on the right. Badge images (e.g. award seals) are displayed side-by-side in a flex row.
 value:
