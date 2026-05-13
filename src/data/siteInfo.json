@@ -15,10 +15,6 @@
       "label": "LinkedIn",
       "icon": "social/linkedin",
       "link": "https://linkedin.com"
-    },
-    {
-      "icon": "social/youtube",
-      "link": "youtube.com"
     }
   ],
   "offices": [
@@ -148,6 +144,8 @@
       ]
     }
   ],
-  "head_scripts": [],
+  "head_scripts": [
+    "/* test */"
+  ],
   "footer_scripts": []
 }
