@@ -30,8 +30,7 @@ offices:
   type: array
   comment: "Optional office contact override for this landing footer."
   options:
-    entries:
-      type: object
+    structures: _structures.officeSections
 featuredServicesTitle:
   type: text
   comment: "Heading for the featured services card."

@@ -1,0 +1,18 @@
+officeSections:
+  style: select
+  values:
+    - label: Office
+      icon: location_on
+      value:
+        name: ""
+        phones:
+          - display: ""
+            href: ""
+        addresses:
+          - lines: []
+            city: ""
+            state: ""
+            postalCode: ""
+            mapUrl: ""
+        officeHours: []
+        officeHoursNote: ""

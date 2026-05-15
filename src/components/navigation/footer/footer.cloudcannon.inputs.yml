@@ -8,8 +8,7 @@ offices:
   type: array
   comment: "Optional office contact override. Leave empty to use siteInfo offices."
   options:
-    entries:
-      type: object
+    structures: _structures.officeSections
 "$.offices[*].name":
   type: text
   comment: "Optional office label."
