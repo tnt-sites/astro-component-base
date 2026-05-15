@@ -123,6 +123,8 @@ const landingPageSchema = z.object({
   landingMainNav: landingComponentConfigSchema.optional(),
   landingFooter: landingComponentConfigSchema.optional(),
   landingPageSections: z.array(z.any()).optional(),
+  head_scripts: z.array(z.string()).optional(),
+  footer_scripts: z.array(z.string()).optional(),
   parentLandingPage: z.string().optional(),
 });
 
@@ -141,6 +143,8 @@ const pepPagesCollection = defineCollection({
     landingMainNav: landingComponentConfigSchema.optional(),
     landingFooter: landingComponentConfigSchema.optional(),
     pepSections: z.array(z.any()).optional(),
+    head_scripts: z.array(z.string()).optional(),
+    footer_scripts: z.array(z.string()).optional(),
     parentLandingPage: z.string().optional(),
   }),
 });

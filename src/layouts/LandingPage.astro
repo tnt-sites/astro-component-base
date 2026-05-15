@@ -18,6 +18,8 @@ type Props = {
     landingMainNav?: LandingComponentBlock | LandingComponentBlock[];
     landingFooter?: LandingComponentBlock | LandingComponentBlock[];
     landingPageSections?: any[];
+    head_scripts?: string[];
+    footer_scripts?: string[];
   };
   title?: string;
   description?: string;
@@ -47,6 +49,8 @@ const description = frontmatter?.description ?? descriptionProp;
 const keywords = frontmatter?.keywords ?? keywordsProp;
 const image = frontmatter?.image ?? imageProp;
 const canonical = frontmatter?.canonical ?? canonicalProp;
+const headScripts = frontmatter?.head_scripts ?? [];
+const footerScripts = frontmatter?.footer_scripts ?? [];
 const normalizeLandingBlocks = (value: unknown, fallbackComponent: string) => {
   const sourceBlocks = Array.isArray(value)
     ? value
@@ -143,6 +147,8 @@ const resolvedFooter = {
   image={image}
   canonical={canonical}
   siteInfo={siteInfo}
+  head_scripts={headScripts}
+  footer_scripts={footerScripts}
 >
   <Components contentSections={[resolvedHeader]} propName="landingMainNav" editable={false} />
   <main data-pagefind-body>

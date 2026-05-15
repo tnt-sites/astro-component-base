@@ -54,4 +54,6 @@ landingFooter:
     backgroundGradient: ""
     legalBlurb: ""
 landingPageSections: []
+head_scripts: []
+footer_scripts: []
 ---

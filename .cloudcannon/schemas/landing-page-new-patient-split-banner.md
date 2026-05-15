@@ -61,4 +61,6 @@ landingPageSections:
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
+head_scripts: []
+footer_scripts: []
 ---

@@ -51,4 +51,6 @@ landingFooter:
           - display: (123) 456-7890
             href: tel:+11234567890
 landingPageSections: []
+head_scripts: []
+footer_scripts: []
 ---

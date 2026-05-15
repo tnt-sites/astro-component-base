@@ -32,4 +32,6 @@ landingFooter:
     socials: []
     offices: []
 pepSections: []
+head_scripts: []
+footer_scripts: []
 ---

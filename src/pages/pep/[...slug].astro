@@ -38,6 +38,8 @@ const frontmatter = parentPage
       ...page.data,
       landingMainNav: parentPage.data.landingMainNav ?? page.data.landingMainNav,
       landingFooter: parentPage.data.landingFooter ?? page.data.landingFooter,
+      head_scripts: parentPage.data.head_scripts ?? page.data.head_scripts,
+      footer_scripts: parentPage.data.footer_scripts ?? page.data.footer_scripts,
     }
   : page.data;
 ---

@@ -172,6 +172,22 @@ collections_config:
           initial_height: 320
           image_size_attributes: true
         cascade: true
+      head_scripts:
+        type: array
+        comment: Scripts injected into the <head> for this page (e.g. Google Analytics). Sub-pages (form, thank you, etc.) inherit this value.
+        cascade: true
+      $.head_scripts[*]:
+        type: textarea
+        comment: A single script tag or snippet for the head.
+        cascade: true
+      footer_scripts:
+        type: array
+        comment: Scripts injected before </body>. Sub-pages (form, thank you, etc.) inherit this value.
+        cascade: true
+      $.footer_scripts[*]:
+        type: textarea
+        comment: A single script tag or snippet for the footer.
+        cascade: true
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.md"
     add_options:
@@ -453,6 +469,22 @@ collections_config:
         cascade: true
         options:
           structures: _structures.pepSections
+      head_scripts:
+        type: array
+        comment: Scripts injected into the <head> for this page (e.g. Google Analytics). Sub-pages inherit this value.
+        cascade: true
+      $.head_scripts[*]:
+        type: textarea
+        comment: A single script tag or snippet for the head.
+        cascade: true
+      footer_scripts:
+        type: array
+        comment: Scripts injected before </body>. Sub-pages inherit this value.
+        cascade: true
+      $.footer_scripts[*]:
+        type: textarea
+        comment: A single script tag or snippet for the footer.
+        cascade: true
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.md"
     add_options:
