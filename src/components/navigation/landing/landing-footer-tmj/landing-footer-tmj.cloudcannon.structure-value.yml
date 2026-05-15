@@ -26,6 +26,7 @@ value:
   getStartedTitle: How to Get Started
   getStartedText: "Thank you for taking the time to consider us. We look forward to having the opportunity to speak with you and to meet in person. Please feel free to give us a call or complete the form on this page, and we promise to get back to you as soon as possible."
   legalBlurb: ""
+  offices: []
 preview:
   text:
     - Landing Footer TMJ

@@ -37,6 +37,7 @@ value:
       path: /privacy-policy
   mapEmbedUrl: ""
   legalBlurb: ""
+  offices: []
 preview:
   text:
     - Footer

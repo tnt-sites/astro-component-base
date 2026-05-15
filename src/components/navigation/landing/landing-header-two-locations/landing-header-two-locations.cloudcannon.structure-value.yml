@@ -16,6 +16,7 @@ value:
       variant: primary
       size: md
       width: md
+  offices: []
 preview:
   text:
     - Landing Header — Two Locations, Logo Centered

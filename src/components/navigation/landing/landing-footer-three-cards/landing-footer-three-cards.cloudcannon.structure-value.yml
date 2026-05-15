@@ -40,6 +40,7 @@ value:
     positionHorizontal: center
   backgroundGradient: ""
   legalBlurb: ""
+  offices: []
 preview:
   text:
     - Landing Footer 3 Cards
