@@ -2,9 +2,10 @@
 _schema: landing-page
 title: Count On Us Test
 landingMainNav:
-  - _component: navigation/landing/landing-header
+  - _component: navigation/landing/landing-header-two-locations
     logoSource: /images/logo.svg
     logoAlt: Logo
+    mobileCallLabel: Call Today!
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ''
