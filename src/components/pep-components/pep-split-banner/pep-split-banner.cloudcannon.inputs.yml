@@ -22,6 +22,14 @@ borderColor:
   type: color
   comment: Color of the bottom border stripe. Leave blank to use the default brand color.
 
+headingColor:
+  type: color
+  comment: Color of the H1 heading text. Leave blank to use the theme default.
+
+textColor:
+  type: color
+  comment: Color of the body paragraph text. Leave blank to inherit from the background color scheme.
+
 heading:
   type: text
   comment: Main H1 heading. Supports <br> for manual line breaks.

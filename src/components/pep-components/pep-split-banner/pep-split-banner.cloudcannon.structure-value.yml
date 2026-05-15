@@ -7,6 +7,8 @@ value:
   backgroundColor: base
   backgroundColorHex: ""
   borderColor: ""
+  headingColor: ""
+  textColor: ""
   heading: "Plan Ahead.<br>Save. Smile!"
   text: |
     It seems like everything is more expensive these days. Dental care does not have to follow the trend. By starting now, we can work with you and help you maximize the money you get from your dental insurance and flexible spending accounts (FSA).
