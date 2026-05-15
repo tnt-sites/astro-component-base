@@ -62,6 +62,9 @@ landingFooter:
       positionVertical: top
       positionHorizontal: center
     backgroundGradient:
+    backgroundColor: brand
+    linkColor: brand
+    linkHoverColor: ''
     legalBlurb: ''
     offices: []
 pepSections:
