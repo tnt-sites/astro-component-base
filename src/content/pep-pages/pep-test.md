@@ -61,9 +61,7 @@ landingFooter:
       alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: >-
-      linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary)
-      88%, black) 0%, var(--color-bg-brand-secondary) 100%)
+    backgroundGradient:
     legalBlurb: ''
     offices: []
 pepSections:
