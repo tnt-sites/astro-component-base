@@ -39,6 +39,9 @@ value:
     positionVertical: top
     positionHorizontal: center
   backgroundGradient: ""
+  backgroundColor: ""
+  linkColor: ""
+  linkHoverColor: ""
   legalBlurb: ""
   offices: []
 preview:

@@ -97,6 +97,63 @@ backgroundGradient:
 cardBackgroundColor:
   type: color
   comment: "Optional card background color for the overlapping contact card."
+backgroundColor:
+  type: select
+  comment: Background color of the footer section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
+linkColor:
+  type: select
+  comment: Color of phone number and address links.
+  options:
+    values:
+      - id: none
+        name: None (default)
+      - id: white
+        name: White
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
+      - id: text
+        name: Text
+      - id: text-strong
+        name: Text (Strong)
+      - id: text-inverse
+        name: Text (Inverse)
+linkHoverColor:
+  type: select
+  comment: Color of phone number and address links on hover.
+  options:
+    values:
+      - id: none
+        name: None (default)
+      - id: white
+        name: White
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
+      - id: text
+        name: Text
+      - id: text-strong
+        name: Text (Strong)
+      - id: text-inverse
+        name: Text (Inverse)
 legalBlurb:
   type: textarea
   comment: "Optional legal/disclaimer text shown below the copyright row."

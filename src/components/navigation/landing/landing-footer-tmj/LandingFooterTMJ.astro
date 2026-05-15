@@ -12,6 +12,9 @@ const {
   backgroundImage,
   backgroundGradient = "",
   legalBlurb = "",
+  backgroundColor = "",
+  linkColor = "",
+  linkHoverColor = "",
   getStartedTitle = "How to Get Started",
   getStartedText = "",
   formTitle = "Ask A Question",
@@ -45,6 +48,34 @@ const formSubmitLabelValue =
     : "Submit";
 const footerBackgroundStyle = [
   backgroundGradientValue ? `--lp-footer-tmj-bg-gradient: ${backgroundGradientValue}` : "",
+  (() => {
+    const bgColorMap: Record<string, string> = {
+      base: "var(--color-bg)",
+      surface: "var(--color-bg-surface)",
+      accent: "var(--color-bg-accent)",
+      highlight: "var(--color-bg-highlight)",
+      brand: "var(--color-bg-brand)",
+      "brand-secondary": "var(--color-bg-brand-secondary)",
+    };
+    const resolved =
+      (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
+    return resolved ? `--lp-footer-tmj-bg-color: ${resolved}` : "";
+  })(),
+  (() => {
+    const lkMap: Record<string, string> = {
+      white: "#fff",
+      brand: "var(--color-brand)",
+      "brand-secondary": "var(--color-brand-secondary)",
+      text: "var(--color-text)",
+      "text-strong": "var(--color-text-strong)",
+      "text-inverse": "var(--color-text-inverse)",
+    };
+    const lc = (linkColor && linkColor !== "none" && lkMap[linkColor]) || "";
+    const lhc = (linkHoverColor && linkHoverColor !== "none" && lkMap[linkHoverColor]) || "";
+    return [lc ? `--footer-link-color: ${lc}` : "", lhc ? `--footer-link-hover-color: ${lhc}` : ""]
+      .filter(Boolean)
+      .join("; ");
+  })(),
 ]
   .filter(Boolean)
   .join("; ");
@@ -350,7 +381,7 @@ const getOfficeHoursEntries = (office: any) => {
   @layer page-sections {
     .landing-footer.landing-footer-tmj {
       overflow: hidden;
-      background-color: #fff;
+      background-color: var(--lp-footer-tmj-bg-color, #fff);
       background-image: var(--lp-footer-tmj-bg-gradient, none);
       background-position: center;
       background-size: cover;
@@ -462,14 +493,14 @@ const getOfficeHoursEntries = (office: any) => {
       .lp-footer-tmj-phone,
       .lp-footer-tmj-address {
         align-items: flex-start;
-        color: var(--color-text, #313131);
+        color: var(--footer-link-color, var(--color-text, #313131));
         display: flex;
         gap: 8px;
         margin-bottom: var(--spacing-xs, 0.5rem);
         text-decoration: none;
 
         &:hover {
-          color: var(--color-text-strong, #000);
+          color: var(--footer-link-hover-color, var(--color-text-strong, #000));
         }
 
         .lp-footer-tmj-icon {

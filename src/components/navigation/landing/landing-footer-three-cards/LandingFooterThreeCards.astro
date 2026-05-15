@@ -26,6 +26,9 @@ const {
   backgroundImage,
   backgroundGradient = "",
   legalBlurb = "",
+  backgroundColor = "",
+  linkColor = "",
+  linkHoverColor = "",
   id: elementId,
   class: className,
   ...htmlAttributes
@@ -87,6 +90,34 @@ const footerBackgroundStyle = [
   backgroundGradientValue ? `--lp-footer-bg-gradient: ${backgroundGradientValue}` : "",
   `--lp-footer-links-bg: ${footerLinksBackgroundColorValue}`,
   `--lp-footer-links-hover-bg: ${footerLinksHoverBackgroundColorValue}`,
+  (() => {
+    const bgColorMap: Record<string, string> = {
+      base: "var(--color-bg)",
+      surface: "var(--color-bg-surface)",
+      accent: "var(--color-bg-accent)",
+      highlight: "var(--color-bg-highlight)",
+      brand: "var(--color-bg-brand)",
+      "brand-secondary": "var(--color-bg-brand-secondary)",
+    };
+    const resolved =
+      (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
+    return resolved ? `--lp-footer-bg-color: ${resolved}` : "";
+  })(),
+  (() => {
+    const lkMap: Record<string, string> = {
+      white: "#fff",
+      brand: "var(--color-brand)",
+      "brand-secondary": "var(--color-brand-secondary)",
+      text: "var(--color-text)",
+      "text-strong": "var(--color-text-strong)",
+      "text-inverse": "var(--color-text-inverse)",
+    };
+    const lc = (linkColor && linkColor !== "none" && lkMap[linkColor]) || "";
+    const lhc = (linkHoverColor && linkHoverColor !== "none" && lkMap[linkHoverColor]) || "";
+    return [lc ? `--footer-link-color: ${lc}` : "", lhc ? `--footer-link-hover-color: ${lhc}` : ""]
+      .filter(Boolean)
+      .join("; ");
+  })(),
 ]
   .filter(Boolean)
   .join("; ");
@@ -297,7 +328,7 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       position: relative;
       overflow: hidden;
 
-      background-color: #2c363c;
+      background-color: var(--lp-footer-bg-color, #2c363c);
       background-image:
         var(
           --lp-footer-bg-gradient,
@@ -392,7 +423,7 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       }
 
       .pho {
-        color: var(--color-brand) !important;
+        color: var(--footer-link-color, var(--color-brand)) !important;
         font-family: var(--font-body, sans-serif);
         font-size: clamp(1.6rem, 2.6vw, 2.5rem);
         font-weight: 700;
@@ -401,7 +432,7 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       }
 
       .pho:hover {
-        color: var(--color-brand-secondary) !important;
+        color: var(--footer-link-hover-color, var(--color-brand-secondary)) !important;
       }
 
       .phy {
@@ -412,7 +443,7 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       }
 
       .phy:hover {
-        color: var(--color-brand-secondary) !important;
+        color: var(--footer-link-hover-color, var(--color-brand-secondary)) !important;
       }
 
       .lp-footer-map-slot {
