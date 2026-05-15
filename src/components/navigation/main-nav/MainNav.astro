@@ -74,9 +74,7 @@ const mobileNavData = [
   })),
 ];
 
-const hasLegacyOffice =
-  (Array.isArray(addressLines) && addressLines.length > 0) ||
-  !!phoneText;
+const hasLegacyOffice = (Array.isArray(addressLines) && addressLines.length > 0) || !!phoneText;
 
 const resolvedOffices =
   Array.isArray(offices) && offices.length > 0
@@ -116,7 +114,6 @@ const sharedSocials =
     : Array.isArray(resolvedOffices[0]?.socials)
       ? resolvedOffices[0].socials
       : ((siteInfoData as any).socials ?? []);
-      : [];
 
 const formatAddressLines = (address: any) => {
   const lineItems = Array.isArray(address?.lines) ? address.lines : [];
@@ -143,61 +140,60 @@ const formatAddressLines = (address: any) => {
     </a>
     <!-- Desktop Nav -->
     <div class="hd-right">
-      
       <!-- Phone and Address -->
       <div class="hd-info">
         {
           resolvedOffices.map((office: any) => (
             <>
-        <div>
-              {Array.isArray(office?.phones) &&
-                office.phones.map((phone: any) =>
-                  phone?.display ? (
-                    <a href={phone?.href || "#"} class="pho">
-                      {phone?.label ? `${phone.label}: ` : ""}
-                      {phone.display}
-                    </a>
-                  ) : null
-                )}
+              <div>
+                {Array.isArray(office?.phones) &&
+                  office.phones.map((phone: any) =>
+                    phone?.display ? (
+                      <a href={phone?.href || "#"} class="pho">
+                        {phone?.label ? `${phone.label}: ` : ""}
+                        {phone.display}
+                      </a>
+                    ) : null
+                  )}
 
-              {Array.isArray(office?.addresses) &&
-                office.addresses.map((address: any) => {
-                  const formattedLines = formatAddressLines(address);
+                {Array.isArray(office?.addresses) &&
+                  office.addresses.map((address: any) => {
+                    const formattedLines = formatAddressLines(address);
 
-                  return formattedLines.length > 0 ? (
-                    <a
-                      href={address?.mapUrl || "#"}
-                      class="phy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {formattedLines.map((line: string, index: number) => (
-                        <>
-                          {line}
-                          {index < formattedLines.length - 1 && <br />}
-                        </>
-                      ))}
-                    </a>
-                  ) : null;
-                })}
-        </div>
-
-
+                    return formattedLines.length > 0 ? (
+                      <a
+                        href={address?.mapUrl || "#"}
+                        class="phy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {formattedLines.map((line: string, index: number) => (
+                          <>
+                            {line}
+                            {index < formattedLines.length - 1 && <br />}
+                          </>
+                        ))}
+                      </a>
+                    ) : null;
+                  })}
+              </div>
             </>
           ))
         }
       </div>
-                    {buttons.length > 0 && (
-                <div class="hd-btns page-buttons">
-                  <ButtonGroup
-                    direction="row"
-                    align="center"
-                    class="desktop-button-group"
-                    buttonSections={buttons}
-                    editable={false}
-                  />
-                </div>
-              )}
+      {
+        buttons.length > 0 && (
+          <div class="hd-btns page-buttons">
+            <ButtonGroup
+              direction="row"
+              align="center"
+              class="desktop-button-group"
+              buttonSections={buttons}
+              editable={false}
+            />
+          </div>
+        )
+      }
       <div class="hd-nav">
         <div class="nav-end">
           <Bar navData={navData} class="desktop-main-nav" />
