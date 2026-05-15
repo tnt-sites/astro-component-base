@@ -24,11 +24,11 @@ landingMainNav:
         uppercase: false
     offices: []
 landingFooter:
-  - _component: navigation/landing/landing-footer
+  - _component: navigation/landing/landing-footer-logo-top
     logoSource: /images/logo.svg
     logoAlt: Logo
-    siteName: ''
-    contactTitle: Contact Us
+    siteName: Dental Studio
+    contactTitle: Learn More
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ''
@@ -46,7 +46,10 @@ landingFooter:
         borderColor: default
         textColor: default
         uppercase: false
-    socials: []
+    socials:
+      - label: Facebook
+        icon: social/facebook
+        link: https://facebook.com
     legalLinks:
       - name: Sitemap
         path: sitemap.html
@@ -54,9 +57,13 @@ landingFooter:
         path: privacy-policy.html
     mapEmbedUrl: ''
     backgroundImage:
+      source:
+      alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ''
+    backgroundGradient: >-
+      linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary)
+      88%, black) 0%, var(--color-bg-brand-secondary) 100%)
     legalBlurb: ''
     offices: []
 pepSections:
@@ -71,7 +78,9 @@ pepSections:
     id: ''
     backgroundColor: base
     backgroundColorHex: ''
-    borderColor: ''
+    borderColor: var(--color-brand)
+    headingColor: var(--color-text)
+    textColor: ''
     heading: Plan Ahead.<br>Save. Smile!
     text: >
       It seems like everything is more expensive these days. Dental care does
@@ -85,7 +94,7 @@ pepSections:
     image:
       source: https://placehold.co/800x700
       alt: Banner photo
-    figcaption: ''
+    figcaption: Hello
     buttonSections: []
 head_scripts: []
 footer_scripts: []
