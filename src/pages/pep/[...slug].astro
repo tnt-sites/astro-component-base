@@ -1,7 +1,7 @@
 ---
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
-import LandingPage from "@layouts/LandingPage.astro";
+import PepPage from "@layouts/PepPage.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -44,6 +44,6 @@ const frontmatter = parentPage
   : page.data;
 ---
 
-<LandingPage frontmatter={frontmatter} mainNav={mainNavData} footer={footerData}>
+<PepPage frontmatter={frontmatter} mainNav={mainNavData} footer={footerData}>
   <Content />
-</LandingPage>
+</PepPage>
