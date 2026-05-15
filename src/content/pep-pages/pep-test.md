@@ -64,7 +64,7 @@ landingFooter:
     backgroundGradient:
     backgroundColor: brand
     linkColor: brand
-    linkHoverColor: ''
+    linkHoverColor: brand-secondary
     legalBlurb: ''
     offices: []
 pepSections:
