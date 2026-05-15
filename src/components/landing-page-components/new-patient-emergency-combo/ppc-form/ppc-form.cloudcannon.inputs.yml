@@ -13,6 +13,10 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
 formAction:
   type: url
   comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.

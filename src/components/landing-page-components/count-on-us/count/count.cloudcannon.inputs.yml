@@ -17,6 +17,10 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
 
 headingLine1:
   type: text

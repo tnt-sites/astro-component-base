@@ -113,6 +113,10 @@ backgroundColor:
         name: Brand (Primary)
       - id: brand-secondary
         name: Brand (Secondary)
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
 linkColor:
   type: select
   comment: Color of phone number and address links.

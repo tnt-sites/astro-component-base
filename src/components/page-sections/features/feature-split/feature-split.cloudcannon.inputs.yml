@@ -94,6 +94,10 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
 backgroundGradient:
   type: textarea
   comment: "Optional CSS gradient applied behind the section content."

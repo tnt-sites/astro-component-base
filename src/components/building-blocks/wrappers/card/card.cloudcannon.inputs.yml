@@ -101,6 +101,10 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
 backgroundImage:
   type: object
   comment: Background image configuration for the card.
