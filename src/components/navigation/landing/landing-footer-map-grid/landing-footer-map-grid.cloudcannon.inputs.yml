@@ -9,7 +9,9 @@ id:
   comment: "Developer use only. Optional HTML id attribute for this footer section."
 offices:
   type: array
-  comment: "Office locations. Each entry renders a map, address, and phone."
+  comment: "Office locations to override siteInfo. Leave empty to use siteInfo offices."
+  options:
+    structures: _structures.officeWithMapSections
 "$.offices[*].name":
   type: text
   comment: "Optional office name label."

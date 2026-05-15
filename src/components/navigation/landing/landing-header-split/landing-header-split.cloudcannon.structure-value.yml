@@ -65,13 +65,3 @@ _inputs:
   "$.offices[*].addresses[*].mapUrl":
     type: url
     comment: "Google Maps link for the address."
-  "$.offices[*].officeHours":
-    type: array
-    comment: "Office hours entries."
-  "$.offices[*].officeHours[*].day":
-    type: text
-  "$.offices[*].officeHours[*].hours":
-    type: text
-  "$.offices[*].officeHoursNote":
-    type: text
-    comment: "Optional note displayed below the hours list."
