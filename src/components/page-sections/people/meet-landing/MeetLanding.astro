@@ -80,8 +80,6 @@ const htmlAttributes = Object.fromEntries(
   style={backgroundGradient ? "--section-bg-gradient: " + backgroundGradient : undefined}
   {...htmlAttributes}
 >
-
-
   {
     hasDoctors && (
       <div class:list={["landing", variantClass]} {...doctorsArrayDataAttributes}>
@@ -140,7 +138,7 @@ const htmlAttributes = Object.fromEntries(
       color: var(--color-brand);
     }
 
-    @media (max-width: 760px) {
+    @media (max-width: 768px) {
       .landing {
         gap: 12px;
       }

@@ -57,9 +57,7 @@ if (!_component && visibleTabs.length === 0) {
           : normalizedHref.replace(/^#/, "");
       const isModalLink = isModal && normalizedModalTarget.length > 0;
       const openInNewTab =
-        typeof tab.newTab === "string"
-          ? tab.newTab.trim().toLowerCase() === "true"
-          : !!tab.newTab;
+        typeof tab.newTab === "string" ? tab.newTab.trim().toLowerCase() === "true" : !!tab.newTab;
       const target = isModalLink
         ? undefined
         : tab.target?.trim() || (openInNewTab ? "_blank" : undefined);
@@ -218,7 +216,7 @@ if (!_component && visibleTabs.length === 0) {
     }
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 768px) {
     .fixed-tabs {
       .fr,
       .gg,
@@ -245,7 +243,7 @@ if (!_component && visibleTabs.length === 0) {
     }
   }
 
-  @media (max-width: 730px) {
+  @media (max-width: 768px) {
     .fixed-tabs .ra strong {
       display: none;
     }

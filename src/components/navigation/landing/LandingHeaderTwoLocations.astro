@@ -1,0 +1,294 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@core-elements/image/Image.astro";
+
+const {
+  logoSource,
+  logoAlt = "Logo",
+  pageButtons = [],
+  offices = [],
+  mobileCallLabel = "Call Today!",
+  id: elementId,
+  class: className,
+  ...htmlAttributes
+} = Astro.props as {
+  logoSource?: string;
+  logoAlt?: string;
+  pageButtons?: any[];
+  offices?: any[];
+  mobileCallLabel?: string;
+  id?: string;
+  class?: string;
+  [key: string]: any;
+};
+
+const formatAddressLines = (address: any) => {
+  const lineItems = Array.isArray(address?.lines) ? address.lines : [];
+  const stateAndPostal = [address?.state, address?.postalCode].filter(Boolean).join(" ");
+  const cityStatePostal = [address?.city, stateAndPostal].filter(Boolean).join(", ");
+  const locationLine = [cityStatePostal, address?.country].filter(Boolean).join(", ");
+
+  return [...lineItems, locationLine].filter(
+    (line) => typeof line === "string" && line.trim().length > 0
+  );
+};
+
+const buttons = (Array.isArray(pageButtons) ? pageButtons : []).map((button: any) => ({
+  ...button,
+  text: typeof button?.text === "string" ? button.text : "",
+}));
+
+const leftOffice = (Array.isArray(offices) ? offices : [])[0] ?? null;
+const rightOffice = (Array.isArray(offices) ? offices : [])[1] ?? null;
+
+// Mobile call: use first phone from either office
+const mobilePhone = leftOffice?.phones?.[0] ?? rightOffice?.phones?.[0] ?? null;
+
+// Mobile CTA: use first page button
+const mobileButton = buttons[0] ?? null;
+
+const renderOffice = (office: any) => {
+  if (!office) return null;
+  const phones: any[] = Array.isArray(office.phones) ? office.phones : [];
+  const addresses: any[] = Array.isArray(office.addresses) ? office.addresses : [];
+  return { phones, addresses };
+};
+
+const left = renderOffice(leftOffice);
+const right = renderOffice(rightOffice);
+---
+
+<CustomSection
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="none"
+  id={elementId || undefined}
+  class:list={["landing-header-two-locations", className]}
+  {...htmlAttributes}
+>
+  <div class="lhtl-inner">
+    {/* Left office — desktop only */}
+    {
+      left && (
+        <div class="lhtl-office lhtl-office-left">
+          {left.phones.map((phone: any) =>
+            phone?.display ? (
+              <a href={phone?.href || "#"} class="lhtl-phone">
+                {phone?.label ? `${phone.label}: ` : ""}
+                {phone.display}
+              </a>
+            ) : null
+          )}
+          {left.addresses.map((address: any) => {
+            const lines = formatAddressLines(address);
+            return lines.length > 0 ? (
+              <a
+                href={address?.mapUrl || "#"}
+                class="lhtl-address"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {lines.map((line: string, i: number) => (
+                  <>
+                    {line}
+                    {i < lines.length - 1 && <br />}
+                  </>
+                ))}
+              </a>
+            ) : null;
+          })}
+        </div>
+      )
+    }
+
+    {/* Logo — always centered */}
+    <a class="lhtl-logo-link" href="/">
+      <Image source={logoSource} class="lhtl-logo" alt={logoAlt} editable={false} />
+    </a>
+
+    {/* Right office — desktop only */}
+    {
+      right && (
+        <div class="lhtl-office lhtl-office-right">
+          {right.phones.map((phone: any) =>
+            phone?.display ? (
+              <a href={phone?.href || "#"} class="lhtl-phone">
+                {phone?.label ? `${phone.label}: ` : ""}
+                {phone.display}
+              </a>
+            ) : null
+          )}
+          {right.addresses.map((address: any) => {
+            const lines = formatAddressLines(address);
+            return lines.length > 0 ? (
+              <a
+                href={address?.mapUrl || "#"}
+                class="lhtl-address"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {lines.map((line: string, i: number) => (
+                  <>
+                    {line}
+                    {i < lines.length - 1 && <br />}
+                  </>
+                ))}
+              </a>
+            ) : null;
+          })}
+        </div>
+      )
+    }
+
+    {/* Mobile buttons — visible only on small screens */}
+    <div class="lhtl-mobile-btns">
+      {
+        mobilePhone && (
+          <a href={mobilePhone.href || "#"} class="lhtl-mobile-call">
+            <span class="lhtl-mobile-label">{mobileCallLabel}</span>
+            {mobilePhone.display}
+          </a>
+        )
+      }
+      {
+        mobileButton && (
+          <a href={mobileButton.link || "#"} class="lhtl-mobile-cta">
+            <span class="lhtl-mobile-label">{mobileButton.text}</span>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .landing-header-two-locations {
+      box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
+
+      .lhtl-inner {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "logo"
+          "mobile-btns";
+        padding-block: var(--spacing-sm);
+
+        @media (min-width: 1024px) {
+          grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+          grid-template-areas: "left logo right";
+          gap: var(--spacing-md);
+        }
+      }
+
+      .lhtl-logo-link {
+        display: inline-flex;
+        justify-self: center;
+        grid-area: logo;
+      }
+
+      .lhtl-logo {
+        margin: 0 !important;
+      }
+
+      .lhtl-office {
+        display: none;
+
+        @media (min-width: 1024px) {
+          display: block;
+        }
+      }
+
+      .lhtl-office-left {
+        grid-area: left;
+        text-align: left;
+        justify-self: start;
+      }
+
+      .lhtl-office-right {
+        grid-area: right;
+        text-align: right;
+        justify-self: end;
+      }
+
+      .lhtl-phone {
+        color: var(--color-brand);
+        display: block;
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-bold);
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--color-link-hover);
+        }
+      }
+
+      .lhtl-address {
+        color: var(--color-text);
+        display: block;
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-2xs);
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--color-brand);
+        }
+      }
+
+      .lhtl-mobile-btns {
+        display: flex;
+        grid-area: mobile-btns;
+        width: 100%;
+
+        @media (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      .lhtl-mobile-call,
+      .lhtl-mobile-cta {
+        align-content: center;
+        display: flex;
+        flex: 1;
+        flex-wrap: wrap;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-bold);
+        justify-content: center;
+        min-height: 3.5rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .lhtl-mobile-label {
+        display: block;
+        font-size: var(--font-size-md);
+        width: 100%;
+      }
+
+      .lhtl-mobile-call {
+        background-color: var(--color-brand-secondary);
+        color: var(--color-text-on-brand);
+
+        &:hover,
+        &:focus-visible {
+          filter: brightness(0.9);
+        }
+      }
+
+      .lhtl-mobile-cta {
+        background-color: var(--color-brand);
+        color: var(--color-text-on-brand);
+
+        &:hover,
+        &:focus-visible {
+          filter: brightness(0.9);
+        }
+      }
+    }
+  }
+</style>

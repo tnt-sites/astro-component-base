@@ -1,0 +1,47 @@
+label: Landing Header — Two Locations, Logo Centered
+icon: location_on
+description: "Landing header with two office locations flanking a centered logo, plus mobile call and CTA buttons."
+value:
+  _component: navigation/landing/landing-header-two-locations
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  mobileCallLabel: Call Today!
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      text: Request an Appointment
+      hideText: false
+      link: /request-an-appointment/
+      iconName: ""
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+preview:
+  text:
+    - Landing Header — Two Locations, Logo Centered
+  icon: location_on
+picker_preview:
+  text: Landing Header — Two Locations, Logo Centered
+  subtext: "Left office | centered logo | right office, with mobile call + CTA buttons."
+  icon: location_on
+_inputs:
+  logoSource:
+    type: image
+    comment: "Logo image source URL or path."
+  logoAlt:
+    type: text
+    comment: "Alt text for the logo image."
+  mobileCallLabel:
+    type: text
+    comment: "Label shown above the phone number in the mobile call button (e.g. 'Call Today!')."
+  id:
+    type: text
+    comment: "Developer use only. Optional HTML id attribute for this header section."
+  pageButtons:
+    type: array
+    comment: "CTA buttons. The first button is also used as the mobile appointment CTA."
+    options:
+      structures: _structures.buttonSections
+  offices:
+    type: array
+    comment: "Office locations. The first office appears on the left, the second on the right. Leave empty to use siteInfo offices."

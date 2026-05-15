@@ -87,8 +87,7 @@ const normalizedServices = Array.isArray(services)
 const rawCtaCard = !!ctaCard && typeof ctaCard === "object" ? (ctaCard as ServicesGridCta) : {};
 const normalizedCtaCard = {
   enabled: rawCtaCard.enabled === undefined ? false : isTrue(rawCtaCard.enabled),
-  id:
-    cleanText(rawCtaCard.id, "all").replace(/^#/, "") || "all",
+  id: cleanText(rawCtaCard.id, "all").replace(/^#/, "") || "all",
   href: cleanText(rawCtaCard.href, "request-an-appointment.html"),
   heading:
     typeof rawCtaCard.heading === "string" && rawCtaCard.heading.trim().length > 0
@@ -340,7 +339,7 @@ const htmlAttributes = Object.fromEntries(
         }
       }
 
-      @media (max-width: 760px) {
+      @media (max-width: 768px) {
         .services-grid-items > editable-array-item,
         .services-grid-items > .services-grid-item,
         .services-grid-items > editable-array-item.is-wide,
