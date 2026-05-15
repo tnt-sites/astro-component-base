@@ -121,7 +121,7 @@ const globalModals = [
       rel="stylesheet"
     />
     <slot name="head" />
-    {headScripts.map((script: string) => <script is:inline>{script}</script>)}
+    {headScripts.map((script: string) => <script is:inline set:html={script} />)}
   </head>
   <body>
     <Fragment>
@@ -143,6 +143,6 @@ const globalModals = [
       import "@choctawnationofoklahoma/lite-vimeo";
       import "@justinribeiro/lite-youtube";
     </script>
-    {footerScripts.map((script: string) => <script is:inline>{script}</script>)}
+    {footerScripts.map((script: string) => <script is:inline set:html={script} />)}
   </body>
 </html>
