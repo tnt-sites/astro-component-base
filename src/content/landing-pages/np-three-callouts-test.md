@@ -39,20 +39,7 @@ landingFooter:
   - _component: navigation/landing/landing-footer-map-grid
     heading: Schedule Your Appointment Today!
     siteName: Dental Studio
-    offices:
-      - name: ''
-        mapEmbedUrl: ''
-        addresses:
-          - lines:
-              - 123 Main Street
-            city: City
-            state: ST
-            postalCode: '12345'
-            country: ''
-            mapUrl: https://maps.google.com
-        phones:
-          - display: (123) 456-7890
-            href: tel:+11234567890
+    offices: []
     legalLinks:
       - name: Sitemap
         path: sitemap.html
