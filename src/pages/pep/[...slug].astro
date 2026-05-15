@@ -1,0 +1,47 @@
+---
+import footerData from "@data/footer.json";
+import mainNavData from "@data/mainNav.json";
+import LandingPage from "@layouts/LandingPage.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+export interface Props {
+  page: CollectionEntry<"pep-pages">;
+}
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pep-pages");
+
+  return pages.map((page: CollectionEntry<"pep-pages">) => {
+    const slug = page.id.replace(/index$/, "");
+
+    if (slug.length === 0) return { params: { slug: undefined }, props: { page } };
+    return { params: { slug }, props: { page } };
+  });
+}
+
+const { page } = Astro.props as Props;
+const { Content } = await render(page);
+
+// If a parentLandingPage is set, inherit its landingMainNav / landingFooter.
+const parentId = page.data.parentLandingPage;
+let parentPage: CollectionEntry<"pep-pages"> | undefined;
+if (parentId) {
+  const allPages = await getCollection("pep-pages");
+  const normalizedParentId = parentId.toLowerCase();
+  parentPage = allPages.find(
+    (p: CollectionEntry<"pep-pages">) => p.id.toLowerCase() === normalizedParentId
+  );
+}
+
+const frontmatter = parentPage
+  ? {
+      ...page.data,
+      landingMainNav: parentPage.data.landingMainNav ?? page.data.landingMainNav,
+      landingFooter: parentPage.data.landingFooter ?? page.data.landingFooter,
+    }
+  : page.data;
+---
+
+<LandingPage frontmatter={frontmatter} mainNav={mainNavData} footer={footerData}>
+  <Content />
+</LandingPage>

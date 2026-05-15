@@ -129,10 +129,16 @@ const landingPagesCollection = defineCollection({
   schema: landingPageSchema,
 });
 
+const pepPagesCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/pep-pages" }),
+  schema: landingPageSchema,
+});
+
 export const collections = {
   pages: pagesCollection,
   "docs-pages": docsPagesCollection,
   "docs-components": docsComponentsCollection,
   blog: blogCollection,
   "landing-pages": landingPagesCollection,
+  "pep-pages": pepPagesCollection,
 };
