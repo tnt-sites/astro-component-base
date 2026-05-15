@@ -41,23 +41,29 @@ const getModalArray = (value: unknown): Record<string, any>[] =>
     ? value.filter((item): item is Record<string, any> => !!item && typeof item === "object")
     : [];
 
-const headScripts = uniqueScripts([
+const pageHeadScripts = uniqueScripts([
   ...getScriptArray(props.headScripts),
   ...getScriptArray(props.head_scripts),
   ...getScriptArray(props.contentSections?.headScripts),
   ...getScriptArray(props.contentSections?.head_scripts),
+]);
+const siteInfoHeadScripts = uniqueScripts([
   ...getScriptArray(props.siteInfo?.headScripts),
   ...getScriptArray(props.siteInfo?.head_scripts),
 ]);
+const headScripts = pageHeadScripts.length > 0 ? pageHeadScripts : siteInfoHeadScripts;
 
-const footerScripts = uniqueScripts([
+const pageFooterScripts = uniqueScripts([
   ...getScriptArray(props.footerScripts),
   ...getScriptArray(props.footer_scripts),
   ...getScriptArray(props.contentSections?.footerScripts),
   ...getScriptArray(props.contentSections?.footer_scripts),
+]);
+const siteInfoFooterScripts = uniqueScripts([
   ...getScriptArray(props.siteInfo?.footerScripts),
   ...getScriptArray(props.siteInfo?.footer_scripts),
 ]);
+const footerScripts = pageFooterScripts.length > 0 ? pageFooterScripts : siteInfoFooterScripts;
 
 const globalModals = [
   ...getModalArray(props.modals),
