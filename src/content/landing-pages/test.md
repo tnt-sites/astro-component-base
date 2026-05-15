@@ -90,6 +90,6 @@ landingFooter:
         officeHoursNote: ''
 landingPageSections: []
 head_scripts:
-  - /* Test Header Script */
+  - /* Test Header Script 2 */
 footer_scripts: []
 ---
