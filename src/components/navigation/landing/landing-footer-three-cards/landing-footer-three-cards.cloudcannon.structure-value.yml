@@ -49,4 +49,4 @@ picker_preview:
   subtext: "Three-card footer with contact, services, and form."
   icon: page_footer
 _inputs_from_glob:
-  - /src/components/navigation/landing/landing-footer-three-cards.cloudcannon.inputs.yml
+  - /src/components/navigation/landing/landing-footer-three-cards/landing-footer-three-cards.cloudcannon.inputs.yml

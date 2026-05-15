@@ -58,7 +58,7 @@ landingFooter:
         optional: true
         remove_empty: true
   _inputs_from_glob:
-    - /src/components/navigation/landing/landing-footer.cloudcannon.inputs.yml
+    - /src/components/navigation/landing/landing-footer/landing-footer.cloudcannon.inputs.yml
 
 landingFooterTMJ:
   template: mdx_component
@@ -137,7 +137,7 @@ landingFooterTMJ:
         optional: true
         remove_empty: true
   _inputs_from_glob:
-    - /src/components/navigation/landing/landing-footer-tmj.cloudcannon.inputs.yml
+    - /src/components/navigation/landing/landing-footer-tmj/landing-footer-tmj.cloudcannon.inputs.yml
 
 landingFooterLogoTop:
   template: mdx_component
@@ -199,7 +199,7 @@ landingFooterLogoTop:
         optional: true
         remove_empty: true
   _inputs_from_glob:
-    - /src/components/navigation/landing/landing-footer-logo-top.cloudcannon.inputs.yml
+    - /src/components/navigation/landing/landing-footer-logo-top/landing-footer-logo-top.cloudcannon.inputs.yml
 
 landingFooterOverlappingMap:
   template: mdx_component
@@ -265,7 +265,7 @@ landingFooterOverlappingMap:
         optional: true
         remove_empty: true
   _inputs_from_glob:
-    - /src/components/navigation/landing/landing-footer-overlapping-map.cloudcannon.inputs.yml
+    - /src/components/navigation/landing/landing-footer-overlapping-map/landing-footer-overlapping-map.cloudcannon.inputs.yml
 
 landingFooter3Cards:
   template: mdx_component
@@ -366,4 +366,4 @@ landingFooter3Cards:
         optional: true
         remove_empty: true
   _inputs_from_glob:
-    - /src/components/navigation/landing/landing-footer-three-cards.cloudcannon.inputs.yml
+    - /src/components/navigation/landing/landing-footer-three-cards/landing-footer-three-cards.cloudcannon.inputs.yml
