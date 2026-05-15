@@ -92,6 +92,7 @@ landingHeaderSections:
         offices:
           type: array
           comment: "Office locations. First office on left, second on right. Leave empty to use siteInfo offices."
+    - label: Landing Header Split
       icon: view_column
       description: "Landing header with contact on the left, centered logo, and CTA buttons on the right."
       value:
