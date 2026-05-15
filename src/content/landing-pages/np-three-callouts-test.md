@@ -22,7 +22,19 @@ landingMainNav:
         borderColor: default
         textColor: default
         uppercase: false
-    offices: []
+    offices:
+      - name: ''
+        phones:
+          - display: (123) 456-7890
+            href: tel:+1
+        addresses:
+          - lines: []
+            city: ''
+            state: ''
+            postalCode: ''
+            mapUrl: ''
+        officeHours: []
+        officeHoursNote: ''
 landingFooter:
   - _component: navigation/landing/landing-footer-map-grid
     heading: Schedule Your Appointment Today!
