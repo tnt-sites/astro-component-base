@@ -59,7 +59,11 @@ const resolvedLinkColor = (linkColor && linkColor !== "none" && linkColorMap[lin
 const resolvedLinkHoverColor =
   (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
 const footerBackgroundStyle = [
-  backgroundGradientValue ? `--landing-footer-bg-gradient: ${backgroundGradientValue}` : "",
+  backgroundGradientValue
+    ? `--landing-footer-bg-gradient: ${backgroundGradientValue}`
+    : resolvedBgColor
+      ? `--landing-footer-bg-gradient: none`
+      : "",
   resolvedBgColor ? `--landing-footer-bg-color: ${resolvedBgColor}` : "",
   resolvedLinkColor ? `--footer-link-color: ${resolvedLinkColor}` : "",
   resolvedLinkHoverColor ? `--footer-link-hover-color: ${resolvedLinkHoverColor}` : "",
