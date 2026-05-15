@@ -19,16 +19,54 @@ backgroundColorHex:
   comment: Optional custom hex color that overrides the background color above. Leave blank to use the theme color.
 
 borderColor:
-  type: color
+  type: select
   comment: Color of the bottom border stripe. Leave blank to use the default brand color.
+  options:
+    values:
+      - id: ""
+        name: Default (Brand)
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-accent)"
+        name: Accent
+      - id: "#000000"
+        name: Black
+      - id: "#ffffff"
+        name: White
 
 headingColor:
-  type: color
+  type: select
   comment: Color of the H1 heading text. Leave blank to use the theme default.
+  options:
+    values:
+      - id: ""
+        name: Default
+      - id: "var(--color-text)"
+        name: Dark
+      - id: "var(--color-text-inverse)"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
 
 textColor:
-  type: color
+  type: select
   comment: Color of the body paragraph text. Leave blank to inherit from the background color scheme.
+  options:
+    values:
+      - id: ""
+        name: Default (inherit)
+      - id: "var(--color-text)"
+        name: Dark
+      - id: "var(--color-text-inverse)"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
 
 heading:
   type: text
