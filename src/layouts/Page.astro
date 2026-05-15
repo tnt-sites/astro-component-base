@@ -53,6 +53,15 @@ const hasSlotContent = Astro.slots.has("default");
 const fixedTabItems = Array.isArray(fixedTabs?.tabs) ? fixedTabs.tabs : [];
 const hasActiveFixedTabs = fixedTabItems.some((tab: any) => tab?.enabled !== false);
 const footerSocials = (siteInfo as any)?.socials || (footer as any)?.socials || [];
+const footerOffices =
+  Array.isArray((footer as any)?.offices) && (footer as any).offices.length > 0
+    ? (footer as any).offices
+    : (siteInfo as any)?.offices;
+const navOffices =
+  Array.isArray((mainNav as any)?.offices) && (mainNav as any).offices.length > 0
+    ? (mainNav as any).offices
+    : (siteInfo as any)?.offices;
+const footerSiteName = (footer as any)?.siteName || (siteInfo as any)?.siteName;
 ---
 
 <Layout
@@ -63,7 +72,7 @@ const footerSocials = (siteInfo as any)?.socials || (footer as any)?.socials || 
   canonical={canonical}
   siteInfo={siteInfo}
 >
-  <MainNavigation {...mainNav} offices={siteInfo?.offices} socials={footerSocials} />
+  <MainNavigation {...mainNav} offices={navOffices} socials={footerSocials} />
   <main data-pagefind-body>
     {
       hasPageSections ? (
@@ -75,8 +84,8 @@ const footerSocials = (siteInfo as any)?.socials || (footer as any)?.socials || 
   </main>
   <Footer
     {...footer}
-    siteName={siteInfo?.siteName}
-    offices={siteInfo?.offices}
+    siteName={footerSiteName}
+    offices={footerOffices}
     socials={footerSocials}
     data-fixed-tabs-active={hasActiveFixedTabs ? "true" : undefined}
   />

@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
+import siteInfoData from "@data/siteInfo.json";
 
 const {
   logoSource,
@@ -30,7 +31,7 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
-const displaySiteName = siteName;
+const displaySiteName = siteName || (siteInfoData as any).siteName || "";
 const copyYear = new Date().getFullYear();
 const {
   source = "",
@@ -102,7 +103,8 @@ const formatAddressLines = (address: any) => {
   );
 };
 
-const normalizedOffices = Array.isArray(offices) ? offices : [];
+const normalizedOffices =
+  Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
 const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredServicesLinks : [];
 ---
 

@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
+import siteInfoData from "@data/siteInfo.json";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
@@ -19,7 +20,8 @@ const {
   [key: string]: any;
 };
 
-const normalizedOffices = Array.isArray(offices) ? offices : [];
+const normalizedOffices =
+  Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
 
 const formatAddressLines = (address: any) => {
   const lineItems = Array.isArray(address?.lines) ? address.lines : [];

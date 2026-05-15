@@ -7,12 +7,12 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -27,28 +27,28 @@ landingFooter:
     heading: Schedule Your Appointment Today!
     siteName: Dental Studio
     offices:
-      - name: ''
-        mapEmbedUrl: ''
+      - name: ""
+        mapEmbedUrl: ""
         addresses:
           - lines:
               - 123 Main Street
             city: City
             state: ST
-            postalCode: '12345'
-            country: ''
+            postalCode: "12345"
+            country: ""
             mapUrl: https://maps.google.com
         phones:
           - display: (123) 456-7890
             href: tel:+11234567890
-      - name: ''
-        mapEmbedUrl: ''
+      - name: ""
+        mapEmbedUrl: ""
         addresses:
           - lines:
               - 456 Other Ave
             city: City
             state: ST
-            postalCode: '12345'
-            country: ''
+            postalCode: "12345"
+            country: ""
             mapUrl: https://maps.google.com
         phones:
           - display: (123) 456-7891
@@ -58,33 +58,33 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    legalBlurb: ''
+    legalBlurb: ""
 landingPageSections:
   - _component: landing-page-components/new-patient-three-callouts/banner
-    id: ''
+    id: ""
     backgroundColor: base
     subheading: Reston's
     heading: Family-Friendly<br>Dentist
     badgeImage:
       source: https://placehold.co/280x280
-      alt: ''
+      alt: ""
     image:
       source: https://placehold.co/800x700
       alt: Doctor photo
-    figcaption: ''
+    figcaption: ""
     buttonSections: []
     accentColor: var(--color-brand)
     headingColor: var(--color-text)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/new-patient-three-callouts/count
-    id: ''
-    backgroundColor: base
+    id: ""
+    backgroundColor: ""
     overlapBanner: true
     cards:
       - image:
           source: https://placehold.co/80x80
-          alt: ''
+          alt: ""
         text: Looking for a<br>New Dentist?
         listItems:
           - New Patient Cleaning
@@ -93,26 +93,26 @@ landingPageSections:
           - Crowns, Implants & More
       - image:
           source: https://placehold.co/80x80
-          alt: ''
+          alt: ""
         text: Same-Day<br>Appointments<br>Available
         listItems: []
       - image:
           source: https://placehold.co/80x80
-          alt: ''
+          alt: ""
         text: Have a Dental<br>Emergency?
         listItems:
           - Tooth Pain & Sensitivity
           - Chipped or Fractured Tooth
           - Lost or Loose Crown
           - Bleeding or Swollen Gums
-    primaryCardColor: ''
-    accentCardColor: ''
-    accentCardTextColor: ''
-    bulletColor: ''
-    fontHeadings: ''
-    fontBody: ''
+    primaryCardColor: ""
+    accentCardColor: ""
+    accentCardTextColor: ""
+    bulletColor: ""
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/new-patient-three-callouts/welcome
-    id: ''
+    id: ""
     backgroundColor: base
     paragraphs:
       - emphasis: We understand.
@@ -130,7 +130,7 @@ landingPageSections:
       - emphasis: We want you to love
         body: visiting our dental practice.
     accentColor: var(--color-brand)
-    fontBody: ''
+    fontBody: ""
   - _component: landing-page-components/new-patient-three-callouts/split
     id: insurance
     backgroundColor: base
@@ -143,13 +143,13 @@ landingPageSections:
     image:
       source: https://placehold.co/480x420
       alt: Team member smiling
-    figcaption: ''
+    figcaption: ""
     reverse: false
     buttonSections: []
     accentColor: var(--color-brand)
     headingColor: var(--color-brand)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/new-patient-three-callouts/split
     id: no-insurance
     backgroundColor: surface
@@ -162,18 +162,18 @@ landingPageSections:
     image:
       source: https://placehold.co/480x420
       alt: Team member smiling
-    figcaption: ''
+    figcaption: ""
     reverse: true
     buttonSections:
       - _component: building-blocks/wrappers/button-group
         buttons:
           - _component: building-blocks/core-elements/button
-            id: ''
+            id: ""
             text: Learn More
             hideText: false
-            link: '#'
-            modalTarget: ''
-            iconName: ''
+            link: "#"
+            modalTarget: ""
+            iconName: ""
             iconPosition: before
             variant: primary
             size: md
@@ -185,8 +185,8 @@ landingPageSections:
             uppercase: false
     accentColor: var(--color-brand)
     headingColor: var(--color-brand)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/new-patient-three-callouts/split
     id: about
     backgroundColor: base
@@ -199,11 +199,11 @@ landingPageSections:
     image:
       source: https://placehold.co/480x420
       alt: Our dental team
-    figcaption: ''
+    figcaption: ""
     reverse: false
     buttonSections: []
     accentColor: var(--color-brand)
     headingColor: var(--color-brand)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
 ---

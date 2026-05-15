@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
+import siteInfoData from "@data/siteInfo.json";
 
 const {
   logoSource,
@@ -20,7 +21,9 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
-const displaySiteName = siteName;
+const displaySiteName = siteName || (siteInfoData as any).siteName || "";
+const resolvedOffices =
+  Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
 const copyYear = new Date().getFullYear();
 const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
 const {
@@ -181,7 +184,7 @@ const getOfficeHoursEntries = (office: any) => {
       <div class="landing-footer-contact fo-info">
         <span class="fo-title">{contactTitle}</span>
         {
-          offices.map((office: any) => (
+          resolvedOffices.map((office: any) => (
             <div class="landing-footer-office">
               {office?.name && <span class="landing-footer-office-name">{office.name}</span>}
 

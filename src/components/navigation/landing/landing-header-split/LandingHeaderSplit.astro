@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
+import siteInfoData from "@data/siteInfo.json";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
@@ -32,6 +33,9 @@ const formatAddressLines = (address: any) => {
   );
 };
 
+const resolvedOffices =
+  Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
+
 const buttons = pageButtons.map((button: any) => ({
   ...button,
   text: typeof button?.text === "string" ? button.text : "",
@@ -49,7 +53,7 @@ const buttons = pageButtons.map((button: any) => ({
   <div class="landing-header-split-inner">
     <div class="landing-header-split-contact">
       {
-        offices.map((office: any) => (
+        resolvedOffices.map((office: any) => (
           <div class="landing-header-split-office">
             {Array.isArray(office?.phones) &&
               office.phones.map((phone: any) =>

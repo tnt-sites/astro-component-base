@@ -154,13 +154,20 @@ const htmlAttributes = Object.fromEntries(
 
   .nptc-banner figure {
     align-self: stretch;
+    display: flex;
     flex: 0 1 50%;
+    flex-direction: column;
     order: 2;
     position: relative;
   }
 
-  .nptc-banner figure .image {
+  .nptc-banner figure :global(.image) {
+    display: block;
+    flex: 1 1 auto;
+    height: 100%;
     margin-top: 0;
+    min-height: 0;
+    width: 100%;
   }
 
   .nptc-banner figure :global(img) {

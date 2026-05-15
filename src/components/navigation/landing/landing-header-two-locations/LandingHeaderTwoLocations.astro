@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
+import siteInfoData from "@data/siteInfo.json";
 
 const {
   logoSource,
@@ -38,8 +39,11 @@ const buttons = (Array.isArray(pageButtons) ? pageButtons : []).map((button: any
   text: typeof button?.text === "string" ? button.text : "",
 }));
 
-const leftOffice = (Array.isArray(offices) ? offices : [])[0] ?? null;
-const rightOffice = (Array.isArray(offices) ? offices : [])[1] ?? null;
+const resolvedOffices =
+  Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
+
+const leftOffice = resolvedOffices[0] ?? null;
+const rightOffice = resolvedOffices[1] ?? null;
 
 // Mobile call: use first phone from either office
 const mobilePhone = leftOffice?.phones?.[0] ?? rightOffice?.phones?.[0] ?? null;

@@ -3,6 +3,7 @@ import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Button from "@core-elements/button/Button.astro";
 import Divider from "@core-elements/divider/Divider.astro";
 import Image from "@core-elements/image/Image.astro";
+import siteInfoData from "@data/siteInfo.json";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
@@ -30,43 +31,47 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
+const hasLegacyOffice = (Array.isArray(addressLines) && addressLines.length > 0) || !!phoneText;
+
 const resolvedOffices =
   Array.isArray(offices) && offices.length > 0
     ? offices
-    : [
-        {
-          name: "",
-          addresses:
-            Array.isArray(addressLines) && addressLines.length > 0
+    : hasLegacyOffice
+      ? [
+          {
+            name: "",
+            addresses:
+              Array.isArray(addressLines) && addressLines.length > 0
+                ? [
+                    {
+                      lines: addressLines,
+                      mapUrl: addressHref || "",
+                    },
+                  ]
+                : [],
+            phones: phoneText
               ? [
                   {
-                    lines: addressLines,
-                    mapUrl: addressHref || "",
+                    display: phoneText,
+                    href: phoneHref || "",
                   },
                 ]
               : [],
-          phones: phoneText
-            ? [
-                {
-                  display: phoneText,
-                  href: phoneHref || "",
-                },
-              ]
-            : [],
-          officeHours,
-          officeHoursNote,
-          officeHoursNotes,
-          socials,
-        },
-      ];
+            officeHours,
+            officeHoursNote,
+            officeHoursNotes,
+            socials,
+          },
+        ]
+      : ((siteInfoData as any).offices ?? []);
 
-const displaySiteName = siteName;
+const displaySiteName = siteName || (siteInfoData as any).siteName || "";
 const sharedSocials =
   Array.isArray(socials) && socials.length > 0
     ? socials
     : Array.isArray(resolvedOffices[0]?.socials)
       ? resolvedOffices[0].socials
-      : [];
+      : ((siteInfoData as any).socials ?? []);
 
 const formatAddressLines = (address: any) => {
   const lineItems = Array.isArray(address?.lines) ? address.lines : [];
