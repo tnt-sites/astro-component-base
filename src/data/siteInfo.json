@@ -78,7 +78,9 @@
   ],
   "modals": [],
   "head_scripts": [
-    "/* test */"
+    "/* test header script */"
   ],
-  "footer_scripts": []
+  "footer_scripts": [
+    "/* Test Footer Script */"
+  ]
 }
