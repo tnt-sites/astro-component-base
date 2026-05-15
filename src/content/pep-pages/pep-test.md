@@ -62,7 +62,7 @@ landingFooter:
       positionVertical: top
       positionHorizontal: center
     backgroundGradient:
-    backgroundColor: brand
+    backgroundColor: accent
     linkColor: brand
     linkHoverColor: brand-secondary
     legalBlurb: ''
@@ -83,7 +83,7 @@ pepSections:
     headingColor: var(--color-text)
     textColor: ''
     heading: Plan Ahead.<br>Save. Smile!
-    text: >
+    text: >-
       It seems like everything is more expensive these days. Dental care does
       not have to follow the trend. By starting now, we can work with you and
       help you maximize the money you get from your dental insurance and
