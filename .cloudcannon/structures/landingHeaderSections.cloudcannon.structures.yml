@@ -45,6 +45,37 @@ landingHeaderSections:
         offices:
           type: array
           comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
+        "$.offices[*].name":
+          type: text
+          comment: "Optional office label."
+        "$.offices[*].phones[*].display":
+          type: text
+          comment: "Phone number as displayed (e.g. (123) 456-7890)."
+        "$.offices[*].phones[*].href":
+          type: text
+          comment: "Phone href value (e.g. tel:+11234567890)."
+        "$.offices[*].addresses[*].lines":
+          type: array
+          comment: "Street address lines."
+        "$.offices[*].addresses[*].city":
+          type: text
+        "$.offices[*].addresses[*].state":
+          type: text
+        "$.offices[*].addresses[*].postalCode":
+          type: text
+        "$.offices[*].addresses[*].mapUrl":
+          type: url
+          comment: "Google Maps link for the address."
+        "$.offices[*].officeHours":
+          type: array
+          comment: "Office hours entries."
+        "$.offices[*].officeHours[*].day":
+          type: text
+        "$.offices[*].officeHours[*].hours":
+          type: text
+        "$.offices[*].officeHoursNote":
+          type: text
+          comment: "Optional note displayed below the hours list."
     - label: Landing Header — Two Locations, Logo Centered
       icon: location_on
       description: "Landing header with two office locations flanking a centered logo, plus mobile call and CTA buttons."
@@ -92,6 +123,37 @@ landingHeaderSections:
         offices:
           type: array
           comment: "Office locations. First office on left, second on right. Leave empty to use siteInfo offices."
+        "$.offices[*].name":
+          type: text
+          comment: "Optional office label."
+        "$.offices[*].phones[*].display":
+          type: text
+          comment: "Phone number as displayed (e.g. (123) 456-7890)."
+        "$.offices[*].phones[*].href":
+          type: text
+          comment: "Phone href value (e.g. tel:+11234567890)."
+        "$.offices[*].addresses[*].lines":
+          type: array
+          comment: "Street address lines."
+        "$.offices[*].addresses[*].city":
+          type: text
+        "$.offices[*].addresses[*].state":
+          type: text
+        "$.offices[*].addresses[*].postalCode":
+          type: text
+        "$.offices[*].addresses[*].mapUrl":
+          type: url
+          comment: "Google Maps link for the address."
+        "$.offices[*].officeHours":
+          type: array
+          comment: "Office hours entries."
+        "$.offices[*].officeHours[*].day":
+          type: text
+        "$.offices[*].officeHours[*].hours":
+          type: text
+        "$.offices[*].officeHoursNote":
+          type: text
+          comment: "Optional note displayed below the hours list."
     - label: Landing Header Split
       icon: view_column
       description: "Landing header with contact on the left, centered logo, and CTA buttons on the right."
@@ -135,3 +197,34 @@ landingHeaderSections:
         offices:
           type: array
           comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
+        "$.offices[*].name":
+          type: text
+          comment: "Optional office label."
+        "$.offices[*].phones[*].display":
+          type: text
+          comment: "Phone number as displayed (e.g. (123) 456-7890)."
+        "$.offices[*].phones[*].href":
+          type: text
+          comment: "Phone href value (e.g. tel:+11234567890)."
+        "$.offices[*].addresses[*].lines":
+          type: array
+          comment: "Street address lines."
+        "$.offices[*].addresses[*].city":
+          type: text
+        "$.offices[*].addresses[*].state":
+          type: text
+        "$.offices[*].addresses[*].postalCode":
+          type: text
+        "$.offices[*].addresses[*].mapUrl":
+          type: url
+          comment: "Google Maps link for the address."
+        "$.offices[*].officeHours":
+          type: array
+          comment: "Office hours entries."
+        "$.offices[*].officeHours[*].day":
+          type: text
+        "$.offices[*].officeHours[*].hours":
+          type: text
+        "$.offices[*].officeHoursNote":
+          type: text
+          comment: "Optional note displayed below the hours list."

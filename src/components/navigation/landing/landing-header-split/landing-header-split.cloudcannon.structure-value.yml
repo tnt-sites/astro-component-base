@@ -41,3 +41,34 @@ _inputs:
   offices:
     type: array
     comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
+  "$.offices[*].name":
+    type: text
+    comment: "Optional office label."
+  "$.offices[*].phones[*].display":
+    type: text
+    comment: "Phone number as displayed (e.g. (123) 456-7890)."
+  "$.offices[*].phones[*].href":
+    type: text
+    comment: "Phone href value (e.g. tel:+11234567890)."
+  "$.offices[*].addresses[*].lines":
+    type: array
+    comment: "Street address lines."
+  "$.offices[*].addresses[*].city":
+    type: text
+  "$.offices[*].addresses[*].state":
+    type: text
+  "$.offices[*].addresses[*].postalCode":
+    type: text
+  "$.offices[*].addresses[*].mapUrl":
+    type: url
+    comment: "Google Maps link for the address."
+  "$.offices[*].officeHours":
+    type: array
+    comment: "Office hours entries."
+  "$.offices[*].officeHours[*].day":
+    type: text
+  "$.offices[*].officeHours[*].hours":
+    type: text
+  "$.offices[*].officeHoursNote":
+    type: text
+    comment: "Optional note displayed below the hours list."
