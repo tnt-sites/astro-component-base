@@ -31,5 +31,5 @@ landingFooter:
         path: privacy-policy.html
     socials: []
     offices: []
-landingPageSections: []
+pepSections: []
 ---

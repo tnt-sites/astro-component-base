@@ -105,6 +105,8 @@ const landingStyles = [
   "dental-implants",
   "emergency",
   "new-patient-emergency-combo",
+  "new-patient-split-banner",
+  "new-patient-three-callouts",
 ] as const;
 
 const landingComponentConfigSchema = z.union([
@@ -131,7 +133,16 @@ const landingPagesCollection = defineCollection({
 
 const pepPagesCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/pep-pages" }),
-  schema: landingPageSchema,
+  schema: z.object({
+    title: z
+      .string()
+      .nullish()
+      .transform((v) => v ?? ""),
+    landingMainNav: landingComponentConfigSchema.optional(),
+    landingFooter: landingComponentConfigSchema.optional(),
+    pepSections: z.array(z.any()).optional(),
+    parentLandingPage: z.string().optional(),
+  }),
 });
 
 export const collections = {
