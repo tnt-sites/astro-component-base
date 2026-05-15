@@ -74,76 +74,9 @@
         }
       ],
       "officeHoursNote": ""
-    },
-    {
-      "name": "Test Office 2",
-      "addresses": [
-        {
-          "lines": [
-            "123",
-            "Address"
-          ],
-          "city": "Dallas",
-          "state": "TX",
-          "postalCode": "75001",
-          "country": null,
-          "mapUrl": "https://maps.google.com"
-        }
-      ],
-      "phones": [
-        {
-          "type": "mobile",
-          "display": "(123) 456-0987",
-          "href": ""
-        }
-      ],
-      "emails": [
-        {
-          "display": "",
-          "href": ""
-        }
-      ],
-      "officeHours": [
-        {
-          "day": "Monday",
-          "hours": "8:00 am - 2:00pm",
-          "note": ""
-        },
-        {
-          "day": "Tuesday",
-          "hours": "CLOSED",
-          "note": ""
-        }
-      ],
-      "officeHoursNote": ""
     }
   ],
-  "modals": [
-    {
-      "id": "modal-contact",
-      "closeLabel": "Close modal",
-      "showCloseButton": true,
-      "class": "text-center",
-      "contentSections": [
-        {
-          "_component": "building-blocks/core-elements/heading",
-          "id": "",
-          "text": "Contact Us",
-          "level": "h6",
-          "size": "default",
-          "alignX": "center",
-          "iconName": null,
-          "iconPosition": "before"
-        },
-        {
-          "_component": "building-blocks/core-elements/text",
-          "id": "",
-          "text": "Call Us: [(123) 456-7890](tel:+11234567890 \"Phone\")",
-          "alignX": "center"
-        }
-      ]
-    }
-  ],
+  "modals": [],
   "head_scripts": [
     "/* test */"
   ],
