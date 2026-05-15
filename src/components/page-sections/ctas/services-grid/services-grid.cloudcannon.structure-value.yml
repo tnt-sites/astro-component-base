@@ -186,7 +186,7 @@ _structures:
             type: markdown
             comment: Card heading text.
           href:
-            type: text
+            type: url
             comment: URL for the card heading link.
           wide:
             type: switch
@@ -215,5 +215,5 @@ _structures:
             type: text
             comment: Label text for this service link.
           href:
-            type: text
+            type: url
             comment: URL for this service link.

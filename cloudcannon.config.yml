@@ -199,6 +199,15 @@ collections_config:
       - name: Landing Page (Form)
         icon: stars
         schema: landing-page-form
+      - name: Landing Page (Thank You)
+        icon: check_circle
+        schema: landing-page-thank-you
+      - name: Landing Page (Privacy Policy)
+        icon: policy
+        schema: landing-page-privacy-policy
+      - name: Landing Page (Sitemap)
+        icon: account_tree
+        schema: landing-page-sitemap
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -325,6 +334,72 @@ collections_config:
             type: text
             comment: >-
               Optional — link this form page to a main landing page so it shares the same header and footer.
+              To find the ID: look at the file path under src/content/landing-pages/ and use the path
+              without the .md extension.
+              Example: for src/content/landing-pages/my-landing-page.md, enter: my-landing-page.
+              Example: for src/content/landing-pages/MyFolder/my-page.md, enter: MyFolder/my-page.
+              Note: folder names are case-insensitive — MyFolder and myfolder both work.
+              Leave blank to use the header and footer configured in the sections below.
+            cascade: true
+      landing-page-thank-you:
+        path: .cloudcannon/schemas/landing-page-thank-you.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Thank You)
+        icon: check_circle
+        _enabled_editors:
+          - visual
+        _inputs:
+          parentLandingPage:
+            type: text
+            comment: >-
+              Optional — link this page to a main landing page so it shares the same header and footer.
+              To find the ID: look at the file path under src/content/landing-pages/ and use the path
+              without the .md extension.
+              Example: for src/content/landing-pages/my-landing-page.md, enter: my-landing-page.
+              Example: for src/content/landing-pages/MyFolder/my-page.md, enter: MyFolder/my-page.
+              Note: folder names are case-insensitive — MyFolder and myfolder both work.
+              Leave blank to use the header and footer configured in the sections below.
+            cascade: true
+      landing-page-privacy-policy:
+        path: .cloudcannon/schemas/landing-page-privacy-policy.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Privacy Policy)
+        icon: policy
+        _enabled_editors:
+          - visual
+        _inputs:
+          parentLandingPage:
+            type: text
+            comment: >-
+              Optional — link this page to a main landing page so it shares the same header and footer.
+              To find the ID: look at the file path under src/content/landing-pages/ and use the path
+              without the .md extension.
+              Example: for src/content/landing-pages/my-landing-page.md, enter: my-landing-page.
+              Example: for src/content/landing-pages/MyFolder/my-page.md, enter: MyFolder/my-page.
+              Note: folder names are case-insensitive — MyFolder and myfolder both work.
+              Leave blank to use the header and footer configured in the sections below.
+            cascade: true
+      landing-page-sitemap:
+        path: .cloudcannon/schemas/landing-page-sitemap.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Sitemap)
+        icon: account_tree
+        _enabled_editors:
+          - visual
+        _inputs:
+          parentLandingPage:
+            type: text
+            comment: >-
+              Optional — link this page to a main landing page so it shares the same header and footer.
               To find the ID: look at the file path under src/content/landing-pages/ and use the path
               without the .md extension.
               Example: for src/content/landing-pages/my-landing-page.md, enter: my-landing-page.
