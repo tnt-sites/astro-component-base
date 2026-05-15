@@ -46,6 +46,9 @@ _inputs:
   offices:
     type: array
     comment: "Office locations. The first office appears on the left, the second on the right. Leave empty to use siteInfo offices."
+    options:
+      entries:
+        type: object
   "$.offices[*].name":
     type: text
     comment: "Optional office label."

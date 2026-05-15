@@ -29,6 +29,9 @@ contactTitle:
 offices:
   type: array
   comment: "Optional office contact override for this landing footer."
+  options:
+    entries:
+      type: object
 featuredServicesTitle:
   type: text
   comment: "Heading for the featured services card."

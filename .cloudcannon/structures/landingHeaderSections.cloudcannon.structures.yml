@@ -46,6 +46,9 @@ landingHeaderSections:
         offices:
           type: array
           comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
+          options:
+            entries:
+              type: object
         "$.offices[*].name":
           type: text
           comment: "Optional office label."
@@ -125,6 +128,9 @@ landingHeaderSections:
         offices:
           type: array
           comment: "Office locations. First office on left, second on right. Leave empty to use siteInfo offices."
+          options:
+            entries:
+              type: object
         "$.offices[*].name":
           type: text
           comment: "Optional office label."
@@ -200,6 +206,9 @@ landingHeaderSections:
         offices:
           type: array
           comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
+          options:
+            entries:
+              type: object
         "$.offices[*].name":
           type: text
           comment: "Optional office label."

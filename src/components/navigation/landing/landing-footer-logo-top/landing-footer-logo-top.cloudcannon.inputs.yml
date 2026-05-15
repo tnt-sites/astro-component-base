@@ -29,6 +29,9 @@ contactTitle:
 offices:
   type: array
   comment: "Optional office contact override for this landing footer."
+  options:
+    entries:
+      type: object
 pageButtons:
   type: array
   comment: "Optional CTA buttons shown near the logo."

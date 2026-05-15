@@ -15,6 +15,9 @@ pageButtons:
 offices:
   type: array
   comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
+  options:
+    entries:
+      type: object
 "$.offices[*].name":
   type: text
   comment: "Optional office label."
