@@ -62,7 +62,7 @@ landingFooter:
       positionVertical: top
       positionHorizontal: center
     backgroundGradient:
-    backgroundColor: accent
+    backgroundColor: black
     linkColor: brand
     linkHoverColor: brand-secondary
     legalBlurb: ''
