@@ -1,0 +1,63 @@
+backgroundColor:
+  type: select
+  comment: Background color of the banner section. Choose a theme color or use the hex override below for a custom color (e.g. campaign yellow).
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+
+backgroundColorHex:
+  type: color
+  comment: Optional custom hex color that overrides the background color above (e.g. #fff068 for campaign yellow). Leave blank to use the theme color.
+
+borderColor:
+  type: color
+  comment: Color of the bottom border stripe. Leave blank to use the default brand color.
+
+heading:
+  type: text
+  comment: Main H1 heading. Supports <br> for manual line breaks.
+
+text:
+  type: markdown
+  comment: Body text displayed below the heading. Supports bold, italic, and links.
+  options:
+    bold: true
+    italic: true
+    link: true
+    strike: false
+    bulletedlist: false
+    numberedlist: false
+
+image:
+  type: object
+  comment: Full-height photo displayed on the right side of the banner.
+  _inputs:
+    source:
+      type: image
+      comment: Banner photo.
+      options:
+        paths:
+          uploads: src/assets/images
+          static: ""
+    alt:
+      type: textarea
+      comment: Alt text describing the image for accessibility.
+
+figcaption:
+  type: text
+  comment: Optional caption overlaid at the bottom of the image (e.g. doctor name).
+
+buttonSections:
+  type: array
+  comment: Optional call-to-action buttons displayed below the body text.
+  options:
+    structures: _structures.buttonSections
