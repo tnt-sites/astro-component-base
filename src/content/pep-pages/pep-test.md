@@ -104,6 +104,7 @@ pepSections:
     headingColor: var(--color-text)
     textColor: ''
     heading: Plan Ahead.<br />Save. Smile!
+    headingFontFamily: '"Playwrite AR Guides", cursive'
     text: >-
       It seems like everything is more expensive these days. Dental care does
       not have to follow the trend. By starting now, we can work with you and
