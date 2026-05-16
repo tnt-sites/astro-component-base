@@ -87,7 +87,19 @@ landingFooter:
     linkColor: white
     linkHoverColor: brand-secondary
     legalBlurb: ''
-    offices: []
+    offices:
+      - name: ''
+        phones:
+          - display: ''
+            href: ''
+        addresses:
+          - lines: []
+            city: ''
+            state: ''
+            postalCode: ''
+            mapUrl: ''
+        officeHours: []
+        officeHoursNote: ''
 pepSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
     id: ''
@@ -185,10 +197,52 @@ pepSections:
     figcaption: Dr. Last Name | Dr. Last Name
     callText: |
       Call Us Today at
-    iframeSrc: "\t\t\t\t<iframe class=\"ctm-call-widget\" src=\"https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html\" style=\"width:100%;height:300px;border:none\"></iframe>\t\t\t\t\t\t \t\t\t\t<script defer async src=\"https://186606.tctm.co/formreactor.js\"></script>"
+    iframeEmbed: ''
     bottomText: ''
+    iframeSrc: "\t\t\t\t<iframe class=\"ctm-call-widget\" src=\"https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html\" style=\"width:100%;height:300px;border:none\"></iframe>\t\t\t\t\t\t \t\t\t\t<script defer async src=\"https://186606.tctm.co/formreactor.js\"></script>"
     phone: ''
     phoneLabel: (000) 000-0000
+  - _component: pep-components/pep-form-nctm
+    id: ''
+    backgroundColor: none
+    backgroundColorHex: ''
+    contentBackgroundColor: ''
+    contentBackgroundColorHex: ''
+    callBackgroundColor: ''
+    callBackgroundColorHex: ''
+    callTextColor: ''
+    formBackgroundColor: ''
+    formBackgroundColorHex: ''
+    linkColor: ''
+    image:
+      source: https://placehold.co/485x400
+      alt: Doctor photo
+    figcaption: Dr. Last Name | Dr. Last Name
+    callText: >-
+      Call Us Today at <a href="tel:+10000000000">(000) 000-0000</a><br> or
+      Complete the Form Below to<br> Reserve Your Next Appointment
+    formAction: ./
+    nameLabel: Name
+    phoneFieldLabel: Phone Number
+    emailLabel: Email Address
+    timesLabel: Preferred Appointment Time(s)
+    timeOptions:
+      - label: Morning
+        value: morning
+      - label: Afternoon
+        value: afternoon
+      - label: Evening
+        value: evening
+    commentsLabel: Questions/Comments
+    submitButton:
+      text: Submit
+      variant: primary
+      size: md
+      iconName: ''
+      iconPosition: before
+      hideText: false
+      disabled: false
+    bottomText: ''
 head_scripts: []
 footer_scripts: []
 ---
