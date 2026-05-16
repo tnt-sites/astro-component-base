@@ -8,7 +8,7 @@ const {
   phoneLabel = "",
   image = { source: "", alt: "" },
   figcaption = "",
-  iframeSrc = "",
+  iframeEmbed = "",
   bottomText = "",
   backgroundColor = "none",
   backgroundColorHex = "",
@@ -89,19 +89,7 @@ const htmlAttributes = Object.fromEntries(
         <p data-prop="callText" set:html={callText} />
       </article>
     </div>
-    {
-      iframeSrc && (
-        <div class="pep-form-ctm__form">
-          <iframe
-            class="ctm-widget"
-            src={iframeSrc}
-            style="border:none;width:100%;"
-            title="Appointment Request Form"
-            loading="lazy"
-          />
-        </div>
-      )
-    }
+    {iframeEmbed && <div class="pep-form-ctm__form" set:html={iframeEmbed} />}
   </div>
   {
     bottomText && (

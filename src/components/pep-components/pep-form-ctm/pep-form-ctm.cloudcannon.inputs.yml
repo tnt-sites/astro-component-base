@@ -128,9 +128,9 @@ callText:
   type: html
   comment: Full call-to-action text displayed in the call row next to the photo. Supports links, line breaks, and inline formatting.
 
-iframeSrc:
-  type: url
-  comment: The full src URL of the CTM iframe form embed.
+iframeEmbed:
+  type: textarea
+  comment: Raw HTML embed code from CTM. Paste the full iframe and/or script tags here.
 
 bottomText:
   type: markdown

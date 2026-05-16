@@ -17,6 +17,12 @@ officeSections:
         officeHours: []
         officeHoursNote: ""
       _inputs:
+        "addresses[*].lines":
+          type: array
+          comment: "Street address lines."
+        "addresses[*].lines[*]":
+          type: text
+          comment: "A single line of the street address."
         officeHours:
           type: array
           comment: "Office hours entries."
