@@ -12,7 +12,7 @@ landingMainNav:
         hideText: false
         link: ''
         modalTarget: ''
-        iconName: ''
+        iconName: academic-cap
         iconPosition: before
         variant: primary
         size: md
@@ -22,7 +22,19 @@ landingMainNav:
         borderColor: default
         textColor: default
         uppercase: false
-    offices: []
+    offices:
+      - name: ''
+        phones:
+          - display: (123) Help-Me
+            href: ''
+        addresses:
+          - lines: []
+            city: ''
+            state: ''
+            postalCode: ''
+            mapUrl: ''
+        officeHours: []
+        officeHoursNote: ''
     backgroundColor: ''
     backgroundColorHex: ''
     iconBackgroundColor: ''
