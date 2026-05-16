@@ -37,6 +37,8 @@ headingColor:
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 itemHeadingColor:
   type: select
@@ -53,6 +55,8 @@ itemHeadingColor:
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 circleBackgroundColor:
   type: select

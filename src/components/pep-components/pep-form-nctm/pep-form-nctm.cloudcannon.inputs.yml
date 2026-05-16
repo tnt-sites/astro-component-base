@@ -89,6 +89,8 @@ callTextColor:
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 formBackgroundColor:
   type: select
@@ -127,6 +129,8 @@ linkColor:
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
       - id: "var(--color-text)"
         name: Dark
       - id: "var(--color-text-inverse)"

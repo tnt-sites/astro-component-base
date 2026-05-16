@@ -82,6 +82,8 @@ headingColor:
         name: Brand
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
       - id: "#324248"
         name: Dark Teal
 
@@ -94,6 +96,8 @@ accentColor:
         name: Brand
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
       - id: "#15A1DC"
         name: Implants Blue
 

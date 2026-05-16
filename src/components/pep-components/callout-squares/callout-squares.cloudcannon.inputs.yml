@@ -33,6 +33,8 @@ headingBackgroundColor:
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
       - id: "var(--color-bg-surface)"
         name: Surface
       - id: "var(--color-bg-accent)"
@@ -63,6 +65,8 @@ headingTextColor:
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 oddItemBackgroundColor:
   type: select
@@ -131,6 +135,8 @@ itemHeadingColor:
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 heading:
   type: text

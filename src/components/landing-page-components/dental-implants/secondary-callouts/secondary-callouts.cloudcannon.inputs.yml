@@ -77,6 +77,8 @@ accentColor:
         name: Brand
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
 
 fontHeadings:
   type: text

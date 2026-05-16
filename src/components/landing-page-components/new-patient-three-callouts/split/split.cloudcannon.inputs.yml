@@ -98,6 +98,8 @@ headingColor:
         name: Brand
       - id: "var(--color-brand-secondary)"
         name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
       - id: "var(--color-text)"
         name: Body Text
       - id: "var(--color-text-inverse)"
