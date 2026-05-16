@@ -63,7 +63,7 @@ landingFooter:
       positionHorizontal: center
     backgroundGradient:
     backgroundColor: black
-    linkColor: brand
+    linkColor: white
     linkHoverColor: brand-secondary
     legalBlurb: ''
     offices: []
@@ -97,6 +97,57 @@ pepSections:
       alt: Banner photo
     figcaption: Hello
     buttonSections: []
+  - _component: pep-components/callout-circle-images
+    id: ''
+    backgroundColor: base
+    backgroundColorHex: ''
+    headingColor: ''
+    itemHeadingColor: ''
+    circleBackgroundColor: ''
+    heading: 3 Ways We Can Help
+    items:
+      - image:
+          source: https://placehold.co/400x400
+          alt: Callout image one
+        heading: Callout Heading One
+      - image:
+          source: https://placehold.co/400x400
+          alt: Callout image two
+        heading: Callout Heading Two
+      - image:
+          source: https://placehold.co/400x400
+          alt: Callout image three
+        heading: Callout Heading Three
+  - _component: pep-components/callout-squares
+    id: ''
+    backgroundColor: base
+    backgroundColorHex: ''
+    headingBackgroundColor: ''
+    headingBackgroundColorHex: ''
+    headingTextColor: ''
+    oddItemBackgroundColor: ''
+    oddItemBackgroundColorHex: ''
+    evenItemBackgroundColor: ''
+    evenItemBackgroundColorHex: ''
+    itemHeadingColor: ''
+    heading: Common Problems Covered by Insurance
+    items:
+      - image:
+          source: https://placehold.co/200x110
+          alt: Callout icon one
+        heading: Callout<br>Heading One
+      - image:
+          source: https://placehold.co/200x110
+          alt: Callout icon two
+        heading: Callout<br>Heading Two
+      - image:
+          source: https://placehold.co/200x110
+          alt: Callout icon three
+        heading: Callout<br>Heading Three
+      - image:
+          source: https://placehold.co/200x110
+          alt: Callout icon four
+        heading: Callout<br>Heading Four
 head_scripts: []
 footer_scripts: []
 ---
