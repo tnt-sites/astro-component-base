@@ -18,6 +18,7 @@ value:
   imageNoShadow: false
   headingColor: "var(--color-heading)"
   accentColor: "var(--color-brand)"
+  headingFontFamily: ""
   fontHeadings: ""
   fontBody: ""
 _inputs_from_glob:

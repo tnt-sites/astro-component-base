@@ -6,6 +6,7 @@ value:
   id: ""
   backgroundColor: base
   heading: "Your Implant Options"
+  headingFontFamily: ""
   items:
     - heading: "Dental Implants"
       image:

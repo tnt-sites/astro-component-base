@@ -15,5 +15,6 @@ value:
   headingColor: "var(--color-text)"
   dividerColor: "var(--color-brand)"
   fontHeadings: ""
+  headingFontFamily: ""
 _inputs_from_glob:
   - /src/components/landing-page-components/new-patient-split-banner/insurance/insurance.cloudcannon.inputs.yml

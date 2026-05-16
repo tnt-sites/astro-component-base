@@ -14,6 +14,7 @@ value:
         If you do not have dental insurance, give us a call. We are proud to offer our In-House Dental Membership Plan. For a low, monthly fee, individuals and families can receive routine, preventive care along with significant discounts on other services. No limits. No deductibles. No surprises.
   ruleColor: "var(--color-border)"
   headingColor: "var(--color-text)"
+  headingFontFamily: ""
   fontHeadings: ""
   fontBody: ""
 _inputs_from_glob:

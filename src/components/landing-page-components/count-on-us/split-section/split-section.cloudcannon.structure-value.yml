@@ -7,6 +7,7 @@ value:
   backgroundColor: base
   headingPrefix: What happens during
   heading: "Your First Visit"
+  headingFontFamily: ""
   listItems:
     - Evaluation of Your Teeth, Gums &amp; Jaw
     - Take Time to Answer Your Questions

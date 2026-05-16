@@ -19,6 +19,7 @@ value:
   buttonSections: []
   accentColor: "var(--color-brand)"
   headingColor: "var(--color-brand)"
+  headingFontFamily: ""
   fontHeadings: ""
   fontBody: ""
 _inputs_from_glob:
