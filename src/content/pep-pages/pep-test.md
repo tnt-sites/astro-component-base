@@ -233,6 +233,54 @@ pepSections:
       hideText: false
       disabled: false
     bottomText: ''
+  - _component: pep-components/pep-banner-benefits-expire
+    id: ''
+    backgroundColor: base
+    backgroundColorHex: ''
+    borderColor: var(--color-accent)
+    headingColor: var(--color-text-inverse)
+    textColor: var(--color-text)
+    heading: Let Your <br />Insurance <br />Help You Save
+    headingFontFamily:
+    text: >
+      We get it. Things are expensive. At the same time, millions of Americans
+      pay for dental benefits they never use. We do not want that to happen to
+      you. In fact, letting your insurance help you pay for the dental care you
+      need now saves you a lot of money in the long run.
+
+
+      We have reserved appointments exclusively for our current patients between
+      now and the end of December. Please call today and let us help you
+      maximize the value of your benefits.
+    image:
+      source: https://placehold.co/1920x900
+      alt: Piggy bank banner image
+    stampImage:
+      source: https://placehold.co/440x440
+      alt: Decorative benefits expire stamp
+  - _component: pep-components/pep-banner-centered
+    id: ''
+    backgroundColor: base
+    backgroundColorHex: ''
+    headingColor: var(--color-brand-secondary)
+    textColor: var(--color-text)
+    heading: Resolve to Smile More in 2025
+    headingFontFamily: ''
+    showDivider: true
+    text: >
+      While a visit to the dentist is not likely to be one of your top 2025
+      resolutions, it should be. In fact, there are few things that could have a
+      more direct impact on your overall health and happiness.
+
+
+      Research shows a direct link between oral health and overall health. In
+      addition, we all know the power of smile to improve self-confidence and to
+      bring happiness to those around you.
+
+
+      You may just want to commit to regular check-ups and cleanings. Or, you
+      might want to create an entirely new you with a smile makeover. In any
+      case, our entire team is here to help.
 head_scripts: []
 footer_scripts: []
 extraFonts:
