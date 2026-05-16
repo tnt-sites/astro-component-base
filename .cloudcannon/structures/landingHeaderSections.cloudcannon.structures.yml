@@ -69,6 +69,10 @@ landingHeaderSections:
         "$.offices[*].addresses[*].mapUrl":
           type: url
           comment: "Google Maps link for the address."
+        "$.offices[*].officeHours":
+          hidden: true
+        "$.offices[*].officeHoursNote":
+          hidden: true
     - label: Landing Header — Two Locations, Logo Centered
       icon: location_on
       description: "Landing header with two office locations flanking a centered logo, plus mobile call and CTA buttons."
@@ -140,9 +144,10 @@ landingHeaderSections:
         "$.offices[*].addresses[*].mapUrl":
           type: url
           comment: "Google Maps link for the address."
-        "$.offices[*].addresses[*].mapUrl":
-          type: url
-          comment: "Google Maps link for the address."
+        "$.offices[*].officeHours":
+          hidden: true
+        "$.offices[*].officeHoursNote":
+          hidden: true
     - label: Landing Header Split
       icon: view_column
       description: "Landing header with contact on the left, centered logo, and CTA buttons on the right."
@@ -210,6 +215,10 @@ landingHeaderSections:
         "$.offices[*].addresses[*].mapUrl":
           type: url
           comment: "Google Maps link for the address."
+        "$.offices[*].officeHours":
+          hidden: true
+        "$.offices[*].officeHoursNote":
+          hidden: true
     - label: Landing Header - Circle Icons
       icon: view_column
       description: "Landing header with circular icon badges on address and phone links, logo, and CTA button."
@@ -221,19 +230,22 @@ landingHeaderSections:
           - _component: building-blocks/core-elements/button
             text: Request an Appointment
             hideText: false
-            link: "#main-form"
+            link: ""
             iconName: ""
             iconPosition: before
             variant: primary
             size: md
             width: md
         offices: []
+        backgroundColor: ""
         backgroundColorHex: ""
+        iconBackgroundColor: ""
         iconBackgroundColorHex: ""
+        linkColor: ""
         linkColorHex: ""
         mobileCallSmallText: "Call Today!"
         mobileApptLabel: "Request an Appointment"
-        mobileApptHref: "#main-form"
+        mobileApptHref: ""
       preview:
         text:
           - Landing Header - Circle Icons
@@ -283,15 +295,70 @@ landingHeaderSections:
         "$.offices[*].addresses[*].mapUrl":
           type: url
           comment: "Google Maps link for the address."
+        "$.offices[*].officeHours":
+          hidden: true
+        "$.offices[*].officeHoursNote":
+          hidden: true
+        backgroundColor:
+          type: select
+          comment: "Header background color."
+          options:
+            values:
+              - id: ""
+                name: Default (White)
+              - id: none
+                name: None
+              - id: base
+                name: Base
+              - id: surface
+                name: Surface
+              - id: accent
+                name: Accent
+              - id: highlight
+                name: Highlight
+              - id: dark
+                name: Dark
+              - id: black
+                name: Black
         backgroundColorHex:
           type: color
-          comment: "Header background color. Leave blank for white."
+          comment: "Optional custom hex color for the header background. Overrides the dropdown above."
+        iconBackgroundColor:
+          type: select
+          comment: "Background color of the circular icon badges."
+          options:
+            values:
+              - id: ""
+                name: Default (Brand)
+              - id: brand
+                name: Brand Primary
+              - id: brand-secondary
+                name: Brand Secondary
+              - id: dark
+                name: Dark
+              - id: white
+                name: White
         iconBackgroundColorHex:
           type: color
-          comment: "Background color of the circular icon badges on address and phone links."
+          comment: "Optional custom hex color for icon badges. Overrides the dropdown above."
+        linkColor:
+          type: select
+          comment: "Color of the address and phone link text."
+          options:
+            values:
+              - id: ""
+                name: Default
+              - id: brand
+                name: Brand Primary
+              - id: brand-secondary
+                name: Brand Secondary
+              - id: dark
+                name: Dark
+              - id: white
+                name: White
         linkColorHex:
           type: color
-          comment: "Text color for address and phone links. Leave blank to use default text color."
+          comment: "Optional custom hex color for link text. Overrides the dropdown above."
         mobileCallSmallText:
           type: text
           comment: "Small label above the phone number in the mobile call button."
@@ -300,4 +367,4 @@ landingHeaderSections:
           comment: "Label for the appointment button in the mobile bar."
         mobileApptHref:
           type: text
-          comment: "Link for the mobile appointment button (e.g. #main-form or /request)."
+          comment: "Link for the mobile appointment button."

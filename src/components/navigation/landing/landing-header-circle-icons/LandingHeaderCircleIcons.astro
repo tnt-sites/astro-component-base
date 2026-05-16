@@ -9,12 +9,15 @@ const {
   logoAlt = "Logo",
   pageButtons = [],
   offices = [],
+  backgroundColor = "",
   backgroundColorHex = "",
+  iconBackgroundColor = "",
   iconBackgroundColorHex = "",
+  linkColor = "",
   linkColorHex = "",
   mobileCallSmallText = "Call Today!",
   mobileApptLabel = "Request an Appointment",
-  mobileApptHref = "#main-form",
+  mobileApptHref = "",
   _component,
   class: className,
   ...htmlAttributes
@@ -23,8 +26,11 @@ const {
   logoAlt?: string;
   pageButtons?: any[];
   offices?: any[];
+  backgroundColor?: string;
   backgroundColorHex?: string;
+  iconBackgroundColor?: string;
   iconBackgroundColorHex?: string;
+  linkColor?: string;
   linkColorHex?: string;
   mobileCallSmallText?: string;
   mobileApptLabel?: string;
@@ -55,10 +61,31 @@ const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).ma
   })
 );
 
+const bgColorMap: Record<string, string> = {
+  none: "transparent",
+  base: "var(--color-bg-base)",
+  surface: "var(--color-bg-surface)",
+  accent: "var(--color-bg-accent)",
+  highlight: "var(--color-bg-highlight)",
+  dark: "var(--color-bg-dark, #2a2a2a)",
+  black: "var(--color-bg-inverse, #000)",
+};
+
+const colorTokenMap: Record<string, string> = {
+  brand: "var(--color-brand)",
+  "brand-secondary": "var(--color-brand-secondary)",
+  dark: "var(--color-text)",
+  white: "var(--color-text-inverse)",
+};
+
+const resolvedBg = backgroundColorHex || bgColorMap[backgroundColor] || "";
+const resolvedIconBg = iconBackgroundColorHex || colorTokenMap[iconBackgroundColor] || "";
+const resolvedLinkColor = linkColorHex || colorTokenMap[linkColor] || "";
+
 const cssVars = [
-  backgroundColorHex && `--lhci-bg: ${backgroundColorHex}`,
-  iconBackgroundColorHex && `--lhci-icon-bg: ${iconBackgroundColorHex}`,
-  linkColorHex && `--lhci-link-color: ${linkColorHex}`,
+  resolvedBg && `--lhci-bg: ${resolvedBg}`,
+  resolvedIconBg && `--lhci-icon-bg: ${resolvedIconBg}`,
+  resolvedLinkColor && `--lhci-link-color: ${resolvedLinkColor}`,
 ]
   .filter(Boolean)
   .join("; ");
