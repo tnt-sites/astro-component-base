@@ -2,6 +2,7 @@
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Text from "@components/building-blocks/core-elements/text/Text.astro";
 import Heading from "@core-elements/heading/Heading.astro";
+import Icon from "@core-elements/icon/Icon.astro";
 
 const {
   heading = "",
@@ -9,9 +10,6 @@ const {
   contentStyle = "paragraph",
   text = "",
   listItems = [],
-  checkmarkMode = "fontello",
-  checkmarkCharacter = "✓",
-  fontelloGlyph = "e832",
   showDivider = true,
   paddingVertical = "md",
   backgroundColor = "base",
@@ -19,6 +17,7 @@ const {
   headingColor = "",
   dividerColor = "",
   textColor = "",
+  checkIconName = "check-circle",
   checkColor = "",
   checkmarkShadowColor = "",
   checkmarkShadowColorHex = "",
@@ -28,22 +27,6 @@ const {
 
 const resolvedCheckmarkShadow =
   checkmarkShadowColorHex || checkmarkShadowColor || "var(--color-brand, #000)";
-
-const normalizedGlyph = String(fontelloGlyph || "e832")
-  .trim()
-  .replace(/^\\+/, "")
-  .replace(/^u\+/i, "")
-  .replace(/^0x/i, "")
-  .replace(/^&#x/i, "")
-  .replace(/;$/i, "");
-
-const glyphCodePoint = Number.parseInt(normalizedGlyph, 16);
-const resolvedFontelloCheckmark = Number.isFinite(glyphCodePoint)
-  ? String.fromCodePoint(glyphCodePoint)
-  : String.fromCodePoint(0xe832);
-
-const resolvedCheckmark =
-  checkmarkMode === "fontello" ? resolvedFontelloCheckmark : checkmarkCharacter;
 
 const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
@@ -88,15 +71,7 @@ const htmlAttributes = Object.fromEntries(
             <ul class="pep-banner-centered__list" data-prop="listItems">
               {listItems.map((item: string) => (
                 <li>
-                  <span
-                    class:list={[
-                      "pep-banner-centered__list-check",
-                      checkmarkMode === "fontello" && "pep-banner-centered__list-check--fontello",
-                    ]}
-                    aria-hidden="true"
-                  >
-                    {resolvedCheckmark}
-                  </span>
+                  <Icon name={checkIconName} size="xl" class="pep-banner-centered__list-check" />
                   <span class="pep-banner-centered__list-item-text" set:html={item} />
                 </li>
               ))}
@@ -173,20 +148,10 @@ const htmlAttributes = Object.fromEntries(
 
   .pep-banner-centered__list-check {
     color: var(--pep-centered-check-color, var(--color-brand-secondary, var(--color-brand)));
-    display: inline-block;
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 700;
-    line-height: 1;
+    filter: drop-shadow(2px 2px 0 var(--pep-centered-check-shadow-color));
+    flex: 0 0 auto;
     margin-right: 0.8rem;
-    min-width: 2.2rem;
-    text-shadow: 2px 2px 0 var(--pep-centered-check-shadow-color);
     transform: translateY(-0.15em);
-  }
-
-  .pep-banner-centered__list-check--fontello {
-    font-family: fontello, sans-serif;
-    font-style: normal;
-    font-weight: 400;
   }
 
   .pep-banner-centered__list-item-text {
@@ -212,7 +177,6 @@ const htmlAttributes = Object.fromEntries(
 
     .pep-banner-centered__list-check {
       margin-right: 0.65rem;
-      min-width: 1.8rem;
     }
   }
 </style>

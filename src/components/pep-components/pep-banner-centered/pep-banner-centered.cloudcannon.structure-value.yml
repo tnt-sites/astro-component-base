@@ -26,9 +26,7 @@ value:
     - Half of Americans are not getting the dental care they need
     - Daily brushing and flossing is the number one habit for healthy smiles
     - Your natural teeth should last a lifetime
-  checkmarkMode: fontello
-  fontelloGlyph: e832
-  checkmarkCharacter: "✓"
+  checkIconName: check-circle
   checkColor: ""
   checkmarkShadowColor: ""
   checkmarkShadowColorHex: ""
