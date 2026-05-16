@@ -264,6 +264,28 @@ const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
 
       .lhci-buttons {
         flex-shrink: 0;
+
+        /* Pill button with white circular icon badge — matches legacy design */
+        .button {
+          border-radius: 40px;
+          font-size: 1.1rem;
+          font-weight: var(--font-weight-bold, 700);
+          padding-block: 3px;
+          padding-inline-end: var(--spacing-lg);
+          padding-inline-start: 3px;
+
+          .icon {
+            align-items: center;
+            background-color: #fff;
+            border-radius: 50%;
+            color: var(--lhci-icon-bg, var(--color-brand, #95982d));
+            display: inline-flex;
+            flex-shrink: 0;
+            height: 35px;
+            justify-content: center;
+            width: 35px;
+          }
+        }
       }
 
       .lhci-mobile-bar {

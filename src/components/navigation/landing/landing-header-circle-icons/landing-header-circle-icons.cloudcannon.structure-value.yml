@@ -10,7 +10,7 @@ value:
       text: Request an Appointment
       hideText: false
       link: ""
-      iconName: ""
+      iconName: icon-calendar-1
       iconPosition: before
       variant: primary
       size: md
@@ -72,8 +72,16 @@ _inputs:
     type: url
     comment: "Google Maps link for the address."
   "$.offices[*].officeHours":
+    type: array
+    hidden: true
+  "$.offices[*].officeHours[*].day":
+    type: text
+    hidden: true
+  "$.offices[*].officeHours[*].hours":
+    type: text
     hidden: true
   "$.offices[*].officeHoursNote":
+    type: text
     hidden: true
   backgroundColor:
     type: select
