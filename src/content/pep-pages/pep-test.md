@@ -169,53 +169,6 @@ pepSections:
           source: https://placehold.co/200x110
           alt: Callout icon four
         heading: Callout<br>Heading Four
-  - _component: pep-components/pep-form-nctm
-    id: ''
-    backgroundColor: black
-    backgroundColorHex: ''
-    contentBackgroundColor: dark
-    contentBackgroundColorHex: ''
-    callBackgroundColor: dark
-    callBackgroundColorHex: ''
-    callTextColor: ''
-    formBackgroundColor: Default
-    formBackgroundColorHex: ''
-    linkColor: ''
-    image:
-      source: https://placehold.co/485x400
-      alt: Doctor photo
-    figcaption: Dr. Last Name | Dr. Last Name
-    callText: Call Us Today at your face.
-    formAction: ./
-    nameLabel: Name
-    phoneFieldLabel: Phone Number
-    emailLabel: Email Address
-    timesLabel: Preferred Appointment Time(s)
-    timeOptions:
-      - label: Morning
-        value: morning
-      - label: Afternoon
-        value: afternoon
-      - label: Evening
-        value: evening
-    commentsLabel: Questions/Comments
-    submitButton:
-      text: Submit
-      variant: primary
-      size: md
-      iconName: ''
-      iconPosition: before
-      hideText: false
-      disabled: false
-    bottomText: >-
-      Just give us a call or complete the form above. Tell us a little about
-      your goals and aspirations for 2025, and we will do everything possible to
-      make it a new year filled with smiles.
-    submitBackgroundColor: black
-    submitBackgroundColorHex: ''
-    submitText: Submit
-    phone: tel:+1
-    phoneLabel: (000) 000-0000
   - _component: pep-components/pep-form-ctm
     id: ''
     backgroundColor: none
