@@ -8,6 +8,7 @@ value:
   backgroundColorHex: ""
   headingColor: "var(--color-brand-secondary)"
   textColor: "var(--color-text)"
+  paddingVertical: md
   heading: Resolve to Smile More in 2025
   headingFontFamily: ""
   showDivider: true

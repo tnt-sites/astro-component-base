@@ -54,6 +54,28 @@ textColor:
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
 
+paddingVertical:
+  type: select
+  comment: The space on the top and bottom of this section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: xs
+        name: Extra Small
+      - id: sm
+        name: Small
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+      - id: xl
+        name: Extra Large
+      - id: 2xl
+        name: 2xl
+      - id: 3xl
+        name: 3xl
+
 heading:
   type: text
   comment: Main H1 heading. Supports <br> for manual line breaks.

@@ -8,6 +8,7 @@ const {
   headingFontFamily = "",
   text = "",
   showDivider = true,
+  paddingVertical = "md",
   backgroundColor = "base",
   backgroundColorHex = "",
   headingColor = "",
@@ -33,7 +34,7 @@ const htmlAttributes = Object.fromEntries(
 
 <CustomSection
   class:list={["pep-banner-centered", className]}
-  paddingVertical="md"
+  paddingVertical={paddingVertical}
   paddingHorizontal="md"
   colorScheme="default"
   backgroundColor={resolvedBg}
