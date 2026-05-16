@@ -156,7 +156,6 @@ collections_config:
         cascade: true
         comment: Hyperlink hover color.
       extraColors:
-        type: array
         cascade: true
         comment: Additional CSS color variable overrides for custom tokens.
         options:
@@ -196,7 +195,6 @@ collections_config:
         cascade: true
         comment: Google Fonts or Adobe Fonts stylesheet URL for the headings font.
       extraFonts:
-        type: array
         cascade: true
         comment: Additional font stylesheet links (e.g. a third typeface or icon font).
         options:
@@ -268,7 +266,6 @@ collections_config:
         comment: A single script tag or snippet for the footer.
         cascade: true
       extraFonts:
-        type: array
         comment: Extra font stylesheets for this landing page only (e.g. a Google or Adobe Fonts URL). Does not affect the rest of the site.
         cascade: true
         options:
