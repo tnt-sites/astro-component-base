@@ -133,6 +133,7 @@ const htmlAttributes = Object.fromEntries(
     list-style: none;
     margin: 0 auto;
     max-width: 62.5rem;
+    overflow: visible;
     padding: 0;
     text-align: left;
   }
@@ -154,7 +155,7 @@ const htmlAttributes = Object.fromEntries(
 
   .pep-banner-centered__list-check.icon {
     color: var(--pep-centered-check-color, var(--color-brand-secondary, var(--color-brand)));
-    filter: drop-shadow(2px 2px 0 var(--pep-centered-check-shadow-color));
+    filter: drop-shadow(3px 3px 4px var(--pep-centered-check-shadow-color));
     flex: 0 0 auto;
     font-size: clamp(2.25rem, 4vw, 3rem);
     margin-right: 0.8rem;
