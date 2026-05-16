@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 
 const {
@@ -58,7 +59,7 @@ const htmlAttributes = Object.fromEntries(
       <article>
         <div class="content">
           {headingPrefix && <small class="prefix">{headingPrefix}</small>}
-          <h2 set:html={heading} />
+          <Heading text={heading} level="h2" data-prop="heading" editable={true} />
           {
             listItems.length > 0 && (
               <ul>

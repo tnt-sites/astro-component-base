@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Text from "@components/building-blocks/core-elements/text/Text.astro";
+import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
@@ -45,7 +46,7 @@ const htmlAttributes = Object.fromEntries(
 >
   <div class="pep-split-banner__inner">
     <article class="pep-split-banner__article">
-      <h1 set:html={heading} />
+      <Heading text={heading} level="h1" data-prop="heading" editable={true} />
       {text && <Text text={text} class="pep-split-banner__text" data-prop="text" />}
       {buttonSections.length > 0 && <ButtonGroup buttonSections={buttonSections} />}
     </article>

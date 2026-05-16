@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
 
 const {
   blocks = [],
@@ -36,9 +37,9 @@ const htmlAttributes = Object.fromEntries(
   {...htmlAttributes}
 >
   {
-    blocks.map((block: { heading: string; text: string }) => (
+    blocks.map((block: { heading: string; text: string }, i: number) => (
       <div class="block">
-        <h2 set:html={block.heading} />
+        <Heading text={block.heading} level="h2" data-prop={`$.blocks[${i}].heading`} editable={true} />
         <p set:html={block.text} />
       </div>
     ))

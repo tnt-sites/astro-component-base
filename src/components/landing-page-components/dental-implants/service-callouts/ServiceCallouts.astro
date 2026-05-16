@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 
 interface Item {
@@ -44,7 +45,7 @@ const htmlAttributes = Object.fromEntries(
   style={inlineStyle || undefined}
   {...htmlAttributes}
 >
-  {heading && <h2 set:html={heading} />}
+  {heading && <Heading text={heading} level="h2" data-prop="heading" editable={true} />}
   <div class="options">
     {
       items.map((item: Item, i: number) => (

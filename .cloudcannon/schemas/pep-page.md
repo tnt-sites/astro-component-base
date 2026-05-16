@@ -21,7 +21,7 @@ landingFooter:
   - _component: navigation/landing/landing-footer
     logoSource: /images/logo.svg
     logoAlt: Logo
-    siteName: 
+    siteName:
     contactTitle: Contact Us
     legalLinks:
       - name: Sitemap
@@ -49,7 +49,7 @@ landingFooter:
         phones:
           - display: (123) 456-7890
             href: tel:+11234567890
-landingPageSections: []
+pepSections: []
 head_scripts: []
 footer_scripts: []
 extraFonts: []

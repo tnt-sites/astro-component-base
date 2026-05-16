@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
@@ -45,7 +46,7 @@ const htmlAttributes = Object.fromEntries(
   <div class="flex-ed">
     <article>
       <div class="content">
-        <h2 set:html={heading} />
+        <Heading text={heading} level="h2" data-prop="heading" editable={true} />
         {
           listItems.length > 0 && (
             <ul>
