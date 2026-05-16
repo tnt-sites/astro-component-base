@@ -88,6 +88,11 @@ landingFooter:
             mapUrl: ''
         officeHours: []
         officeHoursNote: ''
+landingPageSections: []
+head_scripts: []
+footer_scripts: []
+extraFonts:
+  - https://fonts.googleapis.com/css2?family=Playwrite+AR+Guides&display=swap
 pepSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
     id: ''
@@ -232,6 +237,4 @@ pepSections:
       hideText: false
       disabled: false
     bottomText: ''
-head_scripts: []
-footer_scripts: []
 ---
