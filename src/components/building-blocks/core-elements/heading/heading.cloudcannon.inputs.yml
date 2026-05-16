@@ -37,6 +37,9 @@ size:
         name: 3xl
       - id: 4xl
         name: 4xl
+fontFamily:
+  comment: Override the font family for this heading. Leave blank to use the site default. Use any font family loaded by the page, including extra fonts.
+  type: text
 alignX:
   comment: The horizontal alignment of the text.
   type: select

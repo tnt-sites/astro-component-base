@@ -12,6 +12,7 @@ const {
   iconPosition = "before",
   class: className,
   editable = true,
+  fontFamily,
   "data-prop": customDataProp = "text",
   _component,
   ...htmlAttributes
@@ -65,6 +66,7 @@ if (!_component && !hasRenderableContent) return;
 
 <Tag
   class:list={["heading", size && `size-${size}`, `align-${alignX}`, className]}
+  style={fontFamily ? `font-family: ${fontFamily}` : undefined}
   {...htmlAttributes}
 >
   {

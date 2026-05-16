@@ -568,6 +568,14 @@ collections_config:
         type: textarea
         comment: A single script tag or snippet for the footer.
         cascade: true
+      extraFonts:
+        type: array
+        comment: Extra font stylesheets for this PEP page only (e.g. a Google or Adobe Fonts URL). Does not affect the rest of the site.
+        cascade: true
+      $.extraFonts[*]:
+        type: url
+        comment: Full stylesheet URL, e.g. https://fonts.googleapis.com/css2?family=Raleway&display=swap
+        cascade: true
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.md"
     add_options:

@@ -15,6 +15,7 @@ type Props = {
     landingMainNav?: LandingComponentBlock | LandingComponentBlock[];
     landingFooter?: LandingComponentBlock | LandingComponentBlock[];
     pepSections?: any[];
+    extraFonts?: string[];
     head_scripts?: string[];
     footer_scripts?: string[];
   };
@@ -78,6 +79,7 @@ const primaryFooter: LandingComponentBlock = footerBlocks[0] ?? {
 };
 
 const pepSections = frontmatter?.pepSections;
+const extraFontLinks = (frontmatter?.extraFonts ?? []) as string[];
 const hasPageSections = pepSections && pepSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
 const siteInfoOffices: any[] = siteInfo?.offices || [];
@@ -142,6 +144,7 @@ const resolvedFooter = {
   siteInfo={siteInfo}
   head_scripts={headScripts}
   footer_scripts={footerScripts}
+  extraFontLinks={extraFontLinks}
 >
   <Components contentSections={[resolvedHeader]} propName="landingMainNav" editable={false} />
   <main data-pagefind-body>
