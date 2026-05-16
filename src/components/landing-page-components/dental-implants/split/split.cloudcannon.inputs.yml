@@ -22,6 +22,10 @@ heading:
   type: text
   comment: Section heading (h2). Supports <br> for line breaks.
 
+headingFontFamily:
+  type: text
+  comment: Override the font family for this heading. Leave blank to use the site default. Use any font family loaded by the page, including extra fonts.
+
 paragraphs:
   type: array
   comment: Body text paragraphs. Each item is one paragraph and supports basic inline HTML.

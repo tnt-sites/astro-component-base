@@ -6,6 +6,7 @@ import Image from "@core-elements/image/Image.astro";
 const {
   headingPrefix = "",
   heading = "",
+  headingFontFamily = "",
   listItems = [],
   image = { source: "", alt: "" },
   figcaption = "",
@@ -59,7 +60,13 @@ const htmlAttributes = Object.fromEntries(
       <article>
         <div class="content">
           {headingPrefix && <small class="prefix">{headingPrefix}</small>}
-          <Heading text={heading} level="h2" data-prop="heading" editable={true} />
+          <Heading
+            text={heading}
+            level="h2"
+            fontFamily={headingFontFamily}
+            data-prop="heading"
+            editable={true}
+          />
           {
             listItems.length > 0 && (
               <ul>

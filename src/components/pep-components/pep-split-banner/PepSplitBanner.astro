@@ -7,6 +7,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   heading = "",
+  headingFontFamily = "",
   text = "",
   image = { source: "", alt: "" },
   figcaption = "",
@@ -46,7 +47,13 @@ const htmlAttributes = Object.fromEntries(
 >
   <div class="pep-split-banner__inner">
     <article class="pep-split-banner__article">
-      <Heading text={heading} level="h1" data-prop="heading" editable={true} />
+      <Heading
+        text={heading}
+        level="h1"
+        fontFamily={headingFontFamily}
+        data-prop="heading"
+        editable={true}
+      />
       {text && <Text text={text} class="pep-split-banner__text" data-prop="text" />}
       {buttonSections.length > 0 && <ButtonGroup buttonSections={buttonSections} />}
     </article>

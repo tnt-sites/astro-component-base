@@ -79,3 +79,7 @@ dividerColor:
 fontHeadings:
   type: text
   comment: Override the heading font family (e.g. "Georgia, serif"). Leave blank to use the site default.
+
+headingFontFamily:
+  type: text
+  comment: Override the font family for the block headings. Leave blank to use the site default. Use any font family loaded by the page, including extra fonts.

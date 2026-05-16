@@ -6,6 +6,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   heading = "",
+  headingFontFamily = "",
   paragraphs = [] as string[],
   image = { source: "", alt: "" },
   figcaption = "",
@@ -46,7 +47,17 @@ const htmlAttributes = Object.fromEntries(
 >
   <div class="split-inner">
     <article>
-      {heading && <Heading text={heading} level="h2" data-prop="heading" editable={true} />}
+      {
+        heading && (
+          <Heading
+            text={heading}
+            level="h2"
+            fontFamily={headingFontFamily}
+            data-prop="heading"
+            editable={true}
+          />
+        )
+      }
       {paragraphs.map((para: string) => <p set:html={para} />)}
       {buttonSections.length > 0 && <ButtonGroup buttonSections={buttonSections} />}
     </article>

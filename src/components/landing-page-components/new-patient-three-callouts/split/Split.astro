@@ -6,6 +6,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   heading = "",
+  headingFontFamily = "",
   listItems = [],
   image = { source: "", alt: "" },
   figcaption = "",
@@ -46,7 +47,13 @@ const htmlAttributes = Object.fromEntries(
   <div class="flex-ed">
     <article>
       <div class="content">
-        <Heading text={heading} level="h2" data-prop="heading" editable={true} />
+        <Heading
+          text={heading}
+          level="h2"
+          fontFamily={headingFontFamily}
+          data-prop="heading"
+          editable={true}
+        />
         {
           listItems.length > 0 && (
             <ul>

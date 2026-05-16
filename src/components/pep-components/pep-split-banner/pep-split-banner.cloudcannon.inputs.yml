@@ -76,6 +76,10 @@ heading:
   type: text
   comment: Main H1 heading. Supports <br> for manual line breaks.
 
+headingFontFamily:
+  type: text
+  comment: Override the font family for this heading. Leave blank to use the site default. Use any font family loaded by the page, including extra fonts.
+
 text:
   type: markdown
   comment: Body text displayed below the heading. Supports bold, italic, and links.

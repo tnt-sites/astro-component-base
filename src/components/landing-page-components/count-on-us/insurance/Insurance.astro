@@ -6,6 +6,7 @@ const {
   blocks = [],
   ruleColor = "",
   headingColor = "",
+  headingFontFamily = "",
   fontHeadings = "",
   fontBody = "",
   backgroundColor = "base",
@@ -39,7 +40,13 @@ const htmlAttributes = Object.fromEntries(
   {
     blocks.map((block: { heading: string; text: string }, i: number) => (
       <div class="block">
-        <Heading text={block.heading} level="h2" data-prop={`$.blocks[${i}].heading`} editable={true} />
+        <Heading
+          text={block.heading}
+          level="h2"
+          fontFamily={headingFontFamily}
+          data-prop={`$.blocks[${i}].heading`}
+          editable={true}
+        />
         <p set:html={block.text} />
       </div>
     ))

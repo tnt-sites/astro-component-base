@@ -26,6 +26,10 @@ heading:
   type: text
   comment: Main section heading. Supports <br> for line breaks.
 
+headingFontFamily:
+  type: text
+  comment: Override the font family for this heading. Leave blank to use the site default. Use any font family loaded by the page, including extra fonts.
+
 listItems:
   type: array
   comment: Checklist items. Each item supports inline HTML.
