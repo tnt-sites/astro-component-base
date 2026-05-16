@@ -75,6 +75,8 @@ const htmlAttributes = Object.fromEntries(
                   aspectRatio="none"
                   sizes="(max-width: 600px) 50vw, 200px"
                   widths={[200, 400]}
+                  data-prop-src={`items.${i}.image.source`}
+                  data-prop-alt={`items.${i}.image.alt`}
                 />
               </span>
               {item.heading && <h3 class="callout-squares__item-heading" set:html={item.heading} />}

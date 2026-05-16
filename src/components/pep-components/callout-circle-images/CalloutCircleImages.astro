@@ -42,24 +42,28 @@ const htmlAttributes = Object.fromEntries(
   {heading && <h2 class="callout-circle-images__heading" set:html={heading} />}
   <div class="callout-circle-images__grid">
     {
-      items.map((item: { image?: { source: string; alt: string }; heading?: string }) => (
-        <div class="callout-circle-images__item">
-          <span class="callout-circle-images__circle">
-            <Image
-              source={item.image?.source ?? ""}
-              alt={item.image?.alt ?? ""}
-              rounded={false}
-              editable={true}
-              aspectRatio="none"
-              sizes="(max-width: 600px) 50vw, 200px"
-              widths={[200, 400]}
-            />
-          </span>
-          {item.heading && (
-            <h3 class="callout-circle-images__item-heading" set:html={item.heading} />
-          )}
-        </div>
-      ))
+      items.map(
+        (item: { image?: { source: string; alt: string }; heading?: string }, i: number) => (
+          <div class="callout-circle-images__item">
+            <span class="callout-circle-images__circle">
+              <Image
+                source={item.image?.source ?? ""}
+                alt={item.image?.alt ?? ""}
+                rounded={false}
+                editable={true}
+                aspectRatio="none"
+                sizes="(max-width: 600px) 50vw, 200px"
+                widths={[200, 400]}
+                data-prop-src={`items.${i}.image.source`}
+                data-prop-alt={`items.${i}.image.alt`}
+              />
+            </span>
+            {item.heading && (
+              <h3 class="callout-circle-images__item-heading" set:html={item.heading} />
+            )}
+          </div>
+        )
+      )
     }
   </div>
 </CustomSection>
