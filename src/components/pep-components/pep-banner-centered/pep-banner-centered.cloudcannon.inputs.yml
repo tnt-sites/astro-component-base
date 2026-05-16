@@ -145,6 +145,24 @@ listItems[*]:
   type: text
   comment: Single checklist line. Supports simple inline HTML.
 
+checkmarkMode:
+  type: select
+  comment: Choose how checklist icons are rendered.
+  options:
+    values:
+      - id: fontello
+        name: Fontello Glyph
+      - id: character
+        name: Unicode Character
+
+fontelloGlyph:
+  type: text
+  comment: Fontello glyph code (hex), e.g. e832. Used when Checkmark Mode is Fontello Glyph.
+
+checkmarkCharacter:
+  type: text
+  comment: Character used for checklist icons when Checkmark Mode is Unicode Character (e.g. ✓, ✔, ★).
+
 checkColor:
   type: select
   comment: Color of the oversized checkmarks in checklist mode.

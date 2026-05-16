@@ -9,6 +9,9 @@ const {
   contentStyle = "paragraph",
   text = "",
   listItems = [],
+  checkmarkMode = "fontello",
+  checkmarkCharacter = "✓",
+  fontelloGlyph = "e832",
   showDivider = true,
   paddingVertical = "md",
   backgroundColor = "base",
@@ -25,6 +28,22 @@ const {
 
 const resolvedCheckmarkShadow =
   checkmarkShadowColorHex || checkmarkShadowColor || "var(--color-brand, #000)";
+
+const normalizedGlyph = String(fontelloGlyph || "e832")
+  .trim()
+  .replace(/^\\+/, "")
+  .replace(/^u\+/i, "")
+  .replace(/^0x/i, "")
+  .replace(/^&#x/i, "")
+  .replace(/;$/i, "");
+
+const glyphCodePoint = Number.parseInt(normalizedGlyph, 16);
+const resolvedFontelloCheckmark = Number.isFinite(glyphCodePoint)
+  ? String.fromCodePoint(glyphCodePoint)
+  : String.fromCodePoint(0xe832);
+
+const resolvedCheckmark =
+  checkmarkMode === "fontello" ? resolvedFontelloCheckmark : checkmarkCharacter;
 
 const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
@@ -68,7 +87,18 @@ const htmlAttributes = Object.fromEntries(
         ? listItems.length > 0 && (
             <ul class="pep-banner-centered__list" data-prop="listItems">
               {listItems.map((item: string) => (
-                <li set:html={item} />
+                <li>
+                  <span
+                    class:list={[
+                      "pep-banner-centered__list-check",
+                      checkmarkMode === "fontello" && "pep-banner-centered__list-check--fontello",
+                    ]}
+                    aria-hidden="true"
+                  >
+                    {resolvedCheckmark}
+                  </span>
+                  <span class="pep-banner-centered__list-item-text" set:html={item} />
+                </li>
               ))}
             </ul>
           )
@@ -133,24 +163,34 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .pep-banner-centered__list li {
+    align-items: flex-start;
     color: var(--pep-centered-text-color, var(--color-text));
+    display: flex;
     font-size: clamp(1.125rem, 2vw, 1.75rem);
     line-height: 1.35;
     margin: 0 0 1rem;
-    padding-left: 3rem;
-    position: relative;
   }
 
-  .pep-banner-centered__list li::before {
+  .pep-banner-centered__list-check {
     color: var(--pep-centered-check-color, var(--color-brand-secondary, var(--color-brand)));
-    content: "\2713";
+    display: inline-block;
     font-size: clamp(2rem, 4vw, 2.75rem);
     font-weight: 700;
-    left: 0;
     line-height: 1;
-    position: absolute;
+    margin-right: 0.8rem;
+    min-width: 2.2rem;
     text-shadow: 2px 2px 0 var(--pep-centered-check-shadow-color);
-    top: -0.15em;
+    transform: translateY(-0.15em);
+  }
+
+  .pep-banner-centered__list-check--fontello {
+    font-family: fontello, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .pep-banner-centered__list-item-text {
+    flex: 1;
   }
 
   .pep-banner-centered__list li:last-child {
@@ -167,7 +207,12 @@ const htmlAttributes = Object.fromEntries(
     }
 
     .pep-banner-centered__list li {
-      padding-left: 2.4rem;
+      font-size: 1.125rem;
+    }
+
+    .pep-banner-centered__list-check {
+      margin-right: 0.65rem;
+      min-width: 1.8rem;
     }
   }
 </style>
