@@ -88,11 +88,6 @@ landingFooter:
             mapUrl: ''
         officeHours: []
         officeHoursNote: ''
-landingPageSections: []
-head_scripts: []
-footer_scripts: []
-extraFonts:
-  - https://fonts.googleapis.com/css2?family=Playwrite+AR+Guides&display=swap
 pepSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
     id: ''
@@ -108,7 +103,7 @@ pepSections:
     borderColor: var(--color-brand)
     headingColor: var(--color-text)
     textColor: ''
-    heading: Plan Ahead.<br>Save. Smile!
+    heading: Plan Ahead.<br />Save. Smile!
     text: >-
       It seems like everything is more expensive these days. Dental care does
       not have to follow the trend. By starting now, we can work with you and
@@ -127,7 +122,7 @@ pepSections:
     id: ''
     backgroundColor: base
     backgroundColorHex: ''
-    headingColor: ''
+    headingColor: var(--color-text)
     itemHeadingColor: ''
     circleBackgroundColor: ''
     heading: 3 Ways We Can Help
@@ -197,7 +192,7 @@ pepSections:
     phone: ''
     phoneLabel: (000) 000-0000
   - _component: pep-components/pep-form-nctm
-    id: ''
+    id: main-form
     backgroundColor: none
     backgroundColorHex: ''
     contentBackgroundColor: ''
@@ -237,4 +232,9 @@ pepSections:
       hideText: false
       disabled: false
     bottomText: ''
+head_scripts: []
+footer_scripts: []
+extraFonts:
+  - https://fonts.googleapis.com/css2?family=Playwrite+AR+Guides&display=swap
+landingPageSections: []
 ---
