@@ -36,8 +36,8 @@ const bgColorMap: Record<string, string> = {
   highlight: "var(--color-bg-highlight)",
   brand: "var(--color-bg-brand)",
   "brand-secondary": "var(--color-bg-brand-secondary)",
-  dark: "#2c363c",
-  black: "#000",
+  dark: "var(--color-bg-dark)",
+  black: "var(--color-bg-black)",
 };
 const resolvedBgColor = (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
 const linkColorMap: Record<string, string> = {
