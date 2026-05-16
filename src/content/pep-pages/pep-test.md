@@ -148,6 +148,60 @@ pepSections:
           source: https://placehold.co/200x110
           alt: Callout icon four
         heading: Callout<br>Heading Four
+  - _component: pep-components/pep-form-nctm
+    id: ''
+    backgroundColor: none
+    backgroundColorHex: ''
+    contentBackgroundColor: ''
+    contentBackgroundColorHex: ''
+    callBackgroundColor: ''
+    callBackgroundColorHex: ''
+    formBackgroundColor: ''
+    formBackgroundColorHex: ''
+    submitBackgroundColor: ''
+    submitBackgroundColorHex: ''
+    linkColor: ''
+    image:
+      source: https://placehold.co/485x400
+      alt: Doctor photo
+    figcaption: Dr. Last Name | Dr. Last Name
+    callText: 'Call Us Today at '
+    phone: tel:+1
+    phoneLabel: (000) 000-0000
+    formAction: ./
+    nameLabel: Name
+    phoneFieldLabel: Phone Number
+    emailLabel: Email Address
+    timesLabel: Preferred Appointment Time(s)
+    timeOptions:
+      - label: Morning
+        value: morning
+      - label: Afternoon
+        value: afternoon
+      - label: Evening
+        value: evening
+    commentsLabel: Questions/Comments
+    submitText: Submit
+    bottomText: ''
+  - _component: pep-components/pep-form-ctm
+    id: ''
+    backgroundColor: none
+    backgroundColorHex: ''
+    contentBackgroundColor: ''
+    contentBackgroundColorHex: ''
+    callBackgroundColor: ''
+    callBackgroundColorHex: ''
+    linkColor: ''
+    image:
+      source: https://placehold.co/485x400
+      alt: Doctor photo
+    figcaption: Dr. Last Name | Dr. Last Name
+    callText: |
+      Call Us Today at
+    phone: ''
+    phoneLabel: (000) 000-0000
+    iframeSrc: ''
+    bottomText: ''
 head_scripts: []
 footer_scripts: []
 ---
