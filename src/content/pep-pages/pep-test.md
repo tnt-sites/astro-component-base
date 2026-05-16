@@ -22,19 +22,7 @@ landingMainNav:
         borderColor: default
         textColor: default
         uppercase: false
-    offices:
-      - name: ''
-        phones:
-          - display: (123) Help-Me
-            href: ''
-        addresses:
-          - lines: []
-            city: ''
-            state: ''
-            postalCode: ''
-            mapUrl: ''
-        officeHours: []
-        officeHoursNote: ''
+    offices: []
     backgroundColor: ''
     backgroundColorHex: ''
     iconBackgroundColor: ''
