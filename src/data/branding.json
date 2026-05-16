@@ -1,11 +1,11 @@
 {
-  "colorBrand": "",
-  "colorBrandSecondary": "",
-  "colorBrandMuted": "",
+  "colorBrand": "red",
+  "colorBrandSecondary": "blue",
+  "colorBrandMuted": "green",
   "colorBrandSubtle": "",
   "colorBrandOn": "",
-  "colorLink": "",
-  "colorLinkHover": "",
+  "colorLink": "blue",
+  "colorLinkHover": "darkblue",
   "extraColors": [],
   "bodyFont": {
     "fontFamily": "\"Figtree\", sans-serif",
