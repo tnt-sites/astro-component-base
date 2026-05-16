@@ -10,7 +10,7 @@ landingMainNav:
         id: ''
         text: Request an Appointment
         hideText: false
-        link: ''
+        link: '#main-form'
         modalTarget: ''
         iconName: academic-cap
         iconPosition: before
