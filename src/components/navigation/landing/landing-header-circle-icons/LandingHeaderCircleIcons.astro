@@ -106,54 +106,52 @@ const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
       <Image source={logoSource} class="lhci-logo" alt={logoAlt} editable={false} />
     </a>
 
-    <div class="lhci-contact">
-      {
-        normalizedOffices.map((office: any) => (
-          <div class="lhci-office">
-            {Array.isArray(office?.addresses) &&
-              office.addresses.map((address: any) => {
-                const lines = formatAddressLines(address);
+    {
+      normalizedOffices.map((office: any) => (
+        <>
+          {Array.isArray(office?.addresses) &&
+            office.addresses.map((address: any) => {
+              const lines = formatAddressLines(address);
 
-                return lines.length > 0 ? (
-                  <a
-                    href={address?.mapUrl || "#"}
-                    class="lhci-address"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <span class="lhci-icon-badge" aria-hidden="true">
-                      <FontelloIcon name="icon-location" size="sm" />
-                    </span>
-                    <span class="lhci-link-text">
-                      {lines.map((line: string, i: number) => (
-                        <>
-                          {line}
-                          {i < lines.length - 1 && <br />}
-                        </>
-                      ))}
-                    </span>
-                  </a>
-                ) : null;
-              })}
+              return lines.length > 0 ? (
+                <a
+                  href={address?.mapUrl || "#"}
+                  class="lhci-address"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span class="lhci-icon-badge" aria-hidden="true">
+                    <FontelloIcon name="icon-location" size="sm" />
+                  </span>
+                  <span class="lhci-link-text">
+                    {lines.map((line: string, i: number) => (
+                      <>
+                        {line}
+                        {i < lines.length - 1 && <br />}
+                      </>
+                    ))}
+                  </span>
+                </a>
+              ) : null;
+            })}
 
-            {Array.isArray(office?.phones) &&
-              office.phones.map((phone: any) =>
-                phone?.display ? (
-                  <a href={phone?.href || "#"} class="lhci-phone">
-                    <span class="lhci-icon-badge" aria-hidden="true">
-                      <FontelloIcon name="icon-phone" size="sm" />
-                    </span>
-                    <span class="lhci-link-text lhci-phone-text">
-                      {phone?.label ? `${phone.label}: ` : ""}
-                      {phone.display}
-                    </span>
-                  </a>
-                ) : null
-              )}
-          </div>
-        ))
-      }
-    </div>
+          {Array.isArray(office?.phones) &&
+            office.phones.map((phone: any) =>
+              phone?.display ? (
+                <a href={phone?.href || "#"} class="lhci-phone">
+                  <span class="lhci-icon-badge" aria-hidden="true">
+                    <FontelloIcon name="icon-phone" size="sm" />
+                  </span>
+                  <span class="lhci-link-text lhci-phone-text">
+                    {phone?.label ? `${phone.label}: ` : ""}
+                    {phone.display}
+                  </span>
+                </a>
+              ) : null
+            )}
+        </>
+      ))
+    }
 
     {
       normalizedPageButtons.length > 0 && (
@@ -213,19 +211,6 @@ const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
         width: auto;
       }
 
-      .lhci-contact {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--spacing-xs) var(--spacing-lg);
-      }
-
-      .lhci-office {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--spacing-xs) var(--spacing-lg);
-      }
-
       .lhci-address,
       .lhci-phone {
         align-items: center;
@@ -248,22 +233,28 @@ const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
         color: #fff;
         display: inline-flex;
         flex-shrink: 0;
-        height: 35px;
+        height: 40px;
         justify-content: center;
-        width: 35px;
+        width: 40px;
       }
 
       .lhci-link-text {
-        font-size: 0.9rem;
+        font-size: 1.05rem;
       }
 
       .lhci-phone-text {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
         font-weight: var(--font-weight-semibold);
       }
 
       .lhci-buttons {
         flex-shrink: 0;
+
+        .button-group {
+          container-type: normal;
+          margin-top: 0;
+          width: auto;
+        }
 
         /* Pill button with white circular icon badge — matches legacy design */
         .button {
