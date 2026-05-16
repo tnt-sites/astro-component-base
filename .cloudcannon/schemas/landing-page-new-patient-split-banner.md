@@ -1,61 +1,57 @@
 ---
-
-\_schema: landing-page-new-patient-split-banner
+_schema: landing-page-new-patient-split-banner
 title: New Patient Split Banner Landing Page
 landingStyle: new-patient-split-banner
 landingMainNav:
-
-- \_component: navigation/landing/landing-header
-  logoSource: /images/logo.svg
-  logoAlt: Logo
-  pageButtons: - \_component: building-blocks/core-elements/button
-  id: ""
-  text: Request an Appointment
-  hideText: false
-  link: /request-an-appointment/
-  modalTarget: ""
-  iconName: ""
-  iconPosition: before
-  variant: primary
-  size: md
-  width: md
-  landingFooter:
-- \_component: navigation/landing/landing-footer-logo-top
-  logoSource: /images/logo.svg
-  logoAlt: Logo
-  siteName: Dental Studio
-  contactTitle: Learn More
-  pageButtons: - \_component: building-blocks/core-elements/button
-  id: ""
-  text: Request an Appointment
-  hideText: false
-  link: /request-an-appointment/
-  modalTarget: ""
-  iconName: ""
-  iconPosition: before
-  variant: primary
-  size: md
-  width: md
-  socials: - label: Facebook
-  icon: social/facebook
-  link: https://facebook.com
-  legalLinks: - name: Sitemap
-  path: sitemap.html - name: Privacy Policy
-  path: privacy-policy.html
-  mapEmbedUrl: ""
-  backgroundImage:
-  source:
-  alt:
-  positionVertical: top
-  positionHorizontal: center
-  backgroundGradient: ""
-  legalBlurb: ""
-  landingPageSections:
-- \_component: landing-page-components/new-patient-split-banner/top-bar
-  id: ""
-  backgroundColor: brand
-  textColor: "var(--color-text-inverse)"
-  items: - New Patients Welcome - Same-Day Appointments Available
-  head_scripts: []
-  footer_scripts: []
-  extraFonts: []
+  - _component: navigation/landing/landing-header
+    logoSource: /images/logo.svg
+    logoAlt: Logo
+    pageButtons:
+      - _component: building-blocks/core-elements/button
+        id: ""
+        text: Request an Appointment
+        hideText: false
+        link: /request-an-appointment/
+        modalTarget: ""
+        iconName: ""
+        iconPosition: before
+        variant: primary
+        size: md
+        width: md
+landingFooter:
+  - _component: navigation/landing/landing-footer
+    logoSource: /images/logo.svg
+    logoAlt: Logo
+    siteName: Dental Studio
+    contactTitle: Learn More
+    legalLinks:
+      - name: Sitemap
+        path: sitemap.html
+      - name: Privacy Policy
+        path: privacy-policy.html
+    socials:
+      - label: Facebook
+        icon: social/facebook
+        link: https://facebook.com
+      - label: Instagram
+        icon: social/instagram
+        link: https://instagram.com
+    offices:
+      - name: ""
+        addresses:
+          - lines:
+              - 123 Main Street
+              - Suite 200
+            city: Dunedin
+            state: FL
+            postalCode: "34698"
+            country: USA
+            mapUrl: https://maps.google.com
+        phones:
+          - display: (123) 456-7890
+            href: tel:+11234567890
+landingPageSections: []
+head_scripts: []
+footer_scripts: []
+extraFonts: []
+---
