@@ -74,6 +74,22 @@ callBackgroundColorHex:
   type: color
   comment: Optional custom hex color for the call row background. Overrides the dropdown above.
 
+callTextColor:
+  type: select
+  comment: Color of the call text.
+  options:
+    values:
+      - id: ""
+        name: Default (Dark)
+      - id: "var(--color-text)"
+        name: Dark
+      - id: "var(--color-text-inverse)"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+
 formBackgroundColor:
   type: select
   comment: Background color behind the form inputs.
@@ -99,32 +115,6 @@ formBackgroundColor:
 formBackgroundColorHex:
   type: color
   comment: Optional custom hex color for the form area background. Overrides the dropdown above.
-
-submitBackgroundColor:
-  type: select
-  comment: Background color of the submit button.
-  options:
-    values:
-      - id: ""
-        name: Default
-      - id: none
-        name: None (Transparent)
-      - id: base
-        name: Base
-      - id: surface
-        name: Surface
-      - id: accent
-        name: Accent
-      - id: highlight
-        name: Highlight
-      - id: dark
-        name: Dark
-      - id: black
-        name: Black
-
-submitBackgroundColorHex:
-  type: color
-  comment: Optional custom hex color for the submit button. Overrides the dropdown above.
 
 linkColor:
   type: select
@@ -161,7 +151,7 @@ figcaption:
 
 callText:
   type: html
-  comment: Full call-to-action text displayed in the call row next to the photo. Supports links, line breaks, and inline formatting. Include the phone number as a linked anchor (e.g. <a href="tel:+19042720800">(904) 272-0800</a>).
+  comment: Full call-to-action text displayed in the call row next to the photo. Supports links, line breaks, and inline formatting.
 
 formAction:
   type: text
@@ -207,9 +197,73 @@ commentsLabel:
   type: text
   comment: Label for the Questions/Comments textarea.
 
-submitText:
+submitButton:
+  type: object
+  comment: Style options for the submit button.
+
+submitButton.text:
   type: text
-  comment: Text on the submit button.
+  comment: The text that goes inside the submit button.
+  hidden: "submitButton.hideText"
+
+submitButton.variant:
+  type: select
+  comment: The presentation of the submit button.
+  options:
+    values:
+      - id: primary
+        name: Primary
+      - id: secondary
+        name: Secondary
+      - id: tertiary
+        name: Tertiary
+      - id: ghost
+        name: Ghost
+      - id: text
+        name: Text
+
+submitButton.size:
+  type: select
+  comment: The size of the submit button.
+  options:
+    values:
+      - id: sm
+        name: Small
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+
+submitButton.iconName:
+  type: select
+  comment: Optional icon to display on the button.
+  options:
+    values: _select_data.icons
+    preview:
+      text:
+        - key: name
+      image:
+        - template: src/icons/{id}.svg
+
+submitButton.iconPosition:
+  type: select
+  comment: Position of the icon relative to the text.
+  hidden: "!submitButton.iconName"
+  options:
+    values:
+      - id: before
+        name: Before
+      - id: after
+        name: After
+
+submitButton.hideText:
+  type: switch
+  comment: Hide button text, show icon only.
+  hidden: "!submitButton.iconName"
+
+submitButton.disabled:
+  type: switch
+  comment: Whether the submit button is disabled.
 
 bottomText:
   type: markdown

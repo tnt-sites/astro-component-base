@@ -24,17 +24,16 @@ const {
     { label: "Evening", value: "evening" },
   ],
   commentsLabel = "Questions/Comments",
-  submitText = "Submit",
+  submitButton = { text: "Submit", variant: "primary", size: "md" },
   backgroundColor = "none",
   backgroundColorHex = "",
   contentBackgroundColor = "",
   contentBackgroundColorHex = "",
   callBackgroundColor = "",
   callBackgroundColorHex = "",
+  callTextColor = "",
   formBackgroundColor = "",
   formBackgroundColorHex = "",
-  submitBackgroundColor = "",
-  submitBackgroundColorHex = "",
   linkColor = "",
   class: className,
   ...rest
@@ -59,15 +58,13 @@ const resolvedCallBg =
   callBackgroundColorHex || resolveBgKey(callBackgroundColor) || "var(--color-bg-base, #fff)";
 const resolvedFormBg =
   formBackgroundColorHex || resolveBgKey(formBackgroundColor) || "var(--color-bg-surface, #f0f0f0)";
-const resolvedSubmitBg =
-  submitBackgroundColorHex || resolveBgKey(submitBackgroundColor) || "var(--color-brand)";
 
 const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   `--pfnc-content-bg: ${resolvedContentBg}`,
   `--pfnc-call-bg: ${resolvedCallBg}`,
   `--pfnc-form-bg: ${resolvedFormBg}`,
-  `--pfnc-submit-bg: ${resolvedSubmitBg}`,
+  callTextColor ? `--pfnc-call-text-color: ${callTextColor}` : "",
   linkColor ? `--pfnc-link-color: ${linkColor}` : "",
 ]
   .filter(Boolean)
@@ -153,7 +150,16 @@ const htmlAttributes = Object.fromEntries(
           <Textarea label={commentsLabel} name="comments" data-prop="commentsLabel" />
         </div>
         <div class="pep-form-nctm__submit-row">
-          <Submit class="pep-form-nctm__submit" text={submitText} data-prop="submitText" />
+          <Submit
+            class="pep-form-nctm__submit"
+            text={submitButton?.text ?? "Submit"}
+            variant={submitButton?.variant ?? "primary"}
+            size={submitButton?.size ?? "md"}
+            iconName={submitButton?.iconName}
+            iconPosition={submitButton?.iconPosition}
+            hideText={submitButton?.hideText}
+            disabled={submitButton?.disabled}
+          />
         </div>
       </form>
     </div>
@@ -199,6 +205,7 @@ const htmlAttributes = Object.fromEntries(
     letter-spacing: 0.1em;
     padding: 0.3125rem 0.9375rem;
     position: absolute;
+    text-align: center;
     text-transform: uppercase;
     width: 100%;
   }
@@ -208,7 +215,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .pep-form-nctm__article p {
-    color: var(--color-text, #000);
+    color: var(--pfnc-call-text-color, var(--color-text, #000));
     font-family: var(--font-body);
     font-size: clamp(1.75rem, 3.5vw, 2.8125rem);
     font-weight: 400;
@@ -310,8 +317,6 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .pep-form-nctm__submit :global(.button) {
-    background-color: var(--pfnc-submit-bg) !important;
-    border-color: var(--pfnc-submit-bg) !important;
     font-weight: 700;
     letter-spacing: 0.1em;
     min-width: 200px;

@@ -10,10 +10,9 @@ value:
   contentBackgroundColorHex: ""
   callBackgroundColor: ""
   callBackgroundColorHex: ""
+  callTextColor: ""
   formBackgroundColor: ""
   formBackgroundColorHex: ""
-  submitBackgroundColor: ""
-  submitBackgroundColorHex: ""
   linkColor: ""
   image:
     source: https://placehold.co/485x400
@@ -36,7 +35,14 @@ value:
     - label: Evening
       value: evening
   commentsLabel: "Questions/Comments"
-  submitText: "Submit"
+  submitButton:
+    text: "Submit"
+    variant: primary
+    size: md
+    iconName: ""
+    iconPosition: before
+    hideText: false
+    disabled: false
   bottomText: ""
 _inputs_from_glob:
   - /src/components/pep-components/pep-form-nctm/pep-form-nctm.cloudcannon.inputs.yml

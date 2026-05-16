@@ -74,6 +74,22 @@ callBackgroundColorHex:
   type: color
   comment: Optional custom hex color for the call row background. Overrides the dropdown above.
 
+callTextColor:
+  type: select
+  comment: Color of the call text.
+  options:
+    values:
+      - id: ""
+        name: Default (Dark)
+      - id: "var(--color-text)"
+        name: Dark
+      - id: "var(--color-text-inverse)"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+
 linkColor:
   type: select
   comment: Color of the phone number link.
@@ -110,7 +126,7 @@ figcaption:
 
 callText:
   type: html
-  comment: Full call-to-action text displayed in the call row next to the photo. Supports links, line breaks, and inline formatting. Include the phone number as a linked anchor (e.g. <a href="tel:+19042720800">(904) 272-0800</a>).
+  comment: Full call-to-action text displayed in the call row next to the photo. Supports links, line breaks, and inline formatting.
 
 iframeSrc:
   type: url

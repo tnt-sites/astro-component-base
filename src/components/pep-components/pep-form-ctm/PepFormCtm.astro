@@ -16,6 +16,7 @@ const {
   contentBackgroundColorHex = "",
   callBackgroundColor = "",
   callBackgroundColorHex = "",
+  callTextColor = "",
   linkColor = "",
   class: className,
   ...rest
@@ -43,6 +44,7 @@ const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   `--pfc-content-bg: ${resolvedContentBg}`,
   `--pfc-call-bg: ${resolvedCallBg}`,
+  callTextColor ? `--pfc-call-text-color: ${callTextColor}` : "",
   linkColor ? `--pfc-link-color: ${linkColor}` : "",
 ]
   .filter(Boolean)
@@ -141,6 +143,7 @@ const htmlAttributes = Object.fromEntries(
     letter-spacing: 0.1em;
     padding: 0.3125rem 0.9375rem;
     position: absolute;
+    text-align: center;
     text-transform: uppercase;
     width: 100%;
   }
@@ -150,7 +153,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .pep-form-ctm__article p {
-    color: var(--color-text, #000);
+    color: var(--pfc-call-text-color, var(--color-text, #000));
     font-family: var(--font-body);
     font-size: clamp(1.75rem, 3.5vw, 2.8125rem);
     font-weight: 400;

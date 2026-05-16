@@ -140,6 +140,9 @@ landingHeaderSections:
         "$.offices[*].addresses[*].mapUrl":
           type: url
           comment: "Google Maps link for the address."
+        "$.offices[*].addresses[*].mapUrl":
+          type: url
+          comment: "Google Maps link for the address."
     - label: Landing Header Split
       icon: view_column
       description: "Landing header with contact on the left, centered logo, and CTA buttons on the right."
@@ -207,3 +210,94 @@ landingHeaderSections:
         "$.offices[*].addresses[*].mapUrl":
           type: url
           comment: "Google Maps link for the address."
+    - label: Landing Header - Circle Icons
+      icon: view_column
+      description: "Landing header with circular icon badges on address and phone links, logo, and CTA button."
+      value:
+        _component: navigation/landing/landing-header-circle-icons
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        pageButtons:
+          - _component: building-blocks/core-elements/button
+            text: Request an Appointment
+            hideText: false
+            link: "#main-form"
+            iconName: ""
+            iconPosition: before
+            variant: primary
+            size: md
+            width: md
+        offices: []
+        backgroundColorHex: ""
+        iconBackgroundColorHex: ""
+        linkColorHex: ""
+        mobileCallSmallText: "Call Today!"
+        mobileApptLabel: "Request an Appointment"
+        mobileApptHref: "#main-form"
+      preview:
+        text:
+          - Landing Header - Circle Icons
+        icon: view_column
+      picker_preview:
+        text: Landing Header - Circle Icons
+        subtext: "Logo, circular icon badges on contact links, CTA button."
+        icon: view_column
+      _inputs:
+        logoSource:
+          type: image
+          comment: "Logo image source URL or path."
+        logoAlt:
+          type: text
+          comment: "Alt text for the logo image."
+        id:
+          type: text
+          comment: "Developer use only. Optional HTML id attribute for this header section."
+        pageButtons:
+          type: array
+          comment: "Header CTA buttons displayed on the right."
+          options:
+            structures: _structures.buttonSections
+        offices:
+          type: array
+          comment: "Optional office contact override. Leave empty to use siteInfo offices."
+          options:
+            structures: _structures.officeSections
+        "$.offices[*].name":
+          type: text
+          comment: "Optional office label."
+        "$.offices[*].phones[*].display":
+          type: text
+          comment: "Phone number as displayed (e.g. (123) 456-7890)."
+        "$.offices[*].phones[*].href":
+          type: text
+          comment: "Phone href value (e.g. tel:+11234567890)."
+        "$.offices[*].addresses[*].lines":
+          type: array
+          comment: "Street address lines."
+        "$.offices[*].addresses[*].city":
+          type: text
+        "$.offices[*].addresses[*].state":
+          type: text
+        "$.offices[*].addresses[*].postalCode":
+          type: text
+        "$.offices[*].addresses[*].mapUrl":
+          type: url
+          comment: "Google Maps link for the address."
+        backgroundColorHex:
+          type: color
+          comment: "Header background color. Leave blank for white."
+        iconBackgroundColorHex:
+          type: color
+          comment: "Background color of the circular icon badges on address and phone links."
+        linkColorHex:
+          type: color
+          comment: "Text color for address and phone links. Leave blank to use default text color."
+        mobileCallSmallText:
+          type: text
+          comment: "Small label above the phone number in the mobile call button."
+        mobileApptLabel:
+          type: text
+          comment: "Label for the appointment button in the mobile bar."
+        mobileApptHref:
+          type: text
+          comment: "Link for the mobile appointment button (e.g. #main-form or /request)."
