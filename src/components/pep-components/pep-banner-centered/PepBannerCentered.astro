@@ -1,0 +1,109 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Text from "@components/building-blocks/core-elements/text/Text.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+
+const {
+  heading = "",
+  headingFontFamily = "",
+  text = "",
+  showDivider = true,
+  backgroundColor = "base",
+  backgroundColorHex = "",
+  headingColor = "",
+  textColor = "",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const inlineStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
+  headingColor ? `--pep-centered-heading-color: ${headingColor}` : "",
+  textColor ? `--pep-centered-text-color: ${textColor}` : "",
+]
+  .filter(Boolean)
+  .join("; ");
+
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["pep-banner-centered", className]}
+  paddingVertical="md"
+  paddingHorizontal="md"
+  colorScheme="default"
+  backgroundColor={resolvedBg}
+  style={inlineStyle || undefined}
+  {...htmlAttributes}
+>
+  <div class="pep-banner-centered__inner">
+    <Heading
+      text={heading}
+      level="h1"
+      class="pep-banner-centered__heading"
+      fontFamily={headingFontFamily}
+      data-prop="heading"
+      editable={true}
+    />
+    {showDivider && <hr class="pep-banner-centered__divider" />}
+    {text && <Text text={text} class="pep-banner-centered__text" data-prop="text" />}
+  </div>
+</CustomSection>
+
+<style>
+  .pep-banner-centered {
+    text-align: center;
+  }
+
+  .pep-banner-centered__inner {
+    margin: 0 auto;
+    max-width: 75rem;
+  }
+
+  .pep-banner-centered__heading {
+    color: var(--pep-centered-heading-color, var(--color-brand-secondary, var(--color-brand)));
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.05;
+    margin: 0;
+    text-align: center;
+  }
+
+  .pep-banner-centered__divider {
+    border: 0;
+    border-bottom: 4px solid
+      var(--pep-centered-heading-color, var(--color-brand-secondary, var(--color-brand)));
+    display: block;
+    margin: 1.25rem auto 1.75rem;
+    width: 4.6875rem;
+  }
+
+  .pep-banner-centered__text :global(p) {
+    color: var(--pep-centered-text-color, var(--color-text));
+    font-size: clamp(1.125rem, 2vw, 1.625rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.45;
+    margin: 0 0 1.25rem;
+    text-align: center;
+  }
+
+  .pep-banner-centered__text :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 740px) {
+    .pep-banner-centered__heading {
+      font-size: clamp(2.5rem, 10vw, 3.25rem);
+    }
+
+    .pep-banner-centered__text :global(p) {
+      font-size: 1.125rem;
+    }
+  }
+</style>
