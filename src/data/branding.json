@@ -1,0 +1,19 @@
+{
+  "colorBrand": "",
+  "colorBrandSecondary": "",
+  "colorBrandMuted": "",
+  "colorBrandSubtle": "",
+  "colorBrandOn": "",
+  "colorLink": "",
+  "colorLinkHover": "",
+  "extraColors": [],
+  "bodyFont": {
+    "fontFamily": "\"Figtree\", sans-serif",
+    "linkUrl": "https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+  },
+  "headingsFont": {
+    "fontFamily": "\"Instrument Serif\", serif",
+    "linkUrl": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+  },
+  "extraFonts": []
+}

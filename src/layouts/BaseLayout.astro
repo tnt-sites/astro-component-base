@@ -1,5 +1,6 @@
 ---
 import StructuredData from "@components/utils/StructuredData.astro";
+import brandingData from "@data/branding.json";
 import seoData from "@data/seo.json";
 import Modal from "@page-sections/info-blocks/modal/Modal.astro";
 import "@styles/global.css";
@@ -21,10 +22,50 @@ export interface Props {
   head_scripts?: string[];
   footerScripts?: string[];
   footer_scripts?: string[];
+  extraFontLinks?: string[];
 }
 
 const props = Astro.props;
 const formattedTitle = seoData.titleFormat.replace("{title}", props.title);
+
+// --- Branding: color CSS variable overrides ---
+const brandingColorMap: [string, string][] = [
+  ["--color-brand", brandingData.colorBrand],
+  ["--color-brand-secondary", brandingData.colorBrandSecondary],
+  ["--color-brand-muted", brandingData.colorBrandMuted],
+  ["--color-brand-subtle", brandingData.colorBrandSubtle],
+  ["--color-brand-on", brandingData.colorBrandOn],
+  ["--color-link", brandingData.colorLink],
+  ["--color-link-hover", brandingData.colorLinkHover],
+];
+const brandingExtraColors = Array.isArray(brandingData.extraColors) ? brandingData.extraColors : [];
+const brandingFontVarMap: [string, string][] = [
+  ["--font-body", brandingData.bodyFont?.fontFamily ?? ""],
+  ["--font-headings", brandingData.headingsFont?.fontFamily ?? ""],
+];
+const brandingCssVarDecls = [
+  ...brandingColorMap.filter(([, v]) => v?.trim()),
+  ...brandingFontVarMap.filter(([, v]) => v?.trim()),
+  ...(brandingExtraColors as any[])
+    .filter((e: any) => e?.variable?.trim() && e?.value?.trim())
+    .map((e: any) => [e.variable.trim(), e.value.trim()] as [string, string]),
+]
+  .map(([k, v]) => `${k}: ${v};`)
+  .join(" ");
+
+// --- Branding: font link URLs ---
+const bodyFontUrl = brandingData.bodyFont?.linkUrl?.trim() ?? "";
+const headingsFontUrl = brandingData.headingsFont?.linkUrl?.trim() ?? "";
+const brandingExtraFontUrls = ((brandingData.extraFonts as any[]) ?? [])
+  .map((f: any) => (typeof f === "string" ? f : (f?.linkUrl ?? "")))
+  .filter(Boolean);
+const allBrandingFontUrls = [
+  ...new Set([bodyFontUrl, headingsFontUrl, ...brandingExtraFontUrls].filter(Boolean)),
+];
+
+const pageExtraFontLinks = Array.isArray(props.extraFontLinks)
+  ? (props.extraFontLinks as string[]).filter(Boolean)
+  : [];
 const pageDescription = props.description || seoData.description;
 const pageImage = props.image || seoData.logoSource;
 
@@ -122,10 +163,11 @@ const globalModals = [
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
+    {allBrandingFontUrls.map((url) => <link href={url} rel="stylesheet" />)}
+    {brandingCssVarDecls && (
+      <style is:inline>{`:root { ${brandingCssVarDecls} }`}</style>
+    )}
+    {pageExtraFontLinks.map((url) => <link href={url} rel="stylesheet" />)}
     <slot name="head" />
     {headScripts.map((script: string) => <script is:inline set:html={script} />)}
   </head>

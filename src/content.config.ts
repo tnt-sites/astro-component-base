@@ -125,6 +125,7 @@ const landingPageSchema = z.object({
   landingPageSections: z.array(z.any()).optional(),
   head_scripts: z.array(z.string()).optional(),
   footer_scripts: z.array(z.string()).optional(),
+  extraFonts: z.array(z.string()).optional(),
   parentLandingPage: z.string().optional(),
 });
 

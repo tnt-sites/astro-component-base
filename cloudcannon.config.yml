@@ -127,6 +127,78 @@ collections_config:
         options:
           structures: _structures.buttonSections
         cascade: true
+      colorBrand:
+        type: color
+        cascade: true
+        comment: Primary brand color. Overrides the default red. Leave empty to keep the theme default.
+      colorBrandSecondary:
+        type: color
+        cascade: true
+        comment: Secondary brand color. Overrides the default blue.
+      colorBrandMuted:
+        type: color
+        cascade: true
+        comment: Muted brand color. Overrides the default green.
+      colorBrandSubtle:
+        type: color
+        cascade: true
+        comment: Subtle brand color (usually a neutral gray tone).
+      colorBrandOn:
+        type: color
+        cascade: true
+        comment: Color for text/icons placed on top of brand-colored backgrounds.
+      colorLink:
+        type: color
+        cascade: true
+        comment: Hyperlink color.
+      colorLinkHover:
+        type: color
+        cascade: true
+        comment: Hyperlink hover color.
+      extraColors:
+        type: array
+        cascade: true
+        comment: Additional CSS color variable overrides for custom tokens.
+      $.extraColors[*].variable:
+        type: text
+        cascade: true
+        comment: "CSS variable name including --, e.g. --color-header-bg"
+      $.extraColors[*].value:
+        type: color
+        cascade: true
+        comment: The color value.
+      bodyFont:
+        type: object
+        cascade: true
+        comment: Body text font settings.
+      bodyFont.fontFamily:
+        type: text
+        cascade: true
+        comment: 'CSS font-family string, e.g. "Raleway", sans-serif'
+      bodyFont.linkUrl:
+        type: url
+        cascade: true
+        comment: Google Fonts or Adobe Fonts stylesheet URL for the body font.
+      headingsFont:
+        type: object
+        cascade: true
+        comment: Headings font settings.
+      headingsFont.fontFamily:
+        type: text
+        cascade: true
+        comment: 'CSS font-family string, e.g. "Playfair Display", serif'
+      headingsFont.linkUrl:
+        type: url
+        cascade: true
+        comment: Google Fonts or Adobe Fonts stylesheet URL for the headings font.
+      extraFonts:
+        type: array
+        cascade: true
+        comment: Additional font stylesheet links (e.g. a third typeface or icon font).
+      $.extraFonts[*].linkUrl:
+        type: url
+        cascade: true
+        comment: Full stylesheet URL.
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
@@ -187,6 +259,14 @@ collections_config:
       $.footer_scripts[*]:
         type: textarea
         comment: A single script tag or snippet for the footer.
+        cascade: true
+      extraFonts:
+        type: array
+        comment: Extra font stylesheets for this landing page only (e.g. a Google or Adobe Fonts URL). Does not affect the rest of the site.
+        cascade: true
+      $.extraFonts[*]:
+        type: url
+        comment: Full stylesheet URL, e.g. https://fonts.googleapis.com/css2?family=Raleway&display=swap
         cascade: true
     create:
       path: "[relative_base_path]/{filename|slugify|lowercase}.md"
