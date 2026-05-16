@@ -16,3 +16,16 @@ officeSections:
             mapUrl: ""
         officeHours: []
         officeHoursNote: ""
+      _inputs:
+        officeHours:
+          type: array
+          comment: "Office hours entries."
+        "officeHours[*].day":
+          type: text
+          comment: "Day of the week (e.g. Monday)."
+        "officeHours[*].hours":
+          type: text
+          comment: "Operating hours for the specified day."
+        officeHoursNote:
+          type: text
+          comment: "Optional note displayed below the hours list."
