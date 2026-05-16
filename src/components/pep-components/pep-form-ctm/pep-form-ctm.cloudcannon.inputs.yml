@@ -1,0 +1,131 @@
+backgroundColor:
+  type: select
+  comment: Background color of the outer section (the band behind the content card).
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
+
+backgroundColorHex:
+  type: color
+  comment: Optional custom hex color for the outer section background. Overrides the dropdown above.
+
+contentBackgroundColor:
+  type: select
+  comment: Background color of the inner content card (behind the form). Defaults to surface gray.
+  options:
+    values:
+      - id: ""
+        name: Default (Surface)
+      - id: "var(--color-bg-surface)"
+        name: Surface (Light Gray)
+      - id: "var(--color-bg-base)"
+        name: Base (White)
+      - id: "var(--color-bg-accent)"
+        name: Accent
+      - id: "var(--color-bg-highlight)"
+        name: Highlight
+      - id: "var(--color-bg-brand)"
+        name: Brand
+      - id: "var(--color-bg-brand-secondary)"
+        name: Brand Secondary
+      - id: "#f0f0f0"
+        name: Light Gray (#f0f0f0)
+      - id: "transparent"
+        name: Transparent
+
+contentBackgroundColorHex:
+  type: color
+  comment: Optional custom hex color for the inner content card. Overrides the dropdown above.
+
+callBackgroundColor:
+  type: select
+  comment: Background color of the call-to-action row (photo + phone text). Defaults to white.
+  options:
+    values:
+      - id: ""
+        name: Default (White)
+      - id: "var(--color-bg-base)"
+        name: Base (White)
+      - id: "var(--color-bg-surface)"
+        name: Surface (Light Gray)
+      - id: "var(--color-bg-accent)"
+        name: Accent
+      - id: "var(--color-bg-highlight)"
+        name: Highlight
+      - id: "var(--color-bg-brand)"
+        name: Brand
+      - id: "var(--color-bg-brand-secondary)"
+        name: Brand Secondary
+      - id: "transparent"
+        name: Transparent
+
+callBackgroundColorHex:
+  type: color
+  comment: Optional custom hex color for the call row background. Overrides the dropdown above.
+
+linkColor:
+  type: select
+  comment: Color of the phone number link.
+  options:
+    values:
+      - id: ""
+        name: Default (Brand)
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Dark
+      - id: "var(--color-text-inverse)"
+        name: White
+      - id: "#95982d"
+        name: Olive Green
+
+image:
+  type: object
+  comment: Photo displayed beside the call text (typically a team or doctor photo).
+
+image.source:
+  type: image
+  comment: URL or path of the call-row photo.
+
+image.alt:
+  type: text
+  comment: Alt text for the call-row photo.
+
+figcaption:
+  type: text
+  comment: Caption overlaid at the bottom of the photo (e.g. doctor names). Leave blank to hide.
+
+callText:
+  type: markdown
+  comment: Text displayed in the call row next to the photo. Use **bold** and line breaks as needed.
+
+phone:
+  type: text
+  comment: Phone number digits (e.g. 9042720800 or (904) 272-0800). Used for the tel: href and linked below the call text.
+
+phoneLabel:
+  type: text
+  comment: Display text for the phone link (e.g. "(904) 272-0800"). Defaults to the phone value if left blank.
+
+iframeSrc:
+  type: url
+  comment: The full src URL of the CTM iframe form embed.
+
+bottomText:
+  type: markdown
+  comment: Optional paragraph displayed below the form in the outer section background color. Supports HTML.
