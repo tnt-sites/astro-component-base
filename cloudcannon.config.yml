@@ -1431,6 +1431,38 @@ _select_data:
       name: X Circle
     - id: x-mark
       name: X Mark
+    - id: icon-ok
+      name: Fontello - Ok
+    - id: icon-ok-1
+      name: Fontello - Ok 1
+    - id: icon-ok-circled
+      name: Fontello - Ok Circled
+    - id: icon-ok-circle
+      name: Fontello - Ok Circle
+    - id: icon-star
+      name: Fontello - Star
+    - id: icon-star-half
+      name: Fontello - Star Half
+    - id: icon-star-empty
+      name: Fontello - Star Empty
+    - id: icon-phone
+      name: Fontello - Phone
+    - id: icon-location
+      name: Fontello - Location
+    - id: icon-map-marker
+      name: Fontello - Map Marker
+    - id: icon-calendar-1
+      name: Fontello - Calendar
+    - id: icon-clock
+      name: Fontello - Clock
+    - id: icon-angle-right
+      name: Fontello - Angle Right
+    - id: icon-angle-left
+      name: Fontello - Angle Left
+    - id: icon-plus
+      name: Fontello - Plus
+    - id: icon-minus
+      name: Fontello - Minus
 _snippets_imports:
   mdx: true
 timezone: Etc/UTC

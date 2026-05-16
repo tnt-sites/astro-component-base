@@ -71,7 +71,7 @@ const htmlAttributes = Object.fromEntries(
             <ul class="pep-banner-centered__list" data-prop="listItems">
               {listItems.map((item: string) => (
                 <li>
-                  <Icon name={checkIconName} size="xl" class="pep-banner-centered__list-check" />
+                  <Icon name={checkIconName} size="4xl" class="pep-banner-centered__list-check" />
                   <span class="pep-banner-centered__list-item-text" set:html={item} />
                 </li>
               ))}
@@ -146,10 +146,16 @@ const htmlAttributes = Object.fromEntries(
     margin: 0 0 1rem;
   }
 
-  .pep-banner-centered__list-check {
+  .pep-banner-centered__list li::before {
+    content: none;
+    display: none;
+  }
+
+  .pep-banner-centered__list-check.icon {
     color: var(--pep-centered-check-color, var(--color-brand-secondary, var(--color-brand)));
     filter: drop-shadow(2px 2px 0 var(--pep-centered-check-shadow-color));
     flex: 0 0 auto;
+    font-size: clamp(2.25rem, 4vw, 3rem);
     margin-right: 0.8rem;
     transform: translateY(-0.15em);
   }
