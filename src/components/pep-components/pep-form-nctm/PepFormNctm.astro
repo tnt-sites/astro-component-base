@@ -40,13 +40,27 @@ const {
   ...rest
 } = Astro.props;
 
+const bgColorMap: Record<string, string> = {
+  none: "transparent",
+  base: "var(--color-bg-base)",
+  surface: "var(--color-bg-surface)",
+  accent: "var(--color-bg-accent)",
+  highlight: "var(--color-bg-highlight)",
+  dark: "var(--color-bg-dark, #2a2a2a)",
+  black: "var(--color-bg-inverse, #000)",
+};
+const resolveBgKey = (key: string) => bgColorMap[key] ?? "";
+
 const resolvedContentBg =
-  contentBackgroundColorHex || contentBackgroundColor || "var(--color-bg-surface, #f0f0f0)";
+  contentBackgroundColorHex ||
+  resolveBgKey(contentBackgroundColor) ||
+  "var(--color-bg-surface, #f0f0f0)";
 const resolvedCallBg =
-  callBackgroundColorHex || callBackgroundColor || "var(--color-bg-base, #fff)";
+  callBackgroundColorHex || resolveBgKey(callBackgroundColor) || "var(--color-bg-base, #fff)";
 const resolvedFormBg =
-  formBackgroundColorHex || formBackgroundColor || "var(--color-bg-surface, #f0f0f0)";
-const resolvedSubmitBg = submitBackgroundColorHex || submitBackgroundColor || "var(--color-brand)";
+  formBackgroundColorHex || resolveBgKey(formBackgroundColor) || "var(--color-bg-surface, #f0f0f0)";
+const resolvedSubmitBg =
+  submitBackgroundColorHex || resolveBgKey(submitBackgroundColor) || "var(--color-brand)";
 
 const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
@@ -95,19 +109,7 @@ const htmlAttributes = Object.fromEntries(
         )
       }
       <article class="pep-form-nctm__article">
-        <p data-prop="callText">
-          <Fragment set:html={callText} />
-          {
-            phone && (
-              <a
-                href={`tel:${phone.replace(/\D/g, "").replace(/^(\d)/, "+1$1")}`}
-                class="pep-form-nctm__phone"
-              >
-                {phoneLabel || phone}
-              </a>
-            )
-          }
-        </p>
+        <p data-prop="callText" set:html={callText} />
       </article>
     </div>
 
@@ -216,11 +218,11 @@ const htmlAttributes = Object.fromEntries(
     text-align: left;
   }
 
-  .pep-form-nctm__phone {
+  .pep-form-nctm__article a {
     color: var(--pfnc-link-color, var(--color-brand));
   }
 
-  .pep-form-nctm__phone:hover {
+  .pep-form-nctm__article a:hover {
     color: var(--color-brand-secondary, var(--color-brand));
   }
 

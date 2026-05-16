@@ -24,27 +24,25 @@ backgroundColorHex:
 
 contentBackgroundColor:
   type: select
-  comment: Background color of the inner content card (behind the form). Defaults to surface gray.
+  comment: Background color of the inner content card (behind the form).
   options:
     values:
       - id: ""
-        name: Default (Surface)
-      - id: "var(--color-bg-surface)"
-        name: Surface (Light Gray)
-      - id: "var(--color-bg-base)"
-        name: Base (White)
-      - id: "var(--color-bg-accent)"
+        name: Default
+      - id: none
+        name: None (Transparent)
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
         name: Accent
-      - id: "var(--color-bg-highlight)"
+      - id: highlight
         name: Highlight
-      - id: "var(--color-bg-brand)"
-        name: Brand
-      - id: "var(--color-bg-brand-secondary)"
-        name: Brand Secondary
-      - id: "#f0f0f0"
-        name: Light Gray (#f0f0f0)
-      - id: "transparent"
-        name: Transparent
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
 
 contentBackgroundColorHex:
   type: color
@@ -52,25 +50,25 @@ contentBackgroundColorHex:
 
 callBackgroundColor:
   type: select
-  comment: Background color of the call-to-action row (photo + phone text). Defaults to white.
+  comment: Background color of the call-to-action row (photo + call text).
   options:
     values:
       - id: ""
-        name: Default (White)
-      - id: "var(--color-bg-base)"
-        name: Base (White)
-      - id: "var(--color-bg-surface)"
-        name: Surface (Light Gray)
-      - id: "var(--color-bg-accent)"
+        name: Default
+      - id: none
+        name: None (Transparent)
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
         name: Accent
-      - id: "var(--color-bg-highlight)"
+      - id: highlight
         name: Highlight
-      - id: "var(--color-bg-brand)"
-        name: Brand
-      - id: "var(--color-bg-brand-secondary)"
-        name: Brand Secondary
-      - id: "transparent"
-        name: Transparent
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
 
 callBackgroundColorHex:
   type: color
@@ -111,16 +109,8 @@ figcaption:
   comment: Caption overlaid at the bottom of the photo (e.g. doctor names). Leave blank to hide.
 
 callText:
-  type: markdown
-  comment: Text displayed in the call row next to the photo. Use **bold** and line breaks as needed.
-
-phone:
-  type: text
-  comment: Phone number digits (e.g. 9042720800 or (904) 272-0800). Used for the tel: href and linked below the call text.
-
-phoneLabel:
-  type: text
-  comment: Display text for the phone link (e.g. "(904) 272-0800"). Defaults to the phone value if left blank.
+  type: html
+  comment: Full call-to-action text displayed in the call row next to the photo. Supports links, line breaks, and inline formatting. Include the phone number as a linked anchor (e.g. <a href="tel:+19042720800">(904) 272-0800</a>).
 
 iframeSrc:
   type: url

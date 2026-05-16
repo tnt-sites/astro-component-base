@@ -15,10 +15,10 @@ value:
     source: https://placehold.co/485x400
     alt: Doctor photo
   figcaption: "Dr. Last Name | Dr. Last Name"
-  callText: |
-    Call Us Today at
-  phone: ""
-  phoneLabel: "(000) 000-0000"
+  callText: >-
+    Call Us Today at <a href="tel:+10000000000">(000) 000-0000</a><br>
+    or Complete the Form Below to<br>
+    Reserve Your Next Appointment
   iframeSrc: ""
   bottomText: ""
 _inputs_from_glob:
