@@ -263,9 +263,12 @@ pepSections:
     backgroundColor: base
     backgroundColorHex: ''
     headingColor: var(--color-brand-secondary)
+    dividerColor: var(--color-brand)
     textColor: var(--color-text)
+    paddingVertical: xl
     heading: Resolve to Smile More in 2025
     headingFontFamily: ''
+    contentStyle: checklist
     showDivider: true
     text: >
       While a visit to the dentist is not likely to be one of your top 2025
@@ -281,6 +284,17 @@ pepSections:
       You may just want to commit to regular check-ups and cleanings. Or, you
       might want to create an entirely new you with a smile makeover. In any
       case, our entire team is here to help.
+    listItems:
+      - Prevention is way less expensive than fixing major problems
+      - >-
+        Lower the risk of gum disease by 81% with regular check-ups and
+        cleanings
+      - Half of Americans are not getting the dental care they need
+      - Daily brushing and flossing is the number one habit for healthy smiles
+      - Your natural teeth should last a lifetime
+    checkColor: var(--color-brand)
+    checkmarkShadowColor: var(--color-brand-secondary)
+    checkmarkShadowColorHex: ''
 head_scripts: []
 footer_scripts: []
 extraFonts:
