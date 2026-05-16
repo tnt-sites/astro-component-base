@@ -64,6 +64,9 @@ landingFooter:
       positionVertical: top
       positionHorizontal: center
     backgroundGradient: ''
+    backgroundColor: dark
+    linkColor: ''
+    linkHoverColor: ''
     legalBlurb: >-
       Our New Patient Offer is a great way to become familiar with Our Practice.
       New patients only. Requires payment at first visit. Includes all necessary
@@ -72,22 +75,7 @@ landingFooter:
       available for patients without dental insurance. Patients with dental
       insurance give us a call for details. Not valid if gum disease is present.
       Restrictions apply. One per lifetime.
-    offices:
-      - name: ''
-        phones:
-          - display: (123) 456-7890
-            href: tel:+11234567890
-        addresses:
-          - lines:
-              - 123 Main Street
-              - Suite 200
-            city: Dunedin
-            state: FL
-            postalCode: '34698'
-            country: USA
-            mapUrl: https://maps.google.com
-        officeHours: []
-        officeHoursNote: ''
+    offices: []
 landingPageSections: []
 head_scripts:
   - /* Test Header Script 2 */
