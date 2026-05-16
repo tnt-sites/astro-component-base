@@ -38,25 +38,9 @@ headingColor:
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
 
-dividerColor:
-  type: select
-  comment: Color of the short divider under the heading. Leave blank to match the heading color.
-  options:
-    values:
-      - id: ""
-        name: Default (Match Heading)
-      - id: "var(--color-text)"
-        name: Dark
-      - id: "var(--color-text-inverse)"
-        name: White
-      - id: "var(--color-brand)"
-        name: Brand (Primary)
-      - id: "var(--color-brand-secondary)"
-        name: Brand (Secondary)
-
 textColor:
   type: select
-  comment: Color of the body copy. Leave blank to inherit the component default.
+  comment: Color of the list item text. Leave blank to use the component default.
   options:
     values:
       - id: ""
@@ -69,6 +53,22 @@ textColor:
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+
+checkColor:
+  type: select
+  comment: Color of the oversized checkmarks before each list item.
+  options:
+    values:
+      - id: ""
+        name: Default
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Dark
+      - id: "var(--color-text-inverse)"
+        name: White
 
 paddingVertical:
   type: select
@@ -100,34 +100,9 @@ headingFontFamily:
   type: text
   comment: Override the font family for this heading. Leave blank to use the site default. Use any font family loaded by the page, including extra fonts.
 
-contentStyle:
-  type: select
-  comment: Choose whether this banner shows paragraph text or a checklist with oversized checkmarks.
-  options:
-    values:
-      - id: paragraph
-        name: Paragraph
-      - id: checklist
-        name: Checklist
-
-showDivider:
-  type: switch
-  comment: Show the short rule under the heading.
-
-text:
-  type: markdown
-  comment: Centered body copy shown below the heading when Content Style is Paragraph.
-  options:
-    bold: true
-    italic: true
-    link: true
-    strike: false
-    bulletedlist: false
-    numberedlist: false
-
 listItems:
   type: array
-  comment: Checklist items shown when Content Style is Checklist.
+  comment: Bullet items shown with oversized checkmarks.
   options:
     structures:
       values:
@@ -138,39 +113,3 @@ listItems:
 listItems[*]:
   type: text
   comment: Single checklist line. Supports simple inline HTML.
-
-checkColor:
-  type: select
-  comment: Color of the oversized checkmarks in checklist mode.
-  options:
-    values:
-      - id: ""
-        name: Default
-      - id: "var(--color-brand)"
-        name: Brand (Primary)
-      - id: "var(--color-brand-secondary)"
-        name: Brand (Secondary)
-      - id: "var(--color-text)"
-        name: Dark
-      - id: "var(--color-text-inverse)"
-        name: White
-
-checkmarkShadowColor:
-  type: select
-  comment: Shadow color behind checklist checkmarks. Use the hex override below for any custom shadow color.
-  options:
-    values:
-      - id: ""
-        name: Default
-      - id: "var(--color-brand)"
-        name: Brand (Primary)
-      - id: "var(--color-brand-secondary)"
-        name: Brand (Secondary)
-      - id: "var(--color-text)"
-        name: Dark
-      - id: "var(--color-text-inverse)"
-        name: White
-
-checkmarkShadowColorHex:
-  type: color
-  comment: Optional custom hex shadow color for checklist checkmarks. Overrides the shadow dropdown when set.

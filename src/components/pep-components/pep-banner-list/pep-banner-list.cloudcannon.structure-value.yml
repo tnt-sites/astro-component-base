@@ -1,0 +1,22 @@
+label: PEP Banner List
+icon: dashboard
+description: Centered PEP banner with a large heading and checklist items with oversized checkmarks.
+value:
+  _component: pep-components/pep-banner-list
+  id: ""
+  backgroundColor: base
+  backgroundColorHex: ""
+  headingColor: "var(--color-brand-secondary)"
+  textColor: "var(--color-text)"
+  checkColor: "var(--color-brand-secondary)"
+  paddingVertical: md
+  heading: "Let Us Help You Create a <br>Beautiful, Healthy Smile"
+  headingFontFamily: ""
+  listItems:
+    - Prevention is way less expensive than fixing major problems
+    - Lower the risk of gum disease by 81% with regular check-ups and cleanings
+    - Half of Americans are not getting the dental care they need
+    - Daily brushing and flossing is the number one habit for healthy smiles
+    - Your natural teeth should last a lifetime
+_inputs_from_glob:
+  - /src/components/pep-components/pep-banner-list/pep-banner-list.cloudcannon.inputs.yml

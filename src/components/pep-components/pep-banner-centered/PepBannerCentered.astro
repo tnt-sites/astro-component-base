@@ -6,21 +6,33 @@ import Heading from "@core-elements/heading/Heading.astro";
 const {
   heading = "",
   headingFontFamily = "",
+  contentStyle = "paragraph",
   text = "",
+  listItems = [],
   showDivider = true,
   paddingVertical = "md",
   backgroundColor = "base",
   backgroundColorHex = "",
   headingColor = "",
+  dividerColor = "",
   textColor = "",
+  checkColor = "",
+  checkmarkShadowColor = "",
+  checkmarkShadowColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
+const resolvedCheckmarkShadow =
+  checkmarkShadowColorHex || checkmarkShadowColor || "var(--color-brand, #000)";
+
 const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   headingColor ? `--pep-centered-heading-color: ${headingColor}` : "",
+  dividerColor ? `--pep-centered-divider-color: ${dividerColor}` : "",
   textColor ? `--pep-centered-text-color: ${textColor}` : "",
+  checkColor ? `--pep-centered-check-color: ${checkColor}` : "",
+  `--pep-centered-check-shadow-color: ${resolvedCheckmarkShadow}`,
 ]
   .filter(Boolean)
   .join("; ");
@@ -51,7 +63,17 @@ const htmlAttributes = Object.fromEntries(
       editable={true}
     />
     {showDivider && <hr class="pep-banner-centered__divider" />}
-    {text && <Text text={text} class="pep-banner-centered__text" data-prop="text" />}
+    {
+      contentStyle === "checklist"
+        ? listItems.length > 0 && (
+            <ul class="pep-banner-centered__list" data-prop="listItems">
+              {listItems.map((item: string) => (
+                <li set:html={item} />
+              ))}
+            </ul>
+          )
+        : text && <Text text={text} class="pep-banner-centered__text" data-prop="text" />
+    }
   </div>
 </CustomSection>
 
@@ -78,7 +100,10 @@ const htmlAttributes = Object.fromEntries(
   .pep-banner-centered__divider {
     border: 0;
     border-bottom: 4px solid
-      var(--pep-centered-heading-color, var(--color-brand-secondary, var(--color-brand)));
+      var(
+        --pep-centered-divider-color,
+        var(--pep-centered-heading-color, var(--color-brand-secondary, var(--color-brand)))
+      );
     display: block;
     margin: 1.25rem auto 1.75rem;
     width: 4.6875rem;
@@ -98,6 +123,40 @@ const htmlAttributes = Object.fromEntries(
     margin-bottom: 0;
   }
 
+  .pep-banner-centered__list {
+    display: table;
+    list-style: none;
+    margin: 0 auto;
+    max-width: 62.5rem;
+    padding: 0;
+    text-align: left;
+  }
+
+  .pep-banner-centered__list li {
+    color: var(--pep-centered-text-color, var(--color-text));
+    font-size: clamp(1.125rem, 2vw, 1.75rem);
+    line-height: 1.35;
+    margin: 0 0 1rem;
+    padding-left: 3rem;
+    position: relative;
+  }
+
+  .pep-banner-centered__list li::before {
+    color: var(--pep-centered-check-color, var(--color-brand-secondary, var(--color-brand)));
+    content: "\2713";
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    left: 0;
+    line-height: 1;
+    position: absolute;
+    text-shadow: 2px 2px 0 var(--pep-centered-check-shadow-color);
+    top: -0.15em;
+  }
+
+  .pep-banner-centered__list li:last-child {
+    margin-bottom: 0;
+  }
+
   @media (max-width: 740px) {
     .pep-banner-centered__heading {
       font-size: clamp(2.5rem, 10vw, 3.25rem);
@@ -105,6 +164,10 @@ const htmlAttributes = Object.fromEntries(
 
     .pep-banner-centered__text :global(p) {
       font-size: 1.125rem;
+    }
+
+    .pep-banner-centered__list li {
+      padding-left: 2.4rem;
     }
   }
 </style>
