@@ -1,7 +1,7 @@
 {
   "colorBrand": "red",
   "colorBrandSecondary": "blue",
-  "colorBrandMuted": "green",
+  "colorBrandTertiary": "green",
   "colorBrandSubtle": "",
   "colorBrandOn": "",
   "colorLink": "blue",

@@ -130,19 +130,19 @@ collections_config:
       colorBrand:
         type: color
         cascade: true
-        comment: Primary brand color. Overrides the default red. Leave empty to keep the theme default.
+        comment: Primary brand color.
       colorBrandSecondary:
         type: color
         cascade: true
-        comment: Secondary brand color. Overrides the default blue.
-      colorBrandMuted:
+        comment: Secondary brand color.
+      colorBrandTertiary:
         type: color
         cascade: true
-        comment: Muted brand color. Overrides the default green.
+        comment: Tertiary brand color.
       colorBrandSubtle:
         type: color
         cascade: true
-        comment: Subtle brand color (usually a neutral gray tone).
+        comment: Subtle brand color.
       colorBrandOn:
         type: color
         cascade: true
@@ -159,6 +159,10 @@ collections_config:
         type: array
         cascade: true
         comment: Additional CSS color variable overrides for custom tokens.
+        options:
+          values:
+            - variable: ""
+              value: ""
       $.extraColors[*].variable:
         type: text
         cascade: true
@@ -195,6 +199,9 @@ collections_config:
         type: array
         cascade: true
         comment: Additional font stylesheet links (e.g. a third typeface or icon font).
+        options:
+          values:
+            - linkUrl: ""
       $.extraFonts[*].linkUrl:
         type: url
         cascade: true
@@ -264,6 +271,9 @@ collections_config:
         type: array
         comment: Extra font stylesheets for this landing page only (e.g. a Google or Adobe Fonts URL). Does not affect the rest of the site.
         cascade: true
+        options:
+          values:
+            - ""
       $.extraFonts[*]:
         type: url
         comment: Full stylesheet URL, e.g. https://fonts.googleapis.com/css2?family=Raleway&display=swap
