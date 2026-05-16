@@ -22,19 +22,7 @@ landingMainNav:
         borderColor: default
         textColor: default
         uppercase: false
-    offices:
-      - name: ''
-        phones:
-          - display: (123) 456-7890
-            href: tel:+1
-        addresses:
-          - lines: []
-            city: ''
-            state: ''
-            postalCode: ''
-            mapUrl: ''
-        officeHours: []
-        officeHoursNote: ''
+    offices: []
 landingFooter:
   - _component: navigation/landing/landing-footer-map-grid
     heading: Schedule Your Appointment Today!
@@ -46,6 +34,9 @@ landingFooter:
       - name: Privacy Policy
         path: privacy-policy.html
     legalBlurb: ''
+    backgroundColor: ''
+    linkColor: ''
+    linkHoverColor: ''
 landingPageSections:
   - _component: landing-page-components/new-patient-three-callouts/banner
     id: ''
