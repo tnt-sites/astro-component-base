@@ -130,31 +130,35 @@ collections_config:
       colorBrand:
         type: color
         cascade: true
-        comment: Primary brand color.
+        comment: Primary brand color (--color-brand).
       colorBrandSecondary:
         type: color
         cascade: true
-        comment: Secondary brand color.
+        comment: Secondary brand color (--color-brand-secondary).
       colorBrandTertiary:
         type: color
         cascade: true
-        comment: Tertiary brand color.
+        comment: Tertiary brand color (--color-brand-muted).
       colorBrandSubtle:
         type: color
         cascade: true
-        comment: Subtle brand color.
+        comment: Subtle brand color, usually a neutral tone (--color-brand-subtle).
       colorBrandOn:
         type: color
         cascade: true
-        comment: Color for text/icons placed on top of brand-colored backgrounds.
+        comment: Color overlaid on brand-colored backgrounds (--color-brand-on).
+      colorTextOnBrand:
+        type: color
+        cascade: true
+        comment: Text color on brand-colored backgrounds (--color-text-on-brand).
       colorLink:
         type: color
         cascade: true
-        comment: Hyperlink color.
+        comment: Hyperlink color (--color-link).
       colorLinkHover:
         type: color
         cascade: true
-        comment: Hyperlink hover color.
+        comment: Hyperlink hover color (--color-link-hover).
       extraColors:
         type: array
         cascade: true
@@ -182,10 +186,6 @@ collections_config:
         type: text
         cascade: true
         comment: 'CSS font-family string, e.g. "Raleway", sans-serif'
-      bodyFont.linkUrl:
-        type: url
-        cascade: true
-        comment: Google Fonts or Adobe Fonts stylesheet URL for the body font.
       headingsFont:
         type: object
         cascade: true
@@ -194,21 +194,11 @@ collections_config:
         type: text
         cascade: true
         comment: 'CSS font-family string, e.g. "Playfair Display", serif'
-      headingsFont.linkUrl:
-        type: url
-        cascade: true
-        comment: Google Fonts or Adobe Fonts stylesheet URL for the headings font.
-      extraFonts:
+      fontLinks:
         type: array
         cascade: true
-        comment: Additional font stylesheet links (e.g. a third typeface or icon font).
-        options:
-          structures:
-            values:
-              - value:
-                  linkUrl: ""
-                label: Font
-      $.extraFonts[*].linkUrl:
+        comment: Font stylesheet links for the site (Google, Adobe, or mixed).
+      $.fontLinks[*]:
         type: url
         cascade: true
         comment: Full stylesheet URL.

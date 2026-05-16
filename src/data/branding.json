@@ -1,19 +1,20 @@
 {
   "colorBrand": "#ff8c00",
-  "colorBrandSecondary": "blue",
-  "colorBrandTertiary": "green",
+  "colorBrandSecondary": "#000",
+  "colorBrandTertiary": "yellow",
   "colorBrandSubtle": "",
   "colorBrandOn": "",
+  "colorTextOnBrand": "",
   "colorLink": "blue",
   "colorLinkHover": "darkblue",
   "extraColors": [],
   "bodyFont": {
-    "fontFamily": "\"Figtree\", sans-serif",
-    "linkUrl": "https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+    "fontFamily": "\"Lato\", sans-serif"
   },
   "headingsFont": {
-    "fontFamily": "\"Instrument Serif\", serif",
-    "linkUrl": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+    "fontFamily": "\"Playwrite GB J Guides\", serif"
   },
-  "extraFonts": []
+  "fontLinks": [
+    "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playwrite+GB+J+Guides:ital@0;1&display=swap"
+  ]
 }
