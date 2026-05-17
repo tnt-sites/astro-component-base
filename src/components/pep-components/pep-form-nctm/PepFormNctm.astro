@@ -223,7 +223,6 @@ const htmlAttributes = Object.fromEntries(
     letter-spacing: -0.02em;
     line-height: 1.35;
     padding: 0.625rem;
-    text-align: left;
   }
 
   .pep-form-nctm__article a {
@@ -341,20 +340,25 @@ const htmlAttributes = Object.fromEntries(
   }
 
   /* ── Responsive ───────────────────────────────────────────────────────────── */
-  @media (max-width: 890px) {
+  @media (max-width: 1024px) {
     .pep-form-nctm__call {
-      flex-wrap: wrap;
-      justify-content: center;
+      display: block;
       padding: 1.875rem 0.625rem 0.625rem;
+      text-align: center;
     }
 
     .pep-form-nctm__figure {
       flex: 0 1 100%;
+      margin: 0 auto;
       max-width: 485px;
+    }
+
+    .pep-form-nctm__article p {
+      text-align: center;
     }
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 768px) {
     .pep-form-nctm__call {
       display: block;
       text-align: center;

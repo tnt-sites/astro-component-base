@@ -15,6 +15,10 @@ const {
   iconBackgroundColorHex = "",
   linkColor = "",
   linkColorHex = "",
+  mobileCallBackgroundColor = "",
+  mobileCallBackgroundColorHex = "",
+  mobileApptBackgroundColor = "",
+  mobileApptBackgroundColorHex = "",
   mobileCallSmallText = "Call Today!",
   mobileApptLabel = "Request an Appointment",
   mobileApptHref = "",
@@ -32,6 +36,10 @@ const {
   iconBackgroundColorHex?: string;
   linkColor?: string;
   linkColorHex?: string;
+  mobileCallBackgroundColor?: string;
+  mobileCallBackgroundColorHex?: string;
+  mobileApptBackgroundColor?: string;
+  mobileApptBackgroundColorHex?: string;
   mobileCallSmallText?: string;
   mobileApptLabel?: string;
   mobileApptHref?: string;
@@ -74,6 +82,7 @@ const bgColorMap: Record<string, string> = {
 const colorTokenMap: Record<string, string> = {
   brand: "var(--color-brand)",
   "brand-secondary": "var(--color-brand-secondary)",
+  "brand-tertiary": "var(--color-brand-muted)",
   dark: "var(--color-text)",
   white: "var(--color-text-inverse)",
 };
@@ -81,11 +90,17 @@ const colorTokenMap: Record<string, string> = {
 const resolvedBg = backgroundColorHex || bgColorMap[backgroundColor] || "";
 const resolvedIconBg = iconBackgroundColorHex || colorTokenMap[iconBackgroundColor] || "";
 const resolvedLinkColor = linkColorHex || colorTokenMap[linkColor] || "";
+const resolvedMobileCallBg =
+  mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
+const resolvedMobileApptBg =
+  mobileApptBackgroundColorHex || colorTokenMap[mobileApptBackgroundColor] || "";
 
 const cssVars = [
   resolvedBg && `--lhci-bg: ${resolvedBg}`,
   resolvedIconBg && `--lhci-icon-bg: ${resolvedIconBg}`,
   resolvedLinkColor && `--lhci-link-color: ${resolvedLinkColor}`,
+  resolvedMobileCallBg && `--lhci-mobile-call-bg: ${resolvedMobileCallBg}`,
+  resolvedMobileApptBg && `--lhci-mobile-appt-bg: ${resolvedMobileApptBg}`,
 ]
   .filter(Boolean)
   .join("; ");
@@ -94,6 +109,10 @@ const firstPhone = normalizedOffices[0]?.phones?.[0];
 const mobileCallHref = firstPhone?.href || "#";
 const mobileCallDisplay = firstPhone?.display || "";
 const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
+const mobileApptLabelParts =
+  typeof mobileApptLabel === "string" ? mobileApptLabel.trim().split(/\s+/) : [];
+const mobileApptFirstLine = mobileApptLabelParts[0] || "";
+const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
 ---
 
 <header
@@ -178,7 +197,8 @@ const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
       )
     }
     <a href={mobileApptLink} class="lhci-mobile-appt">
-      {mobileApptLabel}
+      {mobileApptFirstLine && <span>{mobileApptFirstLine}</span>}
+      {mobileApptSecondLine && <span>{mobileApptSecondLine}</span>}
     </a>
   </div>
 </header>
@@ -289,7 +309,6 @@ const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
 
         a {
           align-items: center;
-          background-color: var(--lhci-icon-bg, var(--color-brand, #95982d));
           color: #fff;
           display: flex;
           flex: 1;
@@ -301,15 +320,36 @@ const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
           text-decoration: none;
         }
 
+        .lhci-mobile-call {
+          background-color: var(
+            --lhci-mobile-call-bg,
+            var(--lhci-icon-bg, var(--color-brand, #95982d))
+          );
+        }
+
         .lhci-mobile-appt {
-          filter: brightness(0.85);
+          background-color: var(
+            --lhci-mobile-appt-bg,
+            var(--lhci-icon-bg, var(--color-brand, #95982d))
+          );
+          text-transform: uppercase;
+        }
+
+        .lhci-mobile-appt span {
+          display: block;
         }
 
         .lhci-mobile-small {
           display: block;
           font-size: 0.75rem;
           font-weight: var(--font-weight-normal);
+          text-transform: uppercase;
         }
+      }
+
+      @media (max-width: 1024px){
+        .lhci-logo-link{margin: 0 auto; padding: 20px 10px;}
+        .lhci-address, .lhci-phone, .lhci-buttons{display: none;}
       }
     }
   }

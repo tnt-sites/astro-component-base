@@ -107,7 +107,7 @@ const htmlAttributes = Object.fromEntries(
 
   .callout-squares__grid {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
   }
 
   .callout-squares__item {
@@ -156,7 +156,10 @@ const htmlAttributes = Object.fromEntries(
     }
   }
 
-  @media (max-width: 430px) {
+  @media (max-width: 768px) {
+    .callout-squares__grid {
+      display: block;
+    }
     .callout-squares__item {
       flex: 0 1 100%;
       padding: 1.25rem 0.9rem;

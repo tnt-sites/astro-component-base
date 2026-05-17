@@ -22,6 +22,53 @@ backgroundColorHex:
   type: color
   comment: Optional custom hex color that overrides the background color above. Leave blank to use the theme color.
 
+backgroundImage:
+  type: file
+  comment: Optional background image asset for the banner. Image will be set to no-repeat and centered.
+  accepts:
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+      - svg
+
+backgroundPositionX:
+  type: text
+  comment: Horizontal position of the background image (e.g., 'center', '50%', '271px').
+
+backgroundPositionY:
+  type: text
+  comment: Vertical position of the background image (e.g., '80%', 'center', '100px').
+
+boxShadow:
+  type: boolean
+  comment: Optional box shadow for the banner..
+
+topBorder:
+  type: boolean
+  comment: Show a thin border at the top of the banner.
+
+borderColor:
+  type: select
+  comment: Color of the bottom border stripe. Leave blank to use the default brand color.
+  options:
+    values:
+      - id: ""
+        name: Default (Brand)
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
+      - id: "var(--color-accent)"
+        name: Accent
+      - id: "#000000"
+        name: Black
+      - id: "#ffffff"
+        name: White
+
 headingColor:
   type: select
   comment: Color of the H1 heading text. Leave blank to use the theme default.

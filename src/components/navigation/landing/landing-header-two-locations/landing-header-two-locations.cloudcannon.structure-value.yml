@@ -6,6 +6,10 @@ value:
   logoSource: /images/logo.svg
   logoAlt: Logo
   mobileCallLabel: Call Today!
+  mobileCallBackgroundColor: ""
+  mobileCallBackgroundColorHex: ""
+  mobileApptBackgroundColor: ""
+  mobileApptBackgroundColorHex: ""
   pageButtons:
     - _component: building-blocks/core-elements/button
       text: Request an Appointment
@@ -35,6 +39,46 @@ _inputs:
   mobileCallLabel:
     type: text
     comment: "Label shown above the phone number in the mobile call button (e.g. 'Call Today!')."
+  mobileCallBackgroundColor:
+    type: select
+    comment: "Background color of the mobile call button."
+    options:
+      values:
+        - id: ""
+          name: Default (Brand Secondary)
+        - id: brand
+          name: Brand Primary
+        - id: brand-secondary
+          name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
+        - id: dark
+          name: Dark
+        - id: white
+          name: White
+  mobileCallBackgroundColorHex:
+    type: color
+    comment: "Optional custom hex color for the mobile call button. Overrides the dropdown above."
+  mobileApptBackgroundColor:
+    type: select
+    comment: "Background color of the mobile request button."
+    options:
+      values:
+        - id: ""
+          name: Default (Brand Primary)
+        - id: brand
+          name: Brand Primary
+        - id: brand-secondary
+          name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
+        - id: dark
+          name: Dark
+        - id: white
+          name: White
+  mobileApptBackgroundColorHex:
+    type: color
+    comment: "Optional custom hex color for the mobile request button. Overrides the dropdown above."
   id:
     type: text
     comment: "Developer use only. Optional HTML id attribute for this header section."

@@ -9,6 +9,10 @@ const {
   pageButtons = [],
   offices = [],
   mobileCallLabel = "Call Today!",
+  mobileCallBackgroundColor = "",
+  mobileCallBackgroundColorHex = "",
+  mobileApptBackgroundColor = "",
+  mobileApptBackgroundColorHex = "",
   id: elementId,
   class: className,
   ...htmlAttributes
@@ -18,6 +22,10 @@ const {
   pageButtons?: any[];
   offices?: any[];
   mobileCallLabel?: string;
+  mobileCallBackgroundColor?: string;
+  mobileCallBackgroundColorHex?: string;
+  mobileApptBackgroundColor?: string;
+  mobileApptBackgroundColorHex?: string;
   id?: string;
   class?: string;
   [key: string]: any;
@@ -39,6 +47,14 @@ const buttons = (Array.isArray(pageButtons) ? pageButtons : []).map((button: any
   text: typeof button?.text === "string" ? button.text : "",
 }));
 
+const colorTokenMap: Record<string, string> = {
+  brand: "var(--color-brand)",
+  "brand-secondary": "var(--color-brand-secondary)",
+  "brand-tertiary": "var(--color-brand-muted)",
+  dark: "var(--color-text)",
+  white: "var(--color-text-inverse)",
+};
+
 const resolvedOffices =
   Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
 
@@ -50,6 +66,22 @@ const mobilePhone = leftOffice?.phones?.[0] ?? rightOffice?.phones?.[0] ?? null;
 
 // Mobile CTA: use first page button
 const mobileButton = buttons[0] ?? null;
+const mobileButtonLabelParts =
+  typeof mobileButton?.text === "string" ? mobileButton.text.trim().split(/\s+/) : [];
+const mobileButtonFirstLine = mobileButtonLabelParts[0] || "";
+const mobileButtonSecondLine = mobileButtonLabelParts.slice(1).join(" ");
+
+const resolvedMobileCallBg =
+  mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
+const resolvedMobileApptBg =
+  mobileApptBackgroundColorHex || colorTokenMap[mobileApptBackgroundColor] || "";
+
+const cssVars = [
+  resolvedMobileCallBg && `--lhtl-mobile-call-bg: ${resolvedMobileCallBg}`,
+  resolvedMobileApptBg && `--lhtl-mobile-appt-bg: ${resolvedMobileApptBg}`,
+]
+  .filter(Boolean)
+  .join("; ");
 
 const renderOffice = (office: any) => {
   if (!office) return null;
@@ -68,6 +100,7 @@ const right = renderOffice(rightOffice);
   paddingVertical="none"
   id={elementId || undefined}
   class:list={["landing-header-two-locations", className]}
+  style={cssVars || undefined}
   {...htmlAttributes}
 >
   <div class="lhtl-inner">
@@ -157,7 +190,12 @@ const right = renderOffice(rightOffice);
       {
         mobileButton && (
           <a href={mobileButton.link || "#"} class="lhtl-mobile-cta">
-            <span class="lhtl-mobile-label">{mobileButton.text}</span>
+            {mobileButtonFirstLine && (
+              <span class="lhtl-mobile-label">{mobileButtonFirstLine}</span>
+            )}
+            {mobileButtonSecondLine && (
+              <span class="lhtl-mobile-label">{mobileButtonSecondLine}</span>
+            )}
           </a>
         )
       }
@@ -275,7 +313,7 @@ const right = renderOffice(rightOffice);
       }
 
       .lhtl-mobile-call {
-        background-color: var(--color-brand-secondary);
+        background-color: var(--lhtl-mobile-call-bg, var(--color-brand-secondary));
         color: var(--color-text-on-brand);
 
         &:hover,
@@ -285,7 +323,7 @@ const right = renderOffice(rightOffice);
       }
 
       .lhtl-mobile-cta {
-        background-color: var(--color-brand);
+        background-color: var(--lhtl-mobile-appt-bg, var(--color-brand));
         color: var(--color-text-on-brand);
 
         &:hover,

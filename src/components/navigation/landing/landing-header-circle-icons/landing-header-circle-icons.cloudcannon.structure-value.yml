@@ -22,6 +22,10 @@ value:
   iconBackgroundColorHex: ""
   linkColor: ""
   linkColorHex: ""
+  mobileCallBackgroundColor: ""
+  mobileCallBackgroundColorHex: ""
+  mobileApptBackgroundColor: ""
+  mobileApptBackgroundColorHex: ""
   mobileCallSmallText: "Call Today!"
   mobileApptLabel: "Request an Appointment"
   mobileApptHref: ""
@@ -118,6 +122,8 @@ _inputs:
           name: Brand Primary
         - id: brand-secondary
           name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
         - id: dark
           name: Dark
         - id: white
@@ -136,6 +142,8 @@ _inputs:
           name: Brand Primary
         - id: brand-secondary
           name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
         - id: dark
           name: Dark
         - id: white
@@ -143,6 +151,46 @@ _inputs:
   linkColorHex:
     type: color
     comment: "Optional custom hex color for link text. Overrides the dropdown above."
+  mobileCallBackgroundColor:
+    type: select
+    comment: "Background color of the mobile call button."
+    options:
+      values:
+        - id: ""
+          name: Default (Match Icon Background)
+        - id: brand
+          name: Brand Primary
+        - id: brand-secondary
+          name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
+        - id: dark
+          name: Dark
+        - id: white
+          name: White
+  mobileCallBackgroundColorHex:
+    type: color
+    comment: "Optional custom hex color for the mobile call button. Overrides the dropdown above."
+  mobileApptBackgroundColor:
+    type: select
+    comment: "Background color of the mobile request button."
+    options:
+      values:
+        - id: ""
+          name: Default (Match Icon Background)
+        - id: brand
+          name: Brand Primary
+        - id: brand-secondary
+          name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
+        - id: dark
+          name: Dark
+        - id: white
+          name: White
+  mobileApptBackgroundColorHex:
+    type: color
+    comment: "Optional custom hex color for the mobile request button. Overrides the dropdown above."
   mobileCallSmallText:
     type: text
     comment: "Small label above the phone number in the mobile call button."

@@ -14,6 +14,12 @@ const {
   paddingVertical = "md",
   backgroundColor = "base",
   backgroundColorHex = "",
+  backgroundImage = "",
+  backgroundPositionX = "center",
+  backgroundPositionY = "center",
+  boxShadow = false,
+  topBorder = false,
+  borderColor = "var(--color-brand-secondary)",
   headingColor = "",
   dividerColor = "",
   textColor = "",
@@ -30,11 +36,15 @@ const resolvedCheckmarkShadow =
 
 const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
+  backgroundImage ? `background-image: url(${backgroundImage})` : "",
+  backgroundImage ? `background-repeat: no-repeat` : "",
+  backgroundImage ? `background-position: ${backgroundPositionX} ${backgroundPositionY}` : "",
   headingColor ? `--pep-centered-heading-color: ${headingColor}` : "",
   dividerColor ? `--pep-centered-divider-color: ${dividerColor}` : "",
   textColor ? `--pep-centered-text-color: ${textColor}` : "",
   checkColor ? `--pep-centered-check-color: ${checkColor}` : "",
   `--pep-centered-check-shadow-color: ${resolvedCheckmarkShadow}`,
+  borderColor ? `--pep-centered-border-color: ${borderColor}` : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -47,7 +57,13 @@ const htmlAttributes = Object.fromEntries(
 ---
 
 <CustomSection
-  class:list={["pep-banner-centered", className]}
+  class:list={[
+    "pep-banner-centered",
+    { "pep-banner-centered--has-shadow": boxShadow },
+    { "pep-banner-centered--has-top-border": topBorder },
+    { "pep-banner-centered--has-bg-image": backgroundImage },
+    className,
+  ]}
   paddingVertical={paddingVertical}
   paddingHorizontal="md"
   colorScheme="default"
@@ -85,6 +101,23 @@ const htmlAttributes = Object.fromEntries(
 <style>
   .pep-banner-centered {
     text-align: center;
+  }
+
+  .pep-banner-centered--has-shadow {
+    box-shadow:
+      0 4px 6px rgba(0, 0, 0, 0.1),
+      0 10px 13px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    max-width: 1200px;
+  }
+
+  .pep-banner-centered--has-top-border {
+    border-top: 4px solid
+      var(--pep-centered-border-color, var(--color-brand-secondary, var(--color-brand)));
+  }
+
+  .pep-banner-centered--has-bg-image {
+    background-size: auto;
   }
 
   .pep-banner-centered__inner {

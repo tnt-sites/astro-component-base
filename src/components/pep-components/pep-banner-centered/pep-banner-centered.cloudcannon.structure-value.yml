@@ -6,6 +6,12 @@ value:
   id: ""
   backgroundColor: base
   backgroundColorHex: ""
+  backgroundImage: ""
+  backgroundPositionX: center
+  backgroundPositionY: center
+  boxShadow: false
+  topBorder: false
+  borderColor: "var(--color-brand-secondary)"
   headingColor: "var(--color-brand-secondary)"
   dividerColor: ""
   textColor: "var(--color-text)"
