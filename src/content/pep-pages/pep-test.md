@@ -322,6 +322,39 @@ pepSections:
       hideText: false
       disabled: false
     bottomText: ''
+  - _component: pep-components/pep-callout-shadows
+    heading: How We Can Help Transform Your Smile
+    headingBackgroundColor: accent
+    headingTextColor: var(--color-text)
+    headingBackgroundColorHex: ''
+    itemHeadingColor: var(--color-brand)
+    backgroundColor: base
+    backgroundColorHex: ''
+    items:
+      - image:
+          source: /assets/images/pep-summer-icon-1.png
+          alt: Icon 1
+        heading: Expert Consultation
+      - image:
+          source: /assets/images/pep-summer-icon-2.png
+          alt: Icon 2
+        heading: Personalized Treatment
+      - image:
+          source: /assets/images/pep-summer-icon-3.png
+          alt: Icon 3
+        heading: Advanced Technology
+      - image:
+          source: /assets/images/pep-summer-icon-4.png
+          alt: Icon 4
+        heading: Comfortable Care
+      - image:
+          source: /assets/images/pep-summer-icon-5.png
+          alt: Icon 5
+        heading: Lasting Results
+    oddItemBackgroundColor: base
+    oddItemBackgroundColorHex: ''
+    evenItemBackgroundColor: surface
+    evenItemBackgroundColorHex: ''
 head_scripts: []
 footer_scripts: []
 extraFonts:
