@@ -132,7 +132,7 @@ image:
       type: textarea
       comment: Alt text describing the banner image for accessibility.
 
-h1SpanColor:
+HeadingSpanColor:
   type: select
   comment: Color of the h1 span text. Leave blank to inherit the heading color.
   options:
