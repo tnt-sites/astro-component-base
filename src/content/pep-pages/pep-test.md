@@ -7,11 +7,11 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Request an Appointment
         hideText: false
-        link: "#main-form"
-        modalTarget: ""
+        link: '#main-form'
+        modalTarget: ''
         iconName: academic-cap
         iconPosition: before
         variant: primary
@@ -23,86 +23,51 @@ landingMainNav:
         textColor: default
         uppercase: false
     offices: []
-    backgroundColor: ""
-    backgroundColorHex: ""
-    iconBackgroundColor: ""
-    iconBackgroundColorHex: ""
-    linkColor: ""
-    linkColorHex: ""
+    backgroundColor: ''
+    backgroundColorHex: ''
+    iconBackgroundColor: ''
+    iconBackgroundColorHex: ''
+    linkColor: ''
+    linkColorHex: ''
     mobileCallSmallText: Call Today!
     mobileApptLabel: Request an Appointment
-    mobileApptHref: ""
+    mobileApptHref: ''
 landingFooter:
-  - _component: navigation/landing/landing-footer-logo-top
+  - _component: navigation/landing/landing-footer-title-hr
     logoSource: /images/logo.svg
     logoAlt: Logo
-    siteName: Dental Studio
-    contactTitle: Learn More
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ""
-        text: Request an Appointment
-        hideText: false
-        link: /request-an-appointment/
-        modalTarget: ""
-        iconName: ""
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    socials:
-      - label: Facebook
-        icon: social/facebook
-        link: https://facebook.com
+    siteName: ''
+    contactTitle: Contact Us
+    findUsTitle: Find Us
+    officeHoursTitle: Office Hours
+    offices: []
+    mapEmbedUrl: ''
+    officeHoursNote: ''
     legalLinks:
       - name: Sitemap
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ""
-    backgroundImage:
-      source:
-      alt:
-      positionVertical: top
-      positionHorizontal: center
-    backgroundGradient:
-    backgroundColor: black
-    linkColor: white
-    linkHoverColor: brand-secondary
-    legalBlurb: ""
-    offices:
-      - name: ""
-        phones:
-          - display: ""
-            href: ""
-        addresses:
-          - lines: []
-            city: ""
-            state: ""
-            postalCode: ""
-            mapUrl: ""
-        officeHours: []
-        officeHoursNote: ""
+    legalBlurb: ''
+    backgroundColor: ''
+    backgroundColorHex: ''
+    headingColor: ''
+    headingColorHex: ''
 pepSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
-    id: ""
+    id: ''
     backgroundColor: brand
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
   - _component: pep-components/pep-split-banner
-    id: ""
+    id: ''
     backgroundColor: base
-    backgroundColorHex: ""
+    backgroundColorHex: ''
     borderColor: var(--color-brand)
     headingColor: var(--color-text)
-    textColor: ""
+    textColor: ''
     heading: Plan Ahead.<br />Save. Smile!
     headingFontFamily: '"Playwrite AR Guides", cursive'
     text: >-
@@ -120,12 +85,12 @@ pepSections:
     figcaption: Hello
     buttonSections: []
   - _component: pep-components/callout-circle-images
-    id: ""
+    id: ''
     backgroundColor: base
-    backgroundColorHex: ""
+    backgroundColorHex: ''
     headingColor: var(--color-text)
-    itemHeadingColor: ""
-    circleBackgroundColor: ""
+    itemHeadingColor: ''
+    circleBackgroundColor: ''
     heading: 3 Ways We Can Help
     items:
       - image:
@@ -141,17 +106,17 @@ pepSections:
           alt: Callout image three
         heading: Callout Heading Three
   - _component: pep-components/callout-squares
-    id: ""
+    id: ''
     backgroundColor: base
-    backgroundColorHex: ""
-    headingBackgroundColor: ""
-    headingBackgroundColorHex: ""
-    headingTextColor: ""
-    oddItemBackgroundColor: ""
-    oddItemBackgroundColorHex: ""
-    evenItemBackgroundColor: ""
-    evenItemBackgroundColorHex: ""
-    itemHeadingColor: ""
+    backgroundColorHex: ''
+    headingBackgroundColor: ''
+    headingBackgroundColorHex: ''
+    headingTextColor: ''
+    oddItemBackgroundColor: ''
+    oddItemBackgroundColorHex: ''
+    evenItemBackgroundColor: ''
+    evenItemBackgroundColorHex: ''
+    itemHeadingColor: ''
     heading: Common Problems Covered by Insurance
     items:
       - image:
@@ -171,21 +136,21 @@ pepSections:
           alt: Callout icon four
         heading: Callout<br>Heading Four
   - _component: pep-components/pep-image-grid
-    id: ""
+    id: ''
     heading: Hear From Our Patients
     paddingVertical: xl
     backgroundColor: base
-    backgroundColorHex: ""
-    cardBackgroundColor: ""
-    cardBackgroundColorHex: ""
-    captionBackgroundColor: ""
-    captionBackgroundColorHex: ""
-    captionTextColor: ""
+    backgroundColorHex: ''
+    cardBackgroundColor: ''
+    cardBackgroundColorHex: ''
+    captionBackgroundColor: ''
+    captionBackgroundColorHex: ''
+    captionTextColor: ''
     items:
       - mediaType: youtube
         image:
-          source: ""
-          alt: ""
+          source: ''
+          alt: ''
         youtubeId: qirqwHB1ObQ
         youtubeTitle: Lorem Ipsum
         caption: Lorem Ipsum
@@ -193,26 +158,26 @@ pepSections:
         image:
           source: https://placehold.co/800x800
           alt: lorem
-        youtubeId: ""
-        youtubeTitle: ""
+        youtubeId: ''
+        youtubeTitle: ''
         caption: Lorem Ipsum
       - mediaType: image
         image:
           source: https://placehold.co/800x800
           alt: lorem
-        youtubeId: ""
-        youtubeTitle: ""
+        youtubeId: ''
+        youtubeTitle: ''
         caption: Lorem Ipsum
   - _component: pep-components/pep-form-ctm
-    id: ""
+    id: ''
     backgroundColor: none
-    backgroundColorHex: ""
-    contentBackgroundColor: ""
-    contentBackgroundColorHex: ""
-    callBackgroundColor: ""
-    callBackgroundColorHex: ""
-    callTextColor: ""
-    linkColor: ""
+    backgroundColorHex: ''
+    contentBackgroundColor: ''
+    contentBackgroundColorHex: ''
+    callBackgroundColor: ''
+    callBackgroundColorHex: ''
+    callTextColor: ''
+    linkColor: ''
     image:
       source: https://placehold.co/485x400
       alt: Doctor photo
@@ -221,22 +186,22 @@ pepSections:
       Call Us Today at <a href="">(000) 000-0000</a> or Complete the Form Below
       to Reserve Your Next Appointment
     iframeEmbed: "\t\t\t\t<iframe class=\"ctm-call-widget\" src=\"https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html\" style=\"width:100%;height:300px;border:none\"></iframe>\t\t\t\t\t\t\n\t\t\t\t<script defer async src=\"https://186606.tctm.co/formreactor.js\"></script>\n"
-    bottomText: ""
+    bottomText: ''
     iframeSrc: "\t\t\t\t<iframe class=\"ctm-call-widget\" src=\"https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html\" style=\"width:100%;height:300px;border:none\"></iframe>\t\t\t\t\t\t \t\t\t\t<script defer async src=\"https://186606.tctm.co/formreactor.js\"></script>"
-    phone: ""
+    phone: ''
     phoneLabel: (000) 000-0000
   - _component: pep-components/pep-form-nctm
     id: main-form
     backgroundColor: none
-    backgroundColorHex: ""
-    contentBackgroundColor: ""
-    contentBackgroundColorHex: ""
-    callBackgroundColor: ""
-    callBackgroundColorHex: ""
-    callTextColor: ""
-    formBackgroundColor: ""
-    formBackgroundColorHex: ""
-    linkColor: ""
+    backgroundColorHex: ''
+    contentBackgroundColor: ''
+    contentBackgroundColorHex: ''
+    callBackgroundColor: ''
+    callBackgroundColorHex: ''
+    callTextColor: ''
+    formBackgroundColor: ''
+    formBackgroundColorHex: ''
+    linkColor: ''
     image:
       source: https://placehold.co/485x400
       alt: Doctor photo
@@ -261,15 +226,15 @@ pepSections:
       text: Submit
       variant: primary
       size: md
-      iconName: ""
+      iconName: ''
       iconPosition: before
       hideText: false
       disabled: false
-    bottomText: ""
+    bottomText: ''
   - _component: pep-components/pep-banner-benefits-expire
-    id: ""
+    id: ''
     backgroundColor: base
-    backgroundColorHex: ""
+    backgroundColorHex: ''
     borderColor: var(--color-accent)
     headingColor: var(--color-text-inverse)
     textColor: var(--color-text)
@@ -292,18 +257,23 @@ pepSections:
       source: https://placehold.co/440x440
       alt: Decorative benefits expire stamp
   - _component: pep-components/pep-banner-centered
-    id: ""
+    id: ''
     backgroundColor: base
-    backgroundColorHex: ""
+    backgroundColorHex: ''
+    backgroundImage: ''
+    backgroundPositionX: center
+    backgroundPositionY: center
+    boxShadow: true
+    topBorder: false
+    borderColor: var(--color-brand-secondary)
     headingColor: var(--color-brand-secondary)
     dividerColor: var(--color-brand)
     textColor: var(--color-text)
     paddingVertical: xl
     heading: Resolve to Smile More in 2025
-    headingFontFamily: ""
+    headingFontFamily: ''
     contentStyle: checklist
     showDivider: true
-    boxShadow: true
     text: >
       While a visit to the dentist is not likely to be one of your top 2025
       resolutions, it should be. In fact, there are few things that could have a
@@ -329,7 +299,7 @@ pepSections:
     checkIconName: icon-ok-1
     checkColor: var(--color-brand)
     checkmarkShadowColor: var(--color-brand-secondary)
-    checkmarkShadowColorHex: ""
+    checkmarkShadowColorHex: ''
     checkmarkMode: fontello
     fontelloGlyph: e832
     checkmarkCharacter:
