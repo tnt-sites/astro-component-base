@@ -44,54 +44,6 @@ headingTextColor:
       - id: "var(--color-brand-muted)"
         name: Brand (Tertiary)
 
-oddItemBackgroundColor:
-  type: select
-  comment: Background color for odd callout items. Choose a theme color or use the hex override below for a custom color.
-  options:
-    values:
-      - id: none
-        name: None
-      - id: base
-        name: Base
-      - id: surface
-        name: Surface
-      - id: accent
-        name: Accent
-      - id: highlight
-        name: Highlight
-      - id: dark
-        name: Dark
-      - id: black
-        name: Black
-
-oddItemBackgroundColorHex:
-  type: color
-  comment: Optional custom hex color that overrides the odd item background color above. Leave blank to use the theme color.
-
-evenItemBackgroundColor:
-  type: select
-  comment: Background color for even callout items. Choose a theme color or use the hex override below for a custom color.
-  options:
-    values:
-      - id: none
-        name: None
-      - id: base
-        name: Base
-      - id: surface
-        name: Surface
-      - id: accent
-        name: Accent
-      - id: highlight
-        name: Highlight
-      - id: dark
-        name: Dark
-      - id: black
-        name: Black
-
-evenItemBackgroundColorHex:
-  type: color
-  comment: Optional custom hex color that overrides the even item background color above. Leave blank to use the theme color.
-
 itemHeadingColor:
   type: select
   comment: Color of the callout item headings. Leave blank to use the default.

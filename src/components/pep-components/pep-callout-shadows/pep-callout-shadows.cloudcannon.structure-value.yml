@@ -5,12 +5,8 @@ value:
   _component: pep-components/pep-callout-shadows
   heading: How We Can Help Transform Your Smile
   headingBackgroundColor: accent
+  headingTextColor: "var(--color-text)"
   headingBackgroundColorHex: ""
-  headingTextColor: "var(--color-text-inverse)"
-  oddItemBackgroundColor: base
-  oddItemBackgroundColorHex: ""
-  evenItemBackgroundColor: surface
-  evenItemBackgroundColorHex: ""
   itemHeadingColor: "var(--color-brand)"
   backgroundColor: base
   backgroundColorHex: ""
