@@ -329,7 +329,7 @@ pepSections:
     headingBackgroundColorHex: ''
     itemHeadingColor: var(--color-brand)
     backgroundColor: base
-    backgroundColorHex: ''
+    backgroundColorHex: '#a54f4f'
     shadowColor: '#ff0000'
     items:
       - image:
