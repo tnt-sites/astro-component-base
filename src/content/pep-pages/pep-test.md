@@ -304,6 +304,17 @@ pepSections:
     checkmarkMode: fontello
     fontelloGlyph: e832
     checkmarkCharacter:
+  - _component: pep-components/pep-banner-background
+    h1Text: Celebrate Summer
+    paragraph: >
+      Let this be the season when you no longer have to hide your smile.
+      Celebrate this summer with a beautiful, confident smile you can show off
+      in selfies, posts, TikToks & more.
+    image:
+      source: assets/images/pep-summer-banner-bkg.png
+      alt: woman shouting in megaphone
+    h1SpanColor: ''
+    accentWordColor: ''
 head_scripts: []
 footer_scripts: []
 extraFonts:
