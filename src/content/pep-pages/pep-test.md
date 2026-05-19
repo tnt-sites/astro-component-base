@@ -330,6 +330,7 @@ pepSections:
     itemHeadingColor: var(--color-brand)
     backgroundColor: base
     backgroundColorHex: ''
+    shadowColor: '#ff0000'
     items:
       - image:
           source: /assets/images/pep-summer-icon-1.png
