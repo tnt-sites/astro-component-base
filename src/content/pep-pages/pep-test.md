@@ -157,6 +157,24 @@ pepSections:
     stampImage:
       source: https://placehold.co/440x440
       alt: Decorative benefits expire stamp
+  - _component: pep-components/pep-banner-background
+    heading: Celebrate Summer
+    text: >
+      Let this be the season when you no longer have to hide your smile.
+      Celebrate this summer with a beautiful, confident smile you can show off
+      in selfies, posts, TikToks & more.
+    image:
+      source: https://placehold.co/1920x900
+      alt: Piggy bank banner image
+    headingFontFamily: ''
+    headingColor: ''
+    HeadingSpanColor: var(--color-brand-secondary)
+    AccentWordColor: var(--color-brand)
+    dividerColor: ''
+    textColor: ''
+    backgroundColor: ''
+    backgroundColorHex: ''
+    borderColor: ''
   - _component: pep-components/callout-circle-images
     id: ''
     backgroundColor: base
