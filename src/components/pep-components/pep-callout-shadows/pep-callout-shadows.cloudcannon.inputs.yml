@@ -22,53 +22,26 @@ headingBackgroundColor:
       - id: black
         name: Black
 
-headingBackgroundColorHex:
-  type: color
-  comment: Optional custom hex color that overrides the heading background color above. Leave blank to use the theme color.
-
-headingTextColor:
-  type: select
-  comment: Color of the heading text. Leave blank to use the theme default.
-  options:
-    values:
-      - id: ""
-        name: Default
-      - id: "var(--color-text)"
-        name: Dark
-      - id: "var(--color-text-inverse)"
-        name: White
-      - id: "var(--color-brand)"
-        name: Brand (Primary)
-      - id: "var(--color-brand-secondary)"
-        name: Brand (Secondary)
-      - id: "var(--color-brand-muted)"
-        name: Brand (Tertiary)
-
-itemHeadingColor:
-  type: select
   comment: Color of the callout item headings. Leave blank to use the default.
-  options:
     values:
-      - id: ""
-        name: Default
-      - id: "var(--color-text)"
-        name: Dark
-      - id: "var(--color-text-inverse)"
-        name: White
-      - id: "var(--color-brand)"
-        name: Brand (Primary)
-      - id: "var(--color-brand-secondary)"
-        name: Brand (Secondary)
-      - id: "var(--color-brand-muted)"
-        name: Brand (Tertiary)
 
-backgroundColor:
+shadowColor:
   type: select
-  comment: Background color for the section. Choose a theme color or use the hex override below for a custom color.
+  comment: Color of the card shadow. Choose a theme color or use a preset.
   options:
     values:
-      - id: none
-        name: None
+      - id: rgba(0,0,0,0.10)
+        name: Default (Light Shadow)
+      - id: rgba(0,0,0,0.20)
+        name: Darker Shadow
+      - id: var(--color-brand)
+        name: Brand Color
+      - id: var(--color-accent)
+        name: Accent Color
+      - id: #00000033
+        name: Black 20%
+      - id: #00000055
+        name: Black 33%
       - id: base
         name: Base
       - id: surface

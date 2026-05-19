@@ -10,6 +10,7 @@ value:
   itemHeadingColor: "var(--color-brand)"
   backgroundColor: base
   backgroundColorHex: ""
+  shadowColor: rgba(0,0,0,0.10)
   items:
     - image:
         source: /assets/images/pep-summer-icon-1.png

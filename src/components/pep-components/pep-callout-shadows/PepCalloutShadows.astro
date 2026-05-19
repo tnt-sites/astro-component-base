@@ -8,10 +8,7 @@ const {
   headingBackgroundColor = "",
   headingBackgroundColorHex = "",
   headingTextColor = "",
-  oddItemBackgroundColor = "",
-  oddItemBackgroundColorHex = "",
-  evenItemBackgroundColor = "",
-  evenItemBackgroundColorHex = "",
+  shadowColor = "rgba(0,0,0,0.10)",
   itemHeadingColor = "",
   backgroundColor = "base",
   backgroundColorHex = "",
@@ -23,16 +20,13 @@ const resolvedHeadingBg =
   headingBackgroundColorHex ||
   headingBackgroundColor ||
   "var(--color-brand-secondary, var(--color-brand))";
-const resolvedOddBg = oddItemBackgroundColorHex || oddItemBackgroundColor || "rgba(0,0,0,0.04)";
-const resolvedEvenBg =
-  evenItemBackgroundColorHex || evenItemBackgroundColor || "var(--color-bg-base, #fff)";
+// Removed even/odd backgrounds
 
 const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   `--csq-heading-bg: ${resolvedHeadingBg}`,
   headingTextColor ? `--csq-heading-text: ${headingTextColor}` : "",
-  `--csq-odd-bg: ${resolvedOddBg}`,
-  `--csq-even-bg: ${resolvedEvenBg}`,
+  `--csq-shadow-color: ${shadowColor}`,
   itemHeadingColor ? `--csq-item-heading-color: ${itemHeadingColor}` : "",
 ]
   .filter(Boolean)
@@ -125,13 +119,7 @@ const htmlAttributes = Object.fromEntries(
     text-align: center;
   }
 
-  .pep-callout-shadows__item--odd {
-    background-color: var(--csq-odd-bg);
-  }
-
-  .pep-callout-shadows__item--even {
-    background-color: var(--csq-even-bg);
-  }
+  /* Removed even/odd backgrounds */
 
   .pep-callout-shadows__img-wrap {
     align-items: center;
@@ -165,12 +153,16 @@ const htmlAttributes = Object.fromEntries(
   }
 
   @media (max-width: 768px) {
-    .pep-callout-shadows__grid {
-      display: block;
-    }
     .pep-callout-shadows__item {
-      flex: 0 1 100%;
-      padding: 1.25rem 0.9rem;
+      background: inherit;
+      border-radius: 16px;
+      box-shadow:
+        0 4px 16px var(--csq-shadow-color, rgba(0,0,0,0.10)),
+        0 1.5px 6px var(--csq-shadow-color, rgba(0,0,0,0.08));
+      flex: 1 1 25%;
+      margin: 0 0.5rem;
+      min-width: 0;
+      padding: 1.5rem 0.5rem;
+      text-align: center;
     }
-  }
-</style>
+    .pep-callout-shadows__grid {
