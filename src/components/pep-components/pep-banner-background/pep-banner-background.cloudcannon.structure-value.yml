@@ -9,12 +9,12 @@ value:
   image:
     source: https://placehold.co/1920x900
     alt: Piggy bank banner image
+  headingFontFamily: ""
+  headingColor: ""
   HeadingSpanColor: ""
   AccentWordColor: ""
   dividerColor: ""
-  headingFontFamily: ""
   textColor: ""
-  headingColor: ""
   backgroundColor: ""
   backgroundColorHex: ""
   borderColor: ""

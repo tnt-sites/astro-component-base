@@ -150,7 +150,7 @@ HeadingSpanColor:
       - id: "var(--color-brand-muted)"
         name: Brand (Tertiary)
 
-accentWordColor:
+AccentWordColor:
   type: select
   comment: Color of the accented word inside the h1 span. Leave blank to use the brand color.
   options:
