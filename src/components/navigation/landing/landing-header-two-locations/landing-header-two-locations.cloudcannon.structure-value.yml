@@ -6,6 +6,9 @@ value:
   logoSource: /images/logo.svg
   logoAlt: Logo
   mobileCallLabel: Call Today!
+  mobileCallSmallText: "Call Today!"
+  mobileApptLabel: "Request an Appointment"
+  mobileApptHref: ""
   mobileCallBackgroundColor: ""
   mobileCallBackgroundColorHex: ""
   mobileApptBackgroundColor: ""
@@ -36,6 +39,15 @@ _inputs:
   logoAlt:
     type: text
     comment: "Alt text for the logo image."
+  mobileCallSmallText:
+    type: text
+    comment: "Small label above the phone number in the mobile call button."
+  mobileApptLabel:
+    type: text
+    comment: "Label for the appointment button in the mobile bar."
+  mobileApptHref:
+    type: text
+    comment: "Link for the mobile appointment button."
   mobileCallLabel:
     type: text
     comment: "Label shown above the phone number in the mobile call button (e.g. 'Call Today!')."

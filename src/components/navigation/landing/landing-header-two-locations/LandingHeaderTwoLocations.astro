@@ -9,6 +9,9 @@ const {
   pageButtons = [],
   offices = [],
   mobileCallLabel = "Call Today!",
+  mobileCallSmallText = "",
+  mobileApptLabel = "",
+  mobileApptHref = "",
   mobileCallBackgroundColor = "",
   mobileCallBackgroundColorHex = "",
   mobileApptBackgroundColor = "",
@@ -22,6 +25,9 @@ const {
   pageButtons?: any[];
   offices?: any[];
   mobileCallLabel?: string;
+  mobileCallSmallText?: string;
+  mobileApptLabel?: string;
+  mobileApptHref?: string;
   mobileCallBackgroundColor?: string;
   mobileCallBackgroundColorHex?: string;
   mobileApptBackgroundColor?: string;
@@ -66,8 +72,11 @@ const mobilePhone = leftOffice?.phones?.[0] ?? rightOffice?.phones?.[0] ?? null;
 
 // Mobile CTA: use first page button
 const mobileButton = buttons[0] ?? null;
+const resolvedMobileCallText = mobileCallSmallText || mobileCallLabel || "Call Today!";
+const resolvedMobileApptLabel = mobileApptLabel || mobileButton?.text || "";
+const resolvedMobileApptHref = mobileApptHref || mobileButton?.link || "#";
 const mobileButtonLabelParts =
-  typeof mobileButton?.text === "string" ? mobileButton.text.trim().split(/\s+/) : [];
+  typeof resolvedMobileApptLabel === "string" ? resolvedMobileApptLabel.trim().split(/\s+/) : [];
 const mobileButtonFirstLine = mobileButtonLabelParts[0] || "";
 const mobileButtonSecondLine = mobileButtonLabelParts.slice(1).join(" ");
 
@@ -182,14 +191,14 @@ const right = renderOffice(rightOffice);
       {
         mobilePhone && (
           <a href={mobilePhone.href || "#"} class="lhtl-mobile-call">
-            <span class="lhtl-mobile-label">{mobileCallLabel}</span>
+            <small class="lhtl-mobile-small">{resolvedMobileCallText}</small>
             {mobilePhone.display}
           </a>
         )
       }
       {
-        mobileButton && (
-          <a href={mobileButton.link || "#"} class="lhtl-mobile-cta">
+        resolvedMobileApptLabel && (
+          <a href={resolvedMobileApptHref} class="lhtl-mobile-cta">
             {mobileButtonFirstLine && (
               <span class="lhtl-mobile-label">{mobileButtonFirstLine}</span>
             )}
@@ -292,24 +301,23 @@ const right = renderOffice(rightOffice);
 
       .lhtl-mobile-call,
       .lhtl-mobile-cta {
-        align-content: center;
+        align-items: center;
         display: flex;
         flex: 1;
-        flex-wrap: wrap;
+        flex-direction: column;
         font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-bold);
+        font-weight: var(--font-weight-semibold);
         justify-content: center;
         min-height: 3.5rem;
-        padding: var(--spacing-xs) var(--spacing-sm);
+        padding-block: var(--spacing-sm);
+        padding-inline: var(--spacing-sm);
         text-align: center;
         text-decoration: none;
-        text-transform: uppercase;
       }
 
       .lhtl-mobile-label {
         display: block;
         font-size: var(--font-size-md);
-        width: 100%;
       }
 
       .lhtl-mobile-call {
@@ -325,11 +333,19 @@ const right = renderOffice(rightOffice);
       .lhtl-mobile-cta {
         background-color: var(--lhtl-mobile-appt-bg, var(--color-brand));
         color: var(--color-text-on-brand);
+        text-transform: uppercase;
 
         &:hover,
         &:focus-visible {
           filter: brightness(0.9);
         }
+      }
+
+      .lhtl-mobile-small {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: var(--font-weight-normal);
+        text-transform: uppercase;
       }
     }
   }

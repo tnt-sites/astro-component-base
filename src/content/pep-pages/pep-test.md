@@ -170,6 +170,39 @@ pepSections:
           source: https://placehold.co/200x110
           alt: Callout icon four
         heading: Callout<br>Heading Four
+  - _component: pep-components/pep-image-grid
+    id: ""
+    heading: Hear From Our Patients
+    paddingVertical: xl
+    backgroundColor: base
+    backgroundColorHex: ""
+    cardBackgroundColor: ""
+    cardBackgroundColorHex: ""
+    captionBackgroundColor: ""
+    captionBackgroundColorHex: ""
+    captionTextColor: ""
+    items:
+      - mediaType: youtube
+        image:
+          source: ""
+          alt: ""
+        youtubeId: qirqwHB1ObQ
+        youtubeTitle: Lorem Ipsum
+        caption: Lorem Ipsum
+      - mediaType: image
+        image:
+          source: https://placehold.co/800x800
+          alt: lorem
+        youtubeId: ""
+        youtubeTitle: ""
+        caption: Lorem Ipsum
+      - mediaType: image
+        image:
+          source: https://placehold.co/800x800
+          alt: lorem
+        youtubeId: ""
+        youtubeTitle: ""
+        caption: Lorem Ipsum
   - _component: pep-components/pep-form-ctm
     id: ""
     backgroundColor: none

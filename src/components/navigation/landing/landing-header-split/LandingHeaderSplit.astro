@@ -9,6 +9,13 @@ const {
   logoAlt = "Logo",
   pageButtons = [],
   offices = [],
+  mobileCallSmallText = "Call Today!",
+  mobileApptLabel = "Request an Appointment",
+  mobileApptHref = "",
+  mobileCallBackgroundColor = "",
+  mobileCallBackgroundColorHex = "",
+  mobileApptBackgroundColor = "",
+  mobileApptBackgroundColorHex = "",
   id: elementId,
   class: className,
   ...htmlAttributes
@@ -17,6 +24,13 @@ const {
   logoAlt?: string;
   pageButtons?: any[];
   offices?: any[];
+  mobileCallSmallText?: string;
+  mobileApptLabel?: string;
+  mobileApptHref?: string;
+  mobileCallBackgroundColor?: string;
+  mobileCallBackgroundColorHex?: string;
+  mobileApptBackgroundColor?: string;
+  mobileApptBackgroundColorHex?: string;
   id?: string;
   class?: string;
   [key: string]: any;
@@ -36,10 +50,36 @@ const formatAddressLines = (address: any) => {
 const resolvedOffices =
   Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
 
-const buttons = pageButtons.map((button: any) => ({
+const buttons = (Array.isArray(pageButtons) ? pageButtons : []).map((button: any) => ({
   ...button,
   text: typeof button?.text === "string" ? button.text : "",
 }));
+
+const colorTokenMap: Record<string, string> = {
+  brand: "var(--color-brand)",
+  "brand-secondary": "var(--color-brand-secondary)",
+  "brand-tertiary": "var(--color-brand-muted)",
+  dark: "var(--color-text)",
+  white: "var(--color-text-inverse)",
+};
+
+const mobilePhone = resolvedOffices[0]?.phones?.[0] ?? null;
+const resolvedMobileApptLabel = mobileApptLabel || buttons[0]?.text || "";
+const mobileApptLink = buttons[0]?.link || mobileApptHref;
+const mobileApptLabelParts =
+  typeof resolvedMobileApptLabel === "string" ? resolvedMobileApptLabel.trim().split(/\s+/) : [];
+const mobileApptFirstLine = mobileApptLabelParts[0] || "";
+const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
+const resolvedMobileCallBg =
+  mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
+const resolvedMobileApptBg =
+  mobileApptBackgroundColorHex || colorTokenMap[mobileApptBackgroundColor] || "";
+const cssVars = [
+  resolvedMobileCallBg && `--lhs-mobile-call-bg: ${resolvedMobileCallBg}`,
+  resolvedMobileApptBg && `--lhs-mobile-appt-bg: ${resolvedMobileApptBg}`,
+]
+  .filter(Boolean)
+  .join("; ");
 ---
 
 <CustomSection
@@ -48,6 +88,7 @@ const buttons = pageButtons.map((button: any) => ({
   paddingVertical="none"
   id={elementId || undefined}
   class:list={["landing-header-split", className]}
+  style={cssVars || undefined}
   {...htmlAttributes}
 >
   <div class="landing-header-split-inner">
@@ -105,6 +146,25 @@ const buttons = pageButtons.map((button: any) => ({
             editable={false}
           />
         </div>
+      )
+    }
+  </div>
+
+  <div class="landing-header-split-mobile-bar">
+    {
+      mobilePhone?.display && (
+        <a href={mobilePhone.href || "#"} class="landing-header-split-mobile-call">
+          <small class="landing-header-split-mobile-small">{mobileCallSmallText}</small>
+          {mobilePhone.display}
+        </a>
+      )
+    }
+    {
+      resolvedMobileApptLabel && (
+        <a href={mobileApptLink || "#"} class="landing-header-split-mobile-appt">
+          {mobileApptFirstLine && <span>{mobileApptFirstLine}</span>}
+          {mobileApptSecondLine && <span>{mobileApptSecondLine}</span>}
+        </a>
       )
     }
   </div>
@@ -168,6 +228,10 @@ const buttons = pageButtons.map((button: any) => ({
       }
 
       .landing-header-split-buttons {
+        @media (max-width: 1023px) {
+          display: none;
+        }
+
         @media (min-width: 1024px) {
           justify-self: end;
         }
@@ -178,6 +242,48 @@ const buttons = pageButtons.map((button: any) => ({
 
         @media (min-width: 1024px) {
           justify-content: flex-end;
+        }
+      }
+
+      .landing-header-split-mobile-bar {
+        display: flex;
+        width: 100%;
+
+        @media (min-width: 1024px) {
+          display: none;
+        }
+
+        a {
+          align-items: center;
+          color: #fff;
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          font-weight: var(--font-weight-semibold);
+          justify-content: center;
+          padding-block: var(--spacing-sm);
+          text-align: center;
+          text-decoration: none;
+        }
+
+        .landing-header-split-mobile-call {
+          background-color: var(--lhs-mobile-call-bg, var(--color-brand-secondary));
+        }
+
+        .landing-header-split-mobile-appt {
+          background-color: var(--lhs-mobile-appt-bg, var(--color-brand));
+          text-transform: uppercase;
+        }
+
+        .landing-header-split-mobile-appt span {
+          display: block;
+        }
+
+        .landing-header-split-mobile-small {
+          display: block;
+          font-size: 0.75rem;
+          font-weight: var(--font-weight-normal);
+          text-transform: uppercase;
         }
       }
     }

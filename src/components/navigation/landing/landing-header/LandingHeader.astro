@@ -9,6 +9,13 @@ const {
   logoAlt = "Logo",
   pageButtons = [],
   offices = [],
+  mobileCallSmallText = "Call Today!",
+  mobileApptLabel = "Request an Appointment",
+  mobileApptHref = "",
+  mobileCallBackgroundColor = "",
+  mobileCallBackgroundColorHex = "",
+  mobileApptBackgroundColor = "",
+  mobileApptBackgroundColorHex = "",
   class: className,
   ...htmlAttributes
 } = Astro.props as {
@@ -16,6 +23,13 @@ const {
   logoAlt?: string;
   pageButtons?: any[];
   offices?: any[];
+  mobileCallSmallText?: string;
+  mobileApptLabel?: string;
+  mobileApptHref?: string;
+  mobileCallBackgroundColor?: string;
+  mobileCallBackgroundColorHex?: string;
+  mobileApptBackgroundColor?: string;
+  mobileApptBackgroundColorHex?: string;
   class?: string;
   [key: string]: any;
 };
@@ -40,6 +54,32 @@ const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).ma
     text: typeof button?.text === "string" ? button.text : "",
   })
 );
+
+const colorTokenMap: Record<string, string> = {
+  brand: "var(--color-brand)",
+  "brand-secondary": "var(--color-brand-secondary)",
+  "brand-tertiary": "var(--color-brand-muted)",
+  dark: "var(--color-text)",
+  white: "var(--color-text-inverse)",
+};
+
+const mobilePhone = normalizedOffices[0]?.phones?.[0] ?? null;
+const resolvedMobileApptLabel = mobileApptLabel || normalizedPageButtons[0]?.text || "";
+const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
+const mobileApptLabelParts =
+  typeof resolvedMobileApptLabel === "string" ? resolvedMobileApptLabel.trim().split(/\s+/) : [];
+const mobileApptFirstLine = mobileApptLabelParts[0] || "";
+const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
+const resolvedMobileCallBg =
+  mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
+const resolvedMobileApptBg =
+  mobileApptBackgroundColorHex || colorTokenMap[mobileApptBackgroundColor] || "";
+const cssVars = [
+  resolvedMobileCallBg && `--lh-mobile-call-bg: ${resolvedMobileCallBg}`,
+  resolvedMobileApptBg && `--lh-mobile-appt-bg: ${resolvedMobileApptBg}`,
+]
+  .filter(Boolean)
+  .join("; ");
 ---
 
 <CustomSection
@@ -47,6 +87,7 @@ const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).ma
   paddingHorizontal="lg"
   paddingVertical="none"
   class:list={["landing-header", className]}
+  style={cssVars || undefined}
   {...htmlAttributes}
 >
   <div class="landing-header-inner">
@@ -107,6 +148,25 @@ const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).ma
       )
     }
   </div>
+
+  <div class="landing-header-mobile-bar">
+    {
+      mobilePhone?.display && (
+        <a href={mobilePhone.href || "#"} class="landing-header-mobile-call">
+          <small class="landing-header-mobile-small">{mobileCallSmallText}</small>
+          {mobilePhone.display}
+        </a>
+      )
+    }
+    {
+      resolvedMobileApptLabel && (
+        <a href={mobileApptLink || "#"} class="landing-header-mobile-appt">
+          {mobileApptFirstLine && <span>{mobileApptFirstLine}</span>}
+          {mobileApptSecondLine && <span>{mobileApptSecondLine}</span>}
+        </a>
+      )
+    }
+  </div>
 </CustomSection>
 
 <style lang="pcss" is:global>
@@ -158,10 +218,56 @@ const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).ma
 
       .landing-header-buttons {
         justify-self: end;
+
+        @media (max-width: 1023px) {
+          display: none;
+        }
       }
 
       .landing-header-button-group {
         justify-content: flex-end;
+      }
+
+      .landing-header-mobile-bar {
+        display: flex;
+        width: 100%;
+
+        @media (min-width: 1024px) {
+          display: none;
+        }
+
+        a {
+          align-items: center;
+          color: #fff;
+          display: flex;
+          flex: 1;
+          flex-direction: column;
+          font-weight: var(--font-weight-semibold);
+          justify-content: center;
+          padding-block: var(--spacing-sm);
+          text-align: center;
+          text-decoration: none;
+        }
+
+        .landing-header-mobile-call {
+          background-color: var(--lh-mobile-call-bg, var(--color-brand-secondary));
+        }
+
+        .landing-header-mobile-appt {
+          background-color: var(--lh-mobile-appt-bg, var(--color-brand));
+          text-transform: uppercase;
+        }
+
+        .landing-header-mobile-appt span {
+          display: block;
+        }
+
+        .landing-header-mobile-small {
+          display: block;
+          font-size: 0.75rem;
+          font-weight: var(--font-weight-normal);
+          text-transform: uppercase;
+        }
       }
     }
   }

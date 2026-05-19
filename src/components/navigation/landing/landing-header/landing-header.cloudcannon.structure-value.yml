@@ -5,6 +5,13 @@ value:
   _component: navigation/landing/landing-header
   logoSource: /images/logo.svg
   logoAlt: Logo
+  mobileCallSmallText: "Call Today!"
+  mobileApptLabel: "Request an Appointment"
+  mobileApptHref: ""
+  mobileCallBackgroundColor: ""
+  mobileCallBackgroundColorHex: ""
+  mobileApptBackgroundColor: ""
+  mobileApptBackgroundColorHex: ""
   pageButtons:
     - _component: building-blocks/core-elements/button
       text: Request an Appointment

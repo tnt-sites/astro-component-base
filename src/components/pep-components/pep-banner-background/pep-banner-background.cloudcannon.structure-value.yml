@@ -1,0 +1,15 @@
+label: PEP Banner Benefits Expire
+icon: dashboard
+description: Full-width PEP hero banner with an overlaid heading, body copy, stamp graphic, and desktop-only background image.
+value:
+  _component: pep-components/pep-banner-background
+  h1Text: Celebrate Summer
+  paragraph: |
+    Let this be the season when you no longer have to hide your smile. Celebrate this summer with a beautiful, confident smile you can show off in selfies, posts, TikToks & more.
+  image:
+    source: assets/images/pep-summer-banner-bkg.png
+    alt: woman shouting in megaphone
+  h1SpanColor: ""
+  accentWordColor: ""
+_inputs_from_glob:
+  - /src/components/pep-components/pep-banner-background/pep-banner-background.cloudcannon.inputs.yml
