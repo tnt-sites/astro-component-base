@@ -26,7 +26,7 @@ const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   `--csq-heading-bg: ${resolvedHeadingBg}`,
   headingTextColor ? `--csq-heading-text: ${headingTextColor}` : "",
-  `--csq-shadow-color: ${shadowColor}`,
+  shadowColor ? `--csq-shadow-color: ${shadowColor}` : "",
   itemHeadingColor ? `--csq-item-heading-color: ${itemHeadingColor}` : "",
 ]
   .filter(Boolean)
@@ -84,7 +84,7 @@ const htmlAttributes = Object.fromEntries(
   </div>
 </CustomSection>
 
-<style>
+<style lang="pcss" is:global>
   .pep-callout-shadows__inner {
     margin: 0 auto;
     max-width: 1150px;
@@ -109,9 +109,10 @@ const htmlAttributes = Object.fromEntries(
   .pep-callout-shadows__item {
     background: inherit;
     border-radius: 16px;
+    /* Use PCSS color-mix for shadow with opacity */
     box-shadow:
-      0 4px 16px rgba(0, 0, 0, 0.1),
-      0 1.5px 6px rgba(0, 0, 0, 0.08);
+      0 4px 16px color-mix(in srgb, var(--csq-shadow-color) 50%, transparent 50%),
+      0 1.5px 6px color-mix(in srgb, var(--csq-shadow-color) 30%, transparent 70%);
     flex: 1 1 25%;
     margin: 0 0.5rem;
     min-width: 0;
@@ -157,8 +158,8 @@ const htmlAttributes = Object.fromEntries(
       background: inherit;
       border-radius: 16px;
       box-shadow:
-        0 4px 16px var(--csq-shadow-color, rgba(0, 0, 0, 0.1)),
-        0 1.5px 6px var(--csq-shadow-color, rgba(0, 0, 0, 0.08));
+        0 4px 16px color-mix(in srgb, var(--csq-shadow-color) 50%, transparent 50%),
+        0 1.5px 6px color-mix(in srgb, var(--csq-shadow-color) 30%, transparent 70%);
       flex: 1 1 25%;
       margin: 0 0.5rem;
       min-width: 0;

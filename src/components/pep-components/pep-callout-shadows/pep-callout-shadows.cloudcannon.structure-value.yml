@@ -10,26 +10,26 @@ value:
   itemHeadingColor: "var(--color-brand)"
   backgroundColor: base
   backgroundColorHex: ""
-  shadowColor: rgba(0,0,0,0.10)
+  shadowColor: var(--color-text)
   items:
     - image:
-        source: /assets/images/pep-summer-icon-1.png
+        source: https://placehold.co/200x110?text=Icon+1
         alt: "Icon 1"
       heading: "Expert Consultation"
     - image:
-        source: /assets/images/pep-summer-icon-2.png
+        source: https://placehold.co/200x110?text=Icon+2
         alt: "Icon 2"
       heading: "Personalized Treatment"
     - image:
-        source: /assets/images/pep-summer-icon-3.png
+        source: https://placehold.co/200x110?text=Icon+3
         alt: "Icon 3"
       heading: "Advanced Technology"
     - image:
-        source: /assets/images/pep-summer-icon-4.png
+        source: https://placehold.co/200x110?text=Icon+4
         alt: "Icon 4"
       heading: "Comfortable Care"
     - image:
-        source: /assets/images/pep-summer-icon-5.png
+        source: https://placehold.co/200x110?text=Icon+5
         alt: "Icon 5"
       heading: "Lasting Results"
 _inputs_from_glob:

@@ -7,11 +7,11 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
-        link: '#main-form'
-        modalTarget: ''
+        link: "#main-form"
+        modalTarget: ""
         iconName: academic-cap
         iconPosition: before
         variant: primary
@@ -23,50 +23,50 @@ landingMainNav:
         textColor: default
         uppercase: false
     offices: []
-    backgroundColor: ''
-    backgroundColorHex: ''
-    iconBackgroundColor: ''
-    iconBackgroundColorHex: ''
-    linkColor: ''
-    linkColorHex: ''
+    backgroundColor: ""
+    backgroundColorHex: ""
+    iconBackgroundColor: ""
+    iconBackgroundColorHex: ""
+    linkColor: ""
+    linkColorHex: ""
     mobileCallSmallText: Call Today!
     mobileApptLabel: Request an Appointment
-    mobileApptHref: ''
+    mobileApptHref: ""
 landingFooter:
   - _component: navigation/landing/landing-footer-title-hr
     logoSource: /images/logo.svg
     logoAlt: Logo
-    siteName: ''
+    siteName: ""
     contactTitle: Contact Us
     findUsTitle: Find Us
     officeHoursTitle: Office Hours
     offices: []
     mapEmbedUrl: >-
       https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d204329.1786034009!2d-119.8562439!3d36.8510152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809442b242f16e33%3A0x1d7e31f906ec6d19!2sByron%20L.%20Reintjes%2C%20DDS!5e0!3m2!1sen!2sus!4v1779148035185!5m2!1sen!2sus
-    officeHoursNote: ''
+    officeHoursNote: ""
     legalLinks:
       - name: Sitemap
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    legalBlurb: ''
+    legalBlurb: ""
     backgroundColor: none
-    backgroundColorHex: ''
-    headingColor: ''
-    headingColorHex: ''
+    backgroundColorHex: ""
+    headingColor: ""
+    headingColorHex: ""
 pepSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
-    id: ''
+    id: ""
     backgroundColor: brand
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
   - _component: pep-components/pep-banner-centered
-    id: ''
+    id: ""
     backgroundColor: base
-    backgroundColorHex: ''
-    backgroundImage: ''
+    backgroundColorHex: ""
+    backgroundImage: ""
     backgroundPositionX: center
     backgroundPositionY: center
     boxShadow: true
@@ -77,7 +77,7 @@ pepSections:
     textColor: var(--color-text)
     paddingVertical: xl
     heading: Resolve to Smile More in 2025
-    headingFontFamily: ''
+    headingFontFamily: ""
     contentStyle: checklist
     showDivider: true
     text: >
@@ -105,17 +105,17 @@ pepSections:
     checkIconName: icon-ok-1
     checkColor: var(--color-brand)
     checkmarkShadowColor: var(--color-brand-secondary)
-    checkmarkShadowColorHex: ''
+    checkmarkShadowColorHex: ""
     checkmarkMode: fontello
     fontelloGlyph: e832
     checkmarkCharacter:
   - _component: pep-components/pep-split-banner
-    id: ''
+    id: ""
     backgroundColor: base
-    backgroundColorHex: ''
+    backgroundColorHex: ""
     borderColor: var(--color-brand)
     headingColor: var(--color-text)
-    textColor: ''
+    textColor: ""
     heading: Plan Ahead.<br />Save. Smile!
     headingFontFamily: '"Playwrite AR Guides", cursive'
     text: >-
@@ -133,9 +133,9 @@ pepSections:
     figcaption: Hello
     buttonSections: []
   - _component: pep-components/pep-banner-benefits-expire
-    id: ''
+    id: ""
     backgroundColor: base
-    backgroundColorHex: ''
+    backgroundColorHex: ""
     borderColor: var(--color-accent)
     headingColor: var(--color-text-inverse)
     textColor: var(--color-text)
@@ -166,22 +166,22 @@ pepSections:
     image:
       source: https://placehold.co/1920x900
       alt: Piggy bank banner image
-    headingFontFamily: ''
-    headingColor: ''
+    headingFontFamily: ""
+    headingColor: ""
     HeadingSpanColor: var(--color-brand-secondary)
     AccentWordColor: var(--color-brand)
-    dividerColor: ''
-    textColor: ''
-    backgroundColor: ''
-    backgroundColorHex: ''
-    borderColor: ''
+    dividerColor: ""
+    textColor: ""
+    backgroundColor: ""
+    backgroundColorHex: ""
+    borderColor: ""
   - _component: pep-components/callout-circle-images
-    id: ''
+    id: ""
     backgroundColor: base
-    backgroundColorHex: ''
+    backgroundColorHex: ""
     headingColor: var(--color-text)
-    itemHeadingColor: ''
-    circleBackgroundColor: ''
+    itemHeadingColor: ""
+    circleBackgroundColor: ""
     heading: 3 Ways We Can Help
     items:
       - image:
@@ -197,17 +197,17 @@ pepSections:
           alt: Callout image three
         heading: Callout Heading Three
   - _component: pep-components/callout-squares
-    id: ''
+    id: ""
     backgroundColor: base
-    backgroundColorHex: ''
-    headingBackgroundColor: ''
-    headingBackgroundColorHex: ''
-    headingTextColor: ''
-    oddItemBackgroundColor: ''
-    oddItemBackgroundColorHex: ''
-    evenItemBackgroundColor: ''
-    evenItemBackgroundColorHex: ''
-    itemHeadingColor: ''
+    backgroundColorHex: ""
+    headingBackgroundColor: ""
+    headingBackgroundColorHex: ""
+    headingTextColor: ""
+    oddItemBackgroundColor: ""
+    oddItemBackgroundColorHex: ""
+    evenItemBackgroundColor: ""
+    evenItemBackgroundColorHex: ""
+    itemHeadingColor: ""
     heading: Common Problems Covered by Insurance
     items:
       - image:
@@ -227,21 +227,21 @@ pepSections:
           alt: Callout icon four
         heading: Callout<br>Heading Four
   - _component: pep-components/pep-image-grid
-    id: ''
+    id: ""
     heading: Hear From Our Patients
     paddingVertical: xl
     backgroundColor: base
-    backgroundColorHex: ''
-    cardBackgroundColor: ''
-    cardBackgroundColorHex: ''
-    captionBackgroundColor: ''
-    captionBackgroundColorHex: ''
-    captionTextColor: ''
+    backgroundColorHex: ""
+    cardBackgroundColor: ""
+    cardBackgroundColorHex: ""
+    captionBackgroundColor: ""
+    captionBackgroundColorHex: ""
+    captionTextColor: ""
     items:
       - mediaType: youtube
         image:
-          source: ''
-          alt: ''
+          source: ""
+          alt: ""
         youtubeId: qirqwHB1ObQ
         youtubeTitle: Lorem Ipsum
         caption: Lorem Ipsum
@@ -249,26 +249,26 @@ pepSections:
         image:
           source: https://placehold.co/800x800
           alt: lorem
-        youtubeId: ''
-        youtubeTitle: ''
+        youtubeId: ""
+        youtubeTitle: ""
         caption: Lorem Ipsum
       - mediaType: image
         image:
           source: https://placehold.co/800x800
           alt: lorem
-        youtubeId: ''
-        youtubeTitle: ''
+        youtubeId: ""
+        youtubeTitle: ""
         caption: Lorem Ipsum
   - _component: pep-components/pep-form-ctm
-    id: ''
+    id: ""
     backgroundColor: none
-    backgroundColorHex: ''
-    contentBackgroundColor: ''
-    contentBackgroundColorHex: ''
-    callBackgroundColor: ''
-    callBackgroundColorHex: ''
-    callTextColor: ''
-    linkColor: ''
+    backgroundColorHex: ""
+    contentBackgroundColor: ""
+    contentBackgroundColorHex: ""
+    callBackgroundColor: ""
+    callBackgroundColorHex: ""
+    callTextColor: ""
+    linkColor: ""
     image:
       source: https://placehold.co/485x400
       alt: Doctor photo
@@ -277,22 +277,22 @@ pepSections:
       Call Us Today at <a href="">(000) 000-0000</a> or Complete the Form Below
       to Reserve Your Next Appointment
     iframeEmbed: "\t\t\t\t<iframe class=\"ctm-call-widget\" src=\"https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html\" style=\"width:100%;height:300px;border:none\"></iframe>\t\t\t\t\t\t\n\t\t\t\t<script defer async src=\"https://186606.tctm.co/formreactor.js\"></script>\n"
-    bottomText: ''
+    bottomText: ""
     iframeSrc: "\t\t\t\t<iframe class=\"ctm-call-widget\" src=\"https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html\" style=\"width:100%;height:300px;border:none\"></iframe>\t\t\t\t\t\t \t\t\t\t<script defer async src=\"https://186606.tctm.co/formreactor.js\"></script>"
-    phone: ''
+    phone: ""
     phoneLabel: (000) 000-0000
   - _component: pep-components/pep-form-nctm
     id: main-form
     backgroundColor: none
-    backgroundColorHex: ''
-    contentBackgroundColor: ''
-    contentBackgroundColorHex: ''
-    callBackgroundColor: ''
-    callBackgroundColorHex: ''
-    callTextColor: ''
-    formBackgroundColor: ''
-    formBackgroundColorHex: ''
-    linkColor: ''
+    backgroundColorHex: ""
+    contentBackgroundColor: ""
+    contentBackgroundColorHex: ""
+    callBackgroundColor: ""
+    callBackgroundColorHex: ""
+    callTextColor: ""
+    formBackgroundColor: ""
+    formBackgroundColorHex: ""
+    linkColor: ""
     image:
       source: https://placehold.co/485x400
       alt: Doctor photo
@@ -317,45 +317,41 @@ pepSections:
       text: Submit
       variant: primary
       size: md
-      iconName: ''
+      iconName: ""
       iconPosition: before
       hideText: false
       disabled: false
-    bottomText: ''
+    bottomText: ""
   - _component: pep-components/pep-callout-shadows
     heading: How We Can Help Transform Your Smile
     headingBackgroundColor: accent
     headingTextColor: var(--color-text)
-    headingBackgroundColorHex: ''
+    headingBackgroundColorHex: ""
     itemHeadingColor: var(--color-brand)
     backgroundColor: base
-    backgroundColorHex: '#a54f4f'
-    shadowColor: '#ff0000'
+    backgroundColorHex: "#a54f4f"
+    shadowColor: var(--color-text)
     items:
       - image:
-          source: /assets/images/pep-summer-icon-1.png
+          source: https://placehold.co/200x110?text=Icon+1
           alt: Icon 1
         heading: Expert Consultation
       - image:
-          source: /assets/images/pep-summer-icon-2.png
+          source: https://placehold.co/200x110?text=Icon+2
           alt: Icon 2
         heading: Personalized Treatment
       - image:
-          source: /assets/images/pep-summer-icon-3.png
+          source: https://placehold.co/200x110?text=Icon+3
           alt: Icon 3
         heading: Advanced Technology
       - image:
-          source: /assets/images/pep-summer-icon-4.png
+          source: https://placehold.co/200x110?text=Icon+4
           alt: Icon 4
         heading: Comfortable Care
       - image:
-          source: /assets/images/pep-summer-icon-5.png
+          source: https://placehold.co/200x110?text=Icon+5
           alt: Icon 5
         heading: Lasting Results
-    oddItemBackgroundColor: base
-    oddItemBackgroundColorHex: ''
-    evenItemBackgroundColor: surface
-    evenItemBackgroundColorHex: ''
 head_scripts: []
 footer_scripts: []
 extraFonts:
