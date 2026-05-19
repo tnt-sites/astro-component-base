@@ -97,6 +97,26 @@ text:
     bulletedlist: false
     numberedlist: false
 
+dividerColor:
+  type: select
+  comment: Color of the horizontal rule below the text. Leave blank to use the default brand color.
+  options:
+    values:
+      - id: ""
+        name: Default (Brand)
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
+      - id: "var(--color-accent)"
+        name: Accent
+      - id: "#000000"
+        name: Black
+      - id: "#ffffff"
+        name: White
+
 image:
   type: object
   comment: Main banner image shown on desktop.

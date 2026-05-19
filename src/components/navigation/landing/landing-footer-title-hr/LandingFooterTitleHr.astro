@@ -173,22 +173,29 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
   </div>
 
   <div class="lfth-legal">
-    <p>
-      &copy;{copyYear}
-      {displaySiteName && <span>{displaySiteName}</span>}
+      <span>
+        &copy; {copyYear}
+        {displaySiteName}
+      </span>
+
+                 <br class="inline lg:hidden" />
+            <span class="mx-2 hidden lg:inline-block">|</span>
       {
-        Array.isArray(legalLinks) &&
-          legalLinks.map((link: any) => (
-            <>
-              <span>|</span>
-              <a href={link.path} target="_blank" rel="noopener noreferrer">
-                {link.name}
-              </a>
-            </>
-          ))
+        legalLinks.map((item: any) => (
+          <a href={item?.path || "#"}>{item?.name || "Link"}</a> <span class="mx-2">|</span>
+        ))
       }
-    </p>
-    {blurb && <p class="lfth-legal-blurb">{blurb}</p>}
+      <br class="inline lg:hidden" />
+      Site designed and maintained by <a href="https://www.tntdental.com" target="blank">TNT Dental</a>
+
+
+          {
+      blurb && (
+        <p class="copy-blurb uppercase text-center mt-12">
+          {blurb}
+        </p>
+      )
+    }
   </div>
 </footer>
 
@@ -201,7 +208,6 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       .lfth-inner {
         align-items: flex-start;
         display: flex;
-        flex-wrap: wrap;
         justify-content: space-around;
         margin-inline: auto;
         max-width: 1280px;
