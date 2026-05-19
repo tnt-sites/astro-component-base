@@ -4,7 +4,7 @@ import Image from "@core-elements/image/Image.astro";
 const {
   h1Text = "Celebrate Summer",
   h1SpanText = "with a",
-  goldWord = "Smile",
+  accentWord = "Smile",
   paragraph = "Let this be the season when you no longer have to hide your smile. Celebrate this summer with a beautiful, confident smile you can show off in selfies, posts, TikToks & more.",
   image = { source: "assets/images/pep-summer-banner-bkg.png", alt: "" },
   backgroundColor = "base",
@@ -13,8 +13,8 @@ const {
   headingColor = "",
   dividerColor = "",
   textColor = "",
-  headingSpanColor = "",
-  accentWordColor = "",
+  HeadingSpanColor = "",
+  AccentWordColor = "",
   class: className,
   ...rest
 } = Astro.props;
@@ -25,8 +25,8 @@ const inlineStyle = [
   headingColor ? `--pep-banner-heading-color: ${headingColor}` : "",
   textColor ? `--pep-banner-text-color: ${textColor}` : "",
   dividerColor ? `--pep-banner-divider-color: ${dividerColor}` : "",
-  headingSpanColor ? `--pep-banner-span-color: ${headingSpanColor}` : "",
-  accentWordColor ? `--pep-banner-accent-word-color: ${accentWordColor}` : "",
+  HeadingSpanColor ? `--pep-banner-span-color: ${HeadingSpanColor}` : "",
+  AccentWordColor ? `--pep-banner-accent-word-color: ${AccentWordColor}` : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -60,8 +60,8 @@ const htmlAttributes = Object.fromEntries(
     <div class="top-text">
       <h1 class="pep-banner-background__heading">
         {h1Text}<br />
-        <span>
-          {h1SpanText} <span class="pep-banner-background__accent-word">{goldWord}</span></span
+        <span class="pep-banner-background__span-word">
+          {h1SpanText} <span class="pep-banner-background__accent-word">{accentWord}</span></span
         >
       </h1>
       <hr />
@@ -103,7 +103,7 @@ const htmlAttributes = Object.fromEntries(
     text-align: left;
   }
 
-  .pep-banner-background__heading span {
+  .pep-banner-background__heading .pep-banner-background__span-word {
     color: var(--pep-banner-span-color, inherit);
     font-size: 1em;
     font-weight: inherit;
