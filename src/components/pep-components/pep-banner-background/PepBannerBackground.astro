@@ -13,7 +13,7 @@ const {
   headingColor = "",
   dividerColor = "",
   textColor = "",
-  h1SpanColor = "",
+  headingSpanColor = "",
   accentWordColor = "",
   class: className,
   ...rest
@@ -25,7 +25,7 @@ const inlineStyle = [
   headingColor ? `--pep-banner-heading-color: ${headingColor}` : "",
   textColor ? `--pep-banner-text-color: ${textColor}` : "",
   dividerColor ? `--pep-banner-divider-color: ${dividerColor}` : "",
-  h1SpanColor ? `--pep-banner-span-color: ${h1SpanColor}` : "",
+  headingSpanColor ? `--pep-banner-span-color: ${headingSpanColor}` : "",
   accentWordColor ? `--pep-banner-accent-word-color: ${accentWordColor}` : "",
 ]
   .filter(Boolean)
