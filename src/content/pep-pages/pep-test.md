@@ -50,7 +50,7 @@ landingFooter:
       - name: Privacy Policy
         path: privacy-policy.html
     legalBlurb: ''
-    backgroundColor: ''
+    backgroundColor: Default (White)
     backgroundColorHex: ''
     headingColor: ''
     headingColorHex: ''
