@@ -339,7 +339,6 @@ const htmlAttributes = Object.fromEntries(
     max-width: 1100px;
   }
 
-  /* ── Responsive ───────────────────────────────────────────────────────────── */
   @media (max-width: 1024px) {
     .pep-form-nctm__call {
       display: block;
@@ -365,6 +364,7 @@ const htmlAttributes = Object.fromEntries(
     }
 
     .pep-form-nctm__article p {
+      font-size: 1.2rem;
       text-align: center;
     }
 
@@ -374,6 +374,11 @@ const htmlAttributes = Object.fromEntries(
 
     .pep-form-nctm__two-col {
       grid-template-columns: 1fr;
+    }
+
+    .pep-form-nctm__figure figcaption {
+      font-size: 1rem;
+      padding: 0.25rem 0.75rem;
     }
   }
 </style>

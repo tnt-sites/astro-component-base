@@ -104,6 +104,8 @@ const htmlAttributes = Object.fromEntries(
   .pep-callout-shadows__grid {
     display: flex;
     flex-flow: row;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
   .pep-callout-shadows__item {
@@ -149,8 +151,10 @@ const htmlAttributes = Object.fromEntries(
 
   @media (max-width: 1024px) {
     .pep-callout-shadows__item {
-      flex: 1 1 50%;
+      flex: 0 1 45%;
+      margin: 20px auto;
     }
+    
   }
 
   @media (max-width: 768px) {

@@ -344,7 +344,18 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
         opacity: 0.8;
       }
 
-      @media (max-width: 590px) {
+      @media (max-width: 1024px) {
+        .lfth-inner {
+          display: block;
+        }
+
+        .lfth-col {
+          margin: 20px auto;
+          max-width: 500px;
+        }
+      }
+
+      @media (max-width: 768px) {
         .lfth-inner {
           display: block;
         }

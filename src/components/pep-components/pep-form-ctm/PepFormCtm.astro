@@ -107,7 +107,6 @@ const htmlAttributes = Object.fromEntries(
     max-width: 1260px;
   }
 
-  /* ── Call row ─────────────────────────────────────────────────────────────── */
   .pep-form-ctm__call {
     align-items: center;
     background-color: var(--pfc-call-bg);
@@ -145,32 +144,33 @@ const htmlAttributes = Object.fromEntries(
     font-family: var(--font-body);
     font-size: clamp(1.75rem, 3.5vw, 2.8125rem);
     font-weight: 400;
-    letter-spacing: -0.02em;
-    line-height: 1.35;
-    padding: 0.625rem;
-  }
-
-  .pep-form-ctm__article a {
-    color: var(--pfc-link-color, var(--color-brand));
+    :global(.pep-form-ctm__form iframe) {
+      border: none !important;
+      display: block;
+      flex: 1 1 auto;
+      height: 100% !important;
+      min-height: 400px !important;
+      width: 100% !important;
+    }
   }
 
   .pep-form-ctm__article a:hover {
     color: var(--color-brand-secondary, var(--color-brand));
   }
 
-  /* ── Form iframe ──────────────────────────────────────────────────────────── */
   .pep-form-ctm__form {
     background-color: var(--pfc-content-bg);
     padding: 0;
   }
 
-  .ctm-widget {
-    display: block;
-    height: 550px;
-    width: 100%;
+  .pep-form-ctm__form iframe {
+    :global(.pep-form-ctm__form iframe) {
+      height: 750px !important;
+    }
+    border: none;
+    min-height: 400px;
   }
 
-  /* ── Bottom text ──────────────────────────────────────────────────────────── */
   .pep-form-ctm__bottom {
     padding: 2.5rem 1rem 3rem;
     text-align: center;
@@ -186,7 +186,6 @@ const htmlAttributes = Object.fromEntries(
     max-width: 1100px;
   }
 
-  /* ── Responsive ───────────────────────────────────────────────────────────── */
   @media (max-width: 1024px) {
     .pep-form-ctm__call {
       display: block;
@@ -205,12 +204,6 @@ const htmlAttributes = Object.fromEntries(
     }
   }
 
-  @media (max-width: 820px) {
-    .ctm-widget {
-      height: 725px;
-    }
-  }
-
   @media (max-width: 768px) {
     .pep-form-ctm__call {
       display: block;
@@ -218,7 +211,12 @@ const htmlAttributes = Object.fromEntries(
     }
 
     .pep-form-ctm__article p {
+      font-size: 1.2rem;
       text-align: center;
+    }
+
+    .pep-form-ctm__form iframe {
+      height: 750px;
     }
   }
 </style>

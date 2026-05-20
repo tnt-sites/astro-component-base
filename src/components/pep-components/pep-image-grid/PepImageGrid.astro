@@ -166,7 +166,30 @@ const htmlAttributes = Object.fromEntries(
     text-transform: uppercase;
   }
 
-  @media (max-width: 740px) {
+  @media (max-width: 1024px) {
+    .pep-image-grid__grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      justify-content: center;
+    }
+
+    .pep-image-grid__item {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex: 0 1 45%;
+      flex-direction: column;
+      max-width: 100%;
+      min-width: 200px;
+    }
+
+    .pep-image-grid__media {
+      aspect-ratio: 1 / 1;
+      flex: 1 1 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
     .pep-image-grid__grid {
       gap: 1rem;
     }
