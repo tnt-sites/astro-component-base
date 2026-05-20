@@ -455,7 +455,7 @@ pageSections:
         positionVertical: center
         positionHorizontal: center
         priority: false
-    slideNumbers: true
+    slideNumbers: false
     floatingArrows: false
     backgroundColor: none
     backgroundGradient: ''
