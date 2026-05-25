@@ -7,7 +7,10 @@ const pageSchema = z.object({
     .string()
     .nullish()
     .transform((v) => v ?? ""),
-  pageSections: z.array(z.any()),
+  pageSections: z
+    .array(z.any())
+    .nullish()
+    .transform((v) => v ?? []),
 });
 
 const docsPageSchema = z.object({
