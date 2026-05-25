@@ -1,7 +1,7 @@
 label: AI Answers Banner
 icon: dashboard
 value:
-  _component: landing-page-components/ai-answers/AiAnswersBanner
+  _component: landing-page-components/ai-answers/banner/ai-answers-banner
   backgroundColor: surface
   heading: "Want a new smile?<br>Confused?<br>Need Answers?"
   consultationTitle: "Request a Free Consultation<br>with Our Doctors"

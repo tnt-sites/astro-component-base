@@ -1,47 +1,5 @@
-values:
-  - label: AI Answers Banner
-    icon: dashboard
-    value:
-      _component: landing-page-components/ai-answers/banner/ai-answers-banner
-      backgroundColor: surface
-      heading: "Want a new smile?<br>Confused?<br>Need Answers?"
-      consultationTitle: "Request a Free Consultation<br>with Our Doctors"
-      consultationItems:
-        - no cost
-        - no strings attached
-        - no obligations
-        - just honest answers
-      image:
-        source: /assets/images/lp-implants-ai-banner.png
-        alt: "AI consultation banner image"
-      borderColor: "var(--color-brand-secondary)"
-      titleBackground: "black"
-      titleColor: "white"
-  - label: AI Answers Reviews
-    icon: reviews
-    value:
-      _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
-      backgroundColor: surface
-      heading: "Hear More From<br>Some of Our Actual Patients"
-      image:
-        source: https://placehold.co/294x294
-        alt: "Patients smiling"
-      headingColor: "var(--color-brand)"
-      borderColor: "var(--color-brand-secondary)"
-      starColor: "#febb21"
-      reviews:
-        - googleLogo:
-            source: ""
-            alt: Google Reviews
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-          author: "- Lorem A."
-        - googleLogo:
-            source: ""
-            alt: Google Reviews
-          text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident."
-          author: "- Ipsum B."
-        - googleLogo:
-            source: ""
-            alt: Google Reviews
-          text: "Sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames."
-          author: "- Dolor C."
+aiAnswersSections:
+  id_key: _component
+  style: modal
+  values_from_glob:
+    - /src/components/landing-page-components/ai-answers/**/*.cloudcannon.structure-value.yml
