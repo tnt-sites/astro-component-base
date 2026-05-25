@@ -106,8 +106,8 @@ if (isRemoteUrl) {
   }
 }
 
-let finalWidth = imageWidth;
-let finalHeight = imageHeight;
+let finalWidth = useInferSize ? undefined : imageWidth;
+let finalHeight = useInferSize ? undefined : imageHeight;
 let useFit = undefined;
 let usePosition = undefined;
 let filteredWidths = widths;
