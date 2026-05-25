@@ -50,8 +50,20 @@ image:
               comment: Alt text for accessibility.
 
 headingColor:
-  type: color
+  type: select
   comment: Color of the section heading.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "#0A4172"
+        name: Navy
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
 
 borderColor:
   type: select
@@ -91,17 +103,25 @@ reviews:
             googleLogo:
               type: object
               comment: Optional Google logo displayed above the review.
-              _inputs:
-                source:
-                  type: image
-                  comment: Path or URL to the Google logo image.
-                  options:
-                    paths:
-                      uploads: src/assets/images
-                      static: ""
-                alt:
-                  type: text
-                  comment: Alt text for the logo.
+              options:
+                structures:
+                  values:
+                    - label: Google Logo
+                      icon: image
+                      value:
+                        source: ""
+                        alt: Google Reviews
+                      _inputs:
+                        source:
+                          type: image
+                          comment: Path or URL to the Google logo image.
+                          options:
+                            paths:
+                              uploads: src/assets/images
+                              static: ""
+                        alt:
+                          type: text
+                          comment: Alt text for the logo.
             text:
               type: textarea
               comment: The body text of the review.
