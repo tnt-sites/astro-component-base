@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@core-elements/image/Image.astro";
 
 interface Review {
   googleLogo?: { source: string; alt: string };
@@ -44,7 +45,15 @@ const htmlAttributes = Object.fromEntries(
     <div class="reviews-top block lg:flex justify-between items-center">
       {heading && <h2 class="text-center" set:html={heading} />}
       <figure class="reviews-image lg:order-first">
-        <img src={image.source} alt={image.alt || ""} />
+        <Image
+          source={image.source}
+          alt={image.alt || ""}
+          editable={false}
+          rounded={false}
+          aspectRatio="none"
+          sizes="auto"
+          widths={[]}
+        />
       </figure>
     </div>
 
@@ -54,7 +63,11 @@ const htmlAttributes = Object.fromEntries(
           {reviews.map((review: Review) => (
             <div class="review-item">
               {review.googleLogo?.source && (
-                <img src={review.googleLogo.source} alt={review.googleLogo.alt || ""} />
+                <Image
+                  source={review.googleLogo.source}
+                  alt={review.googleLogo.alt || ""}
+                  editable={false}
+                />
               )}
               <div class="review-stars" aria-label="5 stars">
                 ★★★★★
@@ -87,8 +100,19 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .ai-implant-reviews .reviews-image {
-    flex: 0 1 auto;
+    flex: 0 1 294px;
     margin: 0;
+  }
+
+  .ai-implant-reviews .reviews-image :global(.image) {
+    display: contents;
+  }
+
+  .ai-implant-reviews .reviews-image :global(img) {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: auto;
   }
 
   .ai-implant-reviews .reviews-content {
@@ -111,10 +135,14 @@ const htmlAttributes = Object.fromEntries(
     }
   }
 
+  .ai-implant-reviews .review-item :global(.image) {
+    margin-top: -6.25rem;
+    width: auto;
+  }
+
   .ai-implant-reviews .review-item :global(img) {
     display: block;
     height: auto;
-    margin-top: -6.25rem;
     width: auto;
   }
 
