@@ -91,12 +91,12 @@ landingPageSections:
     image:
       source: https://placehold.co/400x300
       alt: Patients smiling
-    headingColor: '#2691CA'
+    headingColor: var(--color-brand)
     borderColor: var(--color-brand-secondary)
     starColor: '#febb21'
     reviews:
       - googleLogo:
-          source: ''
+          source: /src/assets/images/component-library/profile2.jpg
           alt: Google Reviews
         text: >-
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
