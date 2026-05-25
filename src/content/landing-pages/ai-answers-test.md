@@ -1,7 +1,6 @@
 ---
 _schema: landing-page-ai-answers
 title: AI Answers Test
-landingStyle: ai-answers
 landingMainNav:
   - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg

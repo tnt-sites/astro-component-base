@@ -15,7 +15,10 @@ const pageSchema = z.object({
 
 const docsPageSchema = z.object({
   title: z.string(),
-  contentSections: z.array(z.any()),
+  contentSections: z
+    .array(z.any())
+    .nullish()
+    .transform((v) => v ?? []),
 });
 
 const docsComponentSchema = z.object({
@@ -122,7 +125,7 @@ const landingPageSchema = z.object({
     .string()
     .nullish()
     .transform((v) => v ?? ""),
-  landingStyle: z.enum(landingStyles).optional(),
+  landingStyle: z.string().optional(),
   landingMainNav: landingComponentConfigSchema.optional(),
   landingFooter: landingComponentConfigSchema.optional(),
   landingPageSections: z.array(z.any()).optional(),
