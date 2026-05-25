@@ -4,13 +4,13 @@ description: Review cards with heading image, star ratings, and author attributi
 value:
   _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
   id: ""
-  backgroundColor: surface
+  backgroundColor: none
   heading: "Hear More From<br>Some of Our Actual Patients"
   image:
     source: https://placehold.co/400x300
     alt: "Patients smiling"
   headingColor: "#2691CA"
-  borderColor: "#0A4172"
+  borderColor: "var(--color-brand-secondary)"
   starColor: "#febb21"
   reviews:
     - googleLogo:

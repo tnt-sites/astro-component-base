@@ -77,7 +77,7 @@ landingPageSections:
       source: https://placehold.co/680x666
       alt: "AI consultation banner image"
     borderColor: "#0A4172"
-    titleBackground: "#0A4172"
+    titleBackground: "black"
     titleColor: "#ffffff"
   - _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
     id: ""
