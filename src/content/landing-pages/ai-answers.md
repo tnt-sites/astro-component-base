@@ -1,6 +1,6 @@
 ---
 _schema: landing-page-ai-answers
-title: AI Answers Test
+title: New AI Answers Landing Page
 landingStyle: ai-answers
 landingMainNav:
   - _component: navigation/landing/landing-header
@@ -11,7 +11,7 @@ landingMainNav:
         id: ''
         text: Request an Appointment
         hideText: false
-        link: /request-an-appointment/
+        link: /new-patient-special-form/
         modalTarget: ''
         iconName: ''
         iconPosition: before
@@ -25,11 +25,11 @@ landingMainNav:
         uppercase: false
     offices: []
 landingFooter:
-  - _component: navigation/landing/landing-footer-logo-top
+  - _component: navigation/landing/landing-footer
     logoSource: /images/logo.svg
     logoAlt: Logo
     siteName: Dental Studio
-    contactTitle: Learn More
+    contactTitle: Contact Us
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ''
@@ -51,6 +51,9 @@ landingFooter:
       - label: Facebook
         icon: social/facebook
         link: https://facebook.com
+      - label: Instagram
+        icon: social/instagram
+        link: https://instagram.com
     legalLinks:
       - name: Sitemap
         path: sitemap.html
@@ -58,8 +61,6 @@ landingFooter:
         path: privacy-policy.html
     mapEmbedUrl: ''
     backgroundImage:
-      source:
-      alt:
       positionVertical: top
       positionHorizontal: center
     backgroundGradient: ''
@@ -67,7 +68,22 @@ landingFooter:
     linkColor: ''
     linkHoverColor: ''
     legalBlurb: ''
-    offices: []
+    offices:
+      - name: ''
+        phones:
+          - display: (123) 456-7890
+            href: tel:+11234567890
+        addresses:
+          - lines:
+              - 123 Main Street
+              - Suite 200
+            city: Dunedin
+            state: FL
+            postalCode: '34698'
+            country: USA
+            mapUrl: https://maps.google.com
+        officeHours: []
+        officeHoursNote: ''
 landingPageSections:
   - _component: landing-page-components/ai-answers/banner/ai-answers-banner
     backgroundColor: surface
@@ -79,12 +95,11 @@ landingPageSections:
       - no obligations
       - just honest answers
     image:
-      source: https://placehold.co/680x666
+      source: /assets/images/lp-implants-ai-banner.png
       alt: AI consultation banner image
-    borderColor: '#0A4172'
+    borderColor: var(--color-brand-secondary)
     titleBackground: black
-    titleColor: '#ffffff'
-    id: ''
+    titleColor: white
   - _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
     id: ''
     backgroundColor: none
