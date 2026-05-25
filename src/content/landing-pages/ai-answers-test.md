@@ -1,5 +1,5 @@
 ---
-_schema: landing-page
+_schema: landing-page-ai-answers
 title: AI Answers Test
 landingMainNav:
   - _component: navigation/landing/landing-header
@@ -63,20 +63,46 @@ landingFooter:
     backgroundGradient: ""
     legalBlurb: ""
 landingPageSections:
-  - _component: landing-page-components/ai-answers/AiAnswersBanner
+  - _component: landing-page-components/ai-answers/banner/ai-answers-banner
     id: ""
-    backgroundColor: accent
-    heading: "Lorem Ipsum<br>Dolor Sit Amet?"
-    consultationTitle: "Free Consultation<br>with Our Experts"
+    backgroundColor: surface
+    heading: "Want a new smile?<br>Confused?<br>Need Answers?"
+    consultationTitle: "Request a Free Consultation<br>with Our Doctors"
     consultationItems:
-      - lorem ipsum
-      - dolor sit amet
-      - consectetur adipiscing
-      - elit sed do eiusmod
+      - no cost
+      - no strings attached
+      - no obligations
+      - just honest answers
     image:
-      source: /assets/images/lp-implants-ai-banner.png
-      alt: "Lorem ipsum banner image"
-    borderColor: "#2691CA"
+      source: https://placehold.co/680x666
+      alt: "AI consultation banner image"
+    borderColor: "#0A4172"
     titleBackground: "#0A4172"
     titleColor: "#ffffff"
+  - _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
+    id: ""
+    backgroundColor: none
+    heading: "Hear More From<br>Some of Our Actual Patients"
+    image:
+      source: https://placehold.co/294x294
+      alt: "Patients smiling"
+    headingColor: "#2691CA"
+    borderColor: "#0A4172"
+    starColor: "#febb21"
+    reviews:
+      - googleLogo:
+          source: https://placehold.co/89x89
+          alt: Google Reviews
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        author: "- Lorem A."
+      - googleLogo:
+          source: https://placehold.co/89x89
+          alt: Google Reviews
+        text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+        author: "- Ipsum B."
+      - googleLogo:
+          source: https://placehold.co/89x89
+          alt: Google Reviews
+        text: "Sunt in culpa qui officia deserunt mollit anim id est laborum. Pellentesque habitant morbi tristique."
+        author: "- Dolor C."
 ---

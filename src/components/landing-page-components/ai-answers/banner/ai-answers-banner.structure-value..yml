@@ -17,4 +17,4 @@ value:
   titleBackground: "#0A4172"
   titleColor: "#ffffff"
 _inputs_from_glob:
-  - /src/components/landing-page-components/ai-answers/ai-answers-banner.cloudcannon.inputs.yml
+  - /src/components/landing-page-components/ai-answers/banner/ai-answers-banner.cloudcannon.inputs.yml

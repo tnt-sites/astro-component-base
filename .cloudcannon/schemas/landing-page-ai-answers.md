@@ -11,7 +11,7 @@ landingMainNav:
         id: ""
         text: Request an Appointment
         hideText: false
-        link: /lp-ai-special-form/
+        link: /new-patient-special-form/
         modalTarget: ""
         iconName: ""
         iconPosition: before
