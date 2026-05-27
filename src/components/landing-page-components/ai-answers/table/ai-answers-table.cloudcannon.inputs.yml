@@ -70,10 +70,12 @@ headerColor:
   comment: Background color of the table header row.
   options:
     values:
-      - id: brand
+      - id: "var(--color-brand)"
         name: Brand (Primary)
-      - id: brand-secondary
+      - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
       - id: none
         name: None
       - id: base
