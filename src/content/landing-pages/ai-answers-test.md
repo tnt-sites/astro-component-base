@@ -119,6 +119,50 @@ landingPageSections:
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames.
         author: "- Dolor C."
+  - _component: landing-page-components/ai-answers/table/ai-answers-table
+    id: ""
+    backgroundColor: none
+    heading: "How {siteName} is<br>Different From Other Dental Practices"
+    headingLineColor: "#000000"
+    siteName: ""
+    logo:
+      source: ""
+      alt: ""
+    headerColor: "#0091AB"
+    headerTextColor: "#ffffff"
+    otherColumnLabel: Other Dental Practices
+    checkColor: "#2e7d32"
+    crossColor: "#c0392b"
+    checkIconName: icon-ok-1
+    crossText: ✕
+    rows:
+      - feature: Board-Certified Prosthodontist
+        siteValue: check
+        otherValue: cross
+      - feature: 5,000+ Implants Placed
+        siteValue: check
+        otherValue: cross
+      - feature: All Surgery & Restorations In-House
+        siteValue: check
+        otherValue: cross
+      - feature: Doctor-Led Consultation
+        siteValue: check
+        otherValue: cross
+      - feature: Advanced Digital Planning Technology
+        siteValue: check
+        otherValue: cross
+      - feature: Long-Term Prosthetic Expertise
+        siteValue: check
+        otherValue: cross
+      - feature: Variety of Materials & Treatment Options
+        siteValue: check
+        otherValue: cross
+      - feature: Complimentary Consultation & CT Scan
+        siteValue: check
+        otherValue: cross
+      - feature: Average Full-Arch Fee
+        siteValue: "$21,000"
+        otherValue: "$30,000+"
 head_scripts: []
 footer_scripts: []
 extraFonts: []
