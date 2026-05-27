@@ -7,12 +7,12 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -31,12 +31,12 @@ landingFooter:
     contactTitle: Learn More
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -55,17 +55,17 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ""
+    mapEmbedUrl: ''
     backgroundImage:
       source:
       alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ""
-    backgroundColor: ""
-    linkColor: ""
-    linkHoverColor: ""
-    legalBlurb: ""
+    backgroundGradient: ''
+    backgroundColor: ''
+    linkColor: ''
+    linkHoverColor: ''
+    legalBlurb: ''
     offices: []
 landingPageSections:
   - _component: landing-page-components/ai-answers/banner/ai-answers-banner
@@ -80,12 +80,12 @@ landingPageSections:
     image:
       source: https://placehold.co/680x666
       alt: AI consultation banner image
-    borderColor: "#0A4172"
+    borderColor: '#0A4172'
     titleBackground: black
-    titleColor: "#ffffff"
-    id: ""
+    titleColor: '#ffffff'
+    id: ''
   - _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
-    id: ""
+    id: ''
     backgroundColor: none
     heading: Hear More From<br>Some of Our Actual Patients
     image:
@@ -93,7 +93,7 @@ landingPageSections:
       alt: Patients smiling
     headingColor: var(--color-brand)
     borderColor: var(--color-brand-secondary)
-    starColor: "#febb21"
+    starColor: '#febb21'
     reviews:
       - googleLogo:
           source: /src/assets/images/component-library/profile2.jpg
@@ -102,37 +102,37 @@ landingPageSections:
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam.
-        author: "- Lorem A."
+        author: '- Lorem A.'
       - googleLogo:
-          source: ""
+          source: ''
           alt: Google Reviews
         text: >-
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident.
-        author: "- Ipsum B."
+        author: '- Ipsum B.'
       - googleLogo:
-          source: ""
+          source: ''
           alt: Google Reviews
         text: >-
           Sunt in culpa qui officia deserunt mollit anim id est laborum.
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames.
-        author: "- Dolor C."
+        author: '- Dolor C.'
   - _component: landing-page-components/ai-answers/table/ai-answers-table
-    id: ""
+    id: ''
     backgroundColor: none
-    heading: "How {siteName} is<br>Different From Other Dental Practices"
-    headingLineColor: "#000000"
-    siteName: ""
+    heading: How {siteName} is<br>Different From Other Dental Practices
+    headingLineColor: var(--color-brand-secondary)
+    siteName: ''
     logo:
-      source: ""
-      alt: ""
-    headerColor: "#0091AB"
-    headerTextColor: "#ffffff"
+      source: ''
+      alt: ''
+    headerColor: dark
+    headerTextColor: var(--color-brand-secondary)
     otherColumnLabel: Other Dental Practices
-    checkColor: "#2e7d32"
-    crossColor: "#c0392b"
+    checkColor: '#2e7d32'
+    crossColor: '#c0392b'
     checkIconName: icon-ok-1
     crossText: ✕
     rows:
@@ -161,8 +161,8 @@ landingPageSections:
         siteValue: check
         otherValue: cross
       - feature: Average Full-Arch Fee
-        siteValue: "$21,000"
-        otherValue: "$30,000+"
+        siteValue: $21,000
+        otherValue: $30,000+
 head_scripts: []
 footer_scripts: []
 extraFonts: []
