@@ -128,7 +128,7 @@ landingPageSections:
     logo:
       source: ''
       alt: ''
-    headerColor: dark
+    headerColor: brand
     headerTextColor: var(--color-brand-secondary)
     otherColumnLabel: Other Dental Practices
     checkColor: '#2e7d32'
