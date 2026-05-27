@@ -6,7 +6,8 @@ const componentModules = import.meta.glob("./src/components/**/*.astro", { eager
 // Helper to convert PascalCase to kebab-case
 function pascalToKebab(pascal) {
   return pascal
-    .replace(/([A-Z])/g, "-$1")
+    .replace(/([A-Z]+)([A-Z][a-z])/g, "$1-$2")
+    .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
     .toLowerCase()
     .replace(/^-/, "");
 }
