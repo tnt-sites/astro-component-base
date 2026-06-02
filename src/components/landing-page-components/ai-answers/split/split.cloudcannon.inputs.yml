@@ -26,15 +26,9 @@ headingFontFamily:
   type: text
   comment: Override the font family for this heading. Leave blank to use the site default. Use any font family loaded by the page, including extra fonts.
 
-listItems:
-  type: array
-  comment: Bullet list items displayed below the heading. Each item gets a + marker.
-  options:
-    structures:
-      values:
-        - label: List Item
-          icon: add
-          value: ""
+text:
+  type: textarea
+  comment: Body text displayed below the heading.
 
 image:
   type: object
@@ -72,22 +66,6 @@ buttonSections:
   comment: Optional CTA button(s) displayed below the list.
   options:
     structures: _structures.buttonSections
-
-accentColor:
-  type: select
-  comment: Color of the + bullet markers and the H2 heading.
-  options:
-    values:
-      - id: "var(--color-brand)"
-        name: Brand
-      - id: "var(--color-brand-secondary)"
-        name: Brand Secondary
-      - id: "var(--color-brand-muted)"
-        name: Brand Tertiary
-      - id: "#000"
-        name: Black
-      - id: "var(--color-text-inverse)"
-        name: White
 
 headingColor:
   type: select
