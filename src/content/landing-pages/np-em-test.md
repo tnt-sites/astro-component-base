@@ -143,14 +143,14 @@ landingPageSections:
     text: >-
       <p><span class="big-text">We understand.</span> Taking care of your teeth
       and gums is not always your highest priority. In fact, many people do not
-      like going to the dentist. That is why we encourage you to give Pinnacle
-      Peak Family Dentistry a try.</p><p><span class="big-text">We are
-      different</span>, and we strive to make every visit amazing. Our team
-      starts with the highest clinical standards and personal attention to each
-      guest. Dental insurance is welcome. We offer same-day appointments, the
-      latest technology and a relaxing atmosphere.</p><p><span
+      like going to the dentist. That is why we encourage you to give Dental
+      Site a try.</p><p></p><p><span class="big-text">We are different</span>,
+      and we strive to make every visit amazing. Our team starts with the
+      highest clinical standards and personal attention to each guest. Dental
+      insurance is welcome. We offer same-day appointments, the latest
+      technology and a relaxing atmosphere.</p><p></p><p><span
       class="big-text">We want you to love</span> visiting Dental Site.</p>
-    backgroundColor: none
+    backgroundColor: white
     textColor: black
     blurbBackgroundColor: white
 head_scripts: []
