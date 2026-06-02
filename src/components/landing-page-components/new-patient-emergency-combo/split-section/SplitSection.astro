@@ -23,8 +23,7 @@ const htmlAttributes = Object.fromEntries(
 
 <CustomSection
   id="dentist"
-  class:list={["split-section", "container", "even", className]}
-  maxContentWidth="2xl"
+  class:list={["split-section", "even", className]}
   colorScheme="default"
   backgroundColor={backgroundColor}
   {...htmlAttributes}
@@ -66,6 +65,9 @@ const htmlAttributes = Object.fromEntries(
     align-items: flex-start;
     display: flex;
     gap: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 20px;
   }
   .split-section figure {
     flex: 0 1 525px;

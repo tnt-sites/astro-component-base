@@ -47,8 +47,18 @@ const htmlAttributes = Object.fromEntries(
     padding: 20px 30px;
   }
 
-  .looking.bg-base {
-    background-color: var(--color-bg);
+  :global(.looking p) {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 1em auto;
+    padding: 15px 10px;
+    text-align: center;
+  }
+
+  :global(.looking p span.big-text) {
+    font-size: 30px;
+    font-weight: 400;
   }
 
   .looking.bg-surface {
@@ -69,18 +79,18 @@ const htmlAttributes = Object.fromEntries(
     background-color: var(--color-bg-white);
   }
   @layer components {
-    .looking p {
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 1.5;
-      margin: auto;
-      padding: 15px 10px;
-      text-align: center;
+    .blurb .looking p {
+      font-size: 20px !important;
+      font-weight: 500 !important;
+      line-height: 1.5 !important;
+      margin: 2em auto !important;
+      padding: 15px 10px !important;
+      text-align: center !important;
     }
 
     .looking p span.big-text {
-      font-size: 30px;
-      font-weight: 400;
+      font-size: 30px !important;
+      font-weight: 400 !important;
     }
   }
 </style>
