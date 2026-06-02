@@ -1,5 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@core-elements/image/Image.astro";
 import Video from "@core-elements/video/Video.astro";
 
 interface VideoItem {
@@ -11,17 +12,14 @@ interface VideoItem {
 const {
   heading = "",
   videos = [] as VideoItem[],
+  image = { source: "", alt: "" },
   backgroundColor = "none",
-  headingColor = "#2691CA",
-  borderColor = "#0A4172",
+  headingColor = "var(--color-text)",
   class: className,
   ...rest
 } = Astro.props;
 
-const inlineStyle = [
-  headingColor ? `--ai-videos-heading: ${headingColor}` : "",
-  borderColor ? `--ai-videos-border: ${borderColor}` : "",
-]
+const inlineStyle = [headingColor ? `--ai-videos-heading: ${headingColor}` : ""]
   .filter(Boolean)
   .join("; ");
 
@@ -41,7 +39,22 @@ const htmlAttributes = Object.fromEntries(
   {...htmlAttributes}
 >
   <div class="videos-inner">
-    {heading && <h2 class="text-center" set:html={heading} />}
+    <div class="videos-top block lg:flex justify-between items-center">
+      {heading && <h2 class="text-center" set:html={heading} />}
+      <figure class="videos-image lg:order-first">
+        <Image
+          source={image.source}
+          alt={image.alt || ""}
+          editable={false}
+          rounded={false}
+          aspectRatio="none"
+          sizes="auto"
+          inferSize={true}
+          width={294}
+          height={294}
+        />
+      </figure>
+    </div>
 
     {
       displayVideos.length > 0 && (
@@ -72,7 +85,25 @@ const htmlAttributes = Object.fromEntries(
 
   .ai-answers-videos h2 {
     color: var(--ai-videos-heading, var(--color-text));
+    flex: 0 0 auto;
     font-weight: 700;
+  }
+
+  .ai-answers-videos .videos-image {
+    flex: 0 1 294px;
+    margin: 0;
+    min-height: 294px;
+  }
+
+  .ai-answers-videos .videos-image :global(.image) {
+    display: contents;
+  }
+
+  .ai-answers-videos .videos-image :global(img) {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: auto;
   }
 
   .ai-answers-videos .videos-content {
@@ -81,12 +112,10 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .ai-answers-videos .video-item {
-    border: 4px solid var(--ai-videos-border, #0a4172);
     display: flex;
     flex: 0 1 420px;
     flex-direction: column;
     gap: 0.75rem;
-    padding: 1rem;
   }
 
   .ai-answers-videos .video-item :global(.video) {

@@ -42,21 +42,28 @@ headingColor:
       - id: "var(--color-text-inverse)"
         name: White
 
-borderColor:
-  type: select
-  comment: Border color for each video card.
+image:
+  type: object
+  comment: Decorative image displayed beside the heading.
   options:
-    values:
-      - id: "var(--color-brand)"
-        name: Brand
-      - id: "var(--color-brand-secondary)"
-        name: Brand Secondary
-      - id: "#0A4172"
-        name: Navy
-      - id: "#000"
-        name: Black
-      - id: "var(--color-text-inverse)"
-        name: White
+    structures:
+      values:
+        - label: Section Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              comment: Path or URL to the image.
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: textarea
+              comment: Alt text for accessibility.
 
 videos:
   type: array

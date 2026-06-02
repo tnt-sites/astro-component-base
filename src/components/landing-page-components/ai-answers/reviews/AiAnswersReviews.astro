@@ -13,8 +13,8 @@ const {
   reviews = [] as Review[],
   image = { source: "", alt: "" },
   backgroundColor = "none",
-  headingColor = "#2691CA",
-  borderColor = "#0A4172",
+  headingColor = "var(--color-text)",
+  borderColor = "var(--color-text)",
   starColor = "#febb21",
   class: className,
   ...rest
@@ -52,8 +52,7 @@ const htmlAttributes = Object.fromEntries(
           rounded={false}
           aspectRatio="none"
           sizes="auto"
-            inferSize={true}
-
+          inferSize={true}
           width={294}
           height={294}
         />
@@ -104,8 +103,8 @@ const htmlAttributes = Object.fromEntries(
 
   .ai-implant-reviews .reviews-image {
     flex: 0 1 294px;
-    min-height: 294px;
     margin: 0;
+    min-height: 294px;
   }
 
   .ai-implant-reviews .reviews-image :global(.image) {

@@ -6,8 +6,10 @@ value:
   id: ""
   backgroundColor: none
   heading: "Hear More From<br>Some of Our Actual Patients"
-  headingColor: "#2691CA"
-  borderColor: "var(--color-brand-secondary)"
+  headingColor: "var(--color-text)"
+  image:
+    source: https://placehold.co/400x300
+    alt: "Patients smiling"
   videos:
     - type: youtube
       id: dQw4w9WgXcQ
