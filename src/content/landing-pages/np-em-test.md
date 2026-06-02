@@ -8,12 +8,12 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Request an Appointment
         hideText: false
         link: /np-em-special-form/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -32,12 +32,12 @@ landingFooter:
     contactTitle: Contact Us
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -59,17 +59,17 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ""
+    mapEmbedUrl: ''
     backgroundImage:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ""
-    backgroundColor: ""
-    linkColor: ""
-    linkHoverColor: ""
-    legalBlurb: ""
+    backgroundGradient: ''
+    backgroundColor: ''
+    linkColor: ''
+    linkHoverColor: ''
+    legalBlurb: ''
     offices:
-      - name: ""
+      - name: ''
         phones:
           - display: (123) 456-7890
             href: tel:+11234567890
@@ -79,39 +79,39 @@ landingFooter:
               - Suite 200
             city: Dunedin
             state: FL
-            postalCode: "34698"
+            postalCode: '34698'
             country: USA
             mapUrl: https://maps.google.com
         officeHours: []
-        officeHoursNote: ""
+        officeHoursNote: ''
 landingPageSections:
   - _component: landing-page-components/new-patient-emergency-combo/banner
-    id: ""
+    id: ''
     image:
       source: https://placehold.co/1440x700
       alt: Smiling family at the dentist
     heading: >-
       At Our Practice, you can count on award-winning care in a warm,
       comfortable environment at each visit.
-    subtext: ""
+    subtext: ''
     buttonSections: []
     badgeImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
     specialBadge:
       source: https://placehold.co/200x200
-      alt: ""
-    figcaption: ""
+      alt: ''
+    figcaption: ''
     backgroundColor: none
     borderColor: var(--color-brand)
-    fontHeadings: ""
-    fontBody: ""
+    fontHeadings: ''
+    fontBody: ''
   - _component: landing-page-components/new-patient-emergency-combo/list-section
-    id: ""
+    id: ''
     heading:
     backgroundColor: dark
-    headingColor: "#ffffff"
-    listTextColor: "#ffffff"
+    headingColor: '#ffffff'
+    listTextColor: '#ffffff'
     checkmarkColor: var(--color-brand)
     items:
       - headingPrefix: Looking for
@@ -138,6 +138,21 @@ landingPageSections:
             <li>Lost or Loose Crown</li>
             <li>Bleeding or Swollen Gums</li>
           </ul>
+  - _component: landing-page-components/new-patient-emergency-combo/blurb
+    id: ''
+    text: >-
+      <p><span class="big-text">We understand.</span> Taking care of your teeth
+      and gums is not always your highest priority. In fact, many people do not
+      like going to the dentist. That is why we encourage you to give Pinnacle
+      Peak Family Dentistry a try.</p><p><span class="big-text">We are
+      different</span>, and we strive to make every visit amazing. Our team
+      starts with the highest clinical standards and personal attention to each
+      guest. Dental insurance is welcome. We offer same-day appointments, the
+      latest technology and a relaxing atmosphere.</p><p><span
+      class="big-text">We want you to love</span> visiting Dental Site.</p>
+    backgroundColor: none
+    textColor: black
+    blurbBackgroundColor: white
 head_scripts: []
 footer_scripts: []
 extraFonts: []
