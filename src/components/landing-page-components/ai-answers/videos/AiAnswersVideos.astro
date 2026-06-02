@@ -1,0 +1,114 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Video from "@core-elements/video/Video.astro";
+
+interface VideoItem {
+  type?: "youtube" | "vimeo";
+  id: string;
+  title?: string;
+}
+
+const {
+  heading = "",
+  videos = [] as VideoItem[],
+  backgroundColor = "none",
+  headingColor = "#2691CA",
+  borderColor = "#0A4172",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const inlineStyle = [
+  headingColor ? `--ai-videos-heading: ${headingColor}` : "",
+  borderColor ? `--ai-videos-border: ${borderColor}` : "",
+]
+  .filter(Boolean)
+  .join("; ");
+
+const displayVideos = videos.slice(0, 3).filter((video: VideoItem) => video?.id);
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  class:list={["ai-answers-videos", className]}
+  paddingVertical="none"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  style={inlineStyle || undefined}
+  {...htmlAttributes}
+>
+  <div class="videos-inner">
+    {heading && <h2 class="text-center" set:html={heading} />}
+
+    {
+      displayVideos.length > 0 && (
+        <div class="videos-content flex justify-around flex-wrap lg:flex-nowrap">
+          {displayVideos.map((video: VideoItem, index: number) => (
+            <article class="video-item">
+              <Video
+                type={video.type === "vimeo" ? "vimeo" : "youtube"}
+                id={video.id}
+                title={video.title || `Video ${index + 1}`}
+                class="ai-answers-video-embed"
+              />
+              {video.title && <p class="video-title" set:html={video.title} />}
+            </article>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</CustomSection>
+
+<style>
+  .ai-answers-videos .videos-inner {
+    margin: 0 auto;
+    max-width: 1300px;
+    padding: 3.75rem 20px;
+  }
+
+  .ai-answers-videos h2 {
+    color: var(--ai-videos-heading, var(--color-text));
+    font-weight: 700;
+  }
+
+  .ai-answers-videos .videos-content {
+    gap: 1.25rem;
+    margin-top: 3.75rem;
+  }
+
+  .ai-answers-videos .video-item {
+    border: 4px solid var(--ai-videos-border, #0a4172);
+    display: flex;
+    flex: 0 1 420px;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .ai-answers-videos .video-item :global(.video) {
+    margin-top: 0;
+  }
+
+  .ai-answers-videos .video-item :global(lite-youtube),
+  .ai-answers-videos .video-item :global(lite-vimeo) {
+    display: block;
+    width: 100%;
+  }
+
+  .ai-answers-videos .video-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .ai-answers-videos .video-item {
+      flex: 0 1 100%;
+    }
+  }
+</style>
