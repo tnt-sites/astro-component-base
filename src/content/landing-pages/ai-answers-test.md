@@ -192,7 +192,7 @@ landingPageSections:
       source: /src/assets/images/component-library/profile2.jpg
       alt: Team member smiling
     figcaption: ''
-    reverse: false
+    reverse: true
     buttonSections: []
     headingColor: var(--color-brand)
     headingFontFamily: ''
