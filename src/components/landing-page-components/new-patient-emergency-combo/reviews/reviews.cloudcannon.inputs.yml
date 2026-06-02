@@ -17,7 +17,7 @@ backgroundColor:
         name: Dark
 image:
   type: object
-  comment: Image configuration for the reviews section.
+  comment: Google logo that goes above the desktop review text.
   options:
     structures:
       values:
@@ -40,7 +40,7 @@ image:
               comment: Alternative text for accessibility.
 mobileImage:
   type: object
-  comment: Mobile image configuration for the reviews section.
+  comment: Google logo that goes above the mobile review text.
   options:
     structures:
       values:
@@ -110,11 +110,31 @@ authorAlignX:
       - id: right
         name: Right
 textColor:
-  type: color
+  type: select
   comment: Color of the review text.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
 mobileTextColor:
-  type: color
+  type: select
   comment: Color of the review text on mobile.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
 starColor:
   type: color
   comment: Color of the review stars.
