@@ -2,12 +2,13 @@
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
+import Text from "@core-elements/text/Text.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   heading = "",
   headingFontFamily = "",
-  listItems = [],
+  text = "",
   image = { source: "", alt: "" },
   figcaption = "",
   reverse = false,
@@ -54,15 +55,8 @@ const htmlAttributes = Object.fromEntries(
           data-prop="heading"
           editable={true}
         />
-        {
-          listItems.length > 0 && (
-            <ul>
-              {listItems.map((item: string) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          )
-        }
+        <Text text={text} fontFamily={fontBody} data-prop="text" editable={true} />
+
         {buttonSections.length > 0 && <ButtonGroup buttonSections={buttonSections} />}
       </div>
     </article>
@@ -83,7 +77,7 @@ const htmlAttributes = Object.fromEntries(
 </CustomSection>
 
 <style>
-  .nptc-split .flex-ed {
+  .ai-split .flex-ed {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -92,17 +86,17 @@ const htmlAttributes = Object.fromEntries(
   }
 
   /* "alt" variant: image on the left */
-  .nptc-split.alt figure {
+  .ai-split.alt figure {
     order: -1;
   }
 
   /* ── Article ────────────────────────────────────────────────────────────── */
-  .nptc-split article {
+  .ai-split article {
     flex: 0 1 540px;
     text-align: left;
   }
 
-  .nptc-split h2 {
+  .ai-split h2 {
     color: var(--nptc-heading-color, var(--color-brand));
     font-family: var(--nptc-font-headings, var(--font-headings));
     font-size: 3.4375rem;
@@ -113,21 +107,21 @@ const htmlAttributes = Object.fromEntries(
   }
 
   /* ── List ───────────────────────────────────────────────────────────────── */
-  .nptc-split ul {
+  .ai-split ul {
     font-family: var(--nptc-font-body, var(--font-body));
     list-style: none;
     padding: 0;
     text-align: left;
   }
 
-  .nptc-split ul li {
+  .ai-split ul li {
     font-size: 1.875rem;
     margin: 0.9375rem auto;
     padding-left: 2.1875rem;
     position: relative;
   }
 
-  .nptc-split ul li::before {
+  .ai-split ul li::before {
     color: var(--nptc-accent-color, var(--color-brand));
     content: "+";
     font-size: 1.875rem;
@@ -138,15 +132,15 @@ const htmlAttributes = Object.fromEntries(
   }
 
   /* ── Figure ─────────────────────────────────────────────────────────────── */
-  .nptc-split figure {
+  .ai-split figure {
     flex: 0 1 480px;
   }
 
-  .nptc-split figure :global(img) {
+  .ai-split figure :global(img) {
     width: 100%;
   }
 
-  .nptc-split figcaption {
+  .ai-split figcaption {
     display: block;
     font-size: 1rem;
     font-weight: 500;
@@ -158,28 +152,28 @@ const htmlAttributes = Object.fromEntries(
 
   /* ── Responsive ─────────────────────────────────────────────────────────── */
   @media (max-width: 1024px) {
-    .nptc-split .flex-ed {
+    .ai-split .flex-ed {
       display: block;
     }
 
-    .nptc-split article {
+    .ai-split article {
       flex: none;
     }
 
-    .nptc-split.alt figure {
+    .ai-split.alt figure {
       order: unset;
     }
 
-    .nptc-split h2 {
+    .ai-split h2 {
       text-align: center;
     }
 
-    .nptc-split ul {
+    .ai-split ul {
       display: table;
       margin: 0 auto;
     }
 
-    .nptc-split figure {
+    .ai-split figure {
       flex: none;
       margin: 1.25rem auto 0;
       max-width: 500px;
