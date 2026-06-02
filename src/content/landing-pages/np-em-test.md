@@ -1,0 +1,147 @@
+---
+_schema: landing-page-new-patient-emergency-combo
+title: New Patient Emergency Combo Landing Page
+landingStyle: new-patient-emergency-combo
+landingMainNav:
+  - _component: navigation/landing/landing-header
+    logoSource: /images/logo.svg
+    logoAlt: Logo
+    pageButtons:
+      - _component: building-blocks/core-elements/button
+        id: ''
+        text: Request an Appointment
+        hideText: false
+        link: /np-em-special-form/
+        modalTarget: ''
+        iconName: ''
+        iconPosition: before
+        variant: primary
+        size: md
+        width: md
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
+    offices: []
+landingFooter:
+  - _component: navigation/landing/landing-footer
+    logoSource: /images/logo.svg
+    logoAlt: Logo
+    siteName: Dental Studio
+    contactTitle: Contact Us
+    pageButtons:
+      - _component: building-blocks/core-elements/button
+        id: ''
+        text: Request an Appointment
+        hideText: false
+        link: /request-an-appointment/
+        modalTarget: ''
+        iconName: ''
+        iconPosition: before
+        variant: primary
+        size: md
+        width: md
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
+    socials:
+      - label: Facebook
+        icon: social/facebook
+        link: https://facebook.com
+      - label: Instagram
+        icon: social/instagram
+        link: https://instagram.com
+    legalLinks:
+      - name: Sitemap
+        path: sitemap.html
+      - name: Privacy Policy
+        path: privacy-policy.html
+    mapEmbedUrl: ''
+    backgroundImage:
+      positionVertical: top
+      positionHorizontal: center
+    backgroundGradient: ''
+    backgroundColor: ''
+    linkColor: ''
+    linkHoverColor: ''
+    legalBlurb: ''
+    offices:
+      - name: ''
+        phones:
+          - display: (123) 456-7890
+            href: tel:+11234567890
+        addresses:
+          - lines:
+              - 123 Main Street
+              - Suite 200
+            city: Dunedin
+            state: FL
+            postalCode: '34698'
+            country: USA
+            mapUrl: https://maps.google.com
+        officeHours: []
+        officeHoursNote: ''
+landingPageSections:
+  - _component: landing-page-components/new-patient-emergency-combo/hero
+    id: ''
+    image:
+      _component: building-blocks/core-elements/image
+      source: https://placehold.co/600x400
+      alt: A placeholder image
+    heading: Hero Heading
+    subtext: Hero Subtext
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        id: ''
+        text: Primary CTA Button
+        hideText: false
+        link: ''
+        modalTarget: ''
+        iconName: ''
+        iconPosition: before
+        variant: primary
+        size: md
+        width: xs
+        borderRadius: default
+        borderWidth: default
+        borderColor: default
+        textColor: default
+        uppercase: false
+    badges: []
+    reverse: false
+    backgroundColor: base
+  - _component: landing-page-components/new-patient-emergency-combo/below-banner
+    id: ''
+    backgroundColor: base
+    items:
+      - headingPrefix: Looking for
+        headingMain: New Dentist?
+        desktopImage: assets/images/ppc-er-np-2024-lists-1.jpg
+        mobileImage: assets/images/ppc-er-np-2024-lists-1-mobile.jpg
+        alt: New Dentist
+        listText: |
+          <ul>
+            <li>Check-Ups & Cleanings</li>
+            <li>Dental Insurance Welcome</li>
+            <li>Friendly, Caring Staff</li>
+            <li>Crowns, Implants & More</li>
+          </ul>
+      - headingPrefix: Have a
+        headingMain: Dental Emergency?
+        desktopImage: assets/images/ppc-er-np-2024-lists-2.jpg
+        mobileImage: assets/images/ppc-er-np-2024-lists-2-mobile.jpg
+        alt: Dental Emergency
+        listText: |
+          <ul>
+            <li>Tooth Pain & Sensitivity</li>
+            <li>Chipped or Fractured Tooth</li>
+            <li>Lost or Loose Crown</li>
+            <li>Bleeding or Swollen Gums</li>
+          </ul>
+head_scripts: []
+footer_scripts: []
+extraFonts: []
+---
