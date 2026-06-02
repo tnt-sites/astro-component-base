@@ -175,6 +175,34 @@ landingPageSections:
 
       <p>If a dental emergency is the reason for your visit, our first priority
       is to get you out of pain.</p>
+  - _component: landing-page-components/new-patient-emergency-combo/reviews
+    id: ''
+    backgroundColor: base
+    image:
+      _component: building-blocks/core-elements/image
+      source: https://placehold.co/600x400
+      alt: A placeholder image
+    mobileImage:
+      _component: building-blocks/core-elements/image
+      source: https://placehold.co/200x200
+      alt: A placeholder image
+    backgroundImage:
+      _component: building-blocks/core-elements/image
+      source: https://placehold.co/1200x1200
+      alt: ''
+    reviewText: lorem ipsum
+    author: First Last
+    textColor: '#fff'
+    mobileTextColor: '#000000'
+    authorAlignX: left
+    starColor: '#febb21'
+  - _component: landing-page-components/new-patient-emergency-combo/insurance-text
+    id: ''
+    heading: Insurance Text Heading
+    text: Insurance Text
+    backgroundColor: base
+    images:
+    imageType: logos
 head_scripts: []
 footer_scripts: []
 extraFonts: []
