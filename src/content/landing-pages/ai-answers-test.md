@@ -163,6 +163,22 @@ landingPageSections:
       - feature: Average Full-Arch Fee
         siteValue: $21,000
         otherValue: $30,000+
+  - _component: landing-page-components/ai-answers/videos/ai-answers-videos
+    id: ''
+    backgroundColor: none
+    heading: Hear More From<br>Some of Our Actual Patients
+    headingColor: var(--color-brand)
+    borderColor: var(--color-brand-secondary)
+    videos:
+      - type: youtube
+        id: dQw4w9WgXcQ
+        title:
+      - type: vimeo
+        id: '1163708819'
+        title:
+      - type: youtube
+        id: M7lc1UVf-VE
+        title: Patient Story 3
 head_scripts: []
 footer_scripts: []
 extraFonts: []
