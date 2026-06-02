@@ -76,7 +76,7 @@ const htmlAttributes = Object.fromEntries(
       return (
         <section class:list={["lists", isOdd && "odd"]}>
           <div class="flex-ed">
-            {!isOdd && (
+            {
               <div class="personalized">
                 <h2>
                   <span>{item.headingPrefix}</span> {item.headingMain}
@@ -89,7 +89,7 @@ const htmlAttributes = Object.fromEntries(
                   />
                 </div>
               </div>
-            )}
+            }
 
             <div class="image">
               <Image
@@ -115,21 +115,6 @@ const htmlAttributes = Object.fromEntries(
                 data-prop-alt={`items.${index}.mobileImage.alt`}
               />
             </div>
-
-            {isOdd && (
-              <div class="personalized">
-                <h2>
-                  <span>{item.headingPrefix}</span> {item.headingMain}
-                </h2>
-                <div class="list">
-                  <Text
-                    editable={false}
-                    text={item.listText}
-                    data-prop={`items.${index}.listText`}
-                  />
-                </div>
-              </div>
-            )}
           </div>
         </section>
       );
@@ -163,6 +148,10 @@ const htmlAttributes = Object.fromEntries(
 
   .list-section .lists .image {
     position: relative;
+  }
+
+  .list-section .lists.odd .image {
+    order: -1;
   }
 
   .list-section .lists .image :global(img) {
@@ -215,7 +204,6 @@ const htmlAttributes = Object.fromEntries(
     padding: 0;
   }
 
-  /* Custom Fontello bullet */
   .list-section .list :global(li) {
     font-size: 22px;
     margin-bottom: 12px;
@@ -257,10 +245,13 @@ const htmlAttributes = Object.fromEntries(
       margin-top: 0;
     }
 
-    .list-section .flex-ed {
-      flex-wrap: wrap;
-      justify-content: center;
+    .list-section .lists .flex-ed {
+      display: block;
       margin-top: 35px;
+    }
+
+    .list-section .image {
+      margin-top: 20px;
     }
 
     .list-section .personalized {

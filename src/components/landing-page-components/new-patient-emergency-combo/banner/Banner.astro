@@ -40,57 +40,61 @@ const htmlAttributes = Object.fromEntries(
   style={inlineStyle || undefined}
   {...htmlAttributes}
 >
-  <figure class="npem-banner-figure">
-    {
-      badgeImage?.source && (
-        <span class="npem-banner-badge">
-          <Image
-            source={badgeImage.source}
-            alt={badgeImage.alt || ""}
-            rounded={false}
-            editable={false}
-            aspectRatio="none"
-            sizes="auto"
-            widths={[]}
-          />
-        </span>
-      )
-    }
-    <Image
-      source={image.source}
-      alt={image.alt}
-      rounded={false}
-      editable={true}
-      aspectRatio="none"
-      sizes="auto"
-      data-prop-src="image.source"
-      data-prop-alt="image.alt"
-    />
-    {figcaption && <figcaption set:html={figcaption} />}
-  </figure>
+  <div class="npem-banner-content">
+    <figure class="npem-banner-figure">
+      {
+        badgeImage?.source && (
+          <span class="npem-banner-badge">
+            <Image
+              source={badgeImage.source}
+              alt={badgeImage.alt || ""}
+              rounded={false}
+              editable={false}
+              aspectRatio="none"
+              sizes="auto"
+              widths={[]}
+            />
+          </span>
+        )
+      }
+      <Image
+        source={image.source}
+        alt={image.alt}
+        rounded={false}
+        editable={true}
+        aspectRatio="none"
+        sizes="auto"
+        data-prop-src="image.source"
+        data-prop-alt="image.alt"
+      />
+      {figcaption && <figcaption set:html={figcaption} />}
+    </figure>
 
-  <div class="npem-banner-bar">
-    {
-      specialBadge?.source && (
-        <span class="npem-banner-special-badge">
-          <Image
-            source={specialBadge.source}
-            alt={specialBadge.alt || ""}
-            rounded={false}
-            editable={false}
-            aspectRatio="none"
-            sizes="auto"
-            widths={[]}
-          />
-        </span>
-      )
-    }
-    <div class="npem-banner-bar-inner">
-      {heading && <h2 data-prop="heading" set:html={heading} />}
-      {subtext && <p class="npem-banner-subtext" data-prop="subtext" set:html={subtext} />}
-      {buttonSections.length > 0 && (
-        <ButtonGroup class="npem-banner-buttons" buttonSections={buttonSections} />
-      )}
+    <div class="npem-banner-bar">
+      {
+        specialBadge?.source && (
+          <span class="npem-banner-special-badge">
+            <Image
+              source={specialBadge.source}
+              alt={specialBadge.alt || ""}
+              rounded={false}
+              editable={false}
+              aspectRatio="none"
+              sizes="auto"
+              widths={[]}
+            />
+          </span>
+        )
+      }
+      <div class="npem-banner-bar-inner">
+        {heading && <h2 data-prop="heading" set:html={heading} />}
+        {subtext && <p class="npem-banner-subtext" data-prop="subtext" set:html={subtext} />}
+        {
+          buttonSections.length > 0 && (
+            <ButtonGroup class="npem-banner-buttons" buttonSections={buttonSections} />
+          )
+        }
+      </div>
     </div>
   </div>
 </CustomSection>
@@ -193,16 +197,29 @@ const htmlAttributes = Object.fromEntries(
   }
 
   @media (max-width: 1300px) {
+    .npem-banner .npem-banner-content {
+      display: flex;
+      flex-direction: column;
+    }
+
     .npem-banner .npem-banner-bar {
       bottom: auto;
-      margin: 0;
+      margin: 0 auto 20px;
+      order: -1;
       padding: 20px;
       position: static;
+      text-align: center;
       transform: none;
     }
 
     .npem-banner .npem-banner-special-badge {
+      display: flex;
+      justify-content: center;
+      left: auto;
+      margin: 0 auto 0.75rem;
       position: static;
+      top: auto;
+      width: 100%;
     }
 
     .npem-banner .npem-banner-bar-inner {
@@ -215,7 +232,7 @@ const htmlAttributes = Object.fromEntries(
     }
   }
 
-  @media (max-width: 790px) {
+  @media (max-width: 768px) {
     .npem-banner .npem-banner-figure {
       margin-top: 12.5rem;
     }
@@ -235,9 +252,7 @@ const htmlAttributes = Object.fromEntries(
       bottom: 5px;
       left: 5%;
     }
-  }
 
-  @media (max-width: 700px) {
     .npem-banner .npem-banner-bar {
       border-radius: 0;
     }
