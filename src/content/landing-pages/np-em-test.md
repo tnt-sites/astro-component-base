@@ -110,6 +110,9 @@ landingPageSections:
     id: ''
     heading:
     backgroundColor: dark
+    headingColor: '#ffffff'
+    listTextColor: var(--color-brand-secondary)
+    checkmarkColor: var(--color-brand)
     items:
       - headingPrefix: Looking for
         headingMain: New Dentist?
