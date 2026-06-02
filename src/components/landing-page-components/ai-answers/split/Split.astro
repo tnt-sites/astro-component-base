@@ -83,16 +83,17 @@ const htmlAttributes = Object.fromEntries(
     flex-wrap: wrap;
     gap: 2.5rem;
     justify-content: space-around;
+    margin: 0 auto;
+    max-width: 1300px;
   }
 
-  /* "alt" variant: image on the left */
   .ai-split.alt figure {
     order: -1;
   }
 
-  /* ── Article ────────────────────────────────────────────────────────────── */
   .ai-split article {
-    flex: 0 1 540px;
+    flex: 0 1 630px;
+    padding: 0 10px;
     text-align: left;
   }
 
@@ -106,34 +107,12 @@ const htmlAttributes = Object.fromEntries(
     text-align: left;
   }
 
-  /* ── List ───────────────────────────────────────────────────────────────── */
-  .ai-split ul {
-    font-family: var(--nptc-font-body, var(--font-body));
-    list-style: none;
-    padding: 0;
-    text-align: left;
+  .ai-split .text p {
+    font-size: 22px;
   }
 
-  .ai-split ul li {
-    font-size: 1.875rem;
-    margin: 0.9375rem auto;
-    padding-left: 2.1875rem;
-    position: relative;
-  }
-
-  .ai-split ul li::before {
-    color: var(--nptc-accent-color, var(--color-brand));
-    content: "+";
-    font-size: 1.875rem;
-    left: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  /* ── Figure ─────────────────────────────────────────────────────────────── */
   .ai-split figure {
-    flex: 0 1 480px;
+    flex: 0 1 540px;
   }
 
   .ai-split figure :global(img) {
@@ -150,7 +129,6 @@ const htmlAttributes = Object.fromEntries(
     text-transform: uppercase;
   }
 
-  /* ── Responsive ─────────────────────────────────────────────────────────── */
   @media (max-width: 1024px) {
     .ai-split .flex-ed {
       display: block;

@@ -8,12 +8,12 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /np-em-special-form/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -32,12 +32,12 @@ landingFooter:
     contactTitle: Contact Us
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -59,17 +59,17 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ''
+    mapEmbedUrl: ""
     backgroundImage:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ''
-    backgroundColor: ''
-    linkColor: ''
-    linkHoverColor: ''
-    legalBlurb: ''
+    backgroundGradient: ""
+    backgroundColor: ""
+    linkColor: ""
+    linkHoverColor: ""
+    legalBlurb: ""
     offices:
-      - name: ''
+      - name: ""
         phones:
           - display: (123) 456-7890
             href: tel:+11234567890
@@ -79,42 +79,33 @@ landingFooter:
               - Suite 200
             city: Dunedin
             state: FL
-            postalCode: '34698'
+            postalCode: "34698"
             country: USA
             mapUrl: https://maps.google.com
         officeHours: []
-        officeHoursNote: ''
+        officeHoursNote: ""
 landingPageSections:
-  - _component: landing-page-components/new-patient-emergency-combo/hero
-    id: ''
+  - _component: landing-page-components/new-patient-emergency-combo/banner
+    id: ""
     image:
-      _component: building-blocks/core-elements/image
-      source: https://placehold.co/600x400
-      alt: A placeholder image
-    heading: Hero Heading
-    subtext: Hero Subtext
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        id: ''
-        text: Primary CTA Button
-        hideText: false
-        link: ''
-        modalTarget: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-        width: xs
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    badges: []
-    reverse: false
-    backgroundColor: base
-  - _component: landing-page-components/new-patient-emergency-combo/below-banner
-    id: ''
+      source: https://placehold.co/1440x700
+      alt: Smiling family at the dentist
+    heading: At Our Practice, you can count on award-winning care in a warm, comfortable environment at each visit.
+    subtext: ""
+    buttonSections: []
+    badgeImage:
+      source: ""
+      alt: ""
+    specialBadge:
+      source: https://placehold.co/200x200
+      alt: ""
+    figcaption: ""
+    backgroundColor: none
+    borderColor: var(--color-brand)
+    fontHeadings: ""
+    fontBody: ""
+  - _component: landing-page-components/new-patient-emergency-combo/list-section
+    id: ""
     backgroundColor: base
     items:
       - headingPrefix: Looking for

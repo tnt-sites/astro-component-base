@@ -1,8 +1,21 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
+
+interface ListItemImage {
+  source?: string;
+  alt?: string;
+}
+
+interface ListItem {
+  headingPrefix?: string;
+  headingMain?: string;
+  listText?: string;
+  alt?: string;
+  desktopImage?: string | ListItemImage;
+  mobileImage?: string | ListItemImage;
+}
 
 const {
   backgroundColor = "base",
@@ -12,6 +25,17 @@ const {
   ...rest
 } = Astro.props;
 
+function normalizeImage(value: string | ListItemImage | undefined, fallbackAlt = "") {
+  if (typeof value === "string") {
+    return { source: value, alt: fallbackAlt };
+  }
+
+  return {
+    source: value?.source ?? "",
+    alt: value?.alt ?? fallbackAlt,
+  };
+}
+
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -20,124 +44,156 @@ const htmlAttributes = Object.fromEntries(
 <CustomSection
   id="lists"
   class:list={["list-section", className]}
-  maxContentWidth="3xl"
+  maxContentWidth="none"
+  paddingVertical="none"
+  paddingHorizontal="none"
   colorScheme="default"
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
   {
-    items.map((item) => (
-      <div class="flex-ed">
-        {console.log("Rendering item:", item)}
-        <figure>
-          <Image
-            source={item.desktopImage.source}
-            class="desktop-image"
-            alt={item.desktopImage.alt}
-            rounded={false}
-            editable={false}
-            aspectRatio="none"
-            sizes="auto"
-          />
-          <Image
-            source={item.mobileImage.source}
-            class="mobile-image"
-            alt={item.mobileImage.alt}
-            rounded={false}
-            editable={false}
-            aspectRatio="none"
-            sizes="auto"
-          />
-        </figure>
-        <div class="personalized">
-          <Heading level="h2" size="lg" editable={false}>
-            <span class="small-text">{item.headingPrefix}</span> {item.headingMain}
-          </Heading>
-          <div class="border-box">
-            <div class="list">
-              <Text editable={false} data-prop="listText">
-                {item.listText}
-              </Text>
+    items.map((item: ListItem, index: number) => {
+      const isOdd = index % 2 === 1;
+      const desktop = normalizeImage(item.desktopImage, item.alt ?? "");
+      const mobile = normalizeImage(item.mobileImage, desktop.alt);
+      const desktopSource = desktop.source;
+      const desktopAlt = desktop.alt;
+      const mobileSource = mobile.source || desktopSource;
+      const mobileAlt = mobile.alt || desktopAlt;
+
+      return (
+        <section class:list={["lists", isOdd && "odd"]}>
+          <div class="flex-ed">
+            {!isOdd && (
+              <div class="personalized">
+                <h2>
+                  <span>{item.headingPrefix}</span> {item.headingMain}
+                </h2>
+                <div class="list">
+                  <Text
+                    editable={false}
+                    text={item.listText}
+                    data-prop={`items.${index}.listText`}
+                  />
+                </div>
+              </div>
+            )}
+
+            <div class="image">
+              <Image
+                source={desktopSource}
+                class="desktop-image"
+                alt={desktopAlt}
+                rounded={false}
+                editable={false}
+                aspectRatio="none"
+                sizes="auto"
+                data-prop-src={`items.${index}.desktopImage.source`}
+                data-prop-alt={`items.${index}.desktopImage.alt`}
+              />
+              <Image
+                source={mobileSource}
+                class="mobile-image"
+                alt={mobileAlt}
+                rounded={false}
+                editable={false}
+                aspectRatio="none"
+                sizes="auto"
+                data-prop-src={`items.${index}.mobileImage.source`}
+                data-prop-alt={`items.${index}.mobileImage.alt`}
+              />
             </div>
+
+            {isOdd && (
+              <div class="personalized">
+                <h2>
+                  <span>{item.headingPrefix}</span> {item.headingMain}
+                </h2>
+                <div class="list">
+                  <Text
+                    editable={false}
+                    text={item.listText}
+                    data-prop={`items.${index}.listText`}
+                  />
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-      </div>
-    ))
+        </section>
+      );
+    })
   }
 </CustomSection>
 
 <style>
   .list-section {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    margin: 60px auto;
+    background-color: #54667a;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.56);
+    padding: 200px 10px 80px;
+  }
+
+  .list-section .lists {
+    border-bottom: 1px solid #fff;
+    margin: 0 auto;
     max-width: 1150px;
-    padding-bottom: 60px;
     position: relative;
   }
 
-  .list-section .flex-ed {
-    border: 1px solid #6a6869;
-    border-left: none;
-    border-right: none;
+  .list-section .lists:first-of-type {
+    border-top: 1px solid #fff;
+  }
+
+  .list-section .lists .flex-ed {
     display: flex;
     flex-wrap: nowrap;
-    gap: 1rem;
     justify-content: space-between;
+  }
+
+  .list-section .lists .image {
+    position: relative;
+  }
+
+  .list-section .lists .image :global(img) {
+    box-shadow: 1.6px 2.5px 7px rgba(7, 8, 8, 0.35);
+  }
+
+  .list-section .personalized {
+    flex: 0 1 544px;
+    height: 340px;
+    margin: 0;
+    max-width: 1040px;
+    padding: 40px 0;
+    position: relative;
+  }
+
+  .list-section .personalized h2 {
+    color: #fff;
+    font-family: "Open Sans", serif;
+    font-size: clamp(2.2rem, 4vw, 3.125rem);
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+    position: relative;
     text-align: center;
   }
 
-  .list-section .flex-ed:first-of-type {
-    border-bottom: none;
-  }
-
-  .list-section .flex-ed:first-of-type figure {
-    order: 2;
-  }
-
-  .list-section .flex-ed:last-of-type {
-    border-top: none;
-  }
-
-  .list-section .flex-ed figure {
-    border: 1px solid #6a6869;
-    position: relative;
-  }
-
-  .list-section .flex-ed figure figcaption {
-    background: rgba(255, 255, 255, 0.8);
-    bottom: 0;
-    left: 0;
-    letter-spacing: 0.2em;
-    padding: 10px;
-    position: absolute;
-    text-transform: uppercase;
-    width: 100%;
-  }
-
-  .list-section .heading {
-    letter-spacing: -1.05px;
-    line-height: 1;
-    margin-top: 0;
-    position: relative;
-    text-transform: none;
-  }
-
-  .list-section .heading .small-text {
-    color: #000;
+  .list-section .personalized h2 span {
     display: block;
-    font-size: 1.2rem;
-    font-style: normal;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
     font-weight: 400;
+    margin-bottom: 5px;
   }
+
   .list-section ul {
     padding-bottom: 10px;
     padding-left: 0;
   }
 
   .list-section ul li {
-    color: #000;
-    font-size: 1.6rem;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
     letter-spacing: 0.6px;
     list-style: none;
     padding-left: 32px;
@@ -148,11 +204,11 @@ const htmlAttributes = Object.fromEntries(
 
   .list-section ul li:before {
     content: "\e832";
-    font-family: fontello;
-    font-size: 0.8em;
+    font-family: fontello, sans-serif;
+    font-size: 0.9em;
     left: -2px;
     position: absolute;
-    top: 13px;
+    top: 10px;
   }
 
   .desktop-image {
@@ -163,17 +219,32 @@ const htmlAttributes = Object.fromEntries(
   }
 
   @media (max-width: 1024px) {
-    .list-section .flex-ed {
+    .list-section {
+      margin: 0 auto;
+      padding: 100px 10px;
+    }
+
+    .list-section .lists {
       border: none;
-      display: flex;
+      margin-top: 0;
+    }
+
+    .list-section .flex-ed {
       flex-wrap: wrap;
       justify-content: center;
       margin-top: 35px;
     }
 
-    .personalized {
-      border: 3px solid rgba(0, 0, 0, 0.15);
-      padding: 15px 0 25px;
+    .list-section .personalized {
+      border: 1px solid #fff;
+      flex: 0 1 100%;
+      height: auto;
+      margin: 0 auto;
+      padding: 30px 20px 0;
+    }
+
+    .list-section .lists.odd .personalized {
+      order: -1;
     }
   }
 
@@ -188,13 +259,31 @@ const htmlAttributes = Object.fromEntries(
 
     .list-section {
       display: block;
-      margin: 0 auto 20px;
+      padding-top: 80px;
     }
 
-    .personalized {
-      border-radius: 0;
-      margin: 15px auto;
-      padding: 20px 10px;
+    .list-section .lists {
+      display: block;
+      margin: 0 auto;
+      padding-top: 20px;
+      width: 100%;
+    }
+
+    .list-section .lists .image {
+      margin: 30px auto;
+    }
+
+    .list-section .personalized {
+      margin: 30px 20px 0;
+      padding: 30px 20px 0;
+    }
+
+    .list-section .personalized h2 {
+      font-size: 2.25rem;
+    }
+
+    .list-section .personalized h2 span {
+      font-size: 1.25rem;
     }
   }
 </style>

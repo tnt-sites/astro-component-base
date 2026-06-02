@@ -41,7 +41,7 @@ const htmlAttributes = Object.fromEntries(
     distributionMode="third-two-thirds"
     verticalAlignment="center"
     reverse={reverse}
-    minSplitWidth={710}
+    minSplitWidth={1025}
     gap="2xl"
     class="hero-split"
   >
@@ -57,12 +57,7 @@ const htmlAttributes = Object.fromEntries(
       />
     </Fragment>
     <Fragment slot="second">
-      <Heading
-      level="h1"
-      size="lg"
-      alignX="left"
-      data-prop="heading"
-      >
+      <Heading level="h1" size="lg" alignX="left" data-prop="heading">
         {heading}
       </Heading>
       <Text data-prop="subtext" text={subtext} />
@@ -78,9 +73,9 @@ const htmlAttributes = Object.fromEntries(
   .hero {
     .badges {
       display: flex;
-      gap: var(--spacing-md);
       flex-wrap: wrap;
-      max-height: 235px
+      gap: var(--spacing-md);
+      max-height: 235px;
     }
   }
 </style>

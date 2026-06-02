@@ -21,5 +21,8 @@ value:
   badges: []
   reverse: false
   backgroundColor: base
+  borderColor: "var(--color-brand)"
+  fontHeadings: ""
+  fontBody: ""
 _inputs_from_glob:
   - /src/components/landing-page-components/new-patient-emergency-combo/hero/hero.cloudcannon.inputs.yml
