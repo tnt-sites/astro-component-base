@@ -5,6 +5,10 @@ backgroundColor:
     values:
       - id: none
         name: None
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
       - id: base
         name: Base
       - id: surface
@@ -16,6 +20,58 @@ backgroundColor:
       - id: dark
         name: Dark
       - id: black
+        name: Black
+
+headingColor:
+  type: select
+  comment: Color of the list section headings.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-inverse)"
+        name: Inverse (White)
+      - id: "#ffffff"
+        name: White
+      - id: "#000000"
+        name: Black
+
+listTextColor:
+  type: select
+  comment: Color of list item text.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-inverse)"
+        name: Inverse (White)
+      - id: "#ffffff"
+        name: White
+      - id: "#000000"
+        name: Black
+
+checkmarkColor:
+  type: select
+  comment: Color of the Fontello checkmark icons.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "#DDCA52"
+        name: Gold
+      - id: "var(--color-text-inverse)"
+        name: White
+      - id: "#000000"
         name: Black
 items:
   type: array

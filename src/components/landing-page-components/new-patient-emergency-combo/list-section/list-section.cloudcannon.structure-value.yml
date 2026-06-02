@@ -6,6 +6,9 @@ value:
   id: ""
   heading: "list-section Heading"
   backgroundColor: base
+  headingColor: "#ffffff"
+  listTextColor: "#ffffff"
+  checkmarkColor: "#DDCA52"
   items:
     - headingPrefix: "Looking for"
       headingMain: "New Dentist?"

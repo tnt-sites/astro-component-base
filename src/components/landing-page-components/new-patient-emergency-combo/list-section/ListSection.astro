@@ -19,11 +19,22 @@ interface ListItem {
 
 const {
   backgroundColor = "base",
+  headingColor = "#fff",
+  listTextColor = "#fff",
+  checkmarkColor = "#ddca52",
   items = [],
   class: className,
   editable = true,
   ...rest
 } = Astro.props;
+
+const inlineStyle = [
+  headingColor ? `--npem-list-heading-color: ${headingColor}` : "",
+  listTextColor ? `--npem-list-text-color: ${listTextColor}` : "",
+  checkmarkColor ? `--npem-list-check-color: ${checkmarkColor}` : "",
+]
+  .filter(Boolean)
+  .join("; ");
 
 function normalizeImage(value: string | ListItemImage | undefined, fallbackAlt = "") {
   if (typeof value === "string") {
@@ -49,6 +60,7 @@ const htmlAttributes = Object.fromEntries(
   paddingHorizontal="none"
   colorScheme="default"
   backgroundColor={backgroundColor}
+  style={inlineStyle || undefined}
   {...htmlAttributes}
 >
   {
@@ -167,7 +179,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .list-section .personalized h2 {
-    color: #fff;
+    color: var(--npem-list-heading-color, #fff);
     font-family: "Open Sans", serif;
     font-size: clamp(2.2rem, 4vw, 3.125rem);
     font-weight: 700;
@@ -191,7 +203,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .list-section ul li {
-    color: #fff;
+    color: var(--npem-list-text-color, #fff);
     font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     letter-spacing: 0.6px;
@@ -203,6 +215,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .list-section ul li:before {
+    color: var(--npem-list-check-color, #ddca52);
     content: "\e832";
     font-family: fontello, sans-serif;
     font-size: 0.9em;
