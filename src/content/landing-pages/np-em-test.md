@@ -63,10 +63,8 @@ landingFooter:
       alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: >-
-      linear-gradient(180deg, color-mix(in srgb, var(--color-bg-brand-secondary)
-      86%, black) 0%, var(--color-bg-brand-secondary) 100%)
-    backgroundColor: ''
+    backgroundGradient:
+    backgroundColor: dark
     linkColor: ''
     linkHoverColor: ''
     legalBlurb: ''
