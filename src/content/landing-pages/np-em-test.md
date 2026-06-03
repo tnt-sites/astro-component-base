@@ -57,7 +57,7 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ''
+    mapEmbedUrl: https://maps.app.goo.gl/mwYFRCsLFsKPbFYQA
     backgroundImage:
       source:
       alt:
