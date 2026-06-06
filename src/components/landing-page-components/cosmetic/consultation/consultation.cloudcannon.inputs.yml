@@ -1,0 +1,46 @@
+backgroundColor:
+  type: select
+  comment: Background color of the consultation section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
+
+heading:
+  type: textarea
+  comment: Section heading (h2). Supports <br> and <span> for accent color (e.g. "Request a FREE Smile Makeover <span>Consultation</span>").
+
+formAction:
+  type: url
+  comment: URL that processes the form submission (e.g. a form handler endpoint or thank-you redirect).
+
+formBlocks:
+  type: array
+  label: Form Fields
+  comment: The form fields to render inside the form. Add inputs, textareas, hidden fields, and a submit button.
+  options:
+    structures: _structures.formBlocks
+
+accentColor:
+  type: color
+  comment: Override accent color for the heading span. Leave blank to use the site default.
+
+headingColor:
+  type: color
+  comment: Override heading text color. Leave blank to use the site default.
+
+fontHeadings:
+  type: text
+  comment: Override heading font family. Leave blank to use the site default.

@@ -1,0 +1,42 @@
+backgroundColor:
+  type: select
+  comment: Background color of the service list bar.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
+
+services:
+  type: array
+  comment: List of cosmetic services to display as links separated by bullets.
+  options:
+    structures:
+      values:
+        - label: Service Link
+          icon: link
+          value:
+            label: ""
+            url: ""
+          _inputs:
+            label:
+              type: text
+              comment: Display name of the service (e.g. "Veneers").
+            url:
+              type: url
+              comment: Link to the service page.
+
+accentColor:
+  type: color
+  comment: Override the link color. Leave blank to use the site default brand color.

@@ -1,0 +1,105 @@
+backgroundColor:
+  type: select
+  comment: Background color of the reviews section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
+
+heading:
+  type: text
+  comment: Section heading (h2) for the review quote column (e.g. "Patients Love Us").
+
+reviewText:
+  type: textarea
+  comment: Patient review quote text (without surrounding quotation marks).
+
+author:
+  type: text
+  comment: Reviewer name/attribution (e.g. "Regina W.").
+
+reviewsUrl:
+  type: url
+  comment: Link to the full reviews page.
+
+reviewsButtonText:
+  type: text
+  comment: Button label for the reviews link (default "Read More Reviews").
+
+sliderHeading:
+  type: text
+  comment: Small label above the before/after slider title (e.g. "Actual Patient Results").
+
+sliderSubheading:
+  type: text
+  comment: Large title for the before/after slider (e.g. "Before & After").
+
+beforeImage:
+  type: object
+  comment: The "before" photo for the comparison slider.
+  options:
+    structures:
+      values:
+        - label: Before Photo
+          icon: image
+          value:
+            source: ""
+            alt: Before
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text
+
+afterImage:
+  type: object
+  comment: The "after" photo for the comparison slider.
+  options:
+    structures:
+      values:
+        - label: After Photo
+          icon: image
+          value:
+            source: ""
+            alt: After
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text
+
+starColor:
+  type: color
+  comment: Color for the star rating icons (default "#fcd800").
+
+accentColor:
+  type: color
+  comment: Override accent color. Leave blank to use the site default.
+
+headingColor:
+  type: color
+  comment: Override heading text color. Leave blank to use the site default.
+
+fontHeadings:
+  type: text
+  comment: Override heading font family. Leave blank to use the site default.

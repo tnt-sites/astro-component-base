@@ -1,0 +1,127 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Form from "@forms/form/Form.astro";
+
+const {
+  heading = "Request a FREE Smile Makeover <span>Consultation</span>",
+  formAction = "",
+  formBlocks = [],
+  accentColor = "",
+  headingColor = "",
+  fontHeadings = "",
+  backgroundColor = "surface",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const inlineStyle = [
+  accentColor ? `--cos-accent-color: ${accentColor}` : "",
+  headingColor ? `--cos-heading-color: ${headingColor}` : "",
+  fontHeadings ? `--cos-font-headings: ${fontHeadings}` : "",
+]
+  .filter(Boolean)
+  .join("; ");
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  id="cos-consultation"
+  class:list={["cos-consultation", className]}
+  paddingVertical="4xl"
+  paddingHorizontal="md"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  style={inlineStyle || undefined}
+  {...htmlAttributes}
+>
+  <div class="flex-row-responsive">
+    <article>
+      {heading && <h2 set:html={heading} />}
+    </article>
+    <div class="form-container">
+      <Form class="cos-form" action={formAction} formBlocks={formBlocks} />
+    </div>
+  </div>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  .cos-consultation .flex-row-responsive {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin: auto;
+    max-width: 1100px;
+  }
+
+  /* ── Article ─────────────────────────────────────────────────────────────── */
+  .cos-consultation article {
+    flex: 0 1 340px;
+    text-align: center;
+  }
+
+  .cos-consultation article h2 {
+    color: var(--cos-heading-color, var(--color-heading, #0f0d0d));
+    font-family: var(--cos-font-headings, var(--font-headings));
+    font-size: clamp(2rem, 4vw, 3.125rem);
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .cos-consultation article h2 :global(span) {
+    color: var(--cos-accent-color, var(--color-brand, #af8c57));
+    display: block;
+  }
+
+  /* ── Form container ──────────────────────────────────────────────────────── */
+  .cos-consultation .form-container {
+    flex: 0 1 520px;
+    min-width: 280px;
+  }
+
+  .cos-consultation .cos-form {
+    margin-top: 0;
+  }
+
+  .cos-consultation .cos-form .label {
+    display: none;
+  }
+
+  .cos-consultation .cos-form .field {
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+    color: #000;
+    font-size: 1rem;
+    padding: 0.9375rem;
+    width: 100%;
+
+    &:focus {
+      background-color: #e3e3e3;
+      outline: var(--cos-accent-color, var(--color-brand, #af8c57)) solid thin;
+    }
+  }
+
+  /* ── Responsive ──────────────────────────────────────────────────────────── */
+  @media (max-width: 768px) {
+    .cos-consultation .flex-row-responsive {
+      flex-direction: column;
+    }
+
+    .cos-consultation article {
+      flex: none;
+    }
+
+    .cos-consultation .form-container {
+      flex: none;
+      width: 100%;
+    }
+  }
+</style>

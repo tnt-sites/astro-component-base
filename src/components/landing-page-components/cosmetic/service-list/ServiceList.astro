@@ -1,0 +1,88 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+
+interface ServiceItem {
+  label: string;
+  url: string;
+}
+
+const {
+  services = [] as ServiceItem[],
+  accentColor = "",
+  backgroundColor = "accent",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const inlineStyle = accentColor ? `--cos-accent-color: ${accentColor}` : undefined;
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+---
+
+<CustomSection
+  id="cos-service-list"
+  class:list={["cos-service-list", className]}
+  paddingVertical="sm"
+  paddingHorizontal="md"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  style={inlineStyle}
+  {...htmlAttributes}
+>
+  <div class="list-inner">
+    {
+      services.map((service: ServiceItem, i: number) => (
+        <>
+          <a href={service.url} target="_blank" rel="noopener">
+            {service.label}
+          </a>
+          {i < services.length - 1 && (
+            <span class="sep" aria-hidden="true">
+              &bull;
+            </span>
+          )}
+        </>
+      ))
+    }
+  </div>
+</CustomSection>
+
+<style>
+  .cos-service-list .list-inner {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+    justify-content: center;
+    margin: auto;
+    max-width: 1100px;
+  }
+
+  .cos-service-list a {
+    color: var(--cos-accent-color, var(--color-brand, #af8c57));
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .cos-service-list a:hover {
+    color: var(--color-heading, #405465);
+    text-decoration: underline;
+  }
+
+  .cos-service-list .sep {
+    color: var(--color-text, #231f20);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    .cos-service-list .list-inner {
+      gap: 0.4rem 0.6rem;
+    }
+  }
+</style>
