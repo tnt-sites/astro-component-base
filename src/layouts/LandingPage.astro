@@ -84,7 +84,8 @@ const primaryFooter: LandingComponentBlock = footerBlocks[0] ?? {
   _component: "navigation/landing/landing-footer",
 };
 const landingPageSections = frontmatter?.landingPageSections;
-const hasPageSections = landingPageSections && landingPageSections.length > 0;
+const hasDefinedSections = Array.isArray(landingPageSections);
+const hasPageSections = hasDefinedSections && landingPageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
 const siteInfoOffices: any[] = siteInfo?.offices || [];
 
@@ -156,7 +157,7 @@ const resolvedFooter = {
   <Components contentSections={[resolvedHeader]} propName="landingMainNav" editable={false} />
   <main data-pagefind-body>
     {
-      hasPageSections ? (
+      hasDefinedSections ? (
         <Components contentSections={landingPageSections} propName="landingPageSections" />
       ) : hasSlotContent ? (
         <slot />

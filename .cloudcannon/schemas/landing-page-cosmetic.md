@@ -1,7 +1,6 @@
 ---
 _schema: landing-page-cosmetic
 title: New Cosmetic Landing Page
-landingStyle: cosmetic
 landingMainNav:
   - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg
