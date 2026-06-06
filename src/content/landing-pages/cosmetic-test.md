@@ -66,7 +66,31 @@ landingFooter:
     linkHoverColor: ''
     legalBlurb: ''
     offices: []
-landingPageSections: []
+landingPageSections:
+  - _component: landing-page-components/cosmetic/banner
+    id: ''
+    backgroundColor: base
+    heading: Waco's Premier<br>Cosmetic <span>Dentists</span>
+    tagline:
+    subheading: >-
+      We combine state-of-the-art technology, artistry, and concierge-level care
+      to create smiles that change lives.
+    image:
+      source: https://placehold.co/700x600
+      alt: Cosmetic dental team
+    mobileImage:
+      source: ''
+      alt: ''
+    figcaptionLinks:
+      - name: Dr. Smith
+        url: '#'
+      - name: Dr. Jones
+        url: '#'
+    buttonSections: []
+    accentColor: ''
+    headingColor: ''
+    fontHeadings: ''
+    fontBody: ''
 head_scripts: []
 footer_scripts: []
 extraFonts: []
