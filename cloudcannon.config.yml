@@ -344,6 +344,12 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
+        _inputs:
+          landingPageSections:
+            type: array
+            options:
+              structures: _structures.cosmeticSections
+            cascade: true
       landing-page-count-on-us:
         path: .cloudcannon/schemas/landing-page-count-on-us.md
         reorder_inputs: true
