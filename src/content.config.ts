@@ -128,7 +128,10 @@ const landingPageSchema = z.object({
   landingStyle: z.string().optional(),
   landingMainNav: landingComponentConfigSchema.optional(),
   landingFooter: landingComponentConfigSchema.optional(),
-  landingPageSections: z.array(z.any()).optional(),
+  landingPageSections: z
+    .array(z.any())
+    .nullish()
+    .transform((v) => v ?? []),
   head_scripts: z.array(z.string()).optional(),
   footer_scripts: z.array(z.string()).optional(),
   extraFonts: z.array(z.string()).optional(),
