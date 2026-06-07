@@ -7,12 +7,12 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ""
+        id: ''
         text: Request an Appointment
         hideText: false
         link: /cosmetic-special-form/
-        modalTarget: ""
-        iconName: ""
+        modalTarget: ''
+        iconName: ''
         iconPosition: before
         variant: primary
         size: md
@@ -40,16 +40,16 @@ landingFooter:
       - name: All-on-4
         path: /all-on-4/
     formTitle: Ask A Question
-    formAction: ""
+    formAction: ''
     formSubject: Landing Footer Form
     formRedirect: thanks.html
     formSubmitLabel: Submit
     footerLinksBackgroundColor: brand
     footerLinksHoverBackgroundColor: brand-secondary
-    mapEmbedUrl: ""
-    contactCardBackgroundColor: ""
-    servicesCardBackgroundColor: ""
-    formCardBackgroundColor: ""
+    mapEmbedUrl: ''
+    contactCardBackgroundColor: ''
+    servicesCardBackgroundColor: ''
+    formCardBackgroundColor: ''
     legalLinks:
       - name: Sitemap
         path: sitemap.html
@@ -60,15 +60,15 @@ landingFooter:
       alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ""
-    backgroundColor: ""
-    linkColor: ""
-    linkHoverColor: ""
-    legalBlurb: ""
+    backgroundGradient: ''
+    backgroundColor: ''
+    linkColor: ''
+    linkHoverColor: ''
+    legalBlurb: ''
     offices: []
 landingPageSections:
   - _component: landing-page-components/cosmetic/banner
-    id: ""
+    id: ''
     backgroundColor: base
     heading: Waco's Premier<br>Cosmetic <span>Dentists</span>
     tagline:
@@ -79,89 +79,89 @@ landingPageSections:
       source: https://placehold.co/700x600
       alt: Cosmetic dental team
     mobileImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
     figcaptionLinks:
       - name: Dr. Smith
-        url: "#"
+        url: '#'
       - name: Dr. Jones
-        url: "#"
+        url: '#'
     buttonSections: []
-    accentColor: ""
-    headingColor: ""
-    fontHeadings: ""
-    fontBody: ""
+    accentColor: ''
+    headingColor: ''
+    fontHeadings: ''
+    fontBody: ''
   - _component: landing-page-components/cosmetic/consultation
-    id: ""
+    id: ''
     backgroundColor: black
     heading: Request a FREE Smile Makeover <span>Consultation</span>
-    formAction: ""
+    formAction: ''
     formBlocks:
       - _component: building-blocks/forms/input
-        id: ""
+        id: ''
         label: Name
         name: name
         type: text
         placeholder: Name
         required: true
       - _component: building-blocks/forms/input
-        id: ""
+        id: ''
         label: Phone Number
         name: phone
         type: tel
         placeholder: Phone Number
         required: true
       - _component: building-blocks/forms/input
-        id: ""
+        id: ''
         label: Email Address
         name: email
         type: email
         placeholder: Email Address
         required: true
       - _component: building-blocks/forms/textarea
-        id: ""
+        id: ''
         label: Questions/Comments
         name: message
         required: false
         placeholder: Questions/Comments
       - _component: building-blocks/forms/hidden
-        id: ""
+        id: ''
         name: _subject
         value: PPC - Cosmetic - Mid Page Form
       - _component: building-blocks/forms/hidden
-        id: ""
+        id: ''
         name: _redirect
         value: thanks.html
       - _component: building-blocks/forms/submit
-        id: ""
+        id: ''
         text: Submit
         variant: primary
         size: md
         iconPosition: before
         hideText: false
         disabled: false
-    accentColor: ""
-    headingColor: ""
-    fontHeadings: ""
+    accentColor:
+    headingColor: ''
+    fontHeadings: ''
   - _component: landing-page-components/cosmetic/service-list
-    id: ""
+    id: ''
     backgroundColor: dark
     services:
       - label: Veneers
-        url: "#"
+        url: '#'
       - label: Smile Makeover
-        url: "#"
+        url: '#'
       - label: Teeth Whitening
-        url: "#"
+        url: '#'
       - label: Invisalign
-        url: "#"
+        url: '#'
       - label: Dentures
-        url: "#"
+        url: '#'
       - label: Dental Implants
-        url: "#"
-    accentColor: ""
+        url: '#'
+    accentColor: ''
   - _component: landing-page-components/cosmetic/split
-    id: ""
+    id: ''
     backgroundColor: base
     heading: Nobody Cares <br><span>More</span>
     paragraphs:
@@ -177,19 +177,20 @@ landingPageSections:
     figcaption: Our Amazing Dental Team
     buttonSections: []
     reverse: false
-    accentColor: ""
-    headingColor: ""
-    fontHeadings: ""
-    fontBody: ""
+    accentColor: ''
+    headingColor: ''
+    fontHeadings: ''
+    fontBody: ''
   - _component: landing-page-components/cosmetic/reviews
-    id: ""
+    id: ''
     backgroundColor: base
     heading: Patients Love Us
     reviewText: >-
       Dr. Smith is so nice and does a great job. His assistant makes my visit
       enjoyable!
     author: Regina W.
-    buttonSections: []
+    reviewsUrl: '#'
+    reviewsButtonText: Read More Reviews
     sliderHeading: Actual Patient Results
     sliderSubheading: Before & After
     beforeImage:
@@ -198,12 +199,13 @@ landingPageSections:
     afterImage:
       source: /src/assets/images/component-library/profile2.jpg
       alt: A beautiful smile after cosmetic work
-    starColor: "#fcd800"
-    accentColor: ""
-    headingColor: ""
+    starColor: '#fcd800'
+    accentColor: ''
+    headingColor: ''
+    fontHeadings: ''
+    buttonSections: []
     handleColor: dark
     handleArrowColor: white
-    fontHeadings: ""
 head_scripts: []
 footer_scripts: []
 extraFonts: []
