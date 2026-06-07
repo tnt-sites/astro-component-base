@@ -140,7 +140,7 @@ landingPageSections:
         iconPosition: before
         hideText: false
         disabled: false
-    accentColor:
+    accentColor: '#ffbebe'
     headingColor: ''
     fontHeadings: ''
   - _component: landing-page-components/cosmetic/service-list
