@@ -1,34 +1,64 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   heading = "Patients Love Us",
   reviewText = "",
   author = "",
-  reviewsUrl = "#",
-  reviewsButtonText = "Read More Reviews",
   sliderHeading = "Actual Patient Results",
   sliderSubheading = "Before & After",
   beforeImage = { source: "", alt: "Before" },
   afterImage = { source: "", alt: "After" },
   starColor = "#fcd800",
+  buttonSections = [],
   accentColor = "",
   headingColor = "",
+  handleColor = "",
+  handleArrowColor = "",
   fontHeadings = "",
   backgroundColor = "base",
   class: className,
   ...rest
 } = Astro.props;
 
+const resolveColorValue = (value: unknown): string => {
+  if (typeof value !== "string") return "";
+  const normalized = value.trim();
+  if (!normalized) return "";
+
+  const tokenMap: Record<string, string> = {
+    brand: "var(--color-brand)",
+    "brand-secondary": "var(--color-brand-secondary)",
+    accent: "var(--color-bg-accent)",
+    highlight: "var(--color-bg-highlight)",
+    base: "var(--color-bg-base)",
+    surface: "var(--color-bg-surface)",
+    dark: "var(--color-bg-dark)",
+    black: "#000",
+    white: "var(--color-text-inverse)",
+    none: "transparent",
+  };
+
+  return tokenMap[normalized] ?? normalized;
+};
+
+const resolvedHandleColor = resolveColorValue(handleColor);
+const resolvedHandleArrowColor = resolveColorValue(handleArrowColor);
+
 const inlineStyle = [
   accentColor ? `--cos-accent-color: ${accentColor}` : "",
   headingColor ? `--cos-heading-color: ${headingColor}` : "",
   fontHeadings ? `--cos-font-headings: ${fontHeadings}` : "",
   starColor ? `--cos-star-color: ${starColor}` : "",
+  resolvedHandleColor ? `--cos-handle-color: ${resolvedHandleColor}` : "",
+  resolvedHandleArrowColor ? `--cos-handle-arrow-color: ${resolvedHandleArrowColor}` : "",
 ]
   .filter(Boolean)
   .join("; ");
+
+const safeButtonSections = Array.isArray(buttonSections) ? buttonSections : [];
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
@@ -52,15 +82,7 @@ const htmlAttributes = Object.fromEntries(
       <div class="stars" aria-label="5 stars">★★★★★</div>
       {reviewText && <p class="comment">&ldquo;{reviewText}&rdquo;</p>}
       {author && <p class="author">– {author}</p>}
-      {
-        reviewsUrl && (
-          <p>
-            <a href={reviewsUrl} target="_blank" rel="noopener" class="btn-reviews">
-              {reviewsButtonText}
-            </a>
-          </p>
-        )
-      }
+      {safeButtonSections.length > 0 && <ButtonGroup buttonSections={safeButtonSections} />}
     </div>
 
     <!-- Before/After slider column -->
@@ -93,7 +115,7 @@ const htmlAttributes = Object.fromEntries(
           }
           {
             beforeImage?.source && (
-              <div class="ba-before-clip" id="cos-ba-clip" style="width:50%">
+              <div class="ba-before-clip" id="cos-ba-clip" style="--before-pct:50%">
                 <Image
                   source={beforeImage.source}
                   alt={beforeImage.alt || "Before"}
@@ -120,8 +142,8 @@ const htmlAttributes = Object.fromEntries(
             tabindex="0"
           >
             <div class="ba-handle-icon">
-              <span class="ba-arrow ba-arrow--left" aria-hidden="true">&#9664;</span>
-              <span class="ba-arrow ba-arrow--right" aria-hidden="true">&#9654;</span>
+              <span class="ba-arrow ba-arrow--left" aria-hidden="true">&#9668;</span>
+              <span class="ba-arrow ba-arrow--right" aria-hidden="true">&#9658;</span>
             </div>
           </div>
         </div>
@@ -146,14 +168,13 @@ const htmlAttributes = Object.fromEntries(
     gap: 2.5rem;
     justify-content: center;
     margin: auto;
-    max-width: 1100px;
+    max-width: 1300px;
   }
 
   /* ── Review column ───────────────────────────────────────────────────────── */
   .cos-reviews .review-col {
-    flex: 0 1 380px;
-    min-width: 240px;
-    text-align: center;
+    flex: 0 1 600px;
+    text-align: left;
   }
 
   .cos-reviews .review-col h2 {
@@ -174,9 +195,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .cos-reviews .comment {
-    font-size: 1rem;
-    font-style: italic;
-    line-height: 1.6;
+    font-size: 28px;
     margin: 0 0 0.75rem;
   }
 
@@ -187,23 +206,6 @@ const htmlAttributes = Object.fromEntries(
     letter-spacing: 0.05em;
     margin: 0 0 1.25rem;
     text-transform: uppercase;
-  }
-
-  .cos-reviews .btn-reviews {
-    background-color: var(--cos-accent-color, var(--color-brand, #af8c57));
-    color: #fff;
-    display: inline-block;
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    padding: 0.75rem 1.25rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background-color 0.2s;
-  }
-
-  .cos-reviews .btn-reviews:hover {
-    background-color: var(--color-heading, #405465);
   }
 
   /* ── Slider column ───────────────────────────────────────────────────────── */
@@ -239,7 +241,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .cos-reviews .ba-images {
-    overflow: hidden;
+    overflow: visible;
     position: relative;
   }
 
@@ -251,17 +253,24 @@ const htmlAttributes = Object.fromEntries(
     width: 100%;
   }
 
+  .cos-reviews .ba-after {
+    overflow: hidden;
+  }
+
   .cos-reviews .ba-before-clip {
+    clip-path: inset(0 calc(100% - var(--before-pct, 50%)) 0 0);
     height: 100%;
     left: 0;
     overflow: hidden;
     position: absolute;
     top: 0;
+    width: 100%;
   }
 
   .cos-reviews .ba-before-clip :global(img) {
-    max-width: none;
-    width: auto;
+    display: block;
+    height: auto;
+    width: 100%;
   }
 
   /* ── Drag handle ─────────────────────────────────────────────────────────── */
@@ -269,7 +278,9 @@ const htmlAttributes = Object.fromEntries(
     align-items: center;
     bottom: 0;
     cursor: ew-resize;
+    cursor: pointer;
     display: flex;
+    height: 100%;
     justify-content: center;
     left: 50%;
     position: absolute;
@@ -280,7 +291,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .cos-reviews .ba-handle::before {
-    background: #fff;
+    background: var(--cos-handle-color, var(--cos-accent-color, var(--color-brand, #af8c57)));
     bottom: 0;
     content: "";
     left: 50%;
@@ -292,28 +303,36 @@ const htmlAttributes = Object.fromEntries(
 
   .cos-reviews .ba-handle-icon {
     align-items: center;
-    background: #fff;
-    border-radius: 50%;
+    background: var(--cos-handle-color, var(--cos-accent-color, var(--color-brand, #af8c57)));
+    border-radius: 0 0 999px 999px;
+    bottom: -1.5rem;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
     display: flex;
     gap: 0.25rem;
-    height: 2.5rem;
+    height: 1.5rem;
     justify-content: center;
-    position: relative;
+    position: absolute;
     width: 2.5rem;
     z-index: 11;
   }
 
   .cos-reviews .ba-arrow {
-    color: var(--cos-accent-color, var(--color-brand, #af8c57));
+    color: var(--cos-handle-arrow-color, var(--cos-accent-color, var(--color-brand, #af8c57)));
+    display: inline-block;
     font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 0.15rem;
+    min-width: 0.5rem;
+    text-align: center;
   }
 
   /* ── Range input (invisible, overlaid for interaction) ───────────────────── */
   .cos-reviews .ba-range {
     appearance: none;
+    bottom: -1.5rem;
     cursor: ew-resize;
-    height: 100%;
+    height: calc(100% + 1.5rem);
     left: 0;
     margin: 0;
     opacity: 0;
@@ -346,7 +365,7 @@ const htmlAttributes = Object.fromEntries(
 
     const update = (pct: number) => {
       const clamped = Math.min(100, Math.max(0, pct));
-      clip.style.width = `${clamped}%`;
+      clip.style.setProperty("--before-pct", `${clamped}%`);
       handle.style.left = `${clamped}%`;
       handle.setAttribute("aria-valuenow", String(Math.round(clamped)));
       range.value = String(Math.round(clamped));
@@ -365,16 +384,6 @@ const htmlAttributes = Object.fromEntries(
         update(current + 1);
       }
     });
-
-    // Sync clip image width to container so it doesn't stretch
-    const syncBeforeWidth = () => {
-      const containerW = (clip.parentElement as HTMLElement)?.offsetWidth ?? 0;
-      const beforeImg = clip.querySelector<HTMLElement>("img, picture");
-      if (beforeImg) beforeImg.style.width = `${containerW}px`;
-    };
-
-    new ResizeObserver(syncBeforeWidth).observe(clip.parentElement as HTMLElement);
-    syncBeforeWidth();
 
     // Initialize
     update(50);

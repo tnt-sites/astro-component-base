@@ -3,6 +3,10 @@ backgroundColor:
   comment: Background color of the consultation section.
   options:
     values:
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
       - id: none
         name: None
       - id: base
@@ -34,12 +38,36 @@ formBlocks:
     structures: _structures.formBlocks
 
 accentColor:
-  type: color
+  type: select
   comment: Override accent color for the heading span. Leave blank to use the site default.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
 
 headingColor:
-  type: color
+  type: select
   comment: Override heading text color. Leave blank to use the site default.
+  options:
+    values:
+      - id: "var(--color-text)"
+        name: Body Text
+      - id: "var(--color-text-inverse)"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand
+      - id: "var(--color-brand-secondary)"
+        name: Brand Secondary
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
 
 fontHeadings:
   type: text

@@ -3,6 +3,10 @@ backgroundColor:
   comment: Background color of the reviews section.
   options:
     values:
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
       - id: none
         name: None
       - id: base
@@ -30,13 +34,11 @@ author:
   type: text
   comment: Reviewer name/attribution (e.g. "Regina W.").
 
-reviewsUrl:
-  type: url
-  comment: Link to the full reviews page.
-
-reviewsButtonText:
-  type: text
-  comment: Button label for the reviews link (default "Read More Reviews").
+buttonSections:
+  type: array
+  comment: Optional CTA button(s) shown under the review text.
+  options:
+    structures: _structures.buttonSections
 
 sliderHeading:
   type: text
@@ -93,12 +95,72 @@ starColor:
   comment: Color for the star rating icons (default "#fcd800").
 
 accentColor:
-  type: color
-  comment: Override accent color. Leave blank to use the site default.
+  type: select
+  comment: Accent/link color for the reviews section.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
 
 headingColor:
-  type: color
-  comment: Override heading text color. Leave blank to use the site default.
+  type: select
+  comment: Heading text color for the reviews section.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
+
+handleColor:
+  type: select
+  comment: Color for the before/after slider handle.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
+      - id: "var(--color-bg-dark)"
+        name: Dark
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
+
+handleArrowColor:
+  type: select
+  comment: Color for the before/after slider handle arrows.
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
+      - id: "var(--color-bg-dark)"
+        name: Dark
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
 
 fontHeadings:
   type: text

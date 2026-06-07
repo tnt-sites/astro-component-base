@@ -14,7 +14,7 @@ const {
   ...rest
 } = Astro.props;
 
-const inlineStyle = accentColor ? `--cos-accent-color: ${accentColor}` : undefined;
+const inlineStyle = `--cos-accent-color: ${accentColor || "#af8c57"}`;
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
@@ -22,9 +22,9 @@ const htmlAttributes = Object.fromEntries(
 ---
 
 <CustomSection
-  id="cos-service-list"
+  id="cosmetic-list"
   class:list={["cos-service-list", className]}
-  paddingVertical="sm"
+  paddingVertical="md"
   paddingHorizontal="md"
   colorScheme="default"
   backgroundColor={backgroundColor}
@@ -38,9 +38,10 @@ const htmlAttributes = Object.fromEntries(
           <a href={service.url} target="_blank" rel="noopener">
             {service.label}
           </a>
+
           {i < services.length - 1 && (
             <span class="sep" aria-hidden="true">
-              &bull;
+              •
             </span>
           )}
         </>
@@ -50,39 +51,42 @@ const htmlAttributes = Object.fromEntries(
 </CustomSection>
 
 <style>
+  #cosmetic-list {
+    background-color: #2f3030;
+  }
+
+  .cos-service-list {
+    padding: 2rem 1rem;
+  }
+
   .cos-service-list .list-inner {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 0.75rem;
+    gap: 1rem;
     justify-content: center;
-    margin: auto;
-    max-width: 1100px;
   }
 
+  /* links */
   .cos-service-list a {
-    color: var(--cos-accent-color, var(--color-brand, #af8c57));
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
+    color: #fff;
+    font:
+      normal 20px figtree,
+      serif;
+    letter-spacing: 0.1em;
     text-decoration: none;
     text-transform: uppercase;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
   }
 
   .cos-service-list a:hover {
-    color: var(--color-heading, #405465);
-    text-decoration: underline;
+    color: var(--cos-accent-color, #af8c57);
   }
 
+  /* separator */
   .cos-service-list .sep {
-    color: var(--color-text, #231f20);
-    font-size: 0.9rem;
-  }
-
-  @media (max-width: 600px) {
-    .cos-service-list .list-inner {
-      gap: 0.4rem 0.6rem;
-    }
+    color: var(--cos-accent-color, #af8c57);
+    font-size: 2rem;
+    line-height: 1;
   }
 </style>

@@ -8,8 +8,18 @@ value:
   heading: "Patients Love Us"
   reviewText: "Dr. Smith is so nice and does a great job. His assistant makes my visit enjoyable!"
   author: "Regina W."
-  reviewsUrl: "#"
-  reviewsButtonText: "Read More Reviews"
+  buttonSections:
+    - _component: building-blocks/core-elements/button
+      id: ""
+      text: Read More Reviews
+      hideText: false
+      link: "#"
+      modalTarget: ""
+      iconName: ""
+      iconPosition: before
+      variant: primary
+      size: md
+      width: auto
   sliderHeading: "Actual Patient Results"
   sliderSubheading: "Before & After"
   beforeImage:
@@ -21,6 +31,8 @@ value:
   starColor: "#fcd800"
   accentColor: ""
   headingColor: ""
+  handleColor: ""
+  handleArrowColor: ""
   fontHeadings: ""
 _inputs_from_glob:
   - /src/components/landing-page-components/cosmetic/reviews/reviews.cloudcannon.inputs.yml

@@ -3,6 +3,10 @@ backgroundColor:
   comment: Background color of the service list bar.
   options:
     values:
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
       - id: none
         name: None
       - id: base
@@ -38,5 +42,17 @@ services:
               comment: Link to the service page.
 
 accentColor:
-  type: color
-  comment: Override the link color. Leave blank to use the site default brand color.
+  type: select
+  comment: Accent/link highlight color for the service list..
+  options:
+    values:
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-brand-muted)"
+        name: Brand Tertiary
+      - id: "#000"
+        name: Black
+      - id: "var(--color-text-inverse)"
+        name: White
