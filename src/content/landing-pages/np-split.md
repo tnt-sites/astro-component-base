@@ -1,9 +1,9 @@
 ---
-_schema: landing-page-thank-you
-title: Thank You
-parentLandingPage: NewPatientTest/new-patient-split-banner-test/
+_schema: landing-page-new-patient-split-banner
+title: New Patient Split Banner Landing Page
+landingStyle: new-patient-split-banner
 landingMainNav:
-  - _component: navigation/landing/landing-header
+  - _component: navigation/landing/landing-header-split
     logoSource: /images/logo.svg
     logoAlt: Logo
     pageButtons:
@@ -23,12 +23,13 @@ landingMainNav:
         borderColor: default
         textColor: default
         uppercase: false
+    offices: []
 landingFooter:
   - _component: navigation/landing/landing-footer
     logoSource: /images/logo.svg
     logoAlt: Logo
     siteName: Dental Studio
-    contactTitle: Contact Us
+    contactTitle: Learn More
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ''
@@ -63,16 +64,15 @@ landingFooter:
       positionVertical: top
       positionHorizontal: center
     backgroundGradient: ''
-    legalBlurb: >-
-      Our New Patient Offer is a great way to become familiar with Our Practice.
-      New patients only. Requires payment at first visit. Includes all necessary
-      x-rays only. May not be used more than once and cannot be combined with
-      other offers for discounted fees. No cash value. New Patient offer
-      available for patients without dental insurance. Patients with dental
-      insurance give us a call for details. Not valid if gum disease is present.
-      Restrictions apply. One per lifetime.
+    backgroundColor: ''
+    linkColor: ''
+    linkHoverColor: ''
+    legalBlurb: ''
     offices:
       - name: ''
+        phones:
+          - display: (123) 456-7890
+            href: tel:+11234567890
         addresses:
           - lines:
               - 123 Main Street
@@ -82,8 +82,27 @@ landingFooter:
             postalCode: '34698'
             country: USA
             mapUrl: https://maps.google.com
-        phones:
-          - display: (123) 456-7890
-            href: tel:+11234567890
-landingPageSections: []
+        officeHours: []
+        officeHoursNote: ''
+landingPageSections:
+  - _component: landing-page-components/new-patient-split-banner/banner
+    id: ''
+    backgroundColor: none
+    subheading: Texas's
+    heading: Top-Rated<br>Dental Expert
+    text: ''
+    badgeImage:
+      source: ''
+      alt: ''
+    image:
+      source: https://placehold.co/800x600
+      alt: Doctor photo
+    figcaption: Dr. Drew Beaty
+    buttonSections: []
+    fontHeadings: ''
+    fontBody: ''
+    borderColor: var(--color-brand)
+head_scripts: []
+footer_scripts: []
+extraFonts: []
 ---
