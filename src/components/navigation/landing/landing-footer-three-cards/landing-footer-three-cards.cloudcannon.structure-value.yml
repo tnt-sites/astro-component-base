@@ -47,6 +47,10 @@ value:
   backgroundColor: ""
   linkColor: brand
   linkHoverColor: brand-secondary
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
   legalBlurb: ""
   offices: []
 preview:

@@ -17,6 +17,10 @@ value:
   legalBlurb: ""
   linkColor: brand
   linkHoverColor: brand-secondary
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
   officeHoursAlignment: right
   backgroundImage:
     source: ""

@@ -38,6 +38,10 @@ value:
   officeHoursAlignment: right
   linkColor: brand
   linkHoverColor: brand-secondary
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
   legalBlurb: ""
   offices: []
 preview:

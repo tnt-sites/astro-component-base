@@ -21,6 +21,10 @@ value:
   legalBlurb: ""
   linkColor: brand
   linkHoverColor: brand-secondary
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
   backgroundColor: ""
   backgroundColorHex: ""
   headingColor: ""

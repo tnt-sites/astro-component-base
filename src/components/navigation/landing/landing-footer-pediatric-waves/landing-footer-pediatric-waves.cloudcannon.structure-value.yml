@@ -7,6 +7,10 @@ value:
   logoAlt: Logo
   contactTitle: Contact Us
   offices: []
+  phoneLinkColor: brand
+  phoneLinkHoverColor: brand-secondary
+  addressLinkColor: brand
+  addressLinkHoverColor: brand-secondary
   legalLinks:
     - name: Privacy Policy
       path: /privacy-policy/

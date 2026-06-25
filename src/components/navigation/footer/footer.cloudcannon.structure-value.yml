@@ -37,6 +37,10 @@ value:
       path: /privacy-policy
   mapEmbedUrl: ""
   legalBlurb: ""
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
   offices: []
 preview:
   text:

@@ -12,6 +12,10 @@ value:
   mobileCallBackgroundColorHex: ""
   mobileApptBackgroundColor: ""
   mobileApptBackgroundColorHex: ""
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
   pageButtons:
     - _component: building-blocks/core-elements/button
       text: Request an Appointment

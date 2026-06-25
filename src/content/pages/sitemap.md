@@ -4,7 +4,7 @@ title: Sitemap
 pageSections:
   - _component: page-sections/info-blocks/sitemap
     heading: Sitemap
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     backgroundGradient: ""
     backgroundImage:
       source: null

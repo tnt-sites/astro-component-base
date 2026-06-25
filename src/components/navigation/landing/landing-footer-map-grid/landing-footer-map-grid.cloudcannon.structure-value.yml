@@ -15,6 +15,10 @@ value:
   backgroundColor: ""
   linkColor: brand
   linkHoverColor: brand-secondary
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
 preview:
   text:
     - Landing Footer Map Grid

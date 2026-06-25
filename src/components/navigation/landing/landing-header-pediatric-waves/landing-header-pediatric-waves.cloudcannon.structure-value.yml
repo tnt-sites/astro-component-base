@@ -16,6 +16,10 @@ value:
       size: md
       width: md
   offices: []
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
   mobileCallLabel: Call
   mobileMapLabel: Map
   mobileMapHref: ""
