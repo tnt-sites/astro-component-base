@@ -28,8 +28,8 @@ landingMainNav:
     mobileMapLabel: Map
     mobileMapHref: ''
     mobileBarBackground: ''
-    mobileCallBackground: '#23adce'
-    mobileApptBackground: '#dbe45a'
+    mobileCallBackground: '#000'
+    mobileApptBackground: var(--color-brand)
     mobileMapBackground: '#0d5f78'
 landingFooter:
   - _component: navigation/landing/landing-footer-pediatric-waves
