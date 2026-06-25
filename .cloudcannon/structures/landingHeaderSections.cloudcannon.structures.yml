@@ -9,6 +9,21 @@ landingHeaderSections:
         _component: navigation/landing/landing-header
         logoSource: /images/logo.svg
         logoAlt: Logo
+        mobileCallSmallText: "Call Now"
+        mobileRequestLabel: "Request an Appointment"
+        mobileRequestHref: ""
+        mobileCallBackgroundColor: ""
+        mobileCallBackgroundColorHex: ""
+        mobileRequestBackgroundColor: ""
+        mobileRequestBackgroundColorHex: ""
+        mobileCallTextColor: ""
+        mobileCallSmallTextColor: ""
+        mobileRequestTextColor: ""
+        mobileRequestSmallTextColor: ""
+        addressLinkColor: ""
+        addressLinkHoverColor: ""
+        phoneLinkColor: ""
+        phoneLinkHoverColor: ""
         pageButtons:
           - _component: building-blocks/core-elements/button
             text: Request an Appointment
@@ -28,59 +43,8 @@ landingHeaderSections:
         text: Landing Header
         subtext: "Logo + contact + CTA header for landing pages."
         icon: web
-      _inputs:
-        logoSource:
-          type: image
-          comment: "Logo image source URL or path."
-        logoAlt:
-          type: text
-          comment: "Alt text for the logo image for accessibility."
-        id:
-          type: text
-          comment: "Developer use only. Optional HTML id attribute for this header section."
-        pageButtons:
-          type: array
-          comment: "Header CTA buttons shown on the right."
-          options:
-            structures: _structures.buttonSections
-        offices:
-          type: array
-          comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
-          options:
-            structures: _structures.officeSections
-        "$.offices[*].name":
-          type: text
-          comment: "Optional office label."
-        "$.offices[*].phones[*].display":
-          type: text
-          comment: "Phone number as displayed (e.g. (123) 456-7890)."
-        "$.offices[*].phones[*].href":
-          type: text
-          comment: "Phone href value (e.g. tel:+11234567890)."
-        "$.offices[*].addresses[*].lines":
-          type: array
-          comment: "Street address lines."
-        "$.offices[*].addresses[*].city":
-          type: text
-        "$.offices[*].addresses[*].state":
-          type: text
-        "$.offices[*].addresses[*].postalCode":
-          type: text
-        "$.offices[*].addresses[*].mapUrl":
-          type: url
-          comment: "Google Maps link for the address."
-        "$.offices[*].officeHours":
-          type: array
-          hidden: true
-        "$.offices[*].officeHours[*].day":
-          type: text
-          hidden: true
-        "$.offices[*].officeHours[*].hours":
-          type: text
-          hidden: true
-        "$.offices[*].officeHoursNote":
-          type: text
-          hidden: true
+      _inputs_from_glob:
+        - /src/components/navigation/landing/landing-header/landing-header.cloudcannon.inputs.yml
     - label: Landing Header — Two Locations, Logo Centered
       icon: location_on
       description: "Landing header with two office locations flanking a centered logo, plus mobile call and CTA buttons."
@@ -88,7 +52,22 @@ landingHeaderSections:
         _component: navigation/landing/landing-header-two-locations
         logoSource: /images/logo.svg
         logoAlt: Logo
-        mobileCallLabel: Call Today!
+        mobileCallLabel: Call Now
+        mobileCallSmallText: "Call Now"
+        mobileRequestLabel: "Request an Appointment"
+        mobileRequestHref: ""
+        mobileCallBackgroundColor: ""
+        mobileCallBackgroundColorHex: ""
+        mobileRequestBackgroundColor: ""
+        mobileRequestBackgroundColorHex: ""
+        mobileCallTextColor: ""
+        mobileCallSmallTextColor: ""
+        mobileRequestTextColor: ""
+        mobileRequestSmallTextColor: ""
+        addressLinkColor: ""
+        addressLinkHoverColor: ""
+        phoneLinkColor: ""
+        phoneLinkHoverColor: ""
         pageButtons:
           - _component: building-blocks/core-elements/button
             text: Request an Appointment
@@ -108,62 +87,8 @@ landingHeaderSections:
         text: Landing Header — Two Locations, Logo Centered
         subtext: "Left office | centered logo | right office, with mobile call + CTA buttons."
         icon: location_on
-      _inputs:
-        logoSource:
-          type: image
-          comment: "Logo image source URL or path."
-        logoAlt:
-          type: text
-          comment: "Alt text for the logo image."
-        mobileCallLabel:
-          type: text
-          comment: "Label shown above the phone number in the mobile call button (e.g. 'Call Today!')."
-        id:
-          type: text
-          comment: "Developer use only. Optional HTML id attribute for this header section."
-        pageButtons:
-          type: array
-          comment: "CTA buttons. The first button is also used as the mobile appointment CTA."
-          options:
-            structures: _structures.buttonSections
-        offices:
-          type: array
-          comment: "Office locations. First office on left, second on right. Leave empty to use siteInfo offices."
-          options:
-            structures: _structures.officeSections
-        "$.offices[*].name":
-          type: text
-          comment: "Optional office label."
-        "$.offices[*].phones[*].display":
-          type: text
-          comment: "Phone number as displayed (e.g. (123) 456-7890)."
-        "$.offices[*].phones[*].href":
-          type: text
-          comment: "Phone href value (e.g. tel:+11234567890)."
-        "$.offices[*].addresses[*].lines":
-          type: array
-          comment: "Street address lines."
-        "$.offices[*].addresses[*].city":
-          type: text
-        "$.offices[*].addresses[*].state":
-          type: text
-        "$.offices[*].addresses[*].postalCode":
-          type: text
-        "$.offices[*].addresses[*].mapUrl":
-          type: url
-          comment: "Google Maps link for the address."
-        "$.offices[*].officeHours":
-          type: array
-          hidden: true
-        "$.offices[*].officeHours[*].day":
-          type: text
-          hidden: true
-        "$.offices[*].officeHours[*].hours":
-          type: text
-          hidden: true
-        "$.offices[*].officeHoursNote":
-          type: text
-          hidden: true
+      _inputs_from_glob:
+        - /src/components/navigation/landing/landing-header-two-locations/landing-header-two-locations.cloudcannon.inputs.yml
     - label: Landing Header Split
       icon: view_column
       description: "Landing header with contact on the left, centered logo, and CTA buttons on the right."
@@ -171,6 +96,21 @@ landingHeaderSections:
         _component: navigation/landing/landing-header-split
         logoSource: /images/logo.svg
         logoAlt: Logo
+        mobileCallSmallText: "Call Now"
+        mobileRequestLabel: "Request an Appointment"
+        mobileRequestHref: ""
+        mobileCallBackgroundColor: ""
+        mobileCallBackgroundColorHex: ""
+        mobileRequestBackgroundColor: ""
+        mobileRequestBackgroundColorHex: ""
+        mobileCallTextColor: ""
+        mobileCallSmallTextColor: ""
+        mobileRequestTextColor: ""
+        mobileRequestSmallTextColor: ""
+        addressLinkColor: ""
+        addressLinkHoverColor: ""
+        phoneLinkColor: ""
+        phoneLinkHoverColor: ""
         pageButtons:
           - _component: building-blocks/core-elements/button
             text: Request an Appointment
@@ -190,59 +130,8 @@ landingHeaderSections:
         text: Landing Header Split
         subtext: "Contact left, centered logo, CTA right."
         icon: view_column
-      _inputs:
-        logoSource:
-          type: image
-          comment: "Logo image source URL or path."
-        logoAlt:
-          type: text
-          comment: "Alt text for the logo image for accessibility."
-        id:
-          type: text
-          comment: "Developer use only. Optional HTML id attribute for this header section."
-        pageButtons:
-          type: array
-          comment: "Header CTA buttons shown on the right."
-          options:
-            structures: _structures.buttonSections
-        offices:
-          type: array
-          comment: "Optional office contact override for this page. Leave empty to use siteInfo offices."
-          options:
-            structures: _structures.officeSections
-        "$.offices[*].name":
-          type: text
-          comment: "Optional office label."
-        "$.offices[*].phones[*].display":
-          type: text
-          comment: "Phone number as displayed (e.g. (123) 456-7890)."
-        "$.offices[*].phones[*].href":
-          type: text
-          comment: "Phone href value (e.g. tel:+11234567890)."
-        "$.offices[*].addresses[*].lines":
-          type: array
-          comment: "Street address lines."
-        "$.offices[*].addresses[*].city":
-          type: text
-        "$.offices[*].addresses[*].state":
-          type: text
-        "$.offices[*].addresses[*].postalCode":
-          type: text
-        "$.offices[*].addresses[*].mapUrl":
-          type: url
-          comment: "Google Maps link for the address."
-        "$.offices[*].officeHours":
-          type: array
-          hidden: true
-        "$.offices[*].officeHours[*].day":
-          type: text
-          hidden: true
-        "$.offices[*].officeHours[*].hours":
-          type: text
-          hidden: true
-        "$.offices[*].officeHoursNote":
-          type: text
-          hidden: true
+      _inputs_from_glob:
+        - /src/components/navigation/landing/landing-header-split/landing-header-split.cloudcannon.inputs.yml
     - label: Landing Header - Circle Icons
       icon: view_column
       description: "Landing header with circular icon badges on address and phone links, logo, and CTA button."
@@ -267,9 +156,21 @@ landingHeaderSections:
         iconBackgroundColorHex: ""
         linkColor: ""
         linkColorHex: ""
-        mobileCallSmallText: "Call Today!"
-        mobileApptLabel: "Request an Appointment"
-        mobileApptHref: ""
+        addressLinkColor: ""
+        addressLinkHoverColor: ""
+        phoneLinkColor: ""
+        phoneLinkHoverColor: ""
+        mobileCallBackgroundColor: ""
+        mobileCallBackgroundColorHex: ""
+        mobileRequestBackgroundColor: ""
+        mobileRequestBackgroundColorHex: ""
+        mobileCallTextColor: ""
+        mobileCallSmallTextColor: ""
+        mobileRequestTextColor: ""
+        mobileRequestSmallTextColor: ""
+        mobileCallSmallText: "Call Now"
+        mobileRequestLabel: "Request an Appointment"
+        mobileRequestHref: ""
       preview:
         text:
           - Landing Header - Circle Icons
@@ -278,131 +179,11 @@ landingHeaderSections:
         text: Landing Header - Circle Icons
         subtext: "Logo, circular icon badges on contact links, CTA button."
         icon: view_column
-      _inputs:
-        logoSource:
-          type: image
-          comment: "Logo image source URL or path."
-        logoAlt:
-          type: text
-          comment: "Alt text for the logo image."
-        id:
-          type: text
-          comment: "Developer use only. Optional HTML id attribute for this header section."
-        pageButtons:
-          type: array
-          comment: "Header CTA buttons displayed on the right."
-          options:
-            structures: _structures.buttonSections
-        offices:
-          type: array
-          comment: "Optional office contact override. Leave empty to use siteInfo offices."
-          options:
-            structures: _structures.officeSections
-        "$.offices[*].name":
-          type: text
-          comment: "Optional office label."
-        "$.offices[*].phones[*].display":
-          type: text
-          comment: "Phone number as displayed (e.g. (123) 456-7890)."
-        "$.offices[*].phones[*].href":
-          type: text
-          comment: "Phone href value (e.g. tel:+11234567890)."
-        "$.offices[*].addresses[*].lines":
-          type: array
-          comment: "Street address lines."
-        "$.offices[*].addresses[*].city":
-          type: text
-        "$.offices[*].addresses[*].state":
-          type: text
-        "$.offices[*].addresses[*].postalCode":
-          type: text
-        "$.offices[*].addresses[*].mapUrl":
-          type: url
-          comment: "Google Maps link for the address."
-        "$.offices[*].officeHours":
-          type: array
-          hidden: true
-        "$.offices[*].officeHours[*].day":
-          type: text
-          hidden: true
-        "$.offices[*].officeHours[*].hours":
-          type: text
-          hidden: true
-        "$.offices[*].officeHoursNote":
-          type: text
-          hidden: true
-        backgroundColor:
-          type: select
-          comment: "Header background color."
-          options:
-            values:
-              - id: ""
-                name: Default (White)
-              - id: none
-                name: None
-              - id: base
-                name: Base
-              - id: surface
-                name: Surface
-              - id: accent
-                name: Accent
-              - id: highlight
-                name: Highlight
-              - id: dark
-                name: Dark
-              - id: black
-                name: Black
-        backgroundColorHex:
-          type: color
-          comment: "Optional custom hex color for the header background. Overrides the dropdown above."
-        iconBackgroundColor:
-          type: select
-          comment: "Background color of the circular icon badges."
-          options:
-            values:
-              - id: ""
-                name: Default (Brand)
-              - id: brand
-                name: Brand Primary
-              - id: brand-secondary
-                name: Brand Secondary
-              - id: dark
-                name: Dark
-              - id: white
-                name: White
-        iconBackgroundColorHex:
-          type: color
-          comment: "Optional custom hex color for icon badges. Overrides the dropdown above."
-        linkColor:
-          type: select
-          comment: "Color of the address and phone link text."
-          options:
-            values:
-              - id: ""
-                name: Default
-              - id: brand
-                name: Brand Primary
-              - id: brand-secondary
-                name: Brand Secondary
-              - id: dark
-                name: Dark
-              - id: white
-                name: White
-        linkColorHex:
-          type: color
-          comment: "Optional custom hex color for link text. Overrides the dropdown above."
-        mobileCallSmallText:
-          type: text
-          comment: "Small label above the phone number in the mobile call button."
-        mobileApptLabel:
-          type: text
-          comment: "Label for the appointment button in the mobile bar."
-        mobileApptHref:
-          type: text
-          comment: "Link for the mobile appointment button."
+      _inputs_from_glob:
+        - /src/components/navigation/landing/landing-header-circle-icons/landing-header-circle-icons.cloudcannon.inputs.yml
     - label: Landing Header - Pediatric Waves
       icon: waves
-      description: "Pediatric landing header with centered contact details, desktop CTA, and mobile appointment/call/map bar."
+      description: "Pediatric landing header with centered contact details, desktop CTA, and mobile call/request bar."
       value:
         _component: navigation/landing/landing-header-pediatric-waves
         logoSource: /images/logo.svg
@@ -438,13 +219,13 @@ landingHeaderSections:
         icon: waves
       picker_preview:
         text: Landing Header - Pediatric Waves
-        subtext: "Centered contact layout with pediatric-style mobile action bar."
+        subtext: "Centered contact layout with pediatric-style mobile call/request bar."
         icon: waves
       _inputs_from_glob:
         - /src/components/navigation/landing/landing-header-pediatric-waves/landing-header-pediatric-waves.cloudcannon.inputs.yml
     - label: Landing Header - Four Col
       icon: view_week
-      description: "Four-column desktop header with logo, address, phone, and CTA; mobile call + appointment buttons."
+      description: "Four-column desktop header with logo, address, phone, and CTA; mobile call + request buttons."
       value:
         _component: navigation/landing/landing-header-four-col
         logoSource: /images/logo.svg
@@ -460,14 +241,26 @@ landingHeaderSections:
             size: md
             width: md
         offices: []
-        mobileCallLabel: Call Today!
+        addressLinkColor: ""
+        addressLinkHoverColor: ""
+        phoneLinkColor: ""
+        phoneLinkHoverColor: ""
+        mobileCallLabel: Call Now
+        mobileRequestLabel: Request a Free Consultation
+        mobileRequestHref: /request-an-appointment/
+        mobileCallBackgroundColor: ""
+        mobileRequestBackgroundColor: ""
+        mobileCallTextColor: ""
+        mobileCallSmallTextColor: ""
+        mobileRequestTextColor: ""
+        mobileRequestSmallTextColor: ""
       preview:
         text:
           - Landing Header - Four Col
         icon: view_week
       picker_preview:
         text: Landing Header - Four Col
-        subtext: "Four-column desktop layout with mobile call + appointment row."
+        subtext: "Four-column desktop layout with mobile call + request row."
         icon: view_week
       _inputs_from_glob:
         - /src/components/navigation/landing/landing-header-four-col/landing-header-four-col.cloudcannon.inputs.yml
