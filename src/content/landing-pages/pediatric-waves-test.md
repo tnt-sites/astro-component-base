@@ -24,20 +24,24 @@ landingMainNav:
         textColor: default
         uppercase: true
     offices: []
-    mobileCallLabel: Call
-    mobileMapLabel: Map
-    mobileMapHref: ''
-    mobileBarBackground: ''
-    mobileCallBackground: '#000'
-    mobileApptBackground: '#dbe45a'
-    mobileMapBackground: '#0d5f78'
-    mobileRequestLabel: Request an Appointment
-    mobileRequestHref: ''
-    mobileRequestBackground: var(--color-brand-secondary)
-    phoneLinkColor: var(--color-brand-secondary)
-    phoneLinkHoverColor: var(--color-brand)
     addressLinkColor: var(--color-brand)
     addressLinkHoverColor: '#fff'
+    phoneLinkColor: var(--color-brand-secondary)
+    phoneLinkHoverColor: var(--color-brand)
+    mobileCallLabel: Call
+    mobileRequestLabel: Request an Appointment
+    mobileRequestHref: ''
+    mobileBarBackground: ''
+    mobileCallBackground: '#000'
+    mobileRequestBackground: var(--color-brand-secondary)
+    mobileCallTextColor: '#fff'
+    mobileCallSmallTextColor: '#fff'
+    mobileRequestTextColor: var(--color-brand)
+    mobileRequestSmallTextColor: var(--color-brand-secondary)
+    mobileMapLabel: Map
+    mobileMapHref: ''
+    mobileApptBackground: '#dbe45a'
+    mobileMapBackground: '#0d5f78'
 landingFooter:
   - _component: navigation/landing/landing-footer-pediatric-waves
     logoSource: /images/logo.svg
