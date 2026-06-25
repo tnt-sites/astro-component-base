@@ -4,7 +4,7 @@ title: Pediatric Waves Test
 landingMainNav:
   - _component: navigation/landing/landing-header-pediatric-waves
     logoSource: /images/logo.svg
-    logoAlt: Riverside Smiles Pediatric Dentistry
+    logoAlt: Logo Alt
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ""
@@ -33,7 +33,7 @@ landingMainNav:
 landingFooter:
   - _component: navigation/landing/landing-footer-pediatric-waves
     logoSource: /images/logo.svg
-    logoAlt: Riverside Smiles Pediatric Dentistry
+    logoAlt: Logo Alt
     contactTitle: Contact Us
     offices: []
     legalLinks:
@@ -147,7 +147,7 @@ landingPageSections:
     badgeHeading: "Mom & Dad<br>Approved<br>Dentists"
     badgeSubheading: Actual Google Review
     stars: 5
-    reviewText: We had a wonderful experience at Riverside Smiles Pediatric Dentistry. Dr. Miner was patient, gentle, and kind. We are grateful we found this practice and would highly recommend the team to any parent looking for exceptional pediatric dental care.
+    reviewText: Lorem ipsum
     reviewerName: Laura N.
     reviewLogo:
       source: https://placehold.co/220x80

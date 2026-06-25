@@ -400,3 +400,67 @@ landingHeaderSections:
         mobileApptHref:
           type: text
           comment: "Link for the mobile appointment button."
+    - label: Landing Header - Pediatric Waves
+      icon: waves
+      description: "Pediatric landing header with centered contact details, desktop CTA, and mobile appointment/call/map bar."
+      value:
+        _component: navigation/landing/landing-header-pediatric-waves
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        pageButtons:
+          - _component: building-blocks/core-elements/button
+            text: Request an Appointment
+            hideText: false
+            link: /request-an-appointment/
+            iconName: ""
+            iconPosition: before
+            variant: primary
+            size: md
+            width: md
+        offices: []
+        mobileCallLabel: Call
+        mobileMapLabel: Map
+        mobileMapHref: ""
+        mobileBarBackground: ""
+        mobileCallBackground: "#23adce"
+        mobileApptBackground: "#dbe45a"
+        mobileMapBackground: "#0d5f78"
+      preview:
+        text:
+          - Landing Header - Pediatric Waves
+        icon: waves
+      picker_preview:
+        text: Landing Header - Pediatric Waves
+        subtext: "Centered contact layout with pediatric-style mobile action bar."
+        icon: waves
+      _inputs_from_glob:
+        - /src/components/navigation/landing/landing-header-pediatric-waves/landing-header-pediatric-waves.cloudcannon.inputs.yml
+    - label: Landing Header - Four Col
+      icon: view_week
+      description: "Four-column desktop header with logo, address, phone, and CTA; mobile call + appointment buttons."
+      value:
+        _component: navigation/landing/landing-header-four-col
+        logoSource: /images/logo.svg
+        logoAlt: Logo
+        pageButtons:
+          - _component: building-blocks/core-elements/button
+            text: Request a Free Consultation
+            hideText: false
+            link: /request-an-appointment/
+            iconName: ""
+            iconPosition: before
+            variant: primary
+            size: md
+            width: md
+        offices: []
+        mobileCallLabel: Call Today!
+      preview:
+        text:
+          - Landing Header - Four Col
+        icon: view_week
+      picker_preview:
+        text: Landing Header - Four Col
+        subtext: "Four-column desktop layout with mobile call + appointment row."
+        icon: view_week
+      _inputs_from_glob:
+        - /src/components/navigation/landing/landing-header-four-col/landing-header-four-col.cloudcannon.inputs.yml
