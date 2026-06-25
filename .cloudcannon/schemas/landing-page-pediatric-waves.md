@@ -1,5 +1,5 @@
 ---
-_schema: landing-page-pediatric-wave
+_schema: landing-page-pediatric-waves
 title: Pediatric Wave Landing Page
 landingStyle: pediatric-waves
 landingMainNav:

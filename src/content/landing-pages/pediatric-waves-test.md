@@ -1,5 +1,5 @@
 ---
-_schema: landing-page
+_schema: landing-page-pediatric-waves
 title: Pediatric Waves Test
 landingMainNav:
   - _component: navigation/landing/landing-header-pediatric-waves

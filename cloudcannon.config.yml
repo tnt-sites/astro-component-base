@@ -277,12 +277,18 @@ collections_config:
       - name: AI Answers
         icon: stars
         schema: landing-page-ai-answers
+      - name: Landing Page (Base)
+        icon: stars
+        schema: landing-page
       - name: Landing Page (Cosmetic)
         icon: stars
         schema: landing-page-cosmetic
       - name: Landing Page (Count On Us)
         icon: stars
         schema: landing-page-count-on-us
+      - name: Landing Page (Pediatric Waves)
+        icon: stars
+        schema: landing-page-pediatric-waves
       - name: Landing Page (Custom)
         icon: stars
         schema: landing-page-custom
@@ -318,6 +324,16 @@ collections_config:
     disable_file_actions: false
     new_preview_url: /test-page/
     schemas:
+      landing-page:
+        path: .cloudcannon/schemas/landing-page.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Base)
+        icon: stars
+        _enabled_editors:
+          - visual
       landing-page-ai-answers:
         path: .cloudcannon/schemas/landing-page-ai-answers.md
         reorder_inputs: true
@@ -399,6 +415,16 @@ collections_config:
         remove_empty_inputs: false
         remove_extra_inputs: false
         name: Landing Page (Emergency)
+        icon: stars
+        _enabled_editors:
+          - visual
+      landing-page-pediatric-waves:
+        path: .cloudcannon/schemas/landing-page-pediatric-waves.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Pediatric Waves)
         icon: stars
         _enabled_editors:
           - visual
