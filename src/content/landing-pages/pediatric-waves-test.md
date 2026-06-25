@@ -24,6 +24,10 @@ landingMainNav:
         textColor: default
         uppercase: true
     offices: []
+    phoneLinkColor: '#fff'
+    phoneLinkHoverColor: var(--color-brand)
+    addressLinkColor: var(--color-brand)
+    addressLinkHoverColor: '#fff'
     mobileCallLabel: Call
     mobileMapLabel: Map
     mobileMapHref: ''
