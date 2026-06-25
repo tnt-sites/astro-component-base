@@ -31,7 +31,51 @@ landingMainNav:
     mobileCallBackground: '#23adce'
     mobileApptBackground: '#dbe45a'
     mobileMapBackground: '#0d5f78'
-landingFooter: []
+landingFooter:
+  - _component: navigation/landing/landing-footer-pediatric-waves
+    logoSource: /images/logo.svg
+    logoAlt: Logo
+    contactTitle: Contact Us
+    offices: []
+    legalLinks:
+      - name: Privacy Policy
+        path: /privacy-policy/
+      - name: Sitemap
+        path: /sitemap/
+    legalBlurb: ''
+    linkColor: brand
+    linkHoverColor: brand-secondary
+    formHeading: Ask a Question
+    formAction: ''
+    formMethod: post
+    formSubject: Pediatric Footer Questions
+    formRedirect: ''
+    formButtonBorderRadius: 0px
+    formButtonTextColor: ''
+    formButtonBackgroundColor: ''
+    formButtonHoverBackgroundColor: ''
+    formButtonHoverTextColor: ''
+    formButton:
+      _component: building-blocks/core-elements/button
+      text: Send
+      hideText: false
+      iconName: ''
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: true
+    mapEmbedUrl: ''
+    questionsLine: Have Questions? Get Answers
+    backgroundColor: brand-secondary
+    officeHoursAlignment: right
+    topWaveImage:
+      source: /src/assets/images/ppc-pediatric-footer-bg.png
+      alt: ''
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''
