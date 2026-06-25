@@ -14,6 +14,10 @@ const {
   mobileRequestHref = "",
   mobileCallBackgroundColor = "",
   mobileRequestBackgroundColor = "",
+  mobileCallTextColor = "",
+  mobileCallSmallTextColor = "",
+  mobileRequestTextColor = "",
+  mobileRequestSmallTextColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -75,6 +79,18 @@ const cssVars = [
     : "",
   getColorValue(mobileRequestBackgroundColor)
     ? `--lh4-mobile-request-bg: ${getColorValue(mobileRequestBackgroundColor)}`
+    : "",
+  getColorValue(mobileCallTextColor)
+    ? `--lh4-mobile-call-text-color: ${getColorValue(mobileCallTextColor)}`
+    : "",
+  getColorValue(mobileCallSmallTextColor)
+    ? `--lh4-mobile-call-small-text-color: ${getColorValue(mobileCallSmallTextColor)}`
+    : "",
+  getColorValue(mobileRequestTextColor)
+    ? `--lh4-mobile-request-text-color: ${getColorValue(mobileRequestTextColor)}`
+    : "",
+  getColorValue(mobileRequestSmallTextColor)
+    ? `--lh4-mobile-request-small-text-color: ${getColorValue(mobileRequestSmallTextColor)}`
     : "",
 ]
   .filter(Boolean)
@@ -233,7 +249,7 @@ const cssVars = [
 
       .mobile-buttons a {
         align-items: center;
-        color: #fff;
+        color: inherit;
         display: flex;
         flex: 1 1 50%;
         flex-direction: column;
@@ -258,10 +274,20 @@ const cssVars = [
 
       .mobile-call {
         background: var(--lh4-mobile-call-bg, #476682);
+        color: var(--lh4-mobile-call-text-color, #fff);
+
+        .mobile-small {
+          color: var(--lh4-mobile-call-small-text-color, #fff);
+        }
       }
 
       .mobile-request {
         background: var(--lh4-mobile-request-bg, #4f95d0);
+        color: var(--lh4-mobile-request-text-color, #fff);
+
+        .mobile-small {
+          color: var(--lh4-mobile-request-small-text-color, #fff);
+        }
       }
 
       @media (max-width: 1000px) {

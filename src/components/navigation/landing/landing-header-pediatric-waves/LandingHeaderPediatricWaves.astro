@@ -18,6 +18,10 @@ const {
   mobileCallBackground = "",
   mobileRequestBackground = "",
   mobileApptBackground = "",
+  mobileCallTextColor = "",
+  mobileCallSmallTextColor = "",
+  mobileRequestTextColor = "",
+  mobileRequestSmallTextColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -38,6 +42,10 @@ const {
   mobileCallBackground?: string;
   mobileRequestBackground?: string;
   mobileApptBackground?: string;
+  mobileCallTextColor?: string;
+  mobileCallSmallTextColor?: string;
+  mobileRequestTextColor?: string;
+  mobileRequestSmallTextColor?: string;
   addressLinkColor?: string;
   addressLinkHoverColor?: string;
   phoneLinkColor?: string;
@@ -84,6 +92,14 @@ const cssVars = [
   mobileCallBackground ? `--pw-header-mobile-call-bg: ${mobileCallBackground}` : "",
   resolvedMobileRequestBackground
     ? `--pw-header-mobile-request-bg: ${resolvedMobileRequestBackground}`
+    : "",
+  mobileCallTextColor ? `--pw-header-mobile-call-text-color: ${mobileCallTextColor}` : "",
+  mobileCallSmallTextColor
+    ? `--pw-header-mobile-call-small-text-color: ${mobileCallSmallTextColor}`
+    : "",
+  mobileRequestTextColor ? `--pw-header-mobile-request-text-color: ${mobileRequestTextColor}` : "",
+  mobileRequestSmallTextColor
+    ? `--pw-header-mobile-request-small-text-color: ${mobileRequestSmallTextColor}`
     : "",
   addressLinkColor ? `--pw-header-address-link-color: ${addressLinkColor}` : "",
   addressLinkHoverColor ? `--pw-header-address-link-hover-color: ${addressLinkHoverColor}` : "",
@@ -267,7 +283,7 @@ const cssVars = [
 
       .mobile-bar a {
         align-items: center;
-        color: #fff;
+        color: inherit;
         display: flex;
         flex-direction: column;
         flex: 1 1 50%;
@@ -292,11 +308,20 @@ const cssVars = [
 
       .mobile-request {
         background: var(--pw-header-mobile-request-bg, #dbe45a);
-        color: #000 !important;
+        color: var(--pw-header-mobile-request-text-color, #000);
+
+        .mobile-small {
+          color: var(--pw-header-mobile-request-small-text-color, #000);
+        }
       }
 
       .mobile-call {
         background: var(--pw-header-mobile-call-bg, #23adce);
+        color: var(--pw-header-mobile-call-text-color, #fff);
+
+        .mobile-small {
+          color: var(--pw-header-mobile-call-small-text-color, #fff);
+        }
       }
 
       @media (max-width: 1023px) {

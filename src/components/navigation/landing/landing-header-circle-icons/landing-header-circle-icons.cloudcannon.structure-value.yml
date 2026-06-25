@@ -30,6 +30,10 @@ value:
   mobileCallBackgroundColorHex: ""
   mobileRequestBackgroundColor: ""
   mobileRequestBackgroundColorHex: ""
+  mobileCallTextColor: ""
+  mobileCallSmallTextColor: ""
+  mobileRequestTextColor: ""
+  mobileRequestSmallTextColor: ""
   mobileCallSmallText: "Call Now"
   mobileRequestLabel: "Request an Appointment"
   mobileRequestHref: ""
@@ -195,6 +199,74 @@ _inputs:
   mobileRequestBackgroundColorHex:
     type: color
     comment: "Optional custom hex color for the mobile request button. Overrides the dropdown above."
+  mobileCallTextColor:
+    type: select
+    comment: "Main text color of the mobile call button."
+    options:
+      values:
+        - id: ""
+          name: Default (White)
+        - id: "#fff"
+          name: White
+        - id: "#000"
+          name: Black
+        - id: "var(--color-brand)"
+          name: Brand (Primary)
+        - id: "var(--color-brand-secondary)"
+          name: Brand (Secondary)
+        - id: "var(--color-text)"
+          name: Text
+  mobileCallSmallTextColor:
+    type: select
+    comment: "Small text color of the mobile call button."
+    options:
+      values:
+        - id: ""
+          name: Default (White)
+        - id: "#fff"
+          name: White
+        - id: "#000"
+          name: Black
+        - id: "var(--color-brand)"
+          name: Brand (Primary)
+        - id: "var(--color-brand-secondary)"
+          name: Brand (Secondary)
+        - id: "var(--color-text)"
+          name: Text
+  mobileRequestTextColor:
+    type: select
+    comment: "Main text color of the mobile request button."
+    options:
+      values:
+        - id: ""
+          name: Default (White)
+        - id: "#fff"
+          name: White
+        - id: "#000"
+          name: Black
+        - id: "var(--color-brand)"
+          name: Brand (Primary)
+        - id: "var(--color-brand-secondary)"
+          name: Brand (Secondary)
+        - id: "var(--color-text)"
+          name: Text
+  mobileRequestSmallTextColor:
+    type: select
+    comment: "Small text color of the mobile request button."
+    options:
+      values:
+        - id: ""
+          name: Default (White)
+        - id: "#fff"
+          name: White
+        - id: "#000"
+          name: Black
+        - id: "var(--color-brand)"
+          name: Brand (Primary)
+        - id: "var(--color-brand-secondary)"
+          name: Brand (Secondary)
+        - id: "var(--color-text)"
+          name: Text
   mobileCallSmallText:
     type: text
     comment: "Small label above the phone number in the mobile call button."

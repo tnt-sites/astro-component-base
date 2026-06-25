@@ -16,6 +16,10 @@ const {
   mobileCallBackgroundColorHex = "",
   mobileRequestBackgroundColor = "",
   mobileRequestBackgroundColorHex = "",
+  mobileCallTextColor = "",
+  mobileCallSmallTextColor = "",
+  mobileRequestTextColor = "",
+  mobileRequestSmallTextColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -35,6 +39,10 @@ const {
   mobileCallBackgroundColorHex?: string;
   mobileRequestBackgroundColor?: string;
   mobileRequestBackgroundColorHex?: string;
+  mobileCallTextColor?: string;
+  mobileCallSmallTextColor?: string;
+  mobileRequestTextColor?: string;
+  mobileRequestSmallTextColor?: string;
   addressLinkColor?: string;
   addressLinkHoverColor?: string;
   phoneLinkColor?: string;
@@ -84,6 +92,10 @@ const resolvedMobileCallBg =
   mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
 const resolvedMobileRequestBg =
   mobileRequestBackgroundColorHex || colorTokenMap[mobileRequestBackgroundColor] || "";
+const resolvedMobileCallTextColor = colorTokenMap[mobileCallTextColor] || "";
+const resolvedMobileCallSmallTextColor = colorTokenMap[mobileCallSmallTextColor] || "";
+const resolvedMobileRequestTextColor = colorTokenMap[mobileRequestTextColor] || "";
+const resolvedMobileRequestSmallTextColor = colorTokenMap[mobileRequestSmallTextColor] || "";
 const resolvedAddressLinkColor = colorTokenMap[addressLinkColor] || "";
 const resolvedAddressLinkHoverColor = colorTokenMap[addressLinkHoverColor] || "";
 const resolvedPhoneLinkColor = colorTokenMap[phoneLinkColor] || "";
@@ -91,6 +103,13 @@ const resolvedPhoneLinkHoverColor = colorTokenMap[phoneLinkHoverColor] || "";
 const cssVars = [
   resolvedMobileCallBg && `--lhs-mobile-call-bg: ${resolvedMobileCallBg}`,
   resolvedMobileRequestBg && `--lhs-mobile-request-bg: ${resolvedMobileRequestBg}`,
+  resolvedMobileCallTextColor && `--lhs-mobile-call-text-color: ${resolvedMobileCallTextColor}`,
+  resolvedMobileCallSmallTextColor &&
+    `--lhs-mobile-call-small-text-color: ${resolvedMobileCallSmallTextColor}`,
+  resolvedMobileRequestTextColor &&
+    `--lhs-mobile-request-text-color: ${resolvedMobileRequestTextColor}`,
+  resolvedMobileRequestSmallTextColor &&
+    `--lhs-mobile-request-small-text-color: ${resolvedMobileRequestSmallTextColor}`,
   resolvedAddressLinkColor && `--lhs-address-link-color: ${resolvedAddressLinkColor}`,
   resolvedAddressLinkHoverColor &&
     `--lhs-address-link-hover-color: ${resolvedAddressLinkHoverColor}`,
@@ -286,7 +305,7 @@ const cssVars = [
 
         > a {
           align-items: center;
-          color: #fff;
+          color: inherit;
           display: flex;
           flex: 1 1 50%;
           flex-direction: column;
@@ -311,11 +330,21 @@ const cssVars = [
 
         .landing-header-split-mobile-call {
           background-color: var(--lhs-mobile-call-bg, var(--color-brand-secondary));
+          color: var(--lhs-mobile-call-text-color, #fff);
+
+          .mobile-small {
+            color: var(--lhs-mobile-call-small-text-color, #fff);
+          }
         }
 
         .landing-header-split-mobile-request {
           background-color: var(--lhs-mobile-request-bg, var(--color-brand));
+          color: var(--lhs-mobile-request-text-color, #fff);
           text-transform: uppercase;
+
+          .mobile-small {
+            color: var(--lhs-mobile-request-small-text-color, #fff);
+          }
         }
       }
 

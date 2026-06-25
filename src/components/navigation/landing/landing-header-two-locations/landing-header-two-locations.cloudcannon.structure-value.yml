@@ -13,6 +13,10 @@ value:
   mobileCallBackgroundColorHex: ""
   mobileRequestBackgroundColor: ""
   mobileRequestBackgroundColorHex: ""
+  mobileCallTextColor: ""
+  mobileCallSmallTextColor: ""
+  mobileRequestTextColor: ""
+  mobileRequestSmallTextColor: ""
   addressLinkColor: ""
   addressLinkHoverColor: ""
   phoneLinkColor: ""
@@ -95,6 +99,74 @@ _inputs:
   mobileRequestBackgroundColorHex:
     type: color
     comment: "Optional custom hex color for the mobile request button. Overrides the dropdown above."
+  mobileCallTextColor:
+    type: select
+    comment: "Main text color of the mobile call button."
+    options:
+      values:
+        - id: ""
+          name: Default (On Brand)
+        - id: brand
+          name: Brand Primary
+        - id: brand-secondary
+          name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
+        - id: dark
+          name: Dark
+        - id: white
+          name: White
+  mobileCallSmallTextColor:
+    type: select
+    comment: "Small text color of the mobile call button."
+    options:
+      values:
+        - id: ""
+          name: Default (Match Main Text)
+        - id: brand
+          name: Brand Primary
+        - id: brand-secondary
+          name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
+        - id: dark
+          name: Dark
+        - id: white
+          name: White
+  mobileRequestTextColor:
+    type: select
+    comment: "Main text color of the mobile request button."
+    options:
+      values:
+        - id: ""
+          name: Default (On Brand)
+        - id: brand
+          name: Brand Primary
+        - id: brand-secondary
+          name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
+        - id: dark
+          name: Dark
+        - id: white
+          name: White
+  mobileRequestSmallTextColor:
+    type: select
+    comment: "Small text color of the mobile request button."
+    options:
+      values:
+        - id: ""
+          name: Default (Match Main Text)
+        - id: brand
+          name: Brand Primary
+        - id: brand-secondary
+          name: Brand Secondary
+        - id: brand-tertiary
+          name: Brand Tertiary
+        - id: dark
+          name: Dark
+        - id: white
+          name: White
   id:
     type: text
     comment: "Developer use only. Optional HTML id attribute for this header section."

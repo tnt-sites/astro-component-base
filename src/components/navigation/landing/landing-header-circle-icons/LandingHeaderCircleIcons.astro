@@ -27,6 +27,10 @@ const {
   mobileCallBackgroundColorHex = "",
   mobileRequestBackgroundColor = "",
   mobileRequestBackgroundColorHex = "",
+  mobileCallTextColor = "",
+  mobileCallSmallTextColor = "",
+  mobileRequestTextColor = "",
+  mobileRequestSmallTextColor = "",
   mobileCallSmallText = "Call Now",
   mobileRequestLabel = "Request an Appointment",
   mobileRequestHref = "",
@@ -56,6 +60,10 @@ const {
   mobileCallBackgroundColorHex?: string;
   mobileRequestBackgroundColor?: string;
   mobileRequestBackgroundColorHex?: string;
+  mobileCallTextColor?: string;
+  mobileCallSmallTextColor?: string;
+  mobileRequestTextColor?: string;
+  mobileRequestSmallTextColor?: string;
   mobileCallSmallText?: string;
   mobileRequestLabel?: string;
   mobileRequestHref?: string;
@@ -108,6 +116,10 @@ const resolvedMobileCallBg =
   mobileCallBackgroundColorHex || getColorValue(mobileCallBackgroundColor) || "";
 const resolvedMobileRequestBg =
   mobileRequestBackgroundColorHex || getColorValue(mobileRequestBackgroundColor) || "";
+const resolvedMobileCallTextColor = getColorValue(mobileCallTextColor) || "";
+const resolvedMobileCallSmallTextColor = getColorValue(mobileCallSmallTextColor) || "";
+const resolvedMobileRequestTextColor = getColorValue(mobileRequestTextColor) || "";
+const resolvedMobileRequestSmallTextColor = getColorValue(mobileRequestSmallTextColor) || "";
 
 const cssVars = [
   resolvedBg && `--lhci-bg: ${resolvedBg}`,
@@ -120,6 +132,13 @@ const cssVars = [
   resolvedPhoneLinkHoverColor && `--lhci-phone-link-hover-color: ${resolvedPhoneLinkHoverColor}`,
   resolvedMobileCallBg && `--lhci-mobile-call-bg: ${resolvedMobileCallBg}`,
   resolvedMobileRequestBg && `--lhci-mobile-request-bg: ${resolvedMobileRequestBg}`,
+  resolvedMobileCallTextColor && `--lhci-mobile-call-text-color: ${resolvedMobileCallTextColor}`,
+  resolvedMobileCallSmallTextColor &&
+    `--lhci-mobile-call-small-text-color: ${resolvedMobileCallSmallTextColor}`,
+  resolvedMobileRequestTextColor &&
+    `--lhci-mobile-request-text-color: ${resolvedMobileRequestTextColor}`,
+  resolvedMobileRequestSmallTextColor &&
+    `--lhci-mobile-request-small-text-color: ${resolvedMobileRequestSmallTextColor}`,
 ]
   .filter(Boolean)
   .join("; ");
@@ -340,7 +359,7 @@ const mobileRequestSecondLine = mobileRequestLabelParts.slice(1).join(" ");
 
         a {
           align-items: center;
-          color: #fff;
+          color: inherit;
           display: flex;
           flex: 1 1 50%;
           flex-direction: column;
@@ -368,6 +387,11 @@ const mobileRequestSecondLine = mobileRequestLabelParts.slice(1).join(" ");
             --lhci-mobile-call-bg,
             var(--lhci-icon-bg, var(--color-brand, #95982d))
           );
+          color: var(--lhci-mobile-call-text-color, #fff);
+
+          .mobile-small {
+            color: var(--lhci-mobile-call-small-text-color, #fff);
+          }
         }
 
         .lhci-mobile-request {
@@ -375,7 +399,12 @@ const mobileRequestSecondLine = mobileRequestLabelParts.slice(1).join(" ");
             --lhci-mobile-request-bg,
             var(--lhci-icon-bg, var(--color-brand, #95982d))
           );
+          color: var(--lhci-mobile-request-text-color, #fff);
           text-transform: uppercase;
+
+          .mobile-small {
+            color: var(--lhci-mobile-request-small-text-color, #fff);
+          }
         }
 
       }

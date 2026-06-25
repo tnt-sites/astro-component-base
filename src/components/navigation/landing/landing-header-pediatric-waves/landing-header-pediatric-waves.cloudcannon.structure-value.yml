@@ -26,5 +26,9 @@ value:
   mobileBarBackground: ""
   mobileCallBackground: "#23adce"
   mobileRequestBackground: "#dbe45a"
+  mobileCallTextColor: ""
+  mobileCallSmallTextColor: ""
+  mobileRequestTextColor: ""
+  mobileRequestSmallTextColor: ""
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-header-pediatric-waves/landing-header-pediatric-waves.cloudcannon.inputs.yml

@@ -93,6 +93,82 @@ mobileRequestBackground:
         name: Text
       - id: "var(--color-brand-muted)"
         name: Brand (Tertiary)
+mobileCallTextColor:
+  type: select
+  comment: Main text color of the mobile call button.
+  options:
+    values:
+      - id: ""
+        name: Default (White)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "#0d5f78"
+        name: Pediatric Teal
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+mobileCallSmallTextColor:
+  type: select
+  comment: Small text color of the mobile call button.
+  options:
+    values:
+      - id: ""
+        name: Default (White)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "#0d5f78"
+        name: Pediatric Teal
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+mobileRequestTextColor:
+  type: select
+  comment: Main text color of the mobile request button.
+  options:
+    values:
+      - id: ""
+        name: Default (Black)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "#0d5f78"
+        name: Pediatric Teal
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+mobileRequestSmallTextColor:
+  type: select
+  comment: Small text color of the mobile request button.
+  options:
+    values:
+      - id: ""
+        name: Default (Black)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "#0d5f78"
+        name: Pediatric Teal
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
 
 addressLinkColor:
   type: select

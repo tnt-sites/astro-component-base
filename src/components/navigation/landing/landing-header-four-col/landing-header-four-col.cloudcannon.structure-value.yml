@@ -25,5 +25,9 @@ value:
   mobileRequestHref: /request-an-appointment/
   mobileCallBackgroundColor: ""
   mobileRequestBackgroundColor: ""
+  mobileCallTextColor: ""
+  mobileCallSmallTextColor: ""
+  mobileRequestTextColor: ""
+  mobileRequestSmallTextColor: ""
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-header-four-col/landing-header-four-col.cloudcannon.inputs.yml

@@ -16,6 +16,10 @@ const {
   mobileCallBackgroundColorHex = "",
   mobileRequestBackgroundColor = "",
   mobileRequestBackgroundColorHex = "",
+  mobileCallTextColor = "",
+  mobileCallSmallTextColor = "",
+  mobileRequestTextColor = "",
+  mobileRequestSmallTextColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -36,6 +40,10 @@ const {
   mobileCallBackgroundColorHex?: string;
   mobileRequestBackgroundColor?: string;
   mobileRequestBackgroundColorHex?: string;
+  mobileCallTextColor?: string;
+  mobileCallSmallTextColor?: string;
+  mobileRequestTextColor?: string;
+  mobileRequestSmallTextColor?: string;
   addressLinkColor?: string;
   addressLinkHoverColor?: string;
   phoneLinkColor?: string;
@@ -94,6 +102,10 @@ const resolvedMobileCallBg =
   mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
 const resolvedMobileRequestBg =
   mobileRequestBackgroundColorHex || colorTokenMap[mobileRequestBackgroundColor] || "";
+const resolvedMobileCallTextColor = colorTokenMap[mobileCallTextColor] || "";
+const resolvedMobileCallSmallTextColor = colorTokenMap[mobileCallSmallTextColor] || "";
+const resolvedMobileRequestTextColor = colorTokenMap[mobileRequestTextColor] || "";
+const resolvedMobileRequestSmallTextColor = colorTokenMap[mobileRequestSmallTextColor] || "";
 const resolvedAddressLinkColor = colorTokenMap[addressLinkColor] || "";
 const resolvedAddressLinkHoverColor = colorTokenMap[addressLinkHoverColor] || "";
 const resolvedPhoneLinkColor = colorTokenMap[phoneLinkColor] || "";
@@ -102,6 +114,13 @@ const resolvedPhoneLinkHoverColor = colorTokenMap[phoneLinkHoverColor] || "";
 const cssVars = [
   resolvedMobileCallBg && `--lhtl-mobile-call-bg: ${resolvedMobileCallBg}`,
   resolvedMobileRequestBg && `--lhtl-mobile-request-bg: ${resolvedMobileRequestBg}`,
+  resolvedMobileCallTextColor && `--lhtl-mobile-call-text-color: ${resolvedMobileCallTextColor}`,
+  resolvedMobileCallSmallTextColor &&
+    `--lhtl-mobile-call-small-text-color: ${resolvedMobileCallSmallTextColor}`,
+  resolvedMobileRequestTextColor &&
+    `--lhtl-mobile-request-text-color: ${resolvedMobileRequestTextColor}`,
+  resolvedMobileRequestSmallTextColor &&
+    `--lhtl-mobile-request-small-text-color: ${resolvedMobileRequestSmallTextColor}`,
   resolvedAddressLinkColor && `--lhtl-address-link-color: ${resolvedAddressLinkColor}`,
   resolvedAddressLinkHoverColor &&
     `--lhtl-address-link-hover-color: ${resolvedAddressLinkHoverColor}`,
@@ -344,7 +363,11 @@ const right = renderOffice(rightOffice);
 
       .lhtl-mobile-call {
         background-color: var(--lhtl-mobile-call-bg, var(--color-brand-secondary));
-        color: var(--color-text-on-brand);
+        color: var(--lhtl-mobile-call-text-color, var(--color-text-on-brand));
+
+        .mobile-small {
+          color: var(--lhtl-mobile-call-small-text-color, currentColor);
+        }
 
         &:hover,
         &:focus-visible {
@@ -354,8 +377,12 @@ const right = renderOffice(rightOffice);
 
       .lhtl-mobile-cta {
         background-color: var(--lhtl-mobile-request-bg, var(--color-brand));
-        color: var(--color-text-on-brand);
+        color: var(--lhtl-mobile-request-text-color, var(--color-text-on-brand));
         text-transform: uppercase;
+
+        .mobile-small {
+          color: var(--lhtl-mobile-request-small-text-color, currentColor);
+        }
 
         &:hover,
         &:focus-visible {
