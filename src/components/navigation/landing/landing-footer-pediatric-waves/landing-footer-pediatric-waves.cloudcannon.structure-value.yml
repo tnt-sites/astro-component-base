@@ -1,0 +1,50 @@
+label: Landing Footer - Pediatric Waves
+icon: page_footer
+description: Pediatric landing footer with logo, contact details, question form, and optional map embed.
+value:
+  _component: navigation/landing/landing-footer-pediatric-waves
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  contactTitle: Contact Us
+  offices: []
+  legalLinks:
+    - name: Privacy Policy
+      path: /privacy-policy/
+    - name: Sitemap
+      path: /sitemap/
+  legalBlurb: ""
+  linkColor: brand
+  linkHoverColor: brand-secondary
+  formHeading: Ask a Question
+  formAction: ""
+  formMethod: post
+  formSubject: Pediatric Footer Questions
+  formRedirect: ""
+  formButtonBorderRadius: 0px
+  formButtonTextColor: ""
+  formButtonBackgroundColor: ""
+  formButtonHoverBackgroundColor: ""
+  formButtonHoverTextColor: ""
+  formButton:
+    _component: building-blocks/core-elements/button
+    text: Send
+    hideText: false
+    iconName: ""
+    iconPosition: before
+    variant: primary
+    size: md
+    width: md
+    borderRadius: default
+    borderWidth: default
+    borderColor: default
+    textColor: default
+    uppercase: true
+  mapEmbedUrl: ""
+  questionsLine: Have Questions? Get Answers
+  backgroundColor: brand-secondary
+  officeHoursAlignment: right
+  topWaveImage:
+    source: ""
+    alt: ""
+_inputs_from_glob:
+  - /src/components/navigation/landing/landing-footer-pediatric-waves/landing-footer-pediatric-waves.cloudcannon.inputs.yml

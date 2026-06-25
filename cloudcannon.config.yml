@@ -736,6 +736,10 @@ file_config:
         type: text
         comment: Optional note shown with each office hour entry.
         cascade: true
+      $.mapEmbedUrl:
+        type: text
+        comment: Site-level Google Maps embed URL fallback used when page/office map embeds are empty.
+        cascade: true
       $.modals:
         type: array
         comment: Global modals rendered on every page (use IDs from fixed tab links).

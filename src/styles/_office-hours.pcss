@@ -1,9 +1,11 @@
 @layer page-sections {
   .office-hours {
     --office-hours-day-width: 120px;
+    --office-hours-gap: 0.75rem;
     --office-hours-color: var(--color-text);
     --office-hours-day-color: var(--color-text-strong);
     --office-hours-note-color: var(--color-text-muted);
+    --office-hours-time-align: left;
 
     /* Alignment modifiers — make the block itself left- or right-anchored
        within its container while keeping day→time reading order intact */
@@ -17,6 +19,14 @@
       margin-left: auto;
     }
 
+    &.office-hours--time-left {
+      --office-hours-time-align: left;
+    }
+
+    &.office-hours--time-right {
+      --office-hours-time-align: right;
+    }
+
     .office-hours-list {
       margin: 0;
     }
@@ -28,6 +38,7 @@
     .office-hours-line {
       align-items: baseline;
       display: flex;
+      gap: var(--office-hours-gap);
     }
 
     .office-hours-day {
@@ -38,6 +49,9 @@
 
     .office-hours-time {
       color: var(--office-hours-color);
+      flex: 1 1 auto;
+      min-width: 0;
+      text-align: var(--office-hours-time-align);
     }
 
     .office-hours-note {
@@ -45,7 +59,7 @@
       display: block;
       font-size: var(--font-size-xs);
       line-height: var(--line-height-snug);
-      padding-left: var(--office-hours-day-width);
+      padding-left: calc(var(--office-hours-day-width) + var(--office-hours-gap));
     }
 
     .office-hours-general-notes {

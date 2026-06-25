@@ -22,10 +22,7 @@
       "name": null,
       "addresses": [
         {
-          "lines": [
-            "123 Main Street",
-            "Suite 200"
-          ],
+          "lines": ["123 Main Street", "Suite 200"],
           "city": "City",
           "state": "ST",
           "postalCode": "12345",
@@ -77,10 +74,7 @@
     }
   ],
   "modals": [],
-  "head_scripts": [
-    "/* test header script */"
-  ],
-  "footer_scripts": [
-    "/* Test Footer Script */"
-  ]
+  "head_scripts": ["/* test header script */"],
+  "footer_scripts": ["/* Test Footer Script */"],
+  "mapEmbedUrl": ""
 }
