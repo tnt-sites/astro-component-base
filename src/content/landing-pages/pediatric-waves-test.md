@@ -28,8 +28,8 @@ landingMainNav:
     addressLinkHoverColor: '#fff'
     phoneLinkColor: var(--color-brand-secondary)
     phoneLinkHoverColor: var(--color-brand)
-    mobileCallLabel: Call
-    mobileRequestLabel: Request an Appointment
+    mobileCallLabel: Call Now
+    mobileRequestLabel: Request a FREE Consultation
     mobileRequestHref: ''
     mobileBarBackground: ''
     mobileCallBackground: '#000'
