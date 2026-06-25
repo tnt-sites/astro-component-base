@@ -37,6 +37,10 @@ landingFooter:
     logoAlt: Logo
     contactTitle: Contact Us
     offices: []
+    phoneLinkColor: '#fff'
+    phoneLinkHoverColor: var(--color-text-strong)
+    addressLinkColor: brand
+    addressLinkHoverColor: brand-secondary
     legalLinks:
       - name: Privacy Policy
         path: /privacy-policy/
@@ -117,69 +121,6 @@ landingFooter:
       borderColor: default
       textColor: default
       uppercase: true
-  - _component: navigation/landing/landing-footer-pediatric-waves
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    contactTitle: Contact Us
-    offices: []
-    legalLinks:
-      - name: Privacy Policy
-        path: /privacy-policy/
-      - name: Sitemap
-        path: /sitemap/
-    legalBlurb: ''
-    linkColor: '#fff'
-    linkHoverColor: brand-secondary
-    formHeading: Ask a Question
-    formAction: ''
-    formBlocks:
-      - _component: building-blocks/forms/input
-        id: ''
-        label: Name
-        name: Name
-        type: text
-        placeholder: Name
-        required: true
-      - _component: building-blocks/forms/input
-        id: ''
-        label: Phone
-        name: Phone
-        type: text
-        placeholder: Phone
-        required: true
-      - _component: building-blocks/forms/input
-        id: ''
-        label: Email
-        name: Email
-        type: email
-        placeholder: Email
-        required: true
-      - _component: building-blocks/forms/textarea
-        id: ''
-        label: Comments
-        name: CommentArea
-        required: false
-        placeholder: Comments
-      - _component: building-blocks/forms/hidden
-        id: ''
-        name: _subject
-        value: Pediatric Footer Questions
-      - _component: building-blocks/forms/submit
-        id: ''
-        text: Send
-        variant: primary
-        size: md
-        iconPosition: before
-        hideText: false
-        disabled: false
-        class: footer-submit-button
-    mapEmbedUrl: ''
-    questionsLine: Have Questions? Get Answers
-    backgroundColor: var(--color-bg-brand-secondary)
-    officeHoursAlignment: right
-    topWaveImage:
-      source: ''
-      alt: ''
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''
