@@ -26,29 +26,13 @@ mobileCallLabel:
   type: text
   comment: Label shown in the mobile call button.
 
-mobileMapLabel:
+mobileRequestLabel:
   type: text
-  comment: Label shown in the mobile map button.
+  comment: Label shown in the mobile request button.
 
-mobileMapHref:
-  type: select
-  comment: Optional custom map URL for the mobile map button.
-  options:
-    values:
-      - id: ""
-        name: Default (Text)
-      - id: "#fff"
-        name: White
-      - id: "#000"
-        name: Black
-      - id: "var(--color-brand)"
-        name: Brand (Primary)
-      - id: "var(--color-brand-secondary)"
-        name: Brand (Secondary)
-      - id: "var(--color-text)"
-        name: Text
-      - id: "var(--color-brand-muted)"
-        name: Brand (Tertiary)
+mobileRequestHref:
+  type: text
+  comment: Optional custom URL for the mobile request button.
 
 mobileBarBackground:
   type: select
@@ -90,9 +74,9 @@ mobileCallBackground:
       - id: "var(--color-brand-muted)"
         name: Brand (Tertiary)
 
-mobileApptBackground:
+mobileRequestBackground:
   type: select
-  comment: Mobile appointment button background color.
+  comment: Mobile request button background color.
   options:
     values:
       - id: ""
@@ -110,9 +94,6 @@ mobileApptBackground:
       - id: "var(--color-brand-muted)"
         name: Brand (Tertiary)
 
-mobileMapBackground:
-  type: color
-  comment: Mobile map button background color.
 addressLinkColor:
   type: select
   comment: Color of address links.

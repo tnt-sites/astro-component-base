@@ -9,7 +9,11 @@ const {
   logoAlt = "Logo",
   offices = [],
   pageButtons = [],
-  mobileCallLabel = "Call Today!",
+  mobileCallLabel = "Call Now",
+  mobileRequestLabel = "Request an Appointment",
+  mobileRequestHref = "",
+  mobileCallBackgroundColor = "",
+  mobileRequestBackgroundColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -25,11 +29,13 @@ const office = normalizedOffices[0] || {};
 const phone = office?.phones?.[0] || null;
 const address = office?.addresses?.[0] || null;
 const firstButton = Array.isArray(pageButtons) ? pageButtons[0] : null;
-const resolvedMobileApptLabel =
-  typeof firstButton?.text === "string" ? firstButton.text.trim() : "";
-const mobileApptLabelParts = resolvedMobileApptLabel.split(/\s+/).filter(Boolean);
-const mobileApptFirstLine = mobileApptLabelParts.slice(0, 2).join(" ");
-const mobileApptSecondLine = mobileApptLabelParts.slice(2).join(" ");
+const resolvedMobileRequestLabel =
+  (typeof mobileRequestLabel === "string" ? mobileRequestLabel.trim() : "") ||
+  (typeof firstButton?.text === "string" ? firstButton.text.trim() : "");
+const resolvedMobileRequestHref = mobileRequestHref || firstButton?.link || "#";
+const mobileRequestLabelParts = resolvedMobileRequestLabel.split(/\s+/).filter(Boolean);
+const mobileRequestFirstLine = mobileRequestLabelParts.slice(0, 2).join(" ");
+const mobileRequestSecondLine = mobileRequestLabelParts.slice(2).join(" ");
 
 const formatAddressLines = (addressObject: any) => {
   const lineItems = Array.isArray(addressObject?.lines) ? addressObject.lines : [];
@@ -63,6 +69,12 @@ const cssVars = [
   getColorValue(phoneLinkColor) ? `--lh4-phone-link-color: ${getColorValue(phoneLinkColor)}` : "",
   getColorValue(phoneLinkHoverColor)
     ? `--lh4-phone-link-hover-color: ${getColorValue(phoneLinkHoverColor)}`
+    : "",
+  getColorValue(mobileCallBackgroundColor)
+    ? `--lh4-mobile-call-bg: ${getColorValue(mobileCallBackgroundColor)}`
+    : "",
+  getColorValue(mobileRequestBackgroundColor)
+    ? `--lh4-mobile-request-bg: ${getColorValue(mobileRequestBackgroundColor)}`
     : "",
 ]
   .filter(Boolean)
@@ -121,22 +133,16 @@ const cssVars = [
     {
       phone?.display && (
         <a href={phone?.href || "#"} class="mobile-call">
-          {mobileCallLabel}
-          <br />
+          <span class="mobile-small">{mobileCallLabel}</span>
           {phone.display}
         </a>
       )
     }
     {
-      resolvedMobileApptLabel && (
-        <a href={firstButton?.link || "#"} class="mobile-appt mobile-ra">
-          {mobileApptFirstLine || resolvedMobileApptLabel}
-          {mobileApptSecondLine && (
-            <>
-              <br />
-              {mobileApptSecondLine}
-            </>
-          )}
+      resolvedMobileRequestLabel && (
+        <a href={resolvedMobileRequestHref} class="mobile-request mobile-ra">
+          <span class="mobile-small">{mobileRequestFirstLine || resolvedMobileRequestLabel}</span>
+          {mobileRequestSecondLine || resolvedMobileRequestLabel}
         </a>
       )
     }
@@ -242,12 +248,19 @@ const cssVars = [
         text-transform: uppercase;
       }
 
-      .mobile-call {
-        background: #476682;
+      .mobile-small {
+        display: block;
+        font-size: 14px;
+        letter-spacing: 0.7px;
+        line-height: 1.1;
       }
 
-      .mobile-appt {
-        background: #4f95d0;
+      .mobile-call {
+        background: var(--lh4-mobile-call-bg, #476682);
+      }
+
+      .mobile-request {
+        background: var(--lh4-mobile-request-bg, #4f95d0);
       }
 
       @media (max-width: 1000px) {
@@ -256,8 +269,16 @@ const cssVars = [
           padding: 10px;
         }
 
+        .logo-link {
+          justify-self: center;
+        }
+
         .address,
         .phone {
+          display: none;
+        }
+
+        .desktop-cta {
           display: none;
         }
       }

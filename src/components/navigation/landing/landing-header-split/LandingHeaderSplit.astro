@@ -9,13 +9,13 @@ const {
   logoAlt = "Logo",
   pageButtons = [],
   offices = [],
-  mobileCallSmallText = "Call Today!",
-  mobileApptLabel = "Request an Appointment",
-  mobileApptHref = "",
+  mobileCallSmallText = "Call Now",
+  mobileRequestLabel = "Request an Appointment",
+  mobileRequestHref = "",
   mobileCallBackgroundColor = "",
   mobileCallBackgroundColorHex = "",
-  mobileApptBackgroundColor = "",
-  mobileApptBackgroundColorHex = "",
+  mobileRequestBackgroundColor = "",
+  mobileRequestBackgroundColorHex = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -29,12 +29,12 @@ const {
   pageButtons?: any[];
   offices?: any[];
   mobileCallSmallText?: string;
-  mobileApptLabel?: string;
-  mobileApptHref?: string;
+  mobileRequestLabel?: string;
+  mobileRequestHref?: string;
   mobileCallBackgroundColor?: string;
   mobileCallBackgroundColorHex?: string;
-  mobileApptBackgroundColor?: string;
-  mobileApptBackgroundColorHex?: string;
+  mobileRequestBackgroundColor?: string;
+  mobileRequestBackgroundColorHex?: string;
   addressLinkColor?: string;
   addressLinkHoverColor?: string;
   phoneLinkColor?: string;
@@ -72,23 +72,25 @@ const colorTokenMap: Record<string, string> = {
 };
 
 const mobilePhone = resolvedOffices[0]?.phones?.[0] ?? null;
-const resolvedMobileApptLabel = mobileApptLabel || buttons[0]?.text || "";
-const mobileApptLink = buttons[0]?.link || mobileApptHref;
-const mobileApptLabelParts =
-  typeof resolvedMobileApptLabel === "string" ? resolvedMobileApptLabel.trim().split(/\s+/) : [];
-const mobileApptFirstLine = mobileApptLabelParts[0] || "";
-const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
+const resolvedMobileRequestLabel = mobileRequestLabel || buttons[0]?.text || "";
+const mobileRequestLink = buttons[0]?.link || mobileRequestHref;
+const mobileRequestLabelParts =
+  typeof resolvedMobileRequestLabel === "string"
+    ? resolvedMobileRequestLabel.trim().split(/\s+/)
+    : [];
+const mobileRequestFirstLine = mobileRequestLabelParts.slice(0, 2).join(" ");
+const mobileRequestSecondLine = mobileRequestLabelParts.slice(2).join(" ");
 const resolvedMobileCallBg =
   mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
-const resolvedMobileApptBg =
-  mobileApptBackgroundColorHex || colorTokenMap[mobileApptBackgroundColor] || "";
+const resolvedMobileRequestBg =
+  mobileRequestBackgroundColorHex || colorTokenMap[mobileRequestBackgroundColor] || "";
 const resolvedAddressLinkColor = colorTokenMap[addressLinkColor] || "";
 const resolvedAddressLinkHoverColor = colorTokenMap[addressLinkHoverColor] || "";
 const resolvedPhoneLinkColor = colorTokenMap[phoneLinkColor] || "";
 const resolvedPhoneLinkHoverColor = colorTokenMap[phoneLinkHoverColor] || "";
 const cssVars = [
   resolvedMobileCallBg && `--lhs-mobile-call-bg: ${resolvedMobileCallBg}`,
-  resolvedMobileApptBg && `--lhs-mobile-appt-bg: ${resolvedMobileApptBg}`,
+  resolvedMobileRequestBg && `--lhs-mobile-request-bg: ${resolvedMobileRequestBg}`,
   resolvedAddressLinkColor && `--lhs-address-link-color: ${resolvedAddressLinkColor}`,
   resolvedAddressLinkHoverColor &&
     `--lhs-address-link-hover-color: ${resolvedAddressLinkHoverColor}`,
@@ -167,20 +169,20 @@ const cssVars = [
     }
   </div>
 
-  <div class="landing-header-split-mobile-bar">
+  <div class="mobile-btns landing-header-split-mobile-bar">
     {
       mobilePhone?.display && (
-        <a href={mobilePhone.href || "#"} class="landing-header-split-mobile-call">
-          <small class="landing-header-split-mobile-small">{mobileCallSmallText}</small>
+        <a href={mobilePhone.href || "#"} class="mobile-call landing-header-split-mobile-call">
+          <span class="mobile-small">{mobileCallSmallText}</span>
           {mobilePhone.display}
         </a>
       )
     }
     {
-      resolvedMobileApptLabel && (
-        <a href={mobileApptLink || "#"} class="landing-header-split-mobile-appt">
-          {mobileApptFirstLine && <span>{mobileApptFirstLine}</span>}
-          {mobileApptSecondLine && <span>{mobileApptSecondLine}</span>}
+      resolvedMobileRequestLabel && (
+        <a href={mobileRequestLink || "#"} class="mobile-ra landing-header-split-mobile-request">
+          <span class="mobile-small">{mobileRequestFirstLine || resolvedMobileRequestLabel}</span>
+          {mobileRequestSecondLine || resolvedMobileRequestLabel}
         </a>
       )
     }
@@ -282,37 +284,52 @@ const cssVars = [
           display: none;
         }
 
-        a {
+        > a {
           align-items: center;
           color: #fff;
           display: flex;
           flex: 1;
           flex-direction: column;
-          font-weight: var(--font-weight-semibold);
+          font-size: 16px;
+          font-weight: 700;
           justify-content: center;
-          padding-block: var(--spacing-sm);
+          letter-spacing: 2.4px;
+          line-height: 1.1;
+          padding: 5px;
           text-align: center;
           text-decoration: none;
+          text-transform: uppercase;
+        }
+
+        .mobile-small {
+          display: block;
+          font-size: 14px;
+          letter-spacing: 0.7px;
+          line-height: 1.1;
         }
 
         .landing-header-split-mobile-call {
           background-color: var(--lhs-mobile-call-bg, var(--color-brand-secondary));
         }
 
-        .landing-header-split-mobile-appt {
-          background-color: var(--lhs-mobile-appt-bg, var(--color-brand));
+        .landing-header-split-mobile-request {
+          background-color: var(--lhs-mobile-request-bg, var(--color-brand));
           text-transform: uppercase;
         }
+      }
 
-        .landing-header-split-mobile-appt span {
-          display: block;
+      @media (max-width: 1023px) {
+        .landing-header-split-inner {
+          justify-items: center;
         }
 
-        .landing-header-split-mobile-small {
-          display: block;
-          font-size: 0.75rem;
-          font-weight: var(--font-weight-normal);
-          text-transform: uppercase;
+        .landing-header-split-logo-link {
+          justify-self: center;
+        }
+
+        .landing-header-split-contact,
+        .landing-header-split-buttons {
+          display: none;
         }
       }
     }

@@ -1,6 +1,6 @@
 label: Landing Header - Pediatric Waves
 icon: waves
-description: Pediatric landing header with centered contact details, desktop CTA, and mobile appointment/call/map bar.
+description: Pediatric landing header with centered contact details, desktop CTA, and mobile call/request bar.
 value:
   _component: navigation/landing/landing-header-pediatric-waves
   logoSource: /images/logo.svg
@@ -20,12 +20,11 @@ value:
   addressLinkHoverColor: ""
   phoneLinkColor: ""
   phoneLinkHoverColor: ""
-  mobileCallLabel: Call
-  mobileMapLabel: Map
-  mobileMapHref: ""
+  mobileCallLabel: Call Now
+  mobileRequestLabel: Request an Appointment
+  mobileRequestHref: ""
   mobileBarBackground: ""
   mobileCallBackground: "#23adce"
-  mobileApptBackground: "#dbe45a"
-  mobileMapBackground: "#0d5f78"
+  mobileRequestBackground: "#dbe45a"
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-header-pediatric-waves/landing-header-pediatric-waves.cloudcannon.inputs.yml

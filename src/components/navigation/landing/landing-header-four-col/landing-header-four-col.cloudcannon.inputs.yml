@@ -25,6 +25,46 @@ offices:
 mobileCallLabel:
   type: text
   comment: Small call label shown above the phone number on mobile.
+mobileRequestLabel:
+  type: text
+  comment: Label for the request button in the mobile bar.
+mobileRequestHref:
+  type: text
+  comment: Link for the mobile request button.
+mobileCallBackgroundColor:
+  type: select
+  comment: Background color of the mobile call button.
+  options:
+    values:
+      - id: ""
+        name: Default (#476682)
+      - id: "#476682"
+        name: Steel Blue
+      - id: "#4f95d0"
+        name: Accent Blue
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+mobileRequestBackgroundColor:
+  type: select
+  comment: Background color of the mobile request button.
+  options:
+    values:
+      - id: ""
+        name: Default (#4f95d0)
+      - id: "#4f95d0"
+        name: Accent Blue
+      - id: "#476682"
+        name: Steel Blue
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
 addressLinkColor:
   type: select
   comment: Color of address links.

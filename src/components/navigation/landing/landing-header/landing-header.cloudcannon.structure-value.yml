@@ -5,13 +5,13 @@ value:
   _component: navigation/landing/landing-header
   logoSource: /images/logo.svg
   logoAlt: Logo
-  mobileCallSmallText: "Call Today!"
-  mobileApptLabel: "Request an Appointment"
-  mobileApptHref: ""
+  mobileCallSmallText: "Call Now"
+  mobileRequestLabel: "Request an Appointment"
+  mobileRequestHref: ""
   mobileCallBackgroundColor: ""
   mobileCallBackgroundColorHex: ""
-  mobileApptBackgroundColor: ""
-  mobileApptBackgroundColorHex: ""
+  mobileRequestBackgroundColor: ""
+  mobileRequestBackgroundColorHex: ""
   addressLinkColor: ""
   addressLinkHoverColor: ""
   phoneLinkColor: ""

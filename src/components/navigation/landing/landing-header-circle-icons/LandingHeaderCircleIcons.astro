@@ -25,11 +25,11 @@ const {
   phoneLinkHoverColorHex = "",
   mobileCallBackgroundColor = "",
   mobileCallBackgroundColorHex = "",
-  mobileApptBackgroundColor = "",
-  mobileApptBackgroundColorHex = "",
-  mobileCallSmallText = "Call Today!",
-  mobileApptLabel = "Request an Appointment",
-  mobileApptHref = "",
+  mobileRequestBackgroundColor = "",
+  mobileRequestBackgroundColorHex = "",
+  mobileCallSmallText = "Call Now",
+  mobileRequestLabel = "Request an Appointment",
+  mobileRequestHref = "",
   _component,
   class: className,
   ...htmlAttributes
@@ -54,11 +54,11 @@ const {
   phoneLinkHoverColorHex?: string;
   mobileCallBackgroundColor?: string;
   mobileCallBackgroundColorHex?: string;
-  mobileApptBackgroundColor?: string;
-  mobileApptBackgroundColorHex?: string;
+  mobileRequestBackgroundColor?: string;
+  mobileRequestBackgroundColorHex?: string;
   mobileCallSmallText?: string;
-  mobileApptLabel?: string;
-  mobileApptHref?: string;
+  mobileRequestLabel?: string;
+  mobileRequestHref?: string;
   _component?: string;
   class?: string;
   [key: string]: any;
@@ -106,8 +106,8 @@ const resolvedPhoneLinkHoverColor =
   phoneLinkHoverColorHex || getColorValue(phoneLinkHoverColor) || "";
 const resolvedMobileCallBg =
   mobileCallBackgroundColorHex || getColorValue(mobileCallBackgroundColor) || "";
-const resolvedMobileApptBg =
-  mobileApptBackgroundColorHex || getColorValue(mobileApptBackgroundColor) || "";
+const resolvedMobileRequestBg =
+  mobileRequestBackgroundColorHex || getColorValue(mobileRequestBackgroundColor) || "";
 
 const cssVars = [
   resolvedBg && `--lhci-bg: ${resolvedBg}`,
@@ -119,7 +119,7 @@ const cssVars = [
   resolvedPhoneLinkColor && `--lhci-phone-link-color: ${resolvedPhoneLinkColor}`,
   resolvedPhoneLinkHoverColor && `--lhci-phone-link-hover-color: ${resolvedPhoneLinkHoverColor}`,
   resolvedMobileCallBg && `--lhci-mobile-call-bg: ${resolvedMobileCallBg}`,
-  resolvedMobileApptBg && `--lhci-mobile-appt-bg: ${resolvedMobileApptBg}`,
+  resolvedMobileRequestBg && `--lhci-mobile-request-bg: ${resolvedMobileRequestBg}`,
 ]
   .filter(Boolean)
   .join("; ");
@@ -127,11 +127,11 @@ const cssVars = [
 const firstPhone = normalizedOffices[0]?.phones?.[0];
 const mobileCallHref = firstPhone?.href || "#";
 const mobileCallDisplay = firstPhone?.display || "";
-const mobileApptLink = normalizedPageButtons[0]?.link || mobileApptHref;
-const mobileApptLabelParts =
-  typeof mobileApptLabel === "string" ? mobileApptLabel.trim().split(/\s+/) : [];
-const mobileApptFirstLine = mobileApptLabelParts[0] || "";
-const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
+const mobileRequestLink = normalizedPageButtons[0]?.link || mobileRequestHref;
+const mobileRequestLabelParts =
+  typeof mobileRequestLabel === "string" ? mobileRequestLabel.trim().split(/\s+/) : [];
+const mobileRequestFirstLine = mobileRequestLabelParts[0] || "";
+const mobileRequestSecondLine = mobileRequestLabelParts.slice(1).join(" ");
 ---
 
 <header
@@ -210,22 +210,14 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
     {
       mobileCallDisplay && (
         <a href={mobileCallHref} class="lhci-mobile-call mobile-call">
-          {mobileCallSmallText}
-          <br />
+          <span class="mobile-small">{mobileCallSmallText}</span>
           {mobileCallDisplay}
         </a>
       )
     }
-    <a href={mobileApptLink} class="lhci-mobile-appt mobile-ra">
-      {mobileApptFirstLine || mobileApptLabel}
-      {
-        mobileApptSecondLine && (
-          <>
-            <br />
-            {mobileApptSecondLine}
-          </>
-        )
-      }
+    <a href={mobileRequestLink} class="lhci-mobile-request mobile-ra">
+      <span class="mobile-small">{mobileRequestFirstLine || mobileRequestLabel}</span>
+      {mobileRequestSecondLine || mobileRequestLabel}
     </a>
   </div>
 </header>
@@ -363,6 +355,13 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
           text-transform: uppercase;
         }
 
+        .mobile-small {
+          display: block;
+          font-size: 14px;
+          letter-spacing: 0.7px;
+          line-height: 1.1;
+        }
+
         .lhci-mobile-call {
           background-color: var(
             --lhci-mobile-call-bg,
@@ -370,9 +369,9 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
           );
         }
 
-        .lhci-mobile-appt {
+        .lhci-mobile-request {
           background-color: var(
-            --lhci-mobile-appt-bg,
+            --lhci-mobile-request-bg,
             var(--lhci-icon-bg, var(--color-brand, #95982d))
           );
           text-transform: uppercase;
@@ -381,6 +380,7 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
       }
 
       @media (max-width: 1024px){
+        .lhci-nav{justify-content: center;}
         .lhci-logo-link{margin: 0 auto; padding: 20px 10px;}
         .lhci-address, .lhci-phone, .lhci-buttons{display: none;}
       }

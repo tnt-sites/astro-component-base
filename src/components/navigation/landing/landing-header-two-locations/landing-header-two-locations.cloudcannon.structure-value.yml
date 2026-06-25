@@ -5,14 +5,14 @@ value:
   _component: navigation/landing/landing-header-two-locations
   logoSource: /images/logo.svg
   logoAlt: Logo
-  mobileCallLabel: Call Today!
-  mobileCallSmallText: "Call Today!"
-  mobileApptLabel: "Request an Appointment"
-  mobileApptHref: ""
+  mobileCallLabel: Call Now
+  mobileCallSmallText: "Call Now"
+  mobileRequestLabel: "Request an Appointment"
+  mobileRequestHref: ""
   mobileCallBackgroundColor: ""
   mobileCallBackgroundColorHex: ""
-  mobileApptBackgroundColor: ""
-  mobileApptBackgroundColorHex: ""
+  mobileRequestBackgroundColor: ""
+  mobileRequestBackgroundColorHex: ""
   addressLinkColor: ""
   addressLinkHoverColor: ""
   phoneLinkColor: ""
@@ -46,15 +46,15 @@ _inputs:
   mobileCallSmallText:
     type: text
     comment: "Small label above the phone number in the mobile call button."
-  mobileApptLabel:
+  mobileRequestLabel:
     type: text
-    comment: "Label for the appointment button in the mobile bar."
-  mobileApptHref:
+    comment: "Label for the request button in the mobile bar."
+  mobileRequestHref:
     type: text
-    comment: "Link for the mobile appointment button."
+    comment: "Link for the mobile request button."
   mobileCallLabel:
     type: text
-    comment: "Label shown above the phone number in the mobile call button (e.g. 'Call Today!')."
+    comment: "Label shown above the phone number in the mobile call button (e.g. 'Call Now')."
   mobileCallBackgroundColor:
     type: select
     comment: "Background color of the mobile call button."
@@ -75,7 +75,7 @@ _inputs:
   mobileCallBackgroundColorHex:
     type: color
     comment: "Optional custom hex color for the mobile call button. Overrides the dropdown above."
-  mobileApptBackgroundColor:
+  mobileRequestBackgroundColor:
     type: select
     comment: "Background color of the mobile request button."
     options:
@@ -92,7 +92,7 @@ _inputs:
           name: Dark
         - id: white
           name: White
-  mobileApptBackgroundColorHex:
+  mobileRequestBackgroundColorHex:
     type: color
     comment: "Optional custom hex color for the mobile request button. Overrides the dropdown above."
   id:
@@ -100,7 +100,7 @@ _inputs:
     comment: "Developer use only. Optional HTML id attribute for this header section."
   pageButtons:
     type: array
-    comment: "CTA buttons. The first button is also used as the mobile appointment CTA."
+    comment: "CTA buttons. The first button is also used as the mobile request CTA."
     options:
       structures: _structures.buttonSections
   offices:

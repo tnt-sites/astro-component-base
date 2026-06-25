@@ -28,11 +28,11 @@ value:
   phoneLinkHoverColor: ""
   mobileCallBackgroundColor: ""
   mobileCallBackgroundColorHex: ""
-  mobileApptBackgroundColor: ""
-  mobileApptBackgroundColorHex: ""
-  mobileCallSmallText: "Call Today!"
-  mobileApptLabel: "Request an Appointment"
-  mobileApptHref: ""
+  mobileRequestBackgroundColor: ""
+  mobileRequestBackgroundColorHex: ""
+  mobileCallSmallText: "Call Now"
+  mobileRequestLabel: "Request an Appointment"
+  mobileRequestHref: ""
 preview:
   text:
     - Landing Header - Circle Icons
@@ -175,7 +175,7 @@ _inputs:
   mobileCallBackgroundColorHex:
     type: color
     comment: "Optional custom hex color for the mobile call button. Overrides the dropdown above."
-  mobileApptBackgroundColor:
+  mobileRequestBackgroundColor:
     type: select
     comment: "Background color of the mobile request button."
     options:
@@ -192,16 +192,16 @@ _inputs:
           name: Dark
         - id: white
           name: White
-  mobileApptBackgroundColorHex:
+  mobileRequestBackgroundColorHex:
     type: color
     comment: "Optional custom hex color for the mobile request button. Overrides the dropdown above."
   mobileCallSmallText:
     type: text
     comment: "Small label above the phone number in the mobile call button."
-  mobileApptLabel:
+  mobileRequestLabel:
     type: text
     comment: "Label for the appointment button in the mobile bar."
-  mobileApptHref:
+  mobileRequestHref:
     type: text
     comment: "Link for the mobile appointment button."
   id:

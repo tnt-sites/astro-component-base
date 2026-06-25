@@ -8,14 +8,14 @@ const {
   logoAlt = "Logo",
   pageButtons = [],
   offices = [],
-  mobileCallLabel = "Call Today!",
+  mobileCallLabel = "Call Now",
   mobileCallSmallText = "",
-  mobileApptLabel = "",
-  mobileApptHref = "",
+  mobileRequestLabel = "",
+  mobileRequestHref = "",
   mobileCallBackgroundColor = "",
   mobileCallBackgroundColorHex = "",
-  mobileApptBackgroundColor = "",
-  mobileApptBackgroundColorHex = "",
+  mobileRequestBackgroundColor = "",
+  mobileRequestBackgroundColorHex = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -30,12 +30,12 @@ const {
   offices?: any[];
   mobileCallLabel?: string;
   mobileCallSmallText?: string;
-  mobileApptLabel?: string;
-  mobileApptHref?: string;
+  mobileRequestLabel?: string;
+  mobileRequestHref?: string;
   mobileCallBackgroundColor?: string;
   mobileCallBackgroundColorHex?: string;
-  mobileApptBackgroundColor?: string;
-  mobileApptBackgroundColorHex?: string;
+  mobileRequestBackgroundColor?: string;
+  mobileRequestBackgroundColorHex?: string;
   addressLinkColor?: string;
   addressLinkHoverColor?: string;
   phoneLinkColor?: string;
@@ -80,18 +80,20 @@ const mobilePhone = leftOffice?.phones?.[0] ?? rightOffice?.phones?.[0] ?? null;
 
 // Mobile CTA: use first page button
 const mobileButton = buttons[0] ?? null;
-const resolvedMobileCallText = mobileCallSmallText || mobileCallLabel || "Call Today!";
-const resolvedMobileApptLabel = mobileApptLabel || mobileButton?.text || "";
-const resolvedMobileApptHref = mobileApptHref || mobileButton?.link || "#";
+const resolvedMobileCallText = mobileCallSmallText || mobileCallLabel || "Call Now";
+const resolvedMobileRequestLabel = mobileRequestLabel || mobileButton?.text || "";
+const resolvedMobileRequestHref = mobileRequestHref || mobileButton?.link || "#";
 const mobileButtonLabelParts =
-  typeof resolvedMobileApptLabel === "string" ? resolvedMobileApptLabel.trim().split(/\s+/) : [];
-const mobileButtonFirstLine = mobileButtonLabelParts[0] || "";
-const mobileButtonSecondLine = mobileButtonLabelParts.slice(1).join(" ");
+  typeof resolvedMobileRequestLabel === "string"
+    ? resolvedMobileRequestLabel.trim().split(/\s+/)
+    : [];
+const mobileButtonFirstLine = mobileButtonLabelParts.slice(0, 2).join(" ");
+const mobileButtonSecondLine = mobileButtonLabelParts.slice(2).join(" ");
 
 const resolvedMobileCallBg =
   mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
-const resolvedMobileApptBg =
-  mobileApptBackgroundColorHex || colorTokenMap[mobileApptBackgroundColor] || "";
+const resolvedMobileRequestBg =
+  mobileRequestBackgroundColorHex || colorTokenMap[mobileRequestBackgroundColor] || "";
 const resolvedAddressLinkColor = colorTokenMap[addressLinkColor] || "";
 const resolvedAddressLinkHoverColor = colorTokenMap[addressLinkHoverColor] || "";
 const resolvedPhoneLinkColor = colorTokenMap[phoneLinkColor] || "";
@@ -99,7 +101,7 @@ const resolvedPhoneLinkHoverColor = colorTokenMap[phoneLinkHoverColor] || "";
 
 const cssVars = [
   resolvedMobileCallBg && `--lhtl-mobile-call-bg: ${resolvedMobileCallBg}`,
-  resolvedMobileApptBg && `--lhtl-mobile-appt-bg: ${resolvedMobileApptBg}`,
+  resolvedMobileRequestBg && `--lhtl-mobile-request-bg: ${resolvedMobileRequestBg}`,
   resolvedAddressLinkColor && `--lhtl-address-link-color: ${resolvedAddressLinkColor}`,
   resolvedAddressLinkHoverColor &&
     `--lhtl-address-link-hover-color: ${resolvedAddressLinkHoverColor}`,
@@ -211,22 +213,16 @@ const right = renderOffice(rightOffice);
       {
         mobilePhone && (
           <a href={mobilePhone.href || "#"} class="lhtl-mobile-call mobile-call">
-            {resolvedMobileCallText}
-            <br />
+            <span class="mobile-small">{resolvedMobileCallText}</span>
             {mobilePhone.display}
           </a>
         )
       }
       {
-        resolvedMobileApptLabel && (
-          <a href={resolvedMobileApptHref} class="lhtl-mobile-cta mobile-ra">
-            {mobileButtonFirstLine || resolvedMobileApptLabel}
-            {mobileButtonSecondLine && (
-              <>
-                <br />
-                {mobileButtonSecondLine}
-              </>
-            )}
+        resolvedMobileRequestLabel && (
+          <a href={resolvedMobileRequestHref} class="lhtl-mobile-cta mobile-ra">
+            <span class="mobile-small">{mobileButtonFirstLine || resolvedMobileRequestLabel}</span>
+            {mobileButtonSecondLine || resolvedMobileRequestLabel}
           </a>
         )
       }
@@ -339,6 +335,13 @@ const right = renderOffice(rightOffice);
         text-transform: uppercase;
       }
 
+      .mobile-small {
+        display: block;
+        font-size: 14px;
+        letter-spacing: 0.7px;
+        line-height: 1.1;
+      }
+
       .lhtl-mobile-call {
         background-color: var(--lhtl-mobile-call-bg, var(--color-brand-secondary));
         color: var(--color-text-on-brand);
@@ -350,13 +353,23 @@ const right = renderOffice(rightOffice);
       }
 
       .lhtl-mobile-cta {
-        background-color: var(--lhtl-mobile-appt-bg, var(--color-brand));
+        background-color: var(--lhtl-mobile-request-bg, var(--color-brand));
         color: var(--color-text-on-brand);
         text-transform: uppercase;
 
         &:hover,
         &:focus-visible {
           filter: brightness(0.9);
+        }
+      }
+
+      @media (max-width: 1023px) {
+        .lhtl-logo-link {
+          justify-self: center;
+        }
+
+        .lhtl-office {
+          display: none;
         }
       }
 

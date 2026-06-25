@@ -14,6 +14,55 @@ offices:
   comment: Two offices used in the left and right columns.
   options:
     structures: _structures.officeSections
+mobileCallSmallText:
+  type: text
+  comment: Small label above the phone number in the mobile call button.
+mobileRequestLabel:
+  type: text
+  comment: Label for the request button in the mobile bar.
+mobileRequestHref:
+  type: text
+  comment: Link for the mobile request button.
+mobileCallBackgroundColor:
+  type: select
+  comment: Background color of the mobile call button.
+  options:
+    values:
+      - id: ""
+        name: Default (Brand Secondary)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+mobileCallBackgroundColorHex:
+  type: color
+  comment: Optional custom hex color for the mobile call button. Overrides the dropdown above.
+mobileRequestBackgroundColor:
+  type: select
+  comment: Background color of the mobile request button.
+  options:
+    values:
+      - id: ""
+        name: Default (Brand Primary)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+mobileRequestBackgroundColorHex:
+  type: color
+  comment: Optional custom hex color for the mobile request button. Overrides the dropdown above.
 addressLinkColor:
   type: select
   comment: Color of address links.
