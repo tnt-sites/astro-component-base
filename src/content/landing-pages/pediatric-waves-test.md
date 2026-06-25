@@ -36,7 +36,7 @@ landingMainNav:
     mobileRequestBackground: var(--color-brand-secondary)
     mobileCallTextColor: '#fff'
     mobileCallSmallTextColor: '#fff'
-    mobileRequestTextColor: var(--color-brand-secondary)
+    mobileRequestTextColor: var(--color-brand)
     mobileRequestSmallTextColor: var(--color-brand-secondary)
     mobileMapLabel: Map
     mobileMapHref: ''
