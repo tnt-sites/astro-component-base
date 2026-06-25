@@ -2,7 +2,7 @@
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
 import siteInfoData from "@data/siteInfo.json";
-import Form from "@forms/form/Form.astro";
+import RenderBlock from "@component-utils/renderBlock.astro";
 
 const {
   logoSource,
@@ -375,12 +375,9 @@ const cssVars = [
           )
         }
         {formHeading && <span class="fo-title">{formHeading}</span>}
-        <Form
-          class="footer-form"
-          action={formAction || undefined}
-          method={formMethod || "post"}
-          formBlocks={resolvedFormBlocks}
-        />
+        <form class="footer-form form" action={formAction || undefined} method={formMethod || "post"}>
+          <RenderBlock contentSections={resolvedFormBlocks} propName="formBlocks" />
+        </form>
       </div>
 
       <div class="contact-column">
