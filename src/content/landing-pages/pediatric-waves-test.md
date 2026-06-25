@@ -50,34 +50,44 @@ landingFooter:
     formMethod: post
     formBlocks:
       - _component: building-blocks/forms/input
+        id: ''
         label: Name
         name: Name
         type: text
         placeholder: Name
         required: true
       - _component: building-blocks/forms/input
+        id: ''
         label: Phone
         name: Phone
         type: text
         placeholder: Phone
         required: true
       - _component: building-blocks/forms/input
+        id: ''
         label: Email
         name: Email
         type: email
         placeholder: Email
         required: true
       - _component: building-blocks/forms/textarea
+        id: ''
         label: Comments
         name: CommentArea
+        required: false
         placeholder: Comments
       - _component: building-blocks/forms/hidden
+        id: ''
         name: _subject
         value: Pediatric Footer Questions
       - _component: building-blocks/forms/submit
+        id: ''
         text: Send
         variant: primary
         size: md
+        iconPosition: before
+        hideText: false
+        disabled: false
         class: footer-submit-button
     formSubject: Pediatric Footer Questions
     formRedirect: ''
@@ -103,7 +113,7 @@ landingFooter:
     mapEmbedUrl: ''
     questionsLine: Have Questions? Get Answers
     backgroundColor: brand-secondary
-    officeHoursAlignment: right
+    officeHoursAlignment: left
     topWaveImage:
       source: /src/assets/images/ppc-pediatric-footer-bg.png
       alt: ''
