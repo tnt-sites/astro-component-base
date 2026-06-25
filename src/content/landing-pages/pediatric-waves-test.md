@@ -24,17 +24,17 @@ landingMainNav:
         textColor: default
         uppercase: true
     offices: []
-    phoneLinkColor: '#fff'
-    phoneLinkHoverColor: var(--color-brand)
-    addressLinkColor: var(--color-brand)
-    addressLinkHoverColor: '#fff'
     mobileCallLabel: Call
     mobileMapLabel: Map
     mobileMapHref: ''
     mobileBarBackground: ''
     mobileCallBackground: '#000'
-    mobileApptBackground: var(--color-brand)
+    mobileApptBackground: var(--color-brand-secondary)
     mobileMapBackground: '#0d5f78'
+    phoneLinkColor: var(--color-brand-secondary)
+    phoneLinkHoverColor: var(--color-brand)
+    addressLinkColor: var(--color-brand)
+    addressLinkHoverColor: '#fff'
 landingFooter:
   - _component: navigation/landing/landing-footer-pediatric-waves
     logoSource: /images/logo.svg
