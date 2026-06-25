@@ -47,6 +47,20 @@ landingFooter:
     formMethod: post
     formSubject: Pediatric Footer Questions
     formRedirect: ""
+    formButton:
+      _component: building-blocks/core-elements/button
+      text: Send
+      hideText: false
+      iconName: ""
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: true
     mapEmbedUrl: ""
     backgroundColor: brand-secondary
     topWaveImage:
