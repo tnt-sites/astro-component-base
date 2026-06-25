@@ -425,27 +425,21 @@ const getOfficeHoursEntries = (office: any) => {
       }
 
       .pho {
-        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand)));
+        color: var(--footer-phone-link-color, var(--color-brand));
       }
 
       .phy {
-        color: var(--footer-address-link-color, var(--footer-link-color, var(--color-brand)));
+        color: var(--footer-address-link-color, var(--color-brand));
       }
 
       .pho:hover,
       .pho:focus-visible {
-        color: var(
-          --footer-phone-link-hover-color,
-          var(--footer-link-hover-color, var(--color-brand-secondary))
-        );
+        color: var(--footer-phone-link-hover-color, var(--color-brand-secondary));
       }
 
       .phy:hover,
       .phy:focus-visible {
-        color: var(
-          --footer-address-link-hover-color,
-          var(--footer-link-hover-color, var(--color-brand-secondary))
-        );
+        color: var(--footer-address-link-hover-color, var(--color-brand-secondary));
       }
 
       .fo-title{font-size: 80px; font-weight: 700; line-height: 1.1; text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.9)}

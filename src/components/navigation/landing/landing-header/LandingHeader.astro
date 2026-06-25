@@ -166,20 +166,26 @@ const cssVars = [
     }
   </div>
 
-  <div class="landing-header-mobile-bar">
+  <div class="mobile-btns landing-header-mobile-bar">
     {
       mobilePhone?.display && (
-        <a href={mobilePhone.href || "#"} class="landing-header-mobile-call">
-          <small class="landing-header-mobile-small">{mobileCallSmallText}</small>
+        <a href={mobilePhone.href || "#"} class="mobile-call landing-header-mobile-call">
+          {mobileCallSmallText}
+          <br />
           {mobilePhone.display}
         </a>
       )
     }
     {
       resolvedMobileApptLabel && (
-        <a href={mobileApptLink || "#"} class="landing-header-mobile-appt">
-          {mobileApptFirstLine && <span>{mobileApptFirstLine}</span>}
-          {mobileApptSecondLine && <span>{mobileApptSecondLine}</span>}
+        <a href={mobileApptLink || "#"} class="mobile-ra landing-header-mobile-appt">
+          {mobileApptFirstLine || resolvedMobileApptLabel}
+          {mobileApptSecondLine && (
+            <>
+              <br />
+              {mobileApptSecondLine}
+            </>
+          )}
         </a>
       )
     }
@@ -265,17 +271,21 @@ const cssVars = [
           display: none;
         }
 
-        a {
+        > a {
           align-items: center;
           color: #fff;
           display: flex;
           flex: 1;
           flex-direction: column;
-          font-weight: var(--font-weight-semibold);
+          font-size: 16px;
+          font-weight: 700;
           justify-content: center;
-          padding-block: var(--spacing-sm);
+          letter-spacing: 2.4px;
+          line-height: 1.1;
+          padding: 5px;
           text-align: center;
           text-decoration: none;
+          text-transform: uppercase;
         }
 
         .landing-header-mobile-call {
@@ -284,17 +294,6 @@ const cssVars = [
 
         .landing-header-mobile-appt {
           background-color: var(--lh-mobile-appt-bg, var(--color-brand));
-          text-transform: uppercase;
-        }
-
-        .landing-header-mobile-appt span {
-          display: block;
-        }
-
-        .landing-header-mobile-small {
-          display: block;
-          font-size: 0.75rem;
-          font-weight: var(--font-weight-normal);
           text-transform: uppercase;
         }
       }

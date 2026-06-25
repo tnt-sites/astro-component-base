@@ -221,22 +221,19 @@ const formatAddressLines = (address: any) => {
       }
 
       .lp-footer-map-grid-address {
-        color: var(--footer-address-link-color, var(--footer-link-color, var(--color-brand)));
+        color: var(--footer-address-link-color, var(--color-brand));
         display: block;
         font-size: var(--font-size-md);
         text-decoration: none;
 
         &:hover,
         &:focus-visible {
-          color: var(
-            --footer-address-link-hover-color,
-            var(--footer-link-hover-color, var(--color-brand-secondary))
-          );
+          color: var(--footer-address-link-hover-color, var(--color-brand-secondary));
         }
       }
 
       .lp-footer-map-grid-phone {
-        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand)));
+        color: var(--footer-phone-link-color, var(--color-brand));
         display: block;
         font-size: var(--font-size-xl);
         font-weight: var(--font-weight-bold);
@@ -244,10 +241,7 @@ const formatAddressLines = (address: any) => {
 
         &:hover,
         &:focus-visible {
-          color: var(
-            --footer-phone-link-hover-color,
-            var(--footer-link-hover-color, var(--color-brand-secondary))
-          );
+          color: var(--footer-phone-link-hover-color, var(--color-brand-secondary));
         }
       }
 

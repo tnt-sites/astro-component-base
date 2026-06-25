@@ -374,21 +374,18 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .fo-address {
-        color: var(--footer-address-link-color, var(--footer-link-color, var(--color-brand)));
+        color: var(--footer-address-link-color, var(--color-brand));
         display: block;
         text-decoration: none;
         transition: 0.3s all;
       }
 
       .fo-address:hover {
-        color: var(
-          --footer-address-link-hover-color,
-          var(--footer-link-hover-color, var(--color-brand-secondary))
-        );
+        color: var(--footer-address-link-hover-color, var(--color-brand-secondary));
       }
 
       .fo-phone {
-        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand)));
+        color: var(--footer-phone-link-color, var(--color-brand));
         display: block;
         font-size: 33px;
         font-weight: 700;
@@ -398,10 +395,7 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .fo-phone:hover {
-        color: var(
-          --footer-phone-link-hover-color,
-          var(--footer-link-hover-color, var(--color-brand-secondary))
-        );
+        color: var(--footer-phone-link-hover-color, var(--color-brand-secondary));
       }
 
       .lftb-office-hours {

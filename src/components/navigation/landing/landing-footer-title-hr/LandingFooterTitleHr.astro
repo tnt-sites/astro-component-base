@@ -277,7 +277,7 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .lfth-address {
-        color: var(--footer-address-link-color, var(--footer-link-color, var(--color-brand)));
+        color: var(--footer-address-link-color, var(--color-brand));
         display: block;
         font-size: 1rem;
         font-weight: 400;
@@ -287,15 +287,12 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
         text-decoration: none;
 
         &:hover {
-          color: var(
-            --footer-address-link-hover-color,
-            var(--footer-link-hover-color, var(--color-brand-secondary))
-          );
+          color: var(--footer-address-link-hover-color, var(--color-brand-secondary));
         }
       }
 
       .lfth-phone {
-        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand)));
+        color: var(--footer-phone-link-color, var(--color-brand));
         display: block;
         font-size: clamp(1.75rem, 3vw, 2.5rem);
         font-weight: 700;
@@ -305,10 +302,7 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
         text-decoration: none;
 
         &:hover {
-          color: var(
-            --footer-phone-link-hover-color,
-            var(--footer-link-hover-color, var(--color-brand-secondary))
-          );
+          color: var(--footer-phone-link-hover-color, var(--color-brand-secondary));
         }
       }
 

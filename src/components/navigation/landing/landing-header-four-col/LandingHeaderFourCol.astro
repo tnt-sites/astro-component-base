@@ -25,6 +25,11 @@ const office = normalizedOffices[0] || {};
 const phone = office?.phones?.[0] || null;
 const address = office?.addresses?.[0] || null;
 const firstButton = Array.isArray(pageButtons) ? pageButtons[0] : null;
+const resolvedMobileApptLabel =
+  typeof firstButton?.text === "string" ? firstButton.text.trim() : "";
+const mobileApptLabelParts = resolvedMobileApptLabel.split(/\s+/).filter(Boolean);
+const mobileApptFirstLine = mobileApptLabelParts.slice(0, 2).join(" ");
+const mobileApptSecondLine = mobileApptLabelParts.slice(2).join(" ");
 
 const formatAddressLines = (addressObject: any) => {
   const lineItems = Array.isArray(addressObject?.lines) ? addressObject.lines : [];
@@ -112,19 +117,26 @@ const cssVars = [
     </div>
   </div>
 
-  <div class="mobile-buttons">
+  <div class="mobile-buttons mobile-btns">
     {
       phone?.display && (
         <a href={phone?.href || "#"} class="mobile-call">
-          <small>{mobileCallLabel}</small>
+          {mobileCallLabel}
+          <br />
           {phone.display}
         </a>
       )
     }
     {
-      firstButton?.text && (
-        <a href={firstButton?.link || "#"} class="mobile-appt">
-          {firstButton.text}
+      resolvedMobileApptLabel && (
+        <a href={firstButton?.link || "#"} class="mobile-appt mobile-ra">
+          {mobileApptFirstLine || resolvedMobileApptLabel}
+          {mobileApptSecondLine && (
+            <>
+              <br />
+              {mobileApptSecondLine}
+            </>
+          )}
         </a>
       )
     }
@@ -219,18 +231,15 @@ const cssVars = [
         display: flex;
         flex: 0 1 50%;
         flex-direction: column;
-        font-size: 19px;
-        font-weight: 600;
+        font-size: 16px;
+        font-weight: 700;
         justify-content: center;
+        letter-spacing: 2.4px;
         line-height: 1.1;
-        padding: 15px 10px;
+        padding: 5px;
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
-      }
-
-      .mobile-buttons a small {
-        font-size: 14px;
       }
 
       .mobile-call {
