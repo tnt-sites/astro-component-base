@@ -243,6 +243,26 @@ const formButtonHoverTextColorValue =
     ? formButtonHoverTextColor.trim()
     : "#ffffff";
 const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
+const normalizedFormButton = {
+  _component: "building-blocks/core-elements/button",
+  text: "Send",
+  hideText: false,
+  iconName: "",
+  iconPosition: "before",
+  variant: "primary",
+  size: "md",
+  width: "md",
+  borderRadius: "default",
+  borderWidth: "default",
+  borderColor: "default",
+  textColor: "default",
+  uppercase: true,
+  ...(formButton && typeof formButton === "object" ? formButton : {}),
+};
+
+if (typeof normalizedFormButton.text !== "string") {
+  normalizedFormButton.text = "Send";
+}
 
 const cssVars = [
   resolvedBgColor ? `--pw-footer-bg: ${resolvedBgColor}` : "",
@@ -308,7 +328,7 @@ const cssVars = [
             <textarea name="CommentArea" placeholder="Comments"></textarea>
           </label>
           <Button
-            {...formButton}
+            {...normalizedFormButton}
             element="button"
             type="submit"
             link=""
