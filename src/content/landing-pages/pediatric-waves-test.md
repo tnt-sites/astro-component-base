@@ -8,12 +8,12 @@ landingMainNav:
     logoAlt: Logo Alt
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -25,70 +25,69 @@ landingMainNav:
         uppercase: true
     offices: []
     mobileCallLabel: Call
-    mobileMapLabel: Map
-    mobileMapHref: ''
-    mobileBarBackground: ''
-    mobileCallBackground: '#000'
-    mobileApptBackground: var(--color-brand)
-    mobileMapBackground: '#0d5f78'
+    mobileRequestLabel: Request an Appointment
+    mobileRequestHref: ""
+    mobileBarBackground: ""
+    mobileCallBackground: "#000"
+    mobileRequestBackground: var(--color-brand)
     phoneLinkColor: var(--color-brand-secondary)
     phoneLinkHoverColor: var(--color-brand)
     addressLinkColor: var(--color-brand)
-    addressLinkHoverColor: '#fff'
+    addressLinkHoverColor: "#fff"
 landingFooter:
   - _component: navigation/landing/landing-footer-pediatric-waves
     logoSource: /images/logo.svg
     logoAlt: Logo
     contactTitle: Contact Us
     offices: []
-    phoneLinkColor: '#fff'
+    phoneLinkColor: "#fff"
     phoneLinkHoverColor: var(--color-brand)
     addressLinkColor: var(--color-brand)
-    addressLinkHoverColor: '#fff'
+    addressLinkHoverColor: "#fff"
     legalLinks:
       - name: Privacy Policy
         path: /privacy-policy/
       - name: Sitemap
         path: /sitemap/
-    legalBlurb: ''
+    legalBlurb: ""
     linkColor: var(--color-brand)
     linkHoverColor: var(--color-brand-secondary)
     formHeading: Ask a Question
-    formAction: ''
+    formAction: ""
     formBlocks:
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Name
         name: Name
         type: text
         placeholder: Name
         required: true
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Phone
         name: Phone
         type: text
         placeholder: Phone
         required: true
       - _component: building-blocks/forms/input
-        id: ''
+        id: ""
         label: Email
         name: Email
         type: email
         placeholder: Email
         required: true
       - _component: building-blocks/forms/textarea
-        id: ''
+        id: ""
         label: Comments
         name: CommentArea
         required: false
         placeholder: Comments
       - _component: building-blocks/forms/hidden
-        id: ''
+        id: ""
         name: _subject
         value: Pediatric Footer Questions
       - _component: building-blocks/forms/submit
-        id: ''
+        id: ""
         text: Send
         variant: primary
         size: md
@@ -96,26 +95,26 @@ landingFooter:
         hideText: false
         disabled: false
         class: footer-submit-button
-    mapEmbedUrl: ''
+    mapEmbedUrl: ""
     questionsLine: Have Questions? Get Answers
     backgroundColor: var(--color-bg-brand-secondary)
     officeHoursAlignment: left
     topWaveImage:
       source:
-      alt: ''
+      alt: ""
     formMethod: post
     formSubject: Pediatric Footer Questions
-    formRedirect: ''
+    formRedirect: ""
     formButtonBorderRadius: 0px
-    formButtonTextColor: ''
-    formButtonBackgroundColor: ''
-    formButtonHoverBackgroundColor: ''
-    formButtonHoverTextColor: ''
+    formButtonTextColor: ""
+    formButtonBackgroundColor: ""
+    formButtonHoverBackgroundColor: ""
+    formButtonHoverTextColor: ""
     formButton:
       _component: building-blocks/core-elements/button
       text: Send
       hideText: false
-      iconName: ''
+      iconName: ""
       iconPosition: before
       variant: primary
       size: md
@@ -127,14 +126,14 @@ landingFooter:
       uppercase: true
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
-    id: ''
+    id: ""
     backgroundColor: brand-secondary
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome!
       - Same-Day Appointments
   - _component: landing-page-components/pediatric-waves/banner
-    id: ''
+    id: ""
     backgroundColor: base
     subheading: Board-Certified
     heading: <span>Pediatric</span><br>Dental Care
@@ -150,12 +149,12 @@ landingPageSections:
       - _component: building-blocks/wrappers/button-group
         buttons:
           - _component: building-blocks/core-elements/button
-            id: ''
+            id: ""
             text: Request an Appointment
             hideText: false
             link: /request-an-appointment/
-            modalTarget: ''
-            iconName: ''
+            modalTarget: ""
+            iconName: ""
             iconPosition: before
             variant: primary
             size: md
@@ -165,22 +164,22 @@ landingPageSections:
             borderColor: default
             textColor: default
             uppercase: false
-    headingColor: ''
-    accentColor: ''
+    headingColor: ""
+    accentColor: ""
     waveTopImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
     waveMiddleImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
     waveBottomImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
   - _component: landing-page-components/pediatric-waves/split
     id: friendly-expertise
     backgroundColor: base
     heading: Friendly <span>Expertise</span>
-    headingFontFamily: ''
+    headingFontFamily: ""
     paragraphs:
       - body: >-
           We want kids to love visiting the dentist. Our team provides
@@ -200,12 +199,12 @@ landingPageSections:
       - _component: building-blocks/wrappers/button-group
         buttons:
           - _component: building-blocks/core-elements/button
-            id: ''
+            id: ""
             text: Meet Our Dentist
             hideText: false
             link: /meet-the-dentists/
-            modalTarget: ''
-            iconName: ''
+            modalTarget: ""
+            iconName: ""
             iconPosition: before
             variant: primary
             size: md
@@ -215,11 +214,11 @@ landingPageSections:
             borderColor: default
             textColor: default
             uppercase: false
-    headingColor: ''
+    headingColor: ""
     accentColor: var(--color-brand-secondary)
     waveImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
   - _component: landing-page-components/pediatric-waves/review
     id: pediatric-review
     backgroundColor: base
@@ -231,22 +230,22 @@ landingPageSections:
     reviewLogo:
       source: https://placehold.co/220x80
       alt: Google logo
-    badgeBackgroundColor: '#0f5e75'
-    headingColor: ''
+    badgeBackgroundColor: "#0f5e75"
+    headingColor: ""
     waveTopImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
     waveMiddleImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
     waveBottomImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
   - _component: landing-page-components/pediatric-waves/split
     id: one-stop-convenience
     backgroundColor: var(--color-bg-surface)
     heading: One-Stop Convenience
-    headingFontFamily: ''
+    headingFontFamily: ""
     paragraphs:
       - body: >-
           Life is busy, especially with kids. We offer everything from routine
@@ -264,12 +263,12 @@ landingPageSections:
       - _component: building-blocks/wrappers/button-group
         buttons:
           - _component: building-blocks/core-elements/button
-            id: ''
+            id: ""
             text: Tour Our Office
             hideText: false
             link: /tour-our-office/
-            modalTarget: ''
-            iconName: ''
+            modalTarget: ""
+            iconName: ""
             iconPosition: before
             variant: primary
             size: md
@@ -279,16 +278,16 @@ landingPageSections:
             borderColor: default
             textColor: default
             uppercase: false
-    headingColor: ''
+    headingColor: ""
     accentColor: var(--color-brand-secondary)
     waveImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
   - _component: landing-page-components/pediatric-waves/split
     id: flexible-affordable
     backgroundColor: base
     heading: Flexible & <span>Affordable</span>
-    headingFontFamily: ''
+    headingFontFamily: ""
     paragraphs:
       - body: >-
           If you have dental insurance, we are likely in-network and we work
@@ -308,12 +307,12 @@ landingPageSections:
       - _component: building-blocks/wrappers/button-group
         buttons:
           - _component: building-blocks/core-elements/button
-            id: ''
+            id: ""
             text: Learn More
             hideText: false
             link: /for-patients/
-            modalTarget: ''
-            iconName: ''
+            modalTarget: ""
+            iconName: ""
             iconPosition: before
             variant: primary
             size: md
@@ -323,11 +322,11 @@ landingPageSections:
             borderColor: default
             textColor: default
             uppercase: false
-    headingColor: ''
+    headingColor: ""
     accentColor: var(--color-brand-secondary)
     waveImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
 head_scripts: []
 footer_scripts: []
 extraFonts: []

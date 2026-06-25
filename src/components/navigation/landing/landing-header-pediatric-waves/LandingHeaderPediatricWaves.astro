@@ -12,9 +12,12 @@ const {
   mobileCallLabel = "Call Now",
   mobileRequestLabel = "Request an Appointment",
   mobileRequestHref = "",
+  mobileApptLabel = "",
+  mobileApptHref = "",
   mobileBarBackground = "",
   mobileCallBackground = "",
   mobileRequestBackground = "",
+  mobileApptBackground = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -29,9 +32,12 @@ const {
   mobileCallLabel?: string;
   mobileRequestLabel?: string;
   mobileRequestHref?: string;
+  mobileApptLabel?: string;
+  mobileApptHref?: string;
   mobileBarBackground?: string;
   mobileCallBackground?: string;
   mobileRequestBackground?: string;
+  mobileApptBackground?: string;
   addressLinkColor?: string;
   addressLinkHoverColor?: string;
   phoneLinkColor?: string;
@@ -59,11 +65,16 @@ const normalizedButtons = (Array.isArray(pageButtons) ? pageButtons : []).map((b
   text: typeof button?.text === "string" ? button.text : "",
 }));
 
+const resolvedMobileRequestLabelProp = mobileRequestLabel || mobileApptLabel;
+const resolvedMobileRequestHrefProp = mobileRequestHref || mobileApptHref;
+const resolvedMobileRequestBackground = mobileRequestBackground || mobileApptBackground;
+
 const mobilePhone = normalizedOffices[0]?.phones?.[0] ?? null;
 const mobileRequest = normalizedButtons[0] ?? null;
 const resolvedMobileRequestLabel =
-  mobileRequestLabel || (typeof mobileRequest?.text === "string" ? mobileRequest.text.trim() : "");
-const resolvedMobileRequestHref = mobileRequestHref || mobileRequest?.link || "#";
+  resolvedMobileRequestLabelProp ||
+  (typeof mobileRequest?.text === "string" ? mobileRequest.text.trim() : "");
+const resolvedMobileRequestHref = resolvedMobileRequestHrefProp || mobileRequest?.link || "#";
 const mobileRequestLabelParts = resolvedMobileRequestLabel.split(/\s+/).filter(Boolean);
 const mobileRequestFirstLine = mobileRequestLabelParts.slice(0, 2).join(" ");
 const mobileRequestSecondLine = mobileRequestLabelParts.slice(2).join(" ");
@@ -71,7 +82,9 @@ const mobileRequestSecondLine = mobileRequestLabelParts.slice(2).join(" ");
 const cssVars = [
   mobileBarBackground ? `--pw-header-mobile-bar-bg: ${mobileBarBackground}` : "",
   mobileCallBackground ? `--pw-header-mobile-call-bg: ${mobileCallBackground}` : "",
-  mobileRequestBackground ? `--pw-header-mobile-request-bg: ${mobileRequestBackground}` : "",
+  resolvedMobileRequestBackground
+    ? `--pw-header-mobile-request-bg: ${resolvedMobileRequestBackground}`
+    : "",
   addressLinkColor ? `--pw-header-address-link-color: ${addressLinkColor}` : "",
   addressLinkHoverColor ? `--pw-header-address-link-hover-color: ${addressLinkHoverColor}` : "",
   phoneLinkColor ? `--pw-header-phone-link-color: ${phoneLinkColor}` : "",
@@ -256,13 +269,15 @@ const cssVars = [
         align-items: center;
         color: #fff;
         display: flex;
+        flex-direction: column;
+        flex: 1 1 50%;
         font-size: 16px;
         font-weight: 700;
         justify-content: center;
         letter-spacing: 2.4px;
         line-height: 1.1;
         min-height: 3rem;
-        padding: 5px;
+        padding: 12px 5px;
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;
@@ -285,6 +300,10 @@ const cssVars = [
       }
 
       @media (max-width: 1023px) {
+        .content {
+          padding-inline: 0;
+        }
+
         .inner {
           justify-items: center;
         }

@@ -271,14 +271,15 @@ const cssVars = [
           align-items: center;
           color: #fff;
           display: flex;
-          flex: 1;
+          flex: 1 1 50%;
           flex-direction: column;
           font-size: 16px;
           font-weight: 700;
           justify-content: center;
           letter-spacing: 2.4px;
           line-height: 1.1;
-          padding: 5px;
+          min-height: 3rem;
+          padding: 12px 5px;
           text-align: center;
           text-decoration: none;
           text-transform: uppercase;
@@ -302,6 +303,10 @@ const cssVars = [
       }
 
       @media (max-width: 1023px) {
+        .content {
+          padding-inline: 0;
+        }
+
         .landing-header-logo-link {
           justify-self: center;
         }
