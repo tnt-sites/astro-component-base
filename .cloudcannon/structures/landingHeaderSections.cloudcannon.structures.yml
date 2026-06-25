@@ -418,13 +418,20 @@ landingHeaderSections:
             size: md
             width: md
         offices: []
-        mobileCallLabel: Call
-        mobileMapLabel: Map
-        mobileMapHref: ""
+        addressLinkColor: ""
+        addressLinkHoverColor: ""
+        phoneLinkColor: ""
+        phoneLinkHoverColor: ""
+        mobileCallLabel: Call Now
+        mobileRequestLabel: Request an Appointment
+        mobileRequestHref: ""
         mobileBarBackground: ""
         mobileCallBackground: "#23adce"
-        mobileApptBackground: "#dbe45a"
-        mobileMapBackground: "#0d5f78"
+        mobileRequestBackground: "#dbe45a"
+        mobileCallTextColor: ""
+        mobileCallSmallTextColor: ""
+        mobileRequestTextColor: ""
+        mobileRequestSmallTextColor: ""
       preview:
         text:
           - Landing Header - Pediatric Waves
