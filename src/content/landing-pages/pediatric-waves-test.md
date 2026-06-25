@@ -38,9 +38,9 @@ landingFooter:
     contactTitle: Contact Us
     offices: []
     phoneLinkColor: '#fff'
-    phoneLinkHoverColor: var(--color-text-strong)
-    addressLinkColor: brand
-    addressLinkHoverColor: brand-secondary
+    phoneLinkHoverColor: var(--color-brand)
+    addressLinkColor: var(--color-brand)
+    addressLinkHoverColor: '#fff'
     legalLinks:
       - name: Privacy Policy
         path: /privacy-policy/
