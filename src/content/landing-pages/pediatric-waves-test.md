@@ -29,7 +29,7 @@ landingMainNav:
     mobileMapHref: ''
     mobileBarBackground: ''
     mobileCallBackground: '#000'
-    mobileApptBackground: var(--color-brand-secondary)
+    mobileApptBackground: var(--color-brand)
     mobileMapBackground: '#0d5f78'
     phoneLinkColor: var(--color-brand-secondary)
     phoneLinkHoverColor: var(--color-brand)
