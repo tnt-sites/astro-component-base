@@ -376,7 +376,7 @@ const cssVars = [
         }
         {formHeading && <span class="fo-title">{formHeading}</span>}
         <form class="footer-form form" action={formAction || undefined} method={formMethod || "post"}>
-          <RenderBlock contentSections={resolvedFormBlocks} propName="formBlocks" />
+          <RenderBlock contentSections={resolvedFormBlocks} propName="formBlocks" editable={false} />
         </form>
       </div>
 
