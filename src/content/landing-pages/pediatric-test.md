@@ -1,7 +1,6 @@
 ---
 _schema: landing-page-pediatric-waves
-title: Pediatric Waves Test
-landingStyle: pediatric-waves
+title: Pediatric Test
 landingMainNav:
   - _component: navigation/landing/landing-header-pediatric-waves
     logoSource: /images/logo.svg
@@ -34,7 +33,7 @@ landingMainNav:
 landingFooter:
   - _component: navigation/landing/landing-footer-pediatric-waves
     logoSource: /images/logo.svg
-    logoAlt: Logo
+    logoAlt: Logo Alt
     contactTitle: Contact Us
     offices: []
     legalLinks:
@@ -43,59 +42,42 @@ landingFooter:
       - name: Sitemap
         path: /sitemap/
     legalBlurb: ""
-    linkColor: "var(--color-brand)"
-    linkHoverColor: "var(--color-brand-secondary)"
     formHeading: Ask a Question
     formAction: ""
     formMethod: post
     formBlocks:
       - _component: building-blocks/forms/input
-        id: ""
         label: Name
         name: Name
         type: text
         placeholder: Name
         required: true
       - _component: building-blocks/forms/input
-        id: ""
         label: Phone
         name: Phone
         type: text
         placeholder: Phone
         required: true
       - _component: building-blocks/forms/input
-        id: ""
         label: Email
         name: Email
         type: email
         placeholder: Email
         required: true
       - _component: building-blocks/forms/textarea
-        id: ""
         label: Comments
         name: CommentArea
-        required: false
         placeholder: Comments
       - _component: building-blocks/forms/hidden
-        id: ""
         name: _subject
         value: Pediatric Footer Questions
       - _component: building-blocks/forms/submit
-        id: ""
         text: Send
         variant: primary
         size: md
-        iconPosition: before
-        hideText: false
-        disabled: false
         class: footer-submit-button
     formSubject: Pediatric Footer Questions
     formRedirect: ""
-    formButtonBorderRadius: 0px
-    formButtonTextColor: ""
-    formButtonBackgroundColor: ""
-    formButtonHoverBackgroundColor: ""
-    formButtonHoverTextColor: ""
     formButton:
       _component: building-blocks/core-elements/button
       text: Send
@@ -111,25 +93,23 @@ landingFooter:
       textColor: default
       uppercase: true
     mapEmbedUrl: ""
-    questionsLine: Have Questions? Get Answers
-    backgroundColor: "var(--color-bg-brand-secondary)"
-    officeHoursAlignment: left
+    backgroundColor: brand-secondary
     topWaveImage:
-      source: /src/assets/images/ppc-pediatric-footer-bg.png
+      source: ""
       alt: ""
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ""
     backgroundColor: brand-secondary
-    textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome!
       - Same-Day Appointments
+    textColor: "var(--color-text-inverse)"
   - _component: landing-page-components/pediatric-waves/banner
     id: ""
     backgroundColor: base
     subheading: Board-Certified
-    heading: <span>Pediatric</span><br>Dental Care
+    heading: "<span>Pediatric</span><br>Dental Care"
     listItems:
       - State-of-the-Art, New Practice
       - In-Network with Most Major Insurances
@@ -171,18 +151,12 @@ landingPageSections:
   - _component: landing-page-components/pediatric-waves/split
     id: friendly-expertise
     backgroundColor: base
-    heading: Friendly <span>Expertise</span>
+    heading: "Friendly <span>Expertise</span>"
     headingFontFamily: ""
     paragraphs:
-      - body: >-
-          We want kids to love visiting the dentist. Our team provides
-          one-on-one attention to every child.
-      - body: >-
-          We understand kids, and our small team has completed advanced training
-          specific to pediatric dentistry.
-      - body: >-
-          You can trust us to work with your family to build healthy habits that
-          lead to a lifetime of smiles.
+      - body: We want kids to love visiting the dentist. Our team provides one-on-one attention to every child.
+      - body: We understand kids, and our small team has completed advanced training specific to pediatric dentistry.
+      - body: You can trust us to work with your family to build healthy habits that lead to a lifetime of smiles.
     image:
       source: https://placehold.co/900x760
       alt: Pediatric dentist with patient
@@ -208,14 +182,14 @@ landingPageSections:
             textColor: default
             uppercase: false
     headingColor: ""
-    accentColor: var(--color-brand-secondary)
+    accentColor: "var(--color-brand-secondary)"
     waveImage:
       source: ""
       alt: ""
   - _component: landing-page-components/pediatric-waves/review
     id: pediatric-review
     backgroundColor: base
-    badgeHeading: Mom & Dad<br>Approved<br>Dentists
+    badgeHeading: "Mom & Dad<br>Approved<br>Dentists"
     badgeSubheading: Actual Google Review
     stars: 5
     reviewText: Lorem ipsum
@@ -223,8 +197,7 @@ landingPageSections:
     reviewLogo:
       source: https://placehold.co/220x80
       alt: Google logo
-    badgeBackgroundColor: "#0f5e75"
-    headingColor: ""
+    badgeBackgroundColor: "red"
     waveTopImage:
       source: ""
       alt: ""
@@ -240,13 +213,8 @@ landingPageSections:
     heading: One-Stop Convenience
     headingFontFamily: ""
     paragraphs:
-      - body: >-
-          Life is busy, especially with kids. We offer everything from routine
-          checkups and cleanings to preventive and restorative treatments in one
-          place.
-      - body: >-
-          There is no need to spend extra time and money coordinating separate
-          specialist visits.
+      - body: Life is busy, especially with kids. We offer everything from routine checkups and cleanings to preventive and restorative treatments in one place.
+      - body: There is no need to spend extra time and money coordinating separate specialist visits.
     image:
       source: https://placehold.co/900x760
       alt: Modern pediatric treatment room
@@ -272,25 +240,19 @@ landingPageSections:
             textColor: default
             uppercase: false
     headingColor: ""
-    accentColor: var(--color-brand-secondary)
+    accentColor: "var(--color-brand-secondary)"
     waveImage:
       source: ""
       alt: ""
   - _component: landing-page-components/pediatric-waves/split
     id: flexible-affordable
     backgroundColor: base
-    heading: Flexible & <span>Affordable</span>
+    heading: "Flexible & <span>Affordable</span>"
     headingFontFamily: ""
     paragraphs:
-      - body: >-
-          If you have dental insurance, we are likely in-network and we work
-          with all insurance plans to maximize your benefits.
-      - body: >-
-          If you are without insurance, we offer competitive fees and membership
-          options designed for families.
-      - body: >-
-          Most importantly, we make prevention a priority so kids can keep
-          healthy smiles while reducing long-term costs.
+      - body: If you have dental insurance, we are likely in-network and we work with all insurance plans to maximize your benefits.
+      - body: If you are without insurance, we offer competitive fees and membership options designed for families.
+      - body: Most importantly, we make prevention a priority so kids can keep healthy smiles while reducing long-term costs.
     image:
       source: https://placehold.co/900x760
       alt: Doctor with child patient
@@ -316,11 +278,8 @@ landingPageSections:
             textColor: default
             uppercase: false
     headingColor: ""
-    accentColor: var(--color-brand-secondary)
+    accentColor: "var(--color-brand-secondary)"
     waveImage:
       source: ""
       alt: ""
-head_scripts: []
-footer_scripts: []
-extraFonts: []
 ---

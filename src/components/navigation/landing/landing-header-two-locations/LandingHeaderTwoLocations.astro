@@ -16,6 +16,10 @@ const {
   mobileCallBackgroundColorHex = "",
   mobileApptBackgroundColor = "",
   mobileApptBackgroundColorHex = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   id: elementId,
   class: className,
   ...htmlAttributes
@@ -32,6 +36,10 @@ const {
   mobileCallBackgroundColorHex?: string;
   mobileApptBackgroundColor?: string;
   mobileApptBackgroundColorHex?: string;
+  addressLinkColor?: string;
+  addressLinkHoverColor?: string;
+  phoneLinkColor?: string;
+  phoneLinkHoverColor?: string;
   id?: string;
   class?: string;
   [key: string]: any;
@@ -84,10 +92,19 @@ const resolvedMobileCallBg =
   mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
 const resolvedMobileApptBg =
   mobileApptBackgroundColorHex || colorTokenMap[mobileApptBackgroundColor] || "";
+const resolvedAddressLinkColor = colorTokenMap[addressLinkColor] || "";
+const resolvedAddressLinkHoverColor = colorTokenMap[addressLinkHoverColor] || "";
+const resolvedPhoneLinkColor = colorTokenMap[phoneLinkColor] || "";
+const resolvedPhoneLinkHoverColor = colorTokenMap[phoneLinkHoverColor] || "";
 
 const cssVars = [
   resolvedMobileCallBg && `--lhtl-mobile-call-bg: ${resolvedMobileCallBg}`,
   resolvedMobileApptBg && `--lhtl-mobile-appt-bg: ${resolvedMobileApptBg}`,
+  resolvedAddressLinkColor && `--lhtl-address-link-color: ${resolvedAddressLinkColor}`,
+  resolvedAddressLinkHoverColor &&
+    `--lhtl-address-link-hover-color: ${resolvedAddressLinkHoverColor}`,
+  resolvedPhoneLinkColor && `--lhtl-phone-link-color: ${resolvedPhoneLinkColor}`,
+  resolvedPhoneLinkHoverColor && `--lhtl-phone-link-hover-color: ${resolvedPhoneLinkHoverColor}`,
 ]
   .filter(Boolean)
   .join("; ");
@@ -264,7 +281,7 @@ const right = renderOffice(rightOffice);
       }
 
       .lhtl-phone {
-        color: var(--color-brand);
+        color: var(--lhtl-phone-link-color, var(--color-brand));
         display: block;
         font-size: var(--font-size-xl);
         font-weight: var(--font-weight-bold);
@@ -272,12 +289,12 @@ const right = renderOffice(rightOffice);
 
         &:hover,
         &:focus-visible {
-          color: var(--color-link-hover);
+          color: var(--lhtl-phone-link-hover-color, var(--color-link-hover));
         }
       }
 
       .lhtl-address {
-        color: var(--color-text);
+        color: var(--lhtl-address-link-color, var(--color-text));
         display: block;
         font-size: var(--font-size-sm);
         margin-top: var(--spacing-2xs);
@@ -285,7 +302,7 @@ const right = renderOffice(rightOffice);
 
         &:hover,
         &:focus-visible {
-          color: var(--color-brand);
+          color: var(--lhtl-address-link-hover-color, var(--color-brand));
         }
       }
 

@@ -7,12 +7,12 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -30,12 +30,12 @@ landingFooter:
     contactTitle: Learn More
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -54,43 +54,43 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ''
+    mapEmbedUrl: ""
     backgroundImage:
       source:
       alt:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ''
-    legalBlurb: ''
+    backgroundGradient: ""
+    legalBlurb: ""
 landingPageSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
-    id: ''
-    backgroundColor: brand
+    id: ""
+    backgroundColor: "var(--color-bg-brand)"
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
   - _component: landing-page-components/count-on-us/banner
-    id: ''
-    backgroundColor: surface
+    id: ""
+    backgroundColor: "var(--color-bg-surface)"
     subheading: San Jose's
     heading: Top-Rated<br>Dental Expert
     badgeImages:
       - source: https://placehold.co/180x180
         alt: 300+ 5 star reviews
       - source: https://placehold.co/180x180
-        alt: ''
+        alt: ""
     image:
       source: https://placehold.co/738x600
       alt: Doctor photo
-    figcaption: ''
+    figcaption: ""
     buttonSections: []
-    borderColor: '#000'
-    fontHeadings: ''
-    fontBody: ''
+    borderColor: "#000"
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/count-on-us/count
-    id: ''
-    backgroundColor: base
+    id: ""
+    backgroundColor: "var(--color-bg)"
     headingLine1: Count
     headingLine2: On Us
     listItems:
@@ -102,11 +102,11 @@ landingPageSections:
     squareColor: var(--color-bg-surface)
     boxBorderColor: var(--color-bg-surface)
     headingColor: var(--color-text)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/count-on-us/split-section
     id: first-visit
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     headingPrefix: What happens during
     heading: Your First Visit
     listItems:
@@ -117,17 +117,17 @@ landingPageSections:
     image:
       source: https://placehold.co/420x480
       alt: First visit photo
-    figcaption: ''
+    figcaption: ""
     reverse: true
     accentColor: var(--color-brand)
     squareColor: var(--color-bg-surface)
     headingColor: var(--color-text)
     prefixColor: var(--color-text-muted)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/count-on-us/insurance
-    id: ''
-    backgroundColor: base
+    id: ""
+    backgroundColor: "var(--color-bg)"
     blocks:
       - heading: Dental Insurance Welcome
         text: >-
@@ -144,30 +144,30 @@ landingPageSections:
           deductibles. No surprises.
     ruleColor: var(--color-border)
     headingColor: var(--color-text)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/count-on-us/reviews
-    id: ''
-    backgroundColor: base
+    id: ""
+    backgroundColor: "var(--color-bg)"
     backgroundImage:
-      source: ''
-      alt: ''
+      source: ""
+      alt: ""
     reviewText: >-
       I can't say enough great things about this office. The entire team has
       been incredibly helpful, supportive, and genuinely caring. I'm truly
       grateful for the outstanding care I've received.
     author: Levi P.
     googleLogoImage:
-      source: ''
+      source: ""
       alt: Google Reviews
-    starColor: '#febb21'
+    starColor: "#febb21"
     bracketColor: var(--color-brand-secondary)
     googlePanelColor: rgba(203, 116, 40, 0.06)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
   - _component: landing-page-components/count-on-us/split-section
     id: about
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     headingPrefix: Learn More About
     heading: Our Practice
     listItems:
@@ -184,6 +184,6 @@ landingPageSections:
     squareColor: var(--color-bg-surface)
     headingColor: var(--color-text)
     prefixColor: var(--color-text-muted)
-    fontHeadings: ''
-    fontBody: ''
+    fontHeadings: ""
+    fontBody: ""
 ---

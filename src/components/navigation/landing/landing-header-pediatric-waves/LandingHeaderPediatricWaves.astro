@@ -16,6 +16,10 @@ const {
   mobileCallBackground = "",
   mobileApptBackground = "",
   mobileMapBackground = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   class: className,
   ...htmlAttributes
 } = Astro.props as {
@@ -30,6 +34,10 @@ const {
   mobileCallBackground?: string;
   mobileApptBackground?: string;
   mobileMapBackground?: string;
+  addressLinkColor?: string;
+  addressLinkHoverColor?: string;
+  phoneLinkColor?: string;
+  phoneLinkHoverColor?: string;
   class?: string;
   [key: string]: any;
 };
@@ -62,6 +70,10 @@ const cssVars = [
   mobileCallBackground ? `--pw-header-mobile-call-bg: ${mobileCallBackground}` : "",
   mobileApptBackground ? `--pw-header-mobile-appt-bg: ${mobileApptBackground}` : "",
   mobileMapBackground ? `--pw-header-mobile-map-bg: ${mobileMapBackground}` : "",
+  addressLinkColor ? `--pw-header-address-link-color: ${addressLinkColor}` : "",
+  addressLinkHoverColor ? `--pw-header-address-link-hover-color: ${addressLinkHoverColor}` : "",
+  phoneLinkColor ? `--pw-header-phone-link-color: ${phoneLinkColor}` : "",
+  phoneLinkHoverColor ? `--pw-header-phone-link-hover-color: ${phoneLinkHoverColor}` : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -203,16 +215,26 @@ const cssVars = [
       }
 
       .phone {
-        color: #0d5f78;
+        color: var(--pw-header-phone-link-color, #0d5f78);
         font-size: clamp(1.35rem, 2.2vw, 2.2rem);
         font-weight: var(--font-weight-semibold);
         line-height: 1.05;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--pw-header-phone-link-hover-color, #0d5f78);
+        }
       }
 
       .address {
-        color: var(--color-text);
+        color: var(--pw-header-address-link-color, var(--color-text));
         font-size: 1rem;
         margin-top: 0.25rem;
+
+        &:hover,
+        &:focus-visible {
+          color: var(--pw-header-address-link-hover-color, var(--color-link-hover));
+        }
       }
 
       .buttons {

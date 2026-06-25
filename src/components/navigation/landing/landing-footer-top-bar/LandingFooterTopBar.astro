@@ -18,6 +18,10 @@ const {
   officeHoursAlignment = "right",
   linkColor = "",
   linkHoverColor = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   class: className,
   ...htmlAttributes
 } = Astro.props;
@@ -138,36 +142,36 @@ const embedSrc =
   (typeof firstOffice?.mapEmbedUrl === "string" && firstOffice.mapEmbedUrl.trim()) ||
   "";
 
-const bgColorMap: Record<string, string> = {
-  base: "var(--color-bg)",
-  surface: "var(--color-bg-surface)",
-  accent: "var(--color-bg-accent)",
-  highlight: "var(--color-bg-highlight)",
-  brand: "var(--color-bg-brand)",
-  "brand-secondary": "var(--color-bg-brand-secondary)",
-  dark: "var(--color-bg-dark)",
-  black: "var(--color-bg-black)",
-};
-const linkColorMap: Record<string, string> = {
-  white: "#fff",
-  brand: "var(--color-brand)",
-  "brand-secondary": "var(--color-brand-secondary)",
-  text: "var(--color-text)",
-  "text-strong": "var(--color-text-strong)",
-  "text-inverse": "var(--color-text-inverse)",
+const getColorValue = (value: any) => {
+  const raw = typeof value === "string" ? value : (value?.id ?? value?.value ?? value?.name);
+
+  if (typeof raw !== "string") return "";
+
+  const normalized = raw.trim();
+
+  return normalized && normalized !== "none" ? normalized : "";
 };
 
-const resolvedBgColor =
-  (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
-const resolvedLinkColor = (linkColor && linkColor !== "none" && linkColorMap[linkColor]) || "";
-const resolvedLinkHoverColor =
-  (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const bgStyle = [
-  resolvedBgColor ? `--lftb-bg-color: ${resolvedBgColor}` : "",
+  getColorValue(backgroundColor) ? `--lftb-bg-color: ${getColorValue(backgroundColor)}` : "",
   accentColor ? `--lftb-accent-color: ${accentColor}` : "",
-  resolvedLinkColor ? `--footer-link-color: ${resolvedLinkColor}` : "",
-  resolvedLinkHoverColor ? `--footer-link-hover-color: ${resolvedLinkHoverColor}` : "",
+  getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
+  getColorValue(linkHoverColor)
+    ? `--footer-link-hover-color: ${getColorValue(linkHoverColor)}`
+    : "",
+  getColorValue(addressLinkColor)
+    ? `--footer-address-link-color: ${getColorValue(addressLinkColor)}`
+    : "",
+  getColorValue(addressLinkHoverColor)
+    ? `--footer-address-link-hover-color: ${getColorValue(addressLinkHoverColor)}`
+    : "",
+  getColorValue(phoneLinkColor)
+    ? `--footer-phone-link-color: ${getColorValue(phoneLinkColor)}`
+    : "",
+  getColorValue(phoneLinkHoverColor)
+    ? `--footer-phone-link-hover-color: ${getColorValue(phoneLinkHoverColor)}`
+    : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -370,18 +374,21 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .fo-address {
-        color: var(--footer-link-color, var(--color-brand));
+        color: var(--footer-address-link-color, var(--footer-link-color, var(--color-brand)));
         display: block;
         text-decoration: none;
         transition: 0.3s all;
       }
 
       .fo-address:hover {
-        color: var(--footer-link-hover-color, var(--color-brand-secondary));
+        color: var(
+          --footer-address-link-hover-color,
+          var(--footer-link-hover-color, var(--color-brand-secondary))
+        );
       }
 
       .fo-phone {
-        color: var(--footer-link-color, var(--color-brand));
+        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand)));
         display: block;
         font-size: 33px;
         font-weight: 700;
@@ -391,7 +398,10 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .fo-phone:hover {
-        color: var(--footer-link-hover-color, var(--color-brand-secondary));
+        color: var(
+          --footer-phone-link-hover-color,
+          var(--footer-link-hover-color, var(--color-brand-secondary))
+        );
       }
 
       .lftb-office-hours {

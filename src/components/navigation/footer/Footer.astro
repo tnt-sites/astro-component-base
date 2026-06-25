@@ -25,6 +25,10 @@ const {
   officeHoursNotes = [],
   mapEmbedUrl = "",
   legalBlurb = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   logoSource,
   logoAlt,
   _component,
@@ -98,9 +102,34 @@ const getOfficeHoursGeneralNotes = (office: any) => {
 const copyYear = new Date().getFullYear();
 const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
 const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
+const getColorValue = (value: any) => {
+  const raw = typeof value === "string" ? value : (value?.id ?? value?.value ?? value?.name);
+
+  if (typeof raw !== "string") return "";
+
+  const normalized = raw.trim();
+
+  return normalized && normalized !== "none" ? normalized : "";
+};
+const footerStyle = [
+  getColorValue(addressLinkColor)
+    ? `--footer-address-link-color: ${getColorValue(addressLinkColor)}`
+    : "",
+  getColorValue(addressLinkHoverColor)
+    ? `--footer-address-link-hover-color: ${getColorValue(addressLinkHoverColor)}`
+    : "",
+  getColorValue(phoneLinkColor)
+    ? `--footer-phone-link-color: ${getColorValue(phoneLinkColor)}`
+    : "",
+  getColorValue(phoneLinkHoverColor)
+    ? `--footer-phone-link-hover-color: ${getColorValue(phoneLinkHoverColor)}`
+    : "",
+]
+  .filter(Boolean)
+  .join("; ");
 ---
 
-<footer class="footer" {...htmlAttributes}>
+<footer class="footer" style={footerStyle || undefined} {...htmlAttributes}>
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="2xl">
     <div class="footer-content">
       <div class="content-container">
@@ -400,6 +429,24 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
           &:hover,
           &:focus-visible {
             color: var(--color-link-hover);
+          }
+        }
+
+        .pho {
+          color: var(--footer-phone-link-color, var(--color-text));
+
+          &:hover,
+          &:focus-visible {
+            color: var(--footer-phone-link-hover-color, var(--color-link-hover));
+          }
+        }
+
+        .phy {
+          color: var(--footer-address-link-color, var(--color-text));
+
+          &:hover,
+          &:focus-visible {
+            color: var(--footer-address-link-hover-color, var(--color-link-hover));
           }
         }
 

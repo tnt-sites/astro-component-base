@@ -15,6 +15,10 @@ const {
   backgroundColor = "",
   linkColor = "",
   linkHoverColor = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   getStartedTitle = "How to Get Started",
   getStartedText = "",
   formTitle = "Ask A Question",
@@ -73,6 +77,15 @@ const formButtonHoverTextColorValue =
   typeof formButtonHoverTextColor === "string" && formButtonHoverTextColor.trim().length > 0
     ? formButtonHoverTextColor.trim()
     : "#ffffff";
+const getColorValue = (value: any) => {
+  const raw = typeof value === "string" ? value : (value?.id ?? value?.value ?? value?.name);
+
+  if (typeof raw !== "string") return "";
+
+  const normalized = raw.trim();
+
+  return normalized && normalized !== "none" ? normalized : "";
+};
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
   backgroundGradientValue ? `--lp-footer-tmj-bg-gradient: ${backgroundGradientValue}` : "",
@@ -81,36 +94,25 @@ const footerBackgroundStyle = [
   `--lp-footer-form-button-bg: ${formButtonBackgroundColorValue}`,
   `--lp-footer-form-button-hover-bg: ${formButtonHoverBackgroundColorValue}`,
   `--lp-footer-form-button-hover-color: ${formButtonHoverTextColorValue}`,
-  (() => {
-    const bgColorMap: Record<string, string> = {
-      base: "var(--color-bg)",
-      surface: "var(--color-bg-surface)",
-      accent: "var(--color-bg-accent)",
-      highlight: "var(--color-bg-highlight)",
-      brand: "var(--color-bg-brand)",
-      "brand-secondary": "var(--color-bg-brand-secondary)",
-      dark: "var(--color-bg-dark)",
-      black: "var(--color-bg-black)",
-    };
-    const resolved =
-      (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
-    return resolved ? `--lp-footer-tmj-bg-color: ${resolved}` : "";
-  })(),
-  (() => {
-    const lkMap: Record<string, string> = {
-      white: "#fff",
-      brand: "var(--color-brand)",
-      "brand-secondary": "var(--color-brand-secondary)",
-      text: "var(--color-text)",
-      "text-strong": "var(--color-text-strong)",
-      "text-inverse": "var(--color-text-inverse)",
-    };
-    const lc = (linkColor && linkColor !== "none" && lkMap[linkColor]) || "";
-    const lhc = (linkHoverColor && linkHoverColor !== "none" && lkMap[linkHoverColor]) || "";
-    return [lc ? `--footer-link-color: ${lc}` : "", lhc ? `--footer-link-hover-color: ${lhc}` : ""]
-      .filter(Boolean)
-      .join("; ");
-  })(),
+  getColorValue(backgroundColor)
+    ? `--lp-footer-tmj-bg-color: ${getColorValue(backgroundColor)}`
+    : "",
+  getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
+  getColorValue(linkHoverColor)
+    ? `--footer-link-hover-color: ${getColorValue(linkHoverColor)}`
+    : "",
+  getColorValue(addressLinkColor)
+    ? `--footer-address-link-color: ${getColorValue(addressLinkColor)}`
+    : "",
+  getColorValue(addressLinkHoverColor)
+    ? `--footer-address-link-hover-color: ${getColorValue(addressLinkHoverColor)}`
+    : "",
+  getColorValue(phoneLinkColor)
+    ? `--footer-phone-link-color: ${getColorValue(phoneLinkColor)}`
+    : "",
+  getColorValue(phoneLinkHoverColor)
+    ? `--footer-phone-link-hover-color: ${getColorValue(phoneLinkHoverColor)}`
+    : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -536,7 +538,6 @@ const getOfficeHoursEntries = (office: any) => {
       .lp-footer-tmj-phone,
       .lp-footer-tmj-address {
         align-items: flex-start;
-        color: var(--footer-link-color, var(--color-text, #313131));
         display: flex;
         gap: 8px;
         margin-bottom: var(--spacing-xs, 0.5rem);
@@ -544,6 +545,34 @@ const getOfficeHoursEntries = (office: any) => {
 
         &:hover {
           color: var(--footer-link-hover-color, var(--color-text-strong, #000));
+        }
+      }
+
+      .lp-footer-tmj-phone {
+        color: var(
+          --footer-phone-link-color,
+          var(--footer-link-color, var(--color-text, #313131))
+        );
+
+        &:hover {
+          color: var(
+            --footer-phone-link-hover-color,
+            var(--footer-link-hover-color, var(--color-text-strong, #000))
+          );
+        }
+      }
+
+      .lp-footer-tmj-address {
+        color: var(
+          --footer-address-link-color,
+          var(--footer-link-color, var(--color-text, #313131))
+        );
+
+        &:hover {
+          color: var(
+            --footer-address-link-hover-color,
+            var(--footer-link-hover-color, var(--color-text-strong, #000))
+          );
         }
 
         .lp-footer-tmj-icon {

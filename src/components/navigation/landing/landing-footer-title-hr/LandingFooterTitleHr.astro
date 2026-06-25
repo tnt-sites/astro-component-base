@@ -16,10 +16,14 @@ const {
   legalBlurb = "",
   backgroundColor = "",
   backgroundColorHex = "",
-  headingColor = "",
+  headingColor: headingColorProp = "",
   headingColorHex = "",
   linkColor = "",
   linkHoverColor = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   id: elementId,
   class: className,
   _component,
@@ -59,43 +63,32 @@ const resolvedOfficeHoursNote =
   (typeof firstOffice?.officeHoursNote === "string" && firstOffice.officeHoursNote.trim()) ||
   "";
 
-const bgColorMap: Record<string, string> = {
-  none: "transparent",
-  base: "var(--color-bg-base)",
-  surface: "var(--color-bg-surface)",
-  accent: "var(--color-bg-accent)",
-  highlight: "var(--color-bg-highlight)",
-  dark: "var(--color-bg-dark, #2a2a2a)",
-  black: "var(--color-bg-inverse, #000)",
+const getColorValue = (value: any) => {
+  const raw = typeof value === "string" ? value : (value?.id ?? value?.value ?? value?.name);
+
+  if (typeof raw !== "string") return "";
+
+  const normalized = raw.trim();
+
+  return normalized && normalized !== "none" ? normalized : "";
 };
 
-const headingColorMap: Record<string, string> = {
-  brand: "var(--color-brand)",
-  "brand-secondary": "var(--color-brand-secondary)",
-  dark: "var(--color-text)",
-  white: "var(--color-text-inverse)",
-};
-const linkColorMap: Record<string, string> = {
-  white: "#fff",
-  brand: "var(--color-brand)",
-  "brand-secondary": "var(--color-brand-secondary)",
-  text: "var(--color-text)",
-  "text-strong": "var(--color-text-strong)",
-  "text-inverse": "var(--color-text-inverse)",
-};
-
-const resolvedBg = backgroundColorHex || bgColorMap[backgroundColor] || "";
-const resolvedHeadingColor = headingColorHex || headingColorMap[headingColor] || "";
-const resolvedLinkColor = (linkColor && linkColor !== "none" && linkColorMap[linkColor]) || "";
-const resolvedLinkHoverColor =
-  (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
+const bgColor = backgroundColorHex || getColorValue(backgroundColor) || "";
+const resolvedHeadingColor = headingColorHex || getColorValue(headingColorProp) || "";
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 
 const cssVars = [
-  resolvedBg && `--lfth-bg: ${resolvedBg}`,
+  bgColor && `--lfth-bg: ${bgColor}`,
   resolvedHeadingColor && `--lfth-heading-color: ${resolvedHeadingColor}`,
-  resolvedLinkColor && `--footer-link-color: ${resolvedLinkColor}`,
-  resolvedLinkHoverColor && `--footer-link-hover-color: ${resolvedLinkHoverColor}`,
+  getColorValue(linkColor) && `--footer-link-color: ${getColorValue(linkColor)}`,
+  getColorValue(linkHoverColor) && `--footer-link-hover-color: ${getColorValue(linkHoverColor)}`,
+  getColorValue(addressLinkColor) &&
+    `--footer-address-link-color: ${getColorValue(addressLinkColor)}`,
+  getColorValue(addressLinkHoverColor) &&
+    `--footer-address-link-hover-color: ${getColorValue(addressLinkHoverColor)}`,
+  getColorValue(phoneLinkColor) && `--footer-phone-link-color: ${getColorValue(phoneLinkColor)}`,
+  getColorValue(phoneLinkHoverColor) &&
+    `--footer-phone-link-hover-color: ${getColorValue(phoneLinkHoverColor)}`,
 ]
   .filter(Boolean)
   .join("; ");
@@ -284,7 +277,7 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .lfth-address {
-        color: var(--footer-link-color, var(--color-brand));
+        color: var(--footer-address-link-color, var(--footer-link-color, var(--color-brand)));
         display: block;
         font-size: 1rem;
         font-weight: 400;
@@ -294,12 +287,15 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
         text-decoration: none;
 
         &:hover {
-          color: var(--footer-link-hover-color, var(--color-brand-secondary));
+          color: var(
+            --footer-address-link-hover-color,
+            var(--footer-link-hover-color, var(--color-brand-secondary))
+          );
         }
       }
 
       .lfth-phone {
-        color: var(--footer-link-color, var(--color-brand));
+        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand)));
         display: block;
         font-size: clamp(1.75rem, 3vw, 2.5rem);
         font-weight: 700;
@@ -309,7 +305,10 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
         text-decoration: none;
 
         &:hover {
-          color: var(--footer-link-hover-color, var(--color-brand-secondary));
+          color: var(
+            --footer-phone-link-hover-color,
+            var(--footer-link-hover-color, var(--color-brand-secondary))
+          );
         }
       }
 

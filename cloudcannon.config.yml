@@ -298,6 +298,9 @@ collections_config:
       - name: Landing Page (Emergency)
         icon: stars
         schema: landing-page-emergency
+      - name: Landing Page (Invisalign)
+        icon: stars
+        schema: landing-page-invisalign
       - name: Landing Page (New Patient Emergency Combo)
         icon: stars
         schema: landing-page-new-patient-emergency-combo
@@ -415,6 +418,16 @@ collections_config:
         remove_empty_inputs: false
         remove_extra_inputs: false
         name: Landing Page (Emergency)
+        icon: stars
+        _enabled_editors:
+          - visual
+      landing-page-invisalign:
+        path: .cloudcannon/schemas/landing-page-invisalign.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Invisalign)
         icon: stars
         _enabled_editors:
           - visual

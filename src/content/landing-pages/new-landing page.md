@@ -8,12 +8,12 @@ landingMainNav:
     logoAlt: Logo
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -32,12 +32,12 @@ landingFooter:
     contactTitle: Contact Us
     pageButtons:
       - _component: building-blocks/core-elements/button
-        id: ''
+        id: ""
         text: Request an Appointment
         hideText: false
         link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
+        modalTarget: ""
+        iconName: ""
         iconPosition: before
         variant: primary
         size: md
@@ -59,18 +59,18 @@ landingFooter:
         path: sitemap.html
       - name: Privacy Policy
         path: privacy-policy.html
-    mapEmbedUrl: ''
+    mapEmbedUrl: ""
     backgroundImage:
       positionVertical: top
       positionHorizontal: center
-    backgroundGradient: ''
-    backgroundColor: ''
+    backgroundGradient: ""
+    backgroundColor: ""
     officeHoursAlignment: right
-    linkColor: brand
+    linkColor: "var(--color-brand)"
     linkHoverColor: brand-secondary
-    legalBlurb: ''
+    legalBlurb: ""
     offices:
-      - name: ''
+      - name: ""
         phones:
           - display: (123) 456-7890
             href: tel:+11234567890
@@ -80,11 +80,11 @@ landingFooter:
               - Suite 200
             city: Dunedin
             state: FL
-            postalCode: '34698'
+            postalCode: "34698"
             country: USA
             mapUrl: https://maps.google.com
         officeHours: []
-        officeHoursNote: ''
+        officeHoursNote: ""
 landingPageSections: []
 head_scripts: []
 footer_scripts: []

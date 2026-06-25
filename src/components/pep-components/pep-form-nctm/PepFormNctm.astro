@@ -39,25 +39,26 @@ const {
   ...rest
 } = Astro.props;
 
-const bgColorMap: Record<string, string> = {
-  none: "transparent",
-  base: "var(--color-bg-base)",
-  surface: "var(--color-bg-surface)",
-  accent: "var(--color-bg-accent)",
-  highlight: "var(--color-bg-highlight)",
-  dark: "var(--color-bg-dark, #2a2a2a)",
-  black: "var(--color-bg-inverse, #000)",
+const getColorValue = (value: any) => {
+  const raw = typeof value === "string" ? value : (value?.id ?? value?.value ?? value?.name);
+
+  if (typeof raw !== "string") return "";
+
+  const normalized = raw.trim();
+
+  return normalized && normalized !== "none" ? normalized : "";
 };
-const resolveBgKey = (key: string) => bgColorMap[key] ?? "";
 
 const resolvedContentBg =
   contentBackgroundColorHex ||
-  resolveBgKey(contentBackgroundColor) ||
+  getColorValue(contentBackgroundColor) ||
   "var(--color-bg-surface, #f0f0f0)";
 const resolvedCallBg =
-  callBackgroundColorHex || resolveBgKey(callBackgroundColor) || "var(--color-bg-base, #fff)";
+  callBackgroundColorHex || getColorValue(callBackgroundColor) || "var(--color-bg-base, #fff)";
 const resolvedFormBg =
-  formBackgroundColorHex || resolveBgKey(formBackgroundColor) || "var(--color-bg-surface, #f0f0f0)";
+  formBackgroundColorHex ||
+  getColorValue(formBackgroundColor) ||
+  "var(--color-bg-surface, #f0f0f0)";
 
 const inlineStyle = [
   backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",

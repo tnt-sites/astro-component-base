@@ -1,8 +1,8 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
+import RenderBlock from "@component-utils/renderBlock.astro";
 import Image from "@core-elements/image/Image.astro";
 import siteInfoData from "@data/siteInfo.json";
-import RenderBlock from "@component-utils/renderBlock.astro";
 
 const {
   logoSource,
@@ -13,30 +13,7 @@ const {
   legalBlurb = "",
   formHeading = "Ask a Question",
   formAction = "",
-  formMethod = "post",
   formBlocks = [],
-  formSubject = "Landing Page Footer Form",
-  formRedirect = "",
-  formButton = {
-    _component: "building-blocks/core-elements/button",
-    text: "Send",
-    hideText: false,
-    iconName: "",
-    iconPosition: "before",
-    variant: "primary",
-    size: "md",
-    width: "md",
-    borderRadius: "default",
-    borderWidth: "default",
-    borderColor: "default",
-    textColor: "default",
-    uppercase: true,
-  },
-  formButtonBorderRadius = "0px",
-  formButtonTextColor = "#ffffff",
-  formButtonBackgroundColor = "var(--color-brand, red)",
-  formButtonHoverBackgroundColor = "var(--color-brand-secondary, blue)",
-  formButtonHoverTextColor = "#ffffff",
   mapEmbedUrl = "",
   topWaveImage = { source: "", alt: "" },
   questionsLine = "Have Questions? Get Answers",
@@ -44,17 +21,41 @@ const {
   officeHoursAlignment = "right",
   linkColor = "",
   linkHoverColor = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   class: className,
   ...htmlAttributes
 } = Astro.props;
 
+const getTrimmedString = (value: any, fallback = "") =>
+  typeof value === "string" && value.trim().length > 0 ? value.trim() : fallback;
+
+const getSelectValue = (value: any) => {
+  if (typeof value === "string") return value.trim().toLowerCase();
+  if (value && typeof value === "object") {
+    const candidate = value.id ?? value.value ?? value.name;
+
+    if (typeof candidate === "string") return candidate.trim().toLowerCase();
+  }
+  return "";
+};
+
+const getColorValue = (value: any) => {
+  const raw = typeof value === "string" ? value : (value?.id ?? value?.value ?? value?.name);
+
+  if (typeof raw !== "string") return "";
+
+  const normalized = raw.trim();
+
+  return normalized && normalized !== "none" ? normalized : "";
+};
+
 const resolvedOffices =
   Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
 const copyYear = new Date().getFullYear();
-const rootMapEmbedUrl =
-  typeof (siteInfoData as any)?.mapEmbedUrl === "string"
-    ? (siteInfoData as any).mapEmbedUrl.trim()
-    : "";
+const rootMapEmbedUrl = getTrimmedString((siteInfoData as any)?.mapEmbedUrl);
 
 const formatAddressLines = (address: any) => {
   const lineItems = Array.isArray(address?.lines) ? address.lines : [];
@@ -197,147 +198,75 @@ const resolvedMapEmbedSrc = (() => {
   return toEmbedUrl(rootMapEmbedUrl);
 })();
 
-const bgColorMap: Record<string, string> = {
-  base: "var(--color-bg)",
-  surface: "var(--color-bg-surface)",
-  accent: "var(--color-bg-accent)",
-  highlight: "var(--color-bg-highlight)",
-  brand: "var(--color-bg-brand)",
-  "brand-secondary": "var(--color-bg-brand-secondary)",
-  dark: "var(--color-bg-dark)",
-  black: "var(--color-bg-black)",
-};
-const linkColorMap: Record<string, string> = {
-  white: "#fff",
-  brand: "var(--color-brand)",
-  "brand-secondary": "var(--color-brand-secondary)",
-  text: "var(--color-text)",
-  "text-strong": "var(--color-text-strong)",
-  "text-inverse": "var(--color-text-inverse)",
-};
+const resolvedOfficeHoursAlignment =
+  getSelectValue(officeHoursAlignment) === "left" ? "left" : "right";
+const blurb = getTrimmedString(legalBlurb);
 
-const resolvedBgColor =
-  (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
-const resolvedLinkColor = (linkColor && linkColor !== "none" && linkColorMap[linkColor]) || "";
-const resolvedLinkHoverColor =
-  (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
-const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
-const formButtonBorderRadiusValue =
-  typeof formButtonBorderRadius === "string" && formButtonBorderRadius.trim().length > 0
-    ? formButtonBorderRadius.trim()
-    : "0px";
-const formButtonTextColorValue =
-  typeof formButtonTextColor === "string" && formButtonTextColor.trim().length > 0
-    ? formButtonTextColor.trim()
-    : "#ffffff";
-const formButtonBackgroundColorValue =
-  typeof formButtonBackgroundColor === "string" && formButtonBackgroundColor.trim().length > 0
-    ? formButtonBackgroundColor.trim()
-    : "var(--color-brand, red)";
-const formButtonHoverBackgroundColorValue =
-  typeof formButtonHoverBackgroundColor === "string" &&
-  formButtonHoverBackgroundColor.trim().length > 0
-    ? formButtonHoverBackgroundColor.trim()
-    : "var(--color-brand-secondary, blue)";
-const formButtonHoverTextColorValue =
-  typeof formButtonHoverTextColor === "string" && formButtonHoverTextColor.trim().length > 0
-    ? formButtonHoverTextColor.trim()
-    : "#ffffff";
-const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
-const normalizedFormButton = {
-  _component: "building-blocks/core-elements/button",
-  text: "Send",
-  hideText: false,
-  iconName: "",
-  iconPosition: "before",
-  variant: "primary",
-  size: "md",
-  width: "md",
-  borderRadius: "default",
-  borderWidth: "default",
-  borderColor: "default",
-  textColor: "default",
-  uppercase: true,
-  ...(formButton && typeof formButton === "object" ? formButton : {}),
-};
+const buildDefaultFormBlocks = () => {
+  const blocks: any[] = [
+    {
+      _component: "building-blocks/forms/input",
+      label: "Name",
+      name: "Name",
+      type: "text",
+      placeholder: "Name",
+      required: true,
+    },
+    {
+      _component: "building-blocks/forms/input",
+      label: "Phone",
+      name: "Phone",
+      type: "text",
+      placeholder: "Phone",
+      required: true,
+    },
+    {
+      _component: "building-blocks/forms/input",
+      label: "Email",
+      name: "Email",
+      type: "email",
+      placeholder: "Email",
+      required: true,
+    },
+    {
+      _component: "building-blocks/forms/textarea",
+      label: "Comments",
+      name: "CommentArea",
+      placeholder: "Comments",
+    },
+    {
+      _component: "building-blocks/forms/submit",
+      text: "Send",
+      variant: "primary",
+      size: "md",
+      class: "footer-submit-button",
+    },
+  ];
 
-if (typeof normalizedFormButton.text !== "string") {
-  normalizedFormButton.text = "Send";
-}
+  return blocks;
+};
 
 const resolvedFormBlocks =
-  Array.isArray(formBlocks) && formBlocks.length > 0
-    ? formBlocks
-    : [
-        {
-          _component: "building-blocks/forms/input",
-          label: "Name",
-          name: "Name",
-          type: "text",
-          placeholder: "Name",
-          required: true,
-        },
-        {
-          _component: "building-blocks/forms/input",
-          label: "Phone",
-          name: "Phone",
-          type: "text",
-          placeholder: "Phone",
-          required: true,
-        },
-        {
-          _component: "building-blocks/forms/input",
-          label: "Email",
-          name: "Email",
-          type: "email",
-          placeholder: "Email",
-          required: true,
-        },
-        {
-          _component: "building-blocks/forms/textarea",
-          label: "Comments",
-          name: "CommentArea",
-          placeholder: "Comments",
-        },
-        ...(formSubject
-          ? [
-              {
-                _component: "building-blocks/forms/hidden",
-                name: "_subject",
-                value: formSubject,
-              },
-            ]
-          : []),
-        ...(formRedirect
-          ? [
-              {
-                _component: "building-blocks/forms/hidden",
-                name: "_redirect",
-                value: formRedirect,
-              },
-            ]
-          : []),
-        {
-          _component: "building-blocks/forms/submit",
-          text: normalizedFormButton.text,
-          variant: normalizedFormButton.variant,
-          size: normalizedFormButton.size,
-          iconName: normalizedFormButton.iconName,
-          iconPosition: normalizedFormButton.iconPosition,
-          hideText: normalizedFormButton.hideText,
-          class: "footer-submit-button",
-        },
-      ];
+  Array.isArray(formBlocks) && formBlocks.length > 0 ? formBlocks : buildDefaultFormBlocks();
 
 const cssVars = [
-  resolvedBgColor ? `--pw-footer-bg: ${resolvedBgColor}` : "",
-  resolvedLinkColor ? `--footer-link-color: ${resolvedLinkColor}` : "",
-  resolvedLinkHoverColor ? `--footer-link-hover-color: ${resolvedLinkHoverColor}` : "",
-  `--lp-footer-form-button-radius: ${formButtonBorderRadiusValue}`,
-  `--lp-footer-form-button-color: ${formButtonTextColorValue}`,
-  `--lp-footer-form-button-bg: ${formButtonBackgroundColorValue}`,
-  `--lp-footer-form-button-hover-bg: ${formButtonHoverBackgroundColorValue}`,
-  `--lp-footer-form-button-hover-color: ${formButtonHoverTextColorValue}`,
+  getColorValue(backgroundColor) ? `--pw-footer-bg: ${getColorValue(backgroundColor)}` : "",
+  getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
+  getColorValue(linkHoverColor)
+    ? `--footer-link-hover-color: ${getColorValue(linkHoverColor)}`
+    : "",
+  getColorValue(addressLinkColor)
+    ? `--footer-address-link-color: ${getColorValue(addressLinkColor)}`
+    : "",
+  getColorValue(addressLinkHoverColor)
+    ? `--footer-address-link-hover-color: ${getColorValue(addressLinkHoverColor)}`
+    : "",
+  getColorValue(phoneLinkColor)
+    ? `--footer-phone-link-color: ${getColorValue(phoneLinkColor)}`
+    : "",
+  getColorValue(phoneLinkHoverColor)
+    ? `--footer-phone-link-hover-color: ${getColorValue(phoneLinkHoverColor)}`
+    : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -348,25 +277,24 @@ const cssVars = [
   style={cssVars || undefined}
   {...htmlAttributes}
 >
+  {
+    topWaveImage?.source && (
+      <div class="footer-wave-image" aria-hidden="true">
+        <Image
+          source={topWaveImage.source}
+          alt={topWaveImage.alt || ""}
+          rounded={false}
+          editable={true}
+          aspectRatio="none"
+          sizes="auto"
+          widths={[]}
+          data-prop-src="topWaveImage.source"
+          data-prop-alt="topWaveImage.alt"
+        />
+      </div>
+    )
+  }
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="xl">
-    {
-      topWaveImage?.source && (
-        <div class="footer-wave-image" aria-hidden="true">
-          <Image
-            source={topWaveImage.source}
-            alt={topWaveImage.alt || ""}
-            rounded={false}
-            editable={true}
-            aspectRatio="none"
-            sizes="auto"
-            widths={[]}
-            data-prop-src="topWaveImage.source"
-            data-prop-alt="topWaveImage.alt"
-          />
-        </div>
-      )
-    }
-
     <div class="footer-content">
       <div class="form-column">
         {
@@ -375,8 +303,12 @@ const cssVars = [
           )
         }
         {formHeading && <span class="fo-title">{formHeading}</span>}
-        <form class="footer-form form" action={formAction || undefined} method={formMethod || "post"}>
-          <RenderBlock contentSections={resolvedFormBlocks} propName="formBlocks" editable={false} />
+        <form class="footer-form form" action={formAction || undefined} method="post">
+          <RenderBlock
+            contentSections={resolvedFormBlocks}
+            propName="formBlocks"
+            editable={false}
+          />
         </form>
       </div>
 
@@ -528,11 +460,11 @@ const cssVars = [
       }
 
       .footer-wave-image {
-        left: -8%;
         pointer-events: none;
         position: absolute;
-        right: -8%;
-        top: -150px;
+        bottom: 0;
+        left: 0;
+        right: 0;
       }
 
       .footer-wave-image .image,
@@ -541,28 +473,34 @@ const cssVars = [
         width: 100%;
       }
 
-      .fo-title{display: block; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 10px;}
+      .fo-title {
+        display: block;
+        font-size: 1.2rem;
+        letter-spacing: 1.2px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
 
       .footer-content {
         display: flex;
         align-items: start;
         gap: 2rem;
         margin: 0 auto;
-        max-width: 1160px;
+        max-width: 1300px;
         padding-top: 3.5rem;
         position: relative;
         z-index: 2;
-
       }
 
-      .form-column{
+      .form-column {
         flex: 0 1 400px;
       }
 
-      .contact-column{
-        flex: 0 1 auto;
+      .contact-column {
+        flex: 0 1 420px;
       }
-      .map-column{
+
+      .map-column {
         flex: 0 1 450px;
       }
 
@@ -571,22 +509,15 @@ const cssVars = [
         max-width: 250px;
       }
 
-      .footer-form h2 {
-        color: #fff;
-        font-size: 1.75rem;
-        margin: 0 0 0.75rem;
-      }
-
       .footer-form label {
-        display: block;
+        display: none;
       }
 
       .footer-form input,
       .footer-form textarea {
         border: 0;
-        border-radius: 0.7rem;
+        border-radius: 0;
         font: inherit;
-        margin-bottom: 0.6rem;
         padding: 0.7rem 0.85rem;
         width: 100%;
       }
@@ -597,10 +528,10 @@ const cssVars = [
       }
 
       .footer-form .footer-submit-button {
-        background: var(--lp-footer-form-button-bg, var(--color-brand, red));
-        border-color: var(--lp-footer-form-button-bg, var(--color-brand, red));
-        border-radius: var(--lp-footer-form-button-radius, 0);
-        color: var(--lp-footer-form-button-color, #fff);
+        background: var(--color-brand, red);
+        border-color: var(--color-brand, red);
+        border-radius: 0;
+        color: #fff;
         font-weight: 700;
         letter-spacing: 0.08em;
         margin-top: 0.2rem;
@@ -610,22 +541,9 @@ const cssVars = [
 
       .footer-form .footer-submit-button:hover,
       .footer-form .footer-submit-button:focus-visible {
-        background: var(--lp-footer-form-button-hover-bg, var(--color-brand-secondary, blue));
-        border-color: var(--lp-footer-form-button-hover-bg, var(--color-brand-secondary, blue));
-        color: var(--lp-footer-form-button-hover-color, #fff);
-      }
-
-      .title {
-        display: block;
-        font-size: 1.35rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        margin-bottom: 0.75rem;
-        text-transform: uppercase;
-      }
-
-      .contact-grid {
-
+        background: var(--color-brand-secondary, blue);
+        border-color: var(--color-brand-secondary, blue);
+        color: #fff;
       }
 
       .office-info {
@@ -633,16 +551,32 @@ const cssVars = [
       }
 
       .address,
-      .phone{
+      .phone {
         display: block;
-        color: var(--footer-link-color, var(--color-brand));
+      }
+
+      .address {
+        color: var(--footer-address-link-color, var(--footer-link-color, var(--color-brand)));
+      }
+
+      .phone {
+        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand)));
       }
 
       .address:hover,
-      .address:focus-visible,
+      .address:focus-visible {
+        color: var(
+          --footer-address-link-hover-color,
+          var(--footer-link-hover-color, var(--color-brand-secondary))
+        );
+      }
+
       .phone:hover,
       .phone:focus-visible {
-        color: var(--footer-link-hover-color, var(--color-brand-secondary));
+        color: var(
+          --footer-phone-link-hover-color,
+          var(--footer-link-hover-color, var(--color-brand-secondary))
+        );
       }
 
       .copy a {
@@ -685,10 +619,11 @@ const cssVars = [
 
       .office-hours-questions {
         display: block;
-        font-size: 1rem;
+        font-size: 0.9rem;
         font-weight: 700;
         letter-spacing: 0.08em;
-        margin-top: 0.7rem;
+        margin-top: 20px;
+        text-transform: uppercase;
       }
 
       .map-wrap {
@@ -732,19 +667,6 @@ const cssVars = [
         margin: 20px auto 0;
         max-width: 1150px;
         text-transform: none;
-      }
-
-      .sr-only {
-        border: 0;
-        clip: rect(0, 0, 0, 0);
-        clip-path: inset(50%);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        white-space: nowrap;
-        width: 1px;
       }
 
       @media (max-width: 1024px) {

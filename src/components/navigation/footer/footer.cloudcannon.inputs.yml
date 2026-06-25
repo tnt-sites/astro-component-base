@@ -85,3 +85,79 @@ mapEmbedUrl:
 legalBlurb:
   type: textarea
   comment: "Optional legal/disclaimer text shown below the copyright row."
+addressLinkColor:
+  type: select
+  comment: "Color of address links."
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+addressLinkHoverColor:
+  type: select
+  comment: "Color of address links on hover."
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+phoneLinkColor:
+  type: select
+  comment: "Color of phone links."
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+phoneLinkHoverColor:
+  type: select
+  comment: "Color of phone links on hover."
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)

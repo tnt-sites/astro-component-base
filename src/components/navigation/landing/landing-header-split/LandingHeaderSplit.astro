@@ -16,6 +16,10 @@ const {
   mobileCallBackgroundColorHex = "",
   mobileApptBackgroundColor = "",
   mobileApptBackgroundColorHex = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   id: elementId,
   class: className,
   ...htmlAttributes
@@ -31,6 +35,10 @@ const {
   mobileCallBackgroundColorHex?: string;
   mobileApptBackgroundColor?: string;
   mobileApptBackgroundColorHex?: string;
+  addressLinkColor?: string;
+  addressLinkHoverColor?: string;
+  phoneLinkColor?: string;
+  phoneLinkHoverColor?: string;
   id?: string;
   class?: string;
   [key: string]: any;
@@ -74,9 +82,18 @@ const resolvedMobileCallBg =
   mobileCallBackgroundColorHex || colorTokenMap[mobileCallBackgroundColor] || "";
 const resolvedMobileApptBg =
   mobileApptBackgroundColorHex || colorTokenMap[mobileApptBackgroundColor] || "";
+const resolvedAddressLinkColor = colorTokenMap[addressLinkColor] || "";
+const resolvedAddressLinkHoverColor = colorTokenMap[addressLinkHoverColor] || "";
+const resolvedPhoneLinkColor = colorTokenMap[phoneLinkColor] || "";
+const resolvedPhoneLinkHoverColor = colorTokenMap[phoneLinkHoverColor] || "";
 const cssVars = [
   resolvedMobileCallBg && `--lhs-mobile-call-bg: ${resolvedMobileCallBg}`,
   resolvedMobileApptBg && `--lhs-mobile-appt-bg: ${resolvedMobileApptBg}`,
+  resolvedAddressLinkColor && `--lhs-address-link-color: ${resolvedAddressLinkColor}`,
+  resolvedAddressLinkHoverColor &&
+    `--lhs-address-link-hover-color: ${resolvedAddressLinkHoverColor}`,
+  resolvedPhoneLinkColor && `--lhs-phone-link-color: ${resolvedPhoneLinkColor}`,
+  resolvedPhoneLinkHoverColor && `--lhs-phone-link-hover-color: ${resolvedPhoneLinkHoverColor}`,
 ]
   .filter(Boolean)
   .join("; ");
@@ -209,13 +226,25 @@ const cssVars = [
 
       .landing-header-split-phone,
       .landing-header-split-address {
-        color: var(--color-text);
         display: block;
         text-decoration: none;
+      }
+
+      .landing-header-split-phone {
+        color: var(--lhs-phone-link-color, var(--color-text));
 
         &:hover,
         &:focus-visible {
-          color: var(--color-link-hover);
+          color: var(--lhs-phone-link-hover-color, var(--color-link-hover));
+        }
+      }
+
+      .landing-header-split-address {
+        color: var(--lhs-address-link-color, var(--color-text));
+
+        &:hover,
+        &:focus-visible {
+          color: var(--lhs-address-link-hover-color, var(--color-link-hover));
         }
       }
 

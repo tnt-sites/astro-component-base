@@ -66,6 +66,74 @@ mobileApptBackgroundColor:
 mobileApptBackgroundColorHex:
   type: color
   comment: "Optional custom hex color for the mobile request button. Overrides the dropdown above."
+addressLinkColor:
+  type: select
+  comment: "Color of address links in the desktop header."
+  options:
+    values:
+      - id: ""
+        name: Default (Text)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+addressLinkHoverColor:
+  type: select
+  comment: "Hover color of address links in the desktop header."
+  options:
+    values:
+      - id: ""
+        name: Default (Link Hover)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+phoneLinkColor:
+  type: select
+  comment: "Color of phone links in the desktop header."
+  options:
+    values:
+      - id: ""
+        name: Default (Text)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+phoneLinkHoverColor:
+  type: select
+  comment: "Hover color of phone links in the desktop header."
+  options:
+    values:
+      - id: ""
+        name: Default (Link Hover)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
 "$.offices[*].name":
   type: text
   comment: "Optional office label."

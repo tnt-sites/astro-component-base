@@ -40,7 +40,7 @@ pageSections:
         uppercase: false
     reverse: false
     colorScheme: default
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     rounded: false
   - _component: page-sections/ctas/cta-split
     id: ''
@@ -68,7 +68,7 @@ pageSections:
         uppercase: false
     reverse: true
     colorScheme: default
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     rounded: false
   - _component: page-sections/ctas/cta-center
     id: ''
@@ -93,7 +93,7 @@ pageSections:
         textColor: default
         uppercase: false
     colorScheme: inherit
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     rounded: false
   - _component: page-sections/builders/custom-section
     id: ''
@@ -144,7 +144,7 @@ pageSections:
     paddingHorizontal: md
     paddingVertical: md
     colorScheme: inherit
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     backgroundImage:
       source:
       alt:
@@ -182,7 +182,7 @@ pageSections:
         positionVertical: center
         positionHorizontal: center
         priority: false
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     slideNumbers: true
     floatingArrows: true
   - _component: page-sections/ctas/more-to-explore
@@ -209,7 +209,7 @@ pageSections:
     paddingHorizontal: sm
     paddingVertical: sm
     colorScheme: default
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     backgroundImage:
       source:
       alt:
@@ -236,7 +236,7 @@ pageSections:
         borderColor: default
         textColor: default
         uppercase: false
-    backgroundColor: base
+    backgroundColor: "var(--color-bg)"
     backgroundImage:
       source:
       alt:

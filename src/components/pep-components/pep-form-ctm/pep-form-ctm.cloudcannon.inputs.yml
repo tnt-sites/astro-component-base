@@ -3,19 +3,19 @@ backgroundColor:
   comment: Background color of the outer section (the band behind the content card).
   options:
     values:
-      - id: none
+      - id: ""
         name: None
-      - id: base
+      - id: "var(--color-bg)"
         name: Base
-      - id: surface
+      - id: "var(--color-bg-surface)"
         name: Surface
-      - id: accent
+      - id: "var(--color-bg-accent)"
         name: Accent
-      - id: highlight
+      - id: "var(--color-bg-highlight)"
         name: Highlight
-      - id: dark
+      - id: "var(--color-bg-dark)"
         name: Dark
-      - id: black
+      - id: "var(--color-bg-black)"
         name: Black
 
 backgroundColorHex:
@@ -29,19 +29,19 @@ contentBackgroundColor:
     values:
       - id: ""
         name: Default
-      - id: none
+      - id: ""
         name: None (Transparent)
-      - id: base
+      - id: "var(--color-bg)"
         name: Base
-      - id: surface
+      - id: "var(--color-bg-surface)"
         name: Surface
-      - id: accent
+      - id: "var(--color-bg-accent)"
         name: Accent
-      - id: highlight
+      - id: "var(--color-bg-highlight)"
         name: Highlight
-      - id: dark
+      - id: "var(--color-bg-dark)"
         name: Dark
-      - id: black
+      - id: "var(--color-bg-black)"
         name: Black
 
 contentBackgroundColorHex:
@@ -55,19 +55,19 @@ callBackgroundColor:
     values:
       - id: ""
         name: Default
-      - id: none
+      - id: ""
         name: None (Transparent)
-      - id: base
+      - id: "var(--color-bg)"
         name: Base
-      - id: surface
+      - id: "var(--color-bg-surface)"
         name: Surface
-      - id: accent
+      - id: "var(--color-bg-accent)"
         name: Accent
-      - id: highlight
+      - id: "var(--color-bg-highlight)"
         name: Highlight
-      - id: dark
+      - id: "var(--color-bg-dark)"
         name: Dark
-      - id: black
+      - id: "var(--color-bg-black)"
         name: Black
 
 callBackgroundColorHex:

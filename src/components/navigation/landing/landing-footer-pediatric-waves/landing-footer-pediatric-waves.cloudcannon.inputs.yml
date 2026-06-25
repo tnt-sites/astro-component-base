@@ -46,19 +46,19 @@ linkColor:
   comment: Color of copyright row links.
   options:
     values:
-      - id: none
+      - id: ""
         name: None (default)
-      - id: white
+      - id: "#fff"
         name: White
-      - id: brand
+      - id: "var(--color-brand)"
         name: Brand (Primary)
-      - id: brand-secondary
+      - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
-      - id: text
+      - id: "var(--color-text)"
         name: Text
-      - id: text-strong
+      - id: "var(--color-text-strong)"
         name: Text (Strong)
-      - id: text-inverse
+      - id: "var(--color-text-inverse)"
         name: Text (Inverse)
 
 linkHoverColor:
@@ -66,19 +66,19 @@ linkHoverColor:
   comment: Color of copyright row links on hover.
   options:
     values:
-      - id: none
+      - id: ""
         name: None (default)
-      - id: white
+      - id: "#fff"
         name: White
-      - id: brand
+      - id: "var(--color-brand)"
         name: Brand (Primary)
-      - id: brand-secondary
+      - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
-      - id: text
+      - id: "var(--color-text)"
         name: Text
-      - id: text-strong
+      - id: "var(--color-text-strong)"
         name: Text (Strong)
-      - id: text-inverse
+      - id: "var(--color-text-inverse)"
         name: Text (Inverse)
 
 formHeading:
@@ -96,212 +96,6 @@ formBlocks:
   options:
     structures: _structures.formBlocks
 
-formMethod:
-  type: select
-  comment: Form submission method.
-  options:
-    values:
-      - id: post
-        name: POST
-      - id: get
-        name: GET
-
-formSubject:
-  type: text
-  comment: Hidden subject value sent with the form.
-
-formRedirect:
-  type: text
-  comment: Hidden redirect URL sent with the form.
-
-formButtonBorderRadius:
-  type: text
-  comment: Submit button border radius (e.g. 0px, 8px, 999px).
-
-formButtonTextColor:
-  type: color
-  comment: Submit button text color.
-
-formButtonBackgroundColor:
-  type: color
-  comment: Submit button background color.
-
-formButtonHoverBackgroundColor:
-  type: color
-  comment: Submit button hover background color.
-
-formButtonHoverTextColor:
-  type: color
-  comment: Submit button hover text color.
-
-formButton:
-  type: object
-  comment: Submit button configuration using the standard button component.
-  options:
-    structures:
-      values:
-        - label: Form Button
-          icon: ads_click
-          value:
-            _component: building-blocks/core-elements/button
-            text: Send
-            hideText: false
-            iconName: ""
-            iconPosition: before
-            variant: primary
-            size: md
-            width: md
-            borderRadius: default
-            borderWidth: default
-            borderColor: default
-            textColor: default
-            uppercase: true
-          _inputs:
-            text:
-              type: markdown
-              comment: Button label text.
-              options:
-                blockquote: false
-                bold: true
-                format: span
-                italic: true
-                link: false
-                strike: false
-                subscript: true
-                superscript: true
-                underline: true
-                bulletedlist: false
-                numberedlist: false
-                styles: /.cloudcannon/styles/editor.css
-            iconName:
-              type: select
-              options:
-                values: _select_data.icons
-            iconPosition:
-              type: select
-              options:
-                values:
-                  - id: before
-                    name: Before
-                  - id: after
-                    name: After
-            hideText:
-              type: switch
-            variant:
-              type: select
-              options:
-                values:
-                  - id: primary
-                    name: Primary
-                  - id: secondary
-                    name: Secondary
-                  - id: tertiary
-                    name: Tertiary
-                  - id: ghost
-                    name: Ghost
-                  - id: text
-                    name: Text
-            size:
-              type: select
-              options:
-                values:
-                  - id: sm
-                    name: Small
-                  - id: md
-                    name: Medium
-                  - id: lg
-                    name: Large
-            width:
-              type: select
-              options:
-                values:
-                  - id: none
-                    name: None
-                  - id: sm
-                    name: Small
-                  - id: md
-                    name: Medium
-                  - id: lg
-                    name: Large
-                  - id: xl
-                    name: Extra Large
-            borderRadius:
-              type: select
-              options:
-                values:
-                  - id: default
-                    name: Default
-                  - id: none
-                    name: None
-                  - id: xs
-                    name: Extra Small
-                  - id: sm
-                    name: Small
-                  - id: md
-                    name: Medium
-                  - id: lg
-                    name: Large
-                  - id: xl
-                    name: Extra Large
-                  - id: 2xl
-                    name: 2XL
-                  - id: 3xl
-                    name: 3XL
-                  - id: 4xl
-                    name: 4XL
-                  - id: full
-                    name: Full
-            borderWidth:
-              type: select
-              options:
-                values:
-                  - id: default
-                    name: Default
-                  - id: none
-                    name: None
-                  - id: xs
-                    name: 1px
-                  - id: sm
-                    name: 2px
-                  - id: md
-                    name: 3px
-            borderColor:
-              type: select
-              options:
-                values:
-                  - id: default
-                    name: Default
-                  - id: standard
-                    name: Standard
-                  - id: subtle
-                    name: Subtle
-                  - id: strong
-                    name: Strong
-                  - id: brand
-                    name: Brand
-                  - id: transparent
-                    name: Transparent
-            textColor:
-              type: select
-              options:
-                values:
-                  - id: default
-                    name: Default
-                  - id: text
-                    name: Body Text
-                  - id: text-strong
-                    name: Strong Text
-                  - id: text-muted
-                    name: Muted Text
-                  - id: brand
-                    name: Brand
-                  - id: text-on-brand
-                    name: On Brand
-                  - id: text-inverse
-                    name: Inverse
-            uppercase:
-              type: switch
-
 mapEmbedUrl:
   type: text
   comment: Optional Google Maps embed URL (iframe src value).
@@ -315,23 +109,23 @@ backgroundColor:
   comment: Background color of the footer.
   options:
     values:
-      - id: none
+      - id: ""
         name: None
-      - id: base
+      - id: "var(--color-bg)"
         name: Base
-      - id: surface
+      - id: "var(--color-bg-surface)"
         name: Surface
-      - id: accent
+      - id: "var(--color-bg-accent)"
         name: Accent
-      - id: highlight
+      - id: "var(--color-bg-highlight)"
         name: Highlight
-      - id: brand
+      - id: "var(--color-bg-brand)"
         name: Brand (Primary)
-      - id: brand-secondary
+      - id: "var(--color-bg-brand-secondary)"
         name: Brand (Secondary)
-      - id: dark
+      - id: "var(--color-bg-dark)"
         name: Dark
-      - id: black
+      - id: "var(--color-bg-black)"
         name: Black
 
 officeHoursAlignment:
@@ -366,3 +160,79 @@ topWaveImage:
             alt:
               type: text
               comment: Alt text for accessibility.
+addressLinkColor:
+  type: select
+  comment: Color of address links.
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+addressLinkHoverColor:
+  type: select
+  comment: Color of address links on hover.
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+phoneLinkColor:
+  type: select
+  comment: Color of phone links.
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+phoneLinkHoverColor:
+  type: select
+  comment: Color of phone links on hover.
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)

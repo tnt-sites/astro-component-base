@@ -34,6 +34,10 @@ const {
   backgroundColor = "",
   linkColor = "",
   linkHoverColor = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   id: elementId,
   class: className,
   ...htmlAttributes
@@ -84,50 +88,26 @@ const servicesCardBackgroundColorValue =
 const formCardBackgroundColorValue =
   typeof formCardBackgroundColor === "string" ? formCardBackgroundColor.trim() : "";
 const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
-const LINK_COLOR_CHOICES: Record<string, string> = {
-  brand: "var(--color-brand)",
-  "brand-secondary": "var(--color-brand-secondary)",
-  brandsecondary: "var(--color-brand-secondary)",
-  accent: "var(--color-accent)",
-  dark: "#2c363c",
-  black: "#000000",
-  white: "#ffffff",
+
+const getColorValue = (value: any) => {
+  const raw = typeof value === "string" ? value : (value?.id ?? value?.value ?? value?.name);
+
+  if (typeof raw !== "string") return "";
+
+  const normalized = raw.trim();
+
+  return normalized && normalized !== "none" ? normalized : "";
 };
 
-const resolveLinkColorChoice = (value: any, fallback: string) => {
-  if (typeof value !== "string") return fallback;
-
-  const normalized = value.trim().toLowerCase();
-
-  if (!normalized) return fallback;
-
-  return LINK_COLOR_CHOICES[normalized] || value.trim();
-};
-
-const footerLinksBackgroundColorValue = resolveLinkColorChoice(
-  footerLinksBackgroundColor,
-  "var(--color-brand)"
-);
-const footerLinksHoverBackgroundColorValue = resolveLinkColorChoice(
-  footerLinksHoverBackgroundColor,
-  "var(--color-brand-secondary)"
-);
-const bgColorMap: Record<string, string> = {
-  base: "var(--color-bg)",
-  surface: "var(--color-bg-surface)",
-  accent: "var(--color-bg-accent)",
-  highlight: "var(--color-bg-highlight)",
-  brand: "var(--color-bg-brand)",
-  "brand-secondary": "var(--color-bg-brand-secondary)",
-  dark: "var(--color-bg-dark)",
-  black: "var(--color-bg-black)",
-};
-const resolvedBgColor =
-  (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
+const bgColor = getColorValue(backgroundColor);
+const footerLinksBackgroundColorValue =
+  getColorValue(footerLinksBackgroundColor) || "var(--color-brand)";
+const footerLinksHoverBackgroundColorValue =
+  getColorValue(footerLinksHoverBackgroundColor) || "var(--color-brand-secondary)";
 const footerBackgroundStyle = [
   backgroundGradientValue
     ? `--lp-footer-bg-gradient: ${backgroundGradientValue}`
-    : resolvedBgColor
+    : bgColor
       ? `--lp-footer-bg-gradient: none`
       : "",
   `--lp-footer-links-bg: ${footerLinksBackgroundColorValue}`,
@@ -137,22 +117,23 @@ const footerBackgroundStyle = [
   `--lp-footer-form-button-bg: ${formButtonBackgroundColorValue}`,
   `--lp-footer-form-button-hover-bg: ${formButtonHoverBackgroundColorValue}`,
   `--lp-footer-form-button-hover-color: ${formButtonHoverTextColorValue}`,
-  resolvedBgColor ? `--lp-footer-bg-color: ${resolvedBgColor}` : "",
-  (() => {
-    const lkMap: Record<string, string> = {
-      white: "#fff",
-      brand: "var(--color-brand)",
-      "brand-secondary": "var(--color-brand-secondary)",
-      text: "var(--color-text)",
-      "text-strong": "var(--color-text-strong)",
-      "text-inverse": "var(--color-text-inverse)",
-    };
-    const lc = (linkColor && linkColor !== "none" && lkMap[linkColor]) || "";
-    const lhc = (linkHoverColor && linkHoverColor !== "none" && lkMap[linkHoverColor]) || "";
-    return [lc ? `--footer-link-color: ${lc}` : "", lhc ? `--footer-link-hover-color: ${lhc}` : ""]
-      .filter(Boolean)
-      .join("; ");
-  })(),
+  bgColor ? `--lp-footer-bg-color: ${bgColor}` : "",
+  getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
+  getColorValue(linkHoverColor)
+    ? `--footer-link-hover-color: ${getColorValue(linkHoverColor)}`
+    : "",
+  getColorValue(addressLinkColor)
+    ? `--footer-address-link-color: ${getColorValue(addressLinkColor)}`
+    : "",
+  getColorValue(addressLinkHoverColor)
+    ? `--footer-address-link-hover-color: ${getColorValue(addressLinkHoverColor)}`
+    : "",
+  getColorValue(phoneLinkColor)
+    ? `--footer-phone-link-color: ${getColorValue(phoneLinkColor)}`
+    : "",
+  getColorValue(phoneLinkHoverColor)
+    ? `--footer-phone-link-hover-color: ${getColorValue(phoneLinkHoverColor)}`
+    : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -458,7 +439,7 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       }
 
       .pho {
-        color: var(--footer-link-color, var(--color-brand)) !important;
+        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand))) !important;
         font-family: var(--font-body, sans-serif);
         font-size: clamp(1.6rem, 2.6vw, 2.5rem);
         font-weight: 700;
@@ -467,18 +448,27 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       }
 
       .pho:hover {
-        color: var(--footer-link-hover-color, var(--color-brand-secondary)) !important;
+        color: var(
+          --footer-phone-link-hover-color,
+          var(--footer-link-hover-color, var(--color-brand-secondary))
+        ) !important;
       }
 
       .phy {
-        color: var(--footer-link-color, var(--color-brand)) !important;
+        color: var(
+          --footer-address-link-color,
+          var(--footer-link-color, var(--color-brand))
+        ) !important;
         font-size: 1.25rem;
         line-height: 1.1;
         margin-top: 1rem;
       }
 
       .phy:hover {
-        color: var(--footer-link-hover-color, var(--color-brand-secondary)) !important;
+        color: var(
+          --footer-address-link-hover-color,
+          var(--footer-link-hover-color, var(--color-brand-secondary))
+        ) !important;
       }
 
       .lp-footer-map-slot {

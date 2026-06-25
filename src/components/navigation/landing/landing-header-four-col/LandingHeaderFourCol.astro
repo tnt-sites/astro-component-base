@@ -10,6 +10,10 @@ const {
   offices = [],
   pageButtons = [],
   mobileCallLabel = "Call Today!",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   class: className,
   ...htmlAttributes
 } = Astro.props;
@@ -35,6 +39,29 @@ const formatAddressLines = (addressObject: any) => {
 };
 
 const addressLines = formatAddressLines(address);
+const getColorValue = (value: any) => {
+  const raw = typeof value === "string" ? value : (value?.id ?? value?.value ?? value?.name);
+
+  if (typeof raw !== "string") return "";
+
+  const normalized = raw.trim();
+
+  return normalized && normalized !== "none" ? normalized : "";
+};
+const cssVars = [
+  getColorValue(addressLinkColor)
+    ? `--lh4-address-link-color: ${getColorValue(addressLinkColor)}`
+    : "",
+  getColorValue(addressLinkHoverColor)
+    ? `--lh4-address-link-hover-color: ${getColorValue(addressLinkHoverColor)}`
+    : "",
+  getColorValue(phoneLinkColor) ? `--lh4-phone-link-color: ${getColorValue(phoneLinkColor)}` : "",
+  getColorValue(phoneLinkHoverColor)
+    ? `--lh4-phone-link-hover-color: ${getColorValue(phoneLinkHoverColor)}`
+    : "",
+]
+  .filter(Boolean)
+  .join("; ");
 ---
 
 <CustomSection
@@ -42,6 +69,7 @@ const addressLines = formatAddressLines(address);
   paddingHorizontal="lg"
   paddingVertical="none"
   class:list={["landing-header-four-col", className]}
+  style={cssVars || undefined}
   {...htmlAttributes}
 >
   <div class="inner">
@@ -132,7 +160,7 @@ const addressLines = formatAddressLines(address);
       }
 
       .address {
-        color: #000;
+        color: var(--lh4-address-link-color, #000);
         font-size: 19px;
         letter-spacing: 2.9px;
         line-height: 1.25;
@@ -141,11 +169,11 @@ const addressLines = formatAddressLines(address);
       }
 
       .address:hover {
-        color: #4f95d0;
+        color: var(--lh4-address-link-hover-color, #4f95d0);
       }
 
       .phone {
-        color: #4f95d0;
+        color: var(--lh4-phone-link-color, #4f95d0);
         font-size: 38px;
         font-weight: 700;
         letter-spacing: 0.05em;
@@ -153,7 +181,7 @@ const addressLines = formatAddressLines(address);
       }
 
       .phone:hover {
-        color: #000;
+        color: var(--lh4-phone-link-hover-color, #000);
       }
 
       .desktop-cta {

@@ -22,6 +22,10 @@ const {
   backgroundColor = "",
   linkColor = "",
   linkHoverColor = "",
+  addressLinkColor = "",
+  addressLinkHoverColor = "",
+  phoneLinkColor = "",
+  phoneLinkHoverColor = "",
   id: elementId,
   class: className,
   ...htmlAttributes
@@ -63,12 +67,32 @@ const linkColorMap: Record<string, string> = {
 const resolvedLinkColor = (linkColor && linkColor !== "none" && linkColorMap[linkColor]) || "";
 const resolvedLinkHoverColor =
   (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
+const resolvedAddressLinkColor =
+  (addressLinkColor && addressLinkColor !== "none" && linkColorMap[addressLinkColor]) || "";
+const resolvedAddressLinkHoverColor =
+  (addressLinkHoverColor &&
+    addressLinkHoverColor !== "none" &&
+    linkColorMap[addressLinkHoverColor]) ||
+  "";
+const resolvedPhoneLinkColor =
+  (phoneLinkColor && phoneLinkColor !== "none" && linkColorMap[phoneLinkColor]) || "";
+const resolvedPhoneLinkHoverColor =
+  (phoneLinkHoverColor && phoneLinkHoverColor !== "none" && linkColorMap[phoneLinkHoverColor]) ||
+  "";
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
   backgroundGradientValue ? `--landing-footer-bg-gradient: ${backgroundGradientValue}` : "",
   resolvedBgColor ? `--landing-footer-bg-color: ${resolvedBgColor}` : "",
   resolvedLinkColor ? `--footer-link-color: ${resolvedLinkColor}` : "",
   resolvedLinkHoverColor ? `--footer-link-hover-color: ${resolvedLinkHoverColor}` : "",
+  resolvedAddressLinkColor ? `--footer-address-link-color: ${resolvedAddressLinkColor}` : "",
+  resolvedAddressLinkHoverColor
+    ? `--footer-address-link-hover-color: ${resolvedAddressLinkHoverColor}`
+    : "",
+  resolvedPhoneLinkColor ? `--footer-phone-link-color: ${resolvedPhoneLinkColor}` : "",
+  resolvedPhoneLinkHoverColor
+    ? `--footer-phone-link-hover-color: ${resolvedPhoneLinkHoverColor}`
+    : "",
 ]
   .filter(Boolean)
   .join("; ");
@@ -400,11 +424,28 @@ const getOfficeHoursEntries = (office: any) => {
         color: var(--footer-link-color, var(--color-brand));
       }
 
+      .pho {
+        color: var(--footer-phone-link-color, var(--footer-link-color, var(--color-brand)));
+      }
+
+      .phy {
+        color: var(--footer-address-link-color, var(--footer-link-color, var(--color-brand)));
+      }
+
       .pho:hover,
-      .pho:focus-visible,
+      .pho:focus-visible {
+        color: var(
+          --footer-phone-link-hover-color,
+          var(--footer-link-hover-color, var(--color-brand-secondary))
+        );
+      }
+
       .phy:hover,
       .phy:focus-visible {
-        color: var(--footer-link-hover-color, var(--color-brand-secondary));
+        color: var(
+          --footer-address-link-hover-color,
+          var(--footer-link-hover-color, var(--color-brand-secondary))
+        );
       }
 
       .fo-title{font-size: 80px; font-weight: 700; line-height: 1.1; text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.9)}

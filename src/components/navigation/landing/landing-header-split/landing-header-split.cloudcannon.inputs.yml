@@ -1,0 +1,100 @@
+logoSource:
+  type: image
+  comment: Logo image source URL or path.
+logoAlt:
+  type: text
+  comment: Alt text for the logo image.
+pageButtons:
+  type: array
+  comment: Header CTA buttons.
+  options:
+    structures: _structures.buttonSections
+offices:
+  type: array
+  comment: Optional office override for this header.
+  options:
+    structures: _structures.officeSections
+addressLinkColor:
+  type: select
+  comment: Color of address links.
+  options:
+    values:
+      - id: ""
+        name: Default (Text)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+addressLinkHoverColor:
+  type: select
+  comment: Hover color of address links.
+  options:
+    values:
+      - id: ""
+        name: Default (Link Hover)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+phoneLinkColor:
+  type: select
+  comment: Color of phone links.
+  options:
+    values:
+      - id: ""
+        name: Default (Text)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+phoneLinkHoverColor:
+  type: select
+  comment: Hover color of phone links.
+  options:
+    values:
+      - id: ""
+        name: Default (Link Hover)
+      - id: brand
+        name: Brand Primary
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: brand-tertiary
+        name: Brand Tertiary
+      - id: dark
+        name: Dark
+      - id: white
+        name: White
+"$.offices[*].name":
+  type: text
+"$.offices[*].phones[*].display":
+  type: text
+"$.offices[*].phones[*].href":
+  type: text
+"$.offices[*].addresses[*].lines":
+  type: array
+"$.offices[*].addresses[*].city":
+  type: text
+"$.offices[*].addresses[*].state":
+  type: text
+"$.offices[*].addresses[*].postalCode":
+  type: text
+"$.offices[*].addresses[*].mapUrl":
+  type: url

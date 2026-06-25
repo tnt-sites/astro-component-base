@@ -74,34 +74,34 @@ footerLinksBackgroundColor:
   comment: "Background color preset for featured service link tiles."
   options:
     values:
-      - id: brand
+      - id: "var(--color-brand)"
         name: Brand
-      - id: brand-secondary
+      - id: "var(--color-brand-secondary)"
         name: Brand Secondary
-      - id: accent
+      - id: "var(--color-accent)"
         name: Accent
-      - id: dark
+      - id: "#2c363c"
         name: Dark
-      - id: black
+      - id: "#000000"
         name: Black
-      - id: white
+      - id: "#ffffff"
         name: White
 footerLinksHoverBackgroundColor:
   type: select
   comment: "Hover background color preset for featured service link tiles."
   options:
     values:
-      - id: brand-secondary
+      - id: "var(--color-brand-secondary)"
         name: Brand Secondary
-      - id: brand
+      - id: "var(--color-brand)"
         name: Brand
-      - id: accent
+      - id: "var(--color-accent)"
         name: Accent
-      - id: dark
+      - id: "#2c363c"
         name: Dark
-      - id: black
+      - id: "#000000"
         name: Black
-      - id: white
+      - id: "#ffffff"
         name: White
 mapEmbedUrl:
   type: text
@@ -172,62 +172,138 @@ backgroundColor:
   comment: Background color of the footer section.
   options:
     values:
-      - id: none
+      - id: ""
         name: None
-      - id: base
+      - id: "var(--color-bg)"
         name: Base
-      - id: surface
+      - id: "var(--color-bg-surface)"
         name: Surface
-      - id: accent
+      - id: "var(--color-bg-accent)"
         name: Accent
-      - id: highlight
+      - id: "var(--color-bg-highlight)"
         name: Highlight
-      - id: brand
+      - id: "var(--color-bg-brand)"
         name: Brand (Primary)
-      - id: brand-secondary
+      - id: "var(--color-bg-brand-secondary)"
         name: Brand (Secondary)
-      - id: dark
+      - id: "var(--color-bg-dark)"
         name: Dark
-      - id: black
+      - id: "var(--color-bg-black)"
         name: Black
 linkColor:
   type: select
   comment: Color of phone number links.
   options:
     values:
-      - id: none
+      - id: ""
         name: None (default)
-      - id: white
+      - id: "#fff"
         name: White
-      - id: brand
+      - id: "var(--color-brand)"
         name: Brand (Primary)
-      - id: brand-secondary
+      - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
-      - id: text
+      - id: "var(--color-text)"
         name: Text
-      - id: text-strong
+      - id: "var(--color-text-strong)"
         name: Text (Strong)
-      - id: text-inverse
+      - id: "var(--color-text-inverse)"
         name: Text (Inverse)
 linkHoverColor:
   type: select
   comment: Color of phone number and address links on hover.
   options:
     values:
-      - id: none
+      - id: ""
         name: None (default)
-      - id: white
+      - id: "#fff"
         name: White
-      - id: brand
+      - id: "var(--color-brand)"
         name: Brand (Primary)
-      - id: brand-secondary
+      - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
-      - id: text
+      - id: "var(--color-text)"
         name: Text
-      - id: text-strong
+      - id: "var(--color-text-strong)"
         name: Text (Strong)
-      - id: text-inverse
+      - id: "var(--color-text-inverse)"
         name: Text (Inverse)
 legalBlurb:
   type: textarea
   comment: "Optional legal/disclaimer text shown below the copyright row."
+addressLinkColor:
+  type: select
+  comment: "Color of address links."
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+addressLinkHoverColor:
+  type: select
+  comment: "Color of address links on hover."
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+phoneLinkColor:
+  type: select
+  comment: "Color of phone links."
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)
+phoneLinkHoverColor:
+  type: select
+  comment: "Color of phone links on hover."
+  options:
+    values:
+      - id: ""
+        name: None (default)
+      - id: "#fff"
+        name: White
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-text-strong)"
+        name: Text (Strong)
+      - id: "var(--color-text-inverse)"
+        name: Text (Inverse)

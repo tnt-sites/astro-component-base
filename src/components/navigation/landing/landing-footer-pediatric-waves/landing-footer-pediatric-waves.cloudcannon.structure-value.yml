@@ -17,7 +17,6 @@ value:
   linkHoverColor: brand-secondary
   formHeading: Ask a Question
   formAction: ""
-  formMethod: post
   formBlocks:
     - _component: building-blocks/forms/input
       label: Name
@@ -49,27 +48,6 @@ value:
       variant: primary
       size: md
       class: footer-submit-button
-  formSubject: Pediatric Footer Questions
-  formRedirect: ""
-  formButtonBorderRadius: 0px
-  formButtonTextColor: ""
-  formButtonBackgroundColor: ""
-  formButtonHoverBackgroundColor: ""
-  formButtonHoverTextColor: ""
-  formButton:
-    _component: building-blocks/core-elements/button
-    text: Send
-    hideText: false
-    iconName: ""
-    iconPosition: before
-    variant: primary
-    size: md
-    width: md
-    borderRadius: default
-    borderWidth: default
-    borderColor: default
-    textColor: default
-    uppercase: true
   mapEmbedUrl: ""
   questionsLine: Have Questions? Get Answers
   backgroundColor: brand-secondary
