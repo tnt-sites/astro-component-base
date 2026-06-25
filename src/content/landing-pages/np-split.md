@@ -65,6 +65,7 @@ landingFooter:
       positionHorizontal: center
     backgroundGradient: ''
     backgroundColor: ''
+    officeHoursAlignment: right
     linkColor: ''
     linkHoverColor: ''
     legalBlurb: ''
@@ -97,7 +98,7 @@ landingPageSections:
     image:
       source: https://placehold.co/800x600
       alt: Doctor photo
-    figcaption: Dr. Drew Beaty
+    figcaption: Dr. Lastname
     buttonSections: []
     fontHeadings: ''
     fontBody: ''
