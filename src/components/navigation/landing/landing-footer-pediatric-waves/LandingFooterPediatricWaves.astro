@@ -1,8 +1,8 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import Button from "@core-elements/button/Button.astro";
 import Image from "@core-elements/image/Image.astro";
 import siteInfoData from "@data/siteInfo.json";
+import Form from "@forms/form/Form.astro";
 
 const {
   logoSource,
@@ -14,6 +14,7 @@ const {
   formHeading = "Ask a Question",
   formAction = "",
   formMethod = "post",
+  formBlocks = [],
   formSubject = "Landing Page Footer Form",
   formRedirect = "",
   formButton = {
@@ -264,6 +265,70 @@ if (typeof normalizedFormButton.text !== "string") {
   normalizedFormButton.text = "Send";
 }
 
+const resolvedFormBlocks =
+  Array.isArray(formBlocks) && formBlocks.length > 0
+    ? formBlocks
+    : [
+        {
+          _component: "building-blocks/forms/input",
+          label: "Name",
+          name: "Name",
+          type: "text",
+          placeholder: "Name",
+          required: true,
+        },
+        {
+          _component: "building-blocks/forms/input",
+          label: "Phone",
+          name: "Phone",
+          type: "text",
+          placeholder: "Phone",
+          required: true,
+        },
+        {
+          _component: "building-blocks/forms/input",
+          label: "Email",
+          name: "Email",
+          type: "email",
+          placeholder: "Email",
+          required: true,
+        },
+        {
+          _component: "building-blocks/forms/textarea",
+          label: "Comments",
+          name: "CommentArea",
+          placeholder: "Comments",
+        },
+        ...(formSubject
+          ? [
+              {
+                _component: "building-blocks/forms/hidden",
+                name: "_subject",
+                value: formSubject,
+              },
+            ]
+          : []),
+        ...(formRedirect
+          ? [
+              {
+                _component: "building-blocks/forms/hidden",
+                name: "_redirect",
+                value: formRedirect,
+              },
+            ]
+          : []),
+        {
+          _component: "building-blocks/forms/submit",
+          text: normalizedFormButton.text,
+          variant: normalizedFormButton.variant,
+          size: normalizedFormButton.size,
+          iconName: normalizedFormButton.iconName,
+          iconPosition: normalizedFormButton.iconPosition,
+          hideText: normalizedFormButton.hideText,
+          class: "footer-submit-button",
+        },
+      ];
+
 const cssVars = [
   resolvedBgColor ? `--pw-footer-bg: ${resolvedBgColor}` : "",
   resolvedLinkColor ? `--footer-link-color: ${resolvedLinkColor}` : "",
@@ -309,37 +374,13 @@ const cssVars = [
             <Image source={logoSource} alt={logoAlt} class="footer-logo" editable={false} />
           )
         }
-        <form class="footer-form" action={formAction || undefined} method={formMethod || "post"}>
-          {formHeading && <span class="fo-title">{formHeading}</span>}
-          <label>
-            <span class="sr-only">Name</span>
-            <input name="Name" placeholder="Name" type="text" required />
-          </label>
-          <label>
-            <span class="sr-only">Phone</span>
-            <input name="Phone" placeholder="Phone" type="text" required />
-          </label>
-          <label>
-            <span class="sr-only">Email</span>
-            <input name="Email" placeholder="Email" type="email" required />
-          </label>
-          <label>
-            <span class="sr-only">Comments</span>
-            <textarea name="CommentArea" placeholder="Comments"></textarea>
-          </label>
-          <Button
-            {...normalizedFormButton}
-            element="button"
-            type="submit"
-            link=""
-            modalTarget=""
-            class="footer-submit-button"
-            data-prop="text"
-            editable={true}
-          />
-          {formSubject && <input type="hidden" name="_subject" value={formSubject} />}
-          {formRedirect && <input type="hidden" name="_redirect" value={formRedirect} />}
-        </form>
+        {formHeading && <span class="fo-title">{formHeading}</span>}
+        <Form
+          class="footer-form"
+          action={formAction || undefined}
+          method={formMethod || "post"}
+          formBlocks={resolvedFormBlocks}
+        />
       </div>
 
       <div class="contact-column">

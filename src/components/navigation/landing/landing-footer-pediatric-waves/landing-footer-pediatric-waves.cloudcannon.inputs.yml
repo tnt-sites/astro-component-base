@@ -89,6 +89,13 @@ formAction:
   type: text
   comment: Form action URL.
 
+formBlocks:
+  type: array
+  label: Form Fields
+  comment: Form fields rendered by the Astro/CloudCannon form builder.
+  options:
+    structures: _structures.formBlocks
+
 formMethod:
   type: select
   comment: Form submission method.
