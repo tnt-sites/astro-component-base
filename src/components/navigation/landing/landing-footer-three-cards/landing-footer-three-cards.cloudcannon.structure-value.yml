@@ -22,6 +22,11 @@ value:
   formSubject: Landing Footer Form
   formRedirect: thanks.html
   formSubmitLabel: Submit
+  formButtonBorderRadius: 0px
+  formButtonTextColor: ""
+  formButtonBackgroundColor: ""
+  formButtonHoverBackgroundColor: ""
+  formButtonHoverTextColor: ""
   footerLinksBackgroundColor: brand
   footerLinksHoverBackgroundColor: brand-secondary
   mapEmbedUrl: ""
@@ -40,8 +45,8 @@ value:
     positionHorizontal: center
   backgroundGradient: ""
   backgroundColor: ""
-  linkColor: ""
-  linkHoverColor: ""
+  linkColor: brand
+  linkHoverColor: brand-secondary
   legalBlurb: ""
   offices: []
 preview:

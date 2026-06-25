@@ -15,6 +15,7 @@ const {
   mapEmbedUrl = "",
   backgroundImage,
   backgroundGradient = "",
+  officeHoursAlignment = "right",
   legalBlurb = "",
   backgroundColor = "",
   linkColor = "",
@@ -60,6 +61,7 @@ const linkColorMap: Record<string, string> = {
 const resolvedLinkColor = (linkColor && linkColor !== "none" && linkColorMap[linkColor]) || "";
 const resolvedLinkHoverColor =
   (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
+const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
   backgroundGradientValue
     ? `--landing-footer-bg-gradient: ${backgroundGradientValue}`
@@ -272,7 +274,13 @@ const getOfficeHoursEntries = (office: any) => {
                 {office?.name && <span class="landing-footer-office-name">{office.name}</span>}
 
                 {officeHours.length > 0 && (
-                  <div class="office-hours office-hours--left">
+                  <div
+                    class:list={[
+                      "office-hours",
+                      "office-hours--left",
+                      `office-hours--time-${resolvedOfficeHoursAlignment}`,
+                    ]}
+                  >
                     <div class="office-hours-list">
                       {officeHours.map((hoursItem: any) => (
                         <div class="office-hours-row">
@@ -454,12 +462,12 @@ const getOfficeHoursEntries = (office: any) => {
       .pho,
       .phy,
       .copy a {
-        color: var(--footer-link-color, #fff);
+        color: var(--footer-link-color, var(--color-brand));
         text-decoration: none;
 
         &:hover,
         &:focus-visible {
-          color: var(--footer-link-hover-color, var(--color-link-hover));
+          color: var(--footer-link-hover-color, var(--color-brand-secondary));
         }
       }
 

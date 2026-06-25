@@ -15,6 +15,7 @@ const {
   mapEmbedUrl = "",
   legalBlurb = "",
   backgroundColor = "",
+  officeHoursAlignment = "right",
   linkColor = "",
   linkHoverColor = "",
   class: className,
@@ -39,7 +40,8 @@ const bgColorMap: Record<string, string> = {
   dark: "var(--color-bg-dark)",
   black: "var(--color-bg-black)",
 };
-const resolvedBgColor = (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
+const resolvedBgColor =
+  (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
 const linkColorMap: Record<string, string> = {
   white: "#fff",
   brand: "var(--color-brand)",
@@ -49,7 +51,9 @@ const linkColorMap: Record<string, string> = {
   "text-inverse": "var(--color-text-inverse)",
 };
 const resolvedLinkColor = (linkColor && linkColor !== "none" && linkColorMap[linkColor]) || "";
-const resolvedLinkHoverColor = (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
+const resolvedLinkHoverColor =
+  (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
+const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
   resolvedBgColor ? `--landing-footer-bg-color: ${resolvedBgColor}` : "",
   resolvedLinkColor ? `--footer-link-color: ${resolvedLinkColor}` : "",
@@ -74,7 +78,9 @@ const getHoursSource = (source: any) => {
     return [];
   }
 
-  return source?.officeHours ?? source?.["office-hours"] ?? source?.office_hours ?? source?.hours ?? [];
+  return (
+    source?.officeHours ?? source?.["office-hours"] ?? source?.office_hours ?? source?.hours ?? []
+  );
 };
 
 const formatOfficeHours = (source: any) => {
@@ -100,9 +106,7 @@ const formatOfficeHours = (source: any) => {
       if (typeof entry === "string") {
         const line = entry.trim();
 
-        return line.length > 0
-          ? { day: "", hours: line, note: "" }
-          : null;
+        return line.length > 0 ? { day: "", hours: line, note: "" } : null;
       }
 
       if (!entry || typeof entry !== "object") {
@@ -124,9 +128,9 @@ const formatOfficeHours = (source: any) => {
             ? entry.time.trim()
             : typeof entry?.value === "string"
               ? entry.value.trim()
-            : typeof entry?.display === "string"
-              ? entry.display.trim()
-              : "";
+              : typeof entry?.display === "string"
+                ? entry.display.trim()
+                : "";
       const note =
         typeof entry?.note === "string"
           ? entry.note.trim()
@@ -136,7 +140,7 @@ const formatOfficeHours = (source: any) => {
               ? entry["hours-note"].trim()
               : typeof entry?.details === "string"
                 ? entry.details.trim()
-              : "";
+                : "";
 
       if (!day && !hours && !note) {
         return null;
@@ -148,125 +152,139 @@ const formatOfficeHours = (source: any) => {
 };
 ---
 
-<footer class:list={["landing-footer", className]} style={footerBackgroundStyle || undefined} {...htmlAttributes}>
+<footer
+  class:list={["landing-footer", className]}
+  style={footerBackgroundStyle || undefined}
+  {...htmlAttributes}
+>
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="xl">
     <div class="footer-content block lg:flex justify-around items-center">
-
-              <a href="/" class="landing-footer-logo-link">
+      <a href="/" class="landing-footer-logo-link">
         <Image source={logoSource} alt={logoAlt} class="landing-footer-logo" editable={false} />
       </a>
 
+      <div class="landing-footer-contact">
+        <span class="fo-title">{contactTitle}</span>
+        {
+          resolvedOffices.map((office: any) => (
+            <div class="landing-footer-office">
+              {office?.name && <span class="landing-footer-office-name">{office.name}</span>}
 
-          <div class="landing-footer-contact">
-      <span class="fo-title">{contactTitle}</span>
-      {
-        resolvedOffices.map((office: any) => (
-          <div class="landing-footer-office">
-            {office?.name && <span class="landing-footer-office-name">{office.name}</span>}
+              {Array.isArray(office?.phones) &&
+                office.phones.map((phone: any) =>
+                  phone?.display ? (
+                    <a href={phone?.href || "#"} class="pho">
+                      {phone?.label ? `${phone.label}: ` : ""}
+                      {phone.display}
+                    </a>
+                  ) : null
+                )}
 
-            {Array.isArray(office?.phones) &&
-              office.phones.map((phone: any) =>
-                phone?.display ? (
-                  <a href={phone?.href || "#"} class="pho">
-                    {phone?.label ? `${phone.label}: ` : ""}
-                    {phone.display}
-                  </a>
-                ) : null
-              )}
+              {(() => {
+                const addresses = Array.isArray(office?.addresses) ? office.addresses : [];
+                const hasAddressSpecificHours = addresses.some(
+                  (address: any) => formatOfficeHours(address).length > 0
+                );
+                const officeHours = formatOfficeHours(office);
 
-            {(() => {
-              const addresses = Array.isArray(office?.addresses) ? office.addresses : [];
-              const hasAddressSpecificHours = addresses.some(
-                (address: any) => formatOfficeHours(address).length > 0
-              );
-              const officeHours = formatOfficeHours(office);
+                return (
+                  <>
+                    {addresses.map((address: any) => {
+                      const formattedLines = formatAddressLines(address);
+                      const addressHours = formatOfficeHours(address);
+                      const hoursToRender =
+                        addressHours.length > 0
+                          ? addressHours
+                          : hasAddressSpecificHours
+                            ? []
+                            : officeHours;
 
-              return (
-                <>
-                  {addresses.map((address: any) => {
-                    const formattedLines = formatAddressLines(address);
-                    const addressHours = formatOfficeHours(address);
-                    const hoursToRender =
-                      addressHours.length > 0
-                        ? addressHours
-                        : hasAddressSpecificHours
-                          ? []
-                          : officeHours;
+                      return (
+                        <>
+                          {formattedLines.length > 0 ? (
+                            <a
+                              href={address?.mapUrl || "#"}
+                              class="phy"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {formattedLines.map((line: string, index: number) => (
+                                <>
+                                  {line}
+                                  {index < formattedLines.length - 1 && <br />}
+                                </>
+                              ))}
+                            </a>
+                          ) : null}
 
-                    return (
-                      <>
-                        {formattedLines.length > 0 ? (
-                          <a
-                            href={address?.mapUrl || "#"}
-                            class="phy"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {formattedLines.map((line: string, index: number) => (
-                              <>
-                                {line}
-                                {index < formattedLines.length - 1 && <br />}
-                              </>
-                            ))}
-                          </a>
-                        ) : null}
-
-                        {hoursToRender.length > 0 && (
-                          <>
-                            <span class="fo-title mt-4">Office Hours</span>
-                            <div class="office-hours office-hours--left">
-                              <div class="office-hours-list">
-                                {hoursToRender.map((hoursItem: any) => (
-                                  <div class="office-hours-row">
-                                    <div class="office-hours-line">
-                                      {hoursItem.day && (
-                                        <span class="office-hours-day">{hoursItem.day}</span>
+                          {hoursToRender.length > 0 && (
+                            <>
+                              <span class="fo-title mt-4">Office Hours</span>
+                              <div
+                                class:list={[
+                                  "office-hours",
+                                  "office-hours--left",
+                                  `office-hours--time-${resolvedOfficeHoursAlignment}`,
+                                ]}
+                              >
+                                <div class="office-hours-list">
+                                  {hoursToRender.map((hoursItem: any) => (
+                                    <div class="office-hours-row">
+                                      <div class="office-hours-line">
+                                        {hoursItem.day && (
+                                          <span class="office-hours-day">{hoursItem.day}</span>
+                                        )}
+                                        <span class="office-hours-time">{hoursItem.hours}</span>
+                                      </div>
+                                      {hoursItem.note && (
+                                        <small class="office-hours-note">{hoursItem.note}</small>
                                       )}
-                                      <span class="office-hours-time">{hoursItem.hours}</span>
                                     </div>
-                                    {hoursItem.note && (
-                                      <small class="office-hours-note">{hoursItem.note}</small>
-                                    )}
-                                  </div>
-                                ))}
+                                  ))}
+                                </div>
                               </div>
-                            </div>
-                          </>
-                        )}
-                      </>
-                    );
-                  })}
+                            </>
+                          )}
+                        </>
+                      );
+                    })}
 
-                  {addresses.length === 0 && officeHours.length > 0 && (
-                    <>
-                      <span class="fo-title mt-4">Office Hours</span>
-                      <div class="office-hours office-hours--left">
-                        <div class="office-hours-list">
-                          {officeHours.map((hoursItem: any) => (
-                            <div class="office-hours-row">
-                              <div class="office-hours-line">
-                                {hoursItem.day && (
-                                  <span class="office-hours-day">{hoursItem.day}</span>
+                    {addresses.length === 0 && officeHours.length > 0 && (
+                      <>
+                        <span class="fo-title mt-4">Office Hours</span>
+                        <div
+                          class:list={[
+                            "office-hours",
+                            "office-hours--left",
+                            `office-hours--time-${resolvedOfficeHoursAlignment}`,
+                          ]}
+                        >
+                          <div class="office-hours-list">
+                            {officeHours.map((hoursItem: any) => (
+                              <div class="office-hours-row">
+                                <div class="office-hours-line">
+                                  {hoursItem.day && (
+                                    <span class="office-hours-day">{hoursItem.day}</span>
+                                  )}
+                                  <span class="office-hours-time">{hoursItem.hours}</span>
+                                </div>
+                                {hoursItem.note && (
+                                  <small class="office-hours-note">{hoursItem.note}</small>
                                 )}
-                                <span class="office-hours-time">{hoursItem.hours}</span>
                               </div>
-                              {hoursItem.note && (
-                                <small class="office-hours-note">{hoursItem.note}</small>
-                              )}
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    </>
-                  )}
-                </>
-              );
-            })()}
-          </div>
-        ))
-      }
+                      </>
+                    )}
+                  </>
+                );
+              })()}
+            </div>
+          ))
+        }
 
-      <!-- {
+        <!-- {
         socials.length > 0 && (
           <div class="landing-footer-socials">
             <ButtonGroup alignX="start">
@@ -286,57 +304,56 @@ const formatOfficeHours = (source: any) => {
           </div>
         )
       } -->
+      </div>
+
+      {
+        embedSrc && (
+          <div class="landing-footer-map-embed" aria-label="Map location">
+            <iframe
+              src={embedSrc}
+              title="Office location map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            />
+          </div>
+        )
+      }
     </div>
 
-
-
-
-        {
-      embedSrc && (
-        <div class="landing-footer-map-embed" aria-label="Map location">
-          <iframe
-            src={embedSrc}
-            title="Office location map"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-          />
-        </div>
-      )
-    }
-    </div>
-
-
-
-
-
-    <div class="copy uppercase letter-spacing-widest text-center">
-      <span>
-        &copy; {copyYear}
+    <div class="copy">
+      <span class="footer-legal-line footer-legal-line--primary">
+        Copyright &copy; {copyYear}
         {displaySiteName}
       </span>
-
-                 <br class="inline lg:hidden" />
-            <span class="mx-2 hidden lg:inline-block">|</span>
       {
-        legalLinks.map((item: any) => (
-          <a href={item?.path || "#"}>{item?.name || "Link"}</a> <span class="mx-2">|</span>
-        ))
+        legalLinks.length > 0 && (
+          <span class="footer-legal-separator" aria-hidden="true">
+            |
+          </span>
+        )
       }
-      <br class="inline lg:hidden" />
-      Site designed and maintained by <a href="https://www.tntdental.com" target="blank">TNT Dental</a>
-
-
-          {
-      blurb && (
-        <p class="copy-blurb uppercase text-center mt-12">
-          {blurb}
-        </p>
-      )
-    }
+      {
+        legalLinks.length > 0 && (
+          <span class="footer-legal-line footer-legal-line--links">
+            {legalLinks.map((item: any, index: number) => (
+              <>
+                <a href={item?.path || "#"}>{item?.name || "Link"}</a>
+                {index < legalLinks.length - 1 && (
+                  <span class="footer-legal-link-separator">|</span>
+                )}
+              </>
+            ))}
+          </span>
+        )
+      }
+      <span class="footer-legal-separator" aria-hidden="true">|</span>
+      <span class="footer-legal-line footer-legal-line--credit">
+        Site designed and maintained by{" "}
+        <a href="https://www.tntdental.com" target="_blank" rel="noopener noreferrer">TNT Dental</a>
+      </span>
+      {blurb && <p class="copy-blurb">{blurb}</p>}
     </div>
-
-
   </CustomSection>
 </footer>
 
@@ -407,13 +424,13 @@ const formatOfficeHours = (source: any) => {
       .pho,
       .phy,
       .copy a {
-        color: var(--footer-link-color, #fff);
+        color: var(--footer-link-color, var(--color-brand));
         display: inline-block;
         text-decoration: none;
 
         &:hover,
         &:focus-visible {
-          color: var(--footer-link-hover-color, var(--color-link-hover));
+          color: var(--footer-link-hover-color, var(--color-brand-secondary));
         }
       }
 
@@ -445,20 +462,49 @@ const formatOfficeHours = (source: any) => {
 
       .copy {
         background-color: #000;
-        gap: var(--spacing-xs) var(--spacing-md);
+        font-size: var(--font-size-sm);
+        letter-spacing: 0.1em;
+        line-height: 1.5;
         margin-top: var(--spacing-lg);
-        padding-top: var(--spacing-sm);
         padding: 20px;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .footer-legal-line {
+        display: inline;
+      }
+
+      .footer-legal-separator,
+      .footer-legal-link-separator {
+        display: inline;
+        margin: 0 0.5rem;
       }
 
       .copy-blurb {
-        color: #fff;;
-        font-size: var(--font-size-sm);
+        color: #fff;
+        font-size: var(--font-size-xs);
+        letter-spacing: 0;
         line-height: var(--line-height-relaxed);
-        max-width: 1150px; margin: 0 auto;
-        margin-top: var(--spacing-sm);
-        margin-bottom: 0;
+        margin: 20px auto 0;
+        max-width: 1150px;
+        text-transform: none;
+      }
 
+      @media (max-width: 1024px) {
+        .copy {
+          .footer-legal-line {
+            display: block;
+          }
+
+          .footer-legal-line + .footer-legal-line {
+            margin-top: 0.25rem;
+          }
+
+          .footer-legal-separator {
+            display: none;
+          }
+        }
       }
     }
   }

@@ -12,12 +12,15 @@ value:
   offices: []
   mapEmbedUrl: ""
   officeHoursNote: ""
+  officeHoursAlignment: right
   legalLinks:
     - name: Sitemap
       path: sitemap.html
     - name: Privacy Policy
       path: privacy-policy.html
   legalBlurb: ""
+  linkColor: brand
+  linkHoverColor: brand-secondary
   backgroundColor: ""
   backgroundColorHex: ""
   headingColor: ""

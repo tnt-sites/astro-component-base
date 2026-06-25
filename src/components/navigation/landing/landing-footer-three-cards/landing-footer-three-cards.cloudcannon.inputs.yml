@@ -54,6 +54,21 @@ formRedirect:
 formSubmitLabel:
   type: text
   comment: "Button label for the form submit button."
+formButtonBorderRadius:
+  type: text
+  comment: "Submit button border radius (e.g. 0px, 8px, 999px)."
+formButtonTextColor:
+  type: color
+  comment: "Submit button text color."
+formButtonBackgroundColor:
+  type: color
+  comment: "Submit button background color."
+formButtonHoverBackgroundColor:
+  type: color
+  comment: "Submit button hover background color."
+formButtonHoverTextColor:
+  type: color
+  comment: "Submit button hover text color."
 footerLinksBackgroundColor:
   type: select
   comment: "Background color preset for featured service link tiles."

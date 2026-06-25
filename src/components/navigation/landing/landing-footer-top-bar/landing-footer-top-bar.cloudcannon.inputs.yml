@@ -1,0 +1,145 @@
+logoSource:
+  type: image
+  comment: Footer logo image source.
+
+logoAlt:
+  type: text
+  comment: Alt text for the footer logo.
+
+siteName:
+  type: text
+  comment: Site name shown in the copyright line.
+
+contactTitle:
+  type: text
+  comment: Contact column title.
+
+offices:
+  type: array
+  comment: Office details used for address, phone, and office hours.
+  options:
+    structures: _structures.officeSections
+
+mapEmbedUrl:
+  type: text
+  comment: Embedded Google Map URL for the right map panel.
+
+legalLinks:
+  type: array
+  comment: Footer legal links.
+  options:
+    structures:
+      values:
+        - label: Legal Link
+          icon: link
+          value:
+            name: ""
+            path: ""
+          _inputs:
+            name:
+              type: text
+            path:
+              type: text
+
+legalBlurb:
+  type: textarea
+  comment: Optional legal copy shown below copyright links.
+
+linkColor:
+  type: select
+  comment: Color of copyright row links.
+  options:
+    values:
+      - id: none
+        name: None (default)
+      - id: white
+        name: White
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
+      - id: text
+        name: Text
+      - id: text-strong
+        name: Text (Strong)
+      - id: text-inverse
+        name: Text (Inverse)
+
+linkHoverColor:
+  type: select
+  comment: Color of copyright row links on hover.
+  options:
+    values:
+      - id: none
+        name: None (default)
+      - id: white
+        name: White
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
+      - id: text
+        name: Text
+      - id: text-strong
+        name: Text (Strong)
+      - id: text-inverse
+        name: Text (Inverse)
+
+backgroundImage:
+  type: object
+  comment: Optional background image behind the footer.
+  options:
+    structures:
+      values:
+        - label: Background Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text
+
+backgroundColor:
+  type: select
+  comment: Footer background color fallback when no image is provided.
+  options:
+    values:
+      - id: ""
+        name: Default
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: brand
+        name: Brand
+      - id: brand-secondary
+        name: Brand Secondary
+      - id: dark
+        name: Dark
+      - id: black
+        name: Black
+
+officeHoursAlignment:
+  type: select
+  comment: Align hours text within each office-hours row while keeping the day and time columns aligned.
+  options:
+    values:
+      - id: right
+        name: Right aligned hours
+      - id: left
+        name: Left aligned hours
+
+accentColor:
+  label: Accent Color
+  type: color

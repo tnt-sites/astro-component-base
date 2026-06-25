@@ -13,8 +13,8 @@ value:
       path: privacy-policy.html
   legalBlurb: ""
   backgroundColor: ""
-  linkColor: ""
-  linkHoverColor: ""
+  linkColor: brand
+  linkHoverColor: brand-secondary
 preview:
   text:
     - Landing Footer Map Grid

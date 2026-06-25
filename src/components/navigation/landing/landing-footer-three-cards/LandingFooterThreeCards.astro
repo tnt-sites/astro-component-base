@@ -16,6 +16,11 @@ const {
   formSubject = "Landing Footer Form",
   formRedirect = "thanks.html",
   formSubmitLabel = "Submit",
+  formButtonBorderRadius = "0px",
+  formButtonTextColor = "#ffffff",
+  formButtonBackgroundColor = "var(--color-brand, red)",
+  formButtonHoverBackgroundColor = "var(--color-brand-secondary, blue)",
+  formButtonHoverTextColor = "#ffffff",
   footerLinksBackgroundColor = "brand",
   footerLinksHoverBackgroundColor = "brand-secondary",
   contactCardBackgroundColor = "",
@@ -51,6 +56,27 @@ const formSubmitLabelValue =
   typeof formSubmitLabel === "string" && formSubmitLabel.trim().length > 0
     ? formSubmitLabel.trim()
     : "Submit";
+const formButtonBorderRadiusValue =
+  typeof formButtonBorderRadius === "string" && formButtonBorderRadius.trim().length > 0
+    ? formButtonBorderRadius.trim()
+    : "0px";
+const formButtonTextColorValue =
+  typeof formButtonTextColor === "string" && formButtonTextColor.trim().length > 0
+    ? formButtonTextColor.trim()
+    : "#ffffff";
+const formButtonBackgroundColorValue =
+  typeof formButtonBackgroundColor === "string" && formButtonBackgroundColor.trim().length > 0
+    ? formButtonBackgroundColor.trim()
+    : "var(--color-brand, red)";
+const formButtonHoverBackgroundColorValue =
+  typeof formButtonHoverBackgroundColor === "string" &&
+  formButtonHoverBackgroundColor.trim().length > 0
+    ? formButtonHoverBackgroundColor.trim()
+    : "var(--color-brand-secondary, blue)";
+const formButtonHoverTextColorValue =
+  typeof formButtonHoverTextColor === "string" && formButtonHoverTextColor.trim().length > 0
+    ? formButtonHoverTextColor.trim()
+    : "#ffffff";
 const contactCardBackgroundColorValue =
   typeof contactCardBackgroundColor === "string" ? contactCardBackgroundColor.trim() : "";
 const servicesCardBackgroundColorValue =
@@ -106,6 +132,11 @@ const footerBackgroundStyle = [
       : "",
   `--lp-footer-links-bg: ${footerLinksBackgroundColorValue}`,
   `--lp-footer-links-hover-bg: ${footerLinksHoverBackgroundColorValue}`,
+  `--lp-footer-form-button-radius: ${formButtonBorderRadiusValue}`,
+  `--lp-footer-form-button-color: ${formButtonTextColorValue}`,
+  `--lp-footer-form-button-bg: ${formButtonBackgroundColorValue}`,
+  `--lp-footer-form-button-hover-bg: ${formButtonHoverBackgroundColorValue}`,
+  `--lp-footer-form-button-hover-color: ${formButtonHoverTextColorValue}`,
   resolvedBgColor ? `--lp-footer-bg-color: ${resolvedBgColor}` : "",
   (() => {
     const lkMap: Record<string, string> = {
@@ -440,7 +471,7 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       }
 
       .phy {
-        color: #000 !important;
+        color: var(--footer-link-color, var(--color-brand)) !important;
         font-size: 1.25rem;
         line-height: 1.1;
         margin-top: 1rem;
@@ -540,12 +571,12 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       }
 
       .lp-footer-submit {
-        align-self: center;
-        background: var(--color-brand);
+        align-self: stretch;
+        background: var(--lp-footer-form-button-bg, var(--color-brand, red));
         border: 0;
-        border-radius: 0;
-        box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.25);
-        color: #fff;
+        border-radius: var(--lp-footer-form-button-radius, 0);
+        box-shadow: none;
+        color: var(--lp-footer-form-button-color, #fff);
         cursor: pointer;
         font-size: 1.125rem;
         font-weight: 700;
@@ -553,34 +584,32 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
         min-width: auto;
         padding: 0.95rem 0.65rem;
         text-transform: uppercase;
-        width: 90%;
+        width: 100%;
       }
 
       .lp-footer-submit:hover,
       .lp-footer-submit:focus {
-        background: #2c363c;
-        color: #fff;
+        background: var(--lp-footer-form-button-hover-bg, var(--color-brand-secondary, blue));
+        color: var(--lp-footer-form-button-hover-color, #fff);
       }
 
       .lp-footer-copy {
         color: #fff;
-        font: 400 1.125rem/1.4 var(--font-body, sans-serif);
-        line-height: 1.4;
+        font-size: var(--font-size-sm);
+        letter-spacing: 0.1em;
+        line-height: 1.5;
         margin-top: 2rem;
         padding: 0.65rem 0 3.75rem;
         text-align: center;
+        text-transform: uppercase;
       }
 
       .lp-footer-copy a {
-        color: var(--color-brand);
+        color: var(--footer-link-color, var(--color-brand));
       }
 
       .lp-footer-copy a:hover {
-        color: #fff;
-      }
-
-      .footer-legal-line--credit a {
-        color: #fff;
+        color: var(--footer-link-hover-color, var(--color-link-hover));
       }
 
       .footer-legal-line {
@@ -595,8 +624,9 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       .lp-footer-blurb {
         font-size: var(--font-size-xs);
         letter-spacing: 0;
-        margin: 0.5rem auto 0;
-        max-width: 1000px;
+        line-height: var(--line-height-relaxed);
+        margin: 20px auto 0;
+        max-width: 1150px;
         text-transform: none;
       }
 

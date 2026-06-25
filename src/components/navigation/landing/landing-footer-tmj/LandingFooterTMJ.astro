@@ -22,6 +22,12 @@ const {
   formSubject = "PPC TMJ Footer Form",
   formRedirect = "thanks.html",
   formSubmitLabel = "Submit",
+  formButtonBorderRadius = "0px",
+  formButtonTextColor = "#ffffff",
+  formButtonBackgroundColor = "var(--color-brand, red)",
+  formButtonHoverBackgroundColor = "var(--color-brand-secondary, blue)",
+  formButtonHoverTextColor = "#ffffff",
+  officeHoursAlignment = "right",
   id: elementId,
   class: className,
   ...htmlAttributes
@@ -46,8 +52,35 @@ const formSubmitLabelValue =
   typeof formSubmitLabel === "string" && formSubmitLabel.trim().length > 0
     ? formSubmitLabel.trim()
     : "Submit";
+const formButtonBorderRadiusValue =
+  typeof formButtonBorderRadius === "string" && formButtonBorderRadius.trim().length > 0
+    ? formButtonBorderRadius.trim()
+    : "0px";
+const formButtonTextColorValue =
+  typeof formButtonTextColor === "string" && formButtonTextColor.trim().length > 0
+    ? formButtonTextColor.trim()
+    : "#ffffff";
+const formButtonBackgroundColorValue =
+  typeof formButtonBackgroundColor === "string" && formButtonBackgroundColor.trim().length > 0
+    ? formButtonBackgroundColor.trim()
+    : "var(--color-brand, red)";
+const formButtonHoverBackgroundColorValue =
+  typeof formButtonHoverBackgroundColor === "string" &&
+  formButtonHoverBackgroundColor.trim().length > 0
+    ? formButtonHoverBackgroundColor.trim()
+    : "var(--color-brand-secondary, blue)";
+const formButtonHoverTextColorValue =
+  typeof formButtonHoverTextColor === "string" && formButtonHoverTextColor.trim().length > 0
+    ? formButtonHoverTextColor.trim()
+    : "#ffffff";
+const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
   backgroundGradientValue ? `--lp-footer-tmj-bg-gradient: ${backgroundGradientValue}` : "",
+  `--lp-footer-form-button-radius: ${formButtonBorderRadiusValue}`,
+  `--lp-footer-form-button-color: ${formButtonTextColorValue}`,
+  `--lp-footer-form-button-bg: ${formButtonBackgroundColorValue}`,
+  `--lp-footer-form-button-hover-bg: ${formButtonHoverBackgroundColorValue}`,
+  `--lp-footer-form-button-hover-color: ${formButtonHoverTextColorValue}`,
   (() => {
     const bgColorMap: Record<string, string> = {
       base: "var(--color-bg)",
@@ -305,7 +338,14 @@ const getOfficeHoursEntries = (office: any) => {
                   })} */}
 
                 {officeHours.length > 0 && (
-                  <div class="office-hours office-hours--left lp-footer-tmj-office-hours">
+                  <div
+                    class:list={[
+                      "office-hours",
+                      "office-hours--left",
+                      "lp-footer-tmj-office-hours",
+                      `office-hours--time-${resolvedOfficeHoursAlignment}`,
+                    ]}
+                  >
                     <div class="office-hours-list">
                       {officeHours.map((hoursItem: any) => (
                         <div class="office-hours-row">
@@ -446,7 +486,6 @@ const getOfficeHoursEntries = (office: any) => {
         font-size: 16px;
         line-height: 1.4;
         padding: 0.7rem 0.8rem;
-        width: 100%;
       }
 
       .lp-footer-tmj-textarea {
@@ -455,22 +494,24 @@ const getOfficeHoursEntries = (office: any) => {
       }
 
       .lp-footer-tmj-submit {
-        align-self: center;
-        background-color: var(--color-bg-brand, #1689a5);
+        align-self: stretch;
+        background-color: var(--lp-footer-form-button-bg, var(--color-brand, red));
         border: 0;
-        border-radius: 999px;
-        color: #fff;
+        border-radius: var(--lp-footer-form-button-radius, 0);
+        color: var(--lp-footer-form-button-color, #fff);
         cursor: pointer;
         font-size: 16px;
         font-weight: 700;
         line-height: 1;
         padding: 0.8rem 1.6rem;
         text-transform: uppercase;
+        width: 100%;
       }
 
       .lp-footer-tmj-submit:hover,
       .lp-footer-tmj-submit:focus-visible {
-        background-color: color-mix(in srgb, var(--color-bg-brand, #1689a5) 85%, black);
+        background-color: var(--lp-footer-form-button-hover-bg, var(--color-brand-secondary, blue));
+        color: var(--lp-footer-form-button-hover-color, #fff);
       }
 
       /* Office Hours column */
@@ -547,9 +588,9 @@ const getOfficeHoursEntries = (office: any) => {
       /* Copyright bar */
       .lp-footer-tmj-copyright {
         color: #313131;
-        font-size: 15px;
+        font-size: var(--font-size-sm);
         letter-spacing: 0.1em;
-        line-height: 1.3;
+        line-height: 1.5;
         padding: 40px 0;
         text-align: center;
         text-transform: uppercase;
@@ -568,11 +609,11 @@ const getOfficeHoursEntries = (office: any) => {
         }
 
         a {
-          color: var(--color-bg-brand, #1689a5);
+          color: var(--footer-link-color, var(--color-bg-brand, #1689a5));
           text-decoration: none;
 
           &:hover {
-            color: #000;
+            color: var(--footer-link-hover-color, var(--color-link-hover));
           }
         }
       }
@@ -580,9 +621,9 @@ const getOfficeHoursEntries = (office: any) => {
       .lp-footer-tmj-blurb {
         font-size: var(--font-size-xs);
         letter-spacing: 0;
-        margin: var(--spacing-sm) auto 0;
-        max-width: 900px;
-        opacity: 0.7;
+        line-height: var(--line-height-relaxed);
+        margin: 20px auto 0;
+        max-width: 1150px;
         text-transform: none;
       }
 
@@ -613,7 +654,7 @@ const getOfficeHoursEntries = (office: any) => {
         }
 
         .lp-footer-tmj-submit {
-          align-self: center;
+          align-self: stretch;
         }
 
         .lp-footer-tmj-hours-section{

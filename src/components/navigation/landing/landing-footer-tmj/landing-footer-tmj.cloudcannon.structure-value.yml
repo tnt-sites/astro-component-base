@@ -12,6 +12,11 @@ value:
   formSubject: PPC TMJ Footer Form
   formRedirect: thanks.html
   formSubmitLabel: Submit
+  formButtonBorderRadius: 0px
+  formButtonTextColor: ""
+  formButtonBackgroundColor: ""
+  formButtonHoverBackgroundColor: ""
+  formButtonHoverTextColor: ""
   legalLinks:
     - name: Sitemap
       path: sitemap.html
@@ -24,8 +29,9 @@ value:
     positionHorizontal: center
   backgroundGradient: ""
   backgroundColor: ""
-  linkColor: ""
-  linkHoverColor: ""
+  officeHoursAlignment: right
+  linkColor: brand
+  linkHoverColor: brand-secondary
   getStartedTitle: How to Get Started
   getStartedText: "Thank you for taking the time to consider us. We look forward to having the opportunity to speak with you and to meet in person. Please feel free to give us a call or complete the form on this page, and we promise to get back to you as soon as possible."
   legalBlurb: ""

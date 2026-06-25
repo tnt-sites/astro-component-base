@@ -120,6 +120,15 @@ backgroundColor:
         name: Dark
       - id: black
         name: Black
+officeHoursAlignment:
+  type: select
+  comment: "Align hours text within each office-hours row while keeping the day and time columns aligned."
+  options:
+    values:
+      - id: right
+        name: Right aligned hours
+      - id: left
+        name: Left aligned hours
 linkColor:
   type: select
   comment: Color of phone number and address links.

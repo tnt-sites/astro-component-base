@@ -18,6 +18,7 @@ const {
   backgroundGradient = "",
   legalBlurb = "",
   cardBackgroundColor = "",
+  officeHoursAlignment = "right",
   backgroundColor = "",
   linkColor = "",
   linkHoverColor = "",
@@ -62,6 +63,7 @@ const linkColorMap: Record<string, string> = {
 const resolvedLinkColor = (linkColor && linkColor !== "none" && linkColorMap[linkColor]) || "";
 const resolvedLinkHoverColor =
   (linkHoverColor && linkHoverColor !== "none" && linkColorMap[linkHoverColor]) || "";
+const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
   backgroundGradientValue ? `--landing-footer-bg-gradient: ${backgroundGradientValue}` : "",
   resolvedBgColor ? `--landing-footer-bg-color: ${resolvedBgColor}` : "",
@@ -262,7 +264,13 @@ const getOfficeHoursEntries = (office: any) => {
                 {officeHours.length > 0 && (
                   <div class="fo-hours">
                     <Icon name="clock" size="none" class="fo-icon" aria-hidden="true" />
-                    <div class="office-hours office-hours--left">
+                    <div
+                      class:list={[
+                        "office-hours",
+                        "office-hours--left",
+                        `office-hours--time-${resolvedOfficeHoursAlignment}`,
+                      ]}
+                    >
                       <div class="office-hours-list">
                         {officeHours.map((hoursItem: any) => (
                           <div class="office-hours-row">
@@ -389,7 +397,14 @@ const getOfficeHoursEntries = (office: any) => {
       .pho,
       .phy,
       .copy a {
-        color: var(--footer-link-color, #fff);
+        color: var(--footer-link-color, var(--color-brand));
+      }
+
+      .pho:hover,
+      .pho:focus-visible,
+      .phy:hover,
+      .phy:focus-visible {
+        color: var(--footer-link-hover-color, var(--color-brand-secondary));
       }
 
       .fo-title{font-size: 80px; font-weight: 700; line-height: 1.1; text-shadow: 5px 5px 6px rgba(0, 0, 0, 0.9)}

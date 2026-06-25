@@ -61,12 +61,59 @@ mapEmbedUrl:
 officeHoursNote:
   type: text
   comment: "Note displayed below the office hours list. Falls back to the office data note if blank."
+officeHoursAlignment:
+  type: select
+  comment: "Align hours text within each office-hours row while keeping the day and time columns aligned."
+  options:
+    values:
+      - id: right
+        name: Right aligned hours
+      - id: left
+        name: Left aligned hours
 legalLinks:
   type: array
   comment: "Legal links shown in the footer copyright row."
 legalBlurb:
   type: textarea
   comment: "Optional legal/disclaimer text shown below the copyright row."
+linkColor:
+  type: select
+  comment: "Color of copyright row links."
+  options:
+    values:
+      - id: none
+        name: None (default)
+      - id: white
+        name: White
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
+      - id: text
+        name: Text
+      - id: text-strong
+        name: Text (Strong)
+      - id: text-inverse
+        name: Text (Inverse)
+linkHoverColor:
+  type: select
+  comment: "Color of copyright row links on hover."
+  options:
+    values:
+      - id: none
+        name: None (default)
+      - id: white
+        name: White
+      - id: brand
+        name: Brand (Primary)
+      - id: brand-secondary
+        name: Brand (Secondary)
+      - id: text
+        name: Text
+      - id: text-strong
+        name: Text (Strong)
+      - id: text-inverse
+        name: Text (Inverse)
 backgroundColor:
   type: select
   comment: "Footer background color."

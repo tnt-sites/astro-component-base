@@ -34,8 +34,9 @@ value:
     positionHorizontal: center
   backgroundGradient: ""
   backgroundColor: ""
-  linkColor: ""
-  linkHoverColor: ""
+  officeHoursAlignment: right
+  linkColor: brand
+  linkHoverColor: brand-secondary
   legalBlurb: ""
   offices: []
 preview:

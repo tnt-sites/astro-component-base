@@ -1,0 +1,229 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Image from "@core-elements/image/Image.astro";
+import siteInfoData from "@data/siteInfo.json";
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
+
+const {
+  logoSource,
+  logoAlt = "Logo",
+  offices = [],
+  pageButtons = [],
+  mobileCallLabel = "Call Today!",
+  class: className,
+  ...htmlAttributes
+} = Astro.props;
+
+const normalizedOffices =
+  Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
+
+const office = normalizedOffices[0] || {};
+const phone = office?.phones?.[0] || null;
+const address = office?.addresses?.[0] || null;
+const firstButton = Array.isArray(pageButtons) ? pageButtons[0] : null;
+
+const formatAddressLines = (addressObject: any) => {
+  const lineItems = Array.isArray(addressObject?.lines) ? addressObject.lines : [];
+  const stateAndPostal = [addressObject?.state, addressObject?.postalCode]
+    .filter(Boolean)
+    .join(" ");
+  const cityStatePostal = [addressObject?.city, stateAndPostal].filter(Boolean).join(", ");
+
+  return [...lineItems, cityStatePostal].filter(
+    (line) => typeof line === "string" && line.trim().length > 0
+  );
+};
+
+const addressLines = formatAddressLines(address);
+---
+
+<CustomSection
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical="none"
+  class:list={["landing-header-four-col", className]}
+  {...htmlAttributes}
+>
+  <div class="inner">
+    <a href="/" class="logo-link">
+      <Image source={logoSource} alt={logoAlt} class="logo" editable={false} />
+    </a>
+
+    {
+      addressLines.length > 0 && (
+        <a href={address?.mapUrl || "#"} class="address" target="_blank" rel="noopener noreferrer">
+          {addressLines.map((line: string, index: number) => (
+            <>
+              {line}
+              {index < addressLines.length - 1 && <br />}
+            </>
+          ))}
+        </a>
+      )
+    }
+
+    {
+      phone?.display && (
+        <a href={phone?.href || "#"} class="phone">
+          {phone.display}
+        </a>
+      )
+    }
+
+    <div class="desktop-cta">
+      {
+        Array.isArray(pageButtons) && pageButtons.length > 0 && (
+          <ButtonGroup
+            buttonSections={pageButtons}
+            direction="row"
+            align="center"
+            editable={false}
+          />
+        )
+      }
+    </div>
+  </div>
+
+  <div class="mobile-buttons">
+    {
+      phone?.display && (
+        <a href={phone?.href || "#"} class="mobile-call">
+          <small>{mobileCallLabel}</small>
+          {phone.display}
+        </a>
+      )
+    }
+    {
+      firstButton?.text && (
+        <a href={firstButton?.link || "#"} class="mobile-appt">
+          {firstButton.text}
+        </a>
+      )
+    }
+  </div>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .landing-header-four-col {
+      background: #fff;
+
+      .content {
+        max-width: 1320px;
+      }
+
+      .inner {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 25px 10px;
+
+      }
+
+      .logo-link,
+      .address,
+      .phone {
+        text-decoration: none;
+      }
+
+      .logo {
+        margin: 0 !important;
+      }
+
+      .address {
+        color: #000;
+        font-size: 19px;
+        letter-spacing: 2.9px;
+        line-height: 1.25;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .address:hover {
+        color: #4f95d0;
+      }
+
+      .phone {
+        color: #4f95d0;
+        font-size: 38px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        line-height: 1.1;
+      }
+
+      .phone:hover {
+        color: #000;
+      }
+
+      .desktop-cta {
+        flex: 0 1 200px;
+        @media (max-width: 1000px) {
+          display: none;
+        }
+      }
+
+      .desktop-cta :global(.button-group) {
+        justify-content: flex-end;
+      }
+
+      .desktop-cta :global(.button-group .button) {
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        padding: 15px 25px 12px;
+        text-transform: uppercase;
+      }
+
+      .mobile-buttons {
+        display: none;
+
+        @media (max-width: 1000px) {
+          display: flex;
+          width: 100%;
+        }
+      }
+
+      .mobile-buttons a {
+        align-items: center;
+        color: #fff;
+        display: flex;
+        flex: 0 1 50%;
+        flex-direction: column;
+        font-size: 19px;
+        font-weight: 600;
+        justify-content: center;
+        line-height: 1.1;
+        padding: 15px 10px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .mobile-buttons a small {
+        font-size: 14px;
+      }
+
+      .mobile-call {
+        background: #476682;
+      }
+
+      .mobile-appt {
+        background: #4f95d0;
+      }
+
+      @media (max-width: 1000px) {
+        .inner {
+          justify-items: center;
+          padding: 10px;
+        }
+
+        .address,
+        .phone {
+          display: none;
+        }
+      }
+    }
+  }
+</style>
