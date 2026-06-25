@@ -206,18 +206,26 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
     }
   </div>
 
-  <div class="lhci-mobile-bar">
+  <div class="lhci-mobile-bar mobile-btns">
     {
       mobileCallDisplay && (
-        <a href={mobileCallHref} class="lhci-mobile-call">
-          <small class="lhci-mobile-small">{mobileCallSmallText}</small>
+        <a href={mobileCallHref} class="lhci-mobile-call mobile-call">
+          {mobileCallSmallText}
+          <br />
           {mobileCallDisplay}
         </a>
       )
     }
-    <a href={mobileApptLink} class="lhci-mobile-appt">
-      {mobileApptFirstLine && <span>{mobileApptFirstLine}</span>}
-      {mobileApptSecondLine && <span>{mobileApptSecondLine}</span>}
+    <a href={mobileApptLink} class="lhci-mobile-appt mobile-ra">
+      {mobileApptFirstLine || mobileApptLabel}
+      {
+        mobileApptSecondLine && (
+          <>
+            <br />
+            {mobileApptSecondLine}
+          </>
+        )
+      }
     </a>
   </div>
 </header>
@@ -260,7 +268,7 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
       }
 
       .lhci-address {
-        color: var(--lhci-address-link-color, var(--lhci-link-color, var(--color-text)));
+        color: var(--lhci-address-link-color, var(--color-text));
 
         &:hover,
         &:focus-visible {
@@ -269,7 +277,7 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
       }
 
       .lhci-phone {
-        color: var(--lhci-phone-link-color, var(--lhci-link-color, var(--color-text)));
+        color: var(--lhci-phone-link-color, var(--color-text));
 
         &:hover,
         &:focus-visible {
@@ -344,11 +352,15 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
           display: flex;
           flex: 1;
           flex-direction: column;
-          font-weight: var(--font-weight-semibold);
+          font-size: 16px;
+          font-weight: 700;
           justify-content: center;
-          padding-block: var(--spacing-sm);
+          letter-spacing: 2.4px;
+          line-height: 1.1;
+          padding: 5px;
           text-align: center;
           text-decoration: none;
+          text-transform: uppercase;
         }
 
         .lhci-mobile-call {
@@ -366,16 +378,6 @@ const mobileApptSecondLine = mobileApptLabelParts.slice(1).join(" ");
           text-transform: uppercase;
         }
 
-        .lhci-mobile-appt span {
-          display: block;
-        }
-
-        .lhci-mobile-small {
-          display: block;
-          font-size: 0.75rem;
-          font-weight: var(--font-weight-normal);
-          text-transform: uppercase;
-        }
       }
 
       @media (max-width: 1024px){

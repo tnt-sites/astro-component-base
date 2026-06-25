@@ -31,20 +31,84 @@ mobileMapLabel:
   comment: Label shown in the mobile map button.
 
 mobileMapHref:
-  type: text
+  type: select
   comment: Optional custom map URL for the mobile map button.
+  options:
+    values:
+      - id: ""
+        name: Default (Text)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 mobileBarBackground:
-  type: color
+  type: select
   comment: Optional background color behind the mobile action bar.
+  options:
+    values:
+      - id: ""
+        name: Default (Text)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 mobileCallBackground:
-  type: color
+  type: select
   comment: Mobile call button background color.
+  options:
+    values:
+      - id: ""
+        name: Default (Text)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 mobileApptBackground:
-  type: color
+  type: select
   comment: Mobile appointment button background color.
+  options:
+    values:
+      - id: ""
+        name: Default (Text)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 
 mobileMapBackground:
   type: color
@@ -60,14 +124,14 @@ addressLinkColor:
         name: White
       - id: "#000"
         name: Black
-      - id: "#0d5f78"
-        name: Pediatric Teal
       - id: "var(--color-brand)"
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
         name: Brand (Secondary)
       - id: "var(--color-text)"
         name: Text
+      - id: "var(--color-brand-muted)"
+        name: Brand (Tertiary)
 addressLinkHoverColor:
   type: select
   comment: Hover color of address links.

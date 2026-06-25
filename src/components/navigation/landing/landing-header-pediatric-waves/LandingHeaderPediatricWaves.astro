@@ -64,6 +64,10 @@ const normalizedButtons = (Array.isArray(pageButtons) ? pageButtons : []).map((b
 const mobilePhone = normalizedOffices[0]?.phones?.[0] ?? null;
 const mobileMap = normalizedOffices[0]?.addresses?.[0] ?? null;
 const mobileAppt = normalizedButtons[0] ?? null;
+const mobileApptLabel = typeof mobileAppt?.text === "string" ? mobileAppt.text.trim() : "";
+const mobileApptLabelParts = mobileApptLabel.split(/\s+/).filter(Boolean);
+const mobileApptFirstLine = mobileApptLabelParts.slice(0, 2).join(" ");
+const mobileApptSecondLine = mobileApptLabelParts.slice(2).join(" ");
 
 const cssVars = [
   mobileBarBackground ? `--pw-header-mobile-bar-bg: ${mobileBarBackground}` : "",
@@ -145,18 +149,26 @@ const cssVars = [
     }
   </div>
 
-  <div class="mobile-bar">
+  <div class="mobile-bar mobile-btns">
     {
-      mobileAppt?.text && (
-        <a class="mobile-appt" href={mobileAppt?.link || "#"}>
-          {mobileAppt.text}
+      mobileApptLabel && (
+        <a class="mobile-appt mobile-ra" href={mobileAppt?.link || "#"}>
+          {mobileApptFirstLine || mobileApptLabel}
+          {mobileApptSecondLine && (
+            <>
+              <br />
+              {mobileApptSecondLine}
+            </>
+          )}
         </a>
       )
     }
     {
       mobilePhone?.display && (
         <a class="mobile-call" href={mobilePhone?.href || "#"}>
-          {mobileCallLabel} {mobilePhone.display}
+          {mobileCallLabel}
+          <br />
+          {mobilePhone.display}
         </a>
       )
     }
@@ -264,11 +276,13 @@ const cssVars = [
         align-items: center;
         color: #fff;
         display: flex;
-        font-size: 0.8rem;
+        font-size: 16px;
         font-weight: 700;
         justify-content: center;
+        letter-spacing: 2.4px;
+        line-height: 1.1;
         min-height: 3rem;
-        padding: 0.5rem;
+        padding: 5px;
         text-align: center;
         text-decoration: none;
         text-transform: uppercase;

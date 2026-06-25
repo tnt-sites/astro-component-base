@@ -113,6 +113,7 @@ const renderOffice = (office: any) => {
   if (!office) return null;
   const phones: any[] = Array.isArray(office.phones) ? office.phones : [];
   const addresses: any[] = Array.isArray(office.addresses) ? office.addresses : [];
+
   return { phones, addresses };
 };
 
@@ -144,6 +145,7 @@ const right = renderOffice(rightOffice);
           )}
           {left.addresses.map((address: any) => {
             const lines = formatAddressLines(address);
+
             return lines.length > 0 ? (
               <a
                 href={address?.mapUrl || "#"}
@@ -183,6 +185,7 @@ const right = renderOffice(rightOffice);
           )}
           {right.addresses.map((address: any) => {
             const lines = formatAddressLines(address);
+
             return lines.length > 0 ? (
               <a
                 href={address?.mapUrl || "#"}
@@ -204,23 +207,25 @@ const right = renderOffice(rightOffice);
     }
 
     {/* Mobile buttons — visible only on small screens */}
-    <div class="lhtl-mobile-btns">
+    <div class="lhtl-mobile-btns mobile-btns">
       {
         mobilePhone && (
-          <a href={mobilePhone.href || "#"} class="lhtl-mobile-call">
-            <small class="lhtl-mobile-small">{resolvedMobileCallText}</small>
+          <a href={mobilePhone.href || "#"} class="lhtl-mobile-call mobile-call">
+            {resolvedMobileCallText}
+            <br />
             {mobilePhone.display}
           </a>
         )
       }
       {
         resolvedMobileApptLabel && (
-          <a href={resolvedMobileApptHref} class="lhtl-mobile-cta">
-            {mobileButtonFirstLine && (
-              <span class="lhtl-mobile-label">{mobileButtonFirstLine}</span>
-            )}
+          <a href={resolvedMobileApptHref} class="lhtl-mobile-cta mobile-ra">
+            {mobileButtonFirstLine || resolvedMobileApptLabel}
             {mobileButtonSecondLine && (
-              <span class="lhtl-mobile-label">{mobileButtonSecondLine}</span>
+              <>
+                <br />
+                {mobileButtonSecondLine}
+              </>
             )}
           </a>
         )
@@ -322,19 +327,16 @@ const right = renderOffice(rightOffice);
         display: flex;
         flex: 1;
         flex-direction: column;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-semibold);
+        font-size: 16px;
+        font-weight: 700;
         justify-content: center;
+        letter-spacing: 2.4px;
+        line-height: 1.1;
         min-height: 3.5rem;
-        padding-block: var(--spacing-sm);
-        padding-inline: var(--spacing-sm);
+        padding: 5px;
         text-align: center;
         text-decoration: none;
-      }
-
-      .lhtl-mobile-label {
-        display: block;
-        font-size: var(--font-size-md);
+        text-transform: uppercase;
       }
 
       .lhtl-mobile-call {
@@ -358,12 +360,6 @@ const right = renderOffice(rightOffice);
         }
       }
 
-      .lhtl-mobile-small {
-        display: block;
-        font-size: 0.75rem;
-        font-weight: var(--font-weight-normal);
-        text-transform: uppercase;
-      }
     }
   }
 </style>
