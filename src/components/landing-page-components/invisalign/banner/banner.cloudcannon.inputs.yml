@@ -1,0 +1,86 @@
+heading:
+  type: text
+  comment: Main hero heading.
+
+preHeading:
+  type: text
+  comment: Small heading text above the main heading.
+
+postHeading:
+  type: text
+  comment: Small heading text below the main heading.
+
+coupons:
+  type: array
+  comment: Coupon badge images shown below the heading.
+  options:
+    structures:
+      values:
+        - label: Coupon Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text
+
+image:
+  type: object
+  comment: Right-side hero image.
+  options:
+    structures:
+      values:
+        - label: Hero Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text
+
+figcaption:
+  type: text
+  comment: Caption shown over the bottom edge of the hero image.
+
+textPanelBackgroundImage:
+  type: object
+  comment: Background image for the left text panel.
+  options:
+    structures:
+      values:
+        - label: Text Panel Background
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text
+
+sectionBackground:
+  type: color
+  comment: Overall banner background color.
+
+borderBottomColor:
+  type: color
+  comment: Color of the bottom border.

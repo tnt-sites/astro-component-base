@@ -1,0 +1,40 @@
+formHeading:
+  type: text
+  comment: Heading shown above the form.
+
+formAction:
+  type: text
+  comment: Form submit endpoint.
+
+formMethod:
+  type: select
+  options:
+    values:
+      - id: post
+        name: POST
+      - id: get
+        name: GET
+
+formSubject:
+  type: text
+  comment: Value for hidden _subject field.
+
+formRedirect:
+  type: text
+  comment: Value for hidden _redirect field.
+
+reviewHeading:
+  type: text
+  comment: Heading shown above the review quote.
+
+reviewText:
+  type: textarea
+  comment: Review body copy.
+
+reviewerName:
+  type: text
+  comment: Name shown under the review.
+
+sectionSpacingTop:
+  type: text
+  comment: CSS spacing token/value for top margin (e.g. 100px).

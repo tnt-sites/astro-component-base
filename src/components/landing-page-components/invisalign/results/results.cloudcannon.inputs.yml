@@ -1,0 +1,32 @@
+heading:
+  type: text
+  comment: Section heading.
+
+images:
+  type: array
+  comment: Before/after or smile result images.
+  options:
+    structures:
+      values:
+        - label: Result Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text
+
+backgroundColorHex:
+  type: color
+  comment: Background color of the section.
+
+textColor:
+  type: color
+  comment: Heading text color.

@@ -5,16 +5,17 @@ value:
   _component: landing-page-components/new-patient-split-banner/banner
   id: ""
   backgroundColor: base
-  subheading: "Seattle's"
+  subheading: "City's"
   heading: "Top-Rated<br>Dental Expert"
   text: ""
+  textBackgroundImage: ""
   badgeImage:
     source: ""
     alt: ""
   image:
     source: https://placehold.co/800x600
     alt: Doctor photo
-  figcaption: "Dr. Drew Beaty"
+  figcaption: "Dr. LastName"
   buttonSections: []
   fontHeadings: ""
   fontBody: ""

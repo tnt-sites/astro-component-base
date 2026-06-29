@@ -37,6 +37,14 @@ text:
     bulletedlist: false
     numberedlist: false
 
+textBackgroundImage:
+  type: image
+  comment: Optional centered background image (heart) for the text panel.
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ""
+
 badgeImage:
   type: object
   comment: Optional badge or award image displayed below the heading.

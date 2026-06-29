@@ -1,0 +1,71 @@
+heading:
+  type: text
+  comment: Main section heading.
+
+leftTitle:
+  type: text
+  comment: Heading above the left list.
+
+leftItems:
+  type: array
+  options:
+    structures:
+      values:
+        - label: Left Benefit Item
+          icon: check
+          value: ""
+
+rightTitle:
+  type: text
+  comment: Heading above the right list.
+
+rightItems:
+  type: array
+  options:
+    structures:
+      values:
+        - label: Right Benefit Item
+          icon: check
+          value: ""
+
+centerImage:
+  type: object
+  comment: Center illustrative image between the two lists.
+  options:
+    structures:
+      values:
+        - label: Center Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text
+
+backgroundImage:
+  type: object
+  comment: Full section background texture/image.
+  options:
+    structures:
+      values:
+        - label: Background Image
+          icon: image
+          value:
+            source: ""
+            alt: ""
+          _inputs:
+            source:
+              type: image
+              options:
+                paths:
+                  uploads: src/assets/images
+                  static: ""
+            alt:
+              type: text

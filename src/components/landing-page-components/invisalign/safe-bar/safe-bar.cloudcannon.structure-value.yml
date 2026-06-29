@@ -1,0 +1,13 @@
+label: Safe Bar
+icon: horizontal_rule
+description: Upper information bar with two short messages separated by a bullet.
+value:
+  _component: landing-page-components/invisalign/safe-bar
+  id: ""
+  text: New Patients Welcome!
+  secondaryText: Same Day Appointments
+  separator: "•"
+  backgroundColor: "#adc3c3"
+  textColor: "#000000"
+_inputs_from_glob:
+  - /src/components/landing-page-components/invisalign/safe-bar/safe-bar.cloudcannon.inputs.yml
