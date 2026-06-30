@@ -10,13 +10,20 @@ const {
   rightItems = [],
   centerImage = { source: "", alt: "" },
   backgroundImage = { source: "", alt: "" },
+  backgroundColor = "var(--color-brand)",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
-const styleVars = backgroundImage?.source
-  ? `--invis-benefits-bg: url('${backgroundImage.source}')`
-  : "";
+const resolvedBg = backgroundColorHex || backgroundColor;
+
+const styleVars = [
+  resolvedBg ? `--invis-benefits-color: ${resolvedBg}` : "",
+  backgroundImage?.source ? `--invis-benefits-bg: url('${backgroundImage.source}')` : "",
+]
+  .filter(Boolean)
+  .join("; ");
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
@@ -69,6 +76,7 @@ const htmlAttributes = Object.fromEntries(
 
 <style>
   .invis-benefits {
+    background-color: var(--invis-benefits-color, var(--color-brand));
     background-image: var(--invis-benefits-bg, none);
     background-size: cover;
     margin: 100px auto;

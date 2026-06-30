@@ -13,5 +13,9 @@ value:
   reviewText: His number one concern is to ensure my teeth are always in tip top shape. Dr Ishaya thank you for everything you do to ensure my family's teeth are healthy.
   reviewerName: Jonathan B.
   sectionSpacingTop: 100px
+  formBackgroundColor: "var(--color-brand)"
+  formBackgroundColorHex: ""
+  reviewBackgroundColor: "#fff"
+  reviewBackgroundColorHex: ""
 _inputs_from_glob:
   - /src/components/landing-page-components/invisalign/form-review/form-review.cloudcannon.inputs.yml
