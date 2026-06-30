@@ -6,6 +6,7 @@ value:
   id: ""
   text:
   backgroundColor: none
+  backgroundColorHex: ""
   textColor: "#000"
   blurbBackgroundColor: none
 _inputs_from_glob:

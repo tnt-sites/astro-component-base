@@ -5,14 +5,17 @@ import Image from "@core-elements/image/Image.astro";
 const {
   heading = "Real Results. Real Smiles.",
   images = [],
+  backgroundColor = "",
   backgroundColorHex = "#4f95d0",
   textColor = "#ffffff",
   class: className,
   ...rest
 } = Astro.props;
 
+const resolvedBackground = backgroundColorHex || backgroundColor;
+
 const styleVars = [
-  `--invis-results-bg: ${backgroundColorHex}`,
+  `--invis-results-bg: ${resolvedBackground}`,
   `--invis-results-text: ${textColor}`,
 ].join("; ");
 

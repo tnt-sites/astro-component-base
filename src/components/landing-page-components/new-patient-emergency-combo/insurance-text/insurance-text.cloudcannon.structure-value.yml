@@ -7,6 +7,7 @@ value:
   heading: "Insurance Text Heading"
   text: "Insurance Text"
   backgroundColor: base
+  backgroundColorHex: ""
   images:
   imageType: logos
 _inputs_from_glob:

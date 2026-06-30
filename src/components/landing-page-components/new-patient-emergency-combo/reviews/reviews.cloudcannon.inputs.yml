@@ -15,6 +15,9 @@ backgroundColor:
         name: Highlight
       - id: dark
         name: Dark
+backgroundColorHex:
+  type: color
+  comment: Optional custom hex color that overrides the background color above. Leave blank to use the theme color.
 image:
   type: object
   comment: Google logo that goes above the desktop review text.

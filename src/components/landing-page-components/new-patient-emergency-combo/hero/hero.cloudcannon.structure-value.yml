@@ -21,6 +21,7 @@ value:
   badges: []
   reverse: false
   backgroundColor: base
+  backgroundColorHex: ""
   borderColor: "var(--color-brand)"
   fontHeadings: ""
   fontBody: ""

@@ -18,6 +18,7 @@ const {
   badges = [],
   reverse = false,
   backgroundColor = "base",
+  backgroundColorHex = "",
   class: className,
   editable = true,
   ...rest
@@ -34,7 +35,8 @@ const htmlAttributes = Object.fromEntries(
   paddingHorizontal="lg"
   paddingVertical="4xl"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={backgroundColorHex ? "none" : backgroundColor}
+  style={backgroundColorHex ? `background-color: ${backgroundColorHex}` : undefined}
   {...htmlAttributes}
 >
   <Split

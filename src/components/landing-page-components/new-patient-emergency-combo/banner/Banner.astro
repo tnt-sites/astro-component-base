@@ -15,11 +15,13 @@ const {
   fontHeadings = "",
   fontBody = "",
   backgroundColor = "none",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
 const inlineStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   borderColor ? `--npem-banner-border: ${borderColor}` : "",
   fontHeadings ? `--npem-banner-font-headings: ${fontHeadings}` : "",
   fontBody ? `--npem-banner-font-body: ${fontBody}` : "",
@@ -27,6 +29,7 @@ const inlineStyle = [
   .filter(Boolean)
   .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -36,7 +39,7 @@ const htmlAttributes = Object.fromEntries(
   class:list={["npem-banner", className]}
   paddingVertical="none"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={inlineStyle || undefined}
   {...htmlAttributes}
 >

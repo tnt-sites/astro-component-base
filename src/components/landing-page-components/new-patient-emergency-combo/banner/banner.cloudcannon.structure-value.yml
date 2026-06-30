@@ -18,6 +18,7 @@ value:
     alt: ""
   figcaption: ""
   backgroundColor: none
+  backgroundColorHex: ""
   borderColor: "var(--color-brand)"
   fontHeadings: ""
   fontBody: ""

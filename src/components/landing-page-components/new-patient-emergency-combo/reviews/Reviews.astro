@@ -24,11 +24,13 @@ const {
   mobileTextColor = "#000",
   starColor = "#febb21",
   backgroundColor = "base",
+  backgroundColorHex = "",
   class: className,
   editable = true,
   ...rest
 } = Astro.props;
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -40,7 +42,8 @@ const htmlAttributes = Object.fromEntries(
   paddingHorizontal="lg"
   paddingVertical="4xl"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
+  style={backgroundColorHex ? `background-color: ${backgroundColorHex}` : undefined}
   {...htmlAttributes}
 >
   <!-- style={backgroundImage?.source ? `background-image: url(${backgroundImage.source});` : undefined} -->

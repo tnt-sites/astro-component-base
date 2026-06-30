@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/dental-implants/split
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   heading: "True Expertise in Dental Implants"
   paragraphs:
     - "Our team has placed thousands of implants and is committed to delivering results that look, feel, and function like natural teeth."

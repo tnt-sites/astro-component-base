@@ -19,6 +19,7 @@ interface ListItem {
 
 const {
   backgroundColor = "base",
+  backgroundColorHex = "",
   headingColor = "#fff",
   listTextColor = "#fff",
   checkmarkColor = "#ddca52",
@@ -29,6 +30,7 @@ const {
 } = Astro.props;
 
 const inlineStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   headingColor ? `--npem-list-heading-color: ${headingColor}` : "",
   listTextColor ? `--npem-list-text-color: ${listTextColor}` : "",
   checkmarkColor ? `--npem-list-check-color: ${checkmarkColor}` : "",
@@ -36,6 +38,7 @@ const inlineStyle = [
   .filter(Boolean)
   .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 function normalizeImage(value: string | ListItemImage | undefined, fallbackAlt = "") {
   if (typeof value === "string") {
     return { source: value, alt: fallbackAlt };
@@ -59,7 +62,7 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="none"
   paddingHorizontal="none"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={inlineStyle || undefined}
   {...htmlAttributes}
 >

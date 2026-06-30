@@ -10,6 +10,7 @@ value:
       alt: Result one
     - source: https://placehold.co/460x330
       alt: Result two
+  backgroundColor: ""
   backgroundColorHex: "#4f95d0"
   textColor: "#ffffff"
 _inputs_from_glob:

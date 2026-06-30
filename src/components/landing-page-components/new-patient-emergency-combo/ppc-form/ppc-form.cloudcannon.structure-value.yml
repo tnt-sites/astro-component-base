@@ -65,5 +65,6 @@ value:
       hideText: false
       disabled: false
   backgroundColor: base
+  backgroundColorHex: ""
 _inputs_from_glob:
   - /src/components/landing-page-components/new-patient-emergency-combo/ppc-form/ppc-form.cloudcannon.inputs.yml
