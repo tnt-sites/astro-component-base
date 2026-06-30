@@ -11,7 +11,7 @@ value:
     - source: https://placehold.co/460x330
       alt: Result two
   backgroundColor: ""
-  backgroundColorHex: "#4f95d0"
+  backgroundColorHex: "var(--color-brand)"
   textColor: "#ffffff"
 _inputs_from_glob:
   - /src/components/landing-page-components/invisalign/results/results.cloudcannon.inputs.yml

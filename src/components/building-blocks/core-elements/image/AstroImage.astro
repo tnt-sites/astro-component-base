@@ -52,7 +52,6 @@ const dataAttributes = dataEditable
 let imageSrc = source;
 let imageWidth = width;
 let imageHeight = height;
-let useInferSize = false;
 let shouldRender = false;
 
 const isRemoteUrl =
@@ -91,7 +90,6 @@ if (isRemoteUrl) {
 
         if (contentType?.startsWith("image/")) {
           shouldRender = true;
-          useInferSize = true;
         } else {
           console.warn(`Invalid content-type for image: ${source} (${contentType})`);
         }
@@ -106,8 +104,8 @@ if (isRemoteUrl) {
   }
 }
 
-let finalWidth = useInferSize ? undefined : imageWidth;
-let finalHeight = useInferSize ? undefined : imageHeight;
+let finalWidth = imageWidth;
+let finalHeight = imageHeight;
 let useFit = undefined;
 let usePosition = undefined;
 let filteredWidths = widths;
@@ -167,7 +165,6 @@ if (aspectRatio && aspectRatio !== "none" && shouldRender && imageSrc && imageWi
       loading={priority ? "eager" : "lazy"}
       decoding={priority ? "sync" : "async"}
       fetchpriority={priority ? "high" : undefined}
-      inferSize={useInferSize}
       {...dataAttributes}
       pictureAttributes={{
         ...restHtmlAttributes,
