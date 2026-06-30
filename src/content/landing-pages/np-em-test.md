@@ -6,6 +6,21 @@ landingMainNav:
   - _component: navigation/landing/landing-header
     logoSource: /images/logo.svg
     logoAlt: Logo
+    mobileCallSmallText: Call Now
+    mobileRequestLabel: Request an Appointment
+    mobileRequestHref: ''
+    mobileCallBackgroundColor: ''
+    mobileCallBackgroundColorHex: ''
+    mobileRequestBackgroundColor: ''
+    mobileRequestBackgroundColorHex: ''
+    mobileCallTextColor: ''
+    mobileCallSmallTextColor: ''
+    mobileRequestTextColor: ''
+    mobileRequestSmallTextColor: ''
+    addressLinkColor: ''
+    addressLinkHoverColor: ''
+    phoneLinkColor: ''
+    phoneLinkHoverColor: ''
     pageButtons:
       - _component: building-blocks/core-elements/button
         id: ''
@@ -66,11 +81,23 @@ landingFooter:
       positionHorizontal: center
     backgroundGradient:
     backgroundColor: dark
+    officeHoursAlignment: right
     linkColor: ''
     linkHoverColor: ''
+    addressLinkColor: ''
+    addressLinkHoverColor: ''
+    phoneLinkColor: ''
+    phoneLinkHoverColor: ''
     legalBlurb: ''
     offices: []
 landingPageSections:
+  - _component: landing-page-components/shared/top-bar
+    id: ''
+    backgroundColor: brand
+    textColor: var(--color-text-inverse)
+    items:
+      - New Patients Welcome
+      - Same-Day Appointments Available
   - _component: landing-page-components/new-patient-emergency-combo/banner
     id: ''
     image:
