@@ -1,3 +1,6 @@
+id:
+  type: text
+  comment: "Developer use only. Optional HTML id attribute for this header section."
 logoSource:
   type: image
   comment: Logo image source URL or path.

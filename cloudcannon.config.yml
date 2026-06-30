@@ -431,6 +431,12 @@ collections_config:
         icon: stars
         _enabled_editors:
           - visual
+        _inputs:
+          landingPageSections:
+            type: array
+            options:
+              structures: _structures.invisalignSections
+            cascade: true
       landing-page-pediatric-waves:
         path: .cloudcannon/schemas/landing-page-pediatric-waves.md
         reorder_inputs: true

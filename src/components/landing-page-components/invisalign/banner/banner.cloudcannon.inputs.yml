@@ -78,9 +78,37 @@ textPanelBackgroundImage:
               type: text
 
 sectionBackground:
-  type: color
+  type: select
   comment: Overall banner background color.
+  options:
+    values:
+      - id: ""
+        name: Default (White)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text
 
 borderBottomColor:
-  type: color
+  type: select
   comment: Color of the bottom border.
+  options:
+    values:
+      - id: ""
+        name: Default (White)
+      - id: "#fff"
+        name: White
+      - id: "#000"
+        name: Black
+      - id: "var(--color-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-text)"
+        name: Text

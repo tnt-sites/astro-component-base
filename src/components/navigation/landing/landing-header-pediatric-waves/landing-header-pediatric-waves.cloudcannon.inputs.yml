@@ -104,8 +104,6 @@ mobileCallTextColor:
         name: White
       - id: "#000"
         name: Black
-      - id: "#0d5f78"
-        name: Pediatric Teal
       - id: "var(--color-brand)"
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
@@ -123,8 +121,6 @@ mobileCallSmallTextColor:
         name: White
       - id: "#000"
         name: Black
-      - id: "#0d5f78"
-        name: Pediatric Teal
       - id: "var(--color-brand)"
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
@@ -142,8 +138,6 @@ mobileRequestTextColor:
         name: White
       - id: "#000"
         name: Black
-      - id: "#0d5f78"
-        name: Pediatric Teal
       - id: "var(--color-brand)"
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
@@ -161,8 +155,6 @@ mobileRequestSmallTextColor:
         name: White
       - id: "#000"
         name: Black
-      - id: "#0d5f78"
-        name: Pediatric Teal
       - id: "var(--color-brand)"
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
@@ -200,8 +192,6 @@ addressLinkHoverColor:
         name: White
       - id: "#000"
         name: Black
-      - id: "#0d5f78"
-        name: Pediatric Teal
       - id: "var(--color-brand)"
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
@@ -214,13 +204,11 @@ phoneLinkColor:
   options:
     values:
       - id: ""
-        name: Default (Pediatric Teal)
+        name: Default
       - id: "#fff"
         name: White
       - id: "#000"
         name: Black
-      - id: "#0d5f78"
-        name: Pediatric Teal
       - id: "var(--color-brand)"
         name: Brand (Primary)
       - id: "var(--color-brand-secondary)"
@@ -233,7 +221,7 @@ phoneLinkHoverColor:
   options:
     values:
       - id: ""
-        name: Default (Pediatric Teal)
+        name: Default
       - id: "#fff"
         name: White
       - id: "#000"

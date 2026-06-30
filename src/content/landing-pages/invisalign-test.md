@@ -91,13 +91,13 @@ landingFooter:
             hours: 8:00am - 5:00pm
         officeHoursNote: ""
 landingPageSections:
-  - _component: landing-page-components/invisalign/safe-bar
+  - _component: landing-page-components/shared/top-bar
     id: ""
-    text: New Patients Welcome!
-    secondaryText: Same Day Appointments
-    separator: "•"
-    backgroundColor: "#adc3c3"
-    textColor: "#000000"
+    backgroundColor: brand
+    textColor: "var(--color-text-inverse)"
+    items:
+      - New Patients Welcome!
+      - Same Day Appointments
 
   - _component: landing-page-components/invisalign/banner
     id: ""
