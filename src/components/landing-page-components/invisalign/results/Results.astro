@@ -6,7 +6,7 @@ const {
   heading = "Real Results. Real Smiles.",
   images = [],
   backgroundColor = "",
-  backgroundColorHex = "#4f95d0",
+  backgroundColorHex = "var(--color-brand)",
   textColor = "#ffffff",
   class: className,
   ...rest
@@ -35,7 +35,7 @@ const htmlAttributes = Object.fromEntries(
   {heading && <h2>{heading}</h2>}
   <div class="flex">
     {
-      (Array.isArray(images) ? images : []).map((item: any) => (
+      (Array.isArray(images) ? images : []).map((item: any, index: number) => (
         <div class="result-image">
           <Image
             source={item?.source}
@@ -45,6 +45,8 @@ const htmlAttributes = Object.fromEntries(
             aspectRatio="none"
             sizes="auto"
             widths={[]}
+            data-prop-src={`images.${index}.source`}
+            data-prop-alt={`images.${index}.alt`}
           />
         </div>
       ))

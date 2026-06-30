@@ -10,14 +10,15 @@ const {
   image = { source: "", alt: "" },
   figcaption = "",
   textPanelBackgroundImage = { source: "", alt: "" },
-  sectionBackground = "#476682",
+  sectionBackground = "var(--color-brand)",
+  sectionBackgroundHex = "",
   borderBottomColor = "#4f95d0",
   class: className,
   ...rest
 } = Astro.props;
 
 const styleVars = [
-  `--invis-banner-bg: ${sectionBackground}`,
+  `--invis-banner-bg: ${sectionBackgroundHex || sectionBackground}`,
   `--invis-banner-border: ${borderBottomColor}`,
   textPanelBackgroundImage?.source
     ? `--invis-banner-article-bg: url('${textPanelBackgroundImage.source}')`

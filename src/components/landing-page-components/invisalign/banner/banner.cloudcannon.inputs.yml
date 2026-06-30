@@ -79,7 +79,7 @@ textPanelBackgroundImage:
 
 sectionBackground:
   type: select
-  comment: Overall banner background color.
+  comment: Overall banner background color. Choose a theme color or use the hex override below for a custom color.
   options:
     values:
       - id: ""
@@ -94,6 +94,10 @@ sectionBackground:
         name: Brand (Secondary)
       - id: "var(--color-text)"
         name: Text
+
+sectionBackgroundHex:
+  type: color
+  comment: Optional custom hex color that overrides the section background above. Leave blank to use the theme color.
 
 borderBottomColor:
   type: select

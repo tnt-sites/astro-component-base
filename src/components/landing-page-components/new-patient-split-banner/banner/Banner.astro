@@ -17,11 +17,13 @@ const {
   fontBody = "",
   borderColor = "",
   backgroundColor = "base",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
 const fontStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   fontHeadings ? `--np-font-headings: ${fontHeadings}` : "",
   fontBody ? `--np-font-body: ${fontBody}` : "",
   borderColor ? `--np-border-color: ${borderColor}` : "",
@@ -29,6 +31,7 @@ const fontStyle = [
   .filter(Boolean)
   .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const articleStyle = textBackgroundImage?.source
   ? `--np-text-bg-image: url('${textBackgroundImage.source}')`
   : "";
@@ -42,7 +45,7 @@ const htmlAttributes = Object.fromEntries(
   class:list={["np-banner", className]}
   paddingVertical="none"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={fontStyle || undefined}
   {...htmlAttributes}
 >
