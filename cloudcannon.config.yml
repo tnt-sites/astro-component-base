@@ -289,6 +289,9 @@ collections_config:
       - name: Landing Page (Pediatric Waves)
         icon: stars
         schema: landing-page-pediatric-waves
+      - name: Landing Page (Pediatric Superhero)
+        icon: stars
+        schema: landing-page-pediatric-superhero
       - name: Landing Page (Custom)
         icon: stars
         schema: landing-page-custom
@@ -444,6 +447,16 @@ collections_config:
         remove_empty_inputs: false
         remove_extra_inputs: false
         name: Landing Page (Pediatric Waves)
+        icon: stars
+        _enabled_editors:
+          - visual
+      landing-page-pediatric-superhero:
+        path: .cloudcannon/schemas/landing-page-pediatric-superhero.md
+        reorder_inputs: true
+        hide_extra_inputs: false
+        remove_empty_inputs: false
+        remove_extra_inputs: false
+        name: Landing Page (Pediatric Superhero)
         icon: stars
         _enabled_editors:
           - visual
