@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/count-on-us/reviews
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   backgroundImage:
     source: ""
     alt: ""

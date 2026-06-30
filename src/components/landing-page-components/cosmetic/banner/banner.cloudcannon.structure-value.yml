@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/cosmetic/banner
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   heading: "Waco's Premier<br>Cosmetic <span>Dentists</span>"
   tagline: "◆ ◆ ◆"
   subheading: "We combine state-of-the-art technology, artistry, and concierge-level care to create smiles that change lives."

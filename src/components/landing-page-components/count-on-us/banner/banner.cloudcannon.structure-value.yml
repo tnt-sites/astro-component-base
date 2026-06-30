@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/count-on-us/banner
   id: ""
   backgroundColor: surface
+  backgroundColorHex: ""
   subheading: "San Jose's"
   heading: "Top-Rated<br>Dental Expert"
   badgeImages:

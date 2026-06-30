@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/count-on-us/split-section
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   headingPrefix: What happens during
   heading: "Your First Visit"
   headingFontFamily: ""

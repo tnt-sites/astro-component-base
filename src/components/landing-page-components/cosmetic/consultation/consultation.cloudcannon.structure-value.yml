@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/cosmetic/consultation
   id: ""
   backgroundColor: surface
+  backgroundColorHex: ""
   heading: "Request a FREE Smile Makeover <span>Consultation</span>"
   formAction: ""
   formBlocks:

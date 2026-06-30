@@ -1,26 +1,27 @@
 backgroundColor:
   type: select
-  comment: Background color of the banner section.
+  comment: Background color of the banner section. Choose a theme color or use the hex override below for a custom color.
   options:
     values:
-      - id: brand
-        name: Brand (Primary)
-      - id: brand-secondary
-        name: Brand (Secondary)
-      - id: none
+      - id: ""
         name: None
-      - id: base
+      - id: "var(--color-bg)"
         name: Base
-      - id: surface
+      - id: "var(--color-bg-surface)"
         name: Surface
-      - id: accent
+      - id: "var(--color-bg-accent)"
         name: Accent
-      - id: highlight
+      - id: "var(--color-bg-highlight)"
         name: Highlight
-      - id: dark
+      - id: "var(--color-bg-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-bg-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-bg-dark)"
         name: Dark
-      - id: black
+      - id: "var(--color-bg-black)"
         name: Black
+
 backgroundColorHex:
   type: color
   comment: Optional custom hex color that overrides the background color above. Leave blank to use the theme color.
@@ -83,27 +84,31 @@ borderColor:
 
 titleBackground:
   type: select
-  comment: Background color of the title section.
+  comment: Background color of the title section. Choose a theme color or use the hex override below for a custom color.
   options:
     values:
-      - id: brand
-        name: Brand (Primary)
-      - id: brand-secondary
-        name: Brand (Secondary)
-      - id: none
+      - id: ""
         name: None
-      - id: base
+      - id: "var(--color-bg)"
         name: Base
-      - id: surface
+      - id: "var(--color-bg-surface)"
         name: Surface
-      - id: accent
+      - id: "var(--color-bg-accent)"
         name: Accent
-      - id: highlight
+      - id: "var(--color-bg-highlight)"
         name: Highlight
-      - id: dark
+      - id: "var(--color-bg-brand)"
+        name: Brand (Primary)
+      - id: "var(--color-bg-brand-secondary)"
+        name: Brand (Secondary)
+      - id: "var(--color-bg-dark)"
         name: Dark
-      - id: black
+      - id: "var(--color-bg-black)"
         name: Black
+
+titleBackgroundHex:
+  type: color
+  comment: Optional custom hex color that overrides the title background color above. Leave blank to use the theme color.
 
 titleColor:
   type: select

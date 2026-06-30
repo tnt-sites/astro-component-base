@@ -12,6 +12,7 @@ const {
   headingColor = "#2691CA",
   borderColor = "#0A4172",
   titleBackground = "#0A4172",
+  titleBackgroundHex = "",
   titleColor = "#ffffff",
   class: className,
   ...rest
@@ -21,7 +22,7 @@ const inlineStyle = [
   `--ai-banner-bg: ${backgroundColorHex || backgroundColor}`,
   `--ai-banner-heading: ${headingColor}`,
   `--ai-banner-border: ${borderColor}`,
-  `--ai-banner-title-bg: ${titleBackground}`,
+  `--ai-banner-title-bg: ${titleBackgroundHex || titleBackground}`,
   `--ai-banner-title-color: ${titleColor}`,
 ]
   .filter(Boolean)

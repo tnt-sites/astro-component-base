@@ -10,12 +10,19 @@ const {
   services = [] as ServiceItem[],
   accentColor = "",
   backgroundColor = "accent",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
-const inlineStyle = `--cos-accent-color: ${accentColor || "#af8c57"}`;
+const inlineStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
+  `--cos-accent-color: ${accentColor || "#af8c57"}`,
+]
+  .filter(Boolean)
+  .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -27,7 +34,7 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="md"
   paddingHorizontal="md"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={inlineStyle}
   {...htmlAttributes}
 >

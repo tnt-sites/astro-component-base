@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/cosmetic/reviews
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   heading: "Patients Love Us"
   reviewText: "Dr. Smith is so nice and does a great job. His assistant makes my visit enjoyable!"
   author: "Regina W."

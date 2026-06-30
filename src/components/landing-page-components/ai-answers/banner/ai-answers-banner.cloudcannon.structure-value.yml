@@ -2,7 +2,7 @@ label: AI Answers Banner
 icon: dashboard
 value:
   _component: landing-page-components/ai-answers/banner/ai-answers-banner
-  backgroundColor: surface
+  backgroundColor: "var(--color-bg-surface)"
   backgroundColorHex: ""
   heading: "Want a new smile?<br>Confused?<br>Need Answers?"
   consultationTitle: "Request a Free Consultation<br>with Our Doctors"
@@ -15,7 +15,8 @@ value:
     source: /assets/images/lp-implants-ai-banner.png
     alt: "AI consultation banner image"
   borderColor: "var(--color-brand-secondary)"
-  titleBackground: "black"
-  titleColor: "white"
+  titleBackground: "var(--color-bg-black)"
+  titleBackgroundHex: ""
+  titleColor: "var(--color-text-inverse)"
 _inputs_from_glob:
   - /src/components/landing-page-components/ai-answers/banner/ai-answers-banner.cloudcannon.inputs.yml

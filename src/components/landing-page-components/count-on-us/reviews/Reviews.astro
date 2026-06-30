@@ -13,11 +13,13 @@ const {
   fontHeadings = "",
   fontBody = "",
   backgroundColor = "base",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
 const inlineStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   starColor ? `--cou-star-color: ${starColor}` : "",
   bracketColor ? `--cou-bracket-color: ${bracketColor}` : "",
   googlePanelColor ? `--cou-google-panel-color: ${googlePanelColor}` : "",
@@ -27,6 +29,7 @@ const inlineStyle = [
   .filter(Boolean)
   .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -37,7 +40,7 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   paddingHorizontal="md"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   backgroundImage={backgroundImage}
   style={inlineStyle || undefined}
   {...htmlAttributes}
