@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
   id: ""
   backgroundColor: none
+  backgroundColorHex: ""
   heading: "Hear More From<br>Some of Our Actual Patients"
   image:
     source: https://placehold.co/400x300

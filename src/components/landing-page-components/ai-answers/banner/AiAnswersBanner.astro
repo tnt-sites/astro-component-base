@@ -8,6 +8,7 @@ const {
   consultationItems = [],
   image = { source: "", alt: "" },
   backgroundColor = "#f0f0f0",
+  backgroundColorHex = "",
   headingColor = "#2691CA",
   borderColor = "#0A4172",
   titleBackground = "#0A4172",
@@ -17,7 +18,7 @@ const {
 } = Astro.props;
 
 const inlineStyle = [
-  `--ai-banner-bg: ${backgroundColor}`,
+  `--ai-banner-bg: ${backgroundColorHex || backgroundColor}`,
   `--ai-banner-heading: ${headingColor}`,
   `--ai-banner-border: ${borderColor}`,
   `--ai-banner-title-bg: ${titleBackground}`,

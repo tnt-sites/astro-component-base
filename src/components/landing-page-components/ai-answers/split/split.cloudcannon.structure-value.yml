@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/ai-answers/split
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   heading: "How Dr. Lastname's<br> Expertise Benefits You"
   text: "lorem Ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   image:

@@ -24,6 +24,7 @@ const {
   checkColor = "#2e7d32",
   crossColor = "#c0392b",
   backgroundColor = "none",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
@@ -32,6 +33,7 @@ const resolvedSiteName = siteName || siteInfoData.siteName;
 const resolvedHeading = heading.replace(/\{siteName\}/g, resolvedSiteName);
 
 const inlineStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   `--ai-table-header-bg: ${headerColor}`,
   `--ai-table-header-color: ${headerTextColor}`,
   `--ai-table-check: ${checkColor}`,
@@ -43,6 +45,7 @@ const inlineStyle = [
   .filter(Boolean)
   .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -58,7 +61,7 @@ function getCellType(value: string): "check" | "cross" | "text" {
   class:list={["ai-answers-table", className]}
   paddingVertical="none"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={inlineStyle}
   {...htmlAttributes}
 >

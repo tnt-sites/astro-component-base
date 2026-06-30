@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/ai-answers/videos/ai-answers-videos
   id: ""
   backgroundColor: none
+  backgroundColorHex: ""
   heading: "Hear More From<br>Some of Our Actual Patients"
   headingColor: "var(--color-text)"
   image:

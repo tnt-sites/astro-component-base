@@ -3,6 +3,7 @@ icon: dashboard
 value:
   _component: landing-page-components/ai-answers/banner/ai-answers-banner
   backgroundColor: surface
+  backgroundColorHex: ""
   heading: "Want a new smile?<br>Confused?<br>Need Answers?"
   consultationTitle: "Request a Free Consultation<br>with Our Doctors"
   consultationItems:

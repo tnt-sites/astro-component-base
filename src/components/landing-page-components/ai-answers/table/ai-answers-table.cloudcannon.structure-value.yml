@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/ai-answers/table/ai-answers-table
   id: ""
   backgroundColor: none
+  backgroundColorHex: ""
   heading: "How {siteName} is<br>Different From Other Dental Practices"
   headingLineColor: "#000000"
   siteName: ""

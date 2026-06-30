@@ -14,15 +14,20 @@ const {
   videos = [] as VideoItem[],
   image = { source: "", alt: "" },
   backgroundColor = "none",
+  backgroundColorHex = "",
   headingColor = "var(--color-text)",
   class: className,
   ...rest
 } = Astro.props;
 
-const inlineStyle = [headingColor ? `--ai-videos-heading: ${headingColor}` : ""]
+const inlineStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
+  headingColor ? `--ai-videos-heading: ${headingColor}` : "",
+]
   .filter(Boolean)
   .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const displayVideos = videos.slice(0, 3).filter((video: VideoItem) => video?.id);
 
 const htmlAttributes = Object.fromEntries(
@@ -34,7 +39,7 @@ const htmlAttributes = Object.fromEntries(
   class:list={["ai-answers-videos", className]}
   paddingVertical="none"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={inlineStyle || undefined}
   {...htmlAttributes}
 >
