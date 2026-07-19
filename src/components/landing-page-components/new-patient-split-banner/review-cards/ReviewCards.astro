@@ -8,11 +8,13 @@ const {
   textColor = "#ffffff",
   starColor = "#febb21",
   backgroundColor = "none",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
 const styleVars = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   cardBackgroundColor ? `--np-review-card-bg: ${cardBackgroundColor}` : "",
   textColor ? `--np-review-card-text: ${textColor}` : "",
   starColor ? `--np-review-card-stars: ${starColor}` : "",
@@ -30,7 +32,7 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="none"
   paddingHorizontal="none"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={backgroundColorHex ? "none" : backgroundColor}
   style={styleVars || undefined}
   {...htmlAttributes}
 >

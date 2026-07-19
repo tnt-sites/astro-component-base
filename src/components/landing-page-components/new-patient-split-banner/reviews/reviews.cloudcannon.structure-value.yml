@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/new-patient-split-banner/reviews
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   backgroundImage:
     source: https://placehold.co/1920x600
     alt: ""

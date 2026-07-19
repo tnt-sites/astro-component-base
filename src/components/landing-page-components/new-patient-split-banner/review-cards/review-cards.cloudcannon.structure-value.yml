@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/new-patient-split-banner/review-cards
   id: ""
   backgroundColor: none
+  backgroundColorHex: ""
   reviews:
     - reviewText: My family and I just started going here through other referrals. We absolutely love it here. Everyone is welcoming and friendly, and the team always explains each step clearly.
       author: Yvonne B.

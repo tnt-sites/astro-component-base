@@ -11,12 +11,19 @@ const {
   starColor = "#febb21",
   fontHeadings = "",
   backgroundColor = "base",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
-const fontStyle = fontHeadings ? `--np-font-headings: ${fontHeadings}` : undefined;
+const fontStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
+  fontHeadings ? `--np-font-headings: ${fontHeadings}` : "",
+]
+  .filter(Boolean)
+  .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -26,9 +33,9 @@ const htmlAttributes = Object.fromEntries(
   class:list={["np-reviews", className]}
   paddingVertical="4xl"
   paddingHorizontal="md"
-  style={fontStyle}
+  style={fontStyle || undefined}
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   {...htmlAttributes}
 >
   <Image

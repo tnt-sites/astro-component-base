@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/new-patient-split-banner/banner
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   subheading: "City's"
   heading: "Top-Rated<br>Dental Expert"
   text: ""

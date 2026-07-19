@@ -2,8 +2,9 @@
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
 
-const { items = [], backgroundColor = "base", class: className, ...rest } = Astro.props;
+const { items = [], backgroundColor = "base", backgroundColorHex = "", class: className, ...rest } = Astro.props;
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -14,7 +15,8 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   paddingHorizontal="md"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
+  style={backgroundColorHex ? `background-color: ${backgroundColorHex}` : undefined}
   {...htmlAttributes}
 >
   <div class="items-row">

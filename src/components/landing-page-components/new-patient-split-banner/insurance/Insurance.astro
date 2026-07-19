@@ -9,12 +9,14 @@ const {
   headingColor = "",
   dividerColor = "",
   backgroundColor = "base",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
 const inlineStyle =
   [
+    backgroundColorHex ? `background-color: ${backgroundColorHex}` : null,
     fontHeadings ? `--np-font-headings: ${fontHeadings}` : null,
     headingColor ? `--np-heading-color: ${headingColor}` : null,
     dividerColor ? `--np-divider-color: ${dividerColor}` : null,
@@ -22,6 +24,7 @@ const inlineStyle =
     .filter(Boolean)
     .join("; ") || undefined;
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -32,7 +35,7 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   paddingHorizontal="md"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={inlineStyle}
   {...htmlAttributes}
 >
