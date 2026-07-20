@@ -36,9 +36,7 @@ const hasImage = Boolean(imageSource);
       <SimpleText class="eyebrow" data-prop="eyebrow">
         {eyebrow}
       </SimpleText>
-      <Heading level="h2" size="lg" style="margin-top: 0;" data-prop="title">
-        {title}
-      </Heading>
+      <Heading level="h2" size="lg" style="margin-top: 0;" data-prop="title" text={title} />
       <Text data-prop="description" text={description} />
     </Fragment>
     <Image

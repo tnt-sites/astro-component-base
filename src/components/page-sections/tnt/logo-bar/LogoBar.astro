@@ -24,9 +24,7 @@ const {
   {...htmlAttributes}
 >
   {heading && (
-    <Heading level="h2" size="sm" alignX="center" data-prop="heading">
-      {heading}
-    </Heading>
+    <Heading level="h2" size="sm" alignX="center" data-prop="heading" text={heading} />
   )}
   <div class="tnt-logo-bar-logos" data-prop="logos">
     {logos.map((logo: { src: string; alt: string }) => (

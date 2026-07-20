@@ -46,10 +46,7 @@ const cardClasses = ["team-item", className].filter(Boolean).join(" ");
     size="md"
     alignX="start"
     style="margin-bottom: var(--spacing-xs); margin-top: 0;"
-    data-prop="name"
-  >
-    {name}
-  </Heading>
+    data-prop="name" text={name} />
   <SimpleText
     class="team-role"
     size="sm"

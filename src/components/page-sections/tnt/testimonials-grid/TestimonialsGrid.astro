@@ -25,9 +25,7 @@ const {
   {...htmlAttributes}
 >
   {heading && (
-    <Heading level="h2" size="lg" alignX="center" data-prop="heading">
-      {heading}
-    </Heading>
+    <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />
   )}
   <div class="tnt-testimonials-items" data-prop="items">
     {items.map((t: { quote: string; authorName: string; authorRole: string; image: string }) => (

@@ -1,0 +1,70 @@
+label: Before & After
+icon: compare
+description: Before/after image-pair comparison — a static side-by-side card for a single pair, or an auto-scrolling carousel for multiple pairs.
+value:
+  _component: page-sections/tnt/before-after
+  eyebrow: ""
+  heading: Before & After
+  subtext: ""
+  buttonSections: []
+  pairs:
+    - before: ""
+      after: ""
+      beforeCaption: ""
+      afterCaption: ""
+preview:
+  text:
+    - Before & After
+  subtext:
+    - key: heading
+  icon: compare
+picker_preview:
+  text: Before & After
+  subtext: Before/after image-pair comparison (static pair or scrolling carousel).
+_inputs_from_glob:
+  - /src/components/page-sections/tnt/before-after/before-after.cloudcannon.inputs.yml
+_structures:
+  beforeAfterPairs:
+    values:
+      - label: Before/After Pair
+        icon: compare
+        value:
+          before: ""
+          after: ""
+          beforeAlt: ""
+          afterAlt: ""
+          beforeCaption: Before
+          afterCaption: After
+        preview:
+          text:
+            - key: beforeCaption
+            - Before/After Pair
+          image:
+            - key: before
+        _inputs:
+          before:
+            type: image
+            comment: Before-treatment photo.
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          after:
+            type: image
+            comment: After-treatment photo.
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          beforeAlt:
+            type: text
+            comment: Optional alt text for the before image (falls back to the caption).
+          afterAlt:
+            type: text
+            comment: Optional alt text for the after image (falls back to the caption).
+          beforeCaption:
+            type: text
+            comment: Caption shown under the before image.
+          afterCaption:
+            type: text
+            comment: Caption shown under the after image.

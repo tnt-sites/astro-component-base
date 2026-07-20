@@ -1,0 +1,227 @@
+---
+/**
+ * Ported 2026-07-19 from luxdentistrygroup's page-sections/lux/before-after
+ * (a real, proven component -- no dedicated before/after comparison block
+ * existed in the generic base). Found while investigating a WP2Astro
+ * conversion gap: a 3rd-party Elementor widget carrying real before/after
+ * treatment photos had no matching component in this base to land on, so
+ * the WP2Astro adapter was falling back to a generic gallery. Rebuilt here
+ * using this base's own idioms (CustomSection/Heading/SimpleText/Text/
+ * ButtonGroup, generic spacing/radius/color tokens) instead of the Lux
+ * fork's brand-specific tokens (navy/gold-text/near-black),
+ * but keeps the two UX behaviors that make it worth having: a single pair
+ * renders as a static side-by-side card with an arrow; 2+ pairs render as
+ * an auto-scrolling carousel track.
+ */
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Text from "@core-elements/text/Text.astro";
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
+
+const {
+  eyebrow = "",
+  heading = "",
+  subtext = "",
+  buttonSections = [],
+  pairs = [],
+  colorScheme = "inherit",
+  backgroundColor = "base",
+  paddingVertical = "4xl",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const imagePairs = pairs ?? [];
+const isSinglePair = imagePairs.length === 1;
+// Duplicate the pair list once so the CSS-only marquee (translateX(-50%))
+// can loop seamlessly without a JS ticker.
+const loopPairs = imagePairs.length > 1 ? [...imagePairs, ...imagePairs] : imagePairs;
+---
+
+<CustomSection
+  class:list={["tnt-before-after", isSinglePair && "tnt-before-after--single", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {(eyebrow || heading || subtext) && (
+    <div class="tnt-before-after__header">
+      {eyebrow && (
+        <SimpleText class="eyebrow" data-prop="eyebrow">
+          {eyebrow}
+        </SimpleText>
+      )}
+      {heading && <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />}
+      {subtext && <Text class="tnt-before-after__subtext" data-prop="subtext" text={subtext} />}
+    </div>
+  )}
+
+  <div
+    class:list={[
+      "tnt-before-after__track-wrapper",
+      isSinglePair && "tnt-before-after__track-wrapper--single",
+    ]}
+    data-prop="pairs"
+  >
+    <div class:list={["tnt-before-after__track", imagePairs.length < 2 && "tnt-before-after__track--static"]}>
+      {loopPairs.map((pair: { before?: string; after?: string; beforeAlt?: string; afterAlt?: string; beforeCaption?: string; afterCaption?: string }) => (
+        <div class="tnt-before-after__pair">
+          <figure class="tnt-before-after__fig">
+            <Image
+              source={pair.before}
+              alt={pair.beforeAlt?.trim() ? pair.beforeAlt : pair.beforeCaption || "Before"}
+              editable={false}
+              class="tnt-before-after__img"
+            />
+            <figcaption class="tnt-before-after__caption">{pair.beforeCaption || "Before"}</figcaption>
+          </figure>
+          {!isSinglePair && (
+            <div class="tnt-before-after__arrow" aria-hidden="true">
+              <span>&#8594;</span>
+            </div>
+          )}
+          <figure class="tnt-before-after__fig">
+            <Image
+              source={pair.after}
+              alt={pair.afterAlt?.trim() ? pair.afterAlt : pair.afterCaption || "After"}
+              editable={false}
+              class="tnt-before-after__img"
+            />
+            <figcaption class="tnt-before-after__caption">{pair.afterCaption || "After"}</figcaption>
+          </figure>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {buttonSections.length > 0 && (
+    <ButtonGroup class="tnt-before-after__buttons" direction="row" alignX="center" buttonSections={buttonSections} />
+  )}
+</CustomSection>
+
+<style lang="pcss">
+  .tnt-before-after__header {
+    max-width: 48rem;
+    margin-inline: auto;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .tnt-before-after__subtext {
+    max-width: 42rem;
+    margin-inline: auto;
+  }
+
+  .tnt-before-after__track-wrapper:not(.tnt-before-after__track-wrapper--single) {
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface, var(--color-bg-surface));
+    padding: var(--spacing-md);
+  }
+
+  .tnt-before-after__track {
+    display: flex;
+    gap: var(--spacing-md);
+    width: max-content;
+    animation: tnt-before-after-scroll 30s linear infinite;
+  }
+
+  .tnt-before-after__track--static {
+    width: 100%;
+    animation: none;
+    justify-content: center;
+  }
+
+  .tnt-before-after__track--static .tnt-before-after__pair {
+    min-width: 0;
+    flex: 1 1 auto;
+    max-width: 100%;
+  }
+
+  @keyframes tnt-before-after-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .tnt-before-after__pair {
+    display: flex;
+    align-items: stretch;
+    flex-shrink: 0;
+    gap: var(--spacing-sm);
+    width: min(22rem, calc(100vw - 3rem));
+
+    @media (min-width: 48em) {
+      width: 24rem;
+    }
+  }
+
+  .tnt-before-after--single .tnt-before-after__pair {
+    width: 100%;
+  }
+
+  .tnt-before-after__fig {
+    flex: 1 1 0;
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tnt-before-after__caption {
+    margin: 0;
+    padding-top: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    text-align: center;
+  }
+
+  .tnt-before-after__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding-inline: var(--spacing-2xs, 0.25rem);
+
+    span {
+      display: flex;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid var(--color-border-strong);
+      color: var(--color-brand);
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .tnt-before-after .tnt-before-after__fig .image {
+      flex: 1 1 auto;
+      margin-top: 0;
+      height: 100%;
+      overflow: hidden;
+      border-radius: var(--radius-sm);
+    }
+
+    .tnt-before-after .tnt-before-after__fig .image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+</style>
