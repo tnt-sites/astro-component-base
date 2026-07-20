@@ -1,0 +1,80 @@
+eyebrow:
+  type: text
+  comment: Optional short label above the overlay heading.
+heading:
+  type: text
+  comment: Overlay headline. Keep this short — long welcome copy belongs in the next section.
+subtext:
+  type: markdown
+  comment: Optional supporting line under the heading. Prefer empty for photo-first heroes.
+  options:
+    blockquote: false
+    bold: true
+    format:
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+imageSource:
+  type: image
+  comment: Full-bleed background image for the hero.
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ""
+imageAlt:
+  type: text
+  comment: Alt text for the background image.
+buttonSections:
+  type: array
+  comment: One or two call-to-action buttons over the image.
+  options:
+    structures: _structures.buttonSections
+align:
+  type: select
+  comment: Horizontal placement of the overlay content.
+  options:
+    values:
+      - id: left
+        name: Left
+      - id: center
+        name: Center
+      - id: right
+        name: Right
+overlay:
+  type: select
+  comment: Dark scrim over the photo for text contrast.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: soft
+        name: Soft (gradient)
+      - id: strong
+        name: Strong
+minHeight:
+  type: select
+  comment: Minimum height of the hero band.
+  options:
+    values:
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+      - id: viewport
+        name: Near viewport
+colorScheme:
+  type: select
+  comment: Use Contrast for light text on dark/photo heroes.
+  options:
+    values:
+      - id: inherit
+        name: Inherit
+      - id: default
+        name: Default
+      - id: contrast
+        name: Contrast

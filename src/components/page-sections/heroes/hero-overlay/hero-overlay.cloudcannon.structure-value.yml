@@ -1,0 +1,34 @@
+label: Hero Overlay
+icon: hero
+description: Full-bleed background image with overlay headline and CTAs.
+value:
+  _component: page-sections/heroes/hero-overlay
+  eyebrow: ""
+  heading: Heading text
+  subtext: ""
+  imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
+  imageAlt: Hero background image
+  buttonSections:
+    - _component: building-blocks/core-elements/button
+      text: Book an Appointment
+      hideText: false
+      link: ""
+      iconName: ""
+      iconPosition: before
+      variant: primary
+      size: md
+  align: left
+  overlay: soft
+  minHeight: lg
+  colorScheme: contrast
+preview:
+  text:
+    - Hero Overlay
+  subtext:
+    - key: heading
+  icon: hero
+picker_preview:
+  text: Hero Overlay
+  subtext: Full-bleed photo hero with overlay text and buttons.
+_inputs_from_glob:
+  - /src/components/page-sections/heroes/hero-overlay/hero-overlay.cloudcannon.inputs.yml

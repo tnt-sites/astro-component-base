@@ -1,0 +1,185 @@
+---
+/**
+ * Full-bleed overlay hero.
+ *
+ * Edge-to-edge background image with short overlay copy + CTAs.
+ * Use for Practice Cafe / Elementor "cover" first viewports.
+ * Keep long welcome/body copy in the following section.
+ */
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Text from "@core-elements/text/Text.astro";
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
+
+const {
+  eyebrow = "",
+  heading = "",
+  subtext = "",
+  imageSource = "",
+  imageAlt = "",
+  buttonSections = [],
+  align = "left",
+  overlay = "soft",
+  minHeight = "lg",
+  colorScheme = "contrast",
+  paddingVertical = "4xl",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const alignClass =
+  align === "center" ? "align-center" : align === "right" ? "align-right" : "align-left";
+const overlayClass =
+  overlay === "none" ? "overlay-none" : overlay === "strong" ? "overlay-strong" : "overlay-soft";
+const heightClass =
+  minHeight === "md" ? "height-md" : minHeight === "viewport" ? "height-viewport" : "height-lg";
+---
+
+<CustomSection
+  maxContentWidth="xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundImage={{
+    source: imageSource,
+    alt: imageAlt,
+    positionVertical: "center",
+    positionHorizontal: "center",
+    priority: true,
+  }}
+  class:list={["hero-overlay", alignClass, overlayClass, heightClass, className]}
+  {...htmlAttributes}
+>
+  <div class="hero-overlay__content">
+    {
+      eyebrow && (
+        <SimpleText class="eyebrow" data-prop="eyebrow">
+          {eyebrow}
+        </SimpleText>
+      )
+    }
+    <Heading level="h1" size="2xl" data-prop="heading" text={heading} />
+    {subtext && <Text class="subtext" data-prop="subtext" text={subtext} />}
+    {
+      buttonSections?.length > 0 && (
+        <ButtonGroup class="buttons" buttonSections={buttonSections} />
+      )
+    }
+  </div>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .hero-overlay.custom-section {
+      overflow: hidden;
+
+      > .background-image {
+        z-index: 0;
+      }
+
+      /* Scrim over the photo for text contrast */
+      &::before {
+        content: "";
+        inset: 0;
+        position: absolute;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      &.overlay-none::before {
+        background: transparent;
+      }
+
+      &.overlay-soft::before {
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.55) 0%,
+          rgba(0, 0, 0, 0.28) 45%,
+          rgba(0, 0, 0, 0.12) 100%
+        );
+      }
+
+      &.overlay-strong::before {
+        background: rgba(0, 0, 0, 0.55);
+      }
+
+      > .outer-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        width: 100%;
+      }
+
+      > .outer-content > .content {
+        display: flex;
+        width: 100%;
+        align-items: center;
+      }
+
+      &.height-md > .outer-content > .content {
+        min-height: clamp(20rem, 42vh, 28rem);
+      }
+
+      &.height-lg > .outer-content > .content {
+        min-height: clamp(24rem, 56vh, 36rem);
+      }
+
+      &.height-viewport > .outer-content > .content {
+        min-height: min(85vh, 52rem);
+      }
+
+      &.align-left > .outer-content > .content {
+        justify-content: flex-start;
+        text-align: left;
+      }
+
+      &.align-center > .outer-content > .content {
+        justify-content: center;
+        text-align: center;
+      }
+
+      &.align-right > .outer-content > .content {
+        justify-content: flex-end;
+        text-align: right;
+      }
+
+      .hero-overlay__content {
+        max-width: 36rem;
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+      }
+
+      &.align-center .hero-overlay__content {
+        align-items: center;
+        max-width: 42rem;
+      }
+
+      &.align-right .hero-overlay__content {
+        align-items: flex-end;
+      }
+
+      .hero-overlay__content .eyebrow {
+        margin: 0;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-size: var(--font-size-sm);
+      }
+
+      .hero-overlay__content .subtext p {
+        font-size: var(--font-size-lg);
+        margin: 0;
+      }
+
+      .hero-overlay__content .buttons {
+        margin-top: var(--spacing-sm);
+      }
+
+      &.align-center .hero-overlay__content .buttons {
+        justify-content: center;
+      }
+    }
+  }
+</style>
