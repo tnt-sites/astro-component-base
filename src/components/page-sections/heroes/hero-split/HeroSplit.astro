@@ -9,6 +9,7 @@ import Split from "@wrappers/split/Split.astro";
 
 const {
   eyebrow = "",
+  seoHeading = "",
   heading = "",
   subtext = "",
   imageSource = "",
@@ -19,50 +20,144 @@ const {
   colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
+  variant = "default",
+  minHeight = "min(50vw, 48rem)",
   class: className,
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const isFullBleed = variant === "full-bleed";
 ---
 
 <CustomSection
-  maxContentWidth="xl"
-  paddingHorizontal="lg"
-  paddingVertical={paddingVertical}
+  maxContentWidth={isFullBleed ? undefined : "xl"}
+  paddingHorizontal={isFullBleed ? undefined : "lg"}
+  paddingVertical={isFullBleed ? "" : paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
-  class:list={["hero", className]}
+  class:list={["hero", `variant-${variant}`, className]}
+  style={isFullBleed ? `--hero-split-min-height: ${minHeight};` : undefined}
   {...htmlAttributes}
 >
   <Split
-    distributionMode="flexible-fixed"
-    fixedWidth="400"
-    verticalAlignment="center"
+    distributionMode={isFullBleed ? "half" : "flexible-fixed"}
+    fixedWidth={isFullBleed ? undefined : "400"}
+    verticalAlignment={isFullBleed ? "stretch" : "center"}
     reverse={reverse}
     minSplitWidth={710}
-    gap="2xl"
+    gap={isFullBleed ? "xs" : "2xl"}
     class="hero-split"
+    style={isFullBleed ? "padding-block: 0 !important; padding-inline: 0;" : undefined}
   >
     <Fragment slot="first">
-      <SimpleText class="eyebrow" data-prop="eyebrow">
-        {eyebrow}
-      </SimpleText>
-      <Heading level="h1" size="2xl" data-prop="heading" text={heading} />
-      <Text class="subtext" data-prop="subtext" text={subtext} />
-      <ButtonGroup class="buttons-container" buttonSections={buttonSections} />
+      <div class="hero-copy">
+        {seoHeading && <Heading level="h1" class="visually-hidden" editable={false} text={seoHeading} />}
+        <SimpleText class="eyebrow" data-prop="eyebrow">
+          {eyebrow}
+        </SimpleText>
+        <Heading level={seoHeading ? "h2" : "h1"} size="2xl" data-prop="heading" text={heading} />
+        <Text class="subtext" data-prop="subtext" text={subtext} />
+        <ButtonGroup class="buttons-container" buttonSections={buttonSections} />
+      </div>
     </Fragment>
     <Fragment slot="second">
-      <Image
-        source={imageSource}
-        alt={imageAlt}
-        rounded="true"
-        editable={true}
-        aspectRatio={imageAspectRatio}
-        data-prop-src="imageSource"
-        data-prop-alt="imageAlt"
-        data-editable="image"
-        priority={true}
-      />
+      <div class="hero-media">
+        <Image
+          source={imageSource}
+          alt={imageAlt}
+          rounded={!isFullBleed}
+          editable={true}
+          aspectRatio={imageAspectRatio}
+          data-prop-src="imageSource"
+          data-prop-alt="imageAlt"
+          data-editable="image"
+          priority={true}
+        />
+      </div>
     </Fragment>
   </Split>
 </CustomSection>
+
+<style is:global>
+  .custom-section.hero.variant-full-bleed > .outer-content > .content {
+    max-width: none;
+    padding-block: 0 !important;
+    padding-inline: 0;
+  }
+
+  .custom-section.hero.variant-full-bleed .hero-split {
+    gap: 0;
+    grid-template-columns: 1fr 1fr;
+    height: var(--hero-split-min-height);
+    margin-top: 0;
+    min-height: var(--hero-split-min-height);
+    padding-block: 0 !important;
+    padding-inline: 0;
+  }
+
+  .custom-section.hero.variant-full-bleed .hero-split > .pane {
+    align-self: stretch;
+    min-height: 0;
+  }
+
+  .custom-section.hero.variant-full-bleed .hero-copy {
+    --color-text: #fff;
+    --color-text-strong: #fff;
+    --color-text-muted: #fff;
+    --color-link: #fff;
+    align-items: flex-start;
+    background: var(--brand-primary, var(--color-bg-brand));
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: clamp(2rem, 6vw, 7rem);
+  }
+
+  .custom-section.hero.variant-full-bleed .hero-copy :is(h1, h2, h3, p) {
+    color: inherit;
+  }
+
+  .custom-section.hero.variant-full-bleed .hero-media,
+  .custom-section.hero.variant-full-bleed .hero-media > .image,
+  .custom-section.hero.variant-full-bleed .hero-media picture {
+    height: 100%;
+    margin: 0;
+  }
+
+  .custom-section.hero.variant-full-bleed .hero-media {
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .custom-section.hero.variant-full-bleed .hero-media > .image {
+    inset: 0;
+    position: absolute;
+  }
+
+  .custom-section.hero.variant-full-bleed .hero-media img {
+    border-radius: 0;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  @media (max-width: 710px) {
+    .custom-section.hero.variant-full-bleed .hero-split {
+      height: auto;
+      min-height: 0;
+    }
+
+    .custom-section.hero.variant-full-bleed .hero-copy {
+      min-height: 28rem;
+      padding: var(--spacing-2xl) var(--spacing-lg);
+    }
+
+    .custom-section.hero.variant-full-bleed .hero-media {
+      aspect-ratio: 1 / 1;
+    }
+  }
+</style>

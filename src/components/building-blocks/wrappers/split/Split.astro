@@ -12,6 +12,7 @@ const {
   minSplitWidth = 700,
   gap = "lg",
   class: className,
+  style: customStyle,
   label,
   _component,
   ...htmlAttributes
@@ -53,6 +54,10 @@ const finalDistributionMode = reverse
   : distributionMode;
 
 const splitId = `split-${crypto.randomUUID()}`;
+const inlineStyle = [
+  fixedWidth ? `--split-fixed-width: ${fixedWidth}px;` : "",
+  customStyle || "",
+].filter(Boolean).join(" ");
 ---
 
 <section
@@ -65,7 +70,7 @@ const splitId = `split-${crypto.randomUUID()}`;
     { reversed: reverse },
   ]}
   data-split-id={splitId}
-  style={fixedWidth ? `--split-fixed-width: ${fixedWidth}px;` : ""}
+  style={inlineStyle}
   {...htmlAttributes}
 >
   <div class="pane first">

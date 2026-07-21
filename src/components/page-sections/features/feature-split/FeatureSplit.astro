@@ -16,10 +16,12 @@ const {
   imageAlt = "",
   imageAspectRatio = "portrait",
   imageRounded = true,
+  imageWidth = 400,
   reverse = false,
   colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
+  variant = "default",
   class: className,
   _component,
   ...htmlAttributes
@@ -27,11 +29,12 @@ const {
 
 const minSplitWidth = 720;
 const featureSplitId = `feature-split-${crypto.randomUUID()}`;
+const isChecklist = variant === "checklist";
 ---
 
 <CustomSection
-  class:list={["feature-split", className]}
-  maxContentWidth="xl"
+  class:list={["feature-split", `variant-${variant}`, className]}
+  maxContentWidth={isChecklist ? "2xl" : "xl"}
   paddingHorizontal="lg"
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
@@ -41,8 +44,8 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
 >
   <Split
     class="feature-split-layout"
-    distributionMode="flexible-fixed"
-    fixedWidth="400"
+    distributionMode={isChecklist ? "half" : "flexible-fixed"}
+    fixedWidth={isChecklist ? undefined : String(imageWidth)}
     minSplitWidth={minSplitWidth}
     reverse={reverse}
     verticalAlignment="center"
@@ -100,6 +103,29 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   @layer page-sections {
     .feature-split-layout {
       container-type: inline-size;
+    }
+
+    .feature-split.variant-checklist .subtext ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .feature-split.variant-checklist .subtext li {
+      margin-top: var(--spacing-sm);
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .feature-split.variant-checklist .subtext li::before {
+      color: var(--brand-accent, var(--color-text-link));
+      content: "✓";
+      font-weight: 700;
+      left: 0;
+      position: absolute;
+    }
+
+    .feature-split.variant-checklist .feature-split-image {
+      margin-top: 0;
     }
   }
 </style>

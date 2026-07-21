@@ -11,6 +11,8 @@ const {
   colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
+  variant = "default",
+  subtextPosition = "before",
   class: className,
   rounded = false,
   _component,
@@ -19,7 +21,7 @@ const {
 ---
 
 <CustomSection
-  class:list={["cta-center", className]}
+  class:list={["cta-center", `variant-${variant}`, className]}
   maxContentWidth="lg"
   paddingHorizontal="lg"
   paddingVertical={paddingVertical}
@@ -29,6 +31,18 @@ const {
   {...htmlAttributes}
 >
   <Heading level="h2" size="xl" alignX="center" data-prop="heading" text={heading} />
-  <Text alignX="center" data-prop="subtext" text={subtext} />
+  {subtextPosition !== "after" && <Text alignX="center" data-prop="subtext" text={subtext} />}
   <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
+  {subtextPosition === "after" && <Text alignX="center" data-prop="subtext" text={subtext} />}
 </CustomSection>
+
+<style is:global>
+  .cta-center.variant-compact .heading:empty,
+  .cta-center.variant-compact .text:empty {
+    display: none;
+  }
+
+  .cta-center.variant-compact .buttons {
+    margin-top: 0;
+  }
+</style>

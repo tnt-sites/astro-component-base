@@ -1,0 +1,55 @@
+---
+import Image from "@core-elements/image/Image.astro";
+
+const {
+  source = "",
+  alt = "",
+  variant = "full-bleed",
+  objectFit = "cover",
+  maxHeight = "",
+  colorScheme = "inherit",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const bandStyle = [
+  `--image-band-fit: ${objectFit}`,
+  maxHeight ? `--image-band-max-height: ${maxHeight}` : "",
+].filter(Boolean).join("; ");
+---
+
+<section
+  class:list={["image-band", `variant-${variant}`, className]}
+  data-theme={colorScheme}
+  style={bandStyle}
+  {...htmlAttributes}
+>
+  <Image
+    class="image-band-image"
+    source={source}
+    alt={alt}
+    rounded={false}
+    aspectRatio="none"
+    priority={false}
+    data-prop-src="source"
+    data-prop-alt="alt"
+  />
+</section>
+
+<style is:global>
+  .image-band,
+  .image-band .image-band-image,
+  .image-band .image-band-image picture {
+    display: block;
+    margin: 0;
+    width: 100%;
+  }
+
+  .image-band .image-band-image img {
+    display: block;
+    max-height: var(--image-band-max-height, none);
+    object-fit: var(--image-band-fit, cover);
+    width: 100%;
+  }
+</style>

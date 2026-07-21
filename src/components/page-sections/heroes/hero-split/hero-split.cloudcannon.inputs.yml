@@ -4,6 +4,18 @@ eyebrow:
 heading:
   type: text
   comment: Main heading text for the hero section.
+variant:
+  type: select
+  comment: Choose the reusable contained or edge-to-edge split presentation.
+  options:
+    values:
+      - id: default
+        name: Contained
+      - id: full-bleed
+        name: Full bleed 50/50
+minHeight:
+  type: text
+  comment: Optional CSS height for the full-bleed hero, such as 48rem or min(50vw, 48rem).
 subtext:
   type: markdown
   comment: Subtitle text displayed below the main heading.

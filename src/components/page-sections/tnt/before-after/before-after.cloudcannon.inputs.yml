@@ -27,7 +27,7 @@ buttonSections:
 pairs:
   type: array
   label: Before/After Pairs
-  comment: Before/after image pairs. A single pair renders as a static side-by-side card; 2+ pairs render as an auto-scrolling carousel.
+  comment: Before/after image pairs. Each pair renders as a keyboard- and pointer-controlled drag-to-reveal comparison; multiple pairs form a responsive grid.
   options:
     structures: _structures.beforeAfterPairs
 colorScheme:

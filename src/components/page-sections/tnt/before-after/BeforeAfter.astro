@@ -9,9 +9,10 @@
  * using this base's own idioms (CustomSection/Heading/SimpleText/Text/
  * ButtonGroup, generic spacing/radius/color tokens) instead of the Lux
  * fork's brand-specific tokens (navy/gold-text/near-black),
- * but keeps the two UX behaviors that make it worth having: a single pair
- * renders as a static side-by-side card with an arrow; 2+ pairs render as
- * an auto-scrolling carousel track.
+ * Each pair renders as an accessible drag-to-reveal comparison. Multiple
+ * pairs form a responsive grid, so the same component supports a single
+ * Elementor slider and multi-case treatment galleries without site-specific
+ * markup.
  */
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
@@ -36,9 +37,6 @@ const {
 
 const imagePairs = pairs ?? [];
 const isSinglePair = imagePairs.length === 1;
-// Duplicate the pair list once so the CSS-only marquee (translateX(-50%))
-// can loop seamlessly without a JS ticker.
-const loopPairs = imagePairs.length > 1 ? [...imagePairs, ...imagePairs] : imagePairs;
 ---
 
 <CustomSection
@@ -69,32 +67,38 @@ const loopPairs = imagePairs.length > 1 ? [...imagePairs, ...imagePairs] : image
     ]}
     data-prop="pairs"
   >
-    <div class:list={["tnt-before-after__track", imagePairs.length < 2 && "tnt-before-after__track--static"]}>
-      {loopPairs.map((pair: { before?: string; after?: string; beforeAlt?: string; afterAlt?: string; beforeCaption?: string; afterCaption?: string }) => (
+    <div class="tnt-before-after__track">
+      {imagePairs.map((pair: { before?: string; after?: string; beforeAlt?: string; afterAlt?: string; beforeCaption?: string; afterCaption?: string }, index: number) => (
         <div class="tnt-before-after__pair">
-          <figure class="tnt-before-after__fig">
-            <Image
-              source={pair.before}
-              alt={pair.beforeAlt?.trim() ? pair.beforeAlt : pair.beforeCaption || "Before"}
-              editable={false}
-              class="tnt-before-after__img"
-            />
-            <figcaption class="tnt-before-after__caption">{pair.beforeCaption || "Before"}</figcaption>
-          </figure>
-          {!isSinglePair && (
-            <div class="tnt-before-after__arrow" aria-hidden="true">
-              <span>&#8594;</span>
+          <div class="tnt-before-after__comparison" style="--tnt-comparison-position: 50%">
+            <div class="tnt-before-after__layer tnt-before-after__layer--before">
+              <Image
+                source={pair.before}
+                alt={pair.beforeAlt?.trim() ? pair.beforeAlt : pair.beforeCaption || "Before"}
+                editable={false}
+                class="tnt-before-after__img"
+              />
             </div>
-          )}
-          <figure class="tnt-before-after__fig">
-            <Image
-              source={pair.after}
-              alt={pair.afterAlt?.trim() ? pair.afterAlt : pair.afterCaption || "After"}
-              editable={false}
-              class="tnt-before-after__img"
+            <div class="tnt-before-after__layer tnt-before-after__layer--after">
+              <Image
+                source={pair.after}
+                alt={pair.afterAlt?.trim() ? pair.afterAlt : pair.afterCaption || "After"}
+                editable={false}
+                class="tnt-before-after__img"
+              />
+            </div>
+            <span class="tnt-before-after__label tnt-before-after__label--before">{pair.beforeCaption || "Before"}</span>
+            <span class="tnt-before-after__label tnt-before-after__label--after">{pair.afterCaption || "After"}</span>
+            <div class="tnt-before-after__divider" aria-hidden="true"><span>&#8596;</span></div>
+            <input
+              class="tnt-before-after__range"
+              type="range"
+              min="0"
+              max="100"
+              value="50"
+              aria-label={`Reveal before and after image ${index + 1}`}
             />
-            <figcaption class="tnt-before-after__caption">{pair.afterCaption || "After"}</figcaption>
-          </figure>
+          </div>
         </div>
       ))}
     </div>
@@ -118,8 +122,7 @@ const loopPairs = imagePairs.length > 1 ? [...imagePairs, ...imagePairs] : image
     margin-inline: auto;
   }
 
-  .tnt-before-after__track-wrapper:not(.tnt-before-after__track-wrapper--single) {
-    overflow: hidden;
+  .tnt-before-after__track-wrapper {
     border-radius: var(--radius-md);
     border: 1px solid var(--color-border);
     background: var(--color-surface, var(--color-bg-surface));
@@ -127,97 +130,117 @@ const loopPairs = imagePairs.length > 1 ? [...imagePairs, ...imagePairs] : image
   }
 
   .tnt-before-after__track {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
     gap: var(--spacing-md);
-    width: max-content;
-    animation: tnt-before-after-scroll 30s linear infinite;
-  }
-
-  .tnt-before-after__track--static {
     width: 100%;
-    animation: none;
-    justify-content: center;
-  }
-
-  .tnt-before-after__track--static .tnt-before-after__pair {
-    min-width: 0;
-    flex: 1 1 auto;
-    max-width: 100%;
-  }
-
-  @keyframes tnt-before-after-scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
   }
 
   .tnt-before-after__pair {
-    display: flex;
-    align-items: stretch;
-    flex-shrink: 0;
-    gap: var(--spacing-sm);
-    width: min(22rem, calc(100vw - 3rem));
-
-    @media (min-width: 48em) {
-      width: 24rem;
-    }
+    min-width: 0;
   }
 
   .tnt-before-after--single .tnt-before-after__pair {
+    max-width: 58rem;
+    margin-inline: auto;
     width: 100%;
   }
 
-  .tnt-before-after__fig {
-    flex: 1 1 0;
-    min-width: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+  .tnt-before-after__comparison {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-surface);
+    touch-action: pan-y;
   }
 
-  .tnt-before-after__caption {
-    margin: 0;
-    padding-top: var(--spacing-xs);
-    font-size: var(--font-size-sm);
-    color: var(--color-text-muted);
-    text-align: center;
+  .tnt-before-after__layer {
+    position: absolute;
+    inset: 0;
   }
 
-  .tnt-before-after__arrow {
+  .tnt-before-after__layer--before {
+    z-index: 1;
+    clip-path: inset(0 calc(100% - var(--tnt-comparison-position)) 0 0);
+  }
+
+  .tnt-before-after__layer--after { z-index: 0; }
+
+  .tnt-before-after__divider {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    left: var(--tnt-comparison-position);
+    width: 2px;
+    transform: translateX(-1px);
+    background: white;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 20%);
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    padding-inline: var(--spacing-2xs, 0.25rem);
 
     span {
       display: flex;
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2.75rem;
+      height: 2.75rem;
       align-items: center;
       justify-content: center;
       border-radius: 9999px;
-      border: 1px solid var(--color-border-strong);
-      color: var(--color-brand);
-      font-size: 1rem;
+      border: 2px solid white;
+      background: var(--color-brand);
+      color: white;
+      box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 25%);
+      font-size: 1.1rem;
     }
   }
+
+  .tnt-before-after__range {
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    cursor: ew-resize;
+    opacity: 0;
+  }
+
+  .tnt-before-after__range:focus-visible {
+    opacity: 0.01;
+    outline: 3px solid var(--color-brand);
+    outline-offset: -3px;
+  }
+
+  .tnt-before-after__label {
+    position: absolute;
+    z-index: 2;
+    bottom: var(--spacing-sm);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-sm);
+    background: rgb(0 0 0 / 65%);
+    color: white;
+    font-size: var(--font-size-sm);
+    line-height: 1.2;
+  }
+
+  .tnt-before-after__label--before { left: var(--spacing-sm); }
+  .tnt-before-after__label--after { right: var(--spacing-sm); }
 </style>
 
 <style lang="pcss" is:global>
   @layer page-sections {
-    .tnt-before-after .tnt-before-after__fig .image {
-      flex: 1 1 auto;
+    .tnt-before-after .tnt-before-after__layer .image {
+      position: absolute;
+      inset: 0;
       margin-top: 0;
       height: 100%;
+      width: 100%;
       overflow: hidden;
-      border-radius: var(--radius-sm);
     }
 
-    .tnt-before-after .tnt-before-after__fig .image img {
+    .tnt-before-after .tnt-before-after__layer .image img {
       display: block;
       width: 100%;
       height: 100%;
@@ -225,3 +248,14 @@ const loopPairs = imagePairs.length > 1 ? [...imagePairs, ...imagePairs] : image
     }
   }
 </style>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".tnt-before-after__comparison").forEach((comparison) => {
+    const range = comparison.querySelector<HTMLInputElement>(".tnt-before-after__range");
+    if (!range || range.dataset.ready === "true") return;
+    range.dataset.ready = "true";
+    const update = () => comparison.style.setProperty("--tnt-comparison-position", `${range.value}%`);
+    range.addEventListener("input", update);
+    update();
+  });
+</script>

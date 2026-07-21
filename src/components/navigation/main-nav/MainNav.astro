@@ -10,6 +10,8 @@ const {
   logoAlt = "logo",
   navData = [],
   buttonSections = [],
+  mode = "sticky",
+  density = "default",
   class: className,
   _component,
   ...htmlAttributes
@@ -26,10 +28,10 @@ const mobileNavData = [
 ---
 
 <CustomSection
-  maxContentWidth="2xl"
-  paddingHorizontal="lg"
+  maxContentWidth={mode === "overlay" ? undefined : "2xl"}
+  paddingHorizontal={mode === "overlay" ? undefined : "lg"}
   paddingVertical="none"
-  class:list={["main-nav", className]}
+  class:list={["main-nav", `mode-${mode}`, `density-${density}`, className]}
   {...htmlAttributes}
 >
   <a href="/">
@@ -109,6 +111,31 @@ const mobileNavData = [
           container-type: normal;
         }
       }
+    }
+
+    .main-nav.mode-overlay {
+      background-color: transparent;
+      inset: 0 0 auto;
+      position: absolute;
+      width: 100%;
+
+      > .outer-content > .content {
+        flex-wrap: nowrap;
+        max-width: none;
+        min-height: 68px;
+        overflow: hidden;
+        padding-inline: clamp(0.75rem, 2vw, 2rem);
+      }
+
+      .nav-end {
+        min-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    .main-nav.density-compact {
+      padding-block: 0;
     }
   }
 </style>

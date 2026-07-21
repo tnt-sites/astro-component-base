@@ -34,8 +34,14 @@
 
   /* ─── Feature Grid: borderless icon-on-top ─────────────────────────── */
   .feature-grid {
-    .feature-grid-grid {
+    &:not(.variant-inline-heading) .feature-grid-grid {
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)) !important;
+    }
+    &.variant-inline-heading .feature-grid-grid {
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(var(--min-item-width, 8.5rem), 100%), 1fr)
+      ) !important;
     }
     .feature-item {
       background: transparent !important;
@@ -67,6 +73,47 @@
       font-size: 0.95rem !important;
       color: var(--color-text-muted, #555) !important;
     }
+  }
+
+  .map-feature-band .map-feature-list .feature-grid-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .map-feature-band .map-feature-list .feature-grid-grid > .grid-item,
+  .map-feature-band .map-feature-list .feature-grid-grid > editable-array-item {
+    max-width: none !important;
+    width: auto !important;
+  }
+
+  .map-feature-band .map-feature-list .feature-item {
+    padding: var(--spacing-sm) !important;
+    text-align: left !important;
+  }
+
+  .map-feature-band .map-feature-list .feature-item > .card-outer-content {
+    display: block !important;
+  }
+
+  .map-feature-band .map-feature-list .feature-item .card-content {
+    align-items: center;
+    display: grid;
+    gap: var(--spacing-xs) var(--spacing-md);
+    grid-template-columns: 7rem 1fr;
+    grid-template-rows: auto auto;
+    padding: var(--spacing-sm) !important;
+  }
+
+  .map-feature-band .map-feature-list .feature-illustration {
+    grid-row: 1 / span 2;
+    height: 7rem !important;
+    margin: 0 !important;
+    width: 7rem !important;
+  }
+
+  .map-feature-band .map-feature-list :is(.feature-title, .feature-description) {
+    margin: 0 !important;
+    text-align: left !important;
   }
 
   /* ─── Eyebrow text on hero / cta / feature splits ─────────────────── */
@@ -149,10 +196,4 @@
   }
 
   /* ─── Section spacing: tighter than the default 4xl ───────────────── */
-  .feature-grid,
-  .hero-split,
-  .feature-split,
-  .cta-split {
-    padding-block: var(--spacing-3xl, 4rem) !important;
-  }
 }

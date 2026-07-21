@@ -1,5 +1,5 @@
 ---
-title: Multiple Pairs (auto-scrolling carousel)
+title: Multiple Interactive Pairs
 spacing: all
 blocks:
   _component: "page-sections/tnt/before-after"

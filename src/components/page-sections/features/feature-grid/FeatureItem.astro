@@ -1,6 +1,7 @@
 ---
 import Heading from "@core-elements/heading/Heading.astro";
 import Icon from "@core-elements/icon/Icon.astro";
+import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
 import Card from "@wrappers/card/Card.astro";
 
@@ -10,6 +11,9 @@ const {
   iconName = "",
   iconColor = "default",
   iconBackground = true,
+  imageSource = "",
+  imageAlt = "",
+  variant = "default",
   class: className,
   _component,
   ...htmlAttributes
@@ -18,22 +22,41 @@ const {
 
 <Card
   {...htmlAttributes}
-  class:list={["feature-item", className]}
-  paddingHorizontal="lg"
-  paddingVertical="lg"
-  rounded
-  border
+  class:list={["feature-item", `variant-${variant}`, className]}
+  paddingHorizontal={variant === "plain" ? "sm" : "lg"}
+  paddingVertical={variant === "plain" ? "sm" : "lg"}
+  rounded={variant === "default"}
+  border={variant === "default"}
   backgroundColor="base"
 >
-  <Icon
-    class="feature-icon"
-    name={iconName}
-    size="lg"
-    color={iconColor}
-    background={iconBackground}
+  {
+    imageSource ? (
+      <Image
+        class="feature-illustration"
+        source={imageSource}
+        alt={imageAlt || title}
+        rounded={false}
+        aspectRatio="none"
+      />
+    ) : iconName ? (
+      <Icon
+        class="feature-icon"
+        name={iconName}
+        size="lg"
+        color={iconColor}
+        background={iconBackground}
+        alignX="start"
+      />
+    ) : null
+  }
+  <Heading
+    class="feature-title"
+    level="h3"
+    size="md"
     alignX="start"
+    data-prop="title"
+    text={title}
   />
-  <Heading class="feature-title" level="h3" size="md" alignX="start" data-prop="title" text={title} />
   <Text class="feature-description" alignX="start" data-prop="description" text={description} />
 </Card>
 
@@ -46,6 +69,26 @@ const {
 
     .feature-description {
       margin-top: 0;
+    }
+
+    .feature-item:has(.feature-illustration) {
+      text-align: center;
+    }
+
+    .feature-item:has(.feature-illustration) .feature-illustration {
+      height: 9rem;
+      margin: 0 auto var(--spacing-lg);
+      width: 9rem;
+    }
+
+    .feature-item:has(.feature-illustration) .feature-illustration img {
+      height: 100%;
+      object-fit: contain;
+      width: 100%;
+    }
+
+    .feature-item:has(.feature-illustration) :is(.feature-title, .feature-description) {
+      text-align: center;
     }
   }
 </style>

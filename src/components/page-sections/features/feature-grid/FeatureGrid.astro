@@ -12,6 +12,10 @@ const {
   heading = "",
   subtext = "",
   features = [],
+  variant = "default",
+  gap = "lg",
+  minItemWidth = 360,
+  maxItemWidth = 360,
   colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
@@ -22,7 +26,7 @@ const {
 ---
 
 <CustomSection
-  class:list={["feature-grid", className]}
+  class:list={["feature-grid", `variant-${variant}`, className]}
   maxContentWidth="2xl"
   paddingHorizontal="lg"
   paddingVertical={paddingVertical}
@@ -30,18 +34,31 @@ const {
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
-    {eyebrow}
-  </SimpleText>
-  <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />
-  <Text class="feature-grid-subtext" alignX="center" data-prop="subtext" text={subtext} />
+  {
+    variant !== "inline-heading" && (
+      <>
+        <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
+          {eyebrow}
+        </SimpleText>
+        <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />
+        <Text class="feature-grid-subtext" alignX="center" data-prop="subtext" text={subtext} />
+      </>
+    )
+  }
   <Grid
-    gap="lg"
-    minItemWidth="360"
-    maxItemWidth="360"
+    gap={gap}
+    minItemWidth={String(minItemWidth)}
+    maxItemWidth={String(maxItemWidth)}
     data-prop="features"
     class="feature-grid-grid"
   >
+    {
+      variant === "inline-heading" && heading && (
+        <GridItem class="feature-grid-inline-heading">
+          <Heading level="h2" size="lg" alignX="start" data-prop="heading" text={heading} />
+        </GridItem>
+      )
+    }
     {
       features.map((feature: any, index: number) => (
         <GridItem>
@@ -58,6 +75,46 @@ const {
   @layer page-sections {
     .feature-grid-grid {
       margin-top: var(--spacing-2xl);
+    }
+
+    .feature-grid.variant-inline-heading .feature-grid-grid {
+      align-items: start;
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(var(--min-item-width, 8.5rem), 100%), 1fr)
+      );
+      margin-top: 0;
+    }
+
+    .feature-grid.variant-inline-heading .feature-grid-grid > .grid-item,
+    .feature-grid.variant-inline-heading .feature-grid-grid > editable-array-item {
+      max-width: none;
+      width: auto;
+    }
+
+    .feature-grid.variant-inline-heading .feature-grid-inline-heading {
+      align-self: start;
+      padding: var(--spacing-sm);
+    }
+
+    .feature-grid.variant-inline-heading .feature-item {
+      min-width: 0;
+      padding: var(--spacing-sm) !important;
+      width: auto;
+    }
+
+    .feature-grid.variant-inline-heading .feature-title {
+      font-size: 0.875rem !important;
+      line-height: 1.25 !important;
+      margin-bottom: var(--spacing-xs) !important;
+    }
+
+    .feature-grid.variant-inline-heading .feature-description,
+    .feature-grid.variant-inline-heading .feature-description p {
+      font-size: 0.875rem !important;
+      line-height: 1.35 !important;
+      margin: 0 !important;
     }
   }
 </style>

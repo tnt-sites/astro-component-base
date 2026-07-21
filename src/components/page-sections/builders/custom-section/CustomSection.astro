@@ -11,11 +11,18 @@ const {
   colorScheme = "inherit",
   backgroundColor,
   backgroundImage,
+  minHeight,
   rounded = false,
   class: className,
+  style: userStyle,
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const sectionStyle = [
+  minHeight ? `--section-min-height: ${Number(minHeight)}px` : "",
+  userStyle,
+].filter(Boolean).join("; ");
 
 const {
   source = "",
@@ -40,6 +47,7 @@ if (!htmlAttributes.id && label) {
 <section
   class:list={["custom-section", rounded && "rounded", className]}
   data-theme={colorScheme && colorScheme !== "inherit" ? colorScheme : undefined}
+  style={sectionStyle || undefined}
   {...htmlAttributes}
 >
   <Image
@@ -84,6 +92,7 @@ if (!htmlAttributes.id && label) {
 <style lang="pcss" is:global>
   @layer components {
     .custom-section {
+      min-height: var(--section-min-height, auto);
       position: relative;
 
       &.rounded {

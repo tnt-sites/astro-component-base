@@ -1,6 +1,6 @@
 label: Before & After
 icon: compare
-description: Before/after image-pair comparison — a static side-by-side card for a single pair, or an auto-scrolling carousel for multiple pairs.
+description: Accessible drag-to-reveal image comparison for one or more before/after pairs.
 value:
   _component: page-sections/tnt/before-after
   eyebrow: ""
@@ -20,7 +20,7 @@ preview:
   icon: compare
 picker_preview:
   text: Before & After
-  subtext: Before/after image-pair comparison (static pair or scrolling carousel).
+  subtext: Before/after image-pair comparison with keyboard and pointer controls.
 _inputs_from_glob:
   - /src/components/page-sections/tnt/before-after/before-after.cloudcannon.inputs.yml
 _structures:
