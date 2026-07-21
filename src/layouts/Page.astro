@@ -14,6 +14,11 @@ type Props = {
     image?: string;
     canonical?: string;
     pageSections?: any[];
+    /** P0.4 (WP2Astro v4 packet, 2026-07-21): page carries its own local
+     * header/footer chrome (e.g. a Canvas landing page) -- suppress the
+     * shared nav/footer instead of rendering both. */
+    suppressNav?: boolean;
+    suppressFooter?: boolean;
   };
   title?: string;
   description?: string;
@@ -43,6 +48,8 @@ const canonical = frontmatter?.canonical ?? canonicalProp;
 const pageSections = frontmatter?.pageSections;
 const hasPageSections = pageSections && pageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
+const suppressNav = frontmatter?.suppressNav ?? false;
+const suppressFooter = frontmatter?.suppressFooter ?? false;
 ---
 
 <Layout
@@ -52,7 +59,7 @@ const hasSlotContent = Astro.slots.has("default");
   image={image}
   canonical={canonical}
 >
-  <MainNavigation {...mainNav} />
+  {!suppressNav && <MainNavigation {...mainNav} />}
   <main data-pagefind-body>
     {
       hasPageSections ? (
@@ -62,5 +69,5 @@ const hasSlotContent = Astro.slots.has("default");
       ) : null
     }
   </main>
-  <Footer {...footer} />
+  {!suppressFooter && <Footer {...footer} />}
 </Layout>
