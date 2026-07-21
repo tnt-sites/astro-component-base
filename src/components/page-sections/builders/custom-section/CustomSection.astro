@@ -1,9 +1,25 @@
 ---
 import Component from "@components/utils/renderBlock.astro";
 import Image from "@core-elements/image/Image.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Text from "@core-elements/text/Text.astro";
+import Button from "@core-elements/button/Button.astro";
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   label,
+  // Codex correction 2 (2026-07-21): heading/subtext/socials are structured
+  // props some composers (composeSocial/composeEmbed/the Elementor template
+  // placeholder) attach to a top-level custom-section. Previously these
+  // weren't destructured here, so they fell into ...htmlAttributes and got
+  // spread onto the <section> element as literal DOM attributes -- for
+  // socials (an array/object), that serialized as the literal string
+  // "[object Object]" in the built HTML. Consume + render them through the
+  // same shared primitives FaqSection/Footer already use (Heading/Text/
+  // ButtonGroup+Button) instead of forwarding raw props to the DOM.
+  heading,
+  subtext,
+  socials,
   contentSections,
   maxContentWidth,
   paddingHorizontal,
@@ -18,6 +34,8 @@ const {
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const socialLinks = Array.isArray(socials) ? socials : [];
 
 const sectionStyle = [
   minHeight ? `--section-min-height: ${Number(minHeight)}px` : "",
@@ -78,6 +96,8 @@ if (!htmlAttributes.id && label) {
         maxContentWidth && `max-width-${maxContentWidth}`,
       ]}
     >
+      {heading && <Heading level="h2" size="lg" alignX="center" text={heading} data-prop="heading" />}
+      {subtext && <Text alignX="center" text={subtext} data-prop="subtext" />}
       <slot>
         {
           contentSections && (
@@ -85,6 +105,24 @@ if (!htmlAttributes.id && label) {
           )
         }
       </slot>
+      {
+        socialLinks.length > 0 && (
+          <ButtonGroup alignX="center" class="custom-section-socials" data-prop="socials">
+            {socialLinks.map((social: any) => (
+              <Button
+                variant="ghost"
+                size="lg"
+                iconName={social.icon}
+                link={social.link}
+                hideText="true"
+                aria-label={`Visit our ${social.icon} page`}
+                target="_blank"
+                rel="noopener noreferrer"
+              />
+            ))}
+          </ButtonGroup>
+        )
+      }
     </div>
   </div>
 </section>

@@ -22,10 +22,22 @@ const {
   paddingVertical = "4xl",
   variant = "default",
   minHeight = "min(50vw, 48rem)",
+  // Codex correction 2 (2026-07-21): composeHero() (WP2Astro) emits these for
+  // multi-image Elementor headers. They were previously undeclared here, so
+  // they fell into ...htmlAttributes and got spread onto the DOM --
+  // extraImages (an array of objects) serialized as literal "[object Object]"
+  // attribute text. imageLayout is consumed (not rendered as a DOM attribute
+  // -- it's a data shape hint, not a visual prop); extraImages renders as
+  // additional images stacked below the primary one so multi-image headers
+  // aren't silently dropped either, pending a dedicated gallery layout.
+  imageLayout = 1,
+  extraImages = [],
   class: className,
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const additionalImages = Array.isArray(extraImages) ? extraImages : [];
 
 const isFullBleed = variant === "full-bleed";
 ---
@@ -74,12 +86,28 @@ const isFullBleed = variant === "full-bleed";
           data-editable="image"
           priority={true}
         />
+        {
+          additionalImages.length > 0 && (
+            <div class="hero-media-extra" data-prop="extraImages">
+              {additionalImages.map((img: any) => (
+                <Image source={img?.url || ""} alt={img?.alt || ""} rounded={!isFullBleed} editable={false} />
+              ))}
+            </div>
+          )
+        }
       </div>
     </Fragment>
   </Split>
 </CustomSection>
 
 <style is:global>
+  .hero-media-extra {
+    display: grid;
+    gap: var(--spacing-sm);
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    margin-top: var(--spacing-sm);
+  }
+
   .custom-section.hero.variant-full-bleed > .outer-content > .content {
     max-width: none;
     padding-block: 0 !important;
