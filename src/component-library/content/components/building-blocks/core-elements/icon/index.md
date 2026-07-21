@@ -18,4 +18,7 @@ examples:
       - alignment-start
       - alignment-center
       - alignment-end
+  - title: Fallback & Normalization (QA fixture)
+    slugs:
+      - normalization-fixture
 ---
