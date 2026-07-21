@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/new-patient-split-banner/top-bar
   id: ""
   backgroundColor: brand
+  backgroundColorHex: ""
   textColor: "var(--color-text-inverse)"
   items:
     - New Patients Welcome

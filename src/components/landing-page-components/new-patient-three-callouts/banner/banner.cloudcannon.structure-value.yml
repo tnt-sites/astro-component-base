@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/new-patient-three-callouts/banner
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   subheading: "Reston's"
   heading: "Family-Friendly<br>Dentist"
   badgeImage:

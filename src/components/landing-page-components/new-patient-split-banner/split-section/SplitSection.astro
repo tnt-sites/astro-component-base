@@ -16,11 +16,13 @@ const {
   reverse = false,
   twoColumnList = false,
   backgroundColor = "base",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
 const fontStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   fontHeadings ? `--np-font-headings: ${fontHeadings}` : "",
   fontBody ? `--np-font-body: ${fontBody}` : "",
   headingColor ? `--np-heading-color: ${headingColor}` : "",
@@ -29,6 +31,7 @@ const fontStyle = [
   .filter(Boolean)
   .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -39,7 +42,7 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   paddingHorizontal="md"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={fontStyle || undefined}
   {...htmlAttributes}
 >

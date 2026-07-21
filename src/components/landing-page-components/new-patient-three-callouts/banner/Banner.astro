@@ -15,11 +15,13 @@ const {
   fontHeadings = "",
   fontBody = "",
   backgroundColor = "base",
+  backgroundColorHex = "",
   class: className,
   ...rest
 } = Astro.props;
 
 const inlineStyle = [
+  backgroundColorHex ? `background-color: ${backgroundColorHex}` : "",
   accentColor ? `--nptc-accent-color: ${accentColor}` : "",
   headingColor ? `--nptc-heading-color: ${headingColor}` : "",
   fontHeadings ? `--nptc-font-headings: ${fontHeadings}` : "",
@@ -28,6 +30,7 @@ const inlineStyle = [
   .filter(Boolean)
   .join("; ");
 
+const resolvedBg = backgroundColorHex ? "none" : backgroundColor;
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -37,7 +40,7 @@ const htmlAttributes = Object.fromEntries(
   class:list={["nptc-banner", className]}
   paddingVertical="none"
   colorScheme="default"
-  backgroundColor={backgroundColor}
+  backgroundColor={resolvedBg}
   style={inlineStyle || undefined}
   {...htmlAttributes}
 >
