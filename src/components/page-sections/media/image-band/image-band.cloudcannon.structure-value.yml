@@ -1,0 +1,22 @@
+label: Image Band
+icon: image
+description: Full-bleed or contained single-image band for a photo break between content sections.
+value:
+  _component: page-sections/media/image-band
+  source: ""
+  alt: ""
+  variant: full-bleed
+  objectFit: cover
+  maxHeight: ""
+  colorScheme: inherit
+preview:
+  text:
+    - Image Band
+  subtext:
+    - key: alt
+  icon: image
+picker_preview:
+  text: Image Band
+  subtext: Full-bleed or contained single-image band.
+_inputs_from_glob:
+  - /src/components/page-sections/media/image-band/image-band.cloudcannon.inputs.yml

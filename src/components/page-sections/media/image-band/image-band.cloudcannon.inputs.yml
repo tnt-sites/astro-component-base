@@ -1,0 +1,42 @@
+source:
+  type: image
+  comment: Full-width image for the band.
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ""
+alt:
+  type: text
+  comment: Alt text for the image.
+variant:
+  type: select
+  comment: Choose the full-bleed or contained presentation.
+  options:
+    values:
+      - id: full-bleed
+        name: Full bleed
+      - id: contained
+        name: Contained
+objectFit:
+  type: select
+  comment: How the image fills the band.
+  options:
+    values:
+      - id: cover
+        name: Cover
+      - id: contain
+        name: Contain
+maxHeight:
+  type: text
+  comment: Optional CSS max-height for the band, such as 32rem or 480px.
+colorScheme:
+  type: select
+  comment: Color scheme theme applied to the section wrapper.
+  options:
+    values:
+      - id: inherit
+        name: Inherit
+      - id: default
+        name: Default
+      - id: contrast
+        name: Contrast
