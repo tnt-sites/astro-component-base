@@ -146,9 +146,23 @@ const isFullBleed = variant === "full-bleed";
   }
 
   @media (max-width: 710px) {
+    /* P0.2 (WP2Astro v4 packet, 2026-07-21): this rule cleared height but
+       never reset grid-template-columns from the desktop "1fr 1fr" split,
+       so the two panes kept trying to sit side by side in a track sized for
+       a two-column desktop layout -- the confirmed cause of the ~3x-viewport
+       horizontal overflow on the homepage hero at mobile widths. */
     .custom-section.hero.variant-full-bleed .hero-split {
+      grid-template-columns: 1fr;
       height: auto;
       min-height: 0;
+      width: 100%;
+    }
+
+    .custom-section.hero.variant-full-bleed .hero-split > .pane,
+    .custom-section.hero.variant-full-bleed .hero-copy,
+    .custom-section.hero.variant-full-bleed .hero-media {
+      min-width: 0;
+      width: 100%;
     }
 
     .custom-section.hero.variant-full-bleed .hero-copy {

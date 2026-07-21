@@ -4,6 +4,15 @@ import { z } from "zod";
 
 const pageSchema = z.object({
   title: z.string(),
+  description: z.string().optional(),
+  wpId: z.number().optional(),
+  headerId: z.number().optional(),
+  // P0.4 (WP2Astro v4 packet, 2026-07-21): page carries its own local
+  // header/footer chrome -- suppress the shared nav/footer instead of
+  // rendering both. Must be declared here or Zod silently strips them
+  // before Page.astro ever sees the value.
+  suppressNav: z.boolean().optional(),
+  suppressFooter: z.boolean().optional(),
   pageSections: z.array(z.any()),
 });
 

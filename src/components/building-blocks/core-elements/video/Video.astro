@@ -1,51 +1,111 @@
 ---
+/**
+ * P0.5a (WP2Astro v4 packet, 2026-07-21): defensive hardening so a
+ * converter that still emits legacy `src`/`poster` (or a raw provider
+ * watch-page URL in either of those) degrades to an accessible link instead
+ * of a broken native <video> with an undefined source. The primary fix is on
+ * the converter side (composeVideo() in packages/core/src/adapters/
+ * elementor.ts), which now emits type/id or source/thumbnail directly; this
+ * is the belt-and-suspenders side so old/legacy fixtures never render a
+ * silent black box.
+ */
+const rawProps = Astro.props;
 const {
-  type,
-  id,
-  title,
-  source,
+  type: typeProp,
+  id: idProp,
+  title = "",
+  source: sourceProp,
   thumbnail,
+  // Legacy aliases some earlier converter output used.
+  src,
+  poster,
+  maxWidth,
+  aspectRatio,
+  align = "start",
   class: className,
   editable = true,
   _component,
   ...htmlAttributes
-} = Astro.props;
+} = rawProps;
+
+function parseProviderUrl(url: string): { provider: "youtube" | "vimeo"; id: string } | null {
+  if (!url) return null;
+  const yt = url.match(
+    /(?:youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|v\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/i
+  );
+  if (yt) return { provider: "youtube", id: yt[1] };
+  const vm = url.match(/vimeo\.com\/(?:video\/)?(\d+)/i);
+  if (vm) return { provider: "vimeo", id: vm[1] };
+  return null;
+}
+
+// Recover a provider embed even if it only arrived via a legacy src/poster alias.
+const aliasParsed = !typeProp || !idProp ? parseProviderUrl(String(src || sourceProp || "")) : null;
+const type = typeProp || aliasParsed?.provider;
+const id = idProp || aliasParsed?.id;
+const source = aliasParsed ? undefined : sourceProp || (parseProviderUrl(String(src || "")) ? undefined : src);
+const posterUrl = thumbnail || poster || "";
+
+const hasProvider = (type === "youtube" || type === "vimeo") && !!id;
+const hasLocalSource = !hasProvider && !!source;
+
+const videoStyle = [
+  maxWidth ? `--video-max-width: ${typeof maxWidth === "number" ? `${maxWidth}px` : maxWidth};` : "",
+  aspectRatio ? `--video-aspect-ratio: ${aspectRatio};` : "",
+]
+  .filter(Boolean)
+  .join(" ");
 ---
 
 {
-  type === "vimeo" ? (
-    <lite-vimeo
-      class:list={["video", className]}
-      videotitle={`${title}`}
-      videoid={`${id}`}
-      {...htmlAttributes}
-    >
-      <a class="lite-vimeo-fallback" href={`https://vimeo.com/${id}`}>
-        Watch on Vimeo: "{title}"
-      </a>
-    </lite-vimeo>
-  ) : type === "youtube" ? (
-    <lite-youtube
-      class:list={["video", className]}
-      videotitle={`${title}`}
-      videoid={`${id}`}
-      {...htmlAttributes}
-    >
-      <a class="lite-youtube-fallback" href={`https://www.youtube.com/watch?v=${id}`}>
-        Watch on YouTube: "{title}"
-      </a>
-    </lite-youtube>
-  ) : (
+  hasProvider ? (
+    type === "vimeo" ? (
+      <lite-vimeo
+        class:list={["video", `align-${align}`, className]}
+        style={videoStyle || undefined}
+        videotitle={`${title}`}
+        videoid={`${id}`}
+        {...htmlAttributes}
+      >
+        <a class="lite-vimeo-fallback" href={`https://vimeo.com/${id}`}>
+          Watch on Vimeo: "{title}"
+        </a>
+      </lite-vimeo>
+    ) : (
+      <lite-youtube
+        class:list={["video", `align-${align}`, className]}
+        style={videoStyle || undefined}
+        videotitle={`${title}`}
+        videoid={`${id}`}
+        {...htmlAttributes}
+      >
+        <a class="lite-youtube-fallback" href={`https://www.youtube.com/watch?v=${id}`}>
+          Watch on YouTube: "{title}"
+        </a>
+      </lite-youtube>
+    )
+  ) : hasLocalSource ? (
     <video
       preload="none"
       controls
-      poster={thumbnail}
-      class:list={["video", className]}
+      poster={posterUrl || undefined}
+      class:list={["video", `align-${align}`, className]}
+      style={videoStyle || undefined}
       {...htmlAttributes}
     >
       <source src={`${source}`} type="video/mp4" />
       Your browser does not support the HTML5 video element.
     </video>
+  ) : (
+    <a
+      class:list={["video", "video-fallback-link", `align-${align}`, className]}
+      style={videoStyle || undefined}
+      href={source || src || "#"}
+      data-video-incomplete="true"
+      {...htmlAttributes}
+    >
+      {title ? `Watch: ${title}` : "Watch video"}
+    </a>
   )
 }
 
@@ -54,6 +114,33 @@ const {
     .video {
       display: block;
       margin-top: var(--spacing-lg);
+      max-width: var(--video-max-width, 100%);
+
+      &.align-center {
+        margin-inline: auto;
+      }
+
+      &.align-end {
+        margin-inline-start: auto;
+      }
+    }
+
+    lite-youtube.video,
+    lite-vimeo.video {
+      aspect-ratio: var(--video-aspect-ratio, 16 / 9);
+    }
+
+    .video.video-fallback-link {
+      align-items: center;
+      background: var(--color-bg-muted, #f2f2f2);
+      border-radius: var(--radius-md, 0.5rem);
+      color: var(--color-link, inherit);
+      display: flex;
+      justify-content: center;
+      min-height: 8rem;
+      padding: var(--spacing-lg);
+      text-align: center;
+      text-decoration: underline;
     }
   }
 </style>
