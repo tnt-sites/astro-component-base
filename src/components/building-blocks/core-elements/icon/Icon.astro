@@ -1,6 +1,24 @@
 ---
 import { Icon as AstroIcon } from "astro-icon/components";
 
+/**
+ * Guards against build-time crashes from icon names this project's local
+ * SVG set (src/icons, see astro.config.mjs's astro-icon iconDir) doesn't
+ * have -- e.g. a raw Font Awesome class string like "fas fa-tree" that
+ * slipped through an upstream converter without being mapped to a local
+ * icon first. astro-icon itself throws "Unable to locate ... icon" for any
+ * unknown name, which aborts the whole production build. WP2Astro's own
+ * icon-normalize.ts is the primary defense for its converted content, but
+ * this validates ANY caller (hand-authored CloudCannon content included)
+ * so an unmapped/mistyped name degrades to a visible fallback icon instead
+ * of taking down the build.
+ */
+const iconModules = import.meta.glob("/src/icons/**/*.svg", { eager: true });
+const AVAILABLE_ICON_NAMES = new Set(
+  Object.keys(iconModules).map((path) => path.replace(/^\/src\/icons\//, "").replace(/\.svg$/, ""))
+);
+const ICON_FALLBACK_NAME = "sparkles";
+
 const props = Astro.props as any;
 const {
   name,
@@ -13,11 +31,16 @@ const {
   ...htmlAttributes
 } = props;
 
-const isValidName = name && typeof name === "string" && name.trim();
+const requestedName = name && typeof name === "string" ? name.trim() : "";
+const isValidName = Boolean(requestedName);
 
 if (!_component && !isValidName) {
   return;
 }
+
+const isKnownIcon = requestedName !== "" && AVAILABLE_ICON_NAMES.has(requestedName);
+const resolvedName = requestedName ? (isKnownIcon ? requestedName : ICON_FALLBACK_NAME) : ICON_FALLBACK_NAME;
+const rejectedSourceName = requestedName && !isKnownIcon ? requestedName : undefined;
 ---
 
 <div
@@ -27,12 +50,13 @@ if (!_component && !isValidName) {
     `color-${color}`,
     background && "background",
     alignX && `align-${alignX}`,
-    name?.includes("social/") && "fill",
+    resolvedName.includes("social/") && "fill",
     className,
   ]}
+  data-icon-fallback-source={rejectedSourceName}
   {...htmlAttributes as any}
 >
-  <AstroIcon name={String(name).trim()} is:inline />
+  <AstroIcon name={resolvedName} is:inline />
 </div>
 
 <style lang="pcss" is:global>
