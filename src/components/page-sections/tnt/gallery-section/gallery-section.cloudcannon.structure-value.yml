@@ -1,0 +1,49 @@
+label: Gallery Section
+icon: photo_library
+description: Responsive image grid with optional per-image captions.
+value:
+  _component: page-sections/tnt/gallery-section
+  heading: Gallery
+  items: []
+  colorScheme: inherit
+  backgroundColor: base
+preview:
+  text:
+    - Gallery Section
+  subtext:
+    - key: heading
+  icon: photo_library
+picker_preview:
+  text: Gallery Section
+  subtext: Responsive grid of images with optional captions.
+_inputs_from_glob:
+  - /src/components/page-sections/tnt/gallery-section/gallery-section.cloudcannon.inputs.yml
+_structures:
+  galleryItems:
+    values:
+      - label: Gallery Image
+        icon: image
+        value:
+          src: ""
+          alt: ""
+          caption: ""
+        preview:
+          text:
+            - key: caption
+            - Gallery Image
+          image:
+            - key: src
+        _inputs:
+          src:
+            type: image
+            comment: Image file.
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          alt:
+            type: text
+            comment: Alt text describing the image.
+          caption:
+            type: text
+            comment: Optional caption shown beneath the image.
