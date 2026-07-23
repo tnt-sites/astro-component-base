@@ -51,6 +51,23 @@ minItemWidth:
 maxItemWidth:
   type: number
   comment: Maximum width for each feature card in pixels.
+columns:
+  type: object
+  comment: Optional explicit column count per breakpoint (base/sm/lg) for a fixed grid, overriding minItemWidth/maxItemWidth auto-sizing.
+  options:
+    structures:
+      values:
+        - id: columns
+          values:
+            base:
+              type: number
+              comment: Columns below the sm breakpoint (mobile).
+            sm:
+              type: number
+              comment: Columns from the sm breakpoint up to lg (tablet).
+            lg:
+              type: number
+              comment: Columns at the lg breakpoint and above (desktop).
 features:
   type: array
   label: Features
