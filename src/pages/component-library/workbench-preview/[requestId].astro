@@ -1,0 +1,86 @@
+---
+/**
+ * WP2Astro Pattern Workbench Visual Audition -- Phase 2 (2026-07-23).
+ *
+ * Dev-only route: renders a single real component with a single real prop
+ * payload, bare (no site chrome), so packages/cli/src/workbench-preview.ts
+ * can screenshot it as a candidate thumbnail using the cluster's actual
+ * extracted content (never synthetic/placeholder content).
+ *
+ * Gated behind WORKBENCH_PREVIEW=1 (opt-in, mirroring the existing
+ * DISABLE_COMPONENT_LIBRARY opt-out convention used by
+ * component-library/components/[...slug].astro) so this route:
+ *   - never resolves during a normal `astro dev` session browsing the docs,
+ *   - never resolves during `astro build` (getStaticPaths returns [] unless
+ *     explicitly opted in), so it can never leak into a downstream
+ *     consumer's production build or sitemap.
+ *
+ * Astro's dev server re-runs getStaticPaths() per request (unlike a real
+ * `astro build`, which enumerates paths once), so workbench-preview.ts can
+ * write a new request file and immediately navigate to it without
+ * restarting the dev server -- no adapter / SSR output mode needed.
+ */
+import fs from "node:fs";
+import path from "node:path";
+import { buildComponentRegistry } from "@component-library/utils/component-registry";
+import "@styles/style.pcss";
+
+interface PreviewRequest {
+  componentPath?: string;
+  props?: Record<string, unknown>;
+}
+
+// getStaticPaths runs in its own isolated scope (Astro constraint) -- it
+// cannot close over other top-level frontmatter variables, only imports, so
+// PREVIEW_DIR is computed inline here rather than shared as a module const.
+export async function getStaticPaths() {
+  if (process.env.WORKBENCH_PREVIEW !== "1") return [];
+  const PREVIEW_DIR = path.resolve(process.cwd(), ".workbench-preview");
+  if (!fs.existsSync(PREVIEW_DIR)) return [];
+
+  return fs
+    .readdirSync(PREVIEW_DIR)
+    .filter((file) => file.endsWith(".json"))
+    .map((file) => {
+      const requestId = file.replace(/\.json$/, "");
+      let payload: PreviewRequest = {};
+      try {
+        payload = JSON.parse(fs.readFileSync(path.join(PREVIEW_DIR, file), "utf8"));
+      } catch (error) {
+        console.error(`workbench-preview: failed to parse ${file}:`, error);
+      }
+      return { params: { requestId }, props: payload };
+    });
+}
+
+const { componentPath, props = {} } = Astro.props as PreviewRequest;
+const registry = buildComponentRegistry();
+const Component = componentPath ? registry[componentPath] : undefined;
+---
+
+<!doctype html>
+<html lang="en" data-theme="default">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Workbench preview</title>
+    {/* Cascade-layer order, same as BaseLayout.astro -- without it, later-loaded
+        @layer rules (page-sections, overrides) can lose to earlier ones and
+        components render unstyled/half-styled. */}
+    <style is:inline>
+      @layer reset, base, components, page-sections, utils, overrides;
+    </style>
+  </head>
+  <body data-workbench-preview-root>
+    {
+      Component ? (
+        <Component {...props} />
+      ) : (
+        <p style="padding:24px;font-family:sans-serif;color:#b00020;">
+          Workbench preview: component "{componentPath}" was not found in the registry.
+        </p>
+      )
+    }
+  </body>
+</html>

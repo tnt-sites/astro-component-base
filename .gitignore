@@ -31,3 +31,8 @@ yarn-error.log*
 # temporary files
 *.tmp
 *.temp
+
+# WP2Astro Pattern Workbench visual-audition preview requests (dev-only, written
+# by packages/cli/src/workbench-preview.ts, read by
+# component-library/workbench-preview/[requestId].astro)
+.workbench-preview/
