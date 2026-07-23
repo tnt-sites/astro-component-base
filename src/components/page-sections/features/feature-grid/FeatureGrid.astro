@@ -58,7 +58,7 @@ const {
     {
       variant === "inline-heading" && heading && (
         <GridItem class="feature-grid-inline-heading">
-          <Heading level="h2" size="lg" alignX="start" data-prop="heading" text={heading} />
+          <Heading level="h2" size="md" alignX="start" data-prop="heading" text={heading} />
         </GridItem>
       )
     }
@@ -81,13 +81,16 @@ const {
     }
 
     .feature-grid.variant-inline-heading .feature-grid-grid {
-      align-items: start;
+      align-items: stretch;
+      margin-top: 0;
+    }
+
+    .feature-grid.variant-inline-heading .feature-grid-grid:not(.layout-columns) {
       display: grid;
       grid-template-columns: repeat(
         auto-fit,
         minmax(min(var(--min-item-width, 8.5rem), 100%), 1fr)
       );
-      margin-top: 0;
     }
 
     .feature-grid.variant-inline-heading .feature-grid-grid > .grid-item,
@@ -98,7 +101,38 @@ const {
 
     .feature-grid.variant-inline-heading .feature-grid-inline-heading {
       align-self: start;
+      min-width: 0;
       padding: var(--spacing-sm);
+    }
+
+    .feature-grid.variant-inline-heading .feature-grid-inline-heading .heading,
+    .feature-grid.variant-inline-heading .feature-grid-inline-heading .heading-text {
+      hyphens: none;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .feature-grid.variant-inline-heading
+      .feature-grid-grid
+      > .grid-item:not(.feature-grid-inline-heading),
+    .feature-grid.variant-inline-heading
+      .feature-grid-grid
+      > .grid-item:not(.feature-grid-inline-heading)
+      > editable-array-item,
+    .feature-grid.variant-inline-heading
+      .feature-grid-grid
+      > .grid-item:not(.feature-grid-inline-heading)
+      .feature-item,
+    .feature-grid.variant-inline-heading
+      .feature-grid-grid
+      > .grid-item:not(.feature-grid-inline-heading)
+      .card-outer-content,
+    .feature-grid.variant-inline-heading
+      .feature-grid-grid
+      > .grid-item:not(.feature-grid-inline-heading)
+      .card-content {
+      box-sizing: border-box;
+      height: 100%;
     }
 
     .feature-grid.variant-inline-heading .feature-item {
@@ -118,6 +152,12 @@ const {
       font-size: 0.875rem !important;
       line-height: 1.35 !important;
       margin: 0 !important;
+    }
+
+    @media (max-width: 63.99rem) {
+      .feature-grid.variant-inline-heading .feature-grid-inline-heading {
+        grid-column: 1 / -1;
+      }
     }
   }
 </style>
