@@ -5,6 +5,16 @@ const {
   layout = "center",
   minItemWidth = 200,
   maxItemWidth = 320,
+  /**
+   * Explicit per-breakpoint column count (e.g. `{ base: 1, sm: 2, lg: 4 }`)
+   * for a source-confirmed fixed grid -- WP2Astro sets this when it found a
+   * genuinely contained N-column grid in the source markup (see compose.ts's
+   * `looksLikeServicePanels`), rather than leaving the item count to fall
+   * wherever `minItemWidth`/`maxItemWidth` auto-sizing happens to land. When
+   * provided, switches the grid to `layout="columns"`; a `layout` explicitly
+   * passed by the caller still wins.
+   */
+  columns,
   class: className,
   style: userStyle,
   items = [],
@@ -15,6 +25,8 @@ const {
   "data-prop": dataProp = "items",
   ...htmlAttributes
 } = Astro.props;
+
+const resolvedLayout = Astro.props.layout ? layout : columns ? "columns" : layout;
 
 const slugifyLabel = (label: string) => {
   return label
@@ -31,6 +43,9 @@ const gridStyles = [
   `--min-item-width: ${minItemWidth}px`,
   `--max-item-width: ${maxItemWidth}px`,
   `--grid-spacing: var(--spacing-${gap})`,
+  columns?.base ? `--grid-cols-base: ${columns.base}` : null,
+  columns?.sm ? `--grid-cols-sm: ${columns.sm}` : null,
+  columns?.lg ? `--grid-cols-lg: ${columns.lg}` : null,
   userStyle,
 ]
   .filter(Boolean)
@@ -54,7 +69,7 @@ if (!_component && !hasItems && !hasSlotContent) return;
 
 <div
   {...arrayDataAttributes}
-  class:list={["grid", `layout-${layout}`, className]}
+  class:list={["grid", `layout-${resolvedLayout}`, className]}
   style={gridStyles}
   {...htmlAttributes}
 >
@@ -96,6 +111,24 @@ if (!_component && !hasItems && !hasSlotContent) return;
           flex: 1 1 var(--min-item-width, 200px);
           max-width: var(--max-item-width, 320px);
           min-width: min(var(--min-item-width, 200px), 100%);
+        }
+      }
+
+      /**
+       * Explicit per-breakpoint column count (see the `columns` prop doc
+       * above) -- a real fixed grid instead of flex-wrap sizing that
+       * organically lands on however many columns happen to fit.
+       */
+      &.layout-columns {
+        display: grid;
+        grid-template-columns: repeat(var(--grid-cols-base, 1), 1fr);
+
+        @media (--from-sm) {
+          grid-template-columns: repeat(var(--grid-cols-sm, var(--grid-cols-base, 1)), 1fr);
+        }
+
+        @media (--from-lg) {
+          grid-template-columns: repeat(var(--grid-cols-lg, var(--grid-cols-sm, var(--grid-cols-base, 1))), 1fr);
         }
       }
     }

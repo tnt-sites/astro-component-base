@@ -16,6 +16,8 @@ const {
   gap = "lg",
   minItemWidth = 360,
   maxItemWidth = 360,
+  /** Explicit per-breakpoint column count for a source-confirmed fixed grid -- see Grid.astro's `columns` prop doc. */
+  columns,
   colorScheme = "inherit",
   backgroundColor,
   paddingVertical = "4xl",
@@ -49,6 +51,7 @@ const {
     gap={gap}
     minItemWidth={String(minItemWidth)}
     maxItemWidth={String(maxItemWidth)}
+    columns={columns}
     data-prop="features"
     class="feature-grid-grid"
   >
