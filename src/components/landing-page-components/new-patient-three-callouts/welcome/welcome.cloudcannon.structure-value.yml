@@ -5,6 +5,7 @@ value:
   _component: landing-page-components/new-patient-three-callouts/welcome
   id: ""
   backgroundColor: base
+  backgroundColorHex: ""
   paragraphs:
     - emphasis: "We understand."
       body: >-
