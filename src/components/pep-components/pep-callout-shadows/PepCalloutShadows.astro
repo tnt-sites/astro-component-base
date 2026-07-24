@@ -16,9 +16,19 @@ const {
   ...rest
 } = Astro.props;
 
+const headingBackgroundColorMap: Record<string, string> = {
+  none: "transparent",
+  base: "var(--color-bg)",
+  surface: "var(--color-bg-surface)",
+  accent: "var(--color-bg-accent)",
+  highlight: "var(--color-bg-highlight)",
+  dark: "var(--color-bg-dark)",
+  black: "var(--color-bg-black)",
+};
+
 const resolvedHeadingBg =
   headingBackgroundColorHex ||
-  headingBackgroundColor ||
+  headingBackgroundColorMap[headingBackgroundColor] ||
   "var(--color-brand-secondary, var(--color-brand))";
 // Removed even/odd backgrounds
 

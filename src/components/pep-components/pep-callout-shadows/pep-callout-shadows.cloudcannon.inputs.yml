@@ -22,8 +22,9 @@ headingBackgroundColor:
       - id: black
         name: Black
 
-  comment: Color of the callout item headings. Leave blank to use the default.
-    values:
+headingBackgroundColorHex:
+  type: color
+  comment: Optional custom hex color that overrides the heading background color above. Leave blank to use the theme color.
 
 shadowColor:
   type: select
@@ -53,6 +54,26 @@ shadowColor:
       - id: var(--color-bg-dark)
         name: Dark BG
       - id: var(--color-bg-inverse)
+        name: Black
+
+backgroundColor:
+  type: select
+  comment: Background color of the section. Choose a theme color or use the hex override below for a custom color.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight
+      - id: dark
+        name: Dark
+      - id: black
         name: Black
 
 backgroundColorHex:
