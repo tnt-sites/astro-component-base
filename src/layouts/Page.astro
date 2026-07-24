@@ -59,7 +59,11 @@ const suppressFooter = frontmatter?.suppressFooter ?? false;
   image={image}
   canonical={canonical}
 >
-  {!suppressNav && <MainNavigation {...mainNav} />}
+  {!suppressNav && (
+    <header>
+      <MainNavigation {...mainNav} />
+    </header>
+  )}
   <main data-pagefind-body>
     {
       hasPageSections ? (
