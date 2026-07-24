@@ -63,6 +63,7 @@ value:
       text: Send
       variant: primary
   backgroundColor: base
+  backgroundColorHex: ""
   backgroundGradient: ""
   backgroundImage:
     source: null

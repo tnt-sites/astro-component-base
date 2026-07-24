@@ -34,6 +34,7 @@ value:
     positionHorizontal: center
   backgroundGradient: ""
   backgroundColor: ""
+  backgroundColorHex: ""
   officeHoursAlignment: right
   linkColor: brand
   linkHoverColor: brand-secondary
