@@ -13,6 +13,7 @@ value:
       path: privacy-policy.html
   legalBlurb: ""
   backgroundColor: ""
+  backgroundColorHex: ""
   linkColor: brand
   linkHoverColor: brand-secondary
   addressLinkColor: ""

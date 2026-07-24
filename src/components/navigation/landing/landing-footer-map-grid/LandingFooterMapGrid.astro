@@ -9,6 +9,7 @@ const {
   legalLinks = [],
   legalBlurb = "",
   backgroundColor = "",
+  backgroundColorHex = "",
   linkColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
@@ -30,10 +31,9 @@ const getColorValue = (value: any) => {
 
   return normalized && normalized !== "none" ? normalized : "";
 };
+const resolvedBgColor = backgroundColorHex || getColorValue(backgroundColor);
 const footerBackgroundStyle = [
-  getColorValue(backgroundColor)
-    ? `--lp-footer-map-grid-bg-color: ${getColorValue(backgroundColor)}`
-    : "",
+  resolvedBgColor ? `--lp-footer-map-grid-bg-color: ${resolvedBgColor}` : "",
   getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
   getColorValue(linkHoverColor)
     ? `--footer-link-hover-color: ${getColorValue(linkHoverColor)}`

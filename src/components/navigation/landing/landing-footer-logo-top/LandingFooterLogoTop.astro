@@ -18,6 +18,7 @@ const {
   officeHoursAlignment = "right",
   legalBlurb = "",
   backgroundColor = "",
+  backgroundColorHex = "",
   linkColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
@@ -52,7 +53,7 @@ const getColorValue = (value: any) => {
   return normalized && normalized !== "none" ? normalized : "";
 };
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
-const bgColor = getColorValue(backgroundColor);
+const bgColor = backgroundColorHex || getColorValue(backgroundColor);
 const footerBackgroundStyle = [
   backgroundGradientValue
     ? `--landing-footer-bg-gradient: ${backgroundGradientValue}`

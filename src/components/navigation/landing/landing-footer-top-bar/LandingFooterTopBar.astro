@@ -14,6 +14,7 @@ const {
   legalBlurb = "",
   backgroundImage = { source: "", alt: "" },
   backgroundColor = "",
+  backgroundColorHex = "",
   accentColor = "",
   officeHoursAlignment = "right",
   linkColor = "",
@@ -154,7 +155,7 @@ const getColorValue = (value: any) => {
 
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const bgStyle = [
-  getColorValue(backgroundColor) ? `--lftb-bg-color: ${getColorValue(backgroundColor)}` : "",
+  (backgroundColorHex || getColorValue(backgroundColor)) ? `--lftb-bg-color: ${backgroundColorHex || getColorValue(backgroundColor)}` : "",
   accentColor ? `--lftb-accent-color: ${accentColor}` : "",
   getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
   getColorValue(linkHoverColor)

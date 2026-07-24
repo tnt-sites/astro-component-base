@@ -120,6 +120,9 @@ backgroundColor:
         name: Dark
       - id: "var(--color-bg-black)"
         name: Black
+backgroundColorHex:
+  type: color
+  comment: Optional custom hex color that overrides the background color above. Leave blank to use the theme color.
 officeHoursAlignment:
   type: select
   comment: "Align hours text within each office-hours row while keeping the day and time columns aligned."

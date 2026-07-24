@@ -45,6 +45,7 @@ value:
     positionHorizontal: center
   backgroundGradient: ""
   backgroundColor: ""
+  backgroundColorHex: ""
   linkColor: brand
   linkHoverColor: brand-secondary
   addressLinkColor: ""

@@ -20,6 +20,7 @@ const {
   cardBackgroundColor = "",
   officeHoursAlignment = "right",
   backgroundColor = "",
+  backgroundColorHex = "",
   linkColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
@@ -55,7 +56,9 @@ const bgColorMap: Record<string, string> = {
   black: "var(--color-bg-black)",
 };
 const resolvedBgColor =
-  (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) || "";
+  backgroundColorHex ||
+  (backgroundColor && backgroundColor !== "none" && bgColorMap[backgroundColor]) ||
+  "";
 const linkColorMap: Record<string, string> = {
   white: "#fff",
   brand: "var(--color-brand)",

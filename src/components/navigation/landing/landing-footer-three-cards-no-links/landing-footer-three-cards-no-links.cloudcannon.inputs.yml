@@ -31,14 +31,31 @@ offices:
   comment: "Optional office contact override for this landing footer."
   options:
     structures: _structures.officeSections
-featuredServicesTitle:
+phoneLabel:
   type: text
-  comment: "Heading for the featured services card."
-featuredServicesLinks:
-  type: array
-  comment: "Links shown in the featured services card."
+  comment: "Small label shown above the phone number in the contact card (e.g. 'Call Today!')."
+ctaText:
+  type: markdown
+  comment: "Call-to-action line shown below the phone number in the contact card. Supports a <strong> wrapper for emphasis."
   options:
-    structures: _structures.links
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: false
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+    styles: /.cloudcannon/styles/editor.css
+mapTitle:
+  type: text
+  comment: "Heading for the map/find-us card."
+mapEmbedUrl:
+  type: text
+  comment: "Map iframe embed URL shown in the map card."
 formTitle:
   type: text
   comment: "Heading for the ask-a-question form card."
@@ -69,55 +86,18 @@ formButtonHoverBackgroundColor:
 formButtonHoverTextColor:
   type: color
   comment: "Submit button hover text color."
-footerLinksBackgroundColor:
-  type: select
-  comment: "Background color preset for featured service link tiles."
-  options:
-    values:
-      - id: "var(--color-brand)"
-        name: Brand
-      - id: "var(--color-brand-secondary)"
-        name: Brand Secondary
-      - id: "var(--color-accent)"
-        name: Accent
-      - id: "#2c363c"
-        name: Dark
-      - id: "#000000"
-        name: Black
-      - id: "#ffffff"
-        name: White
-footerLinksHoverBackgroundColor:
-  type: select
-  comment: "Hover background color preset for featured service link tiles."
-  options:
-    values:
-      - id: "var(--color-brand-secondary)"
-        name: Brand Secondary
-      - id: "var(--color-brand)"
-        name: Brand
-      - id: "var(--color-accent)"
-        name: Accent
-      - id: "#2c363c"
-        name: Dark
-      - id: "#000000"
-        name: Black
-      - id: "#ffffff"
-        name: White
-mapEmbedUrl:
-  type: text
-  comment: "Map iframe embed URL for the contact card; replaced by logo on mobile (<=768px)."
 contactCardBackgroundColor:
   type: text
   comment: "Optional CSS color value for the contact card background."
-servicesCardBackgroundColor:
+mapCardBackgroundColor:
   type: text
-  comment: "Optional CSS color value for the featured services card background."
+  comment: "Optional CSS color value for the map card background."
 formCardBackgroundColor:
   type: text
   comment: "Optional CSS color value for the form card background."
 legalLinks:
   type: array
-  comment: "Legal links displayed in the footer legal row."
+  comment: "Legal links displayed in the footer legal row (e.g. Privacy Policy)."
 backgroundImage:
   type: object
   comment: Background image configuration for the footer section.
@@ -195,7 +175,7 @@ backgroundColorHex:
   comment: Optional custom hex color that overrides the background color above. Leave blank to use the theme color.
 linkColor:
   type: select
-  comment: Color of phone number links.
+  comment: Color of legal/copy links.
   options:
     values:
       - id: ""
@@ -214,7 +194,7 @@ linkColor:
         name: Text (Inverse)
 linkHoverColor:
   type: select
-  comment: Color of phone number and address links on hover.
+  comment: Color of legal/copy links on hover.
   options:
     values:
       - id: ""
