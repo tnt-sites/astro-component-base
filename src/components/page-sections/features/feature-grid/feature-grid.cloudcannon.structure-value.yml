@@ -32,6 +32,10 @@ _structures:
           _component: page-sections/features/feature-grid/feature-item
           title: Feature title
           description: Feature description placeholder text that will be replaced with actual content.
+          imageSource: ""
+          imageAlt: ""
+          imageWidth:
+          imageHeight:
           iconName: bolt
           iconColor: yellow
         preview:
@@ -61,6 +65,22 @@ _structures:
               underline: false
               bulletedlist: false
               numberedlist: false
+          imageSource:
+            type: image
+            comment: Choose an image from the site asset library.
+            options:
+              paths:
+                uploads: public/images
+                static: public
+          imageAlt:
+            type: text
+            comment: Alternative text describing the image.
+          imageWidth:
+            type: number
+            comment: Intrinsic source width in pixels, captured during conversion.
+          imageHeight:
+            type: number
+            comment: Intrinsic source height in pixels, captured during conversion.
           iconName:
             type: select
             comment: Icon displayed with the feature.

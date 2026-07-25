@@ -8,6 +8,8 @@ const {
   alt,
   sizes = "(min-width: 30em) 50vw, 100vw",
   widths = [400, 600, 800, 1200, 1600],
+  width,
+  height,
   rounded = false,
   priority = false,
   aspectRatio = null,
@@ -67,6 +69,8 @@ const positionClass = `position-${positionVertical}-${positionHorizontal}`;
         source={source}
         sizes={sizes}
         widths={widths}
+        width={width}
+        height={height}
         priority={priority}
         aspectRatio={aspectRatio}
         positionVertical={positionVertical}
@@ -79,6 +83,8 @@ const positionClass = `position-${positionVertical}-${positionHorizontal}`;
         source={source}
         sizes={sizes}
         widths={widths}
+        width={width}
+        height={height}
         priority={priority}
         aspectRatio={aspectRatio}
         positionVertical={positionVertical}

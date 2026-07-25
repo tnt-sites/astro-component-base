@@ -175,7 +175,16 @@ if (aspectRatio && aspectRatio !== "none" && shouldRender && imageSrc && imageWi
     />
   ) : (
     <picture {...restHtmlAttributes}>
-      <img {...dataAttributes} src={source} alt={alt || ""} />
+      <img
+        {...dataAttributes}
+        src={source}
+        alt={alt || ""}
+        width={finalWidth}
+        height={finalHeight}
+        loading={priority ? "eager" : "lazy"}
+        decoding={priority ? "sync" : "async"}
+        fetchpriority={priority ? "high" : undefined}
+      />
     </picture>
   )
 }

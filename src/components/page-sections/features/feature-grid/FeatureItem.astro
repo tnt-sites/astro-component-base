@@ -13,6 +13,8 @@ const {
   iconBackground = true,
   imageSource = "",
   imageAlt = "",
+  imageWidth,
+  imageHeight,
   variant = "default",
   class: className,
   _component,
@@ -35,6 +37,10 @@ const {
         class="feature-illustration"
         source={imageSource}
         alt={imageAlt || title}
+        width={imageWidth}
+        height={imageHeight}
+        data-prop-src="imageSource"
+        data-prop-alt="imageAlt"
         rounded={false}
         aspectRatio="none"
       />
@@ -76,13 +82,12 @@ const {
     }
 
     .feature-item:has(.feature-illustration) .feature-illustration {
-      height: 9rem;
       margin: 0 auto var(--spacing-lg);
-      width: 9rem;
+      width: 100%;
     }
 
     .feature-item:has(.feature-illustration) .feature-illustration img {
-      height: 100%;
+      height: auto;
       object-fit: contain;
       width: 100%;
     }
