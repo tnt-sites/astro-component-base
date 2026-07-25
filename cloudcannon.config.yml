@@ -61,7 +61,8 @@ collections_config:
         comment: Optional image path for the blog post.
         options:
           paths:
-            uploads: src/assets/images
+            uploads: public/images
+            static: public
       tags:
         type: array
         comment: Tags relevant to this post's content.
@@ -77,12 +78,14 @@ collections_config:
         type: image
         options:
           paths:
-            uploads: src/assets/images
+            uploads: public/images
+            static: public
       image:
         type: image
         options:
           paths:
-            uploads: src/assets/images
+            uploads: public/images
+            static: public
 collection_groups:
   - heading: Content
     collections:

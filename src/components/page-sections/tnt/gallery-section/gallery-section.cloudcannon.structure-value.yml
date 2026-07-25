@@ -39,8 +39,8 @@ _structures:
             comment: Image file.
             options:
               paths:
-                uploads: src/assets/images
-                static: ""
+                uploads: public/images
+                static: public
           alt:
             type: text
             comment: Alt text describing the image.

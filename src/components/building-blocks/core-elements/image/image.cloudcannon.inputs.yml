@@ -3,8 +3,8 @@ source:
   comment: The URL or path to the image.
   options:
     paths:
-      uploads: src/assets/images
-      static: ""
+      uploads: public/images
+      static: public
 alt:
   type: textarea
   comment: Alternative text for accessibility.

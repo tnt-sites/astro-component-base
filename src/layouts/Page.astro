@@ -1,6 +1,7 @@
 ---
 import Footer from "@components/navigation/footer/Footer.astro";
 import MainNavigation from "@components/navigation/main-nav/MainNav.astro";
+import UtilityHeader from "@components/navigation/utility-header/UtilityHeader.astro";
 import Components from "@components/utils/renderBlock.astro";
 import footerData from "@data/footer.json";
 import mainNavData from "@data/mainNav.json";
@@ -60,11 +61,12 @@ const suppressFooter = frontmatter?.suppressFooter ?? false;
   canonical={canonical}
 >
   {!suppressNav && (
-    <header>
+    <header class:list={[mainNav.preHeader && "classic-shell-nav"]}>
+      {mainNav.preHeader && <UtilityHeader {...mainNav.preHeader} />}
       <MainNavigation {...mainNav} />
     </header>
   )}
-  <main data-pagefind-body>
+  <main class:list={[mainNav.responsive?.hideSplitMediaOnMobile && "mobile-hide-split-media"]} data-pagefind-body>
     {
       hasPageSections ? (
         <Components contentSections={pageSections} propName="pageSections" />
@@ -75,3 +77,37 @@ const suppressFooter = frontmatter?.suppressFooter ?? false;
   </main>
   {!suppressFooter && <Footer {...footer} />}
 </Layout>
+
+<style lang="pcss" is:global>
+  @media (max-width: 768px) {
+    header.classic-shell-nav {
+      height: 0;
+      position: absolute;
+      right: var(--spacing-md);
+      top: var(--spacing-md);
+      width: auto;
+      z-index: var(--layer-3);
+    }
+
+    header.classic-shell-nav .main-nav {
+      background: transparent;
+      padding: 0;
+      position: static;
+      width: auto;
+    }
+
+    header.classic-shell-nav .main-nav > .outer-content > .content {
+      padding: 0;
+    }
+
+    header.classic-shell-nav .main-nav > .outer-content > .content > a {
+      display: none;
+    }
+
+    header.classic-shell-nav .nav-hamburger {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+</style>

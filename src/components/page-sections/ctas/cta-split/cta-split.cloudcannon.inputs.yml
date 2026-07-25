@@ -21,8 +21,8 @@ imageSource:
   comment: Image displayed alongside the CTA content.
   options:
     paths:
-      uploads: src/assets/images
-      static: ""
+      uploads: public/images
+      static: public
 imageAlt:
   type: text
   comment: Alt text describing the CTA image.

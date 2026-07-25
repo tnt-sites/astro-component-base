@@ -24,8 +24,8 @@ imageSource:
   comment: Full-bleed background image for the hero.
   options:
     paths:
-      uploads: src/assets/images
-      static: ""
+      uploads: public/images
+      static: public
 imageAlt:
   type: text
   comment: Alt text for the background image.

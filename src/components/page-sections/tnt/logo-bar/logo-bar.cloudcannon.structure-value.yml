@@ -5,7 +5,7 @@ value:
   _component: page-sections/tnt/logo-bar
   heading: ""
   logos:
-    - src: /src/assets/images/logo-placeholder.svg
+    - src: /images/logo.svg
       alt: Partner logo
   colorScheme: inherit
   backgroundColor: base

@@ -29,8 +29,8 @@ imageSource:
   comment: Optional image displayed above the feature list.
   options:
     paths:
-      uploads: src/assets/images
-      static: ""
+      uploads: public/images
+      static: public
 imageAlt:
   type: text
   comment: Alt text describing the image content.

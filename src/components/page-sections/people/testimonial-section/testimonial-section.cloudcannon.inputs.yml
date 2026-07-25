@@ -24,8 +24,8 @@ authorImage:
   comment: Photo of the testimonial author.
   options:
     paths:
-      uploads: src/assets/images
-      static: ""
+      uploads: public/images
+      static: public
 alignX:
   type: select
   comment: Horizontal alignment of the testimonial content.

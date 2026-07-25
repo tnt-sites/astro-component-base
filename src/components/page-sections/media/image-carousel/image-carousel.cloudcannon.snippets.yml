@@ -1,0 +1,3 @@
+snippet:
+  template: astro_component
+  inline: false

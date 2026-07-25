@@ -3,8 +3,8 @@ source:
   comment: Full-width image for the band.
   options:
     paths:
-      uploads: src/assets/images
-      static: ""
+      uploads: public/images
+      static: public
 alt:
   type: text
   comment: Alt text for the image.

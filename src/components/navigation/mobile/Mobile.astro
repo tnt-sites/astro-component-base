@@ -61,7 +61,13 @@ function createNavItemData(item, level, parentGroupId) {
   />
 </label>
 
-<nav class:list={["mobile", className]} data-toggle-id={toggleId} {...htmlAttributes}>
+<nav
+  class:list={["mobile", className]}
+  data-toggle-id={toggleId}
+  aria-hidden="true"
+  inert
+  {...htmlAttributes}
+>
   <div class="mobile-header">
     <div class="mobile-logo">
       <slot name="logo">
@@ -115,7 +121,6 @@ function createNavItemData(item, level, parentGroupId) {
                 name={itemData.groupName}
                 id={itemData.dropdownId}
                 class="nav-item-toggle"
-                aria-expanded={itemData.hasCurrent}
                 aria-controls={itemData.contentId}
                 autocomplete="off"
                 checked={itemData.hasCurrent}
@@ -125,6 +130,7 @@ function createNavItemData(item, level, parentGroupId) {
                 class="nav-item-trigger"
                 role="button"
                 aria-controls={itemData.contentId}
+                aria-expanded={itemData.hasCurrent}
                 tabindex="0"
                 aria-current={itemData.isCurrent ? "page" : undefined}
               >
@@ -138,7 +144,6 @@ function createNavItemData(item, level, parentGroupId) {
                 class="nav-item-content"
                 role="region"
                 aria-label={`${itemData.name} submenu`}
-                aria-hidden={!itemData.hasCurrent}
               >
                 <ul class="nav-list">
                   {itemData.children!.map((child) => {
@@ -164,7 +169,6 @@ function createNavItemData(item, level, parentGroupId) {
                           name={childData.groupName}
                           id={childData.dropdownId}
                           class="nav-item-toggle"
-                          aria-expanded={childData.hasCurrent}
                           aria-controls={childData.contentId}
                           autocomplete="off"
                           checked={childData.hasCurrent}
@@ -174,6 +178,7 @@ function createNavItemData(item, level, parentGroupId) {
                           class="nav-item-trigger"
                           role="button"
                           aria-controls={childData.contentId}
+                          aria-expanded={childData.hasCurrent}
                           tabindex="0"
                           aria-current={childData.isCurrent ? "page" : undefined}
                         >
@@ -187,7 +192,6 @@ function createNavItemData(item, level, parentGroupId) {
                           class="nav-item-content"
                           role="region"
                           aria-label={`${childData.name} submenu`}
-                          aria-hidden={!childData.hasCurrent}
                         >
                           <ul class="nav-list">
                             {childData.children!.map((grandChild) => {
@@ -256,11 +260,13 @@ function createNavItemData(item, level, parentGroupId) {
     function handleNavToggle(isOpen) {
       if (isOpen) {
         nav.setAttribute("aria-hidden", "false");
+        nav.removeAttribute("inert");
         nav.style.transform = "translateX(0)";
         document.body.style.overflow = "hidden";
         nav.querySelector(".mobile-close")?.focus();
       } else {
         nav.setAttribute("aria-hidden", "true");
+        nav.setAttribute("inert", "");
         nav.style.transform = "translateX(-100%)";
         document.body.style.overflow = "";
         hamburger?.focus();
@@ -327,6 +333,7 @@ function createNavItemData(item, level, parentGroupId) {
       if (dropdownToggle) {
         e.preventDefault();
         dropdownToggle.checked = !dropdownToggle.checked;
+        trigger.setAttribute("aria-expanded", dropdownToggle.checked.toString());
         dropdownToggle.dispatchEvent(new Event("change"));
       }
     };

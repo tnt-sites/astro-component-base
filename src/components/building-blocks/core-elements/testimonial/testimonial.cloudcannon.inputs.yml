@@ -24,8 +24,8 @@ authorImage:
   type: image
   options:
     paths:
-      uploads: src/assets/images
-      static: ""
+      uploads: public/images
+      static: public
 alignX:
   comment: The horizontal alignment of the testimonial.
   type: select

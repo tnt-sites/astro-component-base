@@ -1,0 +1,74 @@
+---
+import Carousel from "@wrappers/carousel/Carousel.astro";
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+
+const {
+  heading = "",
+  headingLevel = "h2",
+  items = [],
+  colorScheme = "inherit",
+  backgroundColor = "base",
+  paddingVertical = "lg",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+---
+
+<CustomSection
+  class:list={["image-carousel-section", className]}
+  maxContentWidth="xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {heading && <Heading level={headingLevel} size="lg" alignX="center" text={heading} />}
+  <Carousel label={heading || "Image gallery"} editable={false} slideWidthPercent={100}>
+    {
+      items.map((item: { src: string; alt?: string; caption?: string }, index: number) => (
+        <figure class="slide image-carousel-slide" role="group" aria-label={`Slide ${index + 1} of ${items.length}`}>
+          <img
+            src={item.src}
+            alt={item.alt || ""}
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
+          />
+          {item.caption && <figcaption>{item.caption}</figcaption>}
+        </figure>
+      ))
+    }
+  </Carousel>
+</CustomSection>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .image-carousel-section .carousel {
+      margin-top: 0;
+    }
+
+    .image-carousel-slide {
+      margin: 0;
+    }
+
+    .image-carousel-slide img {
+      display: block;
+      height: min(70vh, 52rem);
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .image-carousel-slide figcaption {
+      padding: var(--spacing-sm);
+      text-align: center;
+    }
+
+    @media (max-width: 48rem) {
+      .image-carousel-slide img {
+        height: min(60vh, 34rem);
+      }
+    }
+  }
+</style>

@@ -47,15 +47,15 @@ _structures:
             comment: Before-treatment photo.
             options:
               paths:
-                uploads: src/assets/images
-                static: ""
+                uploads: public/images
+                static: public
           after:
             type: image
             comment: After-treatment photo.
             options:
               paths:
-                uploads: src/assets/images
-                static: ""
+                uploads: public/images
+                static: public
           beforeAlt:
             type: text
             comment: Optional alt text for the before image (falls back to the caption).

@@ -55,29 +55,28 @@ function createNavItemData(item, level, parentGroupId) {
               name={itemData.groupName}
               id={itemData.dropdownId}
               class="nav-item-toggle"
-              aria-expanded="false"
               aria-controls={itemData.contentId}
+              aria-label={`Toggle ${itemData.name} submenu`}
               autocomplete="off"
             />
-            <label
-              for={itemData.dropdownId}
+            <button
+              type="button"
+              data-toggle={itemData.dropdownId}
               class="nav-item-trigger"
-              role="button"
               aria-controls={itemData.contentId}
-              tabindex="0"
+              aria-expanded="false"
               aria-current={itemData.isCurrent ? "page" : undefined}
             >
               {itemData.name}
               <span class="nav-item-icon">
                 <Icon name="chevron-right" size="none" aria-hidden="true" />
               </span>
-            </label>
+            </button>
             <div
               id={itemData.contentId}
               class="nav-item-content"
               role="region"
               aria-label={`${itemData.name} submenu`}
-              aria-hidden="true"
             >
               <ul class="nav-list">
                 {itemData.children!.map((child) => {
@@ -103,29 +102,28 @@ function createNavItemData(item, level, parentGroupId) {
                         name={childData.groupName}
                         id={childData.dropdownId}
                         class="nav-item-toggle"
-                        aria-expanded="false"
                         aria-controls={childData.contentId}
+                        aria-label={`Toggle ${childData.name} submenu`}
                         autocomplete="off"
                       />
-                      <label
-                        for={childData.dropdownId}
+                      <button
+                        type="button"
+                        data-toggle={childData.dropdownId}
                         class="nav-item-trigger"
-                        role="button"
                         aria-controls={childData.contentId}
-                        tabindex="0"
+                        aria-expanded="false"
                         aria-current={childData.isCurrent ? "page" : undefined}
                       >
                         {childData.name}
                         <span class="nav-item-icon">
                           <Icon name="chevron-right" size="none" aria-hidden="true" />
                         </span>
-                      </label>
+                      </button>
                       <div
                         id={childData.contentId}
                         class="nav-item-nested"
                         role="region"
                         aria-label={`${childData.name} submenu`}
-                        aria-hidden="true"
                       >
                         <ul class="nav-list">
                           {childData.children!.map((grandChild) => {
@@ -165,16 +163,7 @@ function createNavItemData(item, level, parentGroupId) {
     const contentId = toggle.getAttribute("aria-controls");
     const content = document.getElementById(contentId || "");
     const triggerId = toggle.getAttribute("id");
-    const trigger = document.querySelector(`label[for="${triggerId}"]`);
-
-    toggle.setAttribute("aria-expanded", isExpanded.toString());
-
-    if (content) {
-      content.setAttribute("aria-hidden", (!isExpanded).toString());
-      content.querySelectorAll(".nav-item-nested").forEach((nested) => {
-        nested.setAttribute("aria-hidden", (!isExpanded).toString());
-      });
-    }
+    const trigger = document.querySelector(`button[data-toggle="${triggerId}"]`);
 
     if (trigger) {
       trigger.setAttribute("aria-expanded", isExpanded.toString());
@@ -209,14 +198,12 @@ function createNavItemData(item, level, parentGroupId) {
 
   // Handle trigger click events
   function handleTriggerClick(e) {
-    const label = e.currentTarget as HTMLElement;
-    const toggle = document.getElementById(label.getAttribute("for") || "") as HTMLInputElement;
-
-    if (toggle?.checked) {
-      e.preventDefault();
-      toggle.checked = false;
-      toggle.dispatchEvent(new Event("change"));
-    }
+    const trigger = e.currentTarget as HTMLElement;
+    const toggle = document.getElementById(trigger.getAttribute("data-toggle") || "") as HTMLInputElement;
+    if (!toggle) return;
+    e.preventDefault();
+    toggle.checked = !toggle.checked;
+    toggle.dispatchEvent(new Event("change"));
   }
 
   // Handle keyboard events
@@ -224,8 +211,8 @@ function createNavItemData(item, level, parentGroupId) {
     if (e.key !== "Enter" && e.key !== " ") return;
 
     e.preventDefault();
-    const label = e.currentTarget;
-    const toggle = document.getElementById(label.getAttribute("for") || "");
+    const trigger = e.currentTarget;
+    const toggle = document.getElementById(trigger.getAttribute("data-toggle") || "");
 
     if (toggle) {
       toggle.checked = !toggle.checked;
@@ -345,8 +332,12 @@ function createNavItemData(item, level, parentGroupId) {
 
       .nav-item-trigger {
         align-items: center;
+        background: transparent;
+        border: 0;
         display: flex;
+        font: inherit;
         gap: var(--spacing-xs);
+        text-align: left;
       }
 
       .nav-item-icon {

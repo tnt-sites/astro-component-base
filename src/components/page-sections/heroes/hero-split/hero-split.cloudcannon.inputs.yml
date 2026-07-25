@@ -36,8 +36,8 @@ imageSource:
   comment: Feature image to display alongside the hero content.
   options:
     paths:
-      uploads: src/assets/images
-      static: ""
+      uploads: public/images
+      static: public
 imageAlt:
   type: text
   comment: Alt text for the feature image for accessibility.

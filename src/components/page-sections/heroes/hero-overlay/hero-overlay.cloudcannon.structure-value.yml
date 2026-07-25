@@ -6,7 +6,7 @@ value:
   eyebrow: ""
   heading: Heading text
   subtext: ""
-  imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
+  imageSource: /images/component-library/video-placeholder.jpg
   imageAlt: Hero background image
   buttonSections:
     - _component: building-blocks/core-elements/button
