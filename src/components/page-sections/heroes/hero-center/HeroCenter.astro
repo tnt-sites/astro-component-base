@@ -8,6 +8,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 const {
   eyebrow = "",
   heading = "",
+  headingLevel = "h1",
   subtext = "",
   buttonSections = [],
   colorScheme = "inherit",
@@ -31,7 +32,7 @@ const {
   <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
     {eyebrow}
   </SimpleText>
-  <Heading level="h1" size="2xl" alignX="center" data-prop="heading" text={heading} />
+  <Heading level={headingLevel} size="2xl" alignX="center" data-prop="heading" text={heading} />
   <Text alignX="center" class="subtext" data-prop="subtext" text={subtext} />
   <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />
 </CustomSection>
@@ -46,6 +47,13 @@ const {
 
     .subtext p {
       font-size: var(--font-size-lg);
+    }
+
+    @media (max-width: 600px) {
+      .hero-center .heading.size-2xl {
+        font-size: var(--font-size-4xl);
+        line-height: 1.1;
+      }
     }
   }
 </style>

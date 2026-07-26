@@ -13,12 +13,32 @@ const {
   footerText = "",
   logoSource,
   logoAlt,
+  facts = [],
+  buttons = [],
+  mapSource,
+  mapAlt = "Map",
+  mapHref,
+  legalLinks = [],
   _component,
   ...htmlAttributes
 } = Astro.props;
 ---
 
 <footer class="footer" {...htmlAttributes}>
+  {facts.length > 0 || mapSource ? (
+    <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="2xl" class="footer-rich">
+      <div class="footer-rich__info">
+        {facts.map((fact: any) => (
+          <p><strong>{fact.label}</strong>{fact.href ? <a href={fact.href}>{fact.text}</a> : <span>{fact.text}</span>}</p>
+        ))}
+        <div class="footer-rich__buttons">{buttons.map((button: any) => <a href={button.href}>{button.text}</a>)}</div>
+        <ButtonGroup alignX="start">
+          {socials.map((social: any) => <Button variant="ghost" size="lg" iconName={social.icon} link={social.link} hideText="true" aria-label={`Visit our ${social.icon} page`} target="_blank" rel="noopener noreferrer" />)}
+        </ButtonGroup>
+      </div>
+      {mapSource && <a class="footer-rich__map" href={mapHref || "#"}><Image source={mapSource} alt={mapAlt} editable={false} /></a>}
+    </CustomSection>
+  ) : (
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="2xl">
     <div class="footer-content">
       <div class="content-container">
@@ -55,12 +75,22 @@ const {
       </div>
     </div>
   </CustomSection>
+  )}
+  {facts.length > 0 && <div class="footer-rich__legal"><span>{footerText}</span>{legalLinks.map((item: any) => <a href={item.href}>{item.text}</a>)}</div>}
 </footer>
 
 <style lang="pcss" is:global>
   @layer page-sections {
     .footer {
       container-type: inline-size;
+
+      .footer-rich > .outer-content > .content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr); gap: var(--spacing-2xl); align-items: center; }
+      .footer-rich__info p { margin: 0 0 var(--spacing-lg); }
+      .footer-rich__info strong, .footer-rich__info a, .footer-rich__info span { display: block; }
+      .footer-rich__buttons a { display: inline-flex; padding: .9rem 1.25rem; background: var(--color-primary); color: var(--color-primary-content); text-decoration: none; font-weight: 700; text-transform: uppercase; }
+      .footer-rich__map img { width: 100%; max-height: 360px; object-fit: cover; }
+      .footer-rich__legal { display: flex; justify-content: center; flex-wrap: wrap; gap: .35rem .75rem; padding: var(--spacing-md); font-size: .78rem; text-align: center; background: var(--color-bg); }
+      @container (max-width: 699px) { .footer-rich > .outer-content > .content { grid-template-columns: 1fr; } }
 
       .button-group {
         &.align-end {

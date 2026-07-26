@@ -18,6 +18,7 @@ const {
   // same shared primitives FaqSection/Footer already use (Heading/Text/
   // ButtonGroup+Button) instead of forwarding raw props to the DOM.
   heading,
+  headingLevel = "h2",
   subtext,
   socials,
   contentSections,
@@ -96,7 +97,7 @@ if (!htmlAttributes.id && label) {
         maxContentWidth && `max-width-${maxContentWidth}`,
       ]}
     >
-      {heading && <Heading level="h2" size="lg" alignX="center" text={heading} data-prop="heading" />}
+      {heading && <Heading level={headingLevel} size="lg" alignX="center" text={heading} data-prop="heading" />}
       {subtext && <Text alignX="center" text={subtext} data-prop="subtext" />}
       <slot>
         {

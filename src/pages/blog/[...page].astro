@@ -39,6 +39,17 @@ const pageTitle = blogPage?.data?.title ?? "Blog";
 const pageDescription =
   blogPage?.data?.description ??
   "Read our latest articles and insights on web development, design, and technology.";
+const heroOwnsH1 = heroSections.some((section: any) => {
+  if (!section?.heading) return false;
+  if (section.headingLevel === "h1") return true;
+  return (
+    !section.headingLevel &&
+    ["page-sections/heroes/hero-center", "page-sections/heroes/hero-overlay"].includes(
+      section._component,
+    )
+  );
+});
+const archiveHeading = page.currentPage > 1 ? `${pageTitle} — Page ${page.currentPage}` : pageTitle;
 ---
 
 <Page title={pageTitle} description={pageDescription}>
@@ -51,6 +62,13 @@ const pageDescription =
     colorScheme="default"
     backgroundColor="base"
   >
+    {
+      !heroOwnsH1 && (
+        <Heading level="h1" size="2xl" alignX="center" editable={false}>
+          {archiveHeading}
+        </Heading>
+      )
+    }
     {
       page.data.length > 0 ? (
         <>

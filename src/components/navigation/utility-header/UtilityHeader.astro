@@ -1,0 +1,40 @@
+---
+import Image from "@core-elements/image/Image.astro";
+
+const { logoSource, logoAlt = "logo", items = [], buttons = [] } = Astro.props;
+---
+
+<div class="utility-header">
+  <div class="utility-header__inner">
+    {logoSource && <a class="utility-header__logo" href="/"><Image source={logoSource} alt={logoAlt} editable={false} /></a>}
+    <div class="utility-header__facts">
+      {items.map((item: any) => (
+        <div class="utility-header__fact">
+          {item.iconSource && <Image source={item.iconSource} alt="" editable={false} />}
+          <p><strong>{item.label}</strong>{item.href ? <a href={item.href}>{item.text}</a> : <span>{item.text}</span>}</p>
+        </div>
+      ))}
+    </div>
+    {buttons.length > 0 && <div class="utility-header__actions">{buttons.map((button: any) => <a class="utility-header__button" href={button.href}>{button.text}</a>)}</div>}
+  </div>
+</div>
+
+<style lang="pcss" is:global>
+  @layer page-sections {
+    .utility-header { background: var(--color-bg); min-height: 176px; display: grid; place-items: center; padding: var(--spacing-lg); }
+    .utility-header__inner { width: min(1180px, 100%); display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-xl); }
+    .utility-header__logo img { width: 136px; height: auto; }
+    .utility-header__facts { display: flex; gap: var(--spacing-2xl); }
+    .utility-header__fact { display: flex; align-items: center; gap: var(--spacing-sm); }
+    .utility-header__fact .image img { width: 42px; height: 42px; object-fit: contain; }
+    .utility-header__fact p { margin: 0; font-size: .82rem; line-height: 1.45; text-transform: uppercase; }
+    .utility-header__fact strong, .utility-header__fact a, .utility-header__fact span { display: block; }
+    .utility-header__button { display: inline-flex; padding: .9rem 1.2rem; background: var(--color-primary); color: var(--color-primary-content); text-decoration: none; font-weight: 700; text-transform: uppercase; font-size: .8rem; }
+    @media (max-width: 768px) {
+      .utility-header { min-height: 341px; padding-block: var(--spacing-xs); }
+      .utility-header__inner { flex-direction: column; text-align: center; gap: var(--spacing-xs); }
+      .utility-header__facts { flex-direction: column; gap: var(--spacing-xs); }
+      .utility-header__fact { justify-content: center; }
+    }
+  }
+</style>

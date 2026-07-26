@@ -10,6 +10,7 @@ import Split from "@wrappers/split/Split.astro";
 const {
   eyebrow = "",
   heading = "",
+  headingLevel = "h2",
   subtext = "",
   buttonSections = [],
   imageSource = "",
@@ -56,7 +57,7 @@ const isChecklist = variant === "checklist";
       <SimpleText class="eyebrow" data-prop="eyebrow">
         {eyebrow}
       </SimpleText>
-      <Heading level="h2" size="lg" data-prop="heading" text={heading} />
+      <Heading level={headingLevel} size="lg" data-prop="heading" text={heading} />
       <Text class="subtext" data-prop="subtext" text={subtext} />
       <ButtonGroup
         class="feature-buttons"
@@ -126,6 +127,20 @@ const isChecklist = variant === "checklist";
 
     .feature-split.variant-checklist .feature-split-image {
       margin-top: 0;
+    }
+
+    .feature-split.variant-location-map {
+      min-height: 766px;
+    }
+
+    @media (max-width: 768px) {
+      .feature-split.variant-location-map {
+        min-height: 656px;
+      }
+
+      main.mobile-hide-split-media .feature-split-image {
+        display: none;
+      }
     }
   }
 </style>

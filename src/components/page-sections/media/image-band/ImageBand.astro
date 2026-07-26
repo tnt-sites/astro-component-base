@@ -7,6 +7,7 @@ const {
   variant = "full-bleed",
   objectFit = "cover",
   maxHeight = "",
+  overlayText = "",
   colorScheme = "inherit",
   class: className,
   _component,
@@ -35,6 +36,7 @@ const bandStyle = [
     data-prop-src="source"
     data-prop-alt="alt"
   />
+  {overlayText && <p class="image-band-overlay">{overlayText}</p>}
 </section>
 
 <style is:global>
@@ -44,6 +46,16 @@ const bandStyle = [
     display: block;
     margin: 0;
     width: 100%;
+  }
+  .image-band { position: relative; }
+  .image-band-overlay {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    translate: -50% -50%;
+    margin: 0;
+    color: white;
+    font: 700 clamp(2rem, 5vw, 4.5rem)/1 var(--font-family-heading);
+    text-shadow: 0 2px 18px rgb(0 0 0 / .55);
   }
 
   .image-band .image-band-image img {

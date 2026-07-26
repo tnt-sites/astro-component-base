@@ -152,6 +152,13 @@ const rejectedSourceName = requestedName && !isKnownIcon ? requestedName : undef
         font-size: var(--font-size-sm);
       }
 
+      &.size-none {
+        block-size: 1em;
+        flex: none;
+        font-size: 1em;
+        inline-size: 1em;
+      }
+
       &.size-md {
         font-size: var(--font-size-xl);
       }
@@ -194,6 +201,8 @@ const rejectedSourceName = requestedName && !isKnownIcon ? requestedName : undef
       }
 
       svg {
+        block-size: 100%;
+        inline-size: 100%;
         max-height: 100%;
       }
     }
