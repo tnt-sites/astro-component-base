@@ -3,9 +3,8 @@ import Footer from "@components/navigation/footer/Footer.astro";
 import MainNavigation from "@components/navigation/main-nav/MainNav.astro";
 import UtilityHeader from "@components/navigation/utility-header/UtilityHeader.astro";
 import Components from "@components/utils/renderBlock.astro";
-import footerData from "@data/footer.json";
-import mainNavData from "@data/mainNav.json";
 import Layout from "@layouts/BaseLayout.astro";
+import { getFooter, getMainNav } from "../utils/siteSettings";
 
 type Props = {
   frontmatter?: {
@@ -14,6 +13,25 @@ type Props = {
     keywords?: string[];
     image?: string;
     canonical?: string;
+    h1?: string;
+    // "Advanced SEO & Social" overrides -- take precedence over the flat
+    // title/description/image/canonical fields above when present.
+    seo?: {
+      metaTitle?: string;
+      metaDescription?: string;
+      canonical?: string;
+      openGraphImage?: string;
+      openGraphImageAlt?: string;
+      robots?: { noindex?: boolean; nofollow?: boolean };
+    };
+    locationId?: string;
+    provenance?: {
+      sourceUrl?: string;
+      wpId?: number;
+      capturedAt?: string;
+      contentHash?: string;
+      conversionStatus?: string;
+    };
     pageSections?: any[];
     /** P0.4 (WP2Astro v4 packet, 2026-07-21): page carries its own local
      * header/footer chrome (e.g. a Canvas landing page) -- suppress the
@@ -26,6 +44,16 @@ type Props = {
   keywords?: string[];
   image?: string;
   canonical?: string;
+  article?: {
+    type?: "BlogPosting" | "Article" | "NewsArticle";
+    title: string;
+    description?: string;
+    image?: string;
+    datePublished: string;
+    dateModified?: string;
+    authorType?: "Organization" | "Person";
+    authorName?: string;
+  };
   mainNav?: Record<string, any>;
   footer?: Record<string, any>;
 };
@@ -37,16 +65,66 @@ const {
   keywords: keywordsProp,
   image: imageProp,
   canonical: canonicalProp,
-  mainNav = mainNavData,
-  footer = footerData,
+  article,
+  mainNav = getMainNav(),
+  footer = getFooter(),
 } = Astro.props as Props;
 
-const title = frontmatter?.title ?? titleProp ?? "";
-const description = frontmatter?.description ?? descriptionProp;
+const title = frontmatter?.seo?.metaTitle ?? frontmatter?.title ?? titleProp ?? "";
+const description = frontmatter?.seo?.metaDescription ?? frontmatter?.description ?? descriptionProp;
 const keywords = frontmatter?.keywords ?? keywordsProp;
-const image = frontmatter?.image ?? imageProp;
-const canonical = frontmatter?.canonical ?? canonicalProp;
-const pageSections = frontmatter?.pageSections;
+const image = frontmatter?.seo?.openGraphImage ?? frontmatter?.image ?? imageProp;
+const canonical = frontmatter?.seo?.canonical ?? frontmatter?.canonical ?? canonicalProp;
+const robots = frontmatter?.seo?.robots;
+const pageSections = frontmatter?.pageSections ? structuredClone(frontmatter.pageSections) : undefined;
+
+// The "H1" editorial field is the single visible heading source of truth --
+// it overwrites whichever page section actually renders an <h1> so editors
+// don't end up with a meta title and a visible heading that silently drift
+// apart. Mirrors the balcones-family-dental reference implementation.
+function applyPageH1(value: unknown, pageH1: string): boolean {
+  if (!value || typeof value !== "object") return false;
+
+  const block = value as Record<string, any>;
+  if (block.headingLevel === "h1" && typeof block.heading === "string") {
+    const accent = typeof block.headingAccent === "string" ? block.headingAccent.trim() : "";
+
+    if (accent && pageH1.trim().startsWith(accent)) {
+      block.heading = pageH1.trim().slice(accent.length).trimStart();
+    } else {
+      block.headingAccent = "";
+      block.heading = pageH1;
+    }
+
+    return true;
+  }
+
+  if (
+    block.level === "h1" &&
+    block._component === "building-blocks/core-elements/heading" &&
+    typeof block.text === "string"
+  ) {
+    block.text = pageH1;
+    return true;
+  }
+
+  for (const child of Object.values(block)) {
+    if (Array.isArray(child)) {
+      for (const item of child) {
+        if (applyPageH1(item, pageH1)) return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+if (pageSections && frontmatter?.h1?.trim()) {
+  for (const section of pageSections) {
+    if (applyPageH1(section, frontmatter.h1.trim())) break;
+  }
+}
+
 const hasPageSections = pageSections && pageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
 const suppressNav = frontmatter?.suppressNav ?? false;
@@ -59,6 +137,8 @@ const suppressFooter = frontmatter?.suppressFooter ?? false;
   keywords={keywords}
   image={image}
   canonical={canonical}
+  robots={robots}
+  article={article}
 >
   {!suppressNav && (
     <header class:list={[mainNav.preHeader && "classic-shell-nav"]}>

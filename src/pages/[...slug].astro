@@ -1,7 +1,6 @@
 ---
-import footerData from "@data/footer.json";
-import mainNavData from "@data/mainNav.json";
 import Page from "@layouts/Page.astro";
+import { getFooter, getMainNav } from "../utils/siteSettings";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export interface Props {
@@ -26,8 +25,13 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 const { Content } = await render(page);
+// siteSettings.ts merges practice.json's NAP facts into these -- calling
+// getMainNav()/getFooter() here (instead of importing the raw JSON) is what
+// actually gets the derived phone/address/hours onto the real page route.
+const mainNav = getMainNav();
+const footer = getFooter();
 ---
 
-<Page frontmatter={page.data} mainNav={mainNavData} footer={footerData}>
+<Page frontmatter={page.data} mainNav={mainNav} footer={footer}>
   <Content />
 </Page>

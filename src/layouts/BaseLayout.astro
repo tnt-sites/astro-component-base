@@ -1,5 +1,7 @@
 ---
 import StructuredData from "@components/utils/StructuredData.astro";
+import integrationsData from "@data/integrations.json";
+import practiceData from "@data/practice.json";
 import seoData from "@data/seo.json";
 import "@styles/style.pcss";
 import { SEO } from "astro-seo";
@@ -10,13 +12,47 @@ export interface Props {
   keywords?: string[] | null;
   image?: string | null;
   canonical?: string | null;
+  robots?: { noindex?: boolean; nofollow?: boolean } | null;
+  article?: {
+    type?: "BlogPosting" | "Article" | "NewsArticle";
+    title: string;
+    description?: string;
+    image?: string;
+    datePublished: string;
+    dateModified?: string;
+    authorType?: "Organization" | "Person";
+    authorName?: string;
+  };
   contentSections?: any;
 }
 
 const props = Astro.props;
-const formattedTitle = seoData.titleFormat.replace("{title}", props.title);
-const pageDescription = props.description || seoData.description;
-const pageImage = props.image || seoData.logoSource;
+const formattedTitle = seoData.titleTemplate.replace("{pageTitle}", props.title);
+const pageDescription = props.description || seoData.defaultDescription;
+const pageImage = props.image || seoData.openGraph.image;
+const canonicalPath = props.canonical || Astro.url.pathname;
+const canonical = canonicalPath.startsWith("http")
+  ? canonicalPath
+  : new URL(canonicalPath, seoData.canonicalDomain || Astro.url.origin).href;
+const robots = {
+  noindex: props.robots?.noindex ?? seoData.robots.noindex,
+  nofollow: props.robots?.nofollow ?? seoData.robots.nofollow,
+};
+
+// Global settings contract (2026-07-26): GA4 comes from integrations.json
+// (populated per-site by WP2Astro convert, or edited in CloudCannon's
+// "Integrations" collection) with an optional env override for local
+// testing -- never a hardcoded fallback ID (see
+// Wp2Astro-codex/GLOBAL-SETTINGS-ENGINE-HANDOFF.md's "no hardcoded
+// analytics fallback" exclusion).
+const ga4 = import.meta.env.PUBLIC_GA4_ID || integrationsData.analytics.ga4;
+const validGa4 = /^G-[A-Z0-9]+$/.test(ga4) ? ga4 : "";
+const ga4Bootstrap = validGa4
+  ? `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", ${JSON.stringify(validGa4)});`
+  : "";
 ---
 
 <!doctype html>
@@ -24,7 +60,7 @@ const pageImage = props.image || seoData.logoSource;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href={seoData.faviconSource || "/favicon.svg"} />
     <meta name="generator" content={Astro.generator} />
     <style is:inline>
       @layer reset, base, components, page-sections, utils, overrides;
@@ -39,27 +75,26 @@ const pageImage = props.image || seoData.logoSource;
     <SEO
       title={formattedTitle}
       description={pageDescription}
+      canonical={canonical}
+      noindex={robots.noindex}
+      nofollow={robots.nofollow}
       openGraph={{
         basic: {
           title: formattedTitle,
-          type: "website",
+          type: props.article ? "article" : "website",
           image: pageImage,
+          url: canonical,
         },
         optional: {
           description: pageDescription,
         },
       }}
-      extend={{
-        link: [
-          {
-            rel: "canonical",
-            href: props.canonical || Astro.url.href,
-          },
-        ],
-      }}
     />
 
-    <StructuredData site={seoData} />
+    <StructuredData practice={practiceData} seo={seoData} canonical={canonical} article={props.article} />
+
+    {validGa4 && <script async src={`https://www.googletagmanager.com/gtag/js?id=${validGa4}`}></script>}
+    {validGa4 && <script is:inline set:html={ga4Bootstrap}></script>}
 
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
 

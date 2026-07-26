@@ -5,6 +5,43 @@ import { z } from "zod";
 const pageSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
+  // Global settings contract (2026-07-26), matching the balcones-family-dental
+  // reference implementation: metaTitle/metaDescription/h1 are the primary
+  // editorial fields; the nested `seo` object holds the less-frequently-used
+  // canonical/social/robots overrides ("Advanced SEO & Social" in CloudCannon).
+  metaTitle: z.string().optional(),
+  metaDescription: z.string().optional(),
+  h1: z.string().optional(),
+  seo: z
+    .object({
+      metaTitle: z.string().optional(),
+      metaDescription: z.string().optional(),
+      canonical: z.string().optional(),
+      openGraphImage: z.string().optional(),
+      openGraphImageAlt: z.string().optional(),
+      robots: z
+        .object({
+          noindex: z.boolean().optional(),
+          nofollow: z.boolean().optional(),
+        })
+        .optional(),
+    })
+    .optional(),
+  // Multi-location practices: which practice.json/locations.json location this
+  // page represents. Not yet consumed by any active logic (single-location
+  // sites don't need it) -- schema-only today, same as the reference site.
+  locationId: z.string().optional(),
+  // Read-only WP2Astro conversion evidence -- populated by `emit.ts` when the
+  // page came from a WordPress conversion; absent on hand-authored pages.
+  provenance: z
+    .object({
+      sourceUrl: z.string().optional(),
+      wpId: z.number().optional(),
+      capturedAt: z.string().optional(),
+      contentHash: z.string().optional(),
+      conversionStatus: z.string().optional(),
+    })
+    .optional(),
   wpId: z.number().optional(),
   headerId: z.number().optional(),
   // P0.4 (WP2Astro v4 packet, 2026-07-21): page carries its own local
@@ -95,6 +132,18 @@ const blogPostSchema = z.object({
   author: z.string().default("Anonymous"),
   image: z.string().optional(),
   tags: z.array(z.string()).default([]),
+  // Optional per-post overrides for the Article/BlogPosting schema.org entry
+  // StructuredData.astro emits -- falls back to seo.json's `schema.defaultBlogType`
+  // when omitted (matches the balcones-family-dental reference implementation).
+  schema: z
+    .object({
+      type: z.enum(["BlogPosting", "Article", "NewsArticle"]).optional(),
+      authorType: z.enum(["Organization", "Person"]).optional(),
+      authorName: z.string().optional(),
+      dateModified: z.coerce.date().optional(),
+      image: z.string().optional(),
+    })
+    .optional(),
 });
 
 const blogCollection = defineCollection({

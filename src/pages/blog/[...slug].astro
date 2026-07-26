@@ -69,7 +69,21 @@ const date = post.data.date.toLocaleDateString("en-US", {
 });
 ---
 
-<Page title={post.data.title} description={post.data.description} image={post.data.image}>
+<Page
+  title={post.data.title}
+  description={post.data.description}
+  image={post.data.image}
+  article={{
+    type: post.data.schema?.type,
+    title: post.data.title,
+    description: post.data.description,
+    image: post.data.schema?.image || post.data.image,
+    datePublished: post.data.date.toISOString(),
+    dateModified: post.data.schema?.dateModified?.toISOString(),
+    authorType: post.data.schema?.authorType,
+    authorName: post.data.schema?.authorName || post.data.author,
+  }}
+>
   <CustomSection
     maxContentWidth="xl"
     paddingHorizontal="lg"

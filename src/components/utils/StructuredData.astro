@@ -1,23 +1,129 @@
 ---
 export interface Props {
-  site: {
+  practice: {
     name: string;
-    url: string;
+    domain: string;
+    primaryLocation: {
+      phone: string;
+      email?: string;
+      address: {
+        street: string;
+        city: string;
+        state: string;
+        postalCode: string;
+      };
+      geo?: { latitude?: number; longitude?: number };
+      hours?: { days: string; display: string }[];
+    };
+    social?: { url?: string }[];
+  };
+  seo: {
+    defaultDescription: string;
     logoSource: string;
-    description: string;
+      schema: {
+        enabled: boolean;
+        organizationType: string;
+        medicalSpecialties?: string[];
+        includeWebSite?: boolean;
+        // Widened from a literal union to `string`: `seo.json` is a plain JSON import (its type
+        // widens to `string`, not the union) so callers passing seoData directly must be assignable.
+        defaultBlogType?: string;
+      };
+  };
+  canonical: string;
+  article?: {
+    type?: "BlogPosting" | "Article" | "NewsArticle";
+    title: string;
+    description?: string;
+    image?: string;
+    datePublished: string;
+    dateModified?: string;
+    authorType?: "Organization" | "Person";
+    authorName?: string;
   };
 }
 
-const { site } = Astro.props;
+const { practice, seo, canonical, article } = Astro.props;
+const location = practice.primaryLocation;
+const domain = practice.domain || "";
+const organizationId = `${domain.replace(/\/$/, "")}/#organization`;
+const websiteId = `${domain.replace(/\/$/, "")}/#website`;
 
-const structuredData: Record<string, any> = {
+const organization: Record<string, any> = {
+  "@type": seo.schema.organizationType || "Organization",
+  "@id": organizationId,
+  name: practice.name,
+  url: domain,
+  description: seo.defaultDescription,
+  sameAs: (practice.social ?? []).map((social) => social.url).filter(Boolean),
+};
+
+if (seo.logoSource && domain) {
+  organization.logo = new URL(seo.logoSource, domain).href;
+}
+if (location?.phone) organization.telephone = location.phone;
+if (location?.address?.street) {
+  organization.address = {
+    "@type": "PostalAddress",
+    streetAddress: location.address.street,
+    addressLocality: location.address.city,
+    addressRegion: location.address.state,
+    postalCode: location.address.postalCode,
+    addressCountry: "US",
+  };
+}
+if (seo.schema.medicalSpecialties?.length) {
+  organization.medicalSpecialty = seo.schema.medicalSpecialties.map(
+    (specialty) => `https://schema.org/${specialty}`,
+  );
+}
+if (location?.email) organization.email = location.email;
+if (location?.geo?.latitude && location?.geo?.longitude) {
+  organization.geo = {
+    "@type": "GeoCoordinates",
+    latitude: location.geo.latitude,
+    longitude: location.geo.longitude,
+  };
+}
+
+const graph: Record<string, any>[] = [organization];
+
+if (seo.schema.includeWebSite !== false && domain) {
+  graph.push({
+    "@type": "WebSite",
+    "@id": websiteId,
+    url: domain,
+    name: practice.name,
+    description: seo.defaultDescription,
+    publisher: { "@id": organizationId },
+  });
+}
+
+if (article) {
+  const articleImage = article.image && domain ? new URL(article.image, domain).href : article.image;
+
+  graph.push({
+    "@type": article.type || seo.schema.defaultBlogType || "BlogPosting",
+    "@id": `${canonical}#article`,
+    headline: article.title,
+    description: article.description,
+    image: articleImage,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    mainEntityOfPage: canonical,
+    isPartOf: { "@id": websiteId },
+    author: {
+      "@type": article.authorType || "Organization",
+      name: article.authorName || practice.name,
+    },
+    publisher: { "@id": organizationId },
+  });
+}
+
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: site.name,
-  url: site.url,
-  logo: site.url + site.logoSource,
-  description: site.description,
+  "@graph": graph,
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+{seo.schema.enabled && <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />}

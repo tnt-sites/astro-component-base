@@ -1,0 +1,31 @@
+{
+  "name": "Your Practice Name",
+  "shortName": "Your Practice Name",
+  "tagline": "",
+  "domain": "https://example.com",
+  "copyrightYear": 2026,
+  "primaryLocation": {
+    "id": "primary",
+    "name": "Your Practice Name",
+    "phone": "",
+    "phoneHref": "",
+    "email": "",
+    "address": {
+      "street": "",
+      "city": "",
+      "state": "",
+      "postalCode": ""
+    },
+    "hours": [],
+    "maps": {
+      "listingUrl": "",
+      "image": "",
+      "imageAlt": ""
+    },
+    "booking": {
+      "label": "Schedule Appointment",
+      "url": ""
+    }
+  },
+  "social": []
+}

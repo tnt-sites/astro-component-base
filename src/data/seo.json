@@ -1,8 +1,28 @@
 {
-  "name": "Astro Component Starter",
-  "url": "https://example.com",
-  "description": "",
+  "siteTitle": "Your Practice Name",
+  "titleTemplate": "{pageTitle} | Your Practice Name",
+  "defaultDescription": "",
+  "canonicalDomain": "https://example.com",
   "logoSource": "/images/logo.svg",
-  "titleFormat": "{title} | Astro Component Starter",
-  "twitterHandle": "@yourusername"
+  "faviconSource": "/favicon.svg",
+  "openGraph": {
+    "siteName": "Your Practice Name",
+    "image": "/images/logo.svg",
+    "imageAlt": "Your Practice Name"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "handle": ""
+  },
+  "schema": {
+    "enabled": true,
+    "organizationType": "Dentist",
+    "medicalSpecialties": ["Dentistry"],
+    "includeWebSite": true,
+    "defaultBlogType": "BlogPosting"
+  },
+  "robots": {
+    "noindex": false,
+    "nofollow": false
+  }
 }

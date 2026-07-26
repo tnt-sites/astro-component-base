@@ -1,4 +1,222 @@
 collections_config:
+  practice-settings:
+    path: src/data
+    glob:
+      - practice.json
+    name: Practice Info
+    singular_name: Practice Info
+    icon: business
+    disable_url: true
+    description: Practice identity, primary location, hours, booking, maps, and social links -- the single source of truth for NAP facts shown in the header, footer, and schema.org markup
+    _enabled_editors:
+      - data
+    disable_add: true
+    disable_add_folder: true
+    _inputs:
+      domain:
+        type: url
+        label: Canonical Website Domain
+      primaryLocation.phone:
+        type: text
+        label: Main Phone
+      primaryLocation.phoneHref:
+        type: text
+        label: Phone Link
+        comment: "Format: tel:+15125550100"
+      primaryLocation.address:
+        type: object
+        label: Primary Location Address
+      primaryLocation.hours:
+        type: array
+        label: Office Hours
+      primaryLocation.maps.listingUrl:
+        type: url
+        label: Google Maps Listing
+      primaryLocation.maps.image:
+        type: image
+        label: Map Image
+        options:
+          paths:
+            uploads: public/images/uploads
+            static: public
+      primaryLocation.booking.url:
+        type: url
+        label: Appointment URL
+      social:
+        type: array
+        label: Social Links
+        comment: Add, remove, and reorder profiles shown in the footer
+        options:
+          empty_type: array
+      social[*]:
+        type: object
+        label: Social Link
+      social[*].platform:
+        type: select
+        label: Platform
+        comment: Selecting a known platform automatically uses its standard icon
+        options:
+          values:
+            - google
+            - facebook
+            - instagram
+            - linkedin
+            - youtube
+            - tiktok
+            - x
+            - yelp
+            - pinterest
+            - bluesky
+            - reddit
+            - twitch
+            - other
+      social[*].label:
+        type: text
+        label: Accessible Label
+        comment: Human-readable name used by screen readers
+      social[*].url:
+        type: url
+        label: Profile URL
+  seo-settings:
+    path: src/data
+    glob:
+      - seo.json
+    name: SEO & Open Graph
+    singular_name: SEO & Open Graph
+    icon: search
+    disable_url: true
+    description: Global title, description, canonical, social, schema, and robots defaults
+    _enabled_editors:
+      - data
+    disable_add: true
+    disable_add_folder: true
+    _inputs:
+      defaultDescription:
+        type: textarea
+        label: Default Meta Description
+        comment: Used only when a page has no page-specific description
+      canonicalDomain:
+        type: url
+        label: Canonical Domain
+      logoSource:
+        type: image
+        label: Organization Logo
+        comment: Used for organization schema and social previews
+        options:
+          paths:
+            uploads: public/images/uploads
+            static: public
+      faviconSource:
+        type: image
+        label: Favicon
+        options:
+          paths:
+            uploads: public/images/uploads
+            static: public
+      openGraph.image:
+        type: image
+        label: Default Social Image
+        comment: Default share image used when a page does not provide its own.
+        options:
+          paths:
+            uploads: public/images/uploads
+            static: public
+      schema.enabled:
+        type: switch
+        label: Enable Structured Data
+        comment: Publishes the organization and website schema graph across the site.
+      schema.organizationType:
+        type: select
+        label: Organization Type
+        comment: Choose the most specific Schema.org business type that accurately describes the organization.
+        options:
+          values:
+            - Dentist
+            - MedicalClinic
+            - MedicalOrganization
+            - Physician
+            - MedicalBusiness
+            - ProfessionalService
+            - LocalBusiness
+            - Organization
+      schema.medicalSpecialties:
+        type: multiselect
+        label: Medical Specialties
+        comment: Optional. Select all specialties that accurately apply; non-medical organizations should leave this empty.
+        options:
+          allow_create: false
+          values:
+            - Dentistry
+            - Pediatric
+            - Surgical
+            - PrimaryCare
+            - Emergency
+            - CommunityHealth
+            - Geriatric
+            - PublicHealth
+      schema.includeWebSite:
+        type: switch
+        label: Include Website Schema
+        comment: Adds a WebSite entity connected to the organization.
+      schema.defaultBlogType:
+        type: select
+        label: Default Blog Schema Type
+        comment: Applied automatically to posts unless a post overrides it.
+        options:
+          values:
+            - BlogPosting
+            - Article
+            - NewsArticle
+  brand-theme:
+    path: src/data
+    glob:
+      - theme.json
+    name: Brand Theme
+    singular_name: Brand Theme
+    icon: palette
+    disable_url: true
+    description: Site-wide colors, fonts, and responsive heading scale
+    _enabled_editors:
+      - data
+    disable_add: true
+    disable_add_folder: true
+  integrations:
+    path: src/data
+    glob:
+      - integrations.json
+    name: Integrations
+    singular_name: Integrations
+    icon: settings
+    disable_url: true
+    description: Public analytics, call tracking, accessibility, and form identifiers -- never enter a secret key here
+    _enabled_editors:
+      - data
+    disable_add: true
+    disable_add_folder: true
+    _inputs:
+      analytics.ga4:
+        type: text
+        label: Google Analytics 4 ID
+        comment: "Public measurement ID only. Format: G-XXXXXXXXXX"
+      analytics.gtm:
+        type: text
+        label: Google Tag Manager ID
+        comment: "Public container ID only. Format: GTM-XXXXXXX"
+      callTracking.ctmTrackingId:
+        type: text
+        label: Call Tracking ID
+        comment: "Public call-tracking script/account ID (e.g. CallTrackingMetrics). Leave blank if not in use."
+      accessibility.provider:
+        type: text
+        label: Accessibility Widget Provider
+        comment: "e.g. accessiBe, UserWay. Leave blank if not in use."
+      accessibility.publicAccountId:
+        type: text
+        label: Accessibility Widget Public Account ID
+      forms.recaptchaSiteKey:
+        type: text
+        label: reCAPTCHA Site Key
+        comment: Public site key only; never enter a secret key here
   pages:
     path: src/content/pages
     glob:
@@ -20,9 +238,82 @@ collections_config:
       path: "[relative_base_path]/{filename|slugify|lowercase}.md"
     new_preview_url: /
     _inputs:
+      metaTitle:
+        type: text
+        label: Meta Title
+        comment: Browser and search-result title. This does not change the visible page heading.
+      metaDescription:
+        type: textarea
+        label: Meta Description
+        comment: Search-result summary. Aim for a useful, page-specific description rather than a fixed character count.
+      h1:
+        type: text
+        label: H1
+        comment: The primary visible heading that tells visitors and search engines what this page is about. Each page should have one clear H1.
       title:
         type: text
-        comment: Controls the metadata title for the page.
+        label: Legacy Source Page Title
+        comment: Internal compatibility value retained from the source site.
+        hidden: true
+      description:
+        type: textarea
+        label: Legacy Source Description
+        comment: Internal fallback retained from the source site.
+        hidden: true
+      wpId:
+        type: number
+        label: WordPress ID
+        hidden: true
+      pageSections:
+        type: array
+        label: Page Sections
+        comment: Visible headings, images, links, and body content are edited in their actual page sections below.
+      seo:
+        type: object
+        label: Advanced SEO & Social
+        comment: Canonical, social-sharing, indexing, and schema controls used less frequently than the title and description above.
+      seo.metaTitle:
+        type: text
+        label: Legacy Nested Meta Title
+        hidden: true
+      seo.metaDescription:
+        type: textarea
+        label: Legacy Nested Meta Description
+        hidden: true
+      seo.canonical:
+        type: url
+        label: Canonical Override
+        comment: Leave blank to use this page URL on the canonical domain.
+      seo.openGraphImage:
+        type: image
+        label: Social Sharing Image
+        options:
+          paths:
+            uploads: public/images/uploads
+            static: public
+      seo.openGraphImageAlt:
+        type: text
+        label: Social Image Alt Text
+      seo.robots:
+        type: object
+        label: Search Indexing
+        comment: Advanced crawler controls. Leave both options off for normal public pages.
+      seo.robots.noindex:
+        type: switch
+        label: Prevent Indexing
+      seo.robots.nofollow:
+        type: switch
+        label: Prevent Following Links
+      locationId:
+        type: text
+        label: Practice Location ID
+        comment: Only relevant for multi-location practices (matches an id in practice.json/locations.json); leave blank for a single-location site. Per-site conversions should override this input with a `select` of that site's actual location ids.
+      provenance:
+        type: object
+        label: Conversion Source Record
+        comment: Internal WP2Astro conversion evidence.
+        disabled: true
+        hidden: true
   blog:
     path: src/content/blog
     glob:
@@ -66,10 +357,45 @@ collections_config:
       tags:
         type: array
         comment: Tags relevant to this post's content.
+      schema:
+        type: object
+        label: Structured Data Overrides
+        comment: Optional Article/BlogPosting schema.org overrides; falls back to SEO & Open Graph's Default Blog Schema Type when omitted.
+      schema.type:
+        type: select
+        label: Schema Type
+        options:
+          values:
+            - BlogPosting
+            - Article
+            - NewsArticle
+      schema.authorType:
+        type: select
+        label: Author Type
+        options:
+          values:
+            - Organization
+            - Person
+      schema.authorName:
+        type: text
+        label: Author Name Override
+      schema.dateModified:
+        type: date
+        label: Date Modified
+      schema.image:
+        type: image
+        label: Structured Data Image Override
+        options:
+          paths:
+            uploads: public/images
+            static: public
   data:
     path: src/data
     glob:
-      - "**/*.json"
+      - mainNav.json
+      - footer.json
+      - themeBuilder.json
+      - "headers/**/*.json"
     icon: database
     _enabled_editors:
       - data
@@ -87,6 +413,12 @@ collections_config:
             uploads: public/images
             static: public
 collection_groups:
+  - heading: Site Settings
+    collections:
+      - practice-settings
+      - brand-theme
+      - seo-settings
+      - integrations
   - heading: Content
     collections:
       - pages

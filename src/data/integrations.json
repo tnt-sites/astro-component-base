@@ -1,0 +1,16 @@
+{
+  "analytics": {
+    "ga4": "",
+    "gtm": ""
+  },
+  "callTracking": {
+    "ctmTrackingId": ""
+  },
+  "accessibility": {
+    "provider": "",
+    "publicAccountId": ""
+  },
+  "forms": {
+    "recaptchaSiteKey": ""
+  }
+}
