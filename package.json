@@ -13,6 +13,7 @@
   "author": "Your Name",
   "license": "MIT",
   "scripts": {
+    "postinstall": "patch-package",
     "dev": "astro dev",
     "build": "astro build",
     "build:no-library": "DISABLE_COMPONENT_LIBRARY=true astro build",
@@ -73,6 +74,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-yml": "^1.18.0",
     "jsonc-eslint-parser": "^2.4.0",
+    "patch-package": "^8.0.1",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "stylelint": "^16.23.1",
