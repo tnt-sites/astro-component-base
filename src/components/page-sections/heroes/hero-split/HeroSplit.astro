@@ -32,6 +32,7 @@ const {
   // aren't silently dropped either, pending a dedicated gallery layout.
   imageLayout = 1,
   extraImages = [],
+  headingLevel = "h1",
   class: className,
   _component,
   ...htmlAttributes
@@ -40,6 +41,23 @@ const {
 const additionalImages = Array.isArray(extraImages) ? extraImages : [];
 
 const isFullBleed = variant === "full-bleed";
+
+/**
+ * 2026-07-27 fix, found reviewing a Pinnacle Peak homepage rerun: this
+ * component used to hardcode `level={seoHeading ? "h2" : "h1"}`, completely
+ * ignoring the `headingLevel` the conversion engine's `assignPageHeadingOwnership`
+ * (WP2Astro/packages/core/src/convert.ts) computes per page -- so a hero
+ * always rendered a real <h1> even on pages where the engine had correctly
+ * decided a *different* section owns the page's one h1 (e.g. ppfdental.com's
+ * homepage, where "Welcome to Pinnacle Peak Family Dentistry in Scottsdale"
+ * is the real source h1 and the hero's own heading is just a generic "Home"
+ * label), producing two real <h1>s on the page. Now the hero only renders an
+ * h1 -- itself, or the hidden seoHeading text in its place -- when the engine
+ * actually assigned it headingLevel "h1"; otherwise it renders its visible
+ * heading at whatever level the engine assigned and skips the hidden
+ * seoHeading element entirely (another section already owns the real h1).
+ */
+const ownsPageH1 = headingLevel === "h1";
 ---
 
 <CustomSection
@@ -64,11 +82,11 @@ const isFullBleed = variant === "full-bleed";
   >
     <Fragment slot="first">
       <div class="hero-copy">
-        {seoHeading && <Heading level="h1" class="visually-hidden" editable={false} text={seoHeading} />}
+        {ownsPageH1 && seoHeading && <Heading level="h1" class="visually-hidden" editable={false} text={seoHeading} />}
         <SimpleText class="eyebrow" data-prop="eyebrow">
           {eyebrow}
         </SimpleText>
-        <Heading level={seoHeading ? "h2" : "h1"} size="2xl" data-prop="heading" text={heading} />
+        <Heading level={ownsPageH1 && seoHeading ? "h2" : headingLevel} size="2xl" data-prop="heading" text={heading} />
         <Text class="subtext" data-prop="subtext" text={subtext} />
         <ButtonGroup class="buttons-container" buttonSections={buttonSections} />
       </div>
