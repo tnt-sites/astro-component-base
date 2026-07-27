@@ -40,6 +40,18 @@ const pageDescription =
   blogPage?.data?.description ??
   "Read our latest articles and insights on web development, design, and technology.";
 const heroOwnsH1 = heroSections.some((section: any) => {
+  // custom-section can carry its own h1 as a nested content block (e.g. a
+  // captured page title) rather than via the top-level heading/headingLevel
+  // props that hero-style components use -- found on chapelhilldentalarts.com's
+  // /blog/ page 2026-07-27, where this check missed that nested h1 and the
+  // fallback "Blog" heading below rendered a second one (html-gate multiple-h1).
+  if (Array.isArray(section?.contentSections)) {
+    const nestedH1 = section.contentSections.some(
+      (block: any) =>
+        block?._component === "building-blocks/core-elements/heading" && block?.level === "h1",
+    );
+    if (nestedH1) return true;
+  }
   if (!section?.heading) return false;
   if (section.headingLevel === "h1") return true;
   return (
