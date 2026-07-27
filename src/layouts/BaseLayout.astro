@@ -28,12 +28,33 @@ export interface Props {
 const props = Astro.props;
 const formattedTitle = seoData.titleFormat.replace("{title}", props.title);
 
+// --- Branding: core color fields mapped to their CSS custom properties ---
+const brandingColorVars: Record<string, string> = {
+  colorBrand: "--color-brand",
+  colorBrandSecondary: "--color-brand-secondary",
+  colorBrandTertiary: "--color-brand-muted",
+  colorBrandSubtle: "--color-brand-subtle",
+  colorBrandOn: "--color-brand-on",
+  colorTextOnBrand: "--color-text-on-brand",
+  colorLink: "--color-link",
+  colorLinkHover: "--color-link-hover",
+};
+const brandingColorsCss = Object.entries(brandingColorVars)
+  .map(([key, variable]) => {
+    const value = (brandingData as any)[key];
+    return typeof value === "string" && value.trim() ? `${variable}: ${value.trim()};` : "";
+  })
+  .filter(Boolean)
+  .join(" ");
+
 // --- Branding: extraColors runtime overrides (arbitrary user-defined CSS vars) ---
 const brandingExtraColors = Array.isArray(brandingData.extraColors) ? brandingData.extraColors : [];
 const extraColorsCss = (brandingExtraColors as any[])
   .filter((e: any) => e?.variable?.trim() && e?.value?.trim())
   .map((e: any) => `${e.variable.trim()}: ${e.value.trim()};`)
   .join(" ");
+
+const brandingCss = [brandingColorsCss, extraColorsCss].filter(Boolean).join(" ");
 
 // --- Branding: font link URLs ---
 const legacyBrandingFontUrls = [
@@ -104,7 +125,7 @@ const globalModals = [
 ---
 
 <!doctype html>
-<html lang="en" data-theme="default" style={extraColorsCss || undefined}>
+<html lang="en" data-theme="default" style={brandingCss || undefined}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
