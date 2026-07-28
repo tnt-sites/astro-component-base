@@ -20,7 +20,7 @@ const starCount = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
 ---
 
 <article class:list={["testimonial-carousel-item", className]} {...htmlAttributes}>
-  <div class="testimonial-carousel-item__stars" aria-label={`${starCount} out of 5 stars`} data-prop={editable ? "rating" : undefined}>
+  <div class="testimonial-carousel-item__stars" role="img" aria-label={`${starCount} out of 5 stars`} data-prop={editable ? "rating" : undefined}>
     {Array.from({ length: 5 }).map((_, index) => (
       <Icon name="star" size="none" class:list={["testimonial-carousel-item__star", index < starCount && "is-filled"]} />
     ))}
