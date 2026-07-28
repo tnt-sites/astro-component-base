@@ -13,7 +13,13 @@ export async function getStaticPaths() {
   return pages
     .filter((page) => {
       const slug = page.id.replace(/index$/, "");
-      return slug !== "blog";
+      // "blog" already has its own dedicated route (src/pages/blog/); the
+      // taxonomy archives (src/pages/category/, src/pages/tag/) claim those
+      // two top-level segments the same way -- if a real WordPress site ever
+      // has an actual page literally slugged "category" or "tag", this
+      // avoids a duplicate/ambiguous static route rather than a silent
+      // collision at build time.
+      return slug !== "blog" && slug !== "category" && slug !== "tag";
     })
     .map((page) => {
       const slug = page.id.replace(/index$/, "");

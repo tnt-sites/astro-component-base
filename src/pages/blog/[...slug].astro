@@ -5,6 +5,7 @@ import SimpleText from "@core-elements/simple-text/SimpleText.astro";
 import Page from "@layouts/Page.astro";
 import CustomSection from "@page-sections/builders/custom-section/CustomSection.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
+import { slugifyTerm } from "../../utils/taxonomy";
 
 // Automatically import all components from building-blocks and page-sections for MDX
 const buildingBlocksImports = import.meta.glob("../../components/building-blocks/**/*.astro", {
@@ -127,6 +128,35 @@ const date = post.data.date.toLocaleDateString("en-US", {
 
     <div class="post">
       <Content components={mdxComponents} />
+
+      {
+        (post.data.categories?.length > 0 || post.data.tags?.length > 0) && (
+          <div class="post-taxonomy">
+            {post.data.categories?.length > 0 && (
+              <p>
+                <span class="taxonomy-label">Filed under:</span>{" "}
+                {post.data.categories.map((category: string, i: number) => (
+                  <>
+                    {i > 0 && ", "}
+                    <a href={`/category/${slugifyTerm(category)}/`}>{category}</a>
+                  </>
+                ))}
+              </p>
+            )}
+            {post.data.tags?.length > 0 && (
+              <p>
+                <span class="taxonomy-label">Tags:</span>{" "}
+                {post.data.tags.map((tag: string, i: number) => (
+                  <>
+                    {i > 0 && ", "}
+                    <a href={`/tag/${slugifyTerm(tag)}/`}>{tag}</a>
+                  </>
+                ))}
+              </p>
+            )}
+          </div>
+        )
+      }
     </div>
   </CustomSection>
 </Page>
@@ -182,5 +212,31 @@ const date = post.data.date.toLocaleDateString("en-US", {
 
   .post-image {
     margin-top: var(--spacing-xl);
+  }
+
+  .post-taxonomy {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .post-taxonomy p {
+    margin: var(--spacing-xs) 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  .post-taxonomy .taxonomy-label {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-strong);
+  }
+
+  .post-taxonomy a {
+    color: var(--color-text-muted);
+    text-decoration: underline;
+  }
+
+  .post-taxonomy a:hover {
+    color: var(--color-text-strong);
   }
 </style>

@@ -132,6 +132,10 @@ const blogPostSchema = z.object({
   author: z.string().default("Anonymous"),
   image: z.string().optional(),
   tags: z.array(z.string()).default([]),
+  // WordPress category names (wp_get_post_categories, fields:'names') --
+  // backs src/pages/category/[category]/[...page].astro the same way tags
+  // backs src/pages/tag/[tag]/[...page].astro.
+  categories: z.array(z.string()).default([]),
   // Optional per-post overrides for the Article/BlogPosting schema.org entry
   // StructuredData.astro emits -- falls back to seo.json's `schema.defaultBlogType`
   // when omitted (matches the balcones-family-dental reference implementation).
