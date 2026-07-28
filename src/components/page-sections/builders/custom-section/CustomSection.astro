@@ -32,6 +32,16 @@ const {
   rounded = false,
   class: className,
   style: userStyle,
+  // 2026-07-28: threaded through to this section's own heading/subtext/
+  // socials/contentSections instead of defaulting them all to editable --
+  // needed the first time CustomSection was rendered outside the normal
+  // per-page editable content pipeline (Footer.astro's extraSections, via
+  // RenderBlock's editable={false}), where hardcoded data-prop attributes
+  // with no matching CloudCannon content path produced "Failed to render
+  // editable region" errors in the editor. Destructured explicitly (not
+  // left to fall into ...htmlAttributes) so it never leaks as a literal
+  // `editable="false"` DOM attribute either.
+  editable = true,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -97,18 +107,18 @@ if (!htmlAttributes.id && label) {
         maxContentWidth && `max-width-${maxContentWidth}`,
       ]}
     >
-      {heading && <Heading level={headingLevel} size="lg" alignX="center" text={heading} data-prop="heading" />}
-      {subtext && <Text alignX="center" text={subtext} data-prop="subtext" />}
+      {heading && <Heading level={headingLevel} size="lg" alignX="center" text={heading} data-prop="heading" editable={editable} />}
+      {subtext && <Text alignX="center" text={subtext} data-prop="subtext" editable={editable} />}
       <slot>
         {
           contentSections && (
-            <Component contentSections={contentSections} propName="contentSections" />
+            <Component contentSections={contentSections} propName="contentSections" editable={editable} />
           )
         }
       </slot>
       {
         socialLinks.length > 0 && (
-          <ButtonGroup alignX="center" class="custom-section-socials" data-prop="socials">
+          <ButtonGroup alignX="center" class="custom-section-socials" data-prop={editable ? "socials" : undefined}>
             {socialLinks.map((social: any) => (
               <Button
                 variant="ghost"

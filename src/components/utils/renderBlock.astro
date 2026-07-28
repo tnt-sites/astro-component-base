@@ -40,6 +40,16 @@ const { contentSections, propName = "contentSections", editable = true } = Astro
 
 {
   !editable ? (
+    // 2026-07-28: forward editable={false} to the rendered component itself
+    // (not just the missing <editable-array>/<editable-array-item> wrapper
+    // above) -- Heading/Text/SimpleText/Carousel/CustomSection etc. already
+    // accept and respect their own `editable` prop (skip emitting
+    // data-editable/data-prop when false). Without this, a non-editable
+    // RenderBlock caller like Footer.astro's extraSections still rendered
+    // components whose *internal* elements hardcoded data-prop, which
+    // CloudCannon's live-editing then tried and failed to bind to a real
+    // content path -- see WP2Astro/MANUAL.md's 2026-07-28 entry (Chapel
+    // Hills' "Failed to render text/array editable region" errors).
     contentSections?.map((block) => {
       const Component = components[block._component];
 
@@ -50,7 +60,7 @@ const { contentSections, propName = "contentSections", editable = true } = Astro
         );
       }
 
-      return Component ? <Component {...block} /> : null;
+      return Component ? <Component {...block} editable={false} /> : null;
     })
   ) : (
     <editable-array

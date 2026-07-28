@@ -10,6 +10,8 @@ const {
   date = "",
   profileImage = "",
   class: className,
+  // 2026-07-28: see TestimonialCarousel.astro's matching comment.
+  editable = true,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -18,12 +20,12 @@ const starCount = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
 ---
 
 <article class:list={["testimonial-carousel-item", className]} {...htmlAttributes}>
-  <div class="testimonial-carousel-item__stars" aria-label={`${starCount} out of 5 stars`} data-prop="rating">
+  <div class="testimonial-carousel-item__stars" aria-label={`${starCount} out of 5 stars`} data-prop={editable ? "rating" : undefined}>
     {Array.from({ length: 5 }).map((_, index) => (
       <Icon name="star" size="none" class:list={["testimonial-carousel-item__star", index < starCount && "is-filled"]} />
     ))}
   </div>
-  <Text class="testimonial-carousel-item__text" data-prop="text" text={text} />
+  <Text class="testimonial-carousel-item__text" data-prop="text" text={text} editable={editable} />
   <div class="testimonial-carousel-item__author">
     {profileImage && (
       <Image
@@ -34,11 +36,12 @@ const starCount = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
         class="testimonial-carousel-item__avatar"
         data-prop-src="profileImage"
         data-prop-alt="name"
+        editable={editable}
       />
     )}
     <div class="testimonial-carousel-item__author-details">
-      <strong data-prop="name">{name}</strong>
-      {date && <span data-prop="date">{date}</span>}
+      <strong data-prop={editable ? "name" : undefined}>{name}</strong>
+      {date && <span data-prop={editable ? "date" : undefined}>{date}</span>}
     </div>
   </div>
 </article>

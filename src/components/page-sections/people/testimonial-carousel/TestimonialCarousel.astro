@@ -31,6 +31,12 @@ const {
   paddingVertical = "4xl",
   class: className,
   reviews = [],
+  // 2026-07-28: see CustomSection.astro's matching comment -- this section
+  // is rendered non-editably inside Footer.astro's extraSections (a shared,
+  // site-wide chrome block, not a per-page CloudCannon field), so its own
+  // eyebrow/heading/summary/reviews data-prop attributes need to respect
+  // that instead of always assuming they're editable.
+  editable = true,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -51,12 +57,12 @@ const formattedReviewCount = typeof reviewCount === "number" ? reviewCount.toLoc
   {(eyebrow || heading || subtext) && (
     <div class="testimonial-carousel__header">
       {eyebrow && (
-        <SimpleText class="eyebrow" data-prop="eyebrow">
+        <SimpleText class="eyebrow" data-prop="eyebrow" editable={editable}>
           {eyebrow}
         </SimpleText>
       )}
-      {heading && <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />}
-      {subtext && <Text class="testimonial-carousel__subtext" data-prop="subtext" text={subtext} />}
+      {heading && <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} editable={editable} />}
+      {subtext && <Text class="testimonial-carousel__subtext" data-prop="subtext" text={subtext} editable={editable} />}
     </div>
   )}
 
@@ -69,11 +75,11 @@ const formattedReviewCount = typeof reviewCount === "number" ? reviewCount.toLoc
       </div>
       {formattedReviewCount && (
         reviewsUrl ? (
-          <a class="testimonial-carousel__summary-link" href={reviewsUrl} target="_blank" rel="noopener" data-prop="reviewCount">
+          <a class="testimonial-carousel__summary-link" href={reviewsUrl} target="_blank" rel="noopener" data-prop={editable ? "reviewCount" : undefined}>
             Based on {formattedReviewCount} {sourceLabel} reviews
           </a>
         ) : (
-          <span data-prop="reviewCount">
+          <span data-prop={editable ? "reviewCount" : undefined}>
             Based on {formattedReviewCount} {sourceLabel} reviews
           </span>
         )
@@ -81,17 +87,23 @@ const formattedReviewCount = typeof reviewCount === "number" ? reviewCount.toLoc
     </div>
   )}
 
-  <Carousel label="Patient testimonials" slideWidthPercent={33.333} minSlideWidth={280} autoPlay={false} data-prop="reviews">
+  <Carousel label="Patient testimonials" slideWidthPercent={33.333} minSlideWidth={280} autoPlay={false} data-prop="reviews" editable={editable}>
     {
       Array.isArray(reviews) &&
         reviews.length > 0 &&
-        reviews.map((review, index) => (
-          <CarouselSlide aria-label={`Review ${index + 1} of ${reviews.length}`}>
-            <editable-array-item data-component="page-sections/people/testimonial-carousel/testimonial-carousel-item">
-              <TestimonialCarouselItem {...review} data-index={index} />
-            </editable-array-item>
-          </CarouselSlide>
-        ))
+        reviews.map((review, index) =>
+          editable ? (
+            <CarouselSlide aria-label={`Review ${index + 1} of ${reviews.length}`}>
+              <editable-array-item data-component="page-sections/people/testimonial-carousel/testimonial-carousel-item">
+                <TestimonialCarouselItem {...review} data-index={index} />
+              </editable-array-item>
+            </CarouselSlide>
+          ) : (
+            <CarouselSlide aria-label={`Review ${index + 1} of ${reviews.length}`}>
+              <TestimonialCarouselItem {...review} data-index={index} editable={false} />
+            </CarouselSlide>
+          )
+        )
     }
   </Carousel>
 </CustomSection>

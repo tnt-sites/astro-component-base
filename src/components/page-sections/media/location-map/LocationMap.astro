@@ -36,6 +36,8 @@ const {
   backgroundColor = "base",
   paddingVertical = "4xl",
   class: className,
+  // 2026-07-28: see CustomSection.astro's matching comment.
+  editable = true,
   _component,
   ...htmlAttributes
 } = Astro.props;
@@ -52,17 +54,18 @@ const mapSrc = address
   paddingVertical={paddingVertical}
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
+  editable={editable}
   {...htmlAttributes}
 >
   {(eyebrow || heading || subtext) && (
     <div class="location-map__header">
       {eyebrow && (
-        <SimpleText class="eyebrow" data-prop="eyebrow">
+        <SimpleText class="eyebrow" data-prop="eyebrow" editable={editable}>
           {eyebrow}
         </SimpleText>
       )}
-      {heading && <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />}
-      {subtext && <Text class="location-map__subtext" data-prop="subtext" text={subtext} />}
+      {heading && <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} editable={editable} />}
+      {subtext && <Text class="location-map__subtext" data-prop="subtext" text={subtext} editable={editable} />}
     </div>
   )}
 
@@ -70,7 +73,7 @@ const mapSrc = address
     <div
       class:list={["location-map__frame", rounded && "location-map__frame--rounded"]}
       style={`--location-map-height: ${height}px`}
-      data-prop="address"
+      data-prop={editable ? "address" : undefined}
     >
       <iframe
         src={mapSrc}

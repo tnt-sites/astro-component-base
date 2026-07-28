@@ -1,5 +1,10 @@
 ---
-const { html, aspectRatio = "auto", class: className, _component, ...htmlAttributes } = Astro.props;
+// `editable` is destructured-and-discarded (like `_component`) purely so it
+// never leaks into ...htmlAttributes as a literal `editable="false"` DOM
+// attribute -- this component has no data-prop of its own to gate, but
+// RenderBlock now forwards its own editable state to every rendered
+// component (see renderBlock.astro's 2026-07-28 comment).
+const { html, aspectRatio = "auto", class: className, _component, editable, ...htmlAttributes } = Astro.props;
 ---
 
 <div
