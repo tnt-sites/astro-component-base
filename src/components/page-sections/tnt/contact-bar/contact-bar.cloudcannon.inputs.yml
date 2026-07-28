@@ -1,0 +1,54 @@
+items:
+  type: array
+  label: Contact items
+  comment: Contact methods rendered side-by-side (e.g. phone, email, address).
+  options:
+    structures:
+      - label: Contact item
+        icon: call
+        value:
+          label: Call Us
+          description: "(555) 123-4567"
+          url: "tel:+15551234567"
+        preview:
+          text:
+            - key: label
+            - Contact item
+          subtext:
+            - key: description
+        _inputs:
+          label:
+            type: text
+            comment: Short label above the value (e.g. "Call Us", "Email Us").
+          description:
+            type: text
+            comment: The displayed value (e.g. a phone number or email address).
+          url:
+            type: text
+            comment: Link target, e.g. "tel:+15551234567" or "mailto:hello@example.com".
+colorScheme:
+  type: select
+  comment: Color scheme theme applied to the section wrapper.
+  options:
+    values:
+      - id: inherit
+        name: Inherit
+      - id: default
+        name: Default
+      - id: contrast
+        name: Contrast
+backgroundColor:
+  type: select
+  comment: Background color for the section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight

@@ -1,0 +1,88 @@
+eyebrow:
+  type: text
+  comment: Optional eyebrow text displayed above the heading.
+heading:
+  type: text
+  comment: Main heading for the testimonials section.
+subtext:
+  type: textarea
+  comment: Supporting copy beneath the heading.
+rating:
+  type: number
+  comment: Aggregate star rating shown in the summary line (0-5).
+reviewCount:
+  type: number
+  comment: Total review count shown in the summary line (e.g. "Based on 1,422 reviews").
+reviewsUrl:
+  type: url
+  comment: Optional link the review count links to (e.g. the Google Business Profile reviews page).
+sourceLabel:
+  type: text
+  comment: Platform label shown in the summary line (e.g. "Google", "Facebook").
+reviews:
+  type: array
+  label: Reviews
+  comment: Individual reviews rendered inside the carousel.
+  options:
+    structures:
+      - label: Review
+        icon: star
+        value:
+          _component: page-sections/people/testimonial-carousel/testimonial-carousel-item
+          name: Patient name
+          text: Add the review text here.
+          rating: 5
+          date: ""
+          profileImage: ""
+        preview:
+          text:
+            - key: name
+            - Review
+          subtext:
+            - key: text
+        _inputs:
+          name:
+            type: text
+            comment: Reviewer's name.
+          text:
+            type: textarea
+            comment: Review body text.
+          rating:
+            type: number
+            comment: Star rating for this review (0-5).
+          date:
+            type: text
+            comment: Optional display date (e.g. "1 year ago" or "May 2025").
+          profileImage:
+            type: image
+            comment: Optional reviewer profile photo.
+            options:
+              paths:
+                uploads: public/images
+                static: public
+colorScheme:
+  type: select
+  comment: Color scheme theme applied to the section wrapper.
+  options:
+    values:
+      - id: inherit
+        name: Inherit
+      - id: default
+        name: Default
+      - id: contrast
+        name: Contrast
+backgroundColor:
+  type: select
+  comment: Background color for the section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight

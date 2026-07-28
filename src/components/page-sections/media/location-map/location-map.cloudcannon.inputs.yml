@@ -1,0 +1,59 @@
+eyebrow:
+  type: text
+  comment: Optional eyebrow text displayed above the heading.
+heading:
+  type: text
+  comment: Section heading.
+subtext:
+  type: markdown
+  comment: Supporting body copy beneath the heading.
+  options:
+    blockquote: false
+    bold: true
+    format:
+    italic: true
+    link: true
+    strike: false
+    subscript: true
+    superscript: true
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+address:
+  type: text
+  comment: Street address or place name to look up on the map (e.g. "123 Main St, Austin, TX").
+height:
+  type: number
+  comment: Map height in pixels.
+zoom:
+  type: number
+  comment: Map zoom level (higher is more zoomed in). Typical range 10-18.
+rounded:
+  type: checkbox
+  comment: Round the map frame's corners.
+colorScheme:
+  type: select
+  comment: Color scheme theme applied to the section wrapper.
+  options:
+    values:
+      - id: inherit
+        name: Inherit
+      - id: default
+        name: Default
+      - id: contrast
+        name: Contrast
+backgroundColor:
+  type: select
+  comment: Background color for the section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight

@@ -1,0 +1,136 @@
+---
+/**
+ * Real reviews-slider component -- built 2026-07-27 to close a gap found on
+ * chapelhilldentalarts.com: its "Patient Testimonials" section (a Trustindex
+ * Google-reviews shortcode widget) has no real Astro equivalent today.
+ * `testimonial-section` (the only existing testimonial component,
+ * capabilities.ts's `testimonials`) only supports a single static quote --
+ * no reviews array, no rating summary, no slider. This reuses the existing
+ * Embla-backed Carousel building block (same one FeatureSlider uses) rather
+ * than introducing new slider infrastructure.
+ */
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Icon from "@core-elements/icon/Icon.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Text from "@core-elements/text/Text.astro";
+import Carousel from "@wrappers/carousel/Carousel.astro";
+import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
+import TestimonialCarouselItem from "./TestimonialCarouselItem.astro";
+
+const {
+  eyebrow = "",
+  heading = "",
+  subtext = "",
+  rating = 5,
+  reviewCount,
+  reviewsUrl = "",
+  sourceLabel = "Google",
+  colorScheme = "inherit",
+  backgroundColor,
+  paddingVertical = "4xl",
+  class: className,
+  reviews = [],
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const starCount = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
+const formattedReviewCount = typeof reviewCount === "number" ? reviewCount.toLocaleString() : reviewCount;
+---
+
+<CustomSection
+  class:list={["testimonial-carousel", className]}
+  maxContentWidth="xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {(eyebrow || heading || subtext) && (
+    <div class="testimonial-carousel__header">
+      {eyebrow && (
+        <SimpleText class="eyebrow" data-prop="eyebrow">
+          {eyebrow}
+        </SimpleText>
+      )}
+      {heading && <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />}
+      {subtext && <Text class="testimonial-carousel__subtext" data-prop="subtext" text={subtext} />}
+    </div>
+  )}
+
+  {(reviewCount || reviewsUrl) && (
+    <div class="testimonial-carousel__summary">
+      <div class="testimonial-carousel__summary-stars" aria-label={`${starCount} out of 5 stars`}>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Icon name="star" size="none" class:list={["testimonial-carousel__summary-star", index < starCount && "is-filled"]} />
+        ))}
+      </div>
+      {formattedReviewCount && (
+        reviewsUrl ? (
+          <a href={reviewsUrl} target="_blank" rel="noopener" data-prop="reviewCount">
+            Based on {formattedReviewCount} {sourceLabel} reviews
+          </a>
+        ) : (
+          <span data-prop="reviewCount">
+            Based on {formattedReviewCount} {sourceLabel} reviews
+          </span>
+        )
+      )}
+    </div>
+  )}
+
+  <Carousel label="Patient testimonials" slideWidthPercent={33.333} minSlideWidth={280} autoPlay={false} data-prop="reviews">
+    {
+      Array.isArray(reviews) &&
+        reviews.length > 0 &&
+        reviews.map((review, index) => (
+          <CarouselSlide aria-label={`Review ${index + 1} of ${reviews.length}`}>
+            <editable-array-item data-component="page-sections/people/testimonial-carousel/testimonial-carousel-item">
+              <TestimonialCarouselItem {...review} data-index={index} />
+            </editable-array-item>
+          </CarouselSlide>
+        ))
+    }
+  </Carousel>
+</CustomSection>
+
+<style lang="pcss">
+  .testimonial-carousel__header {
+    max-width: 48rem;
+    margin-inline: auto;
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+  }
+
+  .testimonial-carousel__subtext {
+    max-width: 42rem;
+    margin-inline: auto;
+  }
+
+  .testimonial-carousel__summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xs) var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .testimonial-carousel__summary-stars {
+    display: flex;
+    gap: 0.15em;
+  }
+
+  .testimonial-carousel__summary-star {
+    color: var(--color-border);
+    font-size: var(--font-size-md);
+
+    &.is-filled {
+      color: var(--yellow-dark, #f6b900);
+    }
+  }
+</style>

@@ -6,6 +6,7 @@ import Divider from "@core-elements/divider/Divider.astro";
 import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
+import RenderBlock from "@components/utils/renderBlock.astro";
 
 const {
   links = [],
@@ -19,12 +20,23 @@ const {
   mapAlt = "Map",
   mapHref,
   legalLinks = [],
+  // Composed Theme Builder footer-template content beyond the identity bar
+  // (testimonials slider, embedded map, contact form, ...) -- see
+  // composeChromeExtraSections() in WP2Astro. Optional/additive: empty on
+  // every site whose footer template is only logo/nav/socials/copyright, so
+  // this changes nothing for any existing site.
+  extraSections = [],
   _component,
   ...htmlAttributes
 } = Astro.props;
 ---
 
 <footer class="footer" {...htmlAttributes}>
+  {extraSections.length > 0 && (
+    <div class="footer-extra-sections">
+      <RenderBlock contentSections={extraSections} propName="extraSections" editable={false} />
+    </div>
+  )}
   {facts.length > 0 || mapSource ? (
     <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="2xl" class="footer-rich">
       <div class="footer-rich__info">
@@ -83,6 +95,8 @@ const {
   @layer page-sections {
     .footer {
       container-type: inline-size;
+
+      .footer-extra-sections { width: 100%; }
 
       .footer-rich > .outer-content > .content { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 1fr); gap: var(--spacing-2xl); align-items: center; }
       .footer-rich__info p { margin: 0 0 var(--spacing-lg); }

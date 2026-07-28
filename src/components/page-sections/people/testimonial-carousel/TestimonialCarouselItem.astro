@@ -1,0 +1,104 @@
+---
+import Icon from "@core-elements/icon/Icon.astro";
+import Image from "@core-elements/image/Image.astro";
+import Text from "@core-elements/text/Text.astro";
+
+const {
+  name = "",
+  text = "",
+  rating = 5,
+  date = "",
+  profileImage = "",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const starCount = Math.max(0, Math.min(5, Math.round(Number(rating) || 0)));
+---
+
+<article class:list={["testimonial-carousel-item", className]} {...htmlAttributes}>
+  <div class="testimonial-carousel-item__stars" aria-label={`${starCount} out of 5 stars`} data-prop="rating">
+    {Array.from({ length: 5 }).map((_, index) => (
+      <Icon name="star" size="none" class:list={["testimonial-carousel-item__star", index < starCount && "is-filled"]} />
+    ))}
+  </div>
+  <Text class="testimonial-carousel-item__text" data-prop="text" text={text} />
+  <div class="testimonial-carousel-item__author">
+    {profileImage && (
+      <Image
+        source={profileImage}
+        alt={name}
+        width={40}
+        height={40}
+        class="testimonial-carousel-item__avatar"
+        data-prop-src="profileImage"
+        data-prop-alt="name"
+      />
+    )}
+    <div class="testimonial-carousel-item__author-details">
+      <strong data-prop="name">{name}</strong>
+      {date && <span data-prop="date">{date}</span>}
+    </div>
+  </div>
+</article>
+
+<style lang="pcss">
+  .testimonial-carousel-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    height: 100%;
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg);
+  }
+
+  .testimonial-carousel-item__stars {
+    display: flex;
+    gap: 0.15em;
+  }
+
+  .testimonial-carousel-item__star {
+    color: var(--color-border);
+    font-size: var(--font-size-md);
+
+    &.is-filled {
+      color: var(--yellow-dark, #f6b900);
+    }
+  }
+
+  .testimonial-carousel-item__text {
+    flex: 1;
+    color: var(--color-text-secondary);
+  }
+
+  .testimonial-carousel-item__author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+
+  .testimonial-carousel-item__avatar {
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .testimonial-carousel-item__author-details {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-sm);
+
+    strong {
+      color: var(--color-text);
+    }
+
+    span {
+      color: var(--color-text-muted, var(--color-text-secondary));
+    }
+  }
+</style>

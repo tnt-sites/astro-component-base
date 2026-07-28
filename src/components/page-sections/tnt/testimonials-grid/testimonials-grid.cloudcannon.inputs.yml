@@ -1,0 +1,65 @@
+heading:
+  type: text
+  comment: Optional heading above the testimonial grid.
+items:
+  type: array
+  label: Testimonials
+  comment: Quote cards rendered in the grid.
+  options:
+    structures:
+      - label: Testimonial
+        icon: format_quote
+        value:
+          quote: Add the testimonial quote here.
+          authorName: Patient name
+          authorRole: ""
+          image: ""
+        preview:
+          text:
+            - key: authorName
+            - Testimonial
+          subtext:
+            - key: quote
+        _inputs:
+          quote:
+            type: textarea
+            comment: Quote / review text.
+          authorName:
+            type: text
+            comment: Reviewer's name.
+          authorRole:
+            type: text
+            comment: Optional role/description shown under the name (e.g. "Patient since 2019").
+          image:
+            type: image
+            comment: Optional reviewer photo.
+            options:
+              paths:
+                uploads: public/images
+                static: public
+colorScheme:
+  type: select
+  comment: Color scheme theme applied to the section wrapper.
+  options:
+    values:
+      - id: inherit
+        name: Inherit
+      - id: default
+        name: Default
+      - id: contrast
+        name: Contrast
+backgroundColor:
+  type: select
+  comment: Background color for the section.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: base
+        name: Base
+      - id: surface
+        name: Surface
+      - id: accent
+        name: Accent
+      - id: highlight
+        name: Highlight

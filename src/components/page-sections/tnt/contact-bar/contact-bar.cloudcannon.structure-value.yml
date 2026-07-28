@@ -1,0 +1,22 @@
+label: Contact Bar
+icon: call
+description: A row of quick contact methods (call, email, address), commonly used near a footer or under a hero.
+value:
+  _component: page-sections/tnt/contact-bar
+  items:
+    - label: Call Us
+      description: "(555) 123-4567"
+      url: "tel:+15551234567"
+  colorScheme: inherit
+  backgroundColor: base
+preview:
+  text:
+    - Contact Bar
+  subtext:
+    - key: items
+  icon: call
+picker_preview:
+  text: Contact Bar
+  subtext: Row of quick contact methods.
+_inputs_from_glob:
+  - /src/components/page-sections/tnt/contact-bar/contact-bar.cloudcannon.inputs.yml

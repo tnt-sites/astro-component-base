@@ -1,0 +1,25 @@
+label: Testimonial Carousel
+icon: star
+description: A slider of individual reviews with an aggregate rating summary, ideal for Google/Facebook review widgets.
+value:
+  _component: page-sections/people/testimonial-carousel
+  eyebrow: Patient Testimonials
+  heading: What Our Patients Say
+  rating: 5
+  reviewCount: 0
+  reviewsUrl: ""
+  sourceLabel: Google
+  reviews: []
+  colorScheme: inherit
+  backgroundColor: base
+preview:
+  text:
+    - Testimonial Carousel
+  subtext:
+    - key: heading
+  icon: star
+picker_preview:
+  text: Testimonial Carousel
+  subtext: Slider of individual reviews with a rating summary.
+_inputs_from_glob:
+  - /src/components/page-sections/people/testimonial-carousel/testimonial-carousel.cloudcannon.inputs.yml

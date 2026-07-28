@@ -1,0 +1,122 @@
+---
+/**
+ * Workbench Matching Rework -- Phase 2 prototype (2026-07-27). PROTOTYPE,
+ * NOT YET REVIEWED/APPROVED -- drafted to close a genuine capability gap
+ * found on chapelhilldentalarts.com's Contact page: a lone Elementor
+ * `google_maps` widget (role 'embed', canonical.ts) has zero registered
+ * capability today (packages/core/src/capabilities.ts), so
+ * pattern-workbench.ts flags it `unresolved`/`new-block-review` even though
+ * the real Elementor composer (adapters/elementor.ts's composeMap()) already
+ * has a working fallback -- a raw `<iframe>` HTML string glued onto
+ * page-sections/builders/custom-section via building-blocks/core-elements/
+ * embed. That fallback works, but isn't a first-class, styled, reusable
+ * component with real typed props (address/height/zoom/rounded) the way
+ * every other page-section is -- and composing raw iframe HTML strings in
+ * adapter code (rather than passing structured props to a real component)
+ * is also a needless small XSS-surface habit worth retiring.
+ *
+ * Real values used for the address placeholder below come from the actual
+ * Chapel Hills Dental Arts Contact page widget: address "Chapel Hill Dental
+ * Art", height 450px, zoom 14, border-radius 8px.
+ */
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Text from "@core-elements/text/Text.astro";
+
+const {
+  eyebrow = "",
+  heading = "",
+  subtext = "",
+  address = "",
+  height = 450,
+  zoom = 14,
+  rounded = true,
+  colorScheme = "inherit",
+  backgroundColor = "base",
+  paddingVertical = "4xl",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const mapSrc = address
+  ? `https://maps.google.com/maps?q=${encodeURIComponent(address)}&z=${encodeURIComponent(String(zoom))}&output=embed`
+  : "";
+---
+
+<CustomSection
+  class:list={["location-map", className]}
+  maxContentWidth="2xl"
+  paddingHorizontal="lg"
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  {...htmlAttributes}
+>
+  {(eyebrow || heading || subtext) && (
+    <div class="location-map__header">
+      {eyebrow && (
+        <SimpleText class="eyebrow" data-prop="eyebrow">
+          {eyebrow}
+        </SimpleText>
+      )}
+      {heading && <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />}
+      {subtext && <Text class="location-map__subtext" data-prop="subtext" text={subtext} />}
+    </div>
+  )}
+
+  {mapSrc ? (
+    <div
+      class:list={["location-map__frame", rounded && "location-map__frame--rounded"]}
+      style={`--location-map-height: ${height}px`}
+      data-prop="address"
+    >
+      <iframe
+        src={mapSrc}
+        title={heading || address || "Location map"}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      />
+    </div>
+  ) : (
+    <p class="location-map__missing">Add an address to show a map.</p>
+  )}
+</CustomSection>
+
+<style lang="pcss">
+  .location-map__header {
+    max-width: 48rem;
+    margin-inline: auto;
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+  }
+
+  .location-map__subtext {
+    max-width: 42rem;
+    margin-inline: auto;
+  }
+
+  .location-map__frame {
+    height: var(--location-map-height, 450px);
+    width: 100%;
+    overflow: hidden;
+
+    iframe {
+      border: none;
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .location-map__frame--rounded {
+    border-radius: var(--radius-md);
+  }
+
+  .location-map__missing {
+    color: var(--color-text-muted, var(--color-text-secondary));
+    font-style: italic;
+    text-align: center;
+  }
+</style>

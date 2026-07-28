@@ -1,0 +1,23 @@
+label: Location Map
+icon: map
+description: An embedded Google Map for a single address, with an optional heading/intro.
+value:
+  _component: page-sections/media/location-map
+  eyebrow: ""
+  heading: Find Us
+  subtext: ""
+  address: ""
+  height: 450
+  zoom: 14
+  rounded: true
+preview:
+  text:
+    - Location Map
+  subtext:
+    - key: address
+  icon: map
+picker_preview:
+  text: Location Map
+  subtext: Embedded Google Map for one address.
+_inputs_from_glob:
+  - /src/components/page-sections/media/location-map/location-map.cloudcannon.inputs.yml

@@ -1,0 +1,20 @@
+label: Testimonials Grid
+icon: format_quote
+description: A static grid of quote cards, ideal for a handful of hand-picked reviews without a slider.
+value:
+  _component: page-sections/tnt/testimonials-grid
+  heading: What Our Patients Say
+  items: []
+  colorScheme: inherit
+  backgroundColor: surface
+preview:
+  text:
+    - Testimonials Grid
+  subtext:
+    - key: heading
+  icon: format_quote
+picker_preview:
+  text: Testimonials Grid
+  subtext: Static grid of quote cards.
+_inputs_from_glob:
+  - /src/components/page-sections/tnt/testimonials-grid/testimonials-grid.cloudcannon.inputs.yml
