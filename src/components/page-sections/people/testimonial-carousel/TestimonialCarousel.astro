@@ -62,14 +62,14 @@ const formattedReviewCount = typeof reviewCount === "number" ? reviewCount.toLoc
 
   {(reviewCount || reviewsUrl) && (
     <div class="testimonial-carousel__summary">
-      <div class="testimonial-carousel__summary-stars" aria-label={`${starCount} out of 5 stars`}>
+      <div class="testimonial-carousel__summary-stars" role="img" aria-label={`${starCount} out of 5 stars`}>
         {Array.from({ length: 5 }).map((_, index) => (
           <Icon name="star" size="none" class:list={["testimonial-carousel__summary-star", index < starCount && "is-filled"]} />
         ))}
       </div>
       {formattedReviewCount && (
         reviewsUrl ? (
-          <a href={reviewsUrl} target="_blank" rel="noopener" data-prop="reviewCount">
+          <a class="testimonial-carousel__summary-link" href={reviewsUrl} target="_blank" rel="noopener" data-prop="reviewCount">
             Based on {formattedReviewCount} {sourceLabel} reviews
           </a>
         ) : (
@@ -132,5 +132,16 @@ const formattedReviewCount = typeof reviewCount === "number" ? reviewCount.toLoc
     &.is-filled {
       color: var(--yellow-dark, #f6b900);
     }
+  }
+
+  /* 2026-07-28: the surrounding .testimonial-carousel__summary text is
+     intentionally muted (--color-text-secondary), but that same muted color
+     failed axe's color-contrast check when inherited by the "Based on N
+     reviews" link (real finding across all 60 chapelhilldentalarts.com
+     pages, since this section is footer-wide) -- give the link its own
+     higher-contrast link color instead of inheriting the muted one. */
+  .testimonial-carousel__summary-link {
+    color: var(--color-text-link, var(--color-text));
+    text-decoration: underline;
   }
 </style>
