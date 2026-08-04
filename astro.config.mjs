@@ -4,7 +4,6 @@ import postcssGlobalData from "@csstools/postcss-global-data";
 import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import autoprefixer from "autoprefixer";
-import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import postcssCustomMedia from "postcss-custom-media";
@@ -17,46 +16,6 @@ import mdx from "@astrojs/mdx";
 import tailwindcss from "@tailwindcss/vite";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-// PostCSS plugin: substitute branding.json values directly into CSS custom properties
-function makeBrandingPostcssPlugin() {
-  let branding = {};
-
-  try {
-    branding = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, "src/data/branding.json"), "utf8")
-    );
-  } catch {
-    // branding.json missing or unreadable — use theme defaults
-  }
-
-  const varMap = Object.fromEntries(
-    [
-      ["--color-brand", branding.colorBrand],
-      ["--color-brand-secondary", branding.colorBrandSecondary],
-      ["--color-brand-muted", branding.colorBrandTertiary],
-      ["--color-brand-subtle", branding.colorBrandSubtle],
-      ["--color-brand-on", branding.colorBrandOn],
-      ["--color-text-on-brand", branding.colorTextOnBrand],
-      ["--color-link", branding.colorLink],
-      ["--color-link-hover", branding.colorLinkHover],
-      ["--font-body", branding.bodyFont?.fontFamily],
-      ["--font-headings", branding.headingsFont?.fontFamily],
-      ["--font-sans", branding.bodyFont?.fontFamily],
-      ["--font-serif", branding.headingsFont?.fontFamily],
-    ].filter(([, v]) => v?.trim())
-  );
-
-  return {
-    postcssPlugin: "branding-theme",
-    Declaration(decl) {
-      if (decl.prop in varMap) {
-        decl.value = varMap[decl.prop];
-      }
-    },
-  };
-}
-makeBrandingPostcssPlugin.postcss = true;
 
 // https://astro.build/config
 export default defineConfig({
@@ -103,7 +62,6 @@ export default defineConfig({
           postcssNested,
           postcssEach,
           autoprefixer,
-          makeBrandingPostcssPlugin(),
         ],
       },
     },

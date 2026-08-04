@@ -28,7 +28,21 @@ export interface Props {
 const props = Astro.props;
 const formattedTitle = seoData.titleFormat.replace("{title}", props.title);
 
+// --- Branding: single source of truth for live theme colors/fonts ---
+// Values below come from src/data/branding.json, editable via the CloudCannon CMS
+// color/font pickers (see cloudcannon.config.yml). They're emitted as a `:root,
+// [data-theme="default"] { ... }` stylesheet rule (matching _default.pcss's own
+// selector) rather than an inline style on <html>, because any nested section
+// with an explicit `data-theme="default"` (e.g. a CustomSection's colorScheme
+// prop) gets its OWN copy of these custom properties from _default.pcss — an
+// element's own declaration always wins over an inherited one, so an inline
+// style on <html> alone can't reach through to override it. `!important` makes
+// sure this rule wins regardless of stylesheet ordering. [data-theme="contrast"]
+// sections are deliberately left alone — they use neutral grays, not brand hues.
+// To change live branding, edit branding.json / the CMS fields — not _default.pcss.
 // --- Branding: core color fields mapped to their CSS custom properties ---
+const sanitizeCssValue = (value: string) => value.split(/[<>{}]|;/)[0].trim();
+
 const brandingColorVars: Record<string, string> = {
   colorBrand: "--color-brand",
   colorBrandSecondary: "--color-brand-secondary",
@@ -42,7 +56,9 @@ const brandingColorVars: Record<string, string> = {
 const brandingColorsCss = Object.entries(brandingColorVars)
   .map(([key, variable]) => {
     const value = (brandingData as any)[key];
-    return typeof value === "string" && value.trim() ? `${variable}: ${value.trim()};` : "";
+    return typeof value === "string" && value.trim()
+      ? `${variable}: ${sanitizeCssValue(value)} !important;`
+      : "";
   })
   .filter(Boolean)
   .join(" ");
@@ -51,10 +67,25 @@ const brandingColorsCss = Object.entries(brandingColorVars)
 const brandingExtraColors = Array.isArray(brandingData.extraColors) ? brandingData.extraColors : [];
 const extraColorsCss = (brandingExtraColors as any[])
   .filter((e: any) => e?.variable?.trim() && e?.value?.trim())
-  .map((e: any) => `${e.variable.trim()}: ${e.value.trim()};`)
+  .map((e: any) => `${sanitizeCssValue(e.variable)}: ${sanitizeCssValue(e.value)} !important;`)
   .join(" ");
 
-const brandingCss = [brandingColorsCss, extraColorsCss].filter(Boolean).join(" ");
+// --- Branding: font family fields mapped to their CSS custom properties ---
+const brandingFontVars: Record<string, string | undefined> = {
+  "--font-body": brandingData.bodyFont?.fontFamily,
+  "--font-headings": brandingData.headingsFont?.fontFamily,
+  "--font-sans": brandingData.bodyFont?.fontFamily,
+  "--font-serif": brandingData.headingsFont?.fontFamily,
+};
+const brandingFontsCss = Object.entries(brandingFontVars)
+  .map(([variable, value]) =>
+    typeof value === "string" && value.trim() ? `${variable}: ${sanitizeCssValue(value)} !important;` : ""
+  )
+  .filter(Boolean)
+  .join(" ");
+
+const brandingCss = [brandingColorsCss, extraColorsCss, brandingFontsCss].filter(Boolean).join(" ");
+const brandingCssRule = brandingCss ? `:root, [data-theme="default"] { ${brandingCss} }` : "";
 
 // --- Branding: font link URLs ---
 const legacyBrandingFontUrls = [
@@ -125,7 +156,7 @@ const globalModals = [
 ---
 
 <!doctype html>
-<html lang="en" data-theme="default" style={brandingCss || undefined}>
+<html lang="en" data-theme="default">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -134,6 +165,7 @@ const globalModals = [
     <style is:inline>
       @layer reset, base, components, page-sections, utils, overrides;
     </style>
+    <style is:inline set:html={brandingCssRule || "/* no branding overrides set */"}></style>
 
     <script>
       if (window.inEditorMode) {

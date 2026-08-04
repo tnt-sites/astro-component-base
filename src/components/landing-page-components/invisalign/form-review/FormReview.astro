@@ -154,8 +154,8 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .invis-middle-block .submit-btn {
-    background: #4f95d0;
-    color: #fff;
+    background: var(--invis-form-bg, var(--color-brand));
+    color: var(--color-text-on-brand);
     cursor: pointer;
     font-family: josefin-sans, var(--font-body);
     font-size: 16px;
@@ -167,7 +167,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .invis-middle-block .submit-btn:hover {
-    background: #436a8b;
+    background: var(--color-brand-muted, var(--color-brand));
   }
 
   .invis-middle-block .reviews {

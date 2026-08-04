@@ -1,6 +1,6 @@
 {
-  "colorBrand": "#ff0000",
-  "colorBrandSecondary": "#0021ff",
+  "colorBrand": "green",
+  "colorBrandSecondary": "yellow",
   "colorBrandTertiary": "#ff00ff",
   "colorBrandSubtle": "",
   "colorBrandOn": "",

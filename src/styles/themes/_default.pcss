@@ -1,4 +1,12 @@
-/* Light theme */
+/* Light theme (fallback defaults only).
+ *
+ * The --color-brand*, --color-text-on-brand, --color-link*, and --font-* variables
+ * below are overridden at runtime by src/layouts/BaseLayout.astro, which reads
+ * src/data/branding.json — edited via the CloudCannon CMS color/font pickers
+ * (see cloudcannon.config.yml). Editing the values here only changes what renders
+ * when branding.json has no value set for that field; to change live branding,
+ * edit branding.json / the CMS fields instead.
+ */
 :root,
 [data-theme="default"] {
   color-scheme: light;
