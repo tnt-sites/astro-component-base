@@ -1,0 +1,19 @@
+siteKey:
+  type: text
+  comment: >-
+    reCAPTCHA site key for this form. Leave blank to fall back to the
+    `recaptchaSiteKey` set in siteInfo.json.
+theme:
+  type: select
+  options:
+    values:
+      - light
+      - dark
+  comment: The color theme of the widget.
+size:
+  type: select
+  options:
+    values:
+      - normal
+      - compact
+  comment: The size of the widget.

@@ -76,5 +76,6 @@
   "modals": [],
   "head_scripts": ["/* test header script */"],
   "footer_scripts": ["/* Test Footer Script */"],
-  "mapEmbedUrl": ""
+  "mapEmbedUrl": "",
+  "recaptchaSiteKey": ""
 }

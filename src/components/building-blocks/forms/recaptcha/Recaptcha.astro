@@ -1,0 +1,34 @@
+---
+import siteInfoData from "@data/siteInfo.json";
+
+const { siteKey, theme = "light", size = "normal", class: className, _component, ...htmlAttributes } = Astro.props;
+
+const effectiveSiteKey = siteKey || (siteInfoData as any).recaptchaSiteKey || "";
+
+// TODO: once a backend exists, verify the submitted `g-recaptcha-response` token
+// server-side against Google's siteverify endpoint using the secret key. This
+// component only renders the client-side challenge and captures the token.
+---
+
+{
+  effectiveSiteKey ? (
+    <>
+      <div
+        class:list={["g-recaptcha", className]}
+        data-sitekey={effectiveSiteKey}
+        data-theme={theme}
+        data-size={size}
+        {...htmlAttributes}
+      />
+      <script async defer src="https://www.google.com/recaptcha/api.js" is:inline></script>
+    </>
+  ) : (
+    import.meta.env.DEV && (
+      <script is:inline>
+        console.warn(
+          "Recaptcha block: no site key configured (set a `siteKey` prop or `recaptchaSiteKey` in siteInfo.json).",
+        );
+      </script>
+    )
+  )
+}

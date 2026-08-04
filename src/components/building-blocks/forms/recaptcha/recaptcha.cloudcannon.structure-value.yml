@@ -1,0 +1,21 @@
+label: Recaptcha
+icon: verified_user
+description: Google reCAPTCHA v2 "I'm not a robot" checkbox.
+value:
+  _component: building-blocks/forms/recaptcha
+  id: ""
+  siteKey: null
+  theme: light
+  size: normal
+preview:
+  text:
+    - Recaptcha
+  subtext:
+    - key: siteKey
+    - "Uses siteInfo.json fallback"
+  icon: verified_user
+picker_preview:
+  text: Recaptcha
+  subtext: Google reCAPTCHA v2 "I'm not a robot" checkbox.
+_inputs_from_glob:
+  - /src/components/building-blocks/forms/recaptcha/recaptcha.cloudcannon.inputs.yml
