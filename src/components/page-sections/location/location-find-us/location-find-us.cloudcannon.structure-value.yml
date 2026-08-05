@@ -6,6 +6,10 @@ value:
   id: ''
   heading: Getting to Our Dental Office
   text: Directions from the surrounding area go here.
+  backgroundColor: "#ffffff"
+  textColor: "#000000"
+  accentColor: var(--color-brand-subtle)
+  iconColor: var(--color-brand)
 preview:
   text:
     - key: heading

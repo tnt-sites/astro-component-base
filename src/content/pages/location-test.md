@@ -11,6 +11,10 @@ pageSections:
     id: ''
     heading: Lorem Ipsum Dolor Sit Amet
     subheading: Consectetur adipiscing elit sed do eiusmod tempor
+    backgroundColor: "#ffffff"
+    textColor: "#000000"
+    accentColor: var(--color-brand)
+    iconColor: var(--color-brand)
   - _component: page-sections/location/location-doctors
     id: ''
     heading: Lorem Ipsum Dolor Sit Amet Consectetur
@@ -49,6 +53,10 @@ pageSections:
         heading: Adipiscing Elit Sed
         modalHeading: ''
         modalContent: ''
+    backgroundColor: "#ffffff"
+    textColor: "#000000"
+    accentColor: var(--color-brand)
+    iconColor: var(--color-brand)
   - _component: page-sections/location/location-services
     id: ''
     heading: Lorem Ipsum Dolor Sit Amet
@@ -78,6 +86,10 @@ pageSections:
         modalHeading: ''
         modalContent: |-
           Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    backgroundColor: "#ffffff"
+    textColor: "#000000"
+    accentColor: var(--color-brand-subtle)
+    iconColor: var(--color-brand)
   - _component: page-sections/location/location-why
     id: ''
     heading: Lorem Ipsum Dolor Sit Amet Consectetur
@@ -97,6 +109,10 @@ pageSections:
         heading: Elit Sed Do Eiusmod
         modalHeading: ''
         modalContent: ''
+    backgroundColor: "#000000"
+    textColor: "#ffffff"
+    accentColor: var(--color-brand-secondary)
+    iconColor: "#ffffff"
   - _component: page-sections/location/location-financing
     id: ''
     heading: Lorem Ipsum Dolor Sit Amet
@@ -114,6 +130,10 @@ pageSections:
         modalHeading: ''
         modalContent: |-
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    backgroundColor: "#000000"
+    textColor: "#ffffff"
+    accentColor: var(--color-brand-secondary)
+    iconColor: "#ffffff"
   - _component: page-sections/location/location-review
     id: ''
     heading: Lorem Ipsum Dolor Sit Amet
@@ -121,6 +141,10 @@ pageSections:
     logoAlt: ''
     quote: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.
     authorName: Lorem Ipsum
+    backgroundColor: "#000000"
+    textColor: "#ffffff"
+    accentColor: var(--color-brand-secondary)
+    iconColor: "#ffffff"
   - _component: page-sections/location/location-faqs
     id: ''
     heading: Lorem Ipsum Dolor Sit Amet
@@ -135,9 +159,17 @@ pageSections:
       - _component: page-sections/location/location-faqs/location-faq-item
         question: Incididunt ut labore et dolore magna aliqua?
         answer: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    backgroundColor: "#000000"
+    textColor: "#ffffff"
+    accentColor: var(--color-brand-secondary)
+    iconColor: "#ffffff"
   - _component: page-sections/location/location-find-us
     id: ''
     heading: Lorem Ipsum Dolor Sit Amet
     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    backgroundColor: "#ffffff"
+    textColor: "#000000"
+    accentColor: var(--color-brand-subtle)
+    iconColor: var(--color-brand)
 description: 'Test page assembling every location page-section component with placeholder lorem ipsum content and images.'
 ---

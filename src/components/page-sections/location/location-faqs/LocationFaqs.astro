@@ -24,7 +24,7 @@ const editableAttributes = (prop: string, type = "text") =>
   editable ? { "data-editable": type, "data-prop": prop } : {};
 ---
 
-<LocationSection id={id} altBackground class:list={["location-faqs", className]} {...htmlAttributes}>
+<LocationSection id={id} class:list={["location-faqs", className]} {...htmlAttributes}>
   {heading && <h2 {...editableAttributes("heading")}>{heading}</h2>}
   {
     introHtml && (
@@ -93,7 +93,7 @@ const editableAttributes = (prop: string, type = "text") =>
 
 <style lang="pcss" is:global>
   @layer page-sections {
-    .location-page-section.location-faqs.alt-background {
+    .location-page-section.location-faqs {
       --faq-max-width: 900px;
       --faq-h3-background: transparent;
       --faq-h3-color: var(--alt-a-color);
@@ -105,7 +105,7 @@ const editableAttributes = (prop: string, type = "text") =>
       --faq-a-color: var(--alt-a-color);
       --faq-a-color-hover: var(--alt-a-color-hover);
       --faq-border-type: solid;
-      --faq-border-color: #fff;
+      --faq-border-color: var(--alt-content-color);
       --side-border-color: transparent;
       --faq-border-width: 2px;
       --faq-border-radius: 0; /* keep at 0 while --side-border-color is transparent */
@@ -219,7 +219,7 @@ const editableAttributes = (prop: string, type = "text") =>
     }
 
     @media screen and (max-width: 1024px) {
-      .location-page-section.location-faqs.alt-background .faq-toggle {
+      .location-page-section.location-faqs .faq-toggle {
         &::before {
           font-size: var(--faq-icon-size-tablet);
         }
@@ -231,7 +231,7 @@ const editableAttributes = (prop: string, type = "text") =>
     }
 
     @media screen and (max-width: 767px) {
-      .location-page-section.location-faqs.alt-background .faq-toggle {
+      .location-page-section.location-faqs .faq-toggle {
         &::before {
           font-size: var(--faq-icon-size-mobile);
         }

@@ -118,7 +118,7 @@ const editableAttributes = (prop: string) =>
 
 <style lang="pcss" is:global>
   @layer page-sections {
-    .location-page-section.location-doctors:not(.alt-background) {
+    .location-page-section.location-doctors {
       .heading-and-doctors {
         display: flex;
         flex-direction: column-reverse;
@@ -221,7 +221,7 @@ const editableAttributes = (prop: string) =>
     }
 
     @media screen and (max-width: 1024px) {
-      .location-page-section.location-doctors:not(.alt-background) {
+      .location-page-section.location-doctors {
         .doctor-images-container .doctor h3 {
           font-size: var(--doctor-h3-image-font-tablet);
         }
@@ -233,7 +233,7 @@ const editableAttributes = (prop: string) =>
     }
 
     @media screen and (max-width: 767px) {
-      .location-page-section.location-doctors:not(.alt-background) {
+      .location-page-section.location-doctors {
         .doctor-images-container .doctor h3 {
           font-size: var(--doctor-h3-image-font-mobile);
         }

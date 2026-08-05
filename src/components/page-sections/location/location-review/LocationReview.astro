@@ -32,7 +32,6 @@ const editableAttributes = (prop: string, type = "text") =>
 
 <LocationSection
   id={id}
-  altBackground
   class:list={["location-review", className]}
   {...htmlAttributes}
 >
@@ -72,7 +71,7 @@ const editableAttributes = (prop: string, type = "text") =>
 
 <style lang="pcss" is:global>
   @layer page-sections {
-    .location-page-section.location-review.alt-background {
+    .location-page-section.location-review {
       padding: 60px 10px;
       position: relative;
 
@@ -170,13 +169,13 @@ const editableAttributes = (prop: string, type = "text") =>
     }
 
     @media screen and (max-width: 1024px) {
-      .location-page-section.location-review.alt-background .container p {
+      .location-page-section.location-review .container p {
         font-size: var(--review-content-font-tablet);
       }
     }
 
     @media screen and (max-width: 767px) {
-      .location-page-section.location-review.alt-background .container p {
+      .location-page-section.location-review .container p {
         font-size: var(--review-content-font-mobile);
       }
     }

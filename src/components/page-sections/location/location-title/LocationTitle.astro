@@ -28,7 +28,7 @@ const editableAttributes = (prop: string) =>
 
 <style lang="pcss" is:global>
   @layer page-sections {
-    .location-page-section.location-title:not(.alt-background) {
+    .location-page-section.location-title {
       padding: 20px 10px 0;
 
       .container {
@@ -49,7 +49,7 @@ const editableAttributes = (prop: string) =>
     }
 
     @media screen and (max-width: 1024px) {
-      .location-page-section.location-title:not(.alt-background) .container {
+      .location-page-section.location-title .container {
         h1 {
           font-size: var(--intro-h1-font-tablet);
         }
@@ -61,7 +61,7 @@ const editableAttributes = (prop: string) =>
     }
 
     @media screen and (max-width: 767px) {
-      .location-page-section.location-title:not(.alt-background) .container {
+      .location-page-section.location-title .container {
         h1 {
           font-size: var(--intro-h1-font-mobile);
         }

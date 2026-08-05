@@ -21,6 +21,10 @@ value:
         heading: Warm and Inviting Dental Office
         modalHeading: ''
         modalContent: ''
+  backgroundColor: "#000000"
+  textColor: "#ffffff"
+  accentColor: var(--color-brand-secondary)
+  iconColor: "#ffffff"
 preview:
   text:
     - key: heading

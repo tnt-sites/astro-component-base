@@ -6,63 +6,60 @@
  * each section component only carries its own rules. Not a CloudCannon
  * component — it has no structure-value.yml and is never picked directly.
  *
- * Sections alternate: `altBackground` gives the dark, light-on-dark treatment
- * (Why, Review, Financing, FAQs); the default is the light one.
+ * Each section picks its own `backgroundColor`, `textColor`, `accentColor`
+ * (link-hover, review stars, the "Find Us" watermark heading) and `iconColor`
+ * (SVG fill/stroke) — CloudCannon selects backed by the same brand/black/white
+ * option list (cloudcannon.config.yml's `_select_data.brandColors`) on each
+ * section's own inputs.yml. There's no shared light/dark toggle any more:
+ * every section can be any combination, so descendants apply `textColor` to
+ * every element unconditionally rather than assuming a fixed pairing.
  *
  * All spacing comes from the ported CSS, so CustomSection's own padding and
- * max-width are switched off, and `backgroundColor` is left unset so it doesn't
- * emit an empty overlay div — the section paints its own background.
+ * max-width are switched off, and `backgroundColor` is left unset on
+ * CustomSection itself so it doesn't emit an empty overlay div — the section
+ * paints its own background via these custom properties instead.
  *
- * The hex literals in the <style> block below are fallback defaults. The real
- * source of truth is src/data/locationBranding.json, editable in CloudCannon
- * the same way branding.json is — its `light`/`dark` colors are applied here
- * as an inline style, which wins over the <style> block whenever a field is
- * set, and falls through to the hardcoded default whenever it's left blank.
+ * The hex literals in the <style> block below are fallback defaults for
+ * whichever of the four color props a section instance leaves blank.
  */
 import CustomSection from "@builders/custom-section/CustomSection.astro";
-import locationBranding from "@data/locationBranding.json";
 import { cssVars } from "./utils";
 
 const {
   id = "",
-  altBackground = false,
+  backgroundColor,
+  textColor,
+  accentColor,
+  iconColor,
   backgroundImage,
   class: className,
   style: styleProp,
   ...htmlAttributes
 } = Astro.props;
 
-const light = locationBranding.light ?? {};
-const dark = locationBranding.dark ?? {};
-
 const paletteStyle = cssVars({
-  "--site-a-color": light.linkText,
-  "--site-a-color-hover": light.linkTextHover,
-  "--background": light.background,
-  "--intro-h1-color": light.introHeading,
-  "--intro-h2-color": light.introSubheading,
-  "--h2-color": light.heading,
-  "--image-h3-color": light.imageCaption,
-  "--svg-color": light.icon,
-  "--svg-h3-color": light.iconLabel,
-  "--focus-color": light.focusRing,
-  "--location-services-h2-color": light.findUsHeading,
-  "--alt-background": dark.background,
-  "--alt-h2-color": dark.heading,
-  "--alt-content-color": dark.content,
-  "--alt-a-color": dark.link,
-  "--alt-a-color-hover": dark.linkHover,
-  "--quotation-color": dark.quotationMark,
-  "--review-star-color": dark.reviewStars,
-  "--review-content-color": dark.reviewText,
-  "--alt-svg-color": dark.icon,
-  "--alt-svg-h3-color": dark.iconLabel,
-  "--alt-focus-color": dark.focusRing,
+  "--background": backgroundColor,
+  "--h2-color": textColor,
+  "--site-a-color": textColor,
+  "--site-a-color-hover": accentColor,
+  "--intro-h1-color": textColor,
+  "--intro-h2-color": textColor,
+  "--image-h3-color": textColor,
+  "--focus-color": textColor,
+  "--location-services-h2-color": accentColor,
+  "--svg-color": iconColor,
+  "--svg-h3-color": textColor,
+  "--alt-content-color": textColor,
+  "--alt-a-color": textColor,
+  "--alt-a-color-hover": accentColor,
+  "--quotation-color": textColor,
+  "--review-star-color": accentColor,
+  "--review-content-color": textColor,
 });
 ---
 
 <CustomSection
-  class:list={["location-page-section", altBackground && "alt-background", className]}
+  class:list={["location-page-section", className]}
   id={id || undefined}
   paddingHorizontal="none"
   paddingVertical="none"
@@ -81,32 +78,23 @@ const paletteStyle = cssVars({
        custom properties inherit, so child components resolve them too.
        These are the knobs to turn when re-theming for another site. */
     .location-page-section {
-      --site-a-color: #000;
-      --site-a-color-hover: #000;
-
-      /* Light sections (Title, Doctors, Services, Find Us) */
-      --background: #F4F1EC;
-      --intro-h1-color: #000;
-      --intro-h2-color: #134545;
-      --h2-color: #134545;
-      --image-h3-color: #555;
-      --svg-color: #134545;
-      --svg-h3-color: #134545;
-      --focus-color: #222;
-      --location-services-h2-color: #d0c8b7;
-
-      /* Dark sections (Why, Review, Financing, FAQs) */
-      --alt-background: #134545;
-      --alt-h2-color: #fff;
-      --alt-content-color: #fff;
-      --alt-a-color: #fff;
-      --alt-a-color-hover: #eab400;
-      --quotation-color: #fff;
-      --review-star-color: #f4bd17;
-      --review-content-color: #fff;
-      --alt-svg-color: #fff;
-      --alt-svg-h3-color: #fff;
-      --alt-focus-color: #fff;
+      --background: #ffffff;
+      --h2-color: #000000;
+      --site-a-color: #000000;
+      --site-a-color-hover: #000000;
+      --intro-h1-color: #000000;
+      --intro-h2-color: #000000;
+      --image-h3-color: #000000;
+      --focus-color: #000000;
+      --location-services-h2-color: #000000;
+      --svg-color: #000000;
+      --svg-h3-color: #000000;
+      --alt-content-color: #000000;
+      --alt-a-color: #000000;
+      --alt-a-color-hover: #000000;
+      --quotation-color: #000000;
+      --review-star-color: #000000;
+      --review-content-color: #000000;
 
       /* Doctor & service card sizing */
       --doctor-images-container-width: 1400px;
@@ -163,6 +151,8 @@ const paletteStyle = cssVars({
 
       margin: 0 auto;
       padding: 0;
+      background: var(--background);
+      background-size: cover;
 
       .container {
         display: block;
@@ -183,6 +173,7 @@ const paletteStyle = cssVars({
       }
 
       h2 {
+        color: var(--h2-color);
         font-size: var(--h2-font);
         line-height: 1.15;
         margin: 0 auto !important; /* over-rides the site's h2 spacing */
@@ -202,64 +193,27 @@ const paletteStyle = cssVars({
         padding: 10px 0;
       }
 
-      &:not(.alt-background) {
-        background: var(--background);
-        background-size: cover;
+      *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(a):not(button):not(input):not(select):not(textarea) {
+        color: var(--alt-content-color);
+      }
 
-        h2 {
-          color: var(--h2-color);
-        }
+      a:not(.btn):not(.btn-alt) {
+        color: var(--site-a-color);
 
-        a:not(.btn):not(.btn-alt) {
-          color: var(--site-a-color);
-
-          &:hover {
-            color: var(--site-a-color-hover);
-          }
-        }
-
-        & :focus-visible {
-          outline: 2px solid var(--focus-color) !important;
-          outline-offset: 2px;
-          transition: none;
-        }
-
-        & :focus:not(:focus-visible) {
-          outline: none !important;
-          transition: none;
+        &:hover {
+          color: var(--site-a-color-hover);
         }
       }
 
-      &.alt-background {
-        background: var(--alt-background);
-        background-size: cover;
+      & :focus-visible {
+        outline: 2px solid var(--focus-color) !important;
+        outline-offset: 2px;
+        transition: none;
+      }
 
-        h2 {
-          color: var(--alt-h2-color);
-        }
-
-        *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(a):not(button):not(input):not(select):not(textarea) {
-          color: var(--alt-content-color);
-        }
-
-        a:not(.btn):not(.btn-alt) {
-          color: var(--alt-a-color);
-
-          &:hover {
-            color: var(--alt-a-color-hover);
-          }
-        }
-
-        & :focus-visible {
-          outline: 2px solid var(--alt-focus-color) !important;
-          outline-offset: 2px;
-          transition: none;
-        }
-
-        & :focus:not(:focus-visible) {
-          outline: none !important;
-          transition: none;
-        }
+      & :focus:not(:focus-visible) {
+        outline: none !important;
+        transition: none;
       }
     }
 

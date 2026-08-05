@@ -9,6 +9,10 @@ value:
   logoAlt: Google
   quote: A short, glowing review from a happy patient.
   authorName: Patient Name
+  backgroundColor: "#000000"
+  textColor: "#ffffff"
+  accentColor: var(--color-brand-secondary)
+  iconColor: "#ffffff"
 preview:
   text:
     - key: heading

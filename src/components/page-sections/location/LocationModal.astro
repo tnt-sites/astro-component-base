@@ -7,31 +7,22 @@
  * the shared Modal component's controller — this only supplies the heading,
  * the markdown body, and the styling.
  *
- * Colors come from src/data/locationBranding.json (see LocationSection.astro
- * for the same pattern); the hex literals in the <style> block are just the
- * fallback defaults for when a field is left blank.
+ * Modals don't have their own pageSection slot (they're rendered from array
+ * items inside Doctors/Services/Why/Financing), so they're deliberately not
+ * tied to whichever backgroundColor/textColor the parent section picked —
+ * always a fixed, neutral white-background/black-text style.
  */
 import Modal from "@page-sections/info-blocks/modal/Modal.astro";
-import locationBranding from "@data/locationBranding.json";
-import { cssVars, renderMarkdown } from "./utils";
+import { renderMarkdown } from "./utils";
 
 const { id, heading = "", content = "" } = Astro.props;
 
 if (!id) return;
 
 const body = renderMarkdown(content);
-const modal = locationBranding.modal ?? {};
-
-const modalStyle = cssVars({
-  "--modal-background": modal.background,
-  "--modal-h3-color": modal.heading,
-  "--modal-content-color": modal.content,
-  "--modal-a-color": modal.link,
-  "--modal-a-color-hover": modal.linkHover,
-});
 ---
 
-<Modal id={id} class="location-modal" style={modalStyle}>
+<Modal id={id} class="location-modal">
   {heading && <h3>{heading}</h3>}
   <Fragment set:html={body} />
 </Modal>
@@ -39,11 +30,11 @@ const modalStyle = cssVars({
 <style lang="pcss" is:global>
   @layer page-sections {
     .modal.location-modal {
-      --modal-background: #f5f5f5;
-      --modal-h3-color: #000;
-      --modal-content-color: #000;
-      --modal-a-color: #000;
-      --modal-a-color-hover: #000;
+      --modal-background: var(--gray-0);
+      --modal-h3-color: var(--gray-12);
+      --modal-content-color: var(--gray-12);
+      --modal-a-color: var(--gray-12);
+      --modal-a-color-hover: var(--gray-8);
 
       background: var(--modal-background);
       border: none;

@@ -72,7 +72,7 @@ const editableAttributes = (prop: string, type = "text") =>
 
 <style lang="pcss" is:global>
   @layer page-sections {
-    .location-page-section.location-services:not(.alt-background) {
+    .location-page-section.location-services {
       padding: 60px 10px 80px;
 
       h2{ color: var(--location-services-h2-color);}
@@ -140,7 +140,7 @@ const editableAttributes = (prop: string, type = "text") =>
     }
 
     @media screen and (max-width: 1024px) {
-      .location-page-section.location-services:not(.alt-background)
+      .location-page-section.location-services
         .service-icons-container
         .service
         h3 {
@@ -149,7 +149,7 @@ const editableAttributes = (prop: string, type = "text") =>
     }
 
     @media screen and (max-width: 767px) {
-      .location-page-section.location-services:not(.alt-background)
+      .location-page-section.location-services
         .service-icons-container
         .service
         h3 {

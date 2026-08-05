@@ -26,7 +26,7 @@ const editableAttributes = (prop: string) =>
   editable ? { "data-editable": "text", "data-prop": prop } : {};
 ---
 
-<LocationSection id={id} altBackground class:list={["location-why", className]} {...htmlAttributes}>
+<LocationSection id={id} class:list={["location-why", className]} {...htmlAttributes}>
   {heading && <h2 {...editableAttributes("heading")}>{heading}</h2>}
   {
     items.length > 0 && (
@@ -61,7 +61,7 @@ const editableAttributes = (prop: string) =>
 
 <style lang="pcss" is:global>
   @layer page-sections {
-    .location-page-section.location-why.alt-background {
+    .location-page-section.location-why {
       padding: 60px 10px;
 
       .why-icons-container {
@@ -90,7 +90,7 @@ const editableAttributes = (prop: string) =>
     }
 
     @media screen and (max-width: 1024px) {
-      .location-page-section.location-why.alt-background
+      .location-page-section.location-why
         .why-icons-container
         .location-icon
         h3 {
@@ -99,7 +99,7 @@ const editableAttributes = (prop: string) =>
     }
 
     @media screen and (max-width: 767px) {
-      .location-page-section.location-why.alt-background
+      .location-page-section.location-why
         .why-icons-container
         .location-icon
         h3 {

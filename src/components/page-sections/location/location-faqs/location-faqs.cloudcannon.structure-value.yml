@@ -10,6 +10,10 @@ value:
     - _component: page-sections/location/location-faqs/location-faq-item
       question: A frequently asked question?
       answer: The answer to that question.
+  backgroundColor: "#000000"
+  textColor: "#ffffff"
+  accentColor: var(--color-brand-secondary)
+  iconColor: "#ffffff"
 preview:
   text:
     - key: heading

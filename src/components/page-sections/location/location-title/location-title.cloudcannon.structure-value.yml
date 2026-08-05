@@ -6,6 +6,10 @@ value:
   id: ''
   heading: Dentist Near Anytown, ST
   subheading: Providing Quality, Comprehensive Dental Care
+  backgroundColor: "#ffffff"
+  textColor: "#000000"
+  accentColor: var(--color-brand)
+  iconColor: var(--color-brand)
 preview:
   text:
     - key: heading

@@ -17,6 +17,10 @@ value:
       heading: We Happily Accept Flexible Financing
       modalHeading: ''
       modalContent: Detail about financing goes here.
+  backgroundColor: "#000000"
+  textColor: "#ffffff"
+  accentColor: var(--color-brand-secondary)
+  iconColor: "#ffffff"
 preview:
   text:
     - key: heading

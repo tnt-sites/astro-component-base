@@ -30,6 +30,10 @@ value:
         heading: Actively Give Back to the Community
         modalHeading: ''
         modalContent: ''
+  backgroundColor: "#ffffff"
+  textColor: "#000000"
+  accentColor: var(--color-brand)
+  iconColor: var(--color-brand)
 preview:
   text:
     - key: heading

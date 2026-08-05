@@ -14,6 +14,10 @@ value:
       imageAlt: Dentist polishing a patient's teeth
       modalHeading: ''
       modalContent: Description of this service.
+  backgroundColor: "#ffffff"
+  textColor: "#000000"
+  accentColor: var(--color-brand-subtle)
+  iconColor: var(--color-brand)
 preview:
   text:
     - key: heading

@@ -91,28 +91,6 @@ const headingAttributes = editable
       }
     }
 
-    .location-page-section.alt-background .location-icon {
-      .svg-container {
-        &:not(.no-fill) svg path {
-          fill: var(--alt-svg-color);
-          stroke: none;
-        }
-
-        &.no-fill svg {
-          fill: transparent;
-          stroke: var(--alt-svg-color);
-
-          path {
-            fill: none;
-          }
-        }
-      }
-
-      h3 {
-        color: var(--alt-svg-h3-color);
-      }
-    }
-
     /* Icon grids drop from three columns to two, then one. */
     @media screen and (max-width: 850px) {
       .location-page-section .location-icon {
