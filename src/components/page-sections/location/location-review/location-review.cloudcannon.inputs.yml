@@ -1,0 +1,35 @@
+id:
+  type: text
+  comment: Optional HTML id for this section, for anchor links.
+heading:
+  type: text
+  comment: Section heading.
+logoSource:
+  type: image
+  comment: Review-platform logo shown above the quote, e.g. the Google mark.
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ''
+logoAlt:
+  type: text
+  comment: Alt text for the logo.
+quote:
+  type: markdown
+  comment: The review itself. Quotation marks are added automatically.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: false
+    superscript: false
+    underline: false
+    bulletedlist: true
+    numberedlist: true
+    styles: /.cloudcannon/styles/editor.css
+authorName:
+  type: text
+  comment: Reviewer's name. A five-star row and an em dash are added automatically.

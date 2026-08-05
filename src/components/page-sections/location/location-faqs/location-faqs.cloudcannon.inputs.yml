@@ -1,0 +1,28 @@
+id:
+  type: text
+  comment: Optional HTML id for this section, for anchor links.
+heading:
+  type: text
+  comment: Section heading.
+intro:
+  type: markdown
+  comment: Optional introductory paragraph above the accordion.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: false
+    superscript: false
+    underline: false
+    bulletedlist: true
+    numberedlist: true
+    styles: /.cloudcannon/styles/editor.css
+faqs:
+  type: array
+  label: Questions
+  comment: Question and answer pairs. Only one is open at a time.
+  options:
+    structures: _structures.locationFaqs

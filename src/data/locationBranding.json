@@ -1,0 +1,35 @@
+{
+  "light": {
+    "background": "#F5F5F4",
+    "heading": "#262626",
+    "introHeading": "#171717",
+    "introSubheading": "#262626",
+    "imageCaption": "#525252",
+    "linkText": "#171717",
+    "linkTextHover": "#525252",
+    "icon": "#262626",
+    "iconLabel": "#262626",
+    "focusRing": "#171717",
+    "findUsHeading": "#D4D4D4"
+  },
+  "dark": {
+    "background": "#262626",
+    "heading": "#FFFFFF",
+    "content": "#F5F5F4",
+    "link": "#FFFFFF",
+    "linkHover": "#D4D4D4",
+    "icon": "#FFFFFF",
+    "iconLabel": "#FFFFFF",
+    "focusRing": "#FFFFFF",
+    "quotationMark": "#FFFFFF",
+    "reviewStars": "#D4D4D4",
+    "reviewText": "#FFFFFF"
+  },
+  "modal": {
+    "background": "#F5F5F4",
+    "heading": "#171717",
+    "content": "#262626",
+    "link": "#171717",
+    "linkHover": "#525252"
+  }
+}

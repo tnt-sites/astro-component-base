@@ -1,0 +1,9 @@
+id:
+  type: text
+  comment: Optional HTML id for this section, for anchor links.
+heading:
+  type: text
+  comment: Page H1. Displayed in uppercase.
+subheading:
+  type: text
+  comment: Larger supporting headline shown under the H1.

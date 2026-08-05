@@ -1,0 +1,22 @@
+id:
+  type: text
+  comment: Optional HTML id for this section, for anchor links.
+heading:
+  type: text
+  comment: Section heading.
+text:
+  type: markdown
+  comment: Directions to the practice.
+  options:
+    blockquote: false
+    bold: true
+    format: p
+    italic: true
+    link: true
+    strike: false
+    subscript: false
+    superscript: false
+    underline: false
+    bulletedlist: true
+    numberedlist: true
+    styles: /.cloudcannon/styles/editor.css

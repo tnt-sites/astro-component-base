@@ -1,0 +1,12 @@
+id:
+  type: text
+  comment: Optional HTML id for this section, for anchor links.
+heading:
+  type: text
+  comment: Section heading.
+icons:
+  type: array
+  label: Icons
+  comment: Icon callouts, laid out three across on desktop.
+  options:
+    structures: _structures.locationIcons
