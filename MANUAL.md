@@ -1,6 +1,6 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-08-05 · main @ 20e06586 (+ uncommitted headingLevel/prop-leak fixes below) ·
+> Last updated: 2026-08-05 · main @ b7bce05d ·
 > [tnt-sites/astro-component-base](https://github.com/tnt-sites/astro-component-base) — Latest:
 > found and fixed 3 real component-library bugs while proving out `WP2Astro`'s new TNT2Astro
 > conversion module end-to-end against a real site (sound-dentistry). All three are general
@@ -8,12 +8,11 @@
 > this base, past and future. See Recent changes for detail; see `WP2Astro/MANUAL.md`'s matching
 > 2026-08-05 entry for the full TNT2Astro story these fixes were found inside of.
 >
-> **Not yet in `.cursor/rules/repo-sync.mdc`'s managed-repo list** — this repo lives at
-> `C:\tnt-sites\astro-component-base` (sibling to `do-agents`/`tnt-agents`, like `site-rescues`),
-> is its own git repo (`tnt-sites/astro-component-base`), and gets real code changes (not just
-> per-client data), but isn't part of the fleet's pull-all/sync-all routine today. Worth deciding
-> whether to add it, the same way `site-rescues`/`WP2Astro-codex` were added when the gap was
-> noticed.
+> **Added to `.cursor/rules/repo-sync.mdc`'s managed-repo list (2026-08-05, 24 repos total)** —
+> this repo lives at `C:\tnt-sites\astro-component-base` (sibling to `do-agents`/`tnt-agents`,
+> like `site-rescues`), is its own git repo (`tnt-sites/astro-component-base`), and gets real code
+> changes (not just per-client data), so it's now part of the fleet's pull-all/sync-all routine —
+> the same gap-closing move `site-rescues`/`WP2Astro-codex` got when they were noticed missing.
 
 ## What it is
 
@@ -101,12 +100,15 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
      are now explicitly destructured out so an unconsumed value never reaches `...htmlAttributes`.
      Found on 22+ of sound-dentistry's 89 built pages; `html-gate`'s `[object Object]` count went
      from 26 to 0.
-  - **Not yet committed** — these are uncommitted working-tree changes as of this entry. Commit +
-    push before merging `WP2Astro`'s `feat/tnt2astro` branch, since its E2E proof depends on these.
+  - **Committed + pushed (2026-08-05, `b7bce05d`)** — rebased cleanly onto an upstream
+    `@astrojs/sitemap` pin-bump (`0e6cb54a`, Tim's independent fix for the same Astro-6-beta
+    compatibility issue found via a real CloudCannon build crash) that had landed on `main` in the
+    meantime; kept upstream's `^3.7.3` range over this session's exact-pinned `3.7.3` and
+    regenerated `package-lock.json` via `npm install --package-lock-only` rather than hand-merging
+    the lockfile conflict. `WP2Astro`'s `feat/tnt2astro` branch can merge without waiting on this.
 
 ## Next steps
 
-- Commit + push the 3 fixes above (see Recent changes) before `WP2Astro`'s `feat/tnt2astro` merges.
 - `FeatureGrid.astro`'s `variant`/`gap`/`minItemWidth`/`maxItemWidth`/`columns` props are now safely
   destructured (no more DOM leak) but still not actually wired into real layout behavior — the
   vision pipeline's "source-rows" recipe emits richer layout intent than this component currently
