@@ -42,7 +42,18 @@ const pageDescription =
 ---
 
 <Page title={pageTitle} description={pageDescription}>
-  {heroSections.length > 0 && <Components contentSections={heroSections} propName="pageSections" />}
+  {heroSections.length > 0 ? (
+    <Components contentSections={heroSections} propName="pageSections" />
+  ) : (
+    // No dedicated "blog" landing page exists in the pages collection to
+    // supply a hero/title band (e.g. a site whose blog is entirely a mounted
+    // WordPress export with no matching local page) -- fall back to a plain
+    // H1 so the listing still has exactly one real page heading instead of
+    // none at all.
+    <CustomSection maxContentWidth="2xl" paddingHorizontal="lg" paddingVertical="lg">
+      <Heading level="h1" size="2xl" text={pageTitle} editable={false} />
+    </CustomSection>
+  )}
 
   <CustomSection
     maxContentWidth="2xl"

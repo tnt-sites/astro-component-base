@@ -10,6 +10,7 @@ import GridItem from "@wrappers/grid/GridItem.astro";
 const {
   eyebrow = "",
   heading = "",
+  headingLevel = "h2",
   subtext = "",
   features = [],
   colorScheme = "inherit",
@@ -17,6 +18,19 @@ const {
   paddingVertical = "4xl",
   class: className,
   _component,
+  // Recognized-but-not-yet-wired-up props from the vision-pipeline's
+  // "source-rows" recipe (convert.ts) -- this component's own <Grid> below
+  // hardcodes its own gap/widths rather than honoring these yet. Destructure
+  // them out explicitly (rather than let them fall into ...htmlAttributes)
+  // so an object/array value (e.g. `columns: { base: 1 }`) never gets
+  // spread onto <CustomSection> and serialized into the DOM as a literal
+  // `columns="[object Object]"` attribute -- found live on 22 of
+  // sound-dentistry's built pages.
+  variant,
+  gap,
+  minItemWidth,
+  maxItemWidth,
+  columns,
   ...htmlAttributes
 } = Astro.props;
 ---
@@ -33,7 +47,7 @@ const {
   <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
     {eyebrow}
   </SimpleText>
-  <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />
+  <Heading level={headingLevel} size="lg" alignX="center" data-prop="heading" text={heading} />
   <Text class="feature-grid-subtext" alignX="center" data-prop="subtext" text={subtext} />
   <Grid
     gap="lg"

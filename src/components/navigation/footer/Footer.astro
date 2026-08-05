@@ -14,6 +14,22 @@ const {
   logoSource,
   logoAlt,
   _component,
+  // Written by WP2Astro/TNT2Astro's footer.json (see emit.ts) but not yet
+  // rendered by this component -- destructured out (not just left in
+  // ...htmlAttributes) so Astro doesn't spread these object/array values
+  // onto the real DOM <footer> element as attributes, which stringifies to
+  // a literal "[object Object]" (found via TNT2Astro's first real
+  // sound-dentistry end-to-end build 2026-08-05, flagged by html-gate's
+  // object-object structured-prop-leak check on every single page). Design
+  // + build real NAP-facts/map/legal-links/extra-sections footer UI is
+  // separate follow-up work, not done here.
+  facts,
+  buttons,
+  mapSource,
+  mapAlt,
+  mapHref,
+  legalLinks,
+  extraSections,
   ...htmlAttributes
 } = Astro.props;
 ---

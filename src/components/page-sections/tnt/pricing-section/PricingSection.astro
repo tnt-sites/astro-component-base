@@ -5,6 +5,7 @@ import Text from "@core-elements/text/Text.astro";
 
 const {
   heading = "",
+  headingLevel = "h2",
   intro = "",
   plans = [],
   colorScheme = "inherit",
@@ -26,7 +27,7 @@ const {
   {...htmlAttributes}
 >
   {heading && (
-    <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />
+    <Heading level={headingLevel} size="lg" alignX="center" data-prop="heading" text={heading} />
   )}
   {intro && <Text text={intro} alignX="center" data-prop="intro" />}
 

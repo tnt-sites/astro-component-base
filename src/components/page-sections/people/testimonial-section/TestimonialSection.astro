@@ -12,6 +12,18 @@ const {
   backgroundColor,
   class: className,
   _component,
+  // This component only ever renders ONE quote -- `heading`/`items` are a
+  // real, already-documented gap (see capabilities.ts's 2026-07-27 note:
+  // vision/compose.ts can emit multi-review evidence as items[]+heading for
+  // this same catalog id, which this component silently ignores; a human
+  // is meant to pick `testimonial-carousel` instead in Pattern Workbench for
+  // that case). Destructured explicitly here only so an unpicked items[]
+  // array never leaks into ...htmlAttributes and gets spread onto
+  // <CustomSection>, serializing into the DOM as a literal
+  // `items="[object Object],..."` attribute -- found live on
+  // sound-dentistry's /reviews/ page.
+  heading,
+  items,
   ...htmlAttributes
 } = Astro.props;
 ---

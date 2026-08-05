@@ -4,6 +4,7 @@ import Heading from "@core-elements/heading/Heading.astro";
 
 const {
   heading = "",
+  headingLevel = "h2",
   items = [],
   colorScheme = "inherit",
   backgroundColor = "base",
@@ -24,7 +25,7 @@ const {
   {...htmlAttributes}
 >
   {heading && (
-    <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />
+    <Heading level={headingLevel} size="lg" alignX="center" data-prop="heading" text={heading} />
   )}
   <div class="tnt-gallery-grid" data-prop="items">
     {items.map((item: { src: string; alt: string; caption: string }) => (

@@ -23,6 +23,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 const {
   eyebrow = "",
   heading = "",
+  headingLevel = "h2",
   subtext = "",
   buttonSections = [],
   pairs = [],
@@ -57,7 +58,7 @@ const loopPairs = imagePairs.length > 1 ? [...imagePairs, ...imagePairs] : image
           {eyebrow}
         </SimpleText>
       )}
-      {heading && <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />}
+      {heading && <Heading level={headingLevel} size="lg" alignX="center" data-prop="heading" text={heading} />}
       {subtext && <Text class="tnt-before-after__subtext" data-prop="subtext" text={subtext} />}
     </div>
   )}

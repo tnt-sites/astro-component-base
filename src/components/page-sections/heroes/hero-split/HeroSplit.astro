@@ -10,6 +10,7 @@ import Split from "@wrappers/split/Split.astro";
 const {
   eyebrow = "",
   heading = "",
+  headingLevel = "h1",
   subtext = "",
   imageSource = "",
   imageAlt = "",
@@ -47,7 +48,7 @@ const {
       <SimpleText class="eyebrow" data-prop="eyebrow">
         {eyebrow}
       </SimpleText>
-      <Heading level="h1" size="2xl" data-prop="heading" text={heading} />
+      <Heading level={headingLevel} size="2xl" data-prop="heading" text={heading} />
       <Text class="subtext" data-prop="subtext" text={subtext} />
       <ButtonGroup class="buttons-container" buttonSections={buttonSections} />
     </Fragment>

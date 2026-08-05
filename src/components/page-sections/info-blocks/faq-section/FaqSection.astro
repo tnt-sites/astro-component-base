@@ -5,6 +5,7 @@ import Accordion from "@wrappers/accordion/Accordion.astro";
 
 const {
   heading = "Frequently Asked Questions",
+  headingLevel = "h2",
   items = [],
   label = "About FAQ",
   paddingVertical = "4xl",
@@ -25,6 +26,6 @@ const {
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
 >
-  <Heading level="h2" size="lg" alignX="center" text={heading} data-prop="heading" />
+  <Heading level={headingLevel} size="lg" alignX="center" text={heading} data-prop="heading" />
   <Accordion label={label} singleOpen={true} openFirst={false} items={items} />
 </CustomSection>

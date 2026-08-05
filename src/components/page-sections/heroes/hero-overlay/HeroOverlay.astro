@@ -15,6 +15,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 const {
   eyebrow = "",
   heading = "",
+  headingLevel = "h1",
   subtext = "",
   imageSource = "",
   imageAlt = "",
@@ -60,7 +61,7 @@ const heightClass =
         </SimpleText>
       )
     }
-    <Heading level="h1" size="2xl" data-prop="heading" text={heading} />
+    <Heading level={headingLevel} size="2xl" data-prop="heading" text={heading} />
     {subtext && <Text class="subtext" data-prop="subtext" text={subtext} />}
     {
       buttonSections?.length > 0 && (
