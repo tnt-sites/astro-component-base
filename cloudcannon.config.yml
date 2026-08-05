@@ -207,120 +207,174 @@ collections_config:
         cascade: true
         comment: Location pages — colors for the light-background sections (Title, Doctors, Services, Find Us).
       light.background:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Section background color (--background).
       light.heading:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Section heading (h2) color (--h2-color).
       light.introHeading:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Page H1 color on the title section (--intro-h1-color).
       light.introSubheading:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Page H2 color on the title section (--intro-h2-color).
       light.imageCaption:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Caption text under doctor and service photos (--image-h3-color).
       light.linkText:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Body link color (--site-a-color).
       light.linkTextHover:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Body link hover color (--site-a-color-hover).
       light.icon:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Icon color (--svg-color).
       light.iconLabel:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Heading under an icon (--svg-h3-color).
       light.focusRing:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Keyboard focus outline color (--focus-color).
       light.findUsHeading:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: '"Find Us" section heading color (--location-services-h2-color).'
       dark:
         type: object
         cascade: true
         comment: Location pages — colors for the dark-background sections (Why, Review, Financing, FAQs).
       dark.background:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Section background color (--alt-background).
       dark.heading:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Section heading (h2) color (--alt-h2-color).
       dark.content:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Body text color (--alt-content-color).
       dark.link:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Body link color (--alt-a-color).
       dark.linkHover:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Body link hover color (--alt-a-color-hover).
       dark.icon:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Icon color (--alt-svg-color).
       dark.iconLabel:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Heading under an icon (--alt-svg-h3-color).
       dark.focusRing:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Keyboard focus outline color (--alt-focus-color).
       dark.quotationMark:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Quotation mark color in the review section (--quotation-color).
       dark.reviewStars:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Star-rating color in the review section (--review-star-color).
       dark.reviewText:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Review quote text color (--review-content-color).
       modal:
         type: object
         cascade: true
         comment: Location pages — colors for the pop-up modals (bios, service and payment detail).
       modal.background:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Modal background color (--modal-background).
       modal.heading:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Modal heading color (--modal-h3-color).
       modal.content:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Modal body text color (--modal-content-color).
       modal.link:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Modal link color (--modal-a-color).
       modal.linkHover:
-        type: color
+        type: select
         cascade: true
+        options:
+          values: _select_data.brandColors
         comment: Modal link hover color (--modal-a-color-hover).
     disable_add: false
     disable_add_folder: false
@@ -949,6 +1003,29 @@ _inputs:
     comment: The logo image for the top navigation.
     cascade: true
 _select_data:
+  # Shared color-role options for the location page-sections — keeps their
+  # palette tied to the site's branding tokens (src/data/branding.json /
+  # src/styles/themes/_default.pcss) plus black and white, instead of letting
+  # editors pick arbitrary hex values.
+  brandColors:
+    - id: var(--color-brand)
+      name: Brand
+    - id: var(--color-brand-secondary)
+      name: Brand Secondary
+    - id: var(--color-brand-muted)
+      name: Brand Tertiary
+    - id: var(--color-brand-subtle)
+      name: Brand Subtle
+    - id: var(--color-text-on-brand)
+      name: Text On Brand
+    - id: var(--color-link)
+      name: Link
+    - id: var(--color-link-hover)
+      name: Link Hover
+    - id: "#000000"
+      name: Black
+    - id: "#ffffff"
+      name: White
   icons:
     - id: academic-cap
       name: Academic Cap

@@ -1,35 +1,35 @@
 {
   "light": {
-    "background": "#F5F5F4",
-    "heading": "#262626",
-    "introHeading": "#171717",
-    "introSubheading": "#262626",
-    "imageCaption": "#525252",
-    "linkText": "#171717",
-    "linkTextHover": "#525252",
-    "icon": "#262626",
-    "iconLabel": "#262626",
-    "focusRing": "#171717",
-    "findUsHeading": "#D4D4D4"
+    "background": "#ffffff",
+    "heading": "var(--color-brand)",
+    "introHeading": "#000000",
+    "introSubheading": "var(--color-brand)",
+    "imageCaption": "#000000",
+    "linkText": "#000000",
+    "linkTextHover": "var(--color-brand)",
+    "icon": "var(--color-brand)",
+    "iconLabel": "#000000",
+    "focusRing": "#000000",
+    "findUsHeading": "var(--color-brand-subtle)"
   },
   "dark": {
-    "background": "#262626",
-    "heading": "#FFFFFF",
-    "content": "#F5F5F4",
-    "link": "#FFFFFF",
-    "linkHover": "#D4D4D4",
-    "icon": "#FFFFFF",
-    "iconLabel": "#FFFFFF",
-    "focusRing": "#FFFFFF",
-    "quotationMark": "#FFFFFF",
-    "reviewStars": "#D4D4D4",
-    "reviewText": "#FFFFFF"
+    "background": "#000000",
+    "heading": "#ffffff",
+    "content": "#ffffff",
+    "link": "#ffffff",
+    "linkHover": "var(--color-brand-secondary)",
+    "icon": "#ffffff",
+    "iconLabel": "#ffffff",
+    "focusRing": "#ffffff",
+    "quotationMark": "#ffffff",
+    "reviewStars": "var(--color-brand-secondary)",
+    "reviewText": "#ffffff"
   },
   "modal": {
-    "background": "#F5F5F4",
-    "heading": "#171717",
-    "content": "#262626",
-    "link": "#171717",
-    "linkHover": "#525252"
+    "background": "#ffffff",
+    "heading": "#000000",
+    "content": "#000000",
+    "link": "var(--color-brand)",
+    "linkHover": "var(--color-brand-secondary)"
   }
 }
