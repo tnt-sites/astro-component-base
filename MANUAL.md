@@ -109,6 +109,20 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Next steps
 
+- **NEW (2026-08-06) — mobile nav toggle + `#fixed-tabs` have zero CSS/HTML fallback; visibility is
+  100% dependent on a late-executing runtime script finishing.** Found chasing a real bug: Holger's
+  hamburger + sticky bottom bar intermittently don't render in real Chrome (both normal + Incognito)
+  under throttled/Slow-4G-class connections, while lighter sites in the fleet don't hit it. The
+  nav-builder script (shared, byte-identical across all six live TNT2Astro sites — not a Holger-only
+  bug) constructs `.mean-bar`/`.meanmenu-reveal` purely via JS after full HTML parse, gated behind
+  `matchMedia`; there's no static markup or CSS that makes the toggle visible/functional before that
+  script runs. Holger's deeper nav tree (18% bigger HTML, ~24% more `<li>`/`<a>`) is what currently
+  tips it over the threshold, but the underlying fragility (no graceful degrade path) applies to any
+  site with a big enough nav on a slow enough connection. **Fix direction:** the mobile toggle button
+  and `#fixed-tabs` bar should be visible/correctly styled/positioned from static HTML + CSS alone
+  (no JS required to become visible); JS should only attach open/close *behavior* on top of
+  already-rendered markup, not construct the visible structure from scratch. See matching entries in
+  `WP2Astro/MANUAL.md`'s 2026-08-06 afternoon Next steps and `do-agents-family` hub canvas Tasks tab.
 - `FeatureGrid.astro`'s `variant`/`gap`/`minItemWidth`/`maxItemWidth`/`columns` props are now safely
   destructured (no more DOM leak) but still not actually wired into real layout behavior — the
   vision pipeline's "source-rows" recipe emits richer layout intent than this component currently
