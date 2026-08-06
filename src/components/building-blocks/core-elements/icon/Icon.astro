@@ -19,6 +19,31 @@ const AVAILABLE_ICON_NAMES = new Set(
 );
 const ICON_FALLBACK_NAME = "sparkles";
 
+/**
+ * Resolve author / convert icon names to a local SVG path.
+ * TNT Fontello classes (`icon-phone`) and bare glyph names (`phone`) map onto
+ * the `tnt/` set under src/icons/tnt/ when present.
+ */
+function resolveIconName(raw: string): { name: string; rejected?: string } {
+  const requested = raw.trim();
+  if (!requested) return { name: ICON_FALLBACK_NAME };
+
+  const candidates: string[] = [requested];
+  if (requested.startsWith("icon-")) {
+    const bare = requested.slice("icon-".length);
+    candidates.push(`tnt/${bare}`, bare);
+  } else if (!requested.includes("/")) {
+    candidates.push(`tnt/${requested}`);
+  }
+
+  for (const candidate of candidates) {
+    if (AVAILABLE_ICON_NAMES.has(candidate)) {
+      return { name: candidate, rejected: candidate === requested ? undefined : requested };
+    }
+  }
+  return { name: ICON_FALLBACK_NAME, rejected: requested };
+}
+
 const props = Astro.props as any;
 const {
   name,
@@ -38,9 +63,12 @@ if (!_component && !isValidName) {
   return;
 }
 
-const isKnownIcon = requestedName !== "" && AVAILABLE_ICON_NAMES.has(requestedName);
-const resolvedName = requestedName ? (isKnownIcon ? requestedName : ICON_FALLBACK_NAME) : ICON_FALLBACK_NAME;
-const rejectedSourceName = requestedName && !isKnownIcon ? requestedName : undefined;
+const resolved = requestedName
+  ? resolveIconName(requestedName)
+  : { name: ICON_FALLBACK_NAME as string, rejected: undefined };
+const resolvedName = resolved.name;
+const rejectedSourceName =
+  resolved.rejected && resolved.name === ICON_FALLBACK_NAME ? resolved.rejected : undefined;
 ---
 
 <div
