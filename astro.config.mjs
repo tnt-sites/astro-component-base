@@ -37,12 +37,16 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => {
-        // Always exclude component library from sitemap if disabled
-        if (process.env.DISABLE_COMPONENT_LIBRARY === "true") {
-          return !page.includes("/component-library");
+        if (page.includes("/component-library")) return false;
+        // Landing / PPC / PEP campaigns live in content/landing with noindex —
+        // keep them out of the sitemap as well (robots meta alone is not enough).
+        try {
+          const slug = new URL(page).pathname.replace(/^\/+|\/+$/g, "");
+          if (/(?:^|\/|-)(?:lp|ppc|pep)(?:[-_/]|$)/i.test(slug)) return false;
+        } catch {
+          /* ignore bad URLs */
         }
-        // If not disabled, still exclude from sitemap (existing behavior)
-        return !page.includes("/component-library");
+        return true;
       },
     }),
     mdx(),

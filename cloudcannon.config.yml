@@ -314,6 +314,73 @@ collections_config:
         comment: Internal WP2Astro conversion evidence.
         disabled: true
         hidden: true
+  landing:
+    path: src/content/landing
+    glob:
+      - "**/*.md"
+    url: /[full_slug]/
+    icon: campaign
+    _enabled_editors:
+      - visual
+    add_options:
+      - name: Add New Landing Page
+        schema: default
+        icon: campaign
+    schemas:
+      default:
+        name: New Landing Page
+        path: .cloudcannon/schemas/landing.md
+        remove_extra_inputs: false
+    create:
+      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
+    new_preview_url: /
+    _inputs:
+      metaTitle:
+        type: text
+        label: Meta Title
+      metaDescription:
+        type: textarea
+        label: Meta Description
+      h1:
+        type: text
+        label: H1
+      title:
+        type: text
+        label: Legacy Source Page Title
+        hidden: true
+      description:
+        type: textarea
+        label: Legacy Source Description
+        hidden: true
+      suppressNav:
+        type: switch
+        label: Hide Site Navigation
+        comment: Landing pages normally hide the main site nav (their own chrome lives in the page body).
+      suppressFooter:
+        type: switch
+        label: Hide Site Footer
+      pageSections:
+        type: array
+        label: Page Sections
+      seo:
+        type: object
+        label: Advanced SEO & Social
+        comment: Landing pages default to noindex — leave Prevent Indexing on for PPC/PEP campaigns.
+      seo.robots:
+        type: object
+        label: Search Indexing
+        comment: Campaign pages should stay noindex so they do not compete with the main site.
+      seo.robots.noindex:
+        type: switch
+        label: Prevent Indexing
+      seo.robots.nofollow:
+        type: switch
+        label: Prevent Following Links
+      provenance:
+        type: object
+        label: Conversion Source Record
+        disabled: true
+        hidden: true
   blog:
     path: src/content/blog
     glob:
@@ -422,6 +489,7 @@ collection_groups:
   - heading: Content
     collections:
       - pages
+      - landing
       - blog
   - heading: Data
     collections:

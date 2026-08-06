@@ -155,8 +155,16 @@ const blogCollection = defineCollection({
   schema: blogPostSchema,
 });
 
+const landingCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/landing" }),
+  // Same shape as pages — campaigns reuse pageSections + Advanced SEO — but
+  // CloudCannon defaults noindex/nofollow and editors keep them out of Pages.
+  schema: pageSchema,
+});
+
 export const collections = {
   pages: pagesCollection,
+  landing: landingCollection,
   "docs-pages": docsPagesCollection,
   "docs-components": docsComponentsCollection,
   blog: blogCollection,

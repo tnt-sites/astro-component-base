@@ -3,41 +3,67 @@ import Page from "@layouts/Page.astro";
 import { getFooter, getMainNav } from "../utils/siteSettings";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
+type PageEntry = CollectionEntry<"pages"> | CollectionEntry<"landing">;
+
 export interface Props {
-  page: CollectionEntry<"pages">;
+  page: PageEntry;
+  collection: "pages" | "landing";
 }
 
 export async function getStaticPaths() {
   const pages = await getCollection("pages");
+  const landings = await getCollection("landing");
 
-  return pages
+  const reserved = new Set(["blog", "category", "tag"]);
+
+  const fromPages = pages
     .filter((page) => {
       const slug = page.id.replace(/index$/, "");
-      // "blog" already has its own dedicated route (src/pages/blog/); the
-      // taxonomy archives (src/pages/category/, src/pages/tag/) claim those
-      // two top-level segments the same way -- if a real WordPress site ever
-      // has an actual page literally slugged "category" or "tag", this
-      // avoids a duplicate/ambiguous static route rather than a silent
-      // collision at build time.
-      return slug !== "blog" && slug !== "category" && slug !== "tag";
+      return !reserved.has(slug);
     })
     .map((page) => {
       const slug = page.id.replace(/index$/, "");
-
-      if (slug.length === 0) return { params: { slug: undefined }, props: { page } };
-      return { params: { slug }, props: { page } };
+      if (slug.length === 0) {
+        return { params: { slug: undefined }, props: { page, collection: "pages" as const } };
+      }
+      return { params: { slug }, props: { page, collection: "pages" as const } };
     });
+
+  const fromLandings = landings.map((page) => {
+    const slug = page.id.replace(/index$/, "");
+    return {
+      params: { slug: slug.length === 0 ? undefined : slug },
+      props: { page, collection: "landing" as const },
+    };
+  });
+
+  return [...fromPages, ...fromLandings];
 }
 
-const { page } = Astro.props;
+const { page, collection } = Astro.props;
 const { Content } = await render(page);
-// siteSettings.ts merges practice.json's NAP facts into these -- calling
-// getMainNav()/getFooter() here (instead of importing the raw JSON) is what
-// actually gets the derived phone/address/hours onto the real page route.
 const mainNav = getMainNav();
 const footer = getFooter();
+
+// Landing campaigns always hide shared chrome — their header/footer live in
+// the page body (and must not pick up the main site's stylesheet lane).
+const frontmatter =
+  collection === "landing"
+    ? {
+        ...page.data,
+        suppressNav: true,
+        suppressFooter: true,
+        seo: {
+          ...(page.data.seo || {}),
+          robots: {
+            noindex: true,
+            nofollow: page.data.seo?.robots?.nofollow ?? true,
+          },
+        },
+      }
+    : page.data;
 ---
 
-<Page frontmatter={page.data} mainNav={mainNav} footer={footer}>
+<Page frontmatter={frontmatter} mainNav={mainNav} footer={footer}>
   <Content />
 </Page>
