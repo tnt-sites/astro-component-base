@@ -76,7 +76,6 @@ const date = post.data.date.toLocaleDateString("en-US", {
     paddingVertical="4xl"
     colorScheme="default"
     backgroundColor="base"
-    class="post-container"
   >
     <SimpleText size="sm" style="color: var(--color-text-muted); margin-bottom: var(--spacing-sm);">
       {date} • {post.data.author}
@@ -118,10 +117,6 @@ const date = post.data.date.toLocaleDateString("en-US", {
 </Page>
 
 <style>
-  :global(.post-container.custom-section) > :global(.outer-content) > :global(.content) {
-    padding-bottom: 0 !important;
-  }
-
   .post {
     display: grid;
     grid-template-columns:
