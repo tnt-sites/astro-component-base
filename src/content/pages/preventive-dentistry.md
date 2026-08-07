@@ -12,8 +12,8 @@ pageSections:
     imageAspectRatio: none
     buttonSections: []
     reverse: false
-    colorScheme: inherit
-    backgroundColor: none
+    colorScheme: contrast
+    backgroundColor: black
     backgroundGradient: ''
     backgroundImage:
       source:
