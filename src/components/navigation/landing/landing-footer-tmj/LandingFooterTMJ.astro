@@ -1,5 +1,6 @@
 ---
 import Image from "@core-elements/image/Image.astro";
+import { backgroundImageCss } from "@core-elements/image/backgroundImageCss";
 import siteInfoData from "@data/siteInfo.json";
 
 const {
@@ -42,12 +43,7 @@ const displaySiteName = siteName || (siteInfoData as any).siteName || "";
 const resolvedOffices =
   Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
 const copyYear = new Date().getFullYear();
-const {
-  source = "",
-  alt = "",
-  positionVertical = "top",
-  positionHorizontal = "center",
-} = backgroundImage || {};
+const bgImage = await backgroundImageCss(backgroundImage);
 const backgroundGradientValue =
   typeof backgroundGradient === "string" ? backgroundGradient.trim() : "";
 const formActionValue = typeof formAction === "string" ? formAction.trim() : "";
@@ -89,6 +85,7 @@ const getColorValue = (value: any) => {
 };
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
+  bgImage.style,
   backgroundGradientValue ? `--lp-footer-tmj-bg-gradient: ${backgroundGradientValue}` : "",
   `--lp-footer-form-button-radius: ${formButtonBorderRadiusValue}`,
   `--lp-footer-form-button-color: ${formButtonTextColorValue}`,
@@ -236,22 +233,11 @@ const getOfficeHoursEntries = (office: any) => {
 ---
 
 <footer
-  class:list={["landing-footer", "landing-footer-tmj", className]}
+  class:list={["landing-footer", "landing-footer-tmj", "bg-layers", className]}
   id={elementId || undefined}
   style={footerBackgroundStyle || undefined}
   {...htmlAttributes}
 >
-  <Image
-    class:list={["background-image"]}
-    source={source}
-    alt={alt}
-    editable={false}
-    data-prop-src="backgroundImage.source"
-    data-prop-alt="backgroundImage.alt"
-    positionVertical={positionVertical}
-    positionHorizontal={positionHorizontal}
-    background={true}
-  />
   <div class="lp-footer-tmj-body">
     <div class="lp-footer-tmj-container">
       <section class="lp-footer-tmj-section lp-footer-tmj-form-section">
@@ -425,18 +411,15 @@ const getOfficeHoursEntries = (office: any) => {
 <style lang="pcss" is:global>
   @layer page-sections {
     .landing-footer.landing-footer-tmj {
+      /* Gradient + background image are composed by the shared `.bg-layers`
+         rule (src/styles/base/_background-image.pcss). */
+      --bg-gradient: var(--lp-footer-tmj-bg-gradient, none);
+
       overflow: hidden;
       background-color: var(--lp-footer-tmj-bg-color, #fff);
-      background-image: var(--lp-footer-tmj-bg-gradient, none);
-      background-position: center;
-      background-size: cover;
       color: var(--color-text, #313131);
       position: relative;
       text-align: center;
-
-      > .background-image {
-        z-index: var(--layer-1);
-      }
 
       .lp-footer-tmj-body,
       .lp-footer-tmj-copyright {

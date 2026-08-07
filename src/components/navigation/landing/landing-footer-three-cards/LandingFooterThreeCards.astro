@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
+import { backgroundImageCss } from "@core-elements/image/backgroundImageCss";
 import siteInfoData from "@data/siteInfo.json";
 
 const {
@@ -46,12 +47,7 @@ const {
 
 const displaySiteName = siteName || (siteInfoData as any).siteName || "";
 const copyYear = new Date().getFullYear();
-const {
-  source = "",
-  alt = "",
-  positionVertical = "top",
-  positionHorizontal = "center",
-} = backgroundImage || {};
+const bgImage = await backgroundImageCss(backgroundImage);
 const backgroundGradientValue =
   typeof backgroundGradient === "string" ? backgroundGradient.trim() : "";
 const formActionValue = typeof formAction === "string" ? formAction.trim() : "";
@@ -106,6 +102,7 @@ const footerLinksBackgroundColorValue =
 const footerLinksHoverBackgroundColorValue =
   getColorValue(footerLinksHoverBackgroundColor) || "var(--color-brand-secondary)";
 const footerBackgroundStyle = [
+  bgImage.style,
   backgroundGradientValue
     ? `--lp-footer-bg-gradient: ${backgroundGradientValue}`
     : bgColor
@@ -157,22 +154,11 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
 ---
 
 <footer
-  class:list={["landing-footer", "landing-footer-three-cards", className]}
+  class:list={["landing-footer", "landing-footer-three-cards", "bg-layers", className]}
   id={elementId || undefined}
   style={footerBackgroundStyle || undefined}
   {...htmlAttributes}
 >
-  <Image
-    class:list={["background-image"]}
-    source={source}
-    alt={alt}
-    editable={false}
-    data-prop-src="backgroundImage.source"
-    data-prop-alt="backgroundImage.alt"
-    positionVertical={positionVertical}
-    positionHorizontal={positionHorizontal}
-    background={true}
-  />
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="xl">
     <div class="lp-footer-shell">
       <div class="lp-footer-content">
@@ -345,21 +331,19 @@ const normalizedServiceLinks = Array.isArray(featuredServicesLinks) ? featuredSe
       position: relative;
       overflow: hidden;
 
-      background-color: var(--lp-footer-bg-color, #2c363c);
-      background-image:
+      /* Gradient + background image are composed by the shared `.bg-layers`
+         rule (src/styles/base/_background-image.pcss). */
+      --bg-gradient:
         var(
           --lp-footer-bg-gradient,
           linear-gradient(180deg, color-mix(in srgb, #2c363c 88%, black) 0%, #2c363c 100%)
         );
-      background-position: center;
-      background-size: cover;
+
+      background-color: var(--lp-footer-bg-color, #2c363c);
       color: #fff;
       padding: 20px;
       padding-top: 1.4rem;
 
-      > .background-image {
-        z-index: var(--layer-1);
-      }
 
       .lp-footer-shell {
         margin: 0 auto;

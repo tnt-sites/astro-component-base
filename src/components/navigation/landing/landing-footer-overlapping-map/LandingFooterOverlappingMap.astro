@@ -2,6 +2,7 @@
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Icon from "@core-elements/icon/Icon.astro";
 import Image from "@core-elements/image/Image.astro";
+import { backgroundImageCss } from "@core-elements/image/backgroundImageCss";
 import siteInfoData from "@data/siteInfo.json";
 
 const {
@@ -37,12 +38,7 @@ const resolvedOffices =
   Array.isArray(offices) && offices.length > 0 ? offices : ((siteInfoData as any).offices ?? []);
 const copyYear = new Date().getFullYear();
 const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
-const {
-  source = "",
-  alt = "",
-  positionVertical = "top",
-  positionHorizontal = "center",
-} = backgroundImage || {};
+const bgImage = await backgroundImageCss(backgroundImage);
 const backgroundGradientValue =
   typeof backgroundGradient === "string" ? backgroundGradient.trim() : "";
 const bgColorMap: Record<string, string> = {
@@ -84,6 +80,7 @@ const resolvedPhoneLinkHoverColor =
   "";
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
+  bgImage.style,
   backgroundGradientValue ? `--landing-footer-bg-gradient: ${backgroundGradientValue}` : "",
   resolvedBgColor ? `--landing-footer-bg-color: ${resolvedBgColor}` : "",
   resolvedLinkColor ? `--footer-link-color: ${resolvedLinkColor}` : "",
@@ -222,22 +219,11 @@ const getOfficeHoursEntries = (office: any) => {
 ---
 
 <footer
-  class:list={["landing-footer", "landing-footer-overlapping-map", className]}
+  class:list={["landing-footer", "landing-footer-overlapping-map", "bg-layers", className]}
   id={elementId || undefined}
   style={footerBackgroundStyle || undefined}
   {...htmlAttributes}
 >
-  <Image
-    class:list={["background-image"]}
-    source={source}
-    alt={alt}
-    editable={false}
-    data-prop-src="backgroundImage.source"
-    data-prop-alt="backgroundImage.alt"
-    positionVertical={positionVertical}
-    positionHorizontal={positionHorizontal}
-    background={true}
-  />
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="xl">
     <div class="landing-footer-main" id="fo-contents">
       <div class="landing-footer-contact fo-info" style={cardStyle}>
@@ -377,16 +363,14 @@ const getOfficeHoursEntries = (office: any) => {
     .landing-footer.landing-footer-overlapping-map {
       position: relative;
       overflow: hidden;
+      /* Gradient + background image are composed by the shared `.bg-layers`
+         rule (src/styles/base/_background-image.pcss). */
+      --bg-gradient: var(--landing-footer-bg-gradient, none);
+
       background-color: var(--landing-footer-bg-color, #fff);
-      background-image: var(--landing-footer-bg-gradient, none);
-      background-position: center;
-      background-size: cover;
       color: #fff;
       container-type: inline-size;
 
-      > .background-image {
-        z-index: var(--layer-1);
-      }
 
       .content {
         max-width: 100%;

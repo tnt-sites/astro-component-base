@@ -88,7 +88,13 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
     // Create camelCase name with capital first letter for use in component files
     const capitalisedCamelCaseName = camelCaseName.charAt(0).toUpperCase() + camelCaseName.slice(1);
 
-    // Create the Astro file
+    // Create the Astro file.
+    // CustomSection paints the background color, gradient and image on the
+    // <section> element itself — never add an absolutely-positioned background
+    // div or <Image> layer to a generated component. Accessibility checkers
+    // resolve contrast by walking UP the ancestor chain, so an overlay reads as
+    // transparent and produces false contrast errors. See
+    // src/styles/base/_background-image.pcss.
     const astroContent = dedent`
     ---
     import CustomSection from "@builders/custom-section/CustomSection.astro";
@@ -118,21 +124,11 @@ async function createComponent(componentName, kebabName, componentFolderPath) {
       colorScheme="default"
       backgroundColor={backgroundColor}
       backgroundImage={backgroundImage}
-      style={backgroundGradient ? "--section-bg-gradient: " + backgroundGradient : undefined}
+      backgroundGradient={backgroundGradient}
       {...htmlAttributes}
     >
       <Heading level="h2" size="lg" alignX="center" text={heading} data-prop="heading" />
     </CustomSection>
-
-    <style>
-      .${kebabName} {
-        background:
-          var(
-            --section-bg-gradient,
-            linear-gradient(transparent, transparent)
-          );
-      }
-    </style>
     `.trim();
 
     const astroFilePath = path.join(componentFolderPath, `${capitalisedCamelCaseName}.astro`);

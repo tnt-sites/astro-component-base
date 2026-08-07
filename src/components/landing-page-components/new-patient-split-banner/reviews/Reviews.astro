@@ -36,16 +36,9 @@ const htmlAttributes = Object.fromEntries(
   style={fontStyle || undefined}
   colorScheme="default"
   backgroundColor={resolvedBg}
+  backgroundImage={backgroundImage}
   {...htmlAttributes}
 >
-  <Image
-    source={backgroundImage.source}
-    alt={backgroundImage.alt}
-    background={true}
-    editable={true}
-    data-prop-src="backgroundImage.source"
-    data-prop-alt="backgroundImage.alt"
-  />
   <article>
     {heading && <h2>{heading}</h2>}
     {reviewText && <p>&ldquo;{reviewText}&rdquo;</p>}

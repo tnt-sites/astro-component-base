@@ -1,7 +1,6 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
-import Image from "@core-elements/image/Image.astro";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
@@ -19,13 +18,6 @@ const {
   ...rest
 } = Astro.props;
 
-const {
-  source = "",
-  alt = "",
-  positionVertical = "top",
-  positionHorizontal = "center",
-} = backgroundImage || {};
-
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
@@ -39,19 +31,9 @@ const htmlAttributes = Object.fromEntries(
   colorScheme="default"
   backgroundColor={backgroundColor}
   backgroundGradient={backgroundGradient}
+  backgroundImage={backgroundImage}
   {...htmlAttributes}
 >
-  <Image
-    class:list={["background-image"]}
-    source={source}
-    alt={alt}
-    editable={editable}
-    data-prop-src="backgroundImage.source"
-    data-prop-alt="backgroundImage.alt"
-    positionVertical={positionVertical}
-    positionHorizontal={positionHorizontal}
-    background={true}
-  />
   <Heading
     class="more-to-explore__heading mt-12"
     level="h6"
@@ -65,10 +47,6 @@ const htmlAttributes = Object.fromEntries(
 
 <style is:global>
   .more-to-explore {
-    > .background-image {
-      z-index: var(--layer-1);
-    }
-
     .more-to-explore__heading {
       font-size: 70px;
       line-height:;

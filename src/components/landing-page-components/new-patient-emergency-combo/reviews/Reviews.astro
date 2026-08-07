@@ -43,20 +43,10 @@ const htmlAttributes = Object.fromEntries(
   paddingVertical="4xl"
   colorScheme="default"
   backgroundColor={resolvedBg}
+  backgroundImage={backgroundImage}
   style={backgroundColorHex ? `background-color: ${backgroundColorHex}` : undefined}
   {...htmlAttributes}
 >
-  <!-- style={backgroundImage?.source ? `background-image: url(${backgroundImage.source});` : undefined} -->
-  <Image
-    class:list={["bg", className]}
-    source={backgroundImage.source}
-    alt={backgroundImage.alt}
-    background={true}
-    editable={true}
-    data-prop-src="backgroundImage.source"
-    data-prop-alt="backgroundImage.alt"
-  />
-
   <div class="content">
     <div
       class="container"
@@ -103,24 +93,7 @@ const htmlAttributes = Object.fromEntries(
   .reviews {
     position: relative;
   }
-  > .bg-accent {
-    background-color: var(--color-bg-accent);
-  }
 
-  .reviews .bg {
-    border-radius: 0;
-    inset: 0;
-    position: absolute;
-    z-index: -1;
-  }
-  .reviews .bg :global(picture) {
-    height: 100%;
-  }
-  .reviews .bg :global(img) {
-    height: 100%;
-    min-height: 200px;
-    object-fit: cover;
-  }
   .reviews .container {
     margin: 0 auto;
     max-width: 1150px;

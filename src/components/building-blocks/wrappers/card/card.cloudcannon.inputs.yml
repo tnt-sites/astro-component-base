@@ -126,8 +126,12 @@ backgroundImage.source:
     paths:
       uploads: src/assets/images
       static: ""
+# Not rendered. The background is painted with CSS background-image on the card
+# itself (see src/styles/base/_background-image.pcss), so there is no <img> to
+# carry alt text — which is correct for a decorative background. Kept so
+# existing content keeps validating.
 backgroundImage.alt:
-  comment: Alt text for the background image.
+  comment: Not used — the background image is decorative and renders via CSS.
   type: text
 backgroundImage.positionVertical:
   comment: Vertical position of the background image.

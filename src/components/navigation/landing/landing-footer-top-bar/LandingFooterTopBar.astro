@@ -1,6 +1,7 @@
 ---
 import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Image from "@core-elements/image/Image.astro";
+import { backgroundImageCss } from "@core-elements/image/backgroundImageCss";
 import siteInfoData from "@data/siteInfo.json";
 
 const {
@@ -154,7 +155,9 @@ const getColorValue = (value: any) => {
 };
 
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
+const bgImage = await backgroundImageCss(backgroundImage);
 const bgStyle = [
+  bgImage.style,
   (backgroundColorHex || getColorValue(backgroundColor)) ? `--lftb-bg-color: ${backgroundColorHex || getColorValue(backgroundColor)}` : "",
   accentColor ? `--lftb-accent-color: ${accentColor}` : "",
   getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
@@ -180,22 +183,10 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
 ---
 
 <footer
-  class:list={["landing-footer-top-bar", className]}
+  class:list={["landing-footer-top-bar", "bg-layers", className]}
   style={bgStyle || undefined}
   {...htmlAttributes}
 >
-  {
-    backgroundImage?.source && (
-      <Image
-        source={backgroundImage.source}
-        alt={backgroundImage.alt || ""}
-        background={true}
-        editable={true}
-        class="footer-bg-image"
-      />
-    )
-  }
-
   <CustomSection maxContentWidth="2xl" paddingHorizontal="md" paddingVertical="none">
     <div class="footer-main">
       <div class="fo-logo">
@@ -325,10 +316,6 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       overflow: hidden;
       padding-top: 60px;
       position: relative;
-
-      .footer-bg-image {
-        inset: 0;
-      }
 
       .content {
         position: relative;

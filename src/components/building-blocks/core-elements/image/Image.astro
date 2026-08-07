@@ -13,7 +13,6 @@ const {
   aspectRatio = null,
   positionVertical = "center",
   positionHorizontal = "center",
-  background = false,
   editable = true,
   class: className,
   "data-prop-src": customDataPropSrc,
@@ -54,7 +53,6 @@ const positionClass = `position-${positionVertical}-${positionHorizontal}`;
     aspectRatio && `ratio-${aspectRatio}`,
     positionClass,
     rounded && "rounded",
-    background && "background",
     className,
   ]}
   {...htmlAttributes}
@@ -127,22 +125,12 @@ const positionClass = `position-${positionVertical}-${positionHorizontal}`;
         }
       }
 
-      &.background {
-        inset: 0;
-        position: absolute;
-        margin-top: 0;
-
-        > picture {
-          height: 100%;
-        }
-
-        > picture > img {
-          height: 100%;
-          object-fit: cover;
-          width: 100%;
-        }
-      }
-
+      /* There is deliberately no `background` variant here. Section and card
+         backgrounds are painted with `background-image` on the container that
+         holds the text (see src/styles/base/_background-image.pcss) — an
+         absolutely-positioned image layer is invisible to the ancestor-chain
+         walk that accessibility checkers use, which made WAVE report false
+         contrast errors. */
       picture {
         display: block;
         margin-block: auto;
