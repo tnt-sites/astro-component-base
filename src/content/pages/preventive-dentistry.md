@@ -13,7 +13,7 @@ pageSections:
     buttonSections: []
     reverse: false
     colorScheme: contrast
-    backgroundColor: black
+    backgroundColor: none
     backgroundGradient: ''
     backgroundImage:
       source: /src/assets/images/component-library/castle.jpg
