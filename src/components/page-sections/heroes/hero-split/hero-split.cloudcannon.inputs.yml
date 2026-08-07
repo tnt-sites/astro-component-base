@@ -1,6 +1,11 @@
 eyebrow:
   type: text
   comment: Optional label displayed above the hero heading.
+eyebrowColor:
+  type: select
+  comment: Eyebrow text color. Leave blank to follow the section's color scheme.
+  options:
+    values: _select_data.brandColors
 heading:
   type: markdown
   comment: Main heading text for the hero section.

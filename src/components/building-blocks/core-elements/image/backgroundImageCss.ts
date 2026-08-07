@@ -68,13 +68,28 @@ async function servedUrl(source: string, width: number, format?: string): Promis
       return null;
     }
 
-    const optimised = await getImage({
-      src: imageFiles[key] as never,
-      width,
-      ...(format && { format }),
-    });
+    const meta = imageFiles[key];
+    const optimised = await getImage({ src: meta as never, width, ...(format && { format }) });
 
-    return optimised.src;
+    if (typeof optimised.src === "string") {
+      return optimised.src;
+    }
+
+    /* The CloudCannon editor aliases astro:assets to its own shim
+       (@cloudcannon/editable-regions/integrations/astro/modules/assets.js),
+       whose getImage() echoes the ImageMetadata straight back instead of
+       optimising it — so `.src` is an object, not a URL. Drop the
+       format-specific tiers in that case: labelling the untouched original as
+       `type("image/avif")` would make the browser select it and then fail to
+       decode it. The untyped fallback below carries the image instead, which
+       is what `.bg-layers` falls through to when no tiers are emitted. */
+    if (format) {
+      return null;
+    }
+
+    const metaSrc = (meta as { src?: unknown } | undefined)?.src;
+
+    return typeof metaSrc === "string" ? metaSrc : null;
   }
 
   // A public URL we can't transform. Safe to serve verbatim, but never under a

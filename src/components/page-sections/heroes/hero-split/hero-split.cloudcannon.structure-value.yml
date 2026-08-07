@@ -5,6 +5,7 @@ value:
   _component: page-sections/heroes/hero-split
   id: ""
   eyebrow: Eyebrow text
+  eyebrowColor: ""
   heading: Heading text
   subtext: Subtitle placeholder text that will be replaced with actual content.
   imageSource: /src/assets/images/component-library/dunedin-cliff.jpg

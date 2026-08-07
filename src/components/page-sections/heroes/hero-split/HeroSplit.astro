@@ -7,6 +7,7 @@ import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 const {
   eyebrow = "",
+  eyebrowColor = "",
   heading = "",
   subtext = "",
   imageSource = "",
@@ -18,9 +19,16 @@ const {
   backgroundGradient = "",
   backgroundImage,
   class: className,
+  style: styleProp,
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+// Left blank, the eyebrow inherits the section's `colorScheme` text color.
+const heroStyle =
+  [eyebrowColor && `--hero-split-eyebrow-color: ${eyebrowColor}`, styleProp]
+    .filter(Boolean)
+    .join("; ") || undefined;
 ---
 
 <CustomSection
@@ -31,6 +39,7 @@ const {
   backgroundGradient={backgroundGradient}
   backgroundImage={backgroundImage}
   class:list={["hero", className]}
+  style={heroStyle}
   {...htmlAttributes}
 >
   <div class:list={["hero-split-grid", { reverse }]}>
@@ -90,8 +99,12 @@ const {
       max-width: 510px;
       margin: 0 auto;
 
+      /* Falls back to `inherit` so the eyebrow follows the section's
+         `colorScheme` when the editor hasn't picked an explicit color. This
+         used to be hardcoded to `--color-text-on-brand`, which rendered
+         near-white regardless of scheme and was invisible on light sections. */
       .eyebrow {
-        color: var(--color-text-on-brand);
+        color: var(--hero-split-eyebrow-color, inherit);
       }
 
     }
