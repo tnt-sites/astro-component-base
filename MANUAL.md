@@ -126,6 +126,21 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
   on `main` for exactly this reason (325/326 core tests pass). **Needs a decision on how much of
   that branch to merge** (whole branch vs. cherry-pick just the icon kit + compat CSS) before the
   next TNT2Astro run — see matching note in `AGENT-HANDOFF.md`.
+  **UPDATE same session: cherry-picked the safe half.** Pulled just the pure-addition files from
+  `a6fc4ac6` (all `src/icons/tnt/*.svg`, `fontello-map.json`, `tnt-fontello-compat.css`, README —
+  121 files) straight onto `main`, skipping that commit's `Icon.astro`/docs `index.md` changes
+  since those depend on `ff0ecb17` (icon-name-resolution hardening), which is still unmerged and
+  not required by the automated TNT fidelity path — `installTntIconKit()` only ever needs the
+  static assets, not the `<Icon>` component's name-resolution logic (that's for hand-authored
+  CloudCallon content, a separate use case). Verified: `emit-tnt-fidelity.test.ts`'s `phone.svg`
+  assertion — the one real failure found this session — now passes; full core suite is 326/326.
+  Troubleshooting tip carried over from the codex branch's own docs: if empty circles/black
+  hamburger boxes ever reappear, check (1) ACB not pulled, (2) `iconKitRoot`/`TNT_ACB_ROOT` path
+  wrong, or (3) a new runtime-injected icon class missing from `TNT_RUNTIME_ICONS` in WP2Astro's
+  `emit-tnt-fidelity.ts` (already present on `main`, so already covered). The rest of
+  `codex/header-landmark` (Icon.astro hardening, Landing/PPC collection, WP taxonomy routes,
+  testimonial-carousel a11y fixes, settings contract, blog H1 fixes, sitemap crash fix — 25 more
+  commits) is still unmerged and needs its own review pass — see `AGENT-HANDOFF.md`.
 - **NEW (2026-08-06) — mobile nav toggle + `#fixed-tabs` have zero CSS/HTML fallback; visibility is
   100% dependent on a late-executing runtime script finishing.** Found chasing a real bug: Holger's
   hamburger + sticky bottom bar intermittently don't render in real Chrome (both normal + Incognito)
