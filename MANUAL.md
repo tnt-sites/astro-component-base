@@ -137,10 +137,32 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
   Troubleshooting tip carried over from the codex branch's own docs: if empty circles/black
   hamburger boxes ever reappear, check (1) ACB not pulled, (2) `iconKitRoot`/`TNT_ACB_ROOT` path
   wrong, or (3) a new runtime-injected icon class missing from `TNT_RUNTIME_ICONS` in WP2Astro's
-  `emit-tnt-fidelity.ts` (already present on `main`, so already covered). The rest of
+  `emit-tnt-fidelity.ts` (already present on `main`, so already covered).   The rest of
   `codex/header-landmark` (Icon.astro hardening, Landing/PPC collection, WP taxonomy routes,
   testimonial-carousel a11y fixes, settings contract, blog H1 fixes, sitemap crash fix — 25 more
   commits) is still unmerged and needs its own review pass — see `AGENT-HANDOFF.md`.
+  **UPDATE (same morning) — did a full commit-by-commit review, merged the safe/standalone
+  tier.** Cherry-picked 5 more commits onto `main`, resolving 3 real content conflicts by hand
+  (all were additive — main and codex had each independently extended the same file, no
+  competing logic to reconcile):
+  - `ff0ecb17` — Icon component hardening (unmapped icon names degrade to a fallback icon
+    instead of crashing the build)
+  - `bfb0ebb7` — mobile HeroSplit overflow fix (a real, documented bug: `variant-full-bleed`
+    kept a 2-column grid-template at mobile widths, causing ~3x-viewport horizontal overflow)
+    + video provider/legacy prop hardening
+  - `43c78b15` + `d7c86800` — FeatureGrid's `variant`/`gap`/`minItemWidth`/`maxItemWidth`/
+    `columns` props are now actually wired into `<Grid>` instead of just being destructured
+    to prevent a DOM leak — **this was the exact gap already logged above** ("recognized but
+    not yet wired up"), now closed. Also adds an `inline-heading` variant.
+  - `dd4d08ce` — page landmark fix (`BaseLayout`/`Page`)
+  - Verified: `astro-component-base` itself builds clean (68 pages, 0 errors), WP2Astro core
+    suite still 326/326 after rebuilding against the updated checkout.
+  - **Skipped 3 I'd originally flagged as "safe"** after actually attempting them and finding
+    real hidden dependencies on unmerged Tier-3 feature commits: `53784398` (blog H1 detection)
+    needs `ec00c16e`'s `heroOwnsH1` variable, which doesn't exist without the whole
+    utility-header feature; `7143ac2b` + `3ff8002e` (TestimonialCarousel a11y fixes) need
+    `62ab6193`'s TestimonialCarousel component, which doesn't exist on `main` at all yet. All
+    three go back on the table once/if that Tier-3 work gets reviewed and merged.
 - **NEW (2026-08-06) — mobile nav toggle + `#fixed-tabs` have zero CSS/HTML fallback; visibility is
   100% dependent on a late-executing runtime script finishing.** Found chasing a real bug: Holger's
   hamburger + sticky bottom bar intermittently don't render in real Chrome (both normal + Incognito)
