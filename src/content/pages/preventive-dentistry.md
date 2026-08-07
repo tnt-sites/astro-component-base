@@ -16,7 +16,7 @@ pageSections:
     backgroundColor: black
     backgroundGradient: ''
     backgroundImage:
-      source:
+      source: /src/assets/images/component-library/castle.jpg
       alt:
       positionVertical: top
       positionHorizontal: center
