@@ -109,6 +109,23 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Next steps
 
+- **NEW (2026-08-07, latest) — the TNT Fontello SVG icon kit that fixes the empty-gold-circle bug
+  lives on `origin/codex/header-landmark`, NOT on `main` — engine is not actually ready for a fresh
+  TNT2Astro run yet.** This morning's Easton/Sound WCAG session reported the icon-glyph bug fixed
+  (`fontello-map.json` now carries codepoints) — true only for the two hand-patched live sites.
+  Verified directly: `main` has no `src/icons/tnt/` folder and no `tnt-fontello-compat.css` at all;
+  `emit-tnt-fidelity.ts`'s `installTntIconKit()` (which every TNT fidelity convert calls) silently
+  no-ops when these are missing, so a brand-new conversion today ships every source icon class (nav
+  chevrons, `#fixed-tabs`, mobile Menu glyph) as an empty box — the exact bug from this morning,
+  just now correctly caught by `a11y-gate`'s new glyph detector instead of shipping silently.
+  `git log --all` found the actual fix on `origin/codex/header-landmark`
+  (`a6fc4ac6 feat(icons): add TNT Fontello as SVG kit`), but that branch is **27 commits / 225
+  files ahead of `main`** — also carries a Landing/PPC content collection, WP category/tag taxonomy
+  archive routes, testimonial-carousel a11y fixes, a settings contract, blog-listing H1 fixes, and
+  a sitemap crash fix, all unreleased. `emit-tnt-fidelity.test.ts`'s `phone.svg` assertion now fails
+  on `main` for exactly this reason (325/326 core tests pass). **Needs a decision on how much of
+  that branch to merge** (whole branch vs. cherry-pick just the icon kit + compat CSS) before the
+  next TNT2Astro run — see matching note in `AGENT-HANDOFF.md`.
 - **NEW (2026-08-06) — mobile nav toggle + `#fixed-tabs` have zero CSS/HTML fallback; visibility is
   100% dependent on a late-executing runtime script finishing.** Found chasing a real bug: Holger's
   hamburger + sticky bottom bar intermittently don't render in real Chrome (both normal + Incognito)
