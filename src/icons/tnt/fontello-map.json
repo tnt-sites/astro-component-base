@@ -6,592 +6,710 @@
     {
       "cssClass": "icon-angle-circled-left",
       "iconName": "tnt/angle-circled-left",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e906"
     },
     {
       "cssClass": "icon-angle-circled-right",
       "iconName": "tnt/angle-circled-right",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e907"
     },
     {
       "cssClass": "icon-angle-double-left",
       "iconName": "tnt/angle-double-left",
-      "width": 571
+      "width": 571,
+      "codepoint": "\\e83b"
     },
     {
       "cssClass": "icon-angle-double-right",
       "iconName": "tnt/angle-double-right",
-      "width": 571
+      "width": 571,
+      "codepoint": "\\e83c"
     },
     {
       "cssClass": "icon-angle-down",
       "iconName": "tnt/angle-down",
-      "width": 642
+      "width": 642,
+      "codepoint": "\\e825"
     },
     {
       "cssClass": "icon-angle-left",
       "iconName": "tnt/angle-left",
-      "width": 357
+      "width": 357,
+      "codepoint": "\\e819"
     },
     {
       "cssClass": "icon-angle-right",
       "iconName": "tnt/angle-right",
-      "width": 357
+      "width": 357,
+      "codepoint": "\\e81a"
     },
     {
       "cssClass": "icon-angle-up",
       "iconName": "tnt/angle-up",
-      "width": 642
+      "width": 642,
+      "codepoint": "\\e83a"
     },
     {
       "cssClass": "icon-article-alt",
       "iconName": "tnt/article-alt",
-      "width": 959
+      "width": 959,
+      "codepoint": "\\e828"
     },
     {
       "cssClass": "icon-attach",
       "iconName": "tnt/attach",
-      "width": 1113
+      "width": 1113,
+      "codepoint": "\\e814"
     },
     {
       "cssClass": "icon-book",
       "iconName": "tnt/book",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e932"
     },
     {
       "cssClass": "icon-building",
       "iconName": "tnt/building",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e831"
     },
     {
       "cssClass": "icon-calendar",
       "iconName": "tnt/calendar",
-      "width": 893
+      "width": 893,
+      "codepoint": "\\e815"
     },
     {
       "cssClass": "icon-calendar-1",
       "iconName": "tnt/calendar-1",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e816"
     },
     {
       "cssClass": "icon-calendar-2",
       "iconName": "tnt/calendar-2",
-      "width": 997
+      "width": 997,
+      "codepoint": "\\e836"
     },
     {
       "cssClass": "icon-calendar-plus-o",
       "iconName": "tnt/calendar-plus-o",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e930"
     },
     {
       "cssClass": "icon-camera",
       "iconName": "tnt/camera",
-      "width": 1071
+      "width": 1071,
+      "codepoint": "\\e942"
     },
     {
       "cssClass": "icon-camera-alt",
       "iconName": "tnt/camera-alt",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e812"
     },
     {
       "cssClass": "icon-cd",
       "iconName": "tnt/cd",
-      "width": 920
+      "width": 920,
+      "codepoint": "\\e940"
     },
     {
       "cssClass": "icon-chat",
       "iconName": "tnt/chat",
-      "width": 1294
+      "width": 1294,
+      "codepoint": "\\e835"
     },
     {
       "cssClass": "icon-circle",
       "iconName": "tnt/circle",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e933"
     },
     {
       "cssClass": "icon-clock",
       "iconName": "tnt/clock",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e839"
     },
     {
       "cssClass": "icon-comment-empty",
       "iconName": "tnt/comment-empty",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e802"
     },
     {
       "cssClass": "icon-doc",
       "iconName": "tnt/doc",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e916"
     },
     {
       "cssClass": "icon-doc-text",
       "iconName": "tnt/doc-text",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e827"
     },
     {
       "cssClass": "icon-docs",
       "iconName": "tnt/docs",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e915"
     },
     {
       "cssClass": "icon-dollar",
       "iconName": "tnt/dollar",
-      "width": 571
+      "width": 571,
+      "codepoint": "\\e941"
     },
     {
       "cssClass": "icon-dot-circled",
       "iconName": "tnt/dot-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e953"
     },
     {
       "cssClass": "icon-down-circle",
       "iconName": "tnt/down-circle",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e946"
     },
     {
       "cssClass": "icon-down-circled",
       "iconName": "tnt/down-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e913"
     },
     {
       "cssClass": "icon-down-dir",
       "iconName": "tnt/down-dir",
-      "width": 571
+      "width": 571,
+      "codepoint": "\\e935"
     },
     {
       "cssClass": "icon-download",
       "iconName": "tnt/download",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e811"
     },
     {
       "cssClass": "icon-endo",
       "iconName": "tnt/endo",
-      "width": 1091
+      "width": 1091,
+      "codepoint": "\\e82a"
     },
     {
       "cssClass": "icon-facebook",
       "iconName": "tnt/facebook",
-      "width": 571
+      "width": 571,
+      "codepoint": "\\e805"
     },
     {
       "cssClass": "icon-facebook-official",
       "iconName": "tnt/facebook-official",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e83f"
     },
     {
       "cssClass": "icon-facebook-squared",
       "iconName": "tnt/facebook-squared",
-      "width": 860
+      "width": 860,
+      "codepoint": "\\e817"
     },
     {
       "cssClass": "icon-files",
       "iconName": "tnt/files",
-      "width": 997
+      "width": 997,
+      "codepoint": "\\e837"
     },
     {
       "cssClass": "icon-foursquare",
       "iconName": "tnt/foursquare",
-      "width": 714
+      "width": 714,
+      "codepoint": "\\e83e"
     },
     {
       "cssClass": "icon-google",
       "iconName": "tnt/google",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e950"
     },
     {
       "cssClass": "icon-gplus",
       "iconName": "tnt/gplus",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e846"
     },
     {
       "cssClass": "icon-gplus-old",
       "iconName": "tnt/gplus-old",
-      "width": 1285
+      "width": 1285,
+      "codepoint": "\\e806"
     },
     {
       "cssClass": "icon-gplus-squared",
       "iconName": "tnt/gplus-squared",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e820"
     },
     {
       "cssClass": "icon-healthgrades",
       "iconName": "tnt/healthgrades",
-      "width": 1205
+      "width": 1205,
+      "codepoint": "\\e947"
     },
     {
       "cssClass": "icon-help-circled",
       "iconName": "tnt/help-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e834"
     },
     {
       "cssClass": "icon-home",
       "iconName": "tnt/home",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e830"
     },
     {
       "cssClass": "icon-instagramm",
       "iconName": "tnt/instagramm",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e81e"
     },
     {
       "cssClass": "icon-left",
       "iconName": "tnt/left",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e927"
     },
     {
       "cssClass": "icon-left-big",
       "iconName": "tnt/left-big",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e903"
     },
     {
       "cssClass": "icon-left-circle",
       "iconName": "tnt/left-circle",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e944"
     },
     {
       "cssClass": "icon-left-circled",
       "iconName": "tnt/left-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e910"
     },
     {
       "cssClass": "icon-left-dir",
       "iconName": "tnt/left-dir",
-      "width": 357
+      "width": 357,
+      "codepoint": "\\e845"
     },
     {
       "cssClass": "icon-linkedin",
       "iconName": "tnt/linkedin",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e822"
     },
     {
       "cssClass": "icon-linkedin-squared",
       "iconName": "tnt/linkedin-squared",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e823"
     },
     {
       "cssClass": "icon-localmed",
       "iconName": "tnt/localmed",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e954"
     },
     {
       "cssClass": "icon-location",
       "iconName": "tnt/location",
-      "width": 571
+      "width": 571,
+      "codepoint": "\\e809"
     },
     {
       "cssClass": "icon-mail",
       "iconName": "tnt/mail",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e800"
     },
     {
       "cssClass": "icon-mail-alt",
       "iconName": "tnt/mail-alt",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e801"
     },
     {
       "cssClass": "icon-map",
       "iconName": "tnt/map",
-      "width": 834
+      "width": 834,
+      "codepoint": "\\e80a"
     },
     {
       "cssClass": "icon-map-marker",
       "iconName": "tnt/map-marker",
-      "width": 750
+      "width": 750,
+      "codepoint": "\\e948"
     },
     {
       "cssClass": "icon-map-o",
       "iconName": "tnt/map-o",
-      "width": 1142
+      "width": 1142,
+      "codepoint": "\\e931"
     },
     {
       "cssClass": "icon-menu",
       "iconName": "tnt/menu",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e808"
     },
     {
       "cssClass": "icon-minus",
       "iconName": "tnt/minus",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e841"
     },
     {
       "cssClass": "icon-minus-circled",
       "iconName": "tnt/minus-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e951"
     },
     {
       "cssClass": "icon-minus-squared",
       "iconName": "tnt/minus-squared",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e925"
     },
     {
       "cssClass": "icon-minus-squared-alt",
       "iconName": "tnt/minus-squared-alt",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e842"
     },
     {
       "cssClass": "icon-mobile",
       "iconName": "tnt/mobile",
-      "width": 428
+      "width": 428,
+      "codepoint": "\\e920"
     },
     {
       "cssClass": "icon-ok",
       "iconName": "tnt/ok",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e901"
     },
     {
       "cssClass": "icon-ok-1",
       "iconName": "tnt/ok-1",
-      "width": 1179
+      "width": 1179,
+      "codepoint": "\\e832"
     },
     {
       "cssClass": "icon-ok-circle",
       "iconName": "tnt/ok-circle",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e949"
     },
     {
       "cssClass": "icon-ok-circled",
       "iconName": "tnt/ok-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e914"
     },
     {
       "cssClass": "icon-ortho",
       "iconName": "tnt/ortho",
-      "width": 1091
+      "width": 1091,
+      "codepoint": "\\e82c"
     },
     {
       "cssClass": "icon-paper-plane-empty",
       "iconName": "tnt/paper-plane-empty",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e83d"
     },
     {
       "cssClass": "icon-pause",
       "iconName": "tnt/pause",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e939"
     },
     {
       "cssClass": "icon-pencil",
       "iconName": "tnt/pencil",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e82f"
     },
     {
       "cssClass": "icon-perio",
       "iconName": "tnt/perio",
-      "width": 1091
+      "width": 1091,
+      "codepoint": "\\e82d"
     },
     {
       "cssClass": "icon-phone",
       "iconName": "tnt/phone",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e80b"
     },
     {
       "cssClass": "icon-phone-squared",
       "iconName": "tnt/phone-squared",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e934"
     },
     {
       "cssClass": "icon-picture",
       "iconName": "tnt/picture",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e818"
     },
     {
       "cssClass": "icon-pinterest",
       "iconName": "tnt/pinterest",
-      "width": 778
+      "width": 778,
+      "codepoint": "\\e81f"
     },
     {
       "cssClass": "icon-play",
       "iconName": "tnt/play",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e938"
     },
     {
       "cssClass": "icon-play-circled",
       "iconName": "tnt/play-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e937"
     },
     {
       "cssClass": "icon-play-circled2",
       "iconName": "tnt/play-circled2",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e833"
     },
     {
       "cssClass": "icon-plus",
       "iconName": "tnt/plus",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e840"
     },
     {
       "cssClass": "icon-plus-circled",
       "iconName": "tnt/plus-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e952"
     },
     {
       "cssClass": "icon-plus-squared",
       "iconName": "tnt/plus-squared",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e919"
     },
     {
       "cssClass": "icon-plus-squared-alt",
       "iconName": "tnt/plus-squared-alt",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e813"
     },
     {
       "cssClass": "icon-quote",
       "iconName": "tnt/quote",
-      "width": 762
+      "width": 762,
+      "codepoint": "\\e838"
     },
     {
       "cssClass": "icon-right",
       "iconName": "tnt/right",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e928"
     },
     {
       "cssClass": "icon-right-big",
       "iconName": "tnt/right-big",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e904"
     },
     {
       "cssClass": "icon-right-circle",
       "iconName": "tnt/right-circle",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e943"
     },
     {
       "cssClass": "icon-right-circled",
       "iconName": "tnt/right-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e911"
     },
     {
       "cssClass": "icon-right-circled2",
       "iconName": "tnt/right-circled2",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e826"
     },
     {
       "cssClass": "icon-right-dir",
       "iconName": "tnt/right-dir",
-      "width": 357
+      "width": 357,
+      "codepoint": "\\e844"
     },
     {
       "cssClass": "icon-rss",
       "iconName": "tnt/rss",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e803"
     },
     {
       "cssClass": "icon-search",
       "iconName": "tnt/search",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e847"
     },
     {
       "cssClass": "icon-snapchat-ghost",
       "iconName": "tnt/snapchat-ghost",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\f2ac"
     },
     {
       "cssClass": "icon-star",
       "iconName": "tnt/star",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e80f"
     },
     {
       "cssClass": "icon-star-empty",
       "iconName": "tnt/star-empty",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e81b"
     },
     {
       "cssClass": "icon-star-half",
       "iconName": "tnt/star-half",
-      "width": 500
+      "width": 500,
+      "codepoint": "\\e810"
     },
     {
       "cssClass": "icon-stop",
       "iconName": "tnt/stop",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e900"
     },
     {
       "cssClass": "icon-tag",
       "iconName": "tnt/tag",
-      "width": 960
+      "width": 960,
+      "codepoint": "\\e81c"
     },
     {
       "cssClass": "icon-tnt",
       "iconName": "tnt/tnt",
-      "width": 1500
+      "width": 1500,
+      "codepoint": "\\e824"
     },
     {
       "cssClass": "icon-tooth",
       "iconName": "tnt/tooth",
-      "width": 1091
+      "width": 1091,
+      "codepoint": "\\e82b"
     },
     {
       "cssClass": "icon-toothbrush",
       "iconName": "tnt/toothbrush",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e849"
     },
     {
       "cssClass": "icon-toothbrush-paste",
       "iconName": "tnt/toothbrush-paste",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e848"
     },
     {
       "cssClass": "icon-toothcosmetic",
       "iconName": "tnt/toothcosmetic",
-      "width": 1091
+      "width": 1091,
+      "codepoint": "\\e82e"
     },
     {
       "cssClass": "icon-twitter",
       "iconName": "tnt/twitter",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e807"
     },
     {
       "cssClass": "icon-up-circle",
       "iconName": "tnt/up-circle",
-      "width": 928
+      "width": 928,
+      "codepoint": "\\e945"
     },
     {
       "cssClass": "icon-up-circled",
       "iconName": "tnt/up-circled",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e912"
     },
     {
       "cssClass": "icon-up-dir",
       "iconName": "tnt/up-dir",
-      "width": 571
+      "width": 571,
+      "codepoint": "\\e936"
     },
     {
       "cssClass": "icon-user",
       "iconName": "tnt/user",
-      "width": 714
+      "width": 714,
+      "codepoint": "\\e804"
     },
     {
       "cssClass": "icon-user-md",
       "iconName": "tnt/user-md",
-      "width": 785
+      "width": 785,
+      "codepoint": "\\e918"
     },
     {
       "cssClass": "icon-wordpress",
       "iconName": "tnt/wordpress",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e80c"
     },
     {
       "cssClass": "icon-yahoo",
       "iconName": "tnt/yahoo",
-      "width": 1375
+      "width": 1375,
+      "codepoint": "\\e829"
     },
     {
       "cssClass": "icon-yelp",
       "iconName": "tnt/yelp",
-      "width": 741
+      "width": 741,
+      "codepoint": "\\e81d"
     },
     {
       "cssClass": "icon-youtube",
       "iconName": "tnt/youtube",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e80d"
     },
     {
       "cssClass": "icon-youtube-play",
       "iconName": "tnt/youtube-play",
-      "width": 1000
+      "width": 1000,
+      "codepoint": "\\e80e"
     },
     {
       "cssClass": "icon-youtube-squared",
       "iconName": "tnt/youtube-squared",
-      "width": 857
+      "width": 857,
+      "codepoint": "\\e821"
     }
   ]
 }

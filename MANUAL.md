@@ -1,7 +1,12 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-08-06 · main @ (see git)
-> Latest: **TNT Fontello → SVG icon kit is the fidelity convert dependency.**
+> Last updated: 2026-08-07 · main @ (see git)
+> Latest: **`fontello-map.json` now carries each icon's codepoint.** The kit resolves
+> icons by class name, so the codepoint was dropped when the map was generated — but
+> carried source CSS also writes glyphs directly (`content: "\e81a"`), which the kit
+> can never serve, and without the index nobody could tell which icon such a rule
+> meant. Both Sound Dentistry sites shipped a service index of empty circles this way.
+> Prior: **TNT Fontello → SVG icon kit is the fidelity convert dependency.**
 > WP2Astro / TNT2Astro `installTntIconKit` copies `src/icons/tnt/*` + subsets
 > `src/styles/tnt-fontello-compat.css` into every converted site. Pull + push
 > this repo with the fleet (`pull-all` / `sync-all`); do not treat it as optional
@@ -37,6 +42,14 @@ WP2Astro `emit-tnt-fidelity.ts`).
 
 ## Recent changes
 
+- **2026-08-07** — Added a `codepoint` to all 118 entries in
+  `src/icons/tnt/fontello-map.json`, read back off the live
+  `tntwebsites.com/tnticons/css/fontello.css`. The compat sheet only ever needed
+  class names, but a converted site's carried CSS still contains rules that write
+  the glyph straight into `content:`; those can never resolve, and until now there
+  was no way to look up what `\e81a` was supposed to be (`icon-angle-right`).
+  `src/icons/tnt/README.md` explains the failure mode and how to sweep a site for
+  it; `WP2Astro`'s `a11y-gate` now reports it automatically.
 - **2026-08-06** — Documented as a hard dependency of TNT fidelity convert/regen
   and wired into do-agents "let's get started" / "that's a wrap" orientation
   (pull-trigger + sync-trigger). Kit itself landed earlier on
