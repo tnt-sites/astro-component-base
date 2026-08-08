@@ -274,6 +274,9 @@ const Tag = link ? "a" : "div";
         z-index: var(--layer-2);
       }
 
+      /* Keep this list in sync with the `backgroundColor` options in
+         card.cloudcannon.inputs.yml — an option with no rule here silently
+         renders nothing. */
       &.bg-base {
         background-color: var(--color-bg);
       }
@@ -288,6 +291,14 @@ const Tag = link ? "a" : "div";
 
       &.bg-highlight {
         background-color: var(--color-bg-highlight);
+      }
+
+      &.bg-dark {
+        background-color: var(--color-bg-dark);
+      }
+
+      &.bg-black {
+        background-color: var(--color-bg-black);
       }
     }
   }
