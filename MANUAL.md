@@ -1,6 +1,23 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-08-05 · main @ b7bce05d ·
+> Last updated: 2026-08-08 · main @ aa855992
+> Latest: **`gallery-section`'s CloudCannon config didn't exist on `main` at all** (only
+> `GallerySection.astro` itself — no `.cloudcannon.inputs.yml`/`.structure-value.yml`), so it wasn't
+> actually editable in CloudCannon here even though the component worked. Found via WP2Astro's
+> Phase 2 TNT band adapter, which started emitting real `tnt/gallery-section` sections and hit a
+> page (`all-cases.html`) whose only content is one of these bands with no other page heading —
+> exposed that `main`'s `headingLevel` fix (below, `b7bce05d`) never got a matching CloudCannon
+> schema field for 3 of the 4 components it touched. Added the config files/fields; see Recent
+> changes. **Also found real branch divergence, not yet resolved:** `main`'s own `b7bce05d` fix
+> never made it onto `codex/header-landmark` (that branch predates it and nobody's cherry-picked it
+> over), so the actual promoted Whitinsville site — built from a `codex/header-landmark`-based
+> checkout, since `main` is still missing that branch's `landing` content collection the site
+> depends on — still had the original, un-fixed `<Heading level="h2">` hardcoding in these 4
+> components. Fixed on a local scratch branch for that specific build; `main` and
+> `codex/header-landmark` still need a real merge. See Next steps.
+> Prior: **found and fixed 3 real component-library bugs while proving out `WP2Astro`'s new
+> TNT2Astro conversion module end-to-end against a real site (sound-dentistry), 2026-08-05,
+> `b7bce05d`** ·
 > [tnt-sites/astro-component-base](https://github.com/tnt-sites/astro-component-base) — Latest:
 > found and fixed 3 real component-library bugs while proving out `WP2Astro`'s new TNT2Astro
 > conversion module end-to-end against a real site (sound-dentistry). All three are general
@@ -59,6 +76,32 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Recent changes
 
+- **2026-08-08 — `gallery-section` CloudCannon config completed + `headingLevel` fixed on the
+  `codex/header-landmark` lineage that actually ships.** Two related but distinct findings from
+  WP2Astro's Phase 2 TNT band adapter going live (composing real pages instead of a raw HTML blob):
+  1. **`main`-side gap**: `gallery-section` had `GallerySection.astro` but zero CloudCannon config
+     (`.cloudcannon.inputs.yml`/`.structure-value.yml` didn't exist on `main` at all — only on
+     `codex/header-landmark`, via its own `a0b83800 Add missing CloudCannon schema files for
+     page-sections/tnt/gallery-section`, never cherry-picked over). Added both files, plus a
+     `headingLevel` select field (`before-after`/`cta-form`'s *existing* yml files were also missing
+     that field even though `b7bce05d` already fixed their component logic below). Landed as
+     `aa855992` on `main` — pure schema addition, `GallerySection.astro`/`FaqSection.astro`/
+     `BeforeAfter.astro`/`CtaForm.astro` themselves needed **no** code change on `main` (already
+     fixed by `b7bce05d`, confirmed: cherry-picking the fix commit onto `main` produced a 0-diff
+     no-op for all four `.astro` files).
+  2. **`codex/header-landmark`-side real bug**: that branch predates `b7bce05d` and nobody's
+     cherry-picked it over, so `GallerySection.astro`/`FaqSection.astro`/`BeforeAfter.astro`/
+     `CtaForm.astro` on that lineage still hardcoded `<Heading level="h2">` for real. This matters
+     because the **actual promoted Whitinsville site is built from a `codex/header-landmark`-based
+     checkout** (it needs that branch's `landing` content collection, which `main` still lacks — see
+     Next steps), so `all-cases.html`'s only content (a `gallery-section` band with no other page
+     heading) was genuinely losing its `<h1>` in the real shipped build, not just hypothetically.
+     Applied the same `headingLevel` prop-threading fix to those 4 files on a local scratch branch
+     (`codex/header-landmark` + this fix, never pushed) to build and promote Whitinsville correctly;
+     `main` and `codex/header-landmark` still need this reconciled for real (see Next steps).
+  `astro check` clean on `main` after the schema addition (same 118 pre-existing unrelated
+  `[...slug].astro` doc-page errors, nothing new).
+
 - **2026-08-05 — 3 real component bugs found via TNT2Astro's first real end-to-end conversion run
   (sound-dentistry).** All are pre-existing, general bugs (not TNT2Astro-specific) that happened to
   become highly visible because TNT CMS pages exercise these code paths on almost every page;
@@ -109,6 +152,20 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Next steps
 
+- **CONFIRMED LIVE RISK (2026-08-08) — the `main`/`codex/header-landmark` divergence documented
+  below is not hypothetical: the currently-promoted `whitinsville-family-dentistry` site already
+  depends on `codex/header-landmark`'s unmerged `landing` content collection for 10 real LP/PPC
+  pages** (`lp-fb-implants*`/`lp-implants*`/`ppc-implant-dentist*`). Rebuilding it from `main` alone
+  silently drops all 10 (confirmed: 206 pages → 181 by diffing both builds). Do the same
+  commit-by-commit safe-tier review this MANUAL already used for the icon kit / FeatureGrid / etc.
+  for at least `a1171ae1` (Landing collection) and `9b8c37de` (category/tag archive routes) —
+  ideally before the next TNT2Astro run of ANY site with LP pages, not just Whitinsville. Until it
+  lands, check any promoted site for a live `src/content/landing/` directory before regenerating it
+  from `main`, and use a scratch branch based on `codex/header-landmark` instead if one exists.
+  `gallery-section`'s CloudCannon config gap (this session's other finding) is done — see Recent
+  changes — but confirm the same "already fixed on main but check codex/header-landmark's own
+  component code" pattern doesn't apply to any other `main`-only fix before assuming a
+  `codex/header-landmark`-based build has it too.
 - **NEW (2026-08-07, latest) — the TNT Fontello SVG icon kit that fixes the empty-gold-circle bug
   lives on `origin/codex/header-landmark`, NOT on `main` — engine is not actually ready for a fresh
   TNT2Astro run yet.** This morning's Easton/Sound WCAG session reported the icon-glyph bug fixed
