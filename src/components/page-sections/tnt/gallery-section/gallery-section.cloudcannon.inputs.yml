@@ -1,9 +1,6 @@
-eyebrow:
-  type: text
-  comment: Optional eyebrow text displayed above the heading.
 heading:
   type: text
-  comment: Section heading.
+  comment: Optional heading shown above the gallery grid.
 headingLevel:
   type: select
   comment: HTML heading level (h1-h6).
@@ -21,32 +18,12 @@ headingLevel:
         name: H5
       - id: h6
         name: H6
-subtext:
-  type: markdown
-  comment: Supporting body copy beneath the heading.
-  options:
-    blockquote: false
-    bold: true
-    format:
-    italic: true
-    link: true
-    strike: false
-    subscript: true
-    superscript: true
-    underline: false
-    bulletedlist: false
-    numberedlist: false
-buttonSections:
+items:
   type: array
-  comment: Optional calls-to-action shown beneath the comparison.
+  label: Gallery Images
+  comment: Images rendered in the responsive gallery grid.
   options:
-    structures: _structures.buttonSections
-pairs:
-  type: array
-  label: Before/After Pairs
-  comment: Before/after image pairs. A single pair renders as a static side-by-side card; 2+ pairs render as an auto-scrolling carousel.
-  options:
-    structures: _structures.beforeAfterPairs
+    structures: _structures.galleryItems
 colorScheme:
   type: select
   comment: Color scheme theme applied to the section wrapper.

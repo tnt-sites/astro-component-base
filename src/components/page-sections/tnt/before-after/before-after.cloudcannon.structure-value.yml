@@ -5,6 +5,7 @@ value:
   _component: page-sections/tnt/before-after
   eyebrow: ""
   heading: Before & After
+  headingLevel: h2
   subtext: ""
   buttonSections: []
   pairs:

@@ -1,6 +1,23 @@
 heading:
   type: text
   comment: Headline for the CTA.
+headingLevel:
+  type: select
+  comment: HTML heading level (h1-h6).
+  options:
+    values:
+      - id: h1
+        name: H1
+      - id: h2
+        name: H2
+      - id: h3
+        name: H3
+      - id: h4
+        name: H4
+      - id: h5
+        name: H5
+      - id: h6
+        name: H6
 subtext:
   type: markdown
   comment: Supporting copy beneath the headline.

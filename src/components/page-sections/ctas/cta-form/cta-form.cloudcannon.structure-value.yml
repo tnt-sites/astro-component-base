@@ -4,6 +4,7 @@ description: Side-by-side CTA with copy and form on one side and image on the ot
 value:
   _component: page-sections/ctas/cta-form
   heading: Get in touch
+  headingLevel: h2
   subtext: Fill out the form below and we'll get back to you as soon as possible.
   formAction: ./
   formBlocks:
