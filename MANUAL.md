@@ -1,7 +1,27 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-08-08 · main @ aa855992
-> Latest: **`gallery-section`'s CloudCannon config didn't exist on `main` at all** (only
+> Last updated: 2026-08-09 · main @ 97d4e791 (working tree)
+> Latest: **Whitinsville's preservation-first ACB baseline now supports Landing campaigns on
+> `main` without merging the broad `codex/header-landmark` branch.** The targeted baseline adds
+> the `landing` content collection, root routes, CloudCannon collection/schema, forced shell
+> suppression + `noindex`, robots metadata plumbing, and LP/PPC/PEP sitemap exclusion needed by
+> Whitinsville's 10 existing landing pages. The same preservation pilot then proved category/tag
+> archives are required to retain the established 206-route build, so their narrow route/schema
+> support was added without taking unrelated branch changes. The page schema now also retains
+> preservation metadata (`renderMode` and route-scoped `sourceStylesheets`) instead of stripping it
+> during Astro collection parsing; the final isolated candidate passed 99/99 browser checks.
+> Existing `main` gallery nested composition and `headingLevel` fixes remain authoritative and
+> untouched. See Recent changes for the exact behavior and verification.
+> Prior: **`gallery-section` rebuilt with nested Grid/Card/Image composition** instead of
+> hand-rolled markup (Tim: "smile gallery and other more complex functionality components can be
+> done as nested" — pointed at the Astro Component Starter's docs as "the bible" for this). Found
+> two more real component-library findings while auditing for the same pattern: `tnt/testimonials-grid`
+> has the identical hand-rolled-avatar problem but isn't on the live WP2Astro path (testimonial bands
+> route to `people/testimonial-section` instead — see Next steps), and the starter's own docs sidebar
+> lists Modal/Video Modal/Bento Box/Image Carousel wrapper components that don't exist in this repo on
+> either `main` or `codex/header-landmark` yet — a real gap if a future component ever needs true
+> lightbox/modal behavior (e.g. a click-to-enlarge gallery). See Recent changes.
+> Prior: **`gallery-section`'s CloudCannon config didn't exist on `main` at all** (only
 > `GallerySection.astro` itself — no `.cloudcannon.inputs.yml`/`.structure-value.yml`), so it wasn't
 > actually editable in CloudCannon here even though the component worked. Found via WP2Astro's
 > Phase 2 TNT band adapter, which started emitting real `tnt/gallery-section` sections and hit a
@@ -59,8 +79,9 @@ references by `_component` path. CloudCannon's visual editor reads the same `dat
   (header/footer), people, builders (CustomSection), and a `tnt/` subfolder of dental-practice
   sections (testimonials-grid, pricing-section, logo-bar, gallery-section, before-after, ...).
 - `src/pages/` — the actual route files a converted site gets (`[...slug].astro` catch-all,
-  `blog/[...page].astro` + `blog/[...slug].astro`, `category/`/`tag/` archive routes).
-- `src/content.config.ts` — Astro content-collection Zod schemas (`pages`, `blog`) every
+  including root-level `pages` + `landing` entries, and `blog/[...page].astro` +
+  `blog/[...slug].astro`, plus paginated category/tag archive routes).
+- `src/content.config.ts` — Astro content-collection Zod schemas (`pages`, `landing`, `blog`) every
   converted site's Markdown/MDX frontmatter must satisfy.
 - **`headingLevel` prop convention**: `WP2Astro/packages/core/src/convert.ts`'s
   `assignPageHeadingOwnership()` resets every emitted section's heading to `h2`, then promotes
@@ -75,6 +96,79 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 `WP2Astro-beta`) and manual CloudCannon editor spot-checks on promoted sites.
 
 ## Recent changes
+
+- **2026-08-09 — preservation metadata retained by the copied scaffold.** Added `renderMode` and
+  `sourceStylesheets` to the shared page schema so self-contained Landing routes keep their
+  explicit renderer and local CSS through Astro content parsing. This closed the last scaffold-side
+  gap found by the Whitinsville preservation pilot. The clean 206-route `candidate-site-v9` passes
+  the blocking HTML gate and all 99 desktop/tablet/mobile browser acceptance checks.
+
+- **2026-08-09 — category/tag archive parity completed for the Whitinsville 206-route contract.**
+  Added the narrow archive routes, shared taxonomy grouping helper, and `categories` blog-schema
+  field from the reviewed branch implementation. A clean WP2Astro scaffold built all 206 routes:
+  13 `/category/uncategorized/` pages and 2 tag routes in addition to pages, landings, posts, and
+  blog pagination. The final blocking `html-gate` passed all 206 files.
+
+- **2026-08-09 — preservation-first Landing baseline reconciled from `codex/header-landmark`
+  without broad cherry-picks.** This closes the confirmed Whitinsville rebuild gap: all 10 existing
+  `src/content/landing/*.md` LP/PPC pages now have a production-capable path on `main`.
+  - `landing` uses the same page schema and root-level route shape as `pages`, with support for the
+    converted `seo.robots` and read-only `provenance` frontmatter. CloudCannon exposes Landing as a
+    separate visual-editor collection and creates files from `.cloudcannon/schemas/landing.md`.
+  - The route forces `suppressNav: true`, `suppressFooter: true`, and `robots.noindex: true`
+    regardless of imported frontmatter, so campaign pages cannot accidentally render shared chrome
+    or become indexable. `nofollow` defaults to `true` when absent but an explicit `false` remains
+    respected. `Page.astro`/`BaseLayout.astro` now carry robots through to `astro-seo`.
+  - The sitemap excludes the established converted campaign route convention (`lp`, `ppc`, or
+    `pep` path tokens); this covers all 10 Whitinsville slugs. A temporary `lp-baseline-check`
+    fixture proved a root route builds, emits `noindex`, suppresses header/footer even when the
+    fixture requests otherwise, and is absent from the generated sitemap. The fixture was removed
+    after verification. `DISABLE_COMPONENT_LIBRARY=true npm run build` passed (17 pages);
+    unrestricted `npm run build` remains blocked by the pre-existing component-docs remote-image
+    allowlist failure. `astro check` reports 116 existing repo-wide errors, with no errors in the
+    changed Landing route after explicit collection-entry typing.
+  - The initial Landing-only verification did not include taxonomy routes. The subsequent
+    preservation pilot added only those narrow archive dependencies after proving they account for
+    15 required Whitinsville routes. No gallery/FeatureGrid/heading-level implementation was taken
+    from the older branch, preserving `main`'s newer fixes (`aa855992`, `97d4e791`).
+
+- **2026-08-08 evening — `gallery-section` rebuilt on nested Grid/Card/Image composition, following
+  the Astro Component Starter's own docs guidance (`component-docs/building-a-page-section/`:
+  "structured sections should reuse existing building blocks" — Tim pointed at this page directly
+  as the pattern to follow for "smile gallery and other more complex functionality components").**
+  Previously `GallerySection.astro` rendered its own `<div class="tnt-gallery-grid">` with raw
+  `<img>`/`<figcaption>` tags and hand-written responsive-grid CSS duplicating what `wrappers/grid`
+  already provides. Rebuilt to compose `Grid > GridItem > Card > Image` — the exact same idiom
+  `people/team-grid/TeamGrid.astro` already uses for its own image+caption grid — so gallery images
+  now get `Image`'s responsive `srcset`/CDN-provider handling instead of a plain `<img>`, and the
+  grid gets the same breakpoint/min-max-width behavior every other grid section uses instead of a
+  second hand-tuned copy. Followed the sibling `tnt/before-after` component's established convention
+  for plain-data (non-component) array items: `editable={false}` on the per-item `Image`/caption,
+  since inline click-to-edit isn't wired for `_structures`-defined array items in this base — editing
+  happens through the sidebar's array editor instead (`gallery-section.cloudcannon.structure-value.yml`'s
+  `_structures.galleryItems`, already correct, untouched). Public `items` prop shape
+  (`{src, alt, caption}[]`) is unchanged, so no WP2Astro engine-side change was needed. Landed as
+  `97d4e791` on `main`; visually re-verified via a Whitinsville rebuild (see `WP2Astro/MANUAL.md`'s
+  matching entry) before promoting.
+  - **Found while auditing, not yet acted on:** `tnt/testimonials-grid/TestimonialsGrid.astro` has the
+    identical hand-rolled problem (raw `<img>` avatar, custom `.tnt-testimonial-card` grid CSS) and
+    this base already has a ready-made `core-elements/testimonial/Testimonial.astro` element (quote +
+    avatar + name/description, already built on `Image`) it could delegate to via the same
+    `Grid > GridItem > Testimonial` pattern — but `testimonials-grid` isn't actually wired into
+    WP2Astro's live conversion path (`vision/compose.ts` routes testimonial bands to
+    `people/testimonial-section` instead, confirmed via grep), so this is a lower-priority follow-up,
+    not a live-site bug. `tnt/logo-bar/LogoBar.astro` has a much milder version of the same thing (raw
+    `<img>` for partner/affiliation logos in a flex row) — lower priority still since logos are
+    typically small pre-optimized static assets where `Image`'s responsive-CDN machinery buys little.
+  - **Real gap found in the component library, not just this codebase's usage of it:** the Astro
+    Component Starter's own docs sidebar (`component-docs/`) lists **Modal, Video Modal, Bento Box,
+    and Image Carousel** as available wrapper building blocks — none of the four exist in this repo's
+    `src/components/building-blocks/wrappers/` on `main` OR `codex/header-landmark` (confirmed via
+    `git ls-tree`). Not currently blocking anything (no live TNT/WP source pattern has needed true
+    lightbox/modal-on-click behavior yet — TNT's own gallery pages use a legacy jQuery `leanModal`
+    that WP2Astro's band adapter already flattens into a plain image grid, see
+    `tnt-bake-to-bands.ts`'s `bandFromGalleryPage`), but worth building before the first real
+    click-to-enlarge/lightbox requirement shows up in the fleet, rather than hand-rolling one per site.
 
 - **2026-08-08 — `gallery-section` CloudCannon config completed + `headingLevel` fixed on the
   `codex/header-landmark` lineage that actually ships.** Two related but distinct findings from
@@ -152,20 +246,18 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Next steps
 
-- **CONFIRMED LIVE RISK (2026-08-08) — the `main`/`codex/header-landmark` divergence documented
-  below is not hypothetical: the currently-promoted `whitinsville-family-dentistry` site already
-  depends on `codex/header-landmark`'s unmerged `landing` content collection for 10 real LP/PPC
-  pages** (`lp-fb-implants*`/`lp-implants*`/`ppc-implant-dentist*`). Rebuilding it from `main` alone
-  silently drops all 10 (confirmed: 206 pages → 181 by diffing both builds). Do the same
-  commit-by-commit safe-tier review this MANUAL already used for the icon kit / FeatureGrid / etc.
-  for at least `a1171ae1` (Landing collection) and `9b8c37de` (category/tag archive routes) —
-  ideally before the next TNT2Astro run of ANY site with LP pages, not just Whitinsville. Until it
-  lands, check any promoted site for a live `src/content/landing/` directory before regenerating it
-  from `main`, and use a scratch branch based on `codex/header-landmark` instead if one exists.
-  `gallery-section`'s CloudCannon config gap (this session's other finding) is done — see Recent
-  changes — but confirm the same "already fixed on main but check codex/header-landmark's own
-  component code" pattern doesn't apply to any other `main`-only fix before assuming a
-  `codex/header-landmark`-based build has it too.
+- Rebuild `tnt/testimonials-grid/TestimonialsGrid.astro` on `Grid > GridItem > core-elements/testimonial`
+  the same way `gallery-section` was rebuilt this session — low priority since it's not on the live
+  WP2Astro path today, but do it before wiring `testimonials-grid` into the engine for real (don't
+  wire a known-hand-rolled component into the live path without fixing it first).
+- Build **Modal**, **Video Modal**, **Bento Box**, and **Image Carousel** wrapper components (all four
+  are documented in the Astro Component Starter's own docs but don't exist in this repo yet — see
+  Recent changes) before the first real fleet requirement for click-to-enlarge/lightbox gallery
+  behavior shows up, rather than hand-rolling a one-off per site.
+- **Landing baseline follow-up:** the confirmed 10-page Whitinsville drop risk is closed in the
+  current working tree. Before the next conversion, validate its generated campaign names still
+  follow the `lp`/`ppc`/`pep` convention used by sitemap exclusion. Category/tag archive parity is
+  now also present and must remain in future clean-scaffold regression builds.
 - **NEW (2026-08-07, latest) — the TNT Fontello SVG icon kit that fixes the empty-gold-circle bug
   lives on `origin/codex/header-landmark`, NOT on `main` — engine is not actually ready for a fresh
   TNT2Astro run yet.** This morning's Easton/Sound WCAG session reported the icon-glyph bug fixed

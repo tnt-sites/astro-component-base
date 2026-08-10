@@ -37,12 +37,16 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => {
-        // Always exclude component library from sitemap if disabled
-        if (process.env.DISABLE_COMPONENT_LIBRARY === "true") {
-          return !page.includes("/component-library");
+        if (page.includes("/component-library")) return false;
+        // Converted landing campaigns use the lp/ppc/pep route convention.
+        // They are forced noindex by the route and must stay out of sitemap.
+        try {
+          const slug = new URL(page).pathname.replace(/^\/+|\/+$/g, "");
+          if (/(?:^|\/|-)(?:lp|ppc|pep)(?:[-_/]|$)/i.test(slug)) return false;
+        } catch {
+          // Ignore malformed URLs and leave sitemap handling unchanged.
         }
-        // If not disabled, still exclude from sitemap (existing behavior)
-        return !page.includes("/component-library");
+        return true;
       },
     }),
     mdx(),

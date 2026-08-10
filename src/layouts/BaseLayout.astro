@@ -10,6 +10,10 @@ export interface Props {
   keywords?: string[] | null;
   image?: string | null;
   canonical?: string | null;
+  robots?: {
+    noindex?: boolean;
+    nofollow?: boolean;
+  } | null;
   contentSections?: any;
 }
 
@@ -39,6 +43,8 @@ const pageImage = props.image || seoData.logoSource;
     <SEO
       title={formattedTitle}
       description={pageDescription}
+      noindex={props.robots?.noindex}
+      nofollow={props.robots?.nofollow}
       openGraph={{
         basic: {
           title: formattedTitle,

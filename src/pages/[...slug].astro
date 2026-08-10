@@ -4,30 +4,64 @@ import mainNavData from "@data/mainNav.json";
 import Page from "@layouts/Page.astro";
 import { getCollection, render, type CollectionEntry } from "astro:content";
 
+type PageEntry = CollectionEntry<"pages"> | CollectionEntry<"landing">;
+
 export interface Props {
-  page: CollectionEntry<"pages">;
+  page: PageEntry;
+  collection: "pages" | "landing";
 }
 
 export async function getStaticPaths() {
   const pages = await getCollection("pages");
+  const landings = await getCollection("landing");
 
-  return pages
-    .filter((page) => {
+  const pageRoutes = pages
+    .filter((page: CollectionEntry<"pages">) => {
       const slug = page.id.replace(/index$/, "");
       return slug !== "blog";
     })
-    .map((page) => {
+    .map((page: CollectionEntry<"pages">) => {
       const slug = page.id.replace(/index$/, "");
 
-      if (slug.length === 0) return { params: { slug: undefined }, props: { page } };
-      return { params: { slug }, props: { page } };
+      if (slug.length === 0) {
+        return { params: { slug: undefined }, props: { page, collection: "pages" as const } };
+      }
+      return { params: { slug }, props: { page, collection: "pages" as const } };
     });
+
+  const landingRoutes = landings.map((page: CollectionEntry<"landing">) => {
+    const slug = page.id.replace(/index$/, "");
+    return {
+      params: { slug: slug.length === 0 ? undefined : slug },
+      props: { page, collection: "landing" as const },
+    };
+  });
+
+  return [...pageRoutes, ...landingRoutes];
 }
 
-const { page } = Astro.props;
+const { page, collection } = Astro.props;
 const { Content } = await render(page);
+
+// Campaign pages own their complete visual shell. Enforce that contract at
+// render time even if imported content omits the CloudCannon defaults.
+const frontmatter =
+  collection === "landing"
+    ? {
+        ...page.data,
+        suppressNav: true,
+        suppressFooter: true,
+        seo: {
+          ...(page.data.seo || {}),
+          robots: {
+            noindex: true,
+            nofollow: page.data.seo?.robots?.nofollow ?? true,
+          },
+        },
+      }
+    : page.data;
 ---
 
-<Page frontmatter={page.data} mainNav={mainNavData} footer={footerData}>
+<Page frontmatter={frontmatter} mainNav={mainNavData} footer={footerData}>
   <Content />
 </Page>

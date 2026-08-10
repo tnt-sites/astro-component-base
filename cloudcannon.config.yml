@@ -23,6 +23,65 @@ collections_config:
       title:
         type: text
         comment: Controls the metadata title for the page.
+  landing:
+    path: src/content/landing
+    glob:
+      - "**/*.md"
+    url: /[full_slug]/
+    icon: campaign
+    _enabled_editors:
+      - visual
+    add_options:
+      - name: Add New Landing Page
+        schema: default
+        icon: campaign
+    schemas:
+      default:
+        name: New Landing Page
+        path: .cloudcannon/schemas/landing.md
+        remove_extra_inputs: false
+    create:
+      path: "[relative_base_path]/{filename|slugify|lowercase}.md"
+    new_preview_url: /
+    _inputs:
+      title:
+        type: text
+        label: Page Title
+      description:
+        type: textarea
+        label: Meta Description
+      suppressNav:
+        type: switch
+        label: Hide Site Navigation
+        comment: Landing pages always hide shared navigation at render time.
+        disabled: true
+      suppressFooter:
+        type: switch
+        label: Hide Site Footer
+        comment: Landing pages always hide the shared footer at render time.
+        disabled: true
+      pageSections:
+        type: array
+        label: Page Sections
+      seo:
+        type: object
+        label: Advanced SEO & Social
+        comment: Landing pages are always noindex; nofollow defaults on but may be disabled.
+      seo.robots:
+        type: object
+        label: Search Indexing
+      seo.robots.noindex:
+        type: switch
+        label: Prevent Indexing
+        disabled: true
+      seo.robots.nofollow:
+        type: switch
+        label: Prevent Following Links
+      provenance:
+        type: object
+        label: Conversion Source Record
+        disabled: true
+        hidden: true
   blog:
     path: src/content/blog
     glob:
@@ -87,6 +146,7 @@ collection_groups:
   - heading: Content
     collections:
       - pages
+      - landing
       - blog
   - heading: Data
     collections:

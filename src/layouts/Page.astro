@@ -13,6 +13,19 @@ type Props = {
     keywords?: string[];
     image?: string;
     canonical?: string;
+    metaTitle?: string;
+    metaDescription?: string;
+    seo?: {
+      metaTitle?: string;
+      metaDescription?: string;
+      canonical?: string;
+      openGraphImage?: string;
+      openGraphImageAlt?: string;
+      robots?: {
+        noindex?: boolean;
+        nofollow?: boolean;
+      };
+    };
     pageSections?: any[];
     /** P0.4 (WP2Astro v4 packet, 2026-07-21): page carries its own local
      * header/footer chrome (e.g. a Canvas landing page) -- suppress the
@@ -40,11 +53,16 @@ const {
   footer = footerData,
 } = Astro.props as Props;
 
-const title = frontmatter?.title ?? titleProp ?? "";
-const description = frontmatter?.description ?? descriptionProp;
+const title = frontmatter?.seo?.metaTitle ?? frontmatter?.metaTitle ?? frontmatter?.title ?? titleProp ?? "";
+const description =
+  frontmatter?.seo?.metaDescription ??
+  frontmatter?.metaDescription ??
+  frontmatter?.description ??
+  descriptionProp;
 const keywords = frontmatter?.keywords ?? keywordsProp;
-const image = frontmatter?.image ?? imageProp;
-const canonical = frontmatter?.canonical ?? canonicalProp;
+const image = frontmatter?.seo?.openGraphImage ?? frontmatter?.image ?? imageProp;
+const canonical = frontmatter?.seo?.canonical ?? frontmatter?.canonical ?? canonicalProp;
+const robots = frontmatter?.seo?.robots;
 const pageSections = frontmatter?.pageSections;
 const hasPageSections = pageSections && pageSections.length > 0;
 const hasSlotContent = Astro.slots.has("default");
@@ -58,6 +76,7 @@ const suppressFooter = frontmatter?.suppressFooter ?? false;
   keywords={keywords}
   image={image}
   canonical={canonical}
+  robots={robots}
 >
   {!suppressNav && (
     <header>

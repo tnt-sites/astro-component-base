@@ -1,0 +1,71 @@
+---
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import Pagination from "@core-elements/pagination/Pagination.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Page from "@layouts/Page.astro";
+import CustomSection from "@page-sections/builders/custom-section/CustomSection.astro";
+import Card from "@wrappers/card/Card.astro";
+import Grid from "@wrappers/grid/Grid.astro";
+import GridItem from "@wrappers/grid/GridItem.astro";
+import { getCollection } from "astro:content";
+import { groupPostsByTerm } from "../../../utils/taxonomy";
+
+export async function getStaticPaths({ paginate }: { paginate: any }) {
+  const posts = await getCollection("blog");
+  return groupPostsByTerm(posts, "tags").flatMap((group) =>
+    paginate(group.posts, {
+      pageSize: 9,
+      params: { tag: group.slug },
+      props: { termLabel: group.label },
+    }),
+  );
+}
+
+const { page, termLabel } = Astro.props;
+const pageTitle = `${termLabel} Archives`;
+const archiveHeading = page.currentPage > 1 ? `${termLabel} — Page ${page.currentPage}` : termLabel;
+---
+
+<Page title={pageTitle} description={`Posts tagged ${termLabel}.`}>
+  <CustomSection maxContentWidth="2xl" paddingHorizontal="lg" paddingVertical="none" colorScheme="default" backgroundColor="base">
+    <Heading level="h1" size="2xl" alignX="center" editable={false}>{archiveHeading}</Heading>
+    {
+      page.data.length > 0 ? (
+        <>
+          <Grid gap="lg" layout="start" minItemWidth="320" maxItemWidth="400" style="margin-top: var(--spacing-2xl)" editable={false}>
+            {page.data.map((post: any) => {
+              const pubDate = post.data.date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              });
+              const slug = post.id?.replace(/\.mdx?$/, "") || post.slug;
+              return (
+                <GridItem editable={false}>
+                  <Card link={`/blog/${slug}`} rounded={true} border={true} paddingVertical="lg" paddingHorizontal="lg" editable={false}>
+                    {post.data.image && <Image slot="before" source={post.data.image} alt={post.data.title} aspectRatio="landscape" editable={false} />}
+                    <SimpleText size="sm" style="color: var(--color-text-muted); margin-bottom: var(--spacing-xs);" editable={false}>
+                      {pubDate} • {post.data.author || "Anonymous"}
+                    </SimpleText>
+                    <Heading level="h3" size="md" style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-sm);" editable={false}>
+                      {post.data.title}
+                    </Heading>
+                    <SimpleText size="sm" style="color: var(--color-text-muted); margin-top: 0;" editable={false}>
+                      {post.data.description}
+                    </SimpleText>
+                  </Card>
+                </GridItem>
+              );
+            })}
+          </Grid>
+          <Pagination page={page} showArrows={true} style="margin-top: var(--spacing-2xl);" />
+        </>
+      ) : (
+        <SimpleText alignX="center" style="margin-top: var(--spacing-2xl);" editable={false}>
+          No posts found with this tag.
+        </SimpleText>
+      )
+    }
+  </CustomSection>
+</Page>

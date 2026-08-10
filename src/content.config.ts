@@ -5,6 +5,34 @@ import { z } from "zod";
 const pageSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
+  metaTitle: z.string().optional(),
+  metaDescription: z.string().optional(),
+  h1: z.string().optional(),
+  seo: z
+    .object({
+      metaTitle: z.string().optional(),
+      metaDescription: z.string().optional(),
+      canonical: z.string().optional(),
+      openGraphImage: z.string().optional(),
+      openGraphImageAlt: z.string().optional(),
+      robots: z
+        .object({
+          noindex: z.boolean().optional(),
+          nofollow: z.boolean().optional(),
+        })
+        .optional(),
+    })
+    .optional(),
+  locationId: z.string().optional(),
+  provenance: z
+    .object({
+      sourceUrl: z.string().optional(),
+      wpId: z.number().optional(),
+      capturedAt: z.string().optional(),
+      contentHash: z.string().optional(),
+      conversionStatus: z.string().optional(),
+    })
+    .optional(),
   wpId: z.number().optional(),
   headerId: z.number().optional(),
   // P0.4 (WP2Astro v4 packet, 2026-07-21): page carries its own local
@@ -13,6 +41,8 @@ const pageSchema = z.object({
   // before Page.astro ever sees the value.
   suppressNav: z.boolean().optional(),
   suppressFooter: z.boolean().optional(),
+  renderMode: z.enum(["legacy-static", "native-acb", "landing-static", "blog-native"]).optional(),
+  sourceStylesheets: z.array(z.string()).default([]),
   pageSections: z.array(z.any()),
 });
 
@@ -95,6 +125,8 @@ const blogPostSchema = z.object({
   author: z.string().default("Anonymous"),
   image: z.string().optional(),
   tags: z.array(z.string()).default([]),
+  /** WordPress category names; powers best-effort category archive routes. */
+  categories: z.array(z.string()).default([]),
 });
 
 const blogCollection = defineCollection({
@@ -102,8 +134,16 @@ const blogCollection = defineCollection({
   schema: blogPostSchema,
 });
 
+const landingCollection = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/landing" }),
+  // Campaigns use the normal page-section contract, but stay in a separate
+  // collection so CloudCannon can distinguish them from indexable site pages.
+  schema: pageSchema,
+});
+
 export const collections = {
   pages: pagesCollection,
+  landing: landingCollection,
   "docs-pages": docsPagesCollection,
   "docs-components": docsComponentsCollection,
   blog: blogCollection,
