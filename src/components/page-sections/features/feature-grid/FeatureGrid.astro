@@ -29,7 +29,7 @@ const {
 ---
 
 <CustomSection
-  class:list={["feature-grid", className]}
+  class:list={["feature-grid", variant && `variant-${variant}`, className]}
   maxContentWidth="2xl"
   paddingHorizontal="lg"
   paddingVertical={paddingVertical}
@@ -61,7 +61,7 @@ const {
       features.map((feature: any, index: number) => (
         <GridItem>
           <editable-array-item data-component="page-sections/features/feature-grid/feature-item">
-            <FeatureItem {...feature} class="feature-grid-item" data-index={index} />
+            <FeatureItem {...feature} variant={feature.variant || variant} class="feature-grid-item" data-index={index} />
           </editable-array-item>
         </GridItem>
       ))

@@ -15,6 +15,13 @@ const {
   rounded = false,
   class: className,
   _component,
+  // Converter leftovers — never HTML attributes. Empty strings become boolean
+  // attrs (`heading`, `subtext`) and CloudCannon then tries to bind them as
+  // text regions (Glacier Peak About Us, 2026-08-21).
+  heading,
+  subtext,
+  eyebrow,
+  layout,
   ...htmlAttributes
 } = Astro.props;
 
@@ -307,6 +314,10 @@ if (!htmlAttributes.id && label) {
 
       > .bg-highlight {
         background-color: var(--color-bg-highlight);
+      }
+
+      > .bg-brand {
+        background-color: var(--brand-primary, var(--color-bg-brand));
       }
     }
   }

@@ -94,3 +94,27 @@ _structures:
                   name: Pink
                 - id: cyan
                   name: Cyan
+          imageSource:
+            type: image
+            comment: Optional image shown instead of (or with) the icon.
+          imageAlt:
+            type: text
+            comment: Alt text for the feature image.
+          backgroundImage:
+            type: object
+            comment: Photo behind a service-panels card.
+            options:
+              structures:
+                values:
+                  - id: backgroundImage
+                    values:
+                      source:
+                        type: image
+                      alt:
+                        type: text
+          linkHref:
+            type: url
+            comment: Optional destination when the card or Learn More link is clicked.
+          linkText:
+            type: text
+            comment: Optional Learn More label. Leave empty to make the whole card the link.

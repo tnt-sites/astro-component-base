@@ -1,6 +1,6 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-08-09 · main @ 97d4e791 (working tree)
+> Last updated: 2026-08-21 · main @ 97d4e791 (working tree)
 > Latest: **Whitinsville's preservation-first ACB baseline now supports Landing campaigns on
 > `main` without merging the broad `codex/header-landmark` branch.** The targeted baseline adds
 > the `landing` content collection, root routes, CloudCannon collection/schema, forced shell
@@ -96,6 +96,12 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 `WP2Astro-beta`) and manual CloudCannon editor spot-checks on promoted sites.
 
 ## Recent changes
+
+- **2026-08-21 — `feature-grid` `variant: service-panels` is now real.** WP2Astro has emitted this variant for years (see Grid.astro `looksLikeServicePanels`) but FeatureGrid never put `variant-*` on the section and FeatureItem ignored `backgroundImage`, so converters painted a plain icon grid. Glacier Peak's 3×2 photo service cards were the first live miss. FeatureGrid now adds `variant-${variant}`; FeatureItem paints Card `backgroundImage` for service-panels, skips the extra Learn More line, and links the whole card. CloudCannon structure-value gained `imageSource` / `backgroundImage` / `linkHref`. Dest chrome still has to override dental-clean's `auto-fit minmax(220px)` or a wide viewport wraps 5+1.
+
+- **2026-08-21 — Glacier Peak visual pass: CustomSection discards leftover `heading`/`subtext` (empty strings were leaking as boolean DOM attrs and breaking CC text regions), adds `backgroundColor: brand`, and FeatureItem now paints `imageSource` instead of dropping converter icons.** Dest-only chrome (utility bar, overlay hero, About sidebar) lives in `tnt-sites/glacier-peak-dentistry`.
+
+- **2026-08-21 — CloudCannon Visual Editor: bump `@cloudcannon/editable-regions` 0.0.9 → 0.0.19 and add `@astrojs/react`.** Glacier Peak's first CC open showed red "Failed to render component … I is not a function" on every `pageSections` block (hero-overlay, feature-grid, cta-center, testimonial-section). Header/footer still painted because they are static HTML; Visual Editor re-renders sections via `live-editing.js`. Root cause: ACB jumped to Astro 6 beta (`e9f69aba`) while still on editable-regions 0.0.9, which (a) mocks `createAstro(astroGlobal, props, slots)` while Astro 6 calls `createAstro(props, slots)`, and (b) treats every leftover component as React (`check: () => true`) then calls it as a function. 0.0.10+ reworks the Astro integration for Vite environments; 0.0.19 also needs `@astrojs/react` for its renderer. Converted sites inherit both from `package.json`.
 
 - **2026-08-09 — preservation metadata retained by the copied scaffold.** Added `renderMode` and
   `sourceStylesheets` to the shared page schema so self-contained Landing routes keep their
@@ -245,6 +251,8 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
     the lockfile conflict. `WP2Astro`'s `feat/tnt2astro` branch can merge without waiting on this.
 
 ## Next steps
+
+- **HOMEWORK @work (2026-08-21) — Glacier Peak dest visual QC, not ACB work.** `service-panels`, CustomSection leftover heading/subtext discard, and `@cloudcannon/editable-regions` 0.0.19 + `@astrojs/react` ship in this wrap. Do **not** re-run convert over `tnt-sites/glacier-peak-dentistry`. Dest punch list: that repo's `MANUAL.md` Next steps (thin pages, hub H1s, Home icon tiles, rebuild then re-QC). Engine emit is already on WP2Astro `feat/tnt2astro` @ `0d09492`.
 
 - Rebuild `tnt/testimonials-grid/TestimonialsGrid.astro` on `Grid > GridItem > core-elements/testimonial`
   the same way `gallery-section` was rebuilt this session — low priority since it's not on the live

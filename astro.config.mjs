@@ -1,4 +1,5 @@
 import sitemap from "@astrojs/sitemap";
+import react from "@astrojs/react";
 import editableRegions from "@cloudcannon/editable-regions/astro-integration";
 import postcssGlobalData from "@csstools/postcss-global-data";
 import icon from "astro-icon";
@@ -32,6 +33,7 @@ export default defineConfig({
   },
   integrations: [
     editableRegions(),
+    react(),
     icon({
       iconDir: path.resolve(__dirname, "src/icons"),
     }),

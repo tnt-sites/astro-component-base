@@ -1,6 +1,7 @@
 ---
 import Heading from "@core-elements/heading/Heading.astro";
 import Icon from "@core-elements/icon/Icon.astro";
+import Image from "@core-elements/image/Image.astro";
 import Text from "@core-elements/text/Text.astro";
 import Card from "@wrappers/card/Card.astro";
 
@@ -10,31 +11,60 @@ const {
   iconName = "",
   iconColor = "default",
   iconBackground = true,
+  imageSource = "",
+  imageAlt = "",
+  backgroundImage,
+  linkHref,
+  linkText,
+  panelTone,
+  variant,
   class: className,
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const isPanel = variant === "service-panels";
+const hasImage = typeof imageSource === "string" && imageSource.trim() !== "";
+const linkLine = !isPanel && linkHref && linkText ? `[${linkText}](${linkHref})` : "";
+const linkMarkdown = [description, linkLine].filter(Boolean).join("\n\n");
+const panelBackground = isPanel && backgroundImage?.source ? backgroundImage : undefined;
+const cardLink = isPanel || (linkHref && !linkText) ? linkHref : undefined;
 ---
 
 <Card
   {...htmlAttributes}
-  class:list={["feature-item", className]}
+  class:list={["feature-item", isPanel && "variant-service-panels", className]}
   paddingHorizontal="lg"
   paddingVertical="lg"
   rounded
-  border
-  backgroundColor="base"
+  border={!isPanel}
+  backgroundColor={isPanel ? undefined : "base"}
+  backgroundImage={panelBackground}
+  link={cardLink}
 >
-  <Icon
-    class="feature-icon"
-    name={iconName}
-    size="lg"
-    color={iconColor}
-    background={iconBackground}
-    alignX="start"
-  />
+  {
+    hasImage ? (
+      <Image
+        source={imageSource}
+        alt={imageAlt || title}
+        class="feature-icon feature-icon-image"
+        editable={true}
+        data-prop-src="imageSource"
+        data-prop-alt="imageAlt"
+      />
+    ) : (
+      <Icon
+        class="feature-icon"
+        name={iconName}
+        size="lg"
+        color={iconColor}
+        background={iconBackground}
+        alignX="start"
+      />
+    )
+  }
   <Heading class="feature-title" level="h3" size="md" alignX="start" data-prop="title" text={title} />
-  <Text class="feature-description" alignX="start" data-prop="description" text={description} />
+  <Text class="feature-description" alignX="start" data-prop="description" text={linkMarkdown} />
 </Card>
 
 <style lang="pcss" is:global>
@@ -46,6 +76,13 @@ const {
 
     .feature-description {
       margin-top: 0;
+    }
+
+    .feature-item .feature-icon-image img {
+      height: auto;
+      margin-inline: auto;
+      max-width: 4.5rem;
+      width: 4.5rem;
     }
   }
 </style>

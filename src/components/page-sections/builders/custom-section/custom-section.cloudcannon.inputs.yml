@@ -93,6 +93,8 @@ backgroundColor:
         name: Accent
       - id: highlight
         name: Highlight
+      - id: brand
+        name: Brand
 backgroundImage:
   type: object
   comment: Background image configuration for the custom section.
