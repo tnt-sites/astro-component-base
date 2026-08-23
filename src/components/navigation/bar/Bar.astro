@@ -5,8 +5,9 @@ const { navData = [], class: className, _component, ...htmlAttributes } = Astro.
 
 const navInstanceId = crypto.randomUUID();
 
+const pathname = Astro.url?.pathname ?? "";
 function isCurrentPage(item) {
-  return Boolean(item.path && Astro.url.pathname === item.path);
+  return Boolean(item?.path && pathname && pathname === item.path);
 }
 
 function hasCurrentChild(item) {

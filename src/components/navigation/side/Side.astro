@@ -6,9 +6,9 @@ const { navData = [], class: className, _component, ...htmlAttributes } = Astro.
 // Generate a unique ID for this navigation instance to scope radio buttons
 const navInstanceId = crypto.randomUUID();
 
-// Helper function to check if item is current page
+const pathname = Astro.url?.pathname ?? "";
 function isCurrentPage(item) {
-  return item.path && Astro.url.pathname === item.path;
+  return Boolean(item?.path && pathname && pathname === item.path);
 }
 
 // Helper function to check if any child is current page (recursive)

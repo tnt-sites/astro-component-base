@@ -25,7 +25,10 @@ const {
 
 const hasValidSrc = source && typeof source === "string" && source.trim() !== "";
 
-if (!_component && !hasValidSrc) {
+const ownCube =
+  typeof _component === "string" &&
+  _component.replace(/\\/g, "/").endsWith("core-elements/image");
+if (!hasValidSrc && !ownCube) {
   return;
 }
 

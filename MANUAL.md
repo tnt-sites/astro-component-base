@@ -1,7 +1,8 @@
 # astro-component-base — Manual
 
 > Last updated: 2026-08-22 · main (working tree)
-> Latest: **Blog post Visual Editor regions.** `src/pages/blog/[...slug].astro` no longer
+> Latest: **CloudCannon live-editing:** Side/Bar/Mobile tolerate missing `Astro.url`; empty Heading/Text/SimpleText/Image do not inherit a parent `_component` to mount a `text` region. Glacier Peak white-lab dump interiors (Hero Center + Split + Side) were throwing pathname + “Failed to render text editable region” in Visual Editor.
+> Prior: **Blog post Visual Editor regions.** `src/pages/blog/[...slug].astro` no longer
 > marks date/title/description as `data-prop="text"` (blog frontmatter has no `text` field).
 > Date is `editable={false}`; title binds `title`; description binds `description`. Glacier Peak
 > dest copied this template; same three red "Failed to render text editable region" errors showed
@@ -102,7 +103,7 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Recent changes
 
-- **2026-08-22 — Blog post Visual Editor `data-prop="text"`.** `src/pages/blog/[...slug].astro` chrome (date, H1, description) defaulted to `data-prop="text"`. Blog frontmatter has `title` / `description` / `author`, so CloudCannon threw three “Failed to render text editable region … received undefined” errors on every post. Date line is `editable={false}`; H1 uses `data-prop="title"`; description uses `data-prop="description"`. Listing cards were already `editable={false}`.
+- **2026-08-22 — CloudCannon live-editing: Side/Bar/Mobile no longer read `Astro.url.pathname` when `Astro.url` is missing** (Visual Editor re-render threw `Cannot read properties of undefined (reading 'pathname')` on every interior Split that nests `navigation/side`). Heading/Text/SimpleText/Image only force-render empty cubes when `_component` is *their* path — a leaked parent `_component` was mounting `data-prop="text"` on Hero Center (no `text` field) and showing “Failed to render text editable region”. Dest is frozen; copy into converted sites as needed.
 
 - **2026-08-21 — `feature-grid` `variant: service-panels` is now real.** WP2Astro has emitted this variant for years (see Grid.astro `looksLikeServicePanels`) but FeatureGrid never put `variant-*` on the section and FeatureItem ignored `backgroundImage`, so converters painted a plain icon grid. Glacier Peak's 3×2 photo service cards were the first live miss. FeatureGrid now adds `variant-${variant}`; FeatureItem paints Card `backgroundImage` for service-panels, skips the extra Learn More line, and links the whole card. CloudCannon structure-value gained `imageSource` / `backgroundImage` / `linkHref`. Dest chrome still has to override dental-clean's `auto-fit minmax(220px)` or a wide viewport wraps 5+1.
 
@@ -259,7 +260,7 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Next steps
 
-- **HOMEWORK @work (2026-08-22) — Blog post Visual Editor regions are fixed in ACB + Glacier Peak dest.** Confirm punchy-bacon blog posts no longer show “Failed to render text editable region”. Do **not** re-run convert over `tnt-sites/glacier-peak-dentistry`.
+- **HOMEWORK — Glacier Peak white-lab (`magnificent-charger`) Visual Editor Split/pathname + empty Hero Center text regions.** Fixed in ACB this session; white-lab copy shipped separately. Dest/punchy-bacon still has the old Side.astro until someone copies it. Do **not** re-run convert over dest.
 
 - **HOMEWORK @work (2026-08-21) — Glacier Peak dest visual QC, not ACB work.** `service-panels`, CustomSection leftover heading/subtext discard, and `@cloudcannon/editable-regions` 0.0.19 + `@astrojs/react` ship in this wrap. Do **not** re-run convert over `tnt-sites/glacier-peak-dentistry`. Dest punch list: that repo's `MANUAL.md` Next steps (thin pages, hub H1s, Home icon tiles, rebuild then re-QC). Engine emit is already on WP2Astro `feat/tnt2astro` @ `0d09492`.
 

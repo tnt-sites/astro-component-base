@@ -16,8 +16,9 @@ const toggleId = `mobile-toggle-${crypto.randomUUID()}`;
 const navInstanceId = crypto.randomUUID();
 
 // Check if item is current page
+const pathname = Astro.url?.pathname ?? "";
 function isCurrentPage(item) {
-  return Boolean(item.path && Astro.url.pathname === item.path);
+  return Boolean(item?.path && pathname && pathname === item.path);
 }
 
 // Check if any child is current page (recursive)
