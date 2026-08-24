@@ -1,7 +1,8 @@
 # astro-component-base — Manual
 
 > Last updated: 2026-08-22 · main (working tree)
-> Latest: **CloudCannon live-editing:** Side/Bar/Mobile tolerate missing `Astro.url`; empty Heading/Text/SimpleText/Image do not inherit a parent `_component` to mount a `text` region. Glacier Peak white-lab dump interiors (Hero Center + Split + Side) were throwing pathname + “Failed to render text editable region” in Visual Editor.
+> Latest: **Empty Feature Split/Grid/Hero Center eyebrow** does not mount a CloudCannon text region. Glacier Peak white-lab Cracked Tooth local VE (`cloudcannon dev :10101`).
+> Prior: **CloudCannon live-editing:** Side/Bar/Mobile tolerate missing `Astro.url`; empty Heading/Text/SimpleText/Image do not inherit a parent `_component` to mount a `text` region. Glacier Peak white-lab dump interiors (Hero Center + Split + Side) were throwing pathname + “Failed to render text editable region” in Visual Editor.
 > Prior: **Blog post Visual Editor regions.** `src/pages/blog/[...slug].astro` no longer
 > marks date/title/description as `data-prop="text"` (blog frontmatter has no `text` field).
 > Date is `editable={false}`; title binds `title`; description binds `description`. Glacier Peak
@@ -102,6 +103,8 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 `WP2Astro-beta`) and manual CloudCannon editor spot-checks on promoted sites.
 
 ## Recent changes
+
+- **2026-08-22 — Feature Split is copy-only when `imageSource` is blank.** An empty image field used to still mount Split's 400px second pane (Glacier Peak white-lab Emergency Dentistry looked like missing photos). Nested Heading/Text/ButtonGroup also skip when empty. Dest still frozen.
 
 - **2026-08-22 — CloudCannon live-editing: Side/Bar/Mobile no longer read `Astro.url.pathname` when `Astro.url` is missing** (Visual Editor re-render threw `Cannot read properties of undefined (reading 'pathname')` on every interior Split that nests `navigation/side`). Heading/Text/SimpleText/Image only force-render empty cubes when `_component` is *their* path — a leaked parent `_component` was mounting `data-prop="text"` on Hero Center (no `text` field) and showing “Failed to render text editable region”. Dest is frozen; copy into converted sites as needed.
 
@@ -260,7 +263,7 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Next steps
 
-- **HOMEWORK — Glacier Peak white-lab (`magnificent-charger`) Visual Editor Split/pathname + empty Hero Center text regions.** Fixed in ACB this session; white-lab copy shipped separately. Dest/punchy-bacon still has the old Side.astro until someone copies it. Do **not** re-run convert over dest.
+- **HOMEWORK — Glacier Peak white-lab local VE:** empty Feature Split eyebrow toast patched in ACB + white-lab this session. Rebuild white-lab `dist` before expecting the toast to clear. Dest/punchy-bacon still has the old Side.astro until someone copies it. Do **not** re-run convert over dest.
 
 - **HOMEWORK @work (2026-08-21) — Glacier Peak dest visual QC, not ACB work.** `service-panels`, CustomSection leftover heading/subtext discard, and `@cloudcannon/editable-regions` 0.0.19 + `@astrojs/react` ship in this wrap. Do **not** re-run convert over `tnt-sites/glacier-peak-dentistry`. Dest punch list: that repo's `MANUAL.md` Next steps (thin pages, hub H1s, Home icon tiles, rebuild then re-QC). Engine emit is already on WP2Astro `feat/tnt2astro` @ `0d09492`.
 

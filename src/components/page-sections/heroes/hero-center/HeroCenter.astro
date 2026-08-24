@@ -29,9 +29,9 @@ const {
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
-    {eyebrow}
-  </SimpleText>
+  {eyebrow.trim() ? (
+    <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow" text={eyebrow} />
+  ) : null}
   <Heading level={headingLevel} size="2xl" alignX="center" data-prop="heading" text={heading} />
   <Text alignX="center" class="subtext" data-prop="subtext" text={subtext} />
   <ButtonGroup class="buttons" buttonSections={buttonSections} alignX="center" />

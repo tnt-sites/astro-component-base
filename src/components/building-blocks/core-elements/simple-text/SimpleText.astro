@@ -27,12 +27,12 @@ const textDataAttributes =
 
 const hasText = text?.trim().length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
-const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
+const slotPlain = (slotContent?.toString() ?? "").replace(/<[^>]*>/g, "").trim();
 
 const ownCube =
   typeof _component === "string" &&
   _component.replace(/\\/g, "/").endsWith("core-elements/simple-text");
-if (!hasText && !hasSlotContent && !ownCube) return;
+if (!hasText && !slotPlain && !ownCube) return;
 ---
 
 <p

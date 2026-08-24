@@ -28,6 +28,9 @@ const {
 
 const minSplitWidth = 720;
 const featureSplitId = `feature-split-${crypto.randomUUID()}`;
+const hasImage = typeof imageSource === "string" && imageSource.trim() !== "";
+const hasButtons = Array.isArray(buttonSections) && buttonSections.length > 0;
+const eyebrowText = typeof eyebrow === "string" ? eyebrow : "";
 ---
 
 <CustomSection
@@ -40,41 +43,65 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   data-feature-split-id={featureSplitId}
   {...htmlAttributes}
 >
-  <Split
-    class="feature-split-layout"
-    distributionMode="flexible-fixed"
-    fixedWidth="400"
-    minSplitWidth={minSplitWidth}
-    reverse={reverse}
-    verticalAlignment="center"
-    gap="2xl"
-    reverseOrderOnMobile={true}
-  >
-    <Fragment slot="first">
-      <SimpleText class="eyebrow" data-prop="eyebrow">
-        {eyebrow}
-      </SimpleText>
-      <Heading level={headingLevel} size="lg" data-prop="heading" text={heading} />
-      <Text class="subtext" data-prop="subtext" text={subtext} />
-      <ButtonGroup
-        class="feature-buttons"
-        buttonSections={buttonSections}
-        direction="row"
-        alignX="start"
+  {hasImage ? (
+    <Split
+      class="feature-split-layout"
+      distributionMode="flexible-fixed"
+      fixedWidth="400"
+      minSplitWidth={minSplitWidth}
+      reverse={reverse}
+      verticalAlignment="center"
+      gap="2xl"
+      reverseOrderOnMobile={true}
+    >
+      <Fragment slot="first">
+        {eyebrowText.trim() ? (
+          <SimpleText class="eyebrow" data-prop="eyebrow" text={eyebrowText} />
+        ) : null}
+        <Heading level={headingLevel} size="lg" data-prop="heading" text={heading} />
+        {String(subtext || "").trim() ? (
+          <Text class="subtext" data-prop="subtext" text={subtext} />
+        ) : null}
+        {hasButtons ? (
+          <ButtonGroup
+            class="feature-buttons"
+            buttonSections={buttonSections}
+            direction="row"
+            alignX="start"
+          />
+        ) : null}
+      </Fragment>
+      <Image
+        slot="second"
+        class:list={["feature-split-image", reverse && "reverse"]}
+        source={imageSource}
+        alt={imageAlt}
+        rounded={imageRounded}
+        aspectRatio={imageAspectRatio}
+        data-prop-src="imageSource"
+        data-prop-alt="imageAlt"
+        data-editable="image"
       />
+    </Split>
+  ) : (
+    <Fragment>
+      {eyebrowText.trim() ? (
+        <SimpleText class="eyebrow" data-prop="eyebrow" text={eyebrowText} />
+      ) : null}
+      <Heading level={headingLevel} size="lg" data-prop="heading" text={heading} />
+      {String(subtext || "").trim() ? (
+        <Text class="subtext" data-prop="subtext" text={subtext} />
+      ) : null}
+      {hasButtons ? (
+        <ButtonGroup
+          class="feature-buttons"
+          buttonSections={buttonSections}
+          direction="row"
+          alignX="start"
+        />
+      ) : null}
     </Fragment>
-    <Image
-      slot="second"
-      class:list={["feature-split-image", reverse && "reverse"]}
-      source={imageSource}
-      alt={imageAlt}
-      rounded={imageRounded}
-      aspectRatio={imageAspectRatio}
-      data-prop-src="imageSource"
-      data-prop-alt="imageAlt"
-      data-editable="image"
-    />
-  </Split>
+  )}
 </CustomSection>
 
 {

@@ -45,9 +45,9 @@ const {
     class="hero-split"
   >
     <Fragment slot="first">
-      <SimpleText class="eyebrow" data-prop="eyebrow">
-        {eyebrow}
-      </SimpleText>
+      {eyebrow.trim() ? (
+        <SimpleText class="eyebrow" data-prop="eyebrow" text={eyebrow} />
+      ) : null}
       <Heading level={headingLevel} size="2xl" data-prop="heading" text={heading} />
       <Text class="subtext" data-prop="subtext" text={subtext} />
       <ButtonGroup class="buttons-container" buttonSections={buttonSections} />

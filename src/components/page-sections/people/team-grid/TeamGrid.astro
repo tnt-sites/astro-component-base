@@ -27,13 +27,13 @@ const {
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
 >
-  <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
-    {eyebrow}
-  </SimpleText>
+  {eyebrow.trim() ? (
+    <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow" text={eyebrow} />
+  ) : null}
   <Heading class="team-grid-heading" level={headingLevel} size="lg" alignX="center" data-prop="heading" text={heading} />
-  <SimpleText class="team-grid-subtext" size="md" alignX="center" data-prop="subtext">
-    {subtext}
-  </SimpleText>
+  {subtext.trim() ? (
+    <SimpleText class="team-grid-subtext" size="md" alignX="center" data-prop="subtext" text={subtext} />
+  ) : null}
   <Grid
     class="team-grid-grid"
     gap="md"

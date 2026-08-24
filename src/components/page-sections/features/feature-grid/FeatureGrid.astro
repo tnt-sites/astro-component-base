@@ -37,10 +37,12 @@ const {
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow">
-    {eyebrow}
-  </SimpleText>
-  <Heading level={headingLevel} size="lg" alignX="center" data-prop="heading" text={heading} />
+  {eyebrow.trim() ? (
+    <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow" text={eyebrow} />
+  ) : null}
+  {heading.trim() ? (
+    <Heading level={headingLevel} size="lg" alignX="center" data-prop="heading" text={heading} />
+  ) : null}
   <Text class="feature-grid-subtext" alignX="center" data-prop="subtext" text={subtext} />
   <Grid
     gap={gap}

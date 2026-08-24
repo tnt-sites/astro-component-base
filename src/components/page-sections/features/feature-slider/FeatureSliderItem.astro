@@ -33,9 +33,9 @@ const hasImage = Boolean(imageSource);
     verticalAlignment="center"
   >
     <Fragment slot="first">
-      <SimpleText class="eyebrow" data-prop="eyebrow">
-        {eyebrow}
-      </SimpleText>
+      {eyebrow.trim() ? (
+        <SimpleText class="eyebrow" data-prop="eyebrow" text={eyebrow} />
+      ) : null}
       <Heading level="h2" size="lg" style="margin-top: 0;" data-prop="title" text={title} />
       <Text data-prop="description" text={description} />
     </Fragment>
