@@ -1,0 +1,28 @@
+content:
+  comment: Markdown body — headings, paragraphs, links, and lists in one field.
+  type: markdown
+  options:
+    blockquote: false
+    bold: true
+    format: p h2 h3
+    italic: true
+    link: true
+    strike: false
+    subscript: false
+    superscript: false
+    underline: false
+    bulletedlist: true
+    numberedlist: true
+    indent: false
+    outdent: false
+alignX:
+  type: select
+  options:
+    values:
+      - id: start
+        name: Start
+      - id: center
+        name: Center
+      - id: end
+        name: End
+  comment: Horizontal alignment for the rich text block.

@@ -1,0 +1,21 @@
+label: Rich Text
+icon: article
+description: Multi-paragraph markdown body (headings, links, lists) inside a custom section.
+value:
+  _component: building-blocks/core-elements/rich-text
+  content: |
+    ## Section heading
+
+    Paragraph text with **bold**, links, and lists when you need them.
+  alignX: start
+preview:
+  text:
+    - Rich Text
+  subtext:
+    - key: content
+  icon: article
+picker_preview:
+  text: Rich Text
+  subtext: Markdown body region inside a custom section.
+_inputs_from_glob:
+  - /src/components/building-blocks/core-elements/rich-text/rich-text.cloudcannon.inputs.yml

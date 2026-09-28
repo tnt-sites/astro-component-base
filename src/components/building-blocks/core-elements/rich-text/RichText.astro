@@ -1,0 +1,70 @@
+---
+// @ts-ignore
+import markdownit from "markdown-it";
+
+const md = markdownit({ html: true });
+
+const {
+  content = "",
+  alignX = "start",
+  class: className,
+  editable = true,
+  "data-prop": customDataProp = "content",
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const markdownContent = content ? md.render(content) : "";
+
+const richTextDataAttributes =
+  editable && customDataProp
+    ? {
+        "data-editable": "text",
+        "data-type": "block",
+        "data-prop": customDataProp,
+      }
+    : {};
+
+const hasContent = content?.trim().length > 0;
+const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;
+const hasSlotContent = (slotContent?.toString().trim().length ?? 0) > 0;
+
+const ownCube =
+  typeof _component === "string" &&
+  _component.replace(/\\/g, "/").endsWith("core-elements/rich-text");
+if (!hasContent && !hasSlotContent && !ownCube) return null;
+---
+
+<div
+  class:list={["rich-text", className, `align-${alignX}`]}
+  {...htmlAttributes}
+  {...richTextDataAttributes}
+>
+  <slot>
+    {content && <Fragment set:html={markdownContent} />}
+  </slot>
+</div>
+
+<style lang="pcss" is:global>
+  .rich-text {
+    display: grid;
+    gap: var(--rich-text-gap, var(--spacing-lg));
+    margin-top: 0;
+
+    &.align-start {
+      text-align: start;
+    }
+
+    &.align-center {
+      text-align: center;
+    }
+
+    &.align-end {
+      text-align: end;
+    }
+
+    :where(h2, h3, h4, p, ul, ol) {
+      margin: 0;
+    }
+  }
+</style>

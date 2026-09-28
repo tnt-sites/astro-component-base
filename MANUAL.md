@@ -1,7 +1,8 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-08-22 · main (working tree)
-> Latest: **Empty Feature Split/Grid/Hero Center eyebrow** does not mount a CloudCannon text region. Glacier Peak white-lab Cracked Tooth local VE (`cloudcannon dev :10101`).
+> Last updated: 2026-09-27 · main (working tree)
+> Latest: **`building-blocks/core-elements/rich-text`** — markdown body block (`content` field, H2/H3/p/links/lists) for use inside `custom-section.contentSections`. Picked up by `containerSections` glob; first consumer is tntdental Phase 2 prose interiors.
+> Prior: **Empty Feature Split/Grid/Hero Center eyebrow** does not mount a CloudCannon text region. Glacier Peak white-lab Cracked Tooth local VE (`cloudcannon dev :10101`).
 > Prior: **CloudCannon live-editing:** Side/Bar/Mobile tolerate missing `Astro.url`; empty Heading/Text/SimpleText/Image do not inherit a parent `_component` to mount a `text` region. Glacier Peak white-lab dump interiors (Hero Center + Split + Side) were throwing pathname + “Failed to render text editable region” in Visual Editor.
 > Prior: **Blog post Visual Editor regions.** `src/pages/blog/[...slug].astro` no longer
 > marks date/title/description as `data-prop="text"` (blog frontmatter has no `text` field).
@@ -103,6 +104,15 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 `WP2Astro-beta`) and manual CloudCannon editor spot-checks on promoted sites.
 
 ## Recent changes
+
+- **2026-09-27 — Added native `building-blocks/core-elements/rich-text`.** The component renders
+  a CloudCannon markdown `content` field (H2/H3, paragraphs, links, and lists), supports horizontal
+  alignment, and is automatically available inside `custom-section.contentSections` through the
+  existing component glob. It was introduced for the superseded tntdental parity-lab prose pilot;
+  the final clean rebuild uses its own focused article-prose section, but this shared primitive
+  remains useful for future ACB sites. Direct ACB validation reached static rendering, then stopped
+  on the pre-existing `/search` HeroCenter null-`trim()` failure; repo lint remains blocked before
+  source linting because ESLint cannot load the configured `@typescript-eslint` plugin.
 
 - **2026-08-22 — Feature Split is copy-only when `imageSource` is blank.** An empty image field used to still mount Split's 400px second pane (Glacier Peak white-lab Emergency Dentistry looked like missing photos). Nested Heading/Text/ButtonGroup also skip when empty. Dest still frozen.
 
@@ -262,6 +272,10 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
     the lockfile conflict. `WP2Astro`'s `feat/tnt2astro` branch can merge without waiting on this.
 
 ## Next steps
+
+- Restore the ACB repo's own validation baseline: fix the pre-existing `/search` HeroCenter
+  null-`trim()` build failure and install/configure the missing `@typescript-eslint` ESLint plugin.
+  These blockers are unrelated to Rich Text but currently prevent a clean full-repo build/lint run.
 
 - **HOMEWORK — Glacier Peak white-lab local VE:** empty Feature Split eyebrow toast patched in ACB + white-lab this session. Rebuild white-lab `dist` before expecting the toast to clear. Dest/punchy-bacon still has the old Side.astro until someone copies it. Do **not** re-run convert over dest.
 
