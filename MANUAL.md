@@ -1,6 +1,6 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-10-30 · main @ 78359ff4
+> Last updated: 2026-10-30 · main @ e47c3011
 > Latest: **`building-blocks/core-elements/rich-text`** — markdown body block (`content` field, H2/H3/p/links/lists) for use inside `custom-section.contentSections`. Picked up by `containerSections` glob; first consumer is tntdental Phase 2 prose interiors.
 > Prior: **Empty Feature Split/Grid/Hero Center eyebrow** does not mount a CloudCannon text region. Glacier Peak white-lab Cracked Tooth local VE (`cloudcannon dev :10101`).
 > Prior: **CloudCannon live-editing:** Side/Bar/Mobile tolerate missing `Astro.url`; empty Heading/Text/SimpleText/Image do not inherit a parent `_component` to mount a `text` region. Glacier Peak white-lab dump interiors (Hero Center + Split + Side) were throwing pathname + “Failed to render text editable region” in Visual Editor.
