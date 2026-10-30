@@ -105,6 +105,22 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Recent changes
 
+- **2026-10-30 — Ported Modal + Video Modal from CloudCannon's astro-component-starter
+  (@ `b5e52a1`, MIT; ACB is a fork of it).** `building-blocks/wrappers/modal` (native Popover
+  API dialog with content sections) and `wrappers/video-modal` (button opens a 16:9 dialog that
+  autoplays, and removes the player on close). Video Modal adds a **Wistia** type
+  (`fast.wistia.net/embed/iframe/<id>`) on top of upstream's YouTube / Vimeo / local file.
+  Both are in the Add menu for accordion, card, container, grid-item and split sections, plus
+  component-library docs pages. Supporting changes: `Button` turns a `^<popover-id>` link or a
+  `popovertarget` attribute into a real `<button>`; new utils `onPageLoad.ts`, `slugify.ts`,
+  `discoverVideoSources.ts`; `modalSections` structure list. Not ported: upstream's Card popover
+  link and `--color-overlay` token (backdrop uses a fixed 60% black). Verified in Chromium:
+  open/close via trigger, close button and Escape, focus returns to the trigger,
+  `aria-expanded` toggles, body scroll lock, YouTube and Wistia player insert/remove.
+- **2026-10-30 — Fixed the `null.trim()` build crash.** CloudCannon saves an empty field as
+  `null`, which skips a `= ""` default. HeroCenter, HeroSplit, TeamGrid, FeatureGrid and
+  FeatureSliderItem now use `?.trim()`. `npm run build` passes again.
+
 - **2026-09-27 — Added native `building-blocks/core-elements/rich-text`.** The component renders
   a CloudCannon markdown `content` field (H2/H3, paragraphs, links, and lists), supports horizontal
   alignment, and is automatically available inside `custom-section.contentSections` through the
@@ -273,9 +289,14 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Next steps
 
-- Restore the ACB repo's own validation baseline: fix the pre-existing `/search` HeroCenter
-  null-`trim()` build failure and install/configure the missing `@typescript-eslint` ESLint plugin.
-  These blockers are unrelated to Rich Text but currently prevent a clean full-repo build/lint run.
+- Restore ESLint: the config names `@typescript-eslint/no-unused-vars` but the plugin is not
+  installed, so `npm run lint:js` / `lint:yml` crash before linting anything. (The HeroCenter
+  null-`trim()` build failure is fixed as of 2026-10-30; `npm run build` passes.)
+- Upstream still has components ACB lacks: `bento-box`, `image-carousel`, `range`, `toggle`,
+  `theme-toggle`. Port on demand, the same way as the modals (check Button / tokens first).
+- Embed `aspectRatio: none` iframe-height fix and the `.mobile` drawer rule hiding a theme's
+  `img.mobile` logo are fixed only in `tnt-sites/imperialdentalcenter` (2026-10-29). Bring them
+  here when Tim says.
 
 - **HOMEWORK — Glacier Peak white-lab local VE:** empty Feature Split eyebrow toast patched in ACB + white-lab this session. Rebuild white-lab `dist` before expecting the toast to clear. Dest/punchy-bacon still has the old Side.astro until someone copies it. Do **not** re-run convert over dest.
 

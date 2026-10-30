@@ -29,9 +29,17 @@ if (hideText && !htmlAttributes["aria-label"]) {
   htmlAttributes["aria-label"] = text;
 }
 
-const Tag = element as any;
+const isPopoverLink = link?.startsWith("^");
+const isPopoverControl = isPopoverLink || "popovertarget" in htmlAttributes;
+const Tag = (isPopoverControl ? "button" : element) as any;
 
-const tagProps = Tag === "a" && link ? { href: link } : Tag === "button" ? { type: "button" } : {};
+const tagProps = isPopoverLink
+  ? { type: "button", popovertarget: link.slice(1), popovertargetaction: "show" }
+  : Tag === "a" && link
+    ? { href: link }
+    : Tag === "button"
+      ? { type: "button" }
+      : {};
 
 const hasText = text?.trim().length > 0;
 const slotContent = Astro.slots.has("default") ? await Astro.slots.render("default") : null;

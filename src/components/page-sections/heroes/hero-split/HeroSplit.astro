@@ -45,7 +45,7 @@ const {
     class="hero-split"
   >
     <Fragment slot="first">
-      {eyebrow.trim() ? (
+      {eyebrow?.trim() ? (
         <SimpleText class="eyebrow" data-prop="eyebrow" text={eyebrow} />
       ) : null}
       <Heading level={headingLevel} size="2xl" data-prop="heading" text={heading} />

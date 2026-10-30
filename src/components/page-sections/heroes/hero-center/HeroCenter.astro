@@ -29,7 +29,7 @@ const {
   backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
-  {eyebrow.trim() ? (
+  {eyebrow?.trim() ? (
     <SimpleText alignX="center" class="eyebrow" data-prop="eyebrow" text={eyebrow} />
   ) : null}
   <Heading level={headingLevel} size="2xl" alignX="center" data-prop="heading" text={heading} />
