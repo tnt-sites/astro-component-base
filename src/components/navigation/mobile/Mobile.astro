@@ -238,7 +238,7 @@ function createNavItemData(item, level, parentGroupId) {
   }
 
   // Initialize mobile navigation instances
-  const allMobileNavs = document.querySelectorAll(".mobile");
+  const allMobileNavs = document.querySelectorAll("nav.mobile");
   const overlaysContainer = getOrCreateOverlaysContainer();
 
   allMobileNavs.forEach((nav) => {
@@ -355,7 +355,7 @@ function createNavItemData(item, level, parentGroupId) {
       display: none;
     }
 
-    .nav-toggle:checked ~ .mobile {
+    .nav-toggle:checked ~ .mobile:where(nav) {
       transform: translateX(0);
     }
 
@@ -365,7 +365,8 @@ function createNavItemData(item, level, parentGroupId) {
       outline-offset: -2px;
     }
 
-    .mobile {
+    /* Scoped to nav: themes use .mobile for other things (Bridge's phone logo is img.mobile). */
+    .mobile:where(nav) {
       background: var(--color-bg);
       display: flex;
       flex-direction: column;

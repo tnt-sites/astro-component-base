@@ -16,8 +16,12 @@ const { html, aspectRatio = "landscape", class: className, _component, ...htmlAt
       iframe {
         border: none;
         display: block;
-        height: 100%;
         width: 100%;
+      }
+
+      /* Ratio-less embeds (Demandforce) size their own iframe via the height attribute. */
+      &:not(.ratio-none) iframe {
+        height: 100%;
       }
 
       &.ratio-square {

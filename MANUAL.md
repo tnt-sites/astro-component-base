@@ -105,6 +105,17 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Recent changes
 
+- **2026-10-30 — Two fixes brought over from the Imperial rescue.**
+  - **Embed:** `aspectRatio: none` embeds no longer force `iframe { height: 100% }`. Widgets that
+    size their own iframe through its `height` attribute (Demandforce) were collapsing to 0. Ratio
+    embeds are unchanged.
+  - **Mobile nav:** the drawer rules and the init script matched any `.mobile` element. They are
+    now scoped to `nav` (`.mobile:where(nav)`, same specificity; script `nav.mobile`). Bridge-class
+    themes whose phone logo is `img.mobile` had it turned into a fixed off-screen panel and moved
+    into `#overlays-container`.
+  - Checked in Chromium: the drawer opens and closes with Escape; an injected `img.mobile` stays
+    static and in place; a ratio-none iframe keeps `height="700"` while landscape stays 16:9.
+
 - **2026-10-30 — Ported Modal + Video Modal from CloudCannon's astro-component-starter
   (@ `b5e52a1`, MIT; ACB is a fork of it).** `building-blocks/wrappers/modal` (native Popover
   API dialog with content sections) and `wrappers/video-modal` (button opens a 16:9 dialog that
@@ -294,9 +305,8 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
   null-`trim()` build failure is fixed as of 2026-10-30; `npm run build` passes.)
 - Upstream still has components ACB lacks: `bento-box`, `image-carousel`, `range`, `toggle`,
   `theme-toggle`. Port on demand, the same way as the modals (check Button / tokens first).
-- Embed `aspectRatio: none` iframe-height fix and the `.mobile` drawer rule hiding a theme's
-  `img.mobile` logo are fixed only in `tnt-sites/imperialdentalcenter` (2026-10-29). Bring them
-  here when Tim says.
+- Sites scaffolded before 2026-10-30 still have the old Embed / Mobile. Copy the two files only
+  if a site hits the bug. Imperial keeps its own `.q_logo img.mobile` override, which does no harm.
 
 - **HOMEWORK — Glacier Peak white-lab local VE:** empty Feature Split eyebrow toast patched in ACB + white-lab this session. Rebuild white-lab `dist` before expecting the toast to clear. Dest/punchy-bacon still has the old Side.astro until someone copies it. Do **not** re-run convert over dest.
 
