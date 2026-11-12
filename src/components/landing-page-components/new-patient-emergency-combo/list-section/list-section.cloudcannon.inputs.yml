@@ -3,13 +3,17 @@ backgroundColor:
   comment: Background color used behind the grid.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 headingColor:
   type: select
   comment: Color of the list section headings.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -20,7 +24,7 @@ listTextColor:
   comment: Color of list item text.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -31,7 +35,7 @@ checkmarkColor:
   comment: Color of the Fontello checkmark icons.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

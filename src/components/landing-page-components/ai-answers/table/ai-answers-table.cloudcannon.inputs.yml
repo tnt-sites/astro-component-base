@@ -3,13 +3,17 @@ backgroundColor:
   comment: Background color of the table section.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 headingColor:
   type: select
   comment: Color of the headings in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -19,7 +23,7 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -33,7 +37,7 @@ headingLineColor:
   comment: Color of the decorative horizontal lines flanking the heading.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -71,7 +75,7 @@ headerColor:
   comment: Background color of the table header row.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -82,7 +86,7 @@ headerTextColor:
   comment: Text color of the table header row.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -96,7 +100,7 @@ checkColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -107,7 +111,7 @@ crossColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

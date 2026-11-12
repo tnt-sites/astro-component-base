@@ -19,7 +19,7 @@ value:
     source: ""
     alt: ""
   figcaption: ""
-  backgroundColor: none
+  backgroundColor: transparent
   headingColor: ""
   textColor: ""
   borderColor: "var(--color-brand)"

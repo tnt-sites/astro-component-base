@@ -91,7 +91,7 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/cosmetic/banner
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: Waco's Premier<br>Cosmetic <span>Dentists</span>
     tagline:
     subheading: >-
@@ -113,7 +113,7 @@ landingPageSections:
     headingColor: ''
   - _component: landing-page-components/cosmetic/consultation
     id: ''
-    backgroundColor: black
+    backgroundColor: var(--color-bg-black)
     heading: Request a FREE Smile Makeover <span>Consultation</span>
     formAction: ''
     formBlocks:
@@ -164,7 +164,7 @@ landingPageSections:
     headingColor: ''
   - _component: landing-page-components/cosmetic/service-list
     id: ''
-    backgroundColor: dark
+    backgroundColor: var(--color-bg-dark)
     services:
       - label: Veneers
         url: '#'
@@ -181,7 +181,7 @@ landingPageSections:
     accentColor: ''
   - _component: landing-page-components/cosmetic/split
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: Nobody Cares <br><span>More</span>
     paragraphs:
       - >-
@@ -200,7 +200,7 @@ landingPageSections:
     headingColor: ''
   - _component: landing-page-components/cosmetic/reviews
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: Patients Love Us
     reviewText: >-
       Dr. Smith is so nice and does a great job. His assistant makes my visit

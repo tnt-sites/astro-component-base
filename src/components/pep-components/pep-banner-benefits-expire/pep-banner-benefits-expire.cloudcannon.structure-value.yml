@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   borderColor: ""
   headingColor: "var(--color-text-inverse)"
   textColor: "var(--color-text)"

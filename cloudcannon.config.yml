@@ -102,79 +102,55 @@ collections_config:
     _enabled_editors:
       - data
     _inputs:
-      colorBrand:
-        type: color
-        cascade: true
-        comment: Primary brand color (--color-brand).
-      colorBrandSecondary:
-        type: color
-        cascade: true
-        comment: Secondary brand color (--color-brand-secondary).
-      colorBrandTertiary:
-        type: color
-        cascade: true
-        comment: Tertiary brand color (--color-brand-muted).
-      colorBrandSubtle:
-        type: color
-        cascade: true
-        comment: Subtle brand color, usually a neutral tone (--color-brand-subtle).
-      colorBrandOn:
-        type: color
-        cascade: true
-        comment: Color overlaid on brand-colored backgrounds (--color-brand-on).
-      colorTextOnBrand:
-        type: color
-        cascade: true
-        comment: Text color on brand-colored backgrounds (--color-text-on-brand).
-      colorLink:
-        type: color
-        cascade: true
-        comment: Hyperlink color (--color-link).
-      colorLinkHover:
-        type: color
-        cascade: true
-        comment: Hyperlink hover color (--color-link-hover).
-      text:
+      all:
         type: array
-        comment: Options in every text, border, icon and accent color dropdown. Add custom colors at the end.
+        comment: "Every color editors can pick, defined once. Each color's value sets its CSS variable site-wide, and the two checkboxes choose which dropdowns it appears in. Add custom colors at the end."
         options:
           structures:
             values:
               - label: Color
                 value:
-                  id: ""
                   name: ""
+                  id: ""
                   value: ""
+                  sameAs: ""
+                  text: true
+                  background: false
                 preview:
                   text:
                     - key: name
                   subtext:
                     - key: id
-      backgrounds:
-        type: array
-        comment: Options in every background color dropdown (cards, bars, buttons). Add custom colors at the end.
-        options:
-          structures:
-            values:
-              - label: Color
-                value:
-                  id: ""
-                  name: ""
-                  value: ""
-                preview:
-                  text:
-                    - key: name
-                  subtext:
-                    - key: id
-      id:
-        type: text
-        comment: "What the dropdown saves: the CSS variable wrapped in var(), e.g. var(--color-promo). Don't change the id of a color pages already use."
       name:
         type: text
         comment: The name editors see in the dropdown, e.g. Promo.
+      id:
+        type: text
+        comment: "What the dropdown saves: the CSS variable wrapped in var(), e.g. var(--color-promo). Don't change the id of a color pages already use."
       value:
         type: color
-        comment: "Custom colors only: the color for this variable. Leave empty for the built-in theme colors, which are set in Branding or the theme."
+        comment: The color. Sets the CSS variable named in the id for the whole site. Ignored when "Same as" is set.
+      sameAs:
+        type: select
+        label: Same as
+        comment: Optional. Make this color always match another one, e.g. Brand background follows Brand. Leave empty to use the color above.
+        options:
+          allow_empty: true
+          values: data.colors.all
+          value_key: id
+          preview:
+            text:
+              - key: name
+            subtext:
+              - key: id
+      text:
+        type: checkbox
+        label: In text color dropdowns
+        comment: Show it in text, border, icon and accent color dropdowns.
+      background:
+        type: checkbox
+        label: In background color dropdowns
+        comment: Show it in background color dropdowns (sections, cards, buttons, bars).
       bodyFont:
         type: object
         cascade: true
@@ -937,40 +913,18 @@ _inputs:
 # Data files exposed to inputs.
 # - fonts: the per-section fontHeadings / fontBody dropdowns on landing and PEP
 #   sections (see src/components/utils/sectionFonts.ts).
-# - colors: the shared color dropdowns. Every color field on location, landing
-#   and PEP sections uses `data.colors.text` (text, border, icon and accent
-#   colors) or `data.colors.backgrounds` (backgrounds set directly as CSS: cards,
-#   buttons, bars), so editors always see the same options. Each option saves a
-#   CSS value such as var(--color-brand). Custom colors are added in
-#   src/data/colors.json (Branding > Colors in CloudCannon): give the entry a
-#   `value` and BaseLayout defines the CSS variable from it.
+# - colors: every color editors can pick, defined once in src/data/colors.json
+#   (Branding → colors.json). BaseLayout turns each entry's `value` into its CSS
+#   variable, and the color dropdowns filter the same list:
+#   "data.colors.all[?(@.text == true)]" for text, border, icon and accent colors,
+#   "data.colors.all[?(@.background == true)]" for all backgrounds. Each dropdown
+#   saves the entry's id, e.g. var(--color-brand).
 data_config:
   fonts:
     path: src/data/fonts.json
   colors:
     path: src/data/colors.json
 _select_data:
-  # sectionBackgrounds: the `backgroundColor` prop of CustomSection, which maps
-  # each id to a bg-{id} class (see CustomSection.astro).
-  sectionBackgrounds:
-    - id: none
-      name: None
-    - id: base
-      name: Base
-    - id: surface
-      name: Surface
-    - id: accent
-      name: Accent
-    - id: highlight
-      name: Highlight
-    - id: brand
-      name: Brand
-    - id: brand-secondary
-      name: Brand Secondary
-    - id: dark
-      name: Dark
-    - id: black
-      name: Black
   icons:
     - id: academic-cap
       name: Academic Cap

@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   textColor: ""
   heading: "Patients Love Us"
   reviewText: "Dr. Smith is so nice and does a great job. His assistant makes my visit enjoyable!"

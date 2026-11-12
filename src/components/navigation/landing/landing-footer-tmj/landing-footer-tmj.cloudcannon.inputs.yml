@@ -48,7 +48,7 @@ formButtonTextColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -58,7 +58,7 @@ formButtonBackgroundColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -68,7 +68,7 @@ formButtonHoverBackgroundColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -78,7 +78,7 @@ formButtonHoverTextColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -141,7 +141,7 @@ backgroundColor:
   comment: Background color of the footer section.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -151,7 +151,7 @@ linkColor:
   comment: Color of phone number and address links.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -161,7 +161,7 @@ linkHoverColor:
   comment: Color of phone number and address links on hover.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -225,7 +225,7 @@ addressLinkColor:
   comment: "Color of address links."
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -235,7 +235,7 @@ addressLinkHoverColor:
   comment: "Color of address links on hover."
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -245,7 +245,7 @@ phoneLinkColor:
   comment: "Color of phone links."
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -255,7 +255,7 @@ phoneLinkHoverColor:
   comment: "Color of phone links on hover."
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

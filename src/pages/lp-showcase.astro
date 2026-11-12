@@ -1,4 +1,5 @@
 ---
+import { colorVariablesRule } from "@components/utils/colorVariables";
 import LandingHeaderCircleIcons from "@navigation/landing/landing-header-circle-icons/LandingHeaderCircleIcons.astro";
 import LandingHeaderFourCol from "@navigation/landing/landing-header-four-col/LandingHeaderFourCol.astro";
 import LandingHeaderPediatricWaves from "@navigation/landing/landing-header-pediatric-waves/LandingHeaderPediatricWaves.astro";
@@ -246,6 +247,8 @@ const showcaseFooters = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Landing Header/Footer Showcase</title>
+    {/* Site colors from src/data/colors.json (this page doesn't use BaseLayout). */}
+    <style is:inline set:html={colorVariablesRule()}></style>
   </head>
   <body>
     <main class="showcase-page">

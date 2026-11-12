@@ -28,7 +28,7 @@ const bgImage = await backgroundImageCss(backgroundImage);
 const fonts = sectionFonts(fontHeadings, fontBody);
 
 // Per-section text colors (the `headingColor` / `textColor` dropdowns on
-// landing sections, values from src/data/colors.json "text"). Sections pass them
+// landing sections, values from src/data/colors.json). Sections pass them
 // through `...rest` like the fonts. textColor sets `color` on the section so
 // inherited text follows; component CSS that hardcodes a heading or body color
 // should read var(--section-heading-color, <default>) / var(--section-text-color, <default>).
@@ -40,12 +40,23 @@ const textColors = [
   .filter(Boolean)
   .join("; ");
 
+// backgroundColor: a CSS value from the shared background dropdown
+// (src/data/colors.json, e.g. var(--color-bg-brand)) is set as
+// --section-bg-color. Bare keywords (base, surface, brand…) are the older
+// format, still used by some page-section dropdowns, and map to the bg-{keyword}
+// classes below. "none" / "transparent" / empty mean no background color.
+const bgValue = typeof backgroundColor === "string" ? backgroundColor.trim() : "";
+const bgIsCss = /^(var\(|#|rgb|hsl)/.test(bgValue);
+const bgClass =
+  bgValue && !bgIsCss && bgValue !== "none" && bgValue !== "transparent" ? `bg-${bgValue}` : "";
+
 // `styleProp` is merged rather than spread over: callers such as the pep
 // components and LocationSection pass their own custom properties, and before
 // this merge a caller-supplied `style` silently replaced the gradient/image
 // custom properties this component sets.
 const sectionStyle =
   [
+    bgIsCss && `--section-bg-color: ${bgValue}`,
     backgroundGradient && `--section-bg-gradient: ${backgroundGradient}`,
     bgImage.style,
     fonts.style,
@@ -84,7 +95,8 @@ if (!htmlAttributes.id && label) {
     "bg-layers",
     rounded && "rounded",
     headingColor && "has-heading-color",
-    backgroundColor && backgroundColor !== "none" && `bg-${backgroundColor}`,
+    bgIsCss && "has-bg-color",
+    bgClass,
     className,
   ]}
   data-theme={colorScheme && colorScheme !== "inherit" ? colorScheme : undefined}
@@ -301,6 +313,10 @@ if (!htmlAttributes.id && label) {
         &.max-width-3xl {
           max-width: var(--content-width-3xl);
         }
+      }
+
+      &.has-bg-color {
+        background-color: var(--section-bg-color);
       }
 
       &.bg-base {

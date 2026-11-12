@@ -40,7 +40,7 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/new-patient-three-callouts/banner
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     subheading: Reston's
     heading: Family-Friendly<br>Dentist
     badgeImage:
@@ -87,7 +87,7 @@ landingPageSections:
     bulletColor: ""
   - _component: landing-page-components/new-patient-three-callouts/welcome
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     paragraphs:
       - emphasis: We understand.
         body: >-
@@ -106,7 +106,7 @@ landingPageSections:
     accentColor: var(--color-brand)
   - _component: landing-page-components/new-patient-three-callouts/split
     id: insurance
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: Dental Insurance<br>Welcome
     listItems:
       - Claims Filed on Your Behalf
@@ -123,7 +123,7 @@ landingPageSections:
     headingColor: var(--color-brand)
   - _component: landing-page-components/new-patient-three-callouts/split
     id: no-insurance
-    backgroundColor: surface
+    backgroundColor: var(--color-bg-surface)
     heading: No Insurance?<br>No Worries!
     listItems:
       - Low-Monthly Payments
@@ -158,7 +158,7 @@ landingPageSections:
     headingColor: var(--color-brand)
   - _component: landing-page-components/new-patient-three-callouts/split
     id: about
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: About Our Practice
     listItems:
       - Convenient Local Location

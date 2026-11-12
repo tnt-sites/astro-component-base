@@ -53,7 +53,7 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/dental-implants/banner
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     cityState: "Vermont's"
     heading: "Top-Rated<br>Implant Dentists"
     offerLabel: "One-On-One"
@@ -68,7 +68,7 @@ landingPageSections:
     headingColor: ""
   - _component: landing-page-components/dental-implants/service-callouts
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: "Your Implant Options"
     items:
       - heading: "Dental Implants"
@@ -99,7 +99,7 @@ landingPageSections:
     accentColor: "var(--color-brand)"
   - _component: landing-page-components/dental-implants/split
     id: ""
-    backgroundColor: surface
+    backgroundColor: var(--color-bg-surface)
     heading: "True Expertise in Every Implant Procedure"
     paragraphs:
       - "Our team has placed thousands of implants and is committed to delivering results that look, feel, and function like natural teeth."
@@ -126,7 +126,7 @@ landingPageSections:
     accentColor: "var(--color-brand)"
   - _component: landing-page-components/dental-implants/split
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: "High-Quality & Affordable Implant Options"
     paragraphs:
       - "We believe patients shouldn't have to choose between quality and cost. Our practice offers flexible payment plans and works with most major insurers."
@@ -142,7 +142,7 @@ landingPageSections:
     accentColor: "var(--color-brand)"
   - _component: landing-page-components/dental-implants/secondary-callouts
     id: ""
-    backgroundColor: none
+    backgroundColor: transparent
     items:
       - headingLine1: "Find Us"
         headingLine2: "On The Map"
@@ -176,7 +176,7 @@ landingPageSections:
     accentColor: "var(--color-brand-secondary)"
   - _component: landing-page-components/dental-implants/split
     id: ""
-    backgroundColor: surface
+    backgroundColor: var(--color-bg-surface)
     heading: "Implants Can Make the Difference in Your Life"
     paragraphs:
       - "Tooth loss affects far more than your smile. It can change the way you eat, speak, and feel about yourself — and lead to bone loss over time."
@@ -192,7 +192,7 @@ landingPageSections:
     accentColor: "var(--color-brand)"
   - _component: landing-page-components/dental-implants/split
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: "Clearly Your Best Choice for Implant Care"
     paragraphs:
       - "Our surgeons and restorative dentists work together under one roof — no referrals, no coordination headaches, just expert implant care from start to finish."

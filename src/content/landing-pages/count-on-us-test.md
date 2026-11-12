@@ -65,14 +65,14 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
     id: ""
-    backgroundColor: brand
+    backgroundColor: var(--color-bg-brand)
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
   - _component: landing-page-components/count-on-us/banner
     id: ""
-    backgroundColor: surface
+    backgroundColor: var(--color-bg-surface)
     subheading: San Jose's
     heading: Top-Rated<br>Dental Expert
     badgeImages:
@@ -88,7 +88,7 @@ landingPageSections:
     borderColor: "#000000"
   - _component: landing-page-components/count-on-us/count
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     headingLine1: Count
     headingLine2: On Us
     listItems:
@@ -102,7 +102,7 @@ landingPageSections:
     headingColor: var(--color-text)
   - _component: landing-page-components/count-on-us/split-section
     id: first-visit
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     headingPrefix: What happens during
     heading: Your First Visit
     listItems:
@@ -121,7 +121,7 @@ landingPageSections:
     prefixColor: var(--color-text-muted)
   - _component: landing-page-components/count-on-us/insurance
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     blocks:
       - heading: Dental Insurance Welcome
         text: >-
@@ -140,7 +140,7 @@ landingPageSections:
     headingColor: var(--color-text)
   - _component: landing-page-components/count-on-us/reviews
     id: ""
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     backgroundImage:
       source: ""
       alt: ""
@@ -157,7 +157,7 @@ landingPageSections:
     googlePanelColor: var(--color-bg-surface)
   - _component: landing-page-components/count-on-us/split-section
     id: about
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     headingPrefix: Learn More About
     heading: Our Practice
     listItems:

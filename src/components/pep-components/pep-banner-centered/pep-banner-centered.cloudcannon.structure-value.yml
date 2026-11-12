@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   backgroundImage: ""
   backgroundPositionX: center
   backgroundPositionY: center

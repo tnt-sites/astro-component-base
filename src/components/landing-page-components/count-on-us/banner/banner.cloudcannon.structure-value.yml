@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: surface
+  backgroundColor: var(--color-bg-surface)
   headingColor: ""
   textColor: ""
   subheading: "San Jose's"

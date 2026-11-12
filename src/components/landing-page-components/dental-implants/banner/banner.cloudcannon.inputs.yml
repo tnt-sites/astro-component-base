@@ -1,15 +1,19 @@
 backgroundColor:
   type: select
-  comment: Background color of the banner section. Use "none" when a background image is set on the section.
+  comment: Background color of the banner section. Use None when a background image is set on the section.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 textColor:
   type: select
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -72,7 +76,7 @@ accentColor:
   comment: Accent color used for the offer title text inside the offer box.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -83,7 +87,7 @@ headingColor:
   comment: Color of the city/state text above the main heading.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

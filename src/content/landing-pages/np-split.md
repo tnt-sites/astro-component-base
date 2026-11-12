@@ -88,7 +88,7 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/new-patient-split-banner/banner
     id: ''
-    backgroundColor: none
+    backgroundColor: transparent
     subheading: Texas's
     heading: Top-Rated<br>Dental Expert
     text: ''

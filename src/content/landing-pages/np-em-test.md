@@ -91,7 +91,7 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''
-    backgroundColor: brand
+    backgroundColor: var(--color-bg-brand)
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
@@ -113,11 +113,11 @@ landingPageSections:
       source: https://placehold.co/200x200
       alt: ''
     figcaption: ''
-    backgroundColor: none
+    backgroundColor: transparent
   - _component: landing-page-components/new-patient-emergency-combo/list-section
     id: ''
     heading:
-    backgroundColor: dark
+    backgroundColor: var(--color-bg-dark)
     headingColor: '#ffffff'
     listTextColor: '#ffffff'
     checkmarkColor: var(--color-brand)
@@ -158,12 +158,12 @@ landingPageSections:
       is welcome. We offer same-day appointments, the latest technology and a
       relaxing atmosphere.</p><p><span class="big-text">We want you to
       love</span> visiting Dental Site.</p>
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     textColor: ''
     blurbBackgroundColor: "#ffffff"
   - _component: landing-page-components/new-patient-emergency-combo/split-section
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     desktopImage:
       _component: building-blocks/core-elements/image
       source: /src/assets/images/component-library/profile2.jpg
@@ -185,7 +185,7 @@ landingPageSections:
       is to get you out of pain.</p>
   - _component: landing-page-components/new-patient-emergency-combo/reviews
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     image:
       _component: building-blocks/core-elements/image
       source: https://placehold.co/600x400
@@ -208,7 +208,7 @@ landingPageSections:
     id: ''
     heading: Insurance Text Heading
     text: Insurance Text
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     images:
     imageType: logos
 head_scripts: []

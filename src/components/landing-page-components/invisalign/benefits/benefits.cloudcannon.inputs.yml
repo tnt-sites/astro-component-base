@@ -54,7 +54,7 @@ backgroundColor:
   comment: Section background color.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -65,7 +65,7 @@ headingColor:
   comment: Color of the headings in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -75,7 +75,7 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

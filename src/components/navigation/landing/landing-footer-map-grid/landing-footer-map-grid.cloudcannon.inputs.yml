@@ -59,7 +59,7 @@ backgroundColor:
   comment: Background color of the footer section.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -69,7 +69,7 @@ headingColor:
   comment: Color of the headings in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -79,7 +79,7 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -89,7 +89,7 @@ linkColor:
   comment: Color of phone number links.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -99,7 +99,7 @@ linkHoverColor:
   comment: Color of phone number and address links on hover.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -109,7 +109,7 @@ addressLinkColor:
   comment: Color of address links.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -119,7 +119,7 @@ addressLinkHoverColor:
   comment: Color of address links on hover.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -129,7 +129,7 @@ phoneLinkColor:
   comment: Color of phone links.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -139,7 +139,7 @@ phoneLinkHoverColor:
   comment: Color of phone links on hover.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

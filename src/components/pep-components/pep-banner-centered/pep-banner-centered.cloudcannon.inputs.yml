@@ -3,7 +3,11 @@ backgroundColor:
   comment: Background color of the banner section.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 backgroundImage:
   type: file
@@ -37,7 +41,7 @@ borderColor:
   comment: Color of the bottom border stripe. Leave blank to use the default brand color.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -48,7 +52,7 @@ headingColor:
   comment: Color of the H1 heading text. Leave blank to use the theme default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -59,7 +63,7 @@ dividerColor:
   comment: Color of the short divider under the heading. Leave blank to match the heading color.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -70,7 +74,7 @@ textColor:
   comment: Color of the body copy. Leave blank to inherit the component default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -152,7 +156,7 @@ checkColor:
   comment: Color of the oversized checkmarks in checklist mode.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -163,7 +167,7 @@ checkmarkShadowColor:
   comment: Shadow color behind checklist checkmarks.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

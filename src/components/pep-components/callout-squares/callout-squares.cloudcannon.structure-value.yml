@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   headingBackgroundColor: ""
   headingTextColor: ""
   oddItemBackgroundColor: ""

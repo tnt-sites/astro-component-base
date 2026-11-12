@@ -9,7 +9,7 @@ value:
   headingBackgroundColor: var(--color-bg-accent)
   headingTextColor: "var(--color-text)"
   itemHeadingColor: "var(--color-brand)"
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   shadowColor: var(--color-text)
   items:
     - image:

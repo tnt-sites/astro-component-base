@@ -8,7 +8,7 @@ value:
   id: ""
   heading: "Hear From Our Patients"
   paddingVertical: xl
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   cardBackgroundColor: ""
   captionBackgroundColor: ""
   captionTextColor: ""

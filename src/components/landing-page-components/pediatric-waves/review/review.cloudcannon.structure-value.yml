@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   textColor: ""
   badgeHeading: "Mom & Dad<br>Approved<br>Dentists"
   badgeSubheading: Actual Google Review

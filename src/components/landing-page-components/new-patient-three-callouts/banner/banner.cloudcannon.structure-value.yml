@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   textColor: ""
   subheading: "Reston's"
   heading: "Family-Friendly<br>Dentist"

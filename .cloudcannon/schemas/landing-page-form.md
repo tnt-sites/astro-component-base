@@ -111,7 +111,7 @@ landingPageSections:
       - _component: building-blocks/forms/submit
         text: Send
         variant: primary
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     backgroundGradient: ""
     backgroundImage:
       source: null

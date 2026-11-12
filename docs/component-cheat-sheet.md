@@ -513,33 +513,44 @@ Jump to: [Gotchas](#gotchas) · [Brand colors](#brand-colors-brandingjson) · [C
 
 ---
 
-## Brand colors (branding.json)
+## Colors (colors.json)
 
-Each site's colors are set **once**, in CloudCannon's **Branding** screen (saved in `src/data/branding.json`). The site turns them into CSS variables, and components use the variables. When the client changes their green, every component updates by itself.
+Every color on a site is set **once**, in `src/data/colors.json`. Editors and devs can change or add colors in CloudCannon under **Branding → colors.json**, no code needed. Each color's value becomes a CSS variable, components use the variables, and the same list fills every color dropdown. When the client changes their green, every component and dropdown follows.
 
 **Never type a hex code like `#2a7d4f` in a component.** Use the variable instead.
 
-### Which variable each Branding field becomes
+Each entry looks like this:
 
-| Branding field | CSS variable | Use it for |
-|---|---|---|
-| `colorBrand` | `--color-brand` | Main brand color: headings, icons, accents |
-| `colorBrandSecondary` | `--color-brand-secondary` | Second brand color |
-| `colorBrandTertiary` | `--color-brand-muted` | Third brand color (the variable's name is different) |
-| `colorBrandSubtle` | `--color-brand-subtle` | A softer brand tint |
-| `colorTextOnBrand` | `--color-text-on-brand` | Text sitting **on** a brand-colored background |
-| `colorLink` / `colorLinkHover` | `--color-link` / `--color-link-hover` | Links |
+```json
+{ "name": "Brand", "id": "var(--color-brand)", "value": "green", "text": true, "background": false }
+```
 
-Other useful variables that are always there:
+| Field | Meaning |
+|---|---|
+| `name` | What editors see in dropdowns |
+| `id` | The CSS variable, wrapped in `var()`. This is what a dropdown saves |
+| `value` | The color (color picker in CloudCannon). Sets the variable site-wide |
+| `sameAs` | Optional "Same as" dropdown: make this color follow another one. Brand background is set to Brand, so changing Brand changes both. Wins over `value` |
+| `text` | Show it in text, border, icon and accent dropdowns |
+| `background` | Show it in background dropdowns (sections, cards, buttons, bars) |
+
+The main ones:
 
 | Variable | Use it for |
 |---|---|
+| `--color-brand`, `--color-brand-secondary`, `--color-brand-muted` | Brand colors (Brand, Brand Secondary, Brand Tertiary) |
+| `--color-text-on-brand` | Text sitting **on** a brand-colored background |
+| `--color-link` / `--color-link-hover` | Links |
 | `--color-text`, `--color-text-strong`, `--color-text-muted` | Normal, darker and lighter body text |
 | `--color-bg`, `--color-bg-surface`, `--color-bg-muted` | Page, card and light-grey backgrounds |
-| `--color-bg-brand`, `--color-bg-brand-secondary` | Brand-colored backgrounds |
+| `--color-bg-brand`, `--color-bg-brand-secondary` | Brand-colored backgrounds (they follow the brand colors) |
 | `--color-border` | Borders and dividers |
 
-**Seeing plain bright green, yellow, magenta, red or blue on the site?** Those are the starter's placeholder colors. The template's `branding.json` ships with `green`, `yellow` and `#ff00ff`, and empty fields fall back to red/blue/green. Set each one to the client's color on the Branding screen.
+A few behind-the-scenes tokens editors never pick (input borders, hover states, social icon colors, focus ring) stay in `src/styles/themes/_default.pcss`.
+
+**Seeing plain bright green, yellow or magenta on the site?** Those are the starter's placeholder brand colors. Set Brand, Brand Secondary and Brand Tertiary in colors.json to the client's colors.
+
+**Older sites** may still have `colorBrand`, `colorLink`… fields or `extraColors` in `branding.json`. Those still work and override colors.json. To tidy up, copy each value into the matching colors.json entry and delete the field from branding.json.
 
 ### Use them in a component's CSS
 
@@ -553,15 +564,14 @@ When you put a brand color behind text, set the text to `--color-text-on-brand` 
 
 ### Let editors pick a color
 
-Editors never get a free color picker. Every color option uses one of three **shared dropdown lists**, so the choices are the same everywhere:
+Editors never get a free color picker. Every color dropdown shows part of the colors.json list, so the choices are the same everywhere:
 
-| List | For | Options look like |
+| Dropdown `values` | For | Options look like |
 |---|---|---|
-| `data.colors.text` | Text, borders, icons, accents | Brand, Brand Secondary, Text, Text Muted, Link… |
-| `data.colors.backgrounds` | Backgrounds of cards, bars, buttons | None, Base, Surface, Brand, Dark, White… |
-| `_select_data.sectionBackgrounds` | Only `CustomSection`'s `backgroundColor` | none, base, surface, accent, brand… |
+| `"data.colors.all[?(@.text == true)]"` | Text, borders, icons, accents | Brand, Brand Secondary, Text, Text Muted, Link… |
+| `"data.colors.all[?(@.background == true)]"` | Backgrounds of sections, cards, bars, buttons | None, Base, Surface, Brand, Dark, White… |
 
-The first two live in `src/data/colors.json` (in CloudCannon: **Branding → colors.json**), so a custom color added there shows up in every dropdown straight away. The third is in `cloudcannon.config.yml`.
+A section's `backgroundColor` uses the background list too: `CustomSection` takes the CSS value (`var(--color-bg-brand)`) and still accepts the older keywords (`brand`) that some page-section dropdowns save.
 
 Example: let editors choose the card title color.
 
@@ -573,7 +583,7 @@ titleColor:
   comment: Color of the card titles. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -610,14 +620,12 @@ const { titleColor = "", ...rest } = Astro.props;
 
 Say the client has a fourth color for promotions.
 
-1. **Add it to `src/data/colors.json`** (or in CloudCannon: **Branding → colors.json**), at the end of `text` (text/border/icon colors), `backgrounds` (background colors), or both:
+1. **Add it at the end of `src/data/colors.json`** (or in CloudCannon: **Branding → colors.json**):
    ```json
-   { "id": "var(--color-promo)", "name": "Promo", "value": "#e4572e" }
+   { "name": "Promo", "id": "var(--color-promo)", "value": "#e4572e", "text": true, "background": true }
    ```
-   - `id` is what the dropdown saves: the variable name wrapped in `var()`.
-   - `name` is what editors see.
-   - `value` is the color. The site defines `--color-promo` from it automatically, so you don't need to add the variable anywhere else. If it's in both lists, give both the same value.
-2. That's it for editors: it shows up in every dropdown that uses that list.
+   The site defines `--color-promo` from `value` automatically, so you don't add the variable anywhere else.
+2. That's it for editors: it shows up in the text dropdowns, the background dropdowns, or both, depending on the two checkboxes.
 3. **Using it in your own CSS?** Add a fallback in case a site doesn't have it: `color: var(--color-promo, var(--color-brand));`
 
 ### Contrast sections

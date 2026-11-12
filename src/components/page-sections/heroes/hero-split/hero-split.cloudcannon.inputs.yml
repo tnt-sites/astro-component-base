@@ -5,7 +5,7 @@ eyebrowColor:
   type: select
   comment: Eyebrow text color. Leave blank to follow the section's color scheme.
   options:
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

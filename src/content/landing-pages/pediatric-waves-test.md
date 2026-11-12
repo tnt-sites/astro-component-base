@@ -130,14 +130,14 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''
-    backgroundColor: brand-secondary
+    backgroundColor: var(--color-bg-brand-secondary)
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome!
       - Same-Day Appointments
   - _component: landing-page-components/pediatric-waves/banner
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     subheading: Board-Certified
     heading: <span>Pediatric</span><br>Dental Care
     listItems:
@@ -180,7 +180,7 @@ landingPageSections:
       alt: ''
   - _component: landing-page-components/pediatric-waves/split
     id: friendly-expertise
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: Friendly <span>Expertise</span>
     fontHeadings: ''
     paragraphs:
@@ -224,7 +224,7 @@ landingPageSections:
       alt: ''
   - _component: landing-page-components/pediatric-waves/review
     id: pediatric-review
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     badgeHeading: Mom & Dad<br>Approved<br>Dentists
     badgeSubheading: Actual Google Review
     stars: 5
@@ -246,7 +246,7 @@ landingPageSections:
       alt: ''
   - _component: landing-page-components/pediatric-waves/split
     id: one-stop-convenience
-    backgroundColor: surface
+    backgroundColor: var(--color-bg-surface)
     heading: One-Stop Convenience
     fontHeadings: ''
     paragraphs:
@@ -288,7 +288,7 @@ landingPageSections:
       alt: ''
   - _component: landing-page-components/pediatric-waves/split
     id: flexible-affordable
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: Flexible & <span>Affordable</span>
     fontHeadings: ''
     paragraphs:

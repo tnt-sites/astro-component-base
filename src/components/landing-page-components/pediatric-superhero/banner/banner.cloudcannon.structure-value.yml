@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: "accent"
+  backgroundColor: var(--color-bg-accent)
   textColor: ""
   subheading: Board-Certified
   heading: "Pediatric <span>Dental Care</span>"

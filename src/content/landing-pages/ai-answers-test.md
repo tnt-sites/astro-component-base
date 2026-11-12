@@ -86,7 +86,7 @@ landingPageSections:
     id: ''
   - _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
     id: ''
-    backgroundColor: none
+    backgroundColor: transparent
     heading: Hear More From<br>Some of Our Actual Patients
     image:
       source: https://placehold.co/254x254
@@ -121,7 +121,7 @@ landingPageSections:
         author: '- Dolor C.'
   - _component: landing-page-components/ai-answers/table/ai-answers-table
     id: ''
-    backgroundColor: none
+    backgroundColor: transparent
     heading: How {siteName} is<br>Different From Other Dental Practices
     headingLineColor: var(--color-brand-secondary)
     siteName: ''
@@ -165,7 +165,7 @@ landingPageSections:
         otherValue: $30,000+
   - _component: landing-page-components/ai-answers/videos/ai-answers-videos
     id: ''
-    backgroundColor: none
+    backgroundColor: transparent
     heading: Hear More From<br>Some of Our Actual Patients
     headingColor: var(--color-text)
     image:
@@ -183,7 +183,7 @@ landingPageSections:
         title: Patient Story 3
   - _component: landing-page-components/ai-answers/split
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: How Dr. Lastname's<br> Expertise Benefits You
     text: >-
       lorem Ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod

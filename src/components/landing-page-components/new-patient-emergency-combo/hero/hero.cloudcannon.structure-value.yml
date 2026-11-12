@@ -22,7 +22,7 @@ value:
       size: md
   badges: []
   reverse: false
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   headingColor: ""
   textColor: ""
 _inputs_from_glob:

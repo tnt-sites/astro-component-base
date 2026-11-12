@@ -3,14 +3,18 @@ backgroundColor:
   comment: Background color of the outer section (the band behind the content card).
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 contentBackgroundColor:
   type: select
   comment: Background color of the inner content card.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -21,7 +25,7 @@ callBackgroundColor:
   comment: Background color of the call-to-action row (photo + call text).
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -32,7 +36,7 @@ callTextColor:
   comment: Color of the call text.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -43,7 +47,7 @@ formBackgroundColor:
   comment: Background color behind the form inputs.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -54,7 +58,7 @@ linkColor:
   comment: Color of the phone number link in the call row.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

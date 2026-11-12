@@ -161,7 +161,7 @@ landingPageSections:
         iconPosition: before
         hideText: false
         disabled: false
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     backgroundGradient: ''
     backgroundImage:
       source:

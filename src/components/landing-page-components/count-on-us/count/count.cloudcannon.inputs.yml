@@ -3,13 +3,17 @@ backgroundColor:
   comment: Background color of the section.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 textColor:
   type: select
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -37,7 +41,7 @@ accentColor:
   comment: Color used for the card's top/bottom border and the "+" bullet markers. Controls both together.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -48,7 +52,7 @@ squareColor:
   comment: Color of the decorative background squares that peek out from the card's corners.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -59,7 +63,7 @@ boxBorderColor:
   comment: Color of the decorative corner bracket lines around the outside of the card.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -70,7 +74,7 @@ headingColor:
   comment: Color of the large left heading text.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

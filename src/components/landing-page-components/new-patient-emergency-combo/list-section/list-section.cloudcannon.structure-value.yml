@@ -7,7 +7,7 @@ value:
   fontBody: ""
   id: ""
   heading: "list-section Heading"
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   headingColor: "#ffffff"
   listTextColor: "#ffffff"
   checkmarkColor: var(--color-brand-secondary)

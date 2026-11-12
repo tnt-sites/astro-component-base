@@ -86,7 +86,7 @@ landingFooter:
 pepSections:
   - _component: pep-components/pep-banner-centered
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     backgroundImage: ''
     backgroundPositionX: center
     backgroundPositionY: center

@@ -7,7 +7,7 @@ headingBackgroundColor:
   comment: Background color for the heading.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -18,7 +18,7 @@ headingTextColor:
   comment: Color of the main heading text. Leave blank for the default (inverse text).
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -29,7 +29,7 @@ itemHeadingColor:
   comment: Color of each card's heading. Leave blank for the default text color.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -40,7 +40,7 @@ shadowColor:
   comment: Color of the card shadow. Uses the same color tokens as headings. Choose a theme color or use a preset.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -51,7 +51,11 @@ backgroundColor:
   comment: Background color of the section.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 items:
   type: array

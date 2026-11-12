@@ -22,7 +22,7 @@ backgroundColor:
   comment: Background color of the header.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -32,7 +32,7 @@ iconBackgroundColor:
   comment: Background color of the circle icons.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -42,7 +42,7 @@ mobileCallBackgroundColor:
   comment: Background color of the mobile call button.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -52,7 +52,7 @@ mobileRequestBackgroundColor:
   comment: Background color of the mobile request button.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -62,7 +62,7 @@ mobileCallTextColor:
   comment: Main text color of the mobile call button.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -72,7 +72,7 @@ mobileCallSmallTextColor:
   comment: Small text color of the mobile call button.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -82,7 +82,7 @@ mobileRequestTextColor:
   comment: Main text color of the mobile request button.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -92,7 +92,7 @@ mobileRequestSmallTextColor:
   comment: Small text color of the mobile request button.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -102,7 +102,7 @@ addressLinkColor:
   comment: Color of address links.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -112,7 +112,7 @@ addressLinkHoverColor:
   comment: Hover color of address links.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -122,7 +122,7 @@ phoneLinkColor:
   comment: Color of phone links.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -132,7 +132,7 @@ phoneLinkHoverColor:
   comment: Hover color of phone links.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

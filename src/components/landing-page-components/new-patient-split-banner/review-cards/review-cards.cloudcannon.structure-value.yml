@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: none
+  backgroundColor: transparent
   reviews:
     - reviewText: My family and I just started going here through other referrals. We absolutely love it here. Everyone is welcoming and friendly, and the team always explains each step clearly.
       author: Yvonne B.

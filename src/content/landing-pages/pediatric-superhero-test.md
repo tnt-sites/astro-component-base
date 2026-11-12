@@ -107,14 +107,14 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ""
-    backgroundColor: brand
+    backgroundColor: var(--color-bg-brand)
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
   - _component: landing-page-components/pediatric-superhero/banner
     id: ""
-    backgroundColor: accent
+    backgroundColor: var(--color-bg-accent)
     subheading: Board-Certified
     heading: "Pediatric <span>Dental Care</span>"
     tagline: for Your Little Superhero
@@ -135,7 +135,7 @@ landingPageSections:
     waveHeight: 92px
   - _component: landing-page-components/pediatric-superhero/split
     id: friendly-expertise
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: "Friendly <span>Expertise</span>"
     fontHeadings: ""
     paragraphs:
@@ -184,7 +184,7 @@ landingPageSections:
     waveHeight: 46px
   - _component: landing-page-components/pediatric-superhero/reviews
     id: pediatric-review
-    backgroundColor: accent
+    backgroundColor: var(--color-bg-accent)
     stars: 5
     reviewLogo:
       source: https://placehold.co/220x80
@@ -200,7 +200,7 @@ landingPageSections:
     headingColor: ""
   - _component: landing-page-components/pediatric-superhero/split
     id: one-stop-convenience
-    backgroundColor: accent
+    backgroundColor: var(--color-bg-accent)
     heading: One-Stop Convenience
     fontHeadings: ""
     paragraphs:
@@ -245,7 +245,7 @@ landingPageSections:
     waveHeight: 46px
   - _component: landing-page-components/pediatric-superhero/split
     id: flexible-affordable
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     heading: "Flexible & <span>Affordable</span>"
     fontHeadings: ""
     paragraphs:

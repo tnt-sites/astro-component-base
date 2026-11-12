@@ -3,14 +3,18 @@ backgroundColor:
   comment: Background color of the banner section.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 borderColor:
   type: select
   comment: Color of the bottom border stripe. Leave blank to use the default brand color.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -21,7 +25,7 @@ headingColor:
   comment: Color of the H1 heading text. Leave blank to use the theme default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -32,7 +36,7 @@ textColor:
   comment: Color of the body paragraph text. Leave blank to inherit from the background color scheme.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

@@ -3,7 +3,7 @@ borderColor:
   comment: Color of the bottom border stripe. Leave blank to use the default brand color.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -14,7 +14,7 @@ headingColor:
   comment: Color of the H1 heading text. Leave blank to use the theme default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -25,7 +25,7 @@ textColor:
   comment: Color of the body copy. Leave blank to inherit the component default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -51,7 +51,7 @@ dividerColor:
   comment: Color of the horizontal rule below the text. Leave blank to use the default brand color.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -77,7 +77,7 @@ HeadingSpanColor:
   comment: Color of the h1 span text. Leave blank to inherit the heading color.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -88,7 +88,7 @@ AccentWordColor:
   comment: Color of the accented word inside the h1 span. Leave blank to use the brand color.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

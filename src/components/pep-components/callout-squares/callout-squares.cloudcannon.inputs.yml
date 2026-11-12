@@ -3,14 +3,18 @@ backgroundColor:
   comment: Background color of the outer section (behind the card grid).
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 headingBackgroundColor:
   type: select
   comment: Background color of the h2 heading banner. Defaults to brand secondary.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -21,7 +25,7 @@ headingTextColor:
   comment: Text color of the h2 heading.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -32,7 +36,7 @@ oddItemBackgroundColor:
   comment: Background color for odd-numbered callout items (1st, 3rd, 5th…). Defaults to a subtle tint.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -43,7 +47,7 @@ evenItemBackgroundColor:
   comment: Background color for even-numbered callout items (2nd, 4th, 6th…). Defaults to white.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -54,7 +58,7 @@ itemHeadingColor:
   comment: Color of each item's h3 label text.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: surface
+  backgroundColor: var(--color-bg-surface)
   textColor: ""
   blocks:
     - heading: Dental Insurance Welcome

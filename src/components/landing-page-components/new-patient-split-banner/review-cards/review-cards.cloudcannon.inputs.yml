@@ -3,7 +3,11 @@ backgroundColor:
   comment: Background color of the review cards section.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 reviews:
   type: array
   comment: Review cards shown in a 3-up layout on desktop and stacked on mobile.
@@ -56,7 +60,7 @@ cardBackgroundColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -67,7 +71,7 @@ textColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -78,7 +82,7 @@ starColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

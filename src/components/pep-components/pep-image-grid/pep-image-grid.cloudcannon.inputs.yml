@@ -3,7 +3,11 @@ backgroundColor:
   comment: Background color of the outer section.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 paddingVertical:
   type: select
@@ -30,7 +34,7 @@ cardBackgroundColor:
   comment: Background color behind each image or video tile.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -41,7 +45,7 @@ captionBackgroundColor:
   comment: Background color behind each figcaption.
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -52,7 +56,7 @@ captionTextColor:
   comment: Text color of each figcaption.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

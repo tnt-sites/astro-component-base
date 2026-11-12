@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: none
+  backgroundColor: transparent
   contentBackgroundColor: ""
   callBackgroundColor: ""
   callTextColor: ""

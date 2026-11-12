@@ -8,7 +8,7 @@ value:
   id: ""
   heading: "Insurance Text Heading"
   text: "Insurance Text"
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   headingColor: ""
   textColor: ""
   images:

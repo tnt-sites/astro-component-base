@@ -77,7 +77,7 @@ landingFooter:
 pepSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
     id: ''
-    backgroundColor: brand
+    backgroundColor: var(--color-bg-brand)
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
@@ -86,7 +86,7 @@ pepSections:
     fontHeadings: ''
     fontBody: ''
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     backgroundImage: ''
     backgroundPositionX: center
     backgroundPositionY: center
@@ -130,7 +130,7 @@ pepSections:
     fontHeadings: playwrite-ar-guides
     fontBody: ''
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     borderColor: var(--color-brand)
     headingColor: var(--color-text)
     textColor: ''
@@ -153,7 +153,7 @@ pepSections:
     fontHeadings:
     fontBody: ''
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     borderColor: ''
     headingColor: var(--color-text-inverse)
     textColor: var(--color-text)
@@ -195,7 +195,7 @@ pepSections:
     fontHeadings: ''
     fontBody: ''
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     headingColor: var(--color-text)
     itemHeadingColor: ''
     circleBackgroundColor: ''
@@ -217,7 +217,7 @@ pepSections:
     fontHeadings: ''
     fontBody: ''
     id: ''
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     headingBackgroundColor: ''
     headingTextColor: ''
     oddItemBackgroundColor: ''
@@ -248,7 +248,7 @@ pepSections:
     headingBackgroundColor: var(--color-bg-accent)
     headingTextColor: var(--color-text)
     itemHeadingColor: var(--color-brand-secondary)
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     shadowColor: var(--color-brand)
     items:
       - image:
@@ -277,7 +277,7 @@ pepSections:
     id: ''
     heading: Hear From Our Patients
     paddingVertical: xl
-    backgroundColor: base
+    backgroundColor: var(--color-bg)
     cardBackgroundColor: ''
     captionBackgroundColor: ''
     captionTextColor: ''
@@ -307,7 +307,7 @@ pepSections:
     fontHeadings: ''
     fontBody: ''
     id: ''
-    backgroundColor: none
+    backgroundColor: transparent
     contentBackgroundColor: ''
     callBackgroundColor: ''
     callTextColor: ''
@@ -332,7 +332,7 @@ pepSections:
     fontHeadings: ''
     fontBody: ''
     id: main-form
-    backgroundColor: none
+    backgroundColor: transparent
     contentBackgroundColor: ''
     callBackgroundColor: ''
     callTextColor: ''

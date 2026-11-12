@@ -1,15 +1,19 @@
 backgroundColor:
   type: select
-  comment: Background color of the section. The dark section background is applied by sectionColor below; set this to "none" unless you need a theme color instead.
+  comment: Background color of the section. The dark section background is applied by sectionColor below; set this to None unless you need a theme color instead.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 headingColor:
   type: select
   comment: Color of the headings in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -19,7 +23,7 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -56,7 +60,7 @@ items:
               type: select
               options:
                 allow_empty: true
-                values: data.colors.text
+                values: "data.colors.all[?(@.text == true)]"
                 value_key: id
                 preview:
                   text:
@@ -79,7 +83,7 @@ sectionColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.backgrounds
+    values: "data.colors.all[?(@.background == true)]"
     value_key: id
     preview:
       text:
@@ -91,7 +95,7 @@ accentColor:
   comment: Color of the inset border overlay on each portrait card.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

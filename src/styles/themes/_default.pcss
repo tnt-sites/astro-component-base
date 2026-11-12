@@ -1,31 +1,16 @@
-/* Light theme (fallback defaults only).
+/* Light theme: behind-the-scenes color tokens only.
  *
- * The --color-brand*, --color-text-on-brand, --color-link*, and --font-* variables
- * below are overridden at runtime by src/layouts/BaseLayout.astro, which reads
- * src/data/branding.json — edited via the CloudCannon CMS color/font pickers
- * (see cloudcannon.config.yml). Editing the values here only changes what renders
- * when branding.json has no value set for that field; to change live branding,
- * edit branding.json / the CMS fields instead.
+ * Every color editors can pick (brand, text, link, background, border, star…)
+ * is defined once in src/data/colors.json (CloudCannon: Branding → colors.json),
+ * which src/layouts/BaseLayout.astro turns into CSS variables on :root. Don't add
+ * those variables here; change their value in colors.json. What's left below are
+ * tokens that aren't in any dropdown. Fonts come from src/data/branding.json.
  */
 :root,
 [data-theme="default"] {
   color-scheme: light;
 
-  --color-brand: red;
-  --color-brand-secondary: blue;
-  --color-brand-muted: green;
-  --color-brand-subtle: var(--gray-7);
-  --color-brand-on: var(--gray-0);
-
-  --color-text: var(--gray-10);
-  --color-text-strong: var(--gray-12);
-  --color-text-muted: var(--gray-8);
   --color-text-on-muted: var(--gray-12);
-  --color-text-on-brand: var(--gray-0);
-  --color-text-inverse: var(--gray-0);
-  --color-link: blue;
-  --color-link-hover: darkblue;
-  --color-star: #febb21;
   --color-social-facebook: var(--blue-dark);
   --color-social-google: var(--red-dark);
   --color-social-instagram: var(--pink-dark);
@@ -35,19 +20,8 @@
   --color-social-bluesky: var(--cyan-dark);
   --color-social-youtube: var(--red-dark);
 
-  --color-bg: var(--gray-0);
-  --color-bg-surface: var(--gray-1);
-  --color-bg-muted: var(--gray-2);
-  --color-bg-accent: #d5fdff;
-  --color-bg-highlight: #fff9d6;
-  --color-bg-brand: var(--color-brand);
-  --color-bg-brand-secondary: var(--color-brand-secondary);
-  --color-bg-brand-muted: var(--color-brand-muted);
   --color-bg-inverse: var(--gray-12);
-  --color-bg-dark: #2c363c;
-  --color-bg-black: #000;
 
-  --color-border: var(--gray-4);
   --color-border-inputs: var(--gray-7);
   --color-border-strong: var(--gray-10);
   --color-border-subtle: var(--gray-1);

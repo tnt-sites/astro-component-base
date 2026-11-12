@@ -1,128 +1,228 @@
 {
-  "text": [
+  "all": [
     {
+      "name": "Brand",
       "id": "var(--color-brand)",
-      "name": "Brand"
+      "value": "green",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Brand Secondary",
       "id": "var(--color-brand-secondary)",
-      "name": "Brand Secondary"
+      "value": "yellow",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Brand Tertiary",
       "id": "var(--color-brand-muted)",
-      "name": "Brand Tertiary"
+      "value": "#ff00ff",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Brand Subtle",
       "id": "var(--color-brand-subtle)",
-      "name": "Brand Subtle"
+      "value": "#6a6a6a",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Brand On",
+      "id": "var(--color-brand-on)",
+      "value": "#ffffff",
+      "sameAs": "",
+      "text": false,
+      "background": false
+    },
+    {
+      "name": "Text",
       "id": "var(--color-text)",
-      "name": "Text"
+      "value": "#2a2a2a",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Text Strong",
       "id": "var(--color-text-strong)",
-      "name": "Text Strong"
+      "value": "#000000",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Text Muted",
       "id": "var(--color-text-muted)",
-      "name": "Text Muted"
+      "value": "#555555",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Text On Brand",
       "id": "var(--color-text-on-brand)",
-      "name": "Text On Brand"
+      "value": "#ffffff",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Text Inverse",
       "id": "var(--color-text-inverse)",
-      "name": "Text Inverse"
+      "value": "#ffffff",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Link",
       "id": "var(--color-link)",
-      "name": "Link"
+      "value": "blue",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Link Hover",
       "id": "var(--color-link-hover)",
-      "name": "Link Hover"
+      "value": "darkblue",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Star",
       "id": "var(--color-star)",
-      "name": "Star"
+      "value": "#febb21",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
+      "name": "Border",
       "id": "var(--color-border)",
-      "name": "Border"
+      "value": "#aaaaaa",
+      "sameAs": "",
+      "text": true,
+      "background": false
     },
     {
-      "id": "var(--color-bg-dark)",
-      "name": "Dark"
-    },
-    {
-      "id": "#000000",
-      "name": "Black"
-    },
-    {
-      "id": "#ffffff",
-      "name": "White"
-    },
-    {
-      "id": "var(--color-red)",
-      "name": "Red",
-      "value": "#ff0000"
-    }
-  ],
-  "backgrounds": [
-    {
+      "name": "None",
       "id": "transparent",
-      "name": "None"
+      "value": "transparent",
+      "sameAs": "",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Base",
       "id": "var(--color-bg)",
-      "name": "Base"
+      "value": "#ffffff",
+      "sameAs": "",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Surface",
       "id": "var(--color-bg-surface)",
-      "name": "Surface"
+      "value": "#eaeaea",
+      "sameAs": "",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Muted",
       "id": "var(--color-bg-muted)",
-      "name": "Muted"
+      "value": "#d4d4d4",
+      "sameAs": "",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Accent",
       "id": "var(--color-bg-accent)",
-      "name": "Accent"
+      "value": "#d5fdff",
+      "sameAs": "",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Highlight",
       "id": "var(--color-bg-highlight)",
-      "name": "Highlight"
+      "value": "#fff9d6",
+      "sameAs": "",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Brand",
       "id": "var(--color-bg-brand)",
-      "name": "Brand"
+      "value": "",
+      "sameAs": "var(--color-brand)",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Brand Secondary",
       "id": "var(--color-bg-brand-secondary)",
-      "name": "Brand Secondary"
+      "value": "",
+      "sameAs": "var(--color-brand-secondary)",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Brand Tertiary",
       "id": "var(--color-bg-brand-muted)",
-      "name": "Brand Tertiary"
+      "value": "",
+      "sameAs": "var(--color-brand-muted)",
+      "text": false,
+      "background": true
     },
     {
+      "name": "Dark",
       "id": "var(--color-bg-dark)",
-      "name": "Dark"
+      "value": "#2c363c",
+      "sameAs": "",
+      "text": true,
+      "background": true
     },
     {
+      "name": "Black",
+      "id": "#000000",
+      "value": "#000000",
+      "sameAs": "",
+      "text": true,
+      "background": false
+    },
+    {
+      "name": "Black",
       "id": "var(--color-bg-black)",
-      "name": "Black"
+      "value": "#000",
+      "sameAs": "",
+      "text": false,
+      "background": true
     },
     {
+      "name": "White",
       "id": "#ffffff",
-      "name": "White"
+      "value": "#ffffff",
+      "sameAs": "",
+      "text": true,
+      "background": true
     },
     {
-      "id": "var(--color-red)",
       "name": "Red",
-      "value": "#ff0000"
+      "id": "var(--color-red)",
+      "value": "#ff0000",
+      "sameAs": "",
+      "text": true,
+      "background": true
     }
   ]
 }

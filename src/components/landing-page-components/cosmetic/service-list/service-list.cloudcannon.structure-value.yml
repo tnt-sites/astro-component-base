@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: accent
+  backgroundColor: var(--color-bg-accent)
   textColor: ""
   services:
     - label: Veneers

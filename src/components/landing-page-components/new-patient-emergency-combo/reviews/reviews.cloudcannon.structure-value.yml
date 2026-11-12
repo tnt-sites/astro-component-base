@@ -7,7 +7,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: base
+  backgroundColor: var(--color-bg)
   image:
     source: https://placehold.co/600x400
     alt: A placeholder image

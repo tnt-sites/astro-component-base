@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: none
+  backgroundColor: transparent
   textColor: ""
   heading: "Hear More From<br>Some of Our Actual Patients"
   image:

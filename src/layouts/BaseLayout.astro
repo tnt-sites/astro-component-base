@@ -1,7 +1,7 @@
 ---
 import StructuredData from "@components/utils/StructuredData.astro";
 import brandingData from "@data/branding.json";
-import colorsData from "@data/colors.json";
+import { colorVariablesCss, sanitizeCssValue } from "@components/utils/colorVariables";
 import seoData from "@data/seo.json";
 import Modal from "@page-sections/info-blocks/modal/Modal.astro";
 import "@styles/global.css";
@@ -29,61 +29,17 @@ export interface Props {
 const props = Astro.props;
 const formattedTitle = seoData.titleFormat.replace("{title}", props.title);
 
-// --- Branding: single source of truth for live theme colors/fonts ---
-// Values below come from src/data/branding.json, editable via the CloudCannon CMS
-// color/font pickers (see cloudcannon.config.yml). They're emitted as a `:root,
-// [data-theme="default"] { ... }` stylesheet rule (matching _default.pcss's own
-// selector) rather than an inline style on <html>, because any nested section
-// with an explicit `data-theme="default"` (e.g. a CustomSection's colorScheme
-// prop) gets its OWN copy of these custom properties from _default.pcss — an
-// element's own declaration always wins over an inherited one, so an inline
-// style on <html> alone can't reach through to override it. `!important` makes
-// sure this rule wins regardless of stylesheet ordering. [data-theme="contrast"]
-// sections are deliberately left alone — they use neutral grays, not brand hues.
-// To change live branding, edit branding.json / the CMS fields — not _default.pcss.
-
-// --- Branding: core color fields mapped to their CSS custom properties ---
-const sanitizeCssValue = (value: string) => value.split(/[<>{}]|;/)[0].trim();
-
-const brandingColorVars: Record<string, string> = {
-  colorBrand: "--color-brand",
-  colorBrandSecondary: "--color-brand-secondary",
-  colorBrandTertiary: "--color-brand-muted",
-  colorBrandSubtle: "--color-brand-subtle",
-  colorBrandOn: "--color-brand-on",
-  colorTextOnBrand: "--color-text-on-brand",
-  colorLink: "--color-link",
-  colorLinkHover: "--color-link-hover",
-};
-const brandingColorsCss = Object.entries(brandingColorVars)
-  .map(([key, variable]) => {
-    const value = (brandingData as any)[key];
-    return typeof value === "string" && value.trim()
-      ? `${variable}: ${sanitizeCssValue(value)} !important;`
-      : "";
-  })
-  .filter(Boolean)
-  .join(" ");
-
-// --- Custom colors: entries in src/data/colors.json (the shared color dropdown
-// lists) that have a `value` define their CSS variable here, e.g.
-// { "id": "var(--color-red)", "name": "Red", "value": "#ff0000" } → --color-red: #ff0000.
-// branding.json's old `extraColors` ({ variable, value }) is still read so older
-// sites keep working; new colors go in colors.json so editors can pick them.
-const customColorVars = new Map<string, string>();
-for (const entry of [...colorsData.text, ...colorsData.backgrounds] as any[]) {
-  const variable = String(entry?.id ?? "").match(/^var\(\s*(--[\w-]+)\s*\)$/)?.[1];
-  const value = typeof entry?.value === "string" ? entry.value.trim() : "";
-  if (variable && value && !customColorVars.has(variable)) customColorVars.set(variable, value);
-}
-for (const e of (Array.isArray((brandingData as any).extraColors) ? (brandingData as any).extraColors : []) as any[]) {
-  const variable = e?.variable?.trim();
-  const value = e?.value?.trim();
-  if (variable && value && !customColorVars.has(variable)) customColorVars.set(variable, value);
-}
-const extraColorsCss = [...customColorVars]
-  .map(([variable, value]) => `${sanitizeCssValue(variable)}: ${sanitizeCssValue(value)} !important;`)
-  .join(" ");
+// --- Colors and fonts: emitted as one `:root, [data-theme="default"] { ... }` rule ---
+// Colors come from src/data/colors.json via colorVariablesCss() (see
+// src/components/utils/colorVariables.ts); fonts from src/data/branding.json.
+//
+// This is a stylesheet rule matching _default.pcss's selector, not an inline
+// style on <html>: a nested section with an explicit data-theme="default" (a
+// CustomSection's colorScheme prop) needs its own copy, since an element's own
+// declaration beats an inherited one. `!important` makes it win regardless of
+// stylesheet order. [data-theme="contrast"] sections are left alone on purpose:
+// _contrast.pcss gives them neutral grays instead of brand hues.
+const colorsCss = colorVariablesCss();
 
 // --- Branding: font family fields mapped to their CSS custom properties ---
 const brandingFontVars: Record<string, string | undefined> = {
@@ -101,7 +57,7 @@ const brandingFontsCss = Object.entries(brandingFontVars)
   .filter(Boolean)
   .join(" ");
 
-const brandingCss = [brandingColorsCss, extraColorsCss, brandingFontsCss].filter(Boolean).join(" ");
+const brandingCss = [colorsCss, brandingFontsCss].filter(Boolean).join(" ");
 const brandingCssRule = brandingCss ? `:root, [data-theme="default"] { ${brandingCss} }` : "";
 
 // --- Branding: font link URLs ---

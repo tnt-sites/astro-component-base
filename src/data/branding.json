@@ -1,12 +1,4 @@
 {
-  "colorBrand": "green",
-  "colorBrandSecondary": "yellow",
-  "colorBrandTertiary": "#ff00ff",
-  "colorBrandSubtle": "",
-  "colorBrandOn": "",
-  "colorTextOnBrand": "#ffffff",
-  "colorLink": "blue",
-  "colorLinkHover": "darkblue",
   "bodyFont": {
     "fontFamily": "\"Roboto\", sans-serif"
   },

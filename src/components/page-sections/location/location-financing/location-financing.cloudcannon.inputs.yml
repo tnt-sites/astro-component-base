@@ -30,7 +30,7 @@ backgroundColor:
   type: select
   comment: Section background color.
   options:
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -39,7 +39,7 @@ textColor:
   type: select
   comment: Main text color (headings, body copy, captions).
   options:
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -48,7 +48,7 @@ accentColor:
   type: select
   comment: Accent color — link/button hover states, star ratings, and similar highlights.
   options:
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -57,7 +57,7 @@ iconColor:
   type: select
   comment: Icon color (SVG fill/stroke).
   options:
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:

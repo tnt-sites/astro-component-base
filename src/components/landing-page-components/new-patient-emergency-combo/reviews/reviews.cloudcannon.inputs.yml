@@ -3,7 +3,11 @@ backgroundColor:
   comment: Background color used behind the review.
   options:
     allow_empty: true
-    values: _select_data.sectionBackgrounds
+    values: "data.colors.all[?(@.background == true)]"
+    value_key: id
+    preview:
+      text:
+        - key: name
 image:
   type: object
   comment: Google logo that goes above the desktop review text.
@@ -103,7 +107,7 @@ textColor:
   comment: Color of the review text.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -113,7 +117,7 @@ mobileTextColor:
   comment: Color of the review text on mobile.
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
@@ -122,7 +126,7 @@ starColor:
   type: select
   options:
     allow_empty: true
-    values: data.colors.text
+    values: "data.colors.all[?(@.text == true)]"
     value_key: id
     preview:
       text:
