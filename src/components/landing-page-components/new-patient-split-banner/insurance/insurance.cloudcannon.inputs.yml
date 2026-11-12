@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 blocks:
   type: array
   comment: Insurance text blocks. Each block has a heading and body text.
@@ -41,14 +45,22 @@ headingColor:
   comment: Color of the h2 heading text.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 dividerColor:
   type: select
   comment: Color of the decorative underline divider below each heading.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 subheading:
   type: text
   comment: Small uppercase text displayed above the main heading (e.g. "Reston's").
@@ -79,14 +83,22 @@ accentColor:
   comment: Color of the left bracket decoration on the banner.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 headingColor:
   type: select
   comment: Color of the main H1 heading.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

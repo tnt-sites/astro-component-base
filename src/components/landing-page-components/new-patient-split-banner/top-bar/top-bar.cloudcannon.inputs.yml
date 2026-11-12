@@ -19,7 +19,11 @@ textColor:
   comment: Text color for the top bar. Defaults to the current color scheme's text color.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

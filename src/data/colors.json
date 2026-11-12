@@ -1,0 +1,128 @@
+{
+  "text": [
+    {
+      "id": "var(--color-brand)",
+      "name": "Brand"
+    },
+    {
+      "id": "var(--color-brand-secondary)",
+      "name": "Brand Secondary"
+    },
+    {
+      "id": "var(--color-brand-muted)",
+      "name": "Brand Tertiary"
+    },
+    {
+      "id": "var(--color-brand-subtle)",
+      "name": "Brand Subtle"
+    },
+    {
+      "id": "var(--color-text)",
+      "name": "Text"
+    },
+    {
+      "id": "var(--color-text-strong)",
+      "name": "Text Strong"
+    },
+    {
+      "id": "var(--color-text-muted)",
+      "name": "Text Muted"
+    },
+    {
+      "id": "var(--color-text-on-brand)",
+      "name": "Text On Brand"
+    },
+    {
+      "id": "var(--color-text-inverse)",
+      "name": "Text Inverse"
+    },
+    {
+      "id": "var(--color-link)",
+      "name": "Link"
+    },
+    {
+      "id": "var(--color-link-hover)",
+      "name": "Link Hover"
+    },
+    {
+      "id": "var(--color-star)",
+      "name": "Star"
+    },
+    {
+      "id": "var(--color-border)",
+      "name": "Border"
+    },
+    {
+      "id": "var(--color-bg-dark)",
+      "name": "Dark"
+    },
+    {
+      "id": "#000000",
+      "name": "Black"
+    },
+    {
+      "id": "#ffffff",
+      "name": "White"
+    },
+    {
+      "id": "var(--color-red)",
+      "name": "Red",
+      "value": "#ff0000"
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "transparent",
+      "name": "None"
+    },
+    {
+      "id": "var(--color-bg)",
+      "name": "Base"
+    },
+    {
+      "id": "var(--color-bg-surface)",
+      "name": "Surface"
+    },
+    {
+      "id": "var(--color-bg-muted)",
+      "name": "Muted"
+    },
+    {
+      "id": "var(--color-bg-accent)",
+      "name": "Accent"
+    },
+    {
+      "id": "var(--color-bg-highlight)",
+      "name": "Highlight"
+    },
+    {
+      "id": "var(--color-bg-brand)",
+      "name": "Brand"
+    },
+    {
+      "id": "var(--color-bg-brand-secondary)",
+      "name": "Brand Secondary"
+    },
+    {
+      "id": "var(--color-bg-brand-muted)",
+      "name": "Brand Tertiary"
+    },
+    {
+      "id": "var(--color-bg-dark)",
+      "name": "Dark"
+    },
+    {
+      "id": "var(--color-bg-black)",
+      "name": "Black"
+    },
+    {
+      "id": "#ffffff",
+      "name": "White"
+    },
+    {
+      "id": "var(--color-red)",
+      "name": "Red",
+      "value": "#ff0000"
+    }
+  ]
+}

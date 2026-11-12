@@ -3,14 +3,22 @@ backgroundColor:
   comment: Background color of the banner section.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 textColor:
   type: select
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 heading:
   type: text
@@ -57,21 +65,33 @@ borderColor:
   comment: Color of the decorative border on the consultation block.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 titleBackground:
   type: select
   comment: Background color of the title section.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 titleColor:
   type: select
   comment: Color of the title text on the consultation block.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

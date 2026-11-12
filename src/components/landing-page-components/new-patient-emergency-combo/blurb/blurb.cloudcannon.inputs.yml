@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 text:
   type: html
   comment: Main Text
@@ -20,7 +24,11 @@ blurbBackgroundColor:
   comment: Background color used inside the box.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 # Add your other component inputs here
 # Example:

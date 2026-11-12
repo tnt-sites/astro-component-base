@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 heading:
   type: textarea
   comment: Main H1 heading. Supports <br> for line breaks and <span> to apply accent color (e.g. "Cosmetic <span>Dentists</span>").
@@ -88,14 +92,22 @@ accentColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Override the accent/brand color for this section. Leave blank to use the site default.
 
 headingColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Override the heading text color. Leave blank to use the site default.
 
 fontHeadings:

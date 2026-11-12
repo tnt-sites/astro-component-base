@@ -1,6 +1,7 @@
 ---
 import StructuredData from "@components/utils/StructuredData.astro";
 import brandingData from "@data/branding.json";
+import colorsData from "@data/colors.json";
 import seoData from "@data/seo.json";
 import Modal from "@page-sections/info-blocks/modal/Modal.astro";
 import "@styles/global.css";
@@ -64,11 +65,24 @@ const brandingColorsCss = Object.entries(brandingColorVars)
   .filter(Boolean)
   .join(" ");
 
-// --- Branding: extraColors runtime overrides (arbitrary user-defined CSS vars) ---
-const brandingExtraColors = Array.isArray(brandingData.extraColors) ? brandingData.extraColors : [];
-const extraColorsCss = (brandingExtraColors as any[])
-  .filter((e: any) => e?.variable?.trim() && e?.value?.trim())
-  .map((e: any) => `${sanitizeCssValue(e.variable)}: ${sanitizeCssValue(e.value)} !important;`)
+// --- Custom colors: entries in src/data/colors.json (the shared color dropdown
+// lists) that have a `value` define their CSS variable here, e.g.
+// { "id": "var(--color-red)", "name": "Red", "value": "#ff0000" } → --color-red: #ff0000.
+// branding.json's old `extraColors` ({ variable, value }) is still read so older
+// sites keep working; new colors go in colors.json so editors can pick them.
+const customColorVars = new Map<string, string>();
+for (const entry of [...colorsData.text, ...colorsData.backgrounds] as any[]) {
+  const variable = String(entry?.id ?? "").match(/^var\(\s*(--[\w-]+)\s*\)$/)?.[1];
+  const value = typeof entry?.value === "string" ? entry.value.trim() : "";
+  if (variable && value && !customColorVars.has(variable)) customColorVars.set(variable, value);
+}
+for (const e of (Array.isArray((brandingData as any).extraColors) ? (brandingData as any).extraColors : []) as any[]) {
+  const variable = e?.variable?.trim();
+  const value = e?.value?.trim();
+  if (variable && value && !customColorVars.has(variable)) customColorVars.set(variable, value);
+}
+const extraColorsCss = [...customColorVars]
+  .map(([variable, value]) => `${sanitizeCssValue(variable)}: ${sanitizeCssValue(value)} !important;`)
   .join(" ");
 
 // --- Branding: font family fields mapped to their CSS custom properties ---

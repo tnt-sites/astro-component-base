@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 overlapBanner:
   type: checkbox
   comment: When enabled, the cards overlap the section above by 100px (designed to sit below the banner). Disable if placing elsewhere on the page.
@@ -69,28 +73,44 @@ primaryCardColor:
   comment: Background color for the first and last cards.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 accentCardColor:
   type: select
   comment: Background color for the middle (accent) card.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 accentCardTextColor:
   type: select
   comment: Text color for the middle (accent) card.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 bulletColor:
   type: select
   comment: Color of the + bullet markers in card lists.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

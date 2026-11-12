@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 badgeHeading:
   type: text
   comment: Heading text shown in the left testimonial badge card. Supports <br> line breaks.
@@ -58,13 +62,21 @@ badgeBackgroundColor:
   comment: Background color for the left badge card.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 headingColor:
   type: select
   comment: Optional heading color override.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 waveTopImage:
   type: object

@@ -28,20 +28,32 @@ backgroundColor:
   comment: Background color of the section.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 headingColor:
   type: select
   comment: Color of the headings in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 textColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Heading text color.
 
 fontHeadings:

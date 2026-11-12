@@ -68,7 +68,7 @@ const normalizedPageButtons = (Array.isArray(pageButtons) ? pageButtons : []).ma
 );
 
 // Legacy keyword values from before the shared color dropdowns; CSS values
-// (_select_data.brandColors / backgroundColors) pass straight through.
+// (src/data/colors.json text / backgrounds) pass straight through.
 const colorTokenMap: Record<string, string> = {
   brand: "var(--color-brand)",
   "brand-secondary": "var(--color-brand-secondary)",

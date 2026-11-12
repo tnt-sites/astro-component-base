@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 backgroundImage:
   type: object
   comment: Optional full-bleed background image behind the review card.
@@ -68,7 +72,11 @@ starColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Color of the five star symbols in the Google panel.
 
 bracketColor:
@@ -76,14 +84,22 @@ bracketColor:
   comment: Color of the decorative corner bracket lines around the review card.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 googlePanelColor:
   type: select
   comment: Background color of the Google panel on the left side of the card.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

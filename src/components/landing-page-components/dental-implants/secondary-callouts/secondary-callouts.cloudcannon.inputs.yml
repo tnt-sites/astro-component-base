@@ -9,13 +9,21 @@ headingColor:
   comment: Color of the headings in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 textColor:
   type: select
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 items:
   type: array
   comment: Each card in the dark callout strip.
@@ -48,7 +56,11 @@ items:
               type: select
               options:
                 allow_empty: true
-                values: _select_data.brandColors
+                values: data.colors.text
+                value_key: id
+                preview:
+                  text:
+                    - key: name
               comment: Color of the icon(s). Leave blank to use the section accent color.
             iconPosition:
               type: select
@@ -67,7 +79,11 @@ sectionColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Background color of the dark strip. Defaults to #324248 (dark teal).
 
 accentColor:
@@ -75,7 +91,11 @@ accentColor:
   comment: Color of the inset border overlay on each portrait card.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

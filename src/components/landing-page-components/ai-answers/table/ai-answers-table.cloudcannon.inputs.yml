@@ -9,13 +9,21 @@ headingColor:
   comment: Color of the headings in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 textColor:
   type: select
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 heading:
   type: text
   comment: Section heading displayed above the table. Supports <br> for line breaks.
@@ -25,7 +33,11 @@ headingLineColor:
   comment: Color of the decorative horizontal lines flanking the heading.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 siteName:
   type: text
@@ -59,14 +71,22 @@ headerColor:
   comment: Background color of the table header row.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 headerTextColor:
   type: select
   comment: Text color of the table header row.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 otherColumnLabel:
   type: text
@@ -76,14 +96,22 @@ checkColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Color of the checkmark icon.
 
 crossColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Color of the cross text.
 
 checkIconName:

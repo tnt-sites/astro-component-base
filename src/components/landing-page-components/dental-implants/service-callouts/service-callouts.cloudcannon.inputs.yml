@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 heading:
   type: text
   comment: Optional section heading above the cards (e.g. "Your Implant Options"). Supports <br>.
@@ -64,14 +68,22 @@ headingColor:
   comment: Color of the section heading and card h3 titles.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 accentColor:
   type: select
   comment: Hover accent color for card portrait borders and headings.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

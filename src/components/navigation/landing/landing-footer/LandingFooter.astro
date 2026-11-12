@@ -36,7 +36,7 @@ const copyYear = new Date().getFullYear();
 const embedSrc = typeof mapEmbedUrl === "string" ? mapEmbedUrl.trim() : "";
 const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
 // Legacy keyword values from before the shared color dropdowns; CSS values
-// (_select_data.brandColors / backgroundColors) pass straight through.
+// (src/data/colors.json text / backgrounds) pass straight through.
 const bgColorMap: Record<string, string> = {
   base: "var(--color-bg)",
   surface: "var(--color-bg-surface)",
@@ -53,7 +53,7 @@ const resolvedBgColor =
     (bgColorMap[backgroundColor] ?? backgroundColor)) ||
   "";
 // Legacy keyword values from before the shared color dropdowns; CSS values
-// (_select_data.brandColors / backgroundColors) pass straight through.
+// (src/data/colors.json text / backgrounds) pass straight through.
 const linkColorMap: Record<string, string> = {
   white: "#fff",
   brand: "var(--color-brand)",

@@ -10,21 +10,33 @@ headingColor:
   comment: Color of the section heading.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 itemHeadingColor:
   type: select
   comment: Color of each callout item's heading text.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 circleBackgroundColor:
   type: select
   comment: Background color of the circular image container.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 heading:
   type: text

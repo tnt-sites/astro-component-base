@@ -10,35 +10,55 @@ headingBackgroundColor:
   comment: Background color of the h2 heading banner. Defaults to brand secondary.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 headingTextColor:
   type: select
   comment: Text color of the h2 heading.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 oddItemBackgroundColor:
   type: select
   comment: Background color for odd-numbered callout items (1st, 3rd, 5th…). Defaults to a subtle tint.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 evenItemBackgroundColor:
   type: select
   comment: Background color for even-numbered callout items (2nd, 4th, 6th…). Defaults to white.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 itemHeadingColor:
   type: select
   comment: Color of each item's h3 label text.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 heading:
   type: text

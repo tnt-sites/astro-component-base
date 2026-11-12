@@ -78,44 +78,72 @@ formButtonTextColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: "Submit button text color."
 formButtonBackgroundColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: "Submit button background color."
 formButtonHoverBackgroundColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: "Submit button hover background color."
 formButtonHoverTextColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: "Submit button hover text color."
 contactCardBackgroundColor:
   type: select
   comment: "Optional CSS color value for the contact card background."
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 mapCardBackgroundColor:
   type: select
   comment: "Optional CSS color value for the map card background."
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 formCardBackgroundColor:
   type: select
   comment: "Optional CSS color value for the form card background."
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 legalLinks:
   type: array
   comment: "Legal links displayed in the footer legal row (e.g. Privacy Policy)."
@@ -173,19 +201,31 @@ backgroundColor:
   comment: Background color of the footer section.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 linkColor:
   type: select
   comment: Color of legal/copy links.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 linkHoverColor:
   type: select
   comment: Color of legal/copy links on hover.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 legalBlurb:
   type: textarea
   comment: "Optional legal/disclaimer text shown below the copyright row."
@@ -194,22 +234,38 @@ addressLinkColor:
   comment: "Color of address links."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 addressLinkHoverColor:
   type: select
   comment: "Color of address links on hover."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 phoneLinkColor:
   type: select
   comment: "Color of phone links."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 phoneLinkHoverColor:
   type: select
   comment: "Color of phone links on hover."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name

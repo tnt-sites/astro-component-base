@@ -10,35 +10,55 @@ contentBackgroundColor:
   comment: Background color of the inner content card.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 callBackgroundColor:
   type: select
   comment: Background color of the call-to-action row (photo + call text).
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 callTextColor:
   type: select
   comment: Color of the call text.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 formBackgroundColor:
   type: select
   comment: Background color behind the form inputs.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 linkColor:
   type: select
   comment: Color of the phone number link in the call row.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 image:
   type: object

@@ -28,7 +28,7 @@ const bgImage = await backgroundImageCss(backgroundImage);
 const fonts = sectionFonts(fontHeadings, fontBody);
 
 // Per-section text colors (the `headingColor` / `textColor` dropdowns on
-// landing sections, values from _select_data.brandColors). Sections pass them
+// landing sections, values from src/data/colors.json "text"). Sections pass them
 // through `...rest` like the fonts. textColor sets `color` on the section so
 // inherited text follows; component CSS that hardcodes a heading or body color
 // should read var(--section-heading-color, <default>) / var(--section-text-color, <default>).

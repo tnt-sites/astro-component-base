@@ -10,21 +10,33 @@ borderColor:
   comment: Color of the bottom border stripe. Leave blank to use the default brand color.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 headingColor:
   type: select
   comment: Color of the H1 heading text. Leave blank to use the theme default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 textColor:
   type: select
   comment: Color of the body copy. Leave blank to inherit the component default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 heading:
   type: text

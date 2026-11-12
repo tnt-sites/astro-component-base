@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 heading:
   type: textarea
   comment: Section heading (h2). Supports <br> and <span> to apply accent color (e.g. "Nobody Cares <br><span>More</span>").
@@ -60,14 +64,22 @@ accentColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Override accent color for heading spans. Leave blank to use the site default.
 
 headingColor:
   type: select
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
   comment: Override heading text color. Leave blank to use the site default.
 
 fontHeadings:

@@ -31,61 +31,101 @@ mobileCallBackgroundColor:
   comment: "Background color of the mobile call button."
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 mobileRequestBackgroundColor:
   type: select
   comment: "Background color of the mobile request button."
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 mobileCallTextColor:
   type: select
   comment: "Main text color of the mobile call button."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 mobileCallSmallTextColor:
   type: select
   comment: "Small text color of the mobile call button."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 mobileRequestTextColor:
   type: select
   comment: "Main text color of the mobile request button."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 mobileRequestSmallTextColor:
   type: select
   comment: "Small text color of the mobile request button."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 addressLinkColor:
   type: select
   comment: "Color of address links in the desktop header."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 addressLinkHoverColor:
   type: select
   comment: "Hover color of address links in the desktop header."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 phoneLinkColor:
   type: select
   comment: "Color of phone links in the desktop header."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 phoneLinkHoverColor:
   type: select
   comment: "Hover color of phone links in the desktop header."
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 "$.offices[*].name":
   type: text
   comment: "Optional office label."

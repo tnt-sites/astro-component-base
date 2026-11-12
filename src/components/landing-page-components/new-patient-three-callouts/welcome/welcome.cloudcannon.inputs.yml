@@ -9,7 +9,11 @@ textColor:
   comment: Color of the body text in this section. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 paragraphs:
   type: array
   comment: Each item is one paragraph. The "emphasis" text is displayed in the accent color at the start.
@@ -34,7 +38,11 @@ accentColor:
   comment: Color of the emphasized phrase at the start of each paragraph.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 fontHeadings:
   type: select

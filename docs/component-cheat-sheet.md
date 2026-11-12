@@ -557,9 +557,11 @@ Editors never get a free color picker. Every color option uses one of three **sh
 
 | List | For | Options look like |
 |---|---|---|
-| `_select_data.brandColors` | Text, borders, icons, accents | Brand, Brand Secondary, Text, Text Muted, Link… |
-| `_select_data.backgroundColors` | Backgrounds of cards, bars, buttons | None, Base, Surface, Brand, Dark, White… |
+| `data.colors.text` | Text, borders, icons, accents | Brand, Brand Secondary, Text, Text Muted, Link… |
+| `data.colors.backgrounds` | Backgrounds of cards, bars, buttons | None, Base, Surface, Brand, Dark, White… |
 | `_select_data.sectionBackgrounds` | Only `CustomSection`'s `backgroundColor` | none, base, surface, accent, brand… |
+
+The first two live in `src/data/colors.json` (in CloudCannon: **Branding → colors.json**), so a custom color added there shows up in every dropdown straight away. The third is in `cloudcannon.config.yml`.
 
 Example: let editors choose the card title color.
 
@@ -571,8 +573,14 @@ titleColor:
   comment: Color of the card titles. Leave empty for the default.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 ```
+
+`value_key: id` makes the dropdown save the CSS value (`var(--color-brand)`) and `preview` shows the name (Brand). Copy all four lines.
 
 **2. `structure-value.yml`:** start it empty:
 
@@ -602,14 +610,15 @@ const { titleColor = "", ...rest } = Astro.props;
 
 Say the client has a fourth color for promotions.
 
-1. **Add it in Branding:** under **Extra Colors**, add a variable name (with the `--`), e.g. `--color-promo`, and the color.
-2. **Use it in CSS with a fallback**, in case a site doesn't have it set: `color: var(--color-promo, var(--color-brand));`
-3. **Want editors to be able to pick it too?** Add it to the right shared list in `cloudcannon.config.yml`, under `_select_data` → `brandColors` (or `backgroundColors`):
-   ```yaml
-   - id: var(--color-promo)
-     name: Promo
+1. **Add it to `src/data/colors.json`** (or in CloudCannon: **Branding → colors.json**), at the end of `text` (text/border/icon colors), `backgrounds` (background colors), or both:
+   ```json
+   { "id": "var(--color-promo)", "name": "Promo", "value": "#e4572e" }
    ```
-   It then shows up in every color dropdown that uses that list.
+   - `id` is what the dropdown saves: the variable name wrapped in `var()`.
+   - `name` is what editors see.
+   - `value` is the color. The site defines `--color-promo` from it automatically, so you don't need to add the variable anywhere else. If it's in both lists, give both the same value.
+2. That's it for editors: it shows up in every dropdown that uses that list.
+3. **Using it in your own CSS?** Add a fallback in case a site doesn't have it: `color: var(--color-promo, var(--color-brand));`
 
 ### Contrast sections
 

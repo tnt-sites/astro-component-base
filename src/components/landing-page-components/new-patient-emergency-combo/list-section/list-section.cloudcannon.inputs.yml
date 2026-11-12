@@ -9,21 +9,33 @@ headingColor:
   comment: Color of the list section headings.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 listTextColor:
   type: select
   comment: Color of list item text.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 checkmarkColor:
   type: select
   comment: Color of the Fontello checkmark icons.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 items:
   type: array
   comment: Blocks for each image + heading + text

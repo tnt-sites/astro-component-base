@@ -42,7 +42,7 @@ const bgImage = await backgroundImageCss(backgroundImage);
 const backgroundGradientValue =
   typeof backgroundGradient === "string" ? backgroundGradient.trim() : "";
 // Legacy keyword values from before the shared color dropdowns; CSS values
-// (_select_data.brandColors / backgroundColors) pass straight through.
+// (src/data/colors.json text / backgrounds) pass straight through.
 const bgColorMap: Record<string, string> = {
   base: "var(--color-bg)",
   surface: "var(--color-bg-surface)",
@@ -59,7 +59,7 @@ const resolvedBgColor =
     (bgColorMap[backgroundColor] ?? backgroundColor)) ||
   "";
 // Legacy keyword values from before the shared color dropdowns; CSS values
-// (_select_data.brandColors / backgroundColors) pass straight through.
+// (src/data/colors.json text / backgrounds) pass straight through.
 const linkColorMap: Record<string, string> = {
   white: "#fff",
   brand: "var(--color-brand)",

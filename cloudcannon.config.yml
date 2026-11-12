@@ -96,6 +96,7 @@ collections_config:
     name: Branding
     glob:
       - branding.json
+      - colors.json
     icon: palette
     disable_url: true
     _enabled_editors:
@@ -133,25 +134,47 @@ collections_config:
         type: color
         cascade: true
         comment: Hyperlink hover color (--color-link-hover).
-      extraColors:
+      text:
         type: array
-        cascade: true
-        comment: Additional CSS color variable overrides for custom tokens.
+        comment: Options in every text, border, icon and accent color dropdown. Add custom colors at the end.
         options:
           structures:
             values:
-              - value:
-                  variable: ""
+              - label: Color
+                value:
+                  id: ""
+                  name: ""
                   value: ""
-                label: Color Override
-      $.extraColors[*].variable:
+                preview:
+                  text:
+                    - key: name
+                  subtext:
+                    - key: id
+      backgrounds:
+        type: array
+        comment: Options in every background color dropdown (cards, bars, buttons). Add custom colors at the end.
+        options:
+          structures:
+            values:
+              - label: Color
+                value:
+                  id: ""
+                  name: ""
+                  value: ""
+                preview:
+                  text:
+                    - key: name
+                  subtext:
+                    - key: id
+      id:
         type: text
-        cascade: true
-        comment: "CSS variable name including --, e.g. --color-header-bg"
-      $.extraColors[*].value:
+        comment: "What the dropdown saves: the CSS variable wrapped in var(), e.g. var(--color-promo). Don't change the id of a color pages already use."
+      name:
+        type: text
+        comment: The name editors see in the dropdown, e.g. Promo.
+      value:
         type: color
-        cascade: true
-        comment: The color value.
+        comment: "Custom colors only: the color for this variable. Leave empty for the built-in theme colors, which are set in Branding or the theme."
       bodyFont:
         type: object
         cascade: true
@@ -911,77 +934,22 @@ _inputs:
     type: image
     comment: The logo image for the top navigation.
     cascade: true
-# Data files exposed to inputs. `fonts` feeds the per-section fontHeadings /
-# fontBody dropdowns on landing and PEP sections (see src/components/utils/sectionFonts.ts).
+# Data files exposed to inputs.
+# - fonts: the per-section fontHeadings / fontBody dropdowns on landing and PEP
+#   sections (see src/components/utils/sectionFonts.ts).
+# - colors: the shared color dropdowns. Every color field on location, landing
+#   and PEP sections uses `data.colors.text` (text, border, icon and accent
+#   colors) or `data.colors.backgrounds` (backgrounds set directly as CSS: cards,
+#   buttons, bars), so editors always see the same options. Each option saves a
+#   CSS value such as var(--color-brand). Custom colors are added in
+#   src/data/colors.json (Branding > Colors in CloudCannon): give the entry a
+#   `value` and BaseLayout defines the CSS variable from it.
 data_config:
   fonts:
     path: src/data/fonts.json
+  colors:
+    path: src/data/colors.json
 _select_data:
-  # Shared color dropdowns. Every color field on location, landing and PEP
-  # sections uses one of these three lists, so editors always see the same
-  # options and colors stay tied to the branding tokens (src/data/branding.json /
-  # src/styles/themes/_default.pcss) instead of one-off hex values.
-  #
-  # brandColors: text, border, icon and accent colors (CSS values).
-  brandColors:
-    - id: var(--color-brand)
-      name: Brand
-    - id: var(--color-brand-secondary)
-      name: Brand Secondary
-    - id: var(--color-brand-muted)
-      name: Brand Tertiary
-    - id: var(--color-brand-subtle)
-      name: Brand Subtle
-    - id: var(--color-text)
-      name: Text
-    - id: var(--color-text-strong)
-      name: Text Strong
-    - id: var(--color-text-muted)
-      name: Text Muted
-    - id: var(--color-text-on-brand)
-      name: Text On Brand
-    - id: var(--color-text-inverse)
-      name: Text Inverse
-    - id: var(--color-link)
-      name: Link
-    - id: var(--color-link-hover)
-      name: Link Hover
-    - id: var(--color-star)
-      name: Star
-    - id: var(--color-border)
-      name: Border
-    - id: var(--color-bg-dark)
-      name: Dark
-    - id: "#000000"
-      name: Black
-    - id: "#ffffff"
-      name: White
-  # backgroundColors: backgrounds set directly as CSS (cards, buttons, bars).
-  backgroundColors:
-    - id: transparent
-      name: None
-    - id: var(--color-bg)
-      name: Base
-    - id: var(--color-bg-surface)
-      name: Surface
-    - id: var(--color-bg-muted)
-      name: Muted
-    - id: var(--color-bg-accent)
-      name: Accent
-    - id: var(--color-bg-highlight)
-      name: Highlight
-    - id: var(--color-bg-brand)
-      name: Brand
-    - id: var(--color-bg-brand-secondary)
-      name: Brand Secondary
-    - id: var(--color-bg-brand-muted)
-      name: Brand Tertiary
-    - id: var(--color-bg-dark)
-      name: Dark
-    - id: var(--color-bg-black)
-      name: Black
-    - id: "#ffffff"
-      name: White
   # sectionBackgrounds: the `backgroundColor` prop of CustomSection, which maps
   # each id to a bg-{id} class (see CustomSection.astro).
   sectionBackgrounds:

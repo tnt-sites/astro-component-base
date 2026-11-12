@@ -11,7 +11,7 @@ const {
   ...rest
 } = Astro.props;
 
-// CSS value from _select_data.backgroundColors; bare keywords (e.g. "accent")
+// CSS value from src/data/colors.json "backgrounds"; bare keywords (e.g. "accent")
 // are legacy values and map to the matching --color-bg-* token.
 const blurbBg =
   !blurbBackgroundColor || blurbBackgroundColor === "none"

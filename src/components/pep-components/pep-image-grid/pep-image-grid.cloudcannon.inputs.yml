@@ -30,21 +30,33 @@ cardBackgroundColor:
   comment: Background color behind each image or video tile.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 captionBackgroundColor:
   type: select
   comment: Background color behind each figcaption.
   options:
     allow_empty: true
-    values: _select_data.backgroundColors
+    values: data.colors.backgrounds
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 captionTextColor:
   type: select
   comment: Text color of each figcaption.
   options:
     allow_empty: true
-    values: _select_data.brandColors
+    values: data.colors.text
+    value_key: id
+    preview:
+      text:
+        - key: name
 
 heading:
   type: text
