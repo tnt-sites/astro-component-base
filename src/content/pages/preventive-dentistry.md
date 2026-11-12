@@ -5,6 +5,7 @@ pageSections:
   - _component: page-sections/heroes/hero-split
     id: ''
     eyebrow: Service - City, ST
+    eyebrowColor: ''
     heading: Preventive Dentistry
     subtext: Subtitle placeholder text that will be replaced with actual content.
     imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
@@ -131,8 +132,7 @@ pageSections:
         iconPosition: before
       - _component: building-blocks/core-elements/text
         id: ''
-        text: >-
-          Preventive care includes routine exams, digital x-rays when needed,
+        text: Preventive care includes routine exams, digital x-rays when needed,
           personalized hygiene recommendations, and early treatment planning to
           help avoid more complex procedures.
         alignX: start
@@ -214,8 +214,7 @@ pageSections:
   - _component: page-sections/services/emergency-grid
     id: ''
     heading: Most Common Dental Emergencies
-    subtext: >-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+    subtext: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     backgroundImage:
       source:
@@ -237,9 +236,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Chipped Tooth
@@ -255,9 +253,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Cracked Tooth
@@ -273,9 +270,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Sensitivity to Hot and Cold
@@ -291,9 +287,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Loose Tooth
@@ -309,9 +304,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Jaw Pain or Clenching
@@ -327,9 +321,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Knocked-Out Tooth
@@ -345,9 +338,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Lost Filling or Crown
@@ -363,9 +355,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Broken Denture
@@ -381,9 +372,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Gum, Lip or Tongue Injury
@@ -399,9 +389,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
       - _component: page-sections/services/emergency-grid/emergency-item
         title: Something Stuck Between Teeth
@@ -417,9 +406,8 @@ pageSections:
             iconPosition: before
           - _component: building-blocks/core-elements/text
             id: ''
-            text: >-
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.
             alignX: start
     enableModals: true
     backgroundColor: base
@@ -762,6 +750,39 @@ pageSections:
     backgroundImage:
       source:
       alt:
+      positionVertical: top
+      positionHorizontal: center
+  - _component: page-sections/services/smile-gallery
+    id: ''
+    heading:
+    beforeLabel: Before
+    afterLabel: After
+    aspectRatio: none
+    gallerySlides:
+      - layout: pair
+        beforeImage:
+          source: ''
+          alt: ''
+        afterImage:
+          source: ''
+          alt: ''
+        beforeCloseup:
+          source: /src/assets/images/component-library/profile1.jpg
+          alt: Patient
+        afterCloseup:
+          source: /src/assets/images/component-library/profile2.jpg
+          alt: Patient
+        faceImage:
+          source: ''
+          alt: ''
+        caption: ''
+    slideNumbers: false
+    floatingArrows: false
+    backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
 description: ''
