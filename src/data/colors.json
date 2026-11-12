@@ -1,42 +1,44 @@
 {
   "all": [
     {
+      "name": "None",
+      "id": "transparent",
+      "value": "transparent",
+      "text": false,
+      "background": true
+    },
+    {
       "name": "Brand",
       "id": "var(--color-brand)",
       "value": "green",
-      "sameAs": "",
       "text": true,
-      "background": false
+      "background": true
     },
     {
       "name": "Brand Secondary",
       "id": "var(--color-brand-secondary)",
       "value": "yellow",
-      "sameAs": "",
       "text": true,
-      "background": false
+      "background": true
     },
     {
       "name": "Brand Tertiary",
       "id": "var(--color-brand-muted)",
       "value": "#ff00ff",
-      "sameAs": "",
       "text": true,
-      "background": false
+      "background": true
     },
     {
       "name": "Brand Subtle",
       "id": "var(--color-brand-subtle)",
       "value": "#6a6a6a",
-      "sameAs": "",
-      "text": true,
+      "text": false,
       "background": false
     },
     {
       "name": "Brand On",
       "id": "var(--color-brand-on)",
       "value": "#ffffff",
-      "sameAs": "",
       "text": false,
       "background": false
     },
@@ -44,7 +46,6 @@
       "name": "Text",
       "id": "var(--color-text)",
       "value": "#2a2a2a",
-      "sameAs": "",
       "text": true,
       "background": false
     },
@@ -52,79 +53,62 @@
       "name": "Text Strong",
       "id": "var(--color-text-strong)",
       "value": "#000000",
-      "sameAs": "",
-      "text": true,
+      "text": false,
       "background": false
     },
     {
       "name": "Text Muted",
       "id": "var(--color-text-muted)",
       "value": "#555555",
-      "sameAs": "",
-      "text": true,
+      "text": false,
       "background": false
     },
     {
       "name": "Text On Brand",
       "id": "var(--color-text-on-brand)",
       "value": "#ffffff",
-      "sameAs": "",
-      "text": true,
+      "text": false,
       "background": false
     },
     {
       "name": "Text Inverse",
       "id": "var(--color-text-inverse)",
       "value": "#ffffff",
-      "sameAs": "",
-      "text": true,
+      "text": false,
       "background": false
     },
     {
       "name": "Link",
       "id": "var(--color-link)",
       "value": "blue",
-      "sameAs": "",
-      "text": true,
+      "text": false,
       "background": false
     },
     {
       "name": "Link Hover",
       "id": "var(--color-link-hover)",
       "value": "darkblue",
-      "sameAs": "",
-      "text": true,
+      "text": false,
       "background": false
     },
     {
       "name": "Star",
       "id": "var(--color-star)",
       "value": "#febb21",
-      "sameAs": "",
-      "text": true,
+      "text": false,
       "background": false
     },
     {
       "name": "Border",
       "id": "var(--color-border)",
       "value": "#aaaaaa",
-      "sameAs": "",
-      "text": true,
-      "background": false
-    },
-    {
-      "name": "None",
-      "id": "transparent",
-      "value": "transparent",
-      "sameAs": "",
       "text": false,
-      "background": true
+      "background": false
     },
     {
       "name": "Base",
       "id": "var(--color-bg)",
       "value": "#ffffff",
-      "sameAs": "",
       "text": false,
       "background": true
     },
@@ -132,7 +116,6 @@
       "name": "Surface",
       "id": "var(--color-bg-surface)",
       "value": "#eaeaea",
-      "sameAs": "",
       "text": false,
       "background": true
     },
@@ -140,79 +123,48 @@
       "name": "Muted",
       "id": "var(--color-bg-muted)",
       "value": "#d4d4d4",
-      "sameAs": "",
       "text": false,
-      "background": true
+      "background": false
     },
     {
       "name": "Accent",
       "id": "var(--color-bg-accent)",
       "value": "#d5fdff",
-      "sameAs": "",
       "text": false,
-      "background": true
+      "background": false
     },
     {
       "name": "Highlight",
       "id": "var(--color-bg-highlight)",
       "value": "#fff9d6",
-      "sameAs": "",
       "text": false,
-      "background": true
-    },
-    {
-      "name": "Brand",
-      "id": "var(--color-bg-brand)",
-      "value": "",
-      "sameAs": "var(--color-brand)",
-      "text": false,
-      "background": true
-    },
-    {
-      "name": "Brand Secondary",
-      "id": "var(--color-bg-brand-secondary)",
-      "value": "",
-      "sameAs": "var(--color-brand-secondary)",
-      "text": false,
-      "background": true
-    },
-    {
-      "name": "Brand Tertiary",
-      "id": "var(--color-bg-brand-muted)",
-      "value": "",
-      "sameAs": "var(--color-brand-muted)",
-      "text": false,
-      "background": true
+      "background": false
     },
     {
       "name": "Dark",
       "id": "var(--color-bg-dark)",
       "value": "#2c363c",
-      "sameAs": "",
-      "text": true,
-      "background": true
+      "text": false,
+      "background": false
     },
     {
       "name": "Black",
       "id": "#000000",
       "value": "#000000",
-      "sameAs": "",
       "text": true,
-      "background": false
+      "background": true
     },
     {
-      "name": "Black",
+      "name": "Black Background",
       "id": "var(--color-bg-black)",
       "value": "#000",
-      "sameAs": "",
       "text": false,
-      "background": true
+      "background": false
     },
     {
       "name": "White",
       "id": "#ffffff",
       "value": "#ffffff",
-      "sameAs": "",
       "text": true,
       "background": true
     },
@@ -220,7 +172,6 @@
       "name": "Red",
       "id": "var(--color-red)",
       "value": "#ff0000",
-      "sameAs": "",
       "text": true,
       "background": true
     }

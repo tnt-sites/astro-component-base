@@ -102,6 +102,8 @@ collections_config:
     _enabled_editors:
       - data
     _inputs:
+      # Color fields are scoped to the colors.json list ($.all[*].…) so they can't
+      # match a same-named field elsewhere in the Branding files.
       all:
         type: array
         comment: "Every color editors can pick, defined once. Each color's value sets its CSS variable site-wide, and the two checkboxes choose which dropdowns it appears in. Add custom colors at the end."
@@ -113,7 +115,6 @@ collections_config:
                   name: ""
                   id: ""
                   value: ""
-                  sameAs: ""
                   text: true
                   background: false
                 preview:
@@ -121,33 +122,20 @@ collections_config:
                     - key: name
                   subtext:
                     - key: id
-      name:
+      $.all[*].name:
         type: text
         comment: The name editors see in the dropdown, e.g. Promo.
-      id:
+      $.all[*].id:
         type: text
         comment: "What the dropdown saves: the CSS variable wrapped in var(), e.g. var(--color-promo). Don't change the id of a color pages already use."
-      value:
+      $.all[*].value:
         type: color
-        comment: The color. Sets the CSS variable named in the id for the whole site. Ignored when "Same as" is set.
-      sameAs:
-        type: select
-        label: Same as
-        comment: Optional. Make this color always match another one, e.g. Brand background follows Brand. Leave empty to use the color above.
-        options:
-          allow_empty: true
-          values: data.colors.all
-          value_key: id
-          preview:
-            text:
-              - key: name
-            subtext:
-              - key: id
-      text:
+        comment: The color. Sets the CSS variable named in the id for the whole site.
+      $.all[*].text:
         type: checkbox
         label: In text color dropdowns
         comment: Show it in text, border, icon and accent color dropdowns.
-      background:
+      $.all[*].background:
         type: checkbox
         label: In background color dropdowns
         comment: Show it in background color dropdowns (sections, cards, buttons, bars).

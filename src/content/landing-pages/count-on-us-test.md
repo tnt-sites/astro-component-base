@@ -65,7 +65,7 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
     id: ""
-    backgroundColor: var(--color-bg-brand)
+    backgroundColor: var(--color-brand)
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome

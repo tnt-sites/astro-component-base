@@ -530,7 +530,6 @@ Each entry looks like this:
 | `name` | What editors see in dropdowns |
 | `id` | The CSS variable, wrapped in `var()`. This is what a dropdown saves |
 | `value` | The color (color picker in CloudCannon). Sets the variable site-wide |
-| `sameAs` | Optional "Same as" dropdown: make this color follow another one. Brand background is set to Brand, so changing Brand changes both. Wins over `value` |
 | `text` | Show it in text, border, icon and accent dropdowns |
 | `background` | Show it in background dropdowns (sections, cards, buttons, bars) |
 
@@ -543,10 +542,12 @@ The main ones:
 | `--color-link` / `--color-link-hover` | Links |
 | `--color-text`, `--color-text-strong`, `--color-text-muted` | Normal, darker and lighter body text |
 | `--color-bg`, `--color-bg-surface`, `--color-bg-muted` | Page, card and light-grey backgrounds |
-| `--color-bg-brand`, `--color-bg-brand-secondary` | Brand-colored backgrounds (they follow the brand colors) |
+| `--color-bg-brand`, `--color-bg-brand-secondary` | Brand-colored backgrounds in component CSS. Aliases for the brand colors (in `_default.pcss`), not separate colors |
 | `--color-border` | Borders and dividers |
 
-A few behind-the-scenes tokens editors never pick (input borders, hover states, social icon colors, focus ring) stay in `src/styles/themes/_default.pcss`.
+The dropdowns are deliberately short: brand colors plus neutrals (Text: Brand, Brand Secondary, Brand Tertiary, Text, Black, White. Background: None, the three brand colors, Base, Surface, Black, White). Colors with both checkboxes off (Text Muted, Link, Border, Accent, Dark…) are still defined for component CSS, just not offered to editors. Tick a checkbox to offer one again.
+
+A few behind-the-scenes tokens (input borders, hover states, social icon colors, focus ring, the `--color-bg-brand*` aliases) stay in `src/styles/themes/_default.pcss`.
 
 **Seeing plain bright green, yellow or magenta on the site?** Those are the starter's placeholder brand colors. Set Brand, Brand Secondary and Brand Tertiary in colors.json to the client's colors.
 

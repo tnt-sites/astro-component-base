@@ -38,7 +38,7 @@ value:
       iconColor: ""
       iconPosition: "middle"
       link: /financing/
-  sectionColor: var(--color-bg-black)
+  sectionColor: "#000000"
   accentColor: "var(--color-brand-secondary)"
 _inputs_from_glob:
   - /src/components/landing-page-components/dental-implants/secondary-callouts/secondary-callouts.cloudcannon.inputs.yml

@@ -62,8 +62,8 @@ landingFooter:
   formButtonBackgroundColor: ''
   formButtonHoverBackgroundColor: ''
   formButtonHoverTextColor: ''
-  footerLinksBackgroundColor: var(--color-bg-brand)
-  footerLinksHoverBackgroundColor: var(--color-bg-brand-secondary)
+  footerLinksBackgroundColor: var(--color-brand)
+  footerLinksHoverBackgroundColor: var(--color-brand-secondary)
   mapEmbedUrl: ''
   contactCardBackgroundColor: ''
   servicesCardBackgroundColor: ''
@@ -113,7 +113,7 @@ landingPageSections:
     headingColor: ''
   - _component: landing-page-components/cosmetic/consultation
     id: ''
-    backgroundColor: var(--color-bg-black)
+    backgroundColor: "#000000"
     heading: Request a FREE Smile Makeover <span>Consultation</span>
     formAction: ''
     formBlocks:

@@ -81,7 +81,7 @@ landingPageSections:
       source: https://placehold.co/680x666
       alt: AI consultation banner image
     borderColor: var(--color-brand)
-    titleBackground: var(--color-bg-brand)
+    titleBackground: var(--color-brand)
     titleColor: var(--color-text-inverse)
     id: ''
   - _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
@@ -128,7 +128,7 @@ landingPageSections:
     logo:
       source: ''
       alt: ''
-    headerColor: var(--color-bg-brand)
+    headerColor: var(--color-brand)
     headerTextColor: var(--color-text-inverse)
     otherColumnLabel: Other Dental Practices
     checkColor: ''

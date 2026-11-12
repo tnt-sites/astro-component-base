@@ -22,7 +22,7 @@ value:
   centerImage:
     source: ""
     alt: Patient with braces and aligners
-  backgroundColor: var(--color-bg-brand)
+  backgroundColor: var(--color-brand)
   headingColor: ""
   textColor: ""
   backgroundImage:

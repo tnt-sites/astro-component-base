@@ -20,6 +20,12 @@
   --color-social-bluesky: var(--cyan-dark);
   --color-social-youtube: var(--red-dark);
 
+  /* Brand backgrounds always match the brand colors in colors.json. Editors
+     pick Brand / Brand Secondary / Brand Tertiary directly, so these are just
+     aliases for component CSS that uses the bg-named tokens. */
+  --color-bg-brand: var(--color-brand);
+  --color-bg-brand-secondary: var(--color-brand-secondary);
+  --color-bg-brand-muted: var(--color-brand-muted);
   --color-bg-inverse: var(--gray-12);
 
   --color-border-inputs: var(--gray-7);

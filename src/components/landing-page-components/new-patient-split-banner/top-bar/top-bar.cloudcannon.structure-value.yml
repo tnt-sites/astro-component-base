@@ -6,7 +6,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
-  backgroundColor: var(--color-bg-brand)
+  backgroundColor: var(--color-brand)
   textColor: "var(--color-text-inverse)"
   items:
     - New Patients Welcome

@@ -172,7 +172,7 @@ landingPageSections:
         iconColor: ""
         iconPosition: "middle"
         link: /financing/
-    sectionColor: var(--color-bg-black)
+    sectionColor: "#000000"
     accentColor: "var(--color-brand-secondary)"
   - _component: landing-page-components/dental-implants/split
     id: ""

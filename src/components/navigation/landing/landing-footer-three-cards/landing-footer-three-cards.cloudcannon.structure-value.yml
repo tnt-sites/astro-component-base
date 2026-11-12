@@ -27,8 +27,8 @@ value:
   formButtonBackgroundColor: ""
   formButtonHoverBackgroundColor: ""
   formButtonHoverTextColor: ""
-  footerLinksBackgroundColor: var(--color-bg-brand)
-  footerLinksHoverBackgroundColor: var(--color-bg-brand-secondary)
+  footerLinksBackgroundColor: var(--color-brand)
+  footerLinksHoverBackgroundColor: var(--color-brand-secondary)
   mapEmbedUrl: ""
   contactCardBackgroundColor: ""
   servicesCardBackgroundColor: ""

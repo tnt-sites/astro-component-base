@@ -16,7 +16,7 @@ value:
   reviewLogo:
     source: https://placehold.co/220x80
     alt: Google logo
-  badgeBackgroundColor: var(--color-bg-black)
+  badgeBackgroundColor: "#000000"
   headingColor: ""
   waveTopImage:
     source: ""

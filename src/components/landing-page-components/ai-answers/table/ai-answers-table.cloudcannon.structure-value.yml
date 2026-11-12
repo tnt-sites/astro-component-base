@@ -15,7 +15,7 @@ value:
   logo:
     source: ""
     alt: ""
-  headerColor: var(--color-bg-brand)
+  headerColor: var(--color-brand)
   headerTextColor: "#ffffff"
   otherColumnLabel: "Other Dental Practices"
   checkColor: ""

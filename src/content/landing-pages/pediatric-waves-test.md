@@ -32,8 +32,8 @@ landingMainNav:
   mobileRequestLabel: Request a FREE Consultation
   mobileRequestHref: ''
   mobileBarBackground: ''
-  mobileCallBackground: var(--color-bg-black)
-  mobileRequestBackground: var(--color-bg-brand-secondary)
+  mobileCallBackground: "#000000"
+  mobileRequestBackground: var(--color-brand-secondary)
   mobileCallTextColor: "#ffffff"
   mobileCallSmallTextColor: "#ffffff"
   mobileRequestTextColor: var(--color-brand)
@@ -105,7 +105,7 @@ landingFooter:
       class: footer-submit-button
   mapEmbedUrl: ''
   questionsLine: Have Questions? Get Answers
-  backgroundColor: var(--color-bg-brand-secondary)
+  backgroundColor: var(--color-brand-secondary)
   officeHoursAlignment: left
   topWaveImage:
     source:
@@ -130,7 +130,7 @@ landingFooter:
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''
-    backgroundColor: var(--color-bg-brand-secondary)
+    backgroundColor: var(--color-brand-secondary)
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome!
@@ -233,7 +233,7 @@ landingPageSections:
     reviewLogo:
       source: https://placehold.co/220x80
       alt: Google logo
-    badgeBackgroundColor: var(--color-bg-brand)
+    badgeBackgroundColor: var(--color-brand)
     headingColor: ''
     waveTopImage:
       source: ''

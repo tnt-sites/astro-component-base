@@ -109,12 +109,12 @@ landingFooter:
   backgroundImage:
     source: ''
     alt: ''
-  backgroundColor: var(--color-bg-brand-secondary)
+  backgroundColor: var(--color-brand-secondary)
   accentColor: var(--color-brand)
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''
-    backgroundColor: var(--color-bg-brand)
+    backgroundColor: var(--color-brand)
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome!
@@ -136,7 +136,7 @@ landingPageSections:
     textPanelBackgroundImage:
       source: ''
       alt: ''
-    sectionBackground: var(--color-bg-black)
+    sectionBackground: "#000000"
     borderBottomColor: var(--color-brand)
   - _component: landing-page-components/invisalign/form-review
     id: ''
@@ -152,7 +152,7 @@ landingPageSections:
       Invisalign and her teeth look amazing.
     reviewerName: Jonathan B.
     sectionSpacingTop: 100px
-    formBackgroundColor: var(--color-bg-brand)
+    formBackgroundColor: var(--color-brand)
     reviewBackgroundColor: "#ffffff"
   - _component: landing-page-components/invisalign/results
     id: ''
@@ -162,7 +162,7 @@ landingPageSections:
         alt: Result 1
       - source: https://placehold.co/460x330
         alt: Result 2
-    backgroundColor: var(--color-bg-brand)
+    backgroundColor: var(--color-brand)
     textColor: '#ffffff'
   - _component: landing-page-components/invisalign/benefits
     id: ''
@@ -182,7 +182,7 @@ landingPageSections:
     centerImage:
       source: https://placehold.co/500x600
       alt: Woman with Invisalign and braces
-    backgroundColor: var(--color-bg-brand)
+    backgroundColor: var(--color-brand)
     backgroundImage:
       source: ''
       alt: ''

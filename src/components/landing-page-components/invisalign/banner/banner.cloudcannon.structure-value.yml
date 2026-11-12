@@ -23,7 +23,7 @@ value:
   textPanelBackgroundImage:
     source: ""
     alt: ""
-  sectionBackground: var(--color-bg-brand)
+  sectionBackground: var(--color-brand)
   borderBottomColor: "var(--color-brand)"
 _inputs_from_glob:
   - /src/components/landing-page-components/invisalign/banner/banner.cloudcannon.inputs.yml

@@ -24,8 +24,8 @@ value:
   mobileRequestLabel: Request an Appointment
   mobileRequestHref: ""
   mobileBarBackground: ""
-  mobileCallBackground: "var(--color-bg-black)"
-  mobileRequestBackground: "var(--color-bg-brand-secondary)"
+  mobileCallBackground: "#000000"
+  mobileRequestBackground: "var(--color-brand-secondary)"
   mobileCallTextColor: ""
   mobileCallSmallTextColor: ""
   mobileRequestTextColor: ""

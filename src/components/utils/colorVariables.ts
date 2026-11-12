@@ -1,9 +1,7 @@
 // Builds the site's color CSS variables from src/data/colors.json, the single
 // source of truth for every color editors can pick (CloudCannon: Branding →
 // colors.json). Each entry whose id is var(--name) defines --name from its
-// `value` (or from `sameAs`, a link to another entry's id), e.g.
-// { "id": "var(--color-brand)", "value": "green" } → --color-brand: green,
-// { "id": "var(--color-bg-brand)", "sameAs": "var(--color-brand)" } → --color-bg-brand: var(--color-brand).
+// `value`, e.g. { "id": "var(--color-brand)", "value": "green" } → --color-brand: green.
 // The same list feeds the text/background dropdowns (filtered by each entry's
 // `text` / `background` flags in the inputs files). _default.pcss only holds
 // tokens that aren't in any dropdown.
@@ -22,9 +20,7 @@ export function colorVariablesCss(): string {
 
   for (const entry of (colorsData.all ?? []) as any[]) {
     const variable = String(entry?.id ?? "").match(/^var\(\s*(--[\w-]+)\s*\)$/)?.[1];
-    // "Same as" links to another color (e.g. var(--color-brand)) and wins over value.
-    const sameAs = typeof entry?.sameAs === "string" ? entry.sameAs.trim() : "";
-    const value = sameAs || (typeof entry?.value === "string" ? entry.value.trim() : "");
+    const value = typeof entry?.value === "string" ? entry.value.trim() : "";
 
     if (variable && value && !colorVars.has(variable)) colorVars.set(variable, value);
   }

@@ -17,7 +17,7 @@ value:
     source: /assets/images/lp-implants-ai-banner.png
     alt: "AI consultation banner image"
   borderColor: "var(--color-brand-secondary)"
-  titleBackground: "var(--color-bg-black)"
+  titleBackground: "#000000"
   titleColor: "var(--color-text-inverse)"
 _inputs_from_glob:
   - /src/components/landing-page-components/ai-answers/banner/ai-answers-banner.cloudcannon.inputs.yml
