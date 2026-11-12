@@ -167,13 +167,6 @@
       "value": "#ffffff",
       "text": true,
       "background": true
-    },
-    {
-      "name": "Red",
-      "id": "var(--color-red)",
-      "value": "#ff0000",
-      "text": true,
-      "background": true
     }
   ]
 }
