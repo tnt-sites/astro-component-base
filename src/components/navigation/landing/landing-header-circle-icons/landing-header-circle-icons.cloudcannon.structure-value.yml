@@ -18,7 +18,6 @@ value:
   offices: []
   backgroundColor: ""
   iconBackgroundColor: ""
-  linkColor: ""
   addressLinkColor: ""
   addressLinkHoverColor: ""
   phoneLinkColor: ""

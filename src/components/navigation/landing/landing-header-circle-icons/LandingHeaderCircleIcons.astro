@@ -11,7 +11,7 @@ const {
   offices = [],
   backgroundColor = "",
   iconBackgroundColor = "",
-  linkColor = "",
+  linkColor: _unusedLinkColor = "", // legacy field, no longer in the CMS; kept so old content doesn't become an HTML attribute
   addressLinkColor = "",
   addressLinkHoverColor = "",
   phoneLinkColor = "",
@@ -87,7 +87,6 @@ const getColorValue = (value: any) => {
 
 const resolvedBg = getColorValue(backgroundColor) || "";
 const resolvedIconBg = getColorValue(iconBackgroundColor) || "";
-const resolvedLinkColor = getColorValue(linkColor) || "";
 const resolvedAddressLinkColor = getColorValue(addressLinkColor) || "";
 const resolvedAddressLinkHoverColor = getColorValue(addressLinkHoverColor) || "";
 const resolvedPhoneLinkColor = getColorValue(phoneLinkColor) || "";
@@ -102,7 +101,6 @@ const resolvedMobileRequestSmallTextColor = getColorValue(mobileRequestSmallText
 const cssVars = [
   resolvedBg && `--lhci-bg: ${resolvedBg}`,
   resolvedIconBg && `--lhci-icon-bg: ${resolvedIconBg}`,
-  resolvedLinkColor && `--lhci-link-color: ${resolvedLinkColor}`,
   resolvedAddressLinkColor && `--lhci-address-link-color: ${resolvedAddressLinkColor}`,
   resolvedAddressLinkHoverColor &&
     `--lhci-address-link-hover-color: ${resolvedAddressLinkHoverColor}`,

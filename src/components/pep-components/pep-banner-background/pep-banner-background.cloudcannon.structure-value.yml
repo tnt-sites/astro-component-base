@@ -16,7 +16,6 @@ value:
   AccentWordColor: ""
   dividerColor: ""
   textColor: ""
-  backgroundColor: ""
   borderColor: ""
 _inputs_from_glob:
   - /src/components/pep-components/pep-banner-background/pep-banner-background.cloudcannon.inputs.yml

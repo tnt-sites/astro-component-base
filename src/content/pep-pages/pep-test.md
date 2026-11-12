@@ -25,7 +25,6 @@ landingMainNav:
   offices: []
   backgroundColor: ""
   iconBackgroundColor: ""
-  linkColor: ""
   mobileCallSmallText: Call Today!
   mobileApptLabel: Request an Appointment
   mobileApptHref: ""
@@ -163,7 +162,6 @@ pepSections:
     AccentWordColor: var(--color-brand)
     dividerColor: ""
     textColor: ""
-    backgroundColor: ""
     borderColor: ""
   - _component: pep-components/callout-circle-images
     id: ""

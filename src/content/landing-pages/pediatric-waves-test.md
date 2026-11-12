@@ -113,11 +113,6 @@ landingFooter:
   formMethod: post
   formSubject: Pediatric Footer Questions
   formRedirect: ''
-  formButtonBorderRadius: 0px
-  formButtonTextColor: ''
-  formButtonBackgroundColor: ''
-  formButtonHoverBackgroundColor: ''
-  formButtonHoverTextColor: ''
   formButton:
     _component: building-blocks/core-elements/button
     text: Send

@@ -55,3 +55,26 @@ size:
         name: 3xl
       - id: 4xl
         name: 4xl
+iconColor:
+  type: select
+  comment: Color of the list item's icon. These are the icon component's built-in color styles.
+  options:
+    values:
+      - id: default
+        name: Default
+      - id: blue
+        name: Blue
+      - id: green
+        name: Green
+      - id: yellow
+        name: Yellow
+      - id: orange
+        name: Orange
+      - id: red
+        name: Red
+      - id: purple
+        name: Purple
+      - id: pink
+        name: Pink
+      - id: cyan
+        name: Cyan

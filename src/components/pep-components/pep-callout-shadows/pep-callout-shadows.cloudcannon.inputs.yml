@@ -9,6 +9,20 @@ headingBackgroundColor:
     allow_empty: true
     values: _select_data.backgroundColors
 
+headingTextColor:
+  type: select
+  comment: Color of the main heading text. Leave blank for the default (inverse text).
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+
+itemHeadingColor:
+  type: select
+  comment: Color of each card's heading. Leave blank for the default text color.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+
 shadowColor:
   type: select
   comment: Color of the card shadow. Uses the same color tokens as headings. Choose a theme color or use a preset.
