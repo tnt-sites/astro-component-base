@@ -114,7 +114,6 @@ landingPageSections:
       alt: ''
     figcaption: ''
     backgroundColor: none
-    borderColor: var(--color-brand)
   - _component: landing-page-components/new-patient-emergency-combo/list-section
     id: ''
     heading:
@@ -160,7 +159,7 @@ landingPageSections:
       relaxing atmosphere.</p><p><span class="big-text">We want you to
       love</span> visiting Dental Site.</p>
     backgroundColor: base
-    textColor: black
+    textColor: ''
     blurbBackgroundColor: "#ffffff"
   - _component: landing-page-components/new-patient-emergency-combo/split-section
     id: ''

@@ -170,6 +170,90 @@ pageSections:
     backgroundColor: base
     slideNumbers: true
     floatingArrows: true
+  - _component: page-sections/services/smile-gallery
+    id: ''
+    heading: Smile Gallery
+    beforeLabel: Before
+    afterLabel: After
+    aspectRatio: landscape
+    gallerySlides:
+      - layout: pair
+        beforeImage:
+          source: /src/assets/images/component-library/profile1.jpg
+          alt: ''
+        afterImage:
+          source: /src/assets/images/component-library/profile2.jpg
+          alt: ''
+        beforeCloseup:
+          source: ''
+          alt: ''
+        afterCloseup:
+          source: ''
+          alt: ''
+        faceImage:
+          source: ''
+          alt: ''
+        caption: Porcelain veneers
+      - layout: closeup
+        beforeImage:
+          source: /src/assets/images/component-library/profile3.jpg
+          alt: ''
+        afterImage:
+          source: /src/assets/images/component-library/profile4.jpg
+          alt: ''
+        beforeCloseup:
+          source: /src/assets/images/component-library/castle.jpg
+          alt: ''
+        afterCloseup:
+          source: /src/assets/images/component-library/sunset.jpg
+          alt: ''
+        faceImage:
+          source: ''
+          alt: ''
+        caption: ''
+      - layout: face-left
+        beforeImage:
+          source: ''
+          alt: ''
+        afterImage:
+          source: ''
+          alt: ''
+        beforeCloseup:
+          source: /src/assets/images/component-library/castle.jpg
+          alt: ''
+        afterCloseup:
+          source: /src/assets/images/component-library/sunset.jpg
+          alt: ''
+        faceImage:
+          source: /src/assets/images/component-library/profile5.jpg
+          alt: ''
+        caption: ''
+      - layout: face-right
+        beforeImage:
+          source: ''
+          alt: ''
+        afterImage:
+          source: ''
+          alt: ''
+        beforeCloseup:
+          source: /src/assets/images/component-library/castle.jpg
+          alt: ''
+        afterCloseup:
+          source: /src/assets/images/component-library/sunset.jpg
+          alt: ''
+        faceImage:
+          source: /src/assets/images/component-library/profile5.jpg
+          alt: ''
+        caption: ''
+    slideNumbers: false
+    floatingArrows: false
+    backgroundColor: base
+    backgroundGradient: ''
+    backgroundImage:
+      source: ''
+      alt: ''
+      positionVertical: top
+      positionHorizontal: center
   - _component: page-sections/ctas/more-to-explore
     id: ''
     heading: More to <span class="color">Explore</span>

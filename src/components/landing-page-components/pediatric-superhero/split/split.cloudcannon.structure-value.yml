@@ -7,6 +7,7 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: base
+  textColor: ""
   heading: "Friendly <span>Expertise</span>"
   paragraphs:
     - body: We want kids to love visiting the dentist. That is why our team provides one-on-one attention to every child.

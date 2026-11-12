@@ -6,6 +6,8 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
+  headingColor: ""
+  textColor: ""
   heading: Invisalign Day
   preHeading: Join Us For
   postHeading: July 15th

@@ -13,6 +13,8 @@ value:
       path: privacy-policy.html
   legalBlurb: ""
   backgroundColor: ""
+  headingColor: ""
+  textColor: ""
   linkColor: var(--color-brand)
   linkHoverColor: var(--color-brand-secondary)
   addressLinkColor: ""

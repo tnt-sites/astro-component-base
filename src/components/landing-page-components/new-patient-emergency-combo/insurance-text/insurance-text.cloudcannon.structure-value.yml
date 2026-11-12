@@ -9,6 +9,8 @@ value:
   heading: "Insurance Text Heading"
   text: "Insurance Text"
   backgroundColor: base
+  headingColor: ""
+  textColor: ""
   images:
   imageType: logos
 _inputs_from_glob:

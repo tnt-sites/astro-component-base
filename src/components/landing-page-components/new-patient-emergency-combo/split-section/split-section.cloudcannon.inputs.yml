@@ -4,6 +4,18 @@ backgroundColor:
   options:
     allow_empty: true
     values: _select_data.sectionBackgrounds
+headingColor:
+  type: select
+  comment: Color of the headings in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
 desktopImage:
   type: object
   comment: Image configuration for the desktop section.

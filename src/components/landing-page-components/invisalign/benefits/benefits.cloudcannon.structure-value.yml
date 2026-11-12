@@ -23,6 +23,8 @@ value:
     source: ""
     alt: Patient with braces and aligners
   backgroundColor: var(--color-bg-brand)
+  headingColor: ""
+  textColor: ""
   backgroundImage:
     source: ""
     alt: ""

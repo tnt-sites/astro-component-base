@@ -1,0 +1,366 @@
+---
+// Copy of office-tour: same carousel, arrows, pager and slide-number styles.
+// Each slide shows a before/after pair. Slide layouts:
+//   pair       - before | after
+//   closeup    - adds a second row (full face on top, smile closeup below) to both columns
+//   face-left  - one large faceImage, with the before/after closeups stacked on the right
+//   face-right - same, mirrored
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import Carousel from "@wrappers/carousel/Carousel.astro";
+import CarouselSlide from "@wrappers/carousel/CarouselSlide.astro";
+
+const {
+  heading = "",
+  beforeLabel = "Before",
+  afterLabel = "After",
+  aspectRatio = "landscape",
+  backgroundColor = "base",
+  backgroundGradient = "",
+  backgroundImage,
+  gallerySlides = [],
+  slideNumbers = true,
+  floatingArrows = false,
+  class: className,
+  editable = true,
+  ...rest
+} = Astro.props;
+
+const slides = Array.isArray(gallerySlides)
+  ? gallerySlides.filter((slide) => slide && typeof slide === "object")
+  : [];
+
+const htmlAttributes = Object.fromEntries(
+  Object.entries(rest).filter(([key]) => key !== "_component")
+);
+
+const ratio = aspectRatio === "none" ? null : aspectRatio;
+
+// Peek mode: add class="peek" in the CMS to show flanking slides at reduced opacity.
+const isPeek = String(className ?? "")
+  .split(" ")
+  .includes("peek");
+
+// Each column (before / after) lists its photos top to bottom.
+const columns = [
+  { side: "before", label: beforeLabel, labelProp: "beforeLabel", image: "beforeImage", closeup: "beforeCloseup" },
+  { side: "after", label: afterLabel, labelProp: "afterLabel", image: "afterImage", closeup: "afterCloseup" },
+];
+---
+
+<CustomSection
+  class:list={["smile-gallery", className, slideNumbers ? "slide-numbers" : "", floatingArrows ? "floating-arrows" : ""]}
+  maxContentWidth={isPeek ? undefined : "2xl"}
+  paddingHorizontal="none"
+  paddingVertical="4xl"
+  colorScheme="default"
+  backgroundColor={backgroundColor}
+  backgroundGradient={backgroundGradient}
+  backgroundImage={backgroundImage}
+  {...htmlAttributes}
+>
+  {
+    heading && (
+      <Heading level="h2" size="lg" alignX="center" data-prop="heading" text={heading} />
+    )
+  }
+
+  <Carousel
+    label={heading || "Smile gallery"}
+    class="smile-gallery-carousel"
+    maxSlideWidth={isPeek ? 800 : 0}
+    autoPlay={false}
+    autoScroll={false}
+    editable={false}
+    {...(isPeek ? { "data-no-contain-scroll": true, "data-slides-to-scroll": "1" } : {})}
+  >
+    {
+      slides.map((slide: any, index: number) => (
+        <CarouselSlide aria-label={`Slide ${index + 1} of ${slides.length}`}>
+          {slide.layout === "face-left" || slide.layout === "face-right" ? (
+            <div class:list={["pair", "face-layout", "flex", "justify-center", slide.layout === "face-right" && "flex-row-reverse"]}>
+              <figure class="face">
+                <Image
+                  source={slide.faceImage?.source}
+                  alt={slide.faceImage?.alt}
+                  editable={editable}
+                  data-prop-src={`gallerySlides.${index}.faceImage.source`}
+                  data-prop-alt={`gallerySlides.${index}.faceImage.alt`}
+                />
+              </figure>
+              <div class="closeups">
+                {columns.map((column) => (
+                  <figure class={column.side}>
+                    <Image
+                      source={slide[column.closeup]?.source}
+                      alt={slide[column.closeup]?.alt}
+                      aspectRatio={ratio}
+                      editable={editable}
+                      data-prop-src={`gallerySlides.${index}.${column.closeup}.source`}
+                      data-prop-alt={`gallerySlides.${index}.${column.closeup}.alt`}
+                    />
+                    {column.label && (
+                      <figcaption
+                        {...(editable ? { "data-editable": "text", "data-type": "span", "data-prop": column.labelProp } : {})}
+                      >
+                        {column.label}
+                      </figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            </div>
+          ) : (
+          <div class:list={["pair", "flex", "justify-center", `layout-${slide.layout || "pair"}`]}>
+            {columns.map((column) => (
+              <figure class={column.side}>
+                <Image
+                  source={slide[column.image]?.source}
+                  alt={slide[column.image]?.alt}
+                  aspectRatio={ratio}
+                  editable={editable}
+                  data-prop-src={`gallerySlides.${index}.${column.image}.source`}
+                  data-prop-alt={`gallerySlides.${index}.${column.image}.alt`}
+                />
+                {slide.layout === "closeup" && (
+                  <Image
+                    class="closeup"
+                    source={slide[column.closeup]?.source}
+                    alt={slide[column.closeup]?.alt}
+                    aspectRatio={ratio}
+                    editable={editable}
+                    data-prop-src={`gallerySlides.${index}.${column.closeup}.source`}
+                    data-prop-alt={`gallerySlides.${index}.${column.closeup}.alt`}
+                  />
+                )}
+                {column.label && (
+                  <figcaption
+                    {...(editable ? { "data-editable": "text", "data-type": "span", "data-prop": column.labelProp } : {})}
+                  >
+                    {column.label}
+                  </figcaption>
+                )}
+              </figure>
+            ))}
+          </div>
+          )}
+          {slide.caption && (
+            <p
+              class="caption"
+              {...(editable ? { "data-editable": "text", "data-type": "span", "data-prop": `gallerySlides.${index}.caption` } : {})}
+            >
+              {slide.caption}
+            </p>
+          )}
+        </CarouselSlide>
+      ))
+    }
+  </Carousel>
+
+  {
+    slideNumbers && slides.length > 0 && (
+      <div class="carousel-slide-number">
+        1 / {slides.length}
+      </div>
+    )
+  }
+</CustomSection>
+
+<style>
+  .pair {
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0 20px;
+  }
+
+  figure {
+    flex: 1 1 0;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .pair :global(.image.closeup) {
+    margin-top: 20px;
+  }
+
+  /* Full face left/right: the face photo fills the height of the stacked closeups. */
+  .face-layout .face {
+    flex: 6 1 0;
+  }
+
+  .face-layout .face :global(.image),
+  .face-layout .face :global(picture),
+  .face-layout .face :global(img) {
+    height: 100%;
+  }
+
+  .face-layout .face :global(img) {
+    object-fit: cover;
+  }
+
+  .closeups {
+    flex: 5 1 0;
+    min-width: 0;
+  }
+
+  .closeups figure + figure {
+    margin-top: 20px;
+  }
+
+  figcaption {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .caption {
+    margin: 15px 0 0;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .pair {
+      gap: 10px;
+      padding: 0 15px;
+    }
+
+    .pair :global(.image.closeup),
+    .closeups figure + figure {
+      margin-top: 10px;
+    }
+
+    figcaption {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<style is:global>
+  .smile-gallery {
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+  }
+
+  .smile-gallery .carousel {
+    position: relative;
+  }
+
+  .smile-gallery:not(.peek) .carousel .viewport {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+  /* PEEK LAYOUT — add class="peek" in the CMS */
+  .smile-gallery.peek .smile-gallery-carousel {
+    margin-inline: calc(-1 * var(--spacing-lg));
+    width: calc(100% + 2 * var(--spacing-lg));
+  }
+
+  .smile-gallery.peek {
+    overflow: hidden;
+  }
+
+  .smile-gallery.peek .smile-gallery-carousel > .viewport {
+    overflow: visible;
+  }
+
+  .smile-gallery .viewport > .track {
+    align-items: center;
+  }
+
+  .smile-gallery.peek .slide {
+    margin: 0 20px;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+
+  .smile-gallery.peek .slide.is-snapped {
+    opacity: 1;
+  }
+
+  .smile-gallery.floating-arrows .carousel > .controls-wrapper > .prev,
+  .smile-gallery.floating-arrows .carousel > .controls-wrapper > .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .smile-gallery .carousel > .controls-wrapper > .prev {
+    left: 0.5rem;
+  }
+
+  .smile-gallery .carousel > .controls-wrapper > .next {
+    right: 0.5rem;
+  }
+
+  /* Only hide the pager indicators if slideNumbers is true */
+  .smile-gallery.slide-numbers .carousel > .controls-wrapper > .indicators {
+    display: none;
+  }
+
+  /* Slide number overlay (same as office-tour; repeated so this works on pages without one) */
+  .carousel-slide-number {
+    display: table;
+    font-size: 1.2rem;
+    margin: 0;
+    text-align: center;
+  }
+</style>
+
+<!-- Only run the slide number script if slideNumbers is true -->
+{slideNumbers && (
+  <script is:inline type="module">
+    const sections = document.querySelectorAll(".smile-gallery.slide-numbers");
+
+    sections.forEach((section) => {
+      const carousel = section.querySelector(".carousel");
+      const counter = section.querySelector(".carousel-slide-number");
+      const controlsWrapper = carousel?.querySelector(".controls-wrapper");
+
+      if (!carousel || !counter || !controlsWrapper) return;
+
+      const nextButton = controlsWrapper.querySelector(".next");
+      if (nextButton && !controlsWrapper.contains(counter)) {
+        controlsWrapper.insertBefore(counter, nextButton);
+      } else if (!controlsWrapper.contains(counter)) {
+        controlsWrapper.appendChild(counter);
+      }
+
+      const waitForIndicators = () => {
+        const indicators = carousel.querySelectorAll(".indicator");
+        if (indicators.length === 0) {
+          requestAnimationFrame(waitForIndicators);
+          return;
+        }
+
+        const updateCounter = () => {
+          const currentIndicators = Array.from(carousel.querySelectorAll(".indicator"));
+          const activeIndex = currentIndicators.findIndex(
+            (dot) =>
+              dot.getAttribute("aria-selected") === "true" ||
+              dot.getAttribute("data-selected") === "true"
+          );
+
+          counter.textContent = `${(activeIndex >= 0 ? activeIndex : 0) + 1} / ${currentIndicators.length}`;
+        };
+
+        updateCounter();
+
+        const observer = new MutationObserver(updateCounter);
+        observer.observe(carousel, {
+          subtree: true,
+          attributes: true,
+          attributeFilter: ["aria-selected", "data-selected"],
+        });
+      };
+
+      waitForIndicators();
+    });
+  </script>
+)}

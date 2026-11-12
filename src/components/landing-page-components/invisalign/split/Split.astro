@@ -8,6 +8,7 @@ const {
   image = { source: "", alt: "" },
   figcaption = "",
   reverse = false,
+  backgroundColor = "none",
   class: className,
   ...rest
 } = Astro.props;
@@ -21,7 +22,7 @@ const htmlAttributes = Object.fromEntries(
   class:list={["invis-split", reverse && "is-reverse", className]}
   paddingVertical="none"
   paddingHorizontal="md"
-  backgroundColor="none"
+  backgroundColor={backgroundColor}
   {...htmlAttributes}
 >
   <div class="split-row">
@@ -66,7 +67,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .invis-split h2 {
-    color: var(--color-brand-secondary);
+    color: var(--section-heading-color, var(--color-brand-secondary));
     font-family: var(--font-headings);
     font-size: 55px;
     font-weight: 400;
@@ -77,7 +78,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .invis-split p {
-    color: #000;
+    color: var(--section-text-color, #000);
     font-family: var(--font-body);
     font-size: 18px;
     line-height: 30px;

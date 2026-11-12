@@ -4,6 +4,18 @@ backgroundColor:
   options:
     allow_empty: true
     values: _select_data.sectionBackgrounds
+headingColor:
+  type: select
+  comment: Color of the headings in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
 image:
   type: object
   comment: Image configuration for the hero section.
@@ -69,13 +81,6 @@ badges:
 reverse:
   type: checkbox
   comment: Reverse layout so the image appears on the left.
-
-borderColor:
-  type: select
-  comment: Color of the decorative bottom border on the hero.
-  options:
-    allow_empty: true
-    values: _select_data.brandColors
 
 fontHeadings:
   type: select

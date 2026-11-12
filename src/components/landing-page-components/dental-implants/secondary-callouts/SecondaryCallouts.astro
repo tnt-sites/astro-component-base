@@ -91,7 +91,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .di-secondary-callouts .card {
-    color: #fff;
+    color: var(--section-text-color, #fff);
     flex: 0 1 255px;
     text-decoration: none;
   }
@@ -125,7 +125,7 @@ const htmlAttributes = Object.fromEntries(
 
   .di-secondary-callouts h3 {
     align-items: center;
-    color: var(--di-section-color, var(--color-bg-dark));
+    color: var(--section-heading-color, var(--di-section-color, var(--color-bg-dark)));
     display: flex;
     flex-direction: column;
     font-family: var(--font-headings);

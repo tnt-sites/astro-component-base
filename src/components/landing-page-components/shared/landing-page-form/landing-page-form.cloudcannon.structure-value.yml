@@ -65,6 +65,8 @@ value:
       text: Send
       variant: primary
   backgroundColor: base
+  headingColor: ""
+  textColor: ""
   backgroundGradient: ""
   backgroundImage:
     source: null

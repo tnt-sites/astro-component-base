@@ -54,7 +54,8 @@ value:
       class: footer-submit-button
   mapEmbedUrl: ""
   questionsLine: Have Questions? Get Answers
-  backgroundColor: brand-secondary
+  backgroundColor: "var(--color-bg-brand-secondary)"
+  textColor: ""
   officeHoursAlignment: right
   topWaveImage:
     source: ""

@@ -13,6 +13,7 @@ value:
     - source: https://placehold.co/460x330
       alt: Result two
   backgroundColor: ""
+  headingColor: ""
   textColor: "#ffffff"
 _inputs_from_glob:
   - /src/components/landing-page-components/invisalign/results/results.cloudcannon.inputs.yml

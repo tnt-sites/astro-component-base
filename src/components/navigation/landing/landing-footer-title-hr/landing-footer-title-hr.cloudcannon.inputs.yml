@@ -118,6 +118,12 @@ backgroundColor:
   options:
     allow_empty: true
     values: _select_data.backgroundColors
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
 headingColor:
   type: select
   comment: "Color applied to the h3 headings and hr dividers in each column."

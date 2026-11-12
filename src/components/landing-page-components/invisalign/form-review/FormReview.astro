@@ -182,13 +182,13 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .invis-middle-block .review {
-    color: #000;
+    color: var(--section-text-color, #000);
     position: relative;
     text-align: center;
   }
 
   .invis-middle-block .review h3 {
-    color: var(--color-brand-secondary);
+    color: var(--section-heading-color, var(--color-brand-secondary));
     font-family: var(--font-headings);
     font-size: 45px;
     font-weight: 500;
@@ -197,7 +197,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .invis-middle-block .review p {
-    color: #000;
+    color: var(--section-text-color, #000);
     font-size: 27px;
     line-height: 1.4;
   }

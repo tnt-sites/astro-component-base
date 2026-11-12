@@ -151,7 +151,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .cou-reviews .google-label {
-    color: var(--color-text);
+    color: var(--section-text-color, var(--color-text));
     font-family: var(--font-body);
     font-size: 0.9375rem;
     letter-spacing: 0.1em;
@@ -172,7 +172,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .cou-reviews .quote {
-    color: var(--color-text);
+    color: var(--section-text-color, var(--color-text));
     font-family: var(--font-body);
     font-size: 2.5rem;
     font-weight: 400;
@@ -182,7 +182,7 @@ const htmlAttributes = Object.fromEntries(
   }
 
   .cou-reviews .attribution {
-    color: var(--color-text-muted);
+    color: var(--section-text-color, var(--color-text-muted));
     float: right;
     font-family: var(--font-body);
     font-size: 1rem;

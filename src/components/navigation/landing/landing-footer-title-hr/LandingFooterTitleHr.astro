@@ -17,6 +17,7 @@ const {
   backgroundColor = "",
   headingColor: headingColorProp = "",
   linkColor = "",
+  textColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
@@ -76,6 +77,7 @@ const resolvedHeadingColor = getColorValue(headingColorProp) || "";
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 
 const cssVars = [
+  textColor ? `--section-text-color: ${textColor}; color: ${textColor}` : "",
   bgColor && `--lfth-bg: ${bgColor}`,
   resolvedHeadingColor && `--lfth-heading-color: ${resolvedHeadingColor}`,
   getColorValue(linkColor) && `--footer-link-color: ${getColorValue(linkColor)}`,
@@ -335,7 +337,7 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .copy {
-        color: var(--color-text);
+        color: var(--section-text-color, var(--color-text));
         font-size: var(--font-size-sm);
         letter-spacing: 0.1em;
         line-height: 1.5;

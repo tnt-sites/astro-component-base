@@ -22,6 +22,7 @@ const {
   officeHoursAlignment = "right",
   backgroundColor = "",
   linkColor = "",
+  textColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
@@ -96,6 +97,7 @@ const resolvedPhoneLinkHoverColor =
   "";
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const footerBackgroundStyle = [
+  textColor ? `--section-text-color: ${textColor}; color: ${textColor}` : "",
   bgImage.style,
   backgroundGradientValue ? `--landing-footer-bg-gradient: ${backgroundGradientValue}` : "",
   resolvedBgColor ? `--landing-footer-bg-color: ${resolvedBgColor}` : "",
@@ -384,7 +386,7 @@ const getOfficeHoursEntries = (office: any) => {
       --bg-gradient: var(--landing-footer-bg-gradient, none);
 
       background-color: var(--landing-footer-bg-color, #fff);
-      color: #fff;
+      color: var(--section-text-color, #fff);
       container-type: inline-size;
 
 
@@ -534,7 +536,7 @@ const getOfficeHoursEntries = (office: any) => {
       }
 
       .copy-blurb {
-        color: #fff;
+        color: var(--section-text-color, #fff);
         font-size: var(--font-size-sm);
         line-height: var(--line-height-relaxed);
         margin: 20px auto 0;

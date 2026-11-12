@@ -4,6 +4,12 @@ backgroundColor:
   options:
     allow_empty: true
     values: _select_data.sectionBackgrounds
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
 subheading:
   type: text
   comment: Small text above the main hero heading.

@@ -60,6 +60,18 @@ backgroundColor:
   options:
     allow_empty: true
     values: _select_data.backgroundColors
+headingColor:
+  type: select
+  comment: Color of the headings in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
 linkColor:
   type: select
   comment: Color of phone number links.

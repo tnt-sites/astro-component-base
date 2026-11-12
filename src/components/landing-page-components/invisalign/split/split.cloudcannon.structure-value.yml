@@ -6,6 +6,9 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
+  backgroundColor: none
+  headingColor: ""
+  textColor: ""
   heading: New Smile, New You
   body: Congratulations! You are about to make a decision that will change your life.
   image:

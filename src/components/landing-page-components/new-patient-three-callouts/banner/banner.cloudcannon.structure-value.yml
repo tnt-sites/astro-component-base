@@ -7,6 +7,7 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: base
+  textColor: ""
   subheading: "Reston's"
   heading: "Family-Friendly<br>Dentist"
   badgeImage:

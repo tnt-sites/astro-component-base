@@ -5,6 +5,7 @@ value:
   fontHeadings: ""
   fontBody: ""
   backgroundColor: "var(--color-bg-surface)"
+  textColor: ""
   heading: "Want a new smile?<br>Confused?<br>Need Answers?"
   consultationTitle: "Request a Free Consultation<br>with Our Doctors"
   consultationItems:

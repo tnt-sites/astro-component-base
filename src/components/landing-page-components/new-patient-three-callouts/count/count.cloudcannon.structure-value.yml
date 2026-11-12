@@ -7,6 +7,7 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: base
+  textColor: ""
   overlapBanner: true
   cards:
     - image:

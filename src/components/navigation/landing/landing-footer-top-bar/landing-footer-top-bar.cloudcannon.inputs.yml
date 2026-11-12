@@ -86,6 +86,12 @@ backgroundColor:
   options:
     allow_empty: true
     values: _select_data.backgroundColors
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
 officeHoursAlignment:
   type: select
   comment: Align hours text within each office-hours row while keeping the day and time columns aligned.

@@ -91,6 +91,19 @@ borderBottomColor:
     allow_empty: true
     values: _select_data.brandColors
 
+headingColor:
+  type: select
+  comment: Color of the headings in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+
 fontHeadings:
   type: select
   comment: Heading font for this section. Leave blank to use the site font. Devs add fonts in src/data/fonts.json.

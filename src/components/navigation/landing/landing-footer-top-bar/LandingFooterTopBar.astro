@@ -18,6 +18,7 @@ const {
   accentColor = "",
   officeHoursAlignment = "right",
   linkColor = "",
+  textColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
@@ -156,6 +157,7 @@ const getColorValue = (value: any) => {
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const bgImage = await backgroundImageCss(backgroundImage);
 const bgStyle = [
+  textColor ? `--section-text-color: ${textColor}; color: ${textColor}` : "",
   bgImage.style,
   getColorValue(backgroundColor) ? `--lftb-bg-color: ${getColorValue(backgroundColor)}` : "",
   accentColor ? `--lftb-accent-color: ${accentColor}` : "",
@@ -346,13 +348,13 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .fo-contact {
-        color: #fff;
+        color: var(--section-text-color, #fff);
         flex: 0 1 325px;
         text-align: left;
       }
 
       .fo-title {
-        color: #fff;
+        color: var(--section-text-color, #fff);
         display: block;
         font-weight: 600;
         letter-spacing: 0.1em;
@@ -409,7 +411,7 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .copy {
-        color: #fff;
+        color: var(--section-text-color, #fff);
         font-size: var(--font-size-sm);
         letter-spacing: 0.1em;
         line-height: 1.5;
@@ -440,7 +442,7 @@ const blurb = typeof legalBlurb === "string" ? legalBlurb.trim() : "";
       }
 
       .copy-blurb {
-        color: #fff;
+        color: var(--section-text-color, #fff);
         font-size: var(--font-size-xs);
         letter-spacing: 0;
         line-height: var(--line-height-relaxed);

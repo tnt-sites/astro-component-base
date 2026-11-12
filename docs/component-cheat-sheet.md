@@ -225,6 +225,223 @@ The other Service Splits on the site don't need changing. They have no badge fie
 grep -rln "page-sections/services/service-split" src/content
 ```
 
+## Add a list of things (cards, images, badges)
+
+Use a **list** when editors need to add as many of something as they like: a grid of cards, a row of images, a set of badges. In CloudCannon, editors get **Add**, **Remove** and drag-to-reorder buttons for the list in the sidebar.
+
+Every list works the same way: **a list of items, where each item is a small group of fields**. A card might have an image, a title and some text. A gallery image just has an image and its alt text.
+
+The example below is a **Service Cards** section: a row of cards that wraps onto new lines.
+
+### 1. Decide what one item looks like
+
+In the page file, a Service Cards section with two cards looks like this:
+
+```yaml
+pageSections:
+  - _component: page-sections/services/service-cards
+    heading: Our Services
+    cards:                                   # ← the list
+      - imageSource: /src/assets/images/cleaning.jpg   # ← card 0
+        imageAlt: Patient getting a cleaning
+        title: Cleanings
+        text: Gentle checkups and cleanings for the whole family.
+        link: /preventive-dentistry/
+      - imageSource: /src/assets/images/implant.jpg    # ← card 1
+        imageAlt: Dental implant model
+        title: Dental Implants
+        text: A permanent fix for missing teeth.
+        link: /dental-implants/
+```
+
+### 2. Add the fields editors will see
+
+In `service-cards.cloudcannon.inputs.yml`:
+
+```yaml
+cards:
+  type: array
+  comment: The cards. Add, remove or drag to reorder.
+cards[*].imageSource:
+  type: image
+  comment: Card image.
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ""
+cards[*].imageAlt:
+  type: text
+  comment: Alt text for the card image.
+cards[*].title:
+  type: text
+  comment: Card heading.
+cards[*].text:
+  type: textarea
+  comment: Short description.
+cards[*].link:
+  type: url
+  comment: Page the card links to.
+```
+
+`cards[*].title` means "the `title` field on **every** card".
+
+### 3. Give new sections some starting cards
+
+In `service-cards.cloudcannon.structure-value.yml`, under `value:`, add two or three example cards. When an editor clicks **Add**, CloudCannon copies an existing card, so there has to be at least one to copy:
+
+```yaml
+value:
+  _component: page-sections/services/service-cards
+  heading: Our Services
+  cards:
+    - imageSource: ""
+      imageAlt: ""
+      title: Service name
+      text: Short description of the service.
+      link: ""
+    - imageSource: ""
+      imageAlt: ""
+      title: Service name
+      text: Short description of the service.
+      link: ""
+```
+
+### 4. Show the cards in the component
+
+In `ServiceCards.astro`, loop over the list with `.map`. Each card gets its index, and the index goes in every editable path:
+
+```astro
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+
+const { heading = "", cards = [], ...rest } = Astro.props;
+---
+
+<CustomSection class="service-cards" paddingHorizontal="md" paddingVertical="3xl" maxContentWidth="2xl" {...rest}>
+  <Heading text={heading} alignX="center" data-prop="heading" />
+
+  <ul class="cards">
+    {cards.map((card: any, index: number) => (
+      <li>
+        <a href={card.link}>
+          <figure>
+            <Image
+              source={card.imageSource}
+              alt={card.imageAlt}
+              aspectRatio="landscape"
+              widths={[400, 800]}
+              sizes="(max-width: 768px) 100vw, 380px"
+              data-prop-src={`cards.${index}.imageSource`}
+              data-prop-alt={`cards.${index}.imageAlt`}
+            />
+          </figure>
+          <article>
+            <h3 data-editable="text" data-prop={`cards.${index}.title`}>{card.title}</h3>
+            <p data-editable="text" data-prop={`cards.${index}.text`}>{card.text}</p>
+          </article>
+        </a>
+      </li>
+    ))}
+  </ul>
+</CustomSection>
+
+<style>
+  .service-cards .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+  }
+
+  .service-cards .cards li {
+    flex: 1 1 300px;   /* grow to fill the row, wrap below 300px */
+    max-width: 380px;  /* about 3 per row on desktop */
+    margin: 0;
+  }
+
+  .service-cards .cards a { color: inherit; display: block; text-decoration: none; }
+  .service-cards figure { margin: 0; }
+  .service-cards article { padding: 20px; }
+  .service-cards h3 { margin: 0 0 10px; }
+  .service-cards p { margin: 0; }
+</style>
+```
+
+- **How the row works:** each card is at least 300px wide and at most 380px. The row fits as many as it can (about 3 on desktop, 2 on tablet, 1 on mobile) and wraps the rest onto the next line. No media queries needed.
+- **The paths:** `` `cards.${index}.title` `` means "the `title` of card number `index`". Use the same index name in the `.map(...)` and in every path. See [Items in a list](#items-in-a-list-map) for a breakdown.
+- Plain tags like `<h3>` and `<p>` can be editable too. They need **both** `data-editable="text"` and `data-prop`. With only `data-prop`, there's no error, but the text can't be clicked to edit.
+
+### A simpler list: just images
+
+Same steps, with fewer fields per item. Page file:
+
+```yaml
+images:
+  - source: /src/assets/images/office-1.jpg
+    alt: Our front desk
+  - source: /src/assets/images/office-2.jpg
+    alt: A treatment room
+```
+
+`inputs.yml`:
+
+```yaml
+images:
+  type: array
+  comment: Gallery images. Add, remove or drag to reorder.
+images[*].source:
+  type: image
+  comment: The image.
+  options:
+    paths:
+      uploads: src/assets/images
+      static: ""
+images[*].alt:
+  type: text
+  comment: Alt text for the image.
+```
+
+Component:
+
+```astro
+<ul class="gallery">
+  {images.map((image: any, index: number) => (
+    <li>
+      <Image
+        source={image.source}
+        alt={image.alt}
+        aspectRatio="square"
+        widths={[300, 600]}
+        sizes="300px"
+        data-prop-src={`images.${index}.source`}
+        data-prop-alt={`images.${index}.alt`}
+      />
+    </li>
+  ))}
+</ul>
+```
+
+Use the same flex CSS as the cards (`flex: 1 1 200px; max-width: 300px;` for smaller tiles). For badges or logos, use the [Small images](#small-images-icons-badges-logos) settings instead.
+
+### Adding a list to a component that's already on pages
+
+Sections already on pages don't have the new list yet. Add it to each one in the page file, with at least one item, so editors have something to copy when they click **Add**. Wrap the list in `{cards.length > 0 && ( … )}` so sections with nothing in it don't show an empty row.
+
+### Copying Services Grid instead?
+
+Services Grid builds its cards a different way: each card is its own editable block, so its paths start at the card (`imageSource`), not at the list (`services.0.imageSource`). That's more set-up (a `_structures` block and an `<editable-array-item>` wrapper). For a new list, use the simpler method above.
+
+### Check it
+
+1. `npm run dev`. All the cards or images show up.
+2. Resize the browser: 3 across on desktop, fewer on tablet, 1 on mobile.
+3. Push, then in CloudCannon click a card's title and image to edit them. In the sidebar, try **Add**, **Remove** and dragging to reorder.
+
 ## Add a new service page
 
 The quickest way is to **copy an existing service page** and change the words and pictures. That way the new page gets the same layout as the others.
@@ -280,7 +497,7 @@ The **sitemap page** updates itself.
 
 # Part 2: Components
 
-Jump to: [Gotchas](#gotchas) · [CustomSection](#customsection) · [Image](#image) · [Small images (icons, badges, logos)](#small-images-icons-badges-logos) · [Heading](#heading) · [Text](#text) · [SimpleText](#simpletext) · [Button](#button) · [ButtonGroup](#buttongroup) · [Icon](#icon) · [Wrappers (Split, Card, Carousel, Grid)](#wrappers-split-card-carousel-grid)
+Jump to: [Gotchas](#gotchas) · [Brand colors](#brand-colors-brandingjson) · [CustomSection](#customsection) · [Image](#image) · [Small images (icons, badges, logos)](#small-images-icons-badges-logos) · [Heading](#heading) · [Text](#text) · [SimpleText](#simpletext) · [Button](#button) · [ButtonGroup](#buttongroup) · [Icon](#icon) · [Wrappers (Split, Card, Carousel, Grid)](#wrappers-split-card-carousel-grid)
 
 ---
 
@@ -295,6 +512,108 @@ Jump to: [Gotchas](#gotchas) · [CustomSection](#customsection) · [Image](#imag
 - **Nested fields:** when a prop isn't top-level, tell the visual editor where it lives: `data-prop="hero.heading"` (Heading/Text/Button) or `data-prop-src="image.source" data-prop-alt="image.alt"` (Image).
 
 ---
+
+## Brand colors (branding.json)
+
+Each site's colors are set **once**, in CloudCannon's **Branding** screen (saved in `src/data/branding.json`). The site turns them into CSS variables, and components use the variables. When the client changes their green, every component updates by itself.
+
+**Never type a hex code like `#2a7d4f` in a component.** Use the variable instead.
+
+### Which variable each Branding field becomes
+
+| Branding field | CSS variable | Use it for |
+|---|---|---|
+| `colorBrand` | `--color-brand` | Main brand color: headings, icons, accents |
+| `colorBrandSecondary` | `--color-brand-secondary` | Second brand color |
+| `colorBrandTertiary` | `--color-brand-muted` | Third brand color (the variable's name is different) |
+| `colorBrandSubtle` | `--color-brand-subtle` | A softer brand tint |
+| `colorTextOnBrand` | `--color-text-on-brand` | Text sitting **on** a brand-colored background |
+| `colorLink` / `colorLinkHover` | `--color-link` / `--color-link-hover` | Links |
+
+Other useful variables that are always there:
+
+| Variable | Use it for |
+|---|---|
+| `--color-text`, `--color-text-strong`, `--color-text-muted` | Normal, darker and lighter body text |
+| `--color-bg`, `--color-bg-surface`, `--color-bg-muted` | Page, card and light-grey backgrounds |
+| `--color-bg-brand`, `--color-bg-brand-secondary` | Brand-colored backgrounds |
+| `--color-border` | Borders and dividers |
+
+**Seeing plain bright green, yellow, magenta, red or blue on the site?** Those are the starter's placeholder colors. The template's `branding.json` ships with `green`, `yellow` and `#ff00ff`, and empty fields fall back to red/blue/green. Set each one to the client's color on the Branding screen.
+
+### Use them in a component's CSS
+
+```css
+.service-cards h3 { color: var(--color-brand); }
+.service-cards .tag { background-color: var(--color-bg-brand); color: var(--color-text-on-brand); }
+.service-cards li { border: 1px solid var(--color-border); }
+```
+
+When you put a brand color behind text, set the text to `--color-text-on-brand` so it stays readable.
+
+### Let editors pick a color
+
+Editors never get a free color picker. Every color option uses one of three **shared dropdown lists**, so the choices are the same everywhere:
+
+| List | For | Options look like |
+|---|---|---|
+| `_select_data.brandColors` | Text, borders, icons, accents | Brand, Brand Secondary, Text, Text Muted, Link… |
+| `_select_data.backgroundColors` | Backgrounds of cards, bars, buttons | None, Base, Surface, Brand, Dark, White… |
+| `_select_data.sectionBackgrounds` | Only `CustomSection`'s `backgroundColor` | none, base, surface, accent, brand… |
+
+Example: let editors choose the card title color.
+
+**1. `inputs.yml`:** a dropdown that uses the shared list:
+
+```yaml
+titleColor:
+  type: select
+  comment: Color of the card titles. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+```
+
+**2. `structure-value.yml`:** start it empty:
+
+```yaml
+  titleColor: ""
+```
+
+**3. The `.astro` file:** the dropdown saves a value like `var(--color-brand)`. Pass it into the CSS as a variable:
+
+```astro
+---
+const { titleColor = "", ...rest } = Astro.props;
+---
+
+<CustomSection class="service-cards" style={titleColor ? `--card-title-color: ${titleColor}` : undefined} {...rest}>
+  ...
+</CustomSection>
+
+<style>
+  .service-cards h3 { color: var(--card-title-color, var(--color-brand)); }
+</style>
+```
+
+`var(--card-title-color, var(--color-brand))` means "use the editor's pick, or the brand color if they didn't pick one".
+
+### The client has an extra color
+
+Say the client has a fourth color for promotions.
+
+1. **Add it in Branding:** under **Extra Colors**, add a variable name (with the `--`), e.g. `--color-promo`, and the color.
+2. **Use it in CSS with a fallback**, in case a site doesn't have it set: `color: var(--color-promo, var(--color-brand));`
+3. **Want editors to be able to pick it too?** Add it to the right shared list in `cloudcannon.config.yml`, under `_select_data` → `brandColors` (or `backgroundColors`):
+   ```yaml
+   - id: var(--color-promo)
+     name: Promo
+   ```
+   It then shows up in every color dropdown that uses that list.
+
+### Contrast sections
+
+Sections set to `colorScheme: contrast` (light text on a dark background) deliberately **don't** use the brand colors. They use neutral greys so the text stays readable. If a brand color doesn't show in one of those sections, that's why.
 
 ## CustomSection
 
@@ -821,7 +1140,7 @@ received a value of type 'undefined'. ... the full 'data-prop' path was
 <Text text={dentist.bio} data-prop={`dentists.${index}.bio`} />
 ```
 
-Plain HTML tags work the same way: `` <h3 data-prop={`ways.${index}.title`}>{way.title}</h3> ``
+Plain HTML tags work the same way, but they also need `data-editable="text"`: `` <h3 data-editable="text" data-prop={`ways.${index}.title`}>{way.title}</h3> ``
 
 If the code really does use plain `text`, the section is missing that field. Add `text: ""` to the page file and to the component's `structure-value.yml`.
 

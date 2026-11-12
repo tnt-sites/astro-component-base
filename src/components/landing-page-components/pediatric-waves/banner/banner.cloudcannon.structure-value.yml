@@ -7,6 +7,7 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: base
+  textColor: ""
   subheading: Board-Certified
   heading: "<span>Pediatric</span><br>Dental Care"
   listItems:

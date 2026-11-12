@@ -26,6 +26,7 @@ value:
     source: ""
     alt: ""
   backgroundColor: ""
+  textColor: ""
   accentColor: var(--color-brand)
 preview:
   text:

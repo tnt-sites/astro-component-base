@@ -1,0 +1,117 @@
+label: Smile Gallery
+icon: compare
+description: Before and after carousel. Each slide is one before/after pair, or a full face + closeup pair.
+value:
+  _component: page-sections/services/smile-gallery
+  id: ""
+  heading: Smile Gallery
+  beforeLabel: Before
+  afterLabel: After
+  aspectRatio: landscape
+  gallerySlides: []
+  slideNumbers: false
+  floatingArrows: false
+  backgroundColor: base
+  backgroundGradient: ""
+  backgroundImage:
+    source: ""
+    alt: ""
+    positionVertical: top
+    positionHorizontal: center
+_inputs_from_glob:
+  - /src/components/page-sections/services/smile-gallery/smile-gallery.cloudcannon.inputs.yml
+_structures:
+  gallerySlides:
+    style: modal
+    values:
+      - label: Before & After
+        icon: compare
+        description: One before photo and one after photo, side by side.
+        value: &slideValue
+          layout: pair
+          beforeImage:
+            source: ""
+            alt: ""
+          afterImage:
+            source: ""
+            alt: ""
+          beforeCloseup:
+            source: ""
+            alt: ""
+          afterCloseup:
+            source: ""
+            alt: ""
+          faceImage:
+            source: ""
+            alt: ""
+          caption: ""
+        _inputs: &slideInputs
+          layout:
+            type: select
+            comment: >-
+              Full face + closeup adds a second row for the closeup photos.
+              Full face left/right shows one large face photo with the closeups stacked beside it.
+            options:
+              values:
+                - id: pair
+                  name: Before & After
+                - id: closeup
+                  name: Full face + closeup
+                - id: face-left
+                  name: Full face left, closeups stacked right
+                - id: face-right
+                  name: Full face right, closeups stacked left
+          beforeImage:
+            type: object
+            label: Before photo
+            comment: The full face photo when using the closeup layout. Not used by Full face left/right.
+          afterImage:
+            type: object
+            label: After photo
+            comment: The full face photo when using the closeup layout. Not used by Full face left/right.
+          beforeCloseup:
+            type: object
+            label: Before closeup
+            comment: Shown with the Full face + closeup and Full face left/right layouts.
+          afterCloseup:
+            type: object
+            label: After closeup
+            comment: Shown with the Full face + closeup and Full face left/right layouts.
+          faceImage:
+            type: object
+            label: Full face photo
+            comment: Only shown with the Full face left/right layouts.
+          beforeImage.source: &imageSource
+            type: image
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          afterImage.source: *imageSource
+          beforeCloseup.source: *imageSource
+          afterCloseup.source: *imageSource
+          faceImage.source: *imageSource
+          beforeImage.alt: &imageAlt
+            type: textarea
+            comment: Describe the photo, e.g. "Patient's smile before veneers".
+          afterImage.alt: *imageAlt
+          beforeCloseup.alt: *imageAlt
+          afterCloseup.alt: *imageAlt
+          faceImage.alt: *imageAlt
+          caption:
+            type: text
+            comment: Optional line under the slide, e.g. "Porcelain veneers". Leave empty to hide.
+      - label: Full Face + Closeup
+        icon: compare
+        description: Before and after full face photos, with closeups of the smile below.
+        value:
+          <<: *slideValue
+          layout: closeup
+        _inputs: *slideInputs
+      - label: Full Face + Stacked Closeups
+        icon: compare
+        description: One large full face photo, with the before and after closeups stacked beside it. Use the Layout dropdown to put the face on the left or right.
+        value:
+          <<: *slideValue
+          layout: face-left
+        _inputs: *slideInputs

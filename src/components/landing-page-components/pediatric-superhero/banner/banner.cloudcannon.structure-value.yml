@@ -7,6 +7,7 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: "accent"
+  textColor: ""
   subheading: Board-Certified
   heading: "Pediatric <span>Dental Care</span>"
   tagline: for Your Little Superhero

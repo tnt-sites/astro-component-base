@@ -18,12 +18,27 @@ const {
   style: styleProp,
   fontHeadings,
   fontBody,
+  headingColor,
+  textColor,
   _component,
   ...htmlAttributes
 } = Astro.props;
 
 const bgImage = await backgroundImageCss(backgroundImage);
 const fonts = sectionFonts(fontHeadings, fontBody);
+
+// Per-section text colors (the `headingColor` / `textColor` dropdowns on
+// landing sections, values from _select_data.brandColors). Sections pass them
+// through `...rest` like the fonts. textColor sets `color` on the section so
+// inherited text follows; component CSS that hardcodes a heading or body color
+// should read var(--section-heading-color, <default>) / var(--section-text-color, <default>).
+// A section that destructures its own headingColor/textColor handles it itself.
+const textColors = [
+  headingColor && `--section-heading-color: ${headingColor}`,
+  textColor && `--section-text-color: ${textColor}; color: ${textColor}`,
+]
+  .filter(Boolean)
+  .join("; ");
 
 // `styleProp` is merged rather than spread over: callers such as the pep
 // components and LocationSection pass their own custom properties, and before
@@ -34,6 +49,7 @@ const sectionStyle =
     backgroundGradient && `--section-bg-gradient: ${backgroundGradient}`,
     bgImage.style,
     fonts.style,
+    textColors,
     styleProp,
   ]
     .filter(Boolean)
@@ -67,6 +83,7 @@ if (!htmlAttributes.id && label) {
     "custom-section",
     "bg-layers",
     rounded && "rounded",
+    headingColor && "has-heading-color",
     backgroundColor && backgroundColor !== "none" && `bg-${backgroundColor}`,
     className,
   ]}
@@ -107,6 +124,11 @@ if (!htmlAttributes.id && label) {
       &.rounded {
         border-radius: var(--radius-xl);
         overflow: hidden;
+      }
+
+      /* headingColor dropdown: beats the base-layer heading color. */
+      &.has-heading-color :where(h1, h2, h3, h4, h5, h6) {
+        color: var(--section-heading-color);
       }
 
       > .outer-content {

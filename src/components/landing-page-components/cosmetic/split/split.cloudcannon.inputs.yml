@@ -4,6 +4,12 @@ backgroundColor:
   options:
     allow_empty: true
     values: _select_data.sectionBackgrounds
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
 heading:
   type: textarea
   comment: Section heading (h2). Supports <br> and <span> to apply accent color (e.g. "Nobody Cares <br><span>More</span>").

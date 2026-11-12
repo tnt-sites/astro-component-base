@@ -5,6 +5,13 @@ backgroundColor:
     allow_empty: true
     values: _select_data.backgroundColors
 
+textColor:
+  type: select
+  comment: Color of the body text in this section. Leave empty for the default.
+  options:
+    allow_empty: true
+    values: _select_data.brandColors
+
 heading:
   type: text
   comment: Main heading text. Supports <br> for manual line breaks.

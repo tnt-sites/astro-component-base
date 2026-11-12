@@ -7,6 +7,7 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: surface
+  textColor: ""
   heading: "Request a FREE Smile Makeover <span>Consultation</span>"
   formAction: ""
   formBlocks:

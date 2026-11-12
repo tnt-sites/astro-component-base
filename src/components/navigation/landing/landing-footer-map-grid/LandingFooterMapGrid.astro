@@ -10,6 +10,8 @@ const {
   legalBlurb = "",
   backgroundColor = "",
   linkColor = "",
+  textColor = "",
+  headingColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
@@ -32,6 +34,8 @@ const getColorValue = (value: any) => {
 };
 const resolvedBgColor = getColorValue(backgroundColor);
 const footerBackgroundStyle = [
+  headingColor ? `--section-heading-color: ${headingColor}` : "",
+  textColor ? `--section-text-color: ${textColor}; color: ${textColor}` : "",
   resolvedBgColor ? `--lp-footer-map-grid-bg-color: ${resolvedBgColor}` : "",
   getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
   getColorValue(linkHoverColor)
@@ -178,7 +182,7 @@ const formatAddressLines = (address: any) => {
       }
 
       .lp-footer-map-grid-heading {
-        color: var(--color-text-strong);
+        color: var(--section-heading-color, var(--color-text-strong));
         font-size: var(--font-size-heading-xl);
         font-weight: var(--font-weight-semibold);
         margin-bottom: var(--spacing-lg);

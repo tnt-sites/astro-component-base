@@ -20,6 +20,7 @@ const {
   legalBlurb = "",
   backgroundColor = "",
   linkColor = "",
+  textColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
@@ -50,6 +51,7 @@ const getColorValue = (value: any) => {
 const resolvedOfficeHoursAlignment = officeHoursAlignment === "left" ? "left" : "right";
 const bgColor = getColorValue(backgroundColor);
 const footerBackgroundStyle = [
+  textColor ? `--section-text-color: ${textColor}; color: ${textColor}` : "",
   bgImage.style,
   backgroundGradientValue
     ? `--landing-footer-bg-gradient: ${backgroundGradientValue}`
@@ -377,7 +379,7 @@ const getOfficeHoursEntries = (office: any) => {
 
       background-color: var(--landing-footer-bg-color, var(--color-bg-brand-secondary));
       border-top: 6px solid var(--color-bg-brand);
-      color: #fff;
+      color: var(--section-text-color, #fff);
       container-type: inline-size;
 
 
@@ -542,7 +544,7 @@ const getOfficeHoursEntries = (office: any) => {
       }
 
       .copy-blurb {
-        color: #fff;
+        color: var(--section-text-color, #fff);
         font-size: var(--font-size-sm);
         letter-spacing: 0;
         line-height: var(--line-height-relaxed);

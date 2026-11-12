@@ -7,6 +7,7 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: base
+  textColor: ""
   headingLine1: Count
   headingLine2: On Us
   listItems:

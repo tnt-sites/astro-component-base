@@ -6,6 +6,8 @@ value:
   fontHeadings: ""
   fontBody: ""
   id: ""
+  headingColor: ""
+  textColor: ""
   formHeading: Request a FREE Consultation
   formAction: ""
   formMethod: post

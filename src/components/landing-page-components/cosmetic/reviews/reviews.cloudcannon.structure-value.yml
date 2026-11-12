@@ -7,6 +7,7 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: base
+  textColor: ""
   heading: "Patients Love Us"
   reviewText: "Dr. Smith is so nice and does a great job. His assistant makes my visit enjoyable!"
   author: "Regina W."
@@ -30,7 +31,7 @@ value:
   afterImage:
     source: https://placehold.co/480x360
     alt: A beautiful smile after cosmetic work
-  starColor: "#fcd800"
+  starColor: "var(--color-star)"
   accentColor: ""
   headingColor: ""
   handleColor: ""

@@ -20,6 +20,7 @@ const {
   backgroundColor = "",
   officeHoursAlignment = "right",
   linkColor = "",
+  textColor = "",
   linkHoverColor = "",
   addressLinkColor = "",
   addressLinkHoverColor = "",
@@ -250,6 +251,7 @@ const resolvedFormBlocks =
   Array.isArray(formBlocks) && formBlocks.length > 0 ? formBlocks : buildDefaultFormBlocks();
 
 const cssVars = [
+  textColor ? `--section-text-color: ${textColor}; color: ${textColor}` : "",
   getColorValue(backgroundColor) ? `--pw-footer-bg: ${getColorValue(backgroundColor)}` : "",
   getColorValue(linkColor) ? `--footer-link-color: ${getColorValue(linkColor)}` : "",
   getColorValue(linkHoverColor)
@@ -451,7 +453,7 @@ const cssVars = [
   @layer page-sections {
     .landing-footer-pediatric-waves {
       background: var(--pw-footer-bg, var(--color-bg-brand-secondary));
-      color: #fff;
+      color: var(--section-text-color, #fff);
       overflow: hidden;
       position: relative;
 
@@ -654,7 +656,7 @@ const cssVars = [
       }
 
       .blurb {
-        color: #fff;
+        color: var(--section-text-color, #fff);
         font-size: var(--font-size-xs);
         letter-spacing: 0;
         line-height: var(--line-height-relaxed);

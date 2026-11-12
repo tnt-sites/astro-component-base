@@ -7,6 +7,8 @@ value:
   fontBody: ""
   id: ""
   backgroundColor: base
+  headingColor: ""
+  textColor: ""
   items:
     - headingPrefix: "Looking for"
       headingMain: "New Dentist?"
