@@ -761,17 +761,34 @@ pageSections:
     gallerySlides:
       - layout: pair
         beforeImage:
-          source: ''
+          source: /src/assets/images/component-library/profile.jpg
           alt: ''
         afterImage:
-          source: ''
+          source: /src/assets/images/component-library/profile2.jpg
           alt: ''
         beforeCloseup:
-          source: /src/assets/images/component-library/profile1.jpg
+          source:
           alt: Patient
         afterCloseup:
-          source: /src/assets/images/component-library/profile2.jpg
+          source:
           alt: Patient
+        faceImage:
+          source: ''
+          alt: ''
+        caption: ''
+      - layout: pair
+        beforeImage:
+          source: /src/assets/images/component-library/profile4.jpg
+          alt: ''
+        afterImage:
+          source: /src/assets/images/component-library/profile5.jpg
+          alt: ''
+        beforeCloseup:
+          source: ''
+          alt: ''
+        afterCloseup:
+          source: ''
+          alt: ''
         faceImage:
           source: ''
           alt: ''
