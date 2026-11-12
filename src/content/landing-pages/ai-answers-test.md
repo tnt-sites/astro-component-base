@@ -5,6 +5,19 @@ landingMainNav:
   _component: navigation/landing/landing-header
   logoSource: /images/logo.svg
   logoAlt: Logo
+  mobileCallSmallText: Call Now
+  mobileRequestLabel: Request an Appointment
+  mobileRequestHref: ''
+  mobileCallBackgroundColor: ''
+  mobileRequestBackgroundColor: ''
+  mobileCallTextColor: ''
+  mobileCallSmallTextColor: ''
+  mobileRequestTextColor: ''
+  mobileRequestSmallTextColor: ''
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
   pageButtons:
     - _component: building-blocks/core-elements/button
       id: ''
@@ -62,14 +75,23 @@ landingFooter:
     positionVertical: top
     positionHorizontal: center
   backgroundGradient: ''
-  backgroundColor: ''
+  backgroundColor: var(--color-brand-secondary)
+  textColor: ''
+  officeHoursAlignment: right
   linkColor: ''
   linkHoverColor: ''
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
   legalBlurb: ''
   offices: []
 landingPageSections:
   - _component: landing-page-components/ai-answers/banner/ai-answers-banner
+    fontHeadings: ''
+    fontBody: ''
     backgroundColor: var(--color-bg-surface)
+    textColor: ''
     heading: Want a new smile?<br>Confused?<br>Need Answers?
     consultationTitle: Request a Free Consultation<br>with Our Doctors
     consultationItems:
@@ -85,8 +107,11 @@ landingPageSections:
     titleColor: var(--color-text-inverse)
     id: ''
   - _component: landing-page-components/ai-answers/reviews/ai-answers-reviews
+    fontHeadings: ''
+    fontBody: ''
     id: ''
     backgroundColor: transparent
+    textColor: ''
     heading: Hear More From<br>Some of Our Actual Patients
     image:
       source: https://placehold.co/254x254
@@ -98,30 +123,31 @@ landingPageSections:
       - googleLogo:
           source: /src/assets/images/component-library/profile2.jpg
           alt: Google Reviews
-        text: >-
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam.
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+          veniam.
         author: '- Lorem A.'
       - googleLogo:
           source: ''
           alt: Google Reviews
-        text: >-
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        text: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
           dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident.
         author: '- Ipsum B.'
       - googleLogo:
           source: ''
           alt: Google Reviews
-        text: >-
-          Sunt in culpa qui officia deserunt mollit anim id est laborum.
+        text: Sunt in culpa qui officia deserunt mollit anim id est laborum.
           Pellentesque habitant morbi tristique senectus et netus et malesuada
           fames.
         author: '- Dolor C.'
   - _component: landing-page-components/ai-answers/table/ai-answers-table
+    fontHeadings: ''
+    fontBody: ''
     id: ''
     backgroundColor: transparent
+    headingColor: ''
+    textColor: ''
     heading: How {siteName} is<br>Different From Other Dental Practices
     headingLineColor: var(--color-brand-secondary)
     siteName: ''
@@ -164,8 +190,11 @@ landingPageSections:
         siteValue: $21,000
         otherValue: $30,000+
   - _component: landing-page-components/ai-answers/videos/ai-answers-videos
+    fontHeadings: ''
+    fontBody: ''
     id: ''
     backgroundColor: transparent
+    textColor: ''
     heading: Hear More From<br>Some of Our Actual Patients
     headingColor: var(--color-text)
     image:
@@ -182,11 +211,13 @@ landingPageSections:
         id: M7lc1UVf-VE
         title: Patient Story 3
   - _component: landing-page-components/ai-answers/split
+    fontHeadings: ''
+    fontBody: ''
     id: ''
     backgroundColor: var(--color-bg)
+    textColor: ''
     heading: How Dr. Lastname's<br> Expertise Benefits You
-    text: >-
-      lorem Ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
+    text: lorem Ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.
     image:
       source: /src/assets/images/component-library/profile2.jpg
@@ -195,7 +226,6 @@ landingPageSections:
     reverse: true
     buttonSections: []
     headingColor: var(--color-brand)
-    fontHeadings: ''
 head_scripts: []
 footer_scripts: []
 extraFonts: []
