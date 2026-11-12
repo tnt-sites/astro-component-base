@@ -7,7 +7,12 @@
   "colorTextOnBrand": "#ffffff",
   "colorLink": "blue",
   "colorLinkHover": "darkblue",
-  "extraColors": [],
+  "extraColors": [
+    {
+      "variable": "--color-red",
+      "value": "#ff0000"
+    }
+  ],
   "bodyFont": {
     "fontFamily": "\"Roboto\", sans-serif"
   },
