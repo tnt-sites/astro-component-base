@@ -2,115 +2,115 @@
 _schema: landing-page-invisalign
 title: Invisalign Test
 landingMainNav:
-  - _component: navigation/landing/landing-header-four-col
-    logoSource: /images/logo.svg
-    logoAlt: Turlock Dental Studio
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ''
-        text: Request a Free Consultation
-        hideText: false
-        link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    offices:
-      - name: Turlock Office
-        phones:
-          - display: (209) 216-3530
-            href: tel:+12092163530
-        addresses:
-          - lines:
-              - 1801 Colorado Ave. Suite 280
-            city: Turlock
-            state: CA
-            postalCode: '95382'
-            country: ''
-            mapUrl: https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A
-        officeHours:
-          - day: Monday
-            hours: 8:00am - 5:00pm
-          - day: Tuesday
-            hours: 8:00am - 5:00pm
-          - day: Wednesday
-            hours: 8:00am - 5:00pm
-          - day: Thursday
-            hours: 8:00am - 5:00pm
-          - day: Friday
-            hours: 8:00am - 5:00pm
-        officeHoursNote: ''
-    addressLinkColor: ''
-    addressLinkHoverColor: ''
-    phoneLinkColor: ''
-    phoneLinkHoverColor: ''
-    mobileCallLabel: Call Today!
-    mobileRequestLabel: Request a Free Consultation
-    mobileRequestHref: /request-an-appointment/
-    mobileCallBackgroundColor: ''
-    mobileRequestBackgroundColor: ''
-    mobileCallTextColor: ''
-    mobileCallSmallTextColor: ''
-    mobileRequestTextColor: ''
-    mobileRequestSmallTextColor: ''
+  _component: navigation/landing/landing-header-four-col
+  logoSource: /images/logo.svg
+  logoAlt: Turlock Dental Studio
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      id: ''
+      text: Request a Free Consultation
+      hideText: false
+      link: /request-an-appointment/
+      modalTarget: ''
+      iconName: ''
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: false
+  offices:
+    - name: Turlock Office
+      phones:
+        - display: (209) 216-3530
+          href: tel:+12092163530
+      addresses:
+        - lines:
+            - 1801 Colorado Ave. Suite 280
+          city: Turlock
+          state: CA
+          postalCode: '95382'
+          country: ''
+          mapUrl: https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A
+      officeHours:
+        - day: Monday
+          hours: 8:00am - 5:00pm
+        - day: Tuesday
+          hours: 8:00am - 5:00pm
+        - day: Wednesday
+          hours: 8:00am - 5:00pm
+        - day: Thursday
+          hours: 8:00am - 5:00pm
+        - day: Friday
+          hours: 8:00am - 5:00pm
+      officeHoursNote: ''
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
+  mobileCallLabel: Call Today!
+  mobileRequestLabel: Request a Free Consultation
+  mobileRequestHref: /request-an-appointment/
+  mobileCallBackgroundColor: ''
+  mobileRequestBackgroundColor: ''
+  mobileCallTextColor: ''
+  mobileCallSmallTextColor: ''
+  mobileRequestTextColor: ''
+  mobileRequestSmallTextColor: ''
 landingFooter:
-  - _component: navigation/landing/landing-footer-top-bar
-    logoSource: /images/logo.svg
-    logoAlt: Turlock Dental Studio
-    siteName: Turlock Dental Studio
-    contactTitle: Contact Us
-    offices:
-      - name: Turlock Office
-        phones:
-          - display: (209) 216-3530
-            href: tel:+12092163530
-        addresses:
-          - lines:
-              - 1801 Colorado Ave. Suite 280
-            city: Turlock
-            state: CA
-            postalCode: '95382'
-            country: ''
-            mapUrl: https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A
-        officeHours:
-          - day: Monday
-            hours: 8:00am - 5:00pm
-          - day: Tuesday
-            hours: 8:00am - 5:00pm
-          - day: Wednesday
-            hours: 8:00am - 5:00pm
-          - day: Thursday
-            hours: 8:00am - 5:00pm
-          - day: Friday
-            hours: 8:00am - 5:00pm
-        officeHoursNote: ''
-    mapEmbedUrl: >-
-      https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10961.979888105328!2d-120.8360359!3d37.5087999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809106598913e571%3A0x295e982741357d3e!2sTurlock%20Dental%20Studio!5e1!3m2!1sen!2sus!4v1781655306719!5m2!1sen!2sus
-    legalLinks:
-      - name: Privacy Policy
-        path: /privacy-policy/
-      - name: Sitemap
-        path: /sitemap/
-    legalBlurb: ''
-    linkColor: var(--color-brand)
-    linkHoverColor: var(--color-brand-secondary)
-    addressLinkColor: ''
-    addressLinkHoverColor: ''
-    phoneLinkColor: ''
-    phoneLinkHoverColor: ''
-    officeHoursAlignment: right
-    backgroundImage:
-      source: ''
-      alt: ''
-    backgroundColor: var(--color-bg-brand-secondary)
-    accentColor: var(--color-brand)
+  _component: navigation/landing/landing-footer-top-bar
+  logoSource: /images/logo.svg
+  logoAlt: Turlock Dental Studio
+  siteName: Turlock Dental Studio
+  contactTitle: Contact Us
+  offices:
+    - name: Turlock Office
+      phones:
+        - display: (209) 216-3530
+          href: tel:+12092163530
+      addresses:
+        - lines:
+            - 1801 Colorado Ave. Suite 280
+          city: Turlock
+          state: CA
+          postalCode: '95382'
+          country: ''
+          mapUrl: https://maps.app.goo.gl/K2MQJEnBWLAWSDU7A
+      officeHours:
+        - day: Monday
+          hours: 8:00am - 5:00pm
+        - day: Tuesday
+          hours: 8:00am - 5:00pm
+        - day: Wednesday
+          hours: 8:00am - 5:00pm
+        - day: Thursday
+          hours: 8:00am - 5:00pm
+        - day: Friday
+          hours: 8:00am - 5:00pm
+      officeHoursNote: ''
+  mapEmbedUrl: >-
+    https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10961.979888105328!2d-120.8360359!3d37.5087999!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809106598913e571%3A0x295e982741357d3e!2sTurlock%20Dental%20Studio!5e1!3m2!1sen!2sus!4v1781655306719!5m2!1sen!2sus
+  legalLinks:
+    - name: Privacy Policy
+      path: /privacy-policy/
+    - name: Sitemap
+      path: /sitemap/
+  legalBlurb: ''
+  linkColor: var(--color-brand)
+  linkHoverColor: var(--color-brand-secondary)
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
+  officeHoursAlignment: right
+  backgroundImage:
+    source: ''
+    alt: ''
+  backgroundColor: var(--color-bg-brand-secondary)
+  accentColor: var(--color-brand)
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''

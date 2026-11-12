@@ -29,5 +29,13 @@ value:
   mobileCallSmallTextColor: ""
   mobileRequestTextColor: ""
   mobileRequestSmallTextColor: ""
+picker_preview:
+  text: Landing Header - Four Col
+  subtext: "Four-column desktop header with logo, address, phone, and CTA; mobile call + request buttons."
+  icon: web
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-header-four-col.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-header-four-col/landing-header-four-col.cloudcannon.inputs.yml

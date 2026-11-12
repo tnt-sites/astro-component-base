@@ -1,0 +1,43 @@
+---
+// Dev-only page used to screenshot the landing header/footer thumbnails shown
+// in CloudCannon's header/footer picker. Never built for production.
+// Regenerate the images with `npm run previews:structures` (see
+// .cloudcannon/scripts/structure-previews.mjs) while `npm run dev` is running.
+//
+// /structure-preview/landing-header-split renders that header with the default
+// values from its *.cloudcannon.structure-value.yml, so the thumbnail matches
+// what an editor gets when they pick it.
+import yaml from "js-yaml";
+import LandingPage from "@layouts/LandingPage.astro";
+
+export function getStaticPaths() {
+  if (import.meta.env.PROD) return [];
+
+  const files = import.meta.glob(
+    "/src/components/navigation/landing/*/*.cloudcannon.structure-value.yml",
+    { query: "?raw", import: "default", eager: true }
+  ) as Record<string, string>;
+
+  return Object.values(files).map((raw) => {
+    const value = (yaml.load(raw) as { value: Record<string, any> }).value;
+    const component = String(value._component).split("/").pop();
+    return { params: { component }, props: { value } };
+  });
+}
+
+const { value } = Astro.props as { value: Record<string, any> };
+const isHeader = String(value._component).includes("/landing-header");
+const hideSelector = isHeader
+  ? `footer, [class*="landing-footer"], [class*="lp-footer"]`
+  : `[class*="landing-header"]`;
+---
+
+<LandingPage
+  frontmatter={{
+    title: "Structure preview",
+    ...(isHeader ? { landingMainNav: value } : { landingFooter: value }),
+  }}
+>
+  {/* Hide the default header/footer the layout falls back to, so the screenshot shows one component. */}
+  <style set:html={`${hideSelector}, main, astro-dev-toolbar { display: none !important; }`} />
+</LandingPage>

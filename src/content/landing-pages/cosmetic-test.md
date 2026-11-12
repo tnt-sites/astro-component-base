@@ -2,92 +2,92 @@
 _schema: landing-page-cosmetic
 title: New Cosmetic Landing Page
 landingMainNav:
-  - _component: navigation/landing/landing-header
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    mobileCallSmallText: Call Now
-    mobileRequestLabel: Request an Appointment
-    mobileRequestHref: ''
-    mobileCallBackgroundColor: ''
-    mobileRequestBackgroundColor: ''
-    mobileCallTextColor: ''
-    mobileCallSmallTextColor: ''
-    mobileRequestTextColor: ''
-    mobileRequestSmallTextColor: ''
-    addressLinkColor: ''
-    addressLinkHoverColor: ''
-    phoneLinkColor: ''
-    phoneLinkHoverColor: ''
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ''
-        text: Request an Appointment
-        hideText: false
-        link: /cosmetic-special-form/
-        modalTarget: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    offices: []
+  _component: navigation/landing/landing-header
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  mobileCallSmallText: Call Now
+  mobileRequestLabel: Request an Appointment
+  mobileRequestHref: ''
+  mobileCallBackgroundColor: ''
+  mobileRequestBackgroundColor: ''
+  mobileCallTextColor: ''
+  mobileCallSmallTextColor: ''
+  mobileRequestTextColor: ''
+  mobileRequestSmallTextColor: ''
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      id: ''
+      text: Request an Appointment
+      hideText: false
+      link: /cosmetic-special-form/
+      modalTarget: ''
+      iconName: ''
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: false
+  offices: []
 landingFooter:
-  - _component: navigation/landing/landing-footer-three-cards
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    siteName: Dental Studio
-    contactTitle: Contact Us
-    featuredServicesTitle: Featured Services
-    featuredServicesLinks:
-      - name: Dental Implants
-        path: /dental-implants/
-      - name: Implant Bridge
-        path: /dental-bridges/
-      - name: Implant Dentures
-        path: /implant-retained-dentures/
-      - name: All-on-4
-        path: /all-on-4/
-    formTitle: Ask A Question
-    formAction: ''
-    formSubject: Landing Footer Form
-    formRedirect: thanks.html
-    formSubmitLabel: Submit
-    formButtonBorderRadius: 0px
-    formButtonTextColor: ''
-    formButtonBackgroundColor: ''
-    formButtonHoverBackgroundColor: ''
-    formButtonHoverTextColor: ''
-    footerLinksBackgroundColor: var(--color-bg-brand)
-    footerLinksHoverBackgroundColor: var(--color-bg-brand-secondary)
-    mapEmbedUrl: ''
-    contactCardBackgroundColor: ''
-    servicesCardBackgroundColor: ''
-    formCardBackgroundColor: ''
-    legalLinks:
-      - name: Sitemap
-        path: sitemap.html
-      - name: Privacy Policy
-        path: privacy-policy.html
-    backgroundImage:
-      source:
-      alt:
-      positionVertical: top
-      positionHorizontal: center
-    backgroundGradient: ''
-    backgroundColor: ''
-    linkColor: ''
-    linkHoverColor: ''
-    addressLinkColor: ''
-    addressLinkHoverColor: ''
-    phoneLinkColor: ''
-    phoneLinkHoverColor: ''
-    legalBlurb: ''
-    offices: []
+  _component: navigation/landing/landing-footer-three-cards
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  siteName: Dental Studio
+  contactTitle: Contact Us
+  featuredServicesTitle: Featured Services
+  featuredServicesLinks:
+    - name: Dental Implants
+      path: /dental-implants/
+    - name: Implant Bridge
+      path: /dental-bridges/
+    - name: Implant Dentures
+      path: /implant-retained-dentures/
+    - name: All-on-4
+      path: /all-on-4/
+  formTitle: Ask A Question
+  formAction: ''
+  formSubject: Landing Footer Form
+  formRedirect: thanks.html
+  formSubmitLabel: Submit
+  formButtonBorderRadius: 0px
+  formButtonTextColor: ''
+  formButtonBackgroundColor: ''
+  formButtonHoverBackgroundColor: ''
+  formButtonHoverTextColor: ''
+  footerLinksBackgroundColor: var(--color-bg-brand)
+  footerLinksHoverBackgroundColor: var(--color-bg-brand-secondary)
+  mapEmbedUrl: ''
+  contactCardBackgroundColor: ''
+  servicesCardBackgroundColor: ''
+  formCardBackgroundColor: ''
+  legalLinks:
+    - name: Sitemap
+      path: sitemap.html
+    - name: Privacy Policy
+      path: privacy-policy.html
+  backgroundImage:
+    source:
+    alt:
+    positionVertical: top
+    positionHorizontal: center
+  backgroundGradient: ''
+  backgroundColor: ''
+  linkColor: ''
+  linkHoverColor: ''
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
+  legalBlurb: ''
+  offices: []
 landingPageSections:
   - _component: landing-page-components/cosmetic/banner
     id: ''

@@ -52,5 +52,9 @@ picker_preview:
   text: Landing Footer Logo Top
   subtext: "Top logo with contact, hours, map, and centered legal row."
   icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-logo-top.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-logo-top/landing-footer-logo-top.cloudcannon.inputs.yml

@@ -52,5 +52,9 @@ picker_preview:
   text: Landing Footer
   subtext: "Compact footer variant for landing pages."
   icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer/landing-footer.cloudcannon.inputs.yml

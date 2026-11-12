@@ -53,6 +53,9 @@ const canonical = frontmatter?.canonical ?? canonicalProp;
 const headScripts = frontmatter?.head_scripts ?? [];
 const footerScripts = frontmatter?.footer_scripts ?? [];
 const extraFontLinks = (frontmatter?.extraFonts ?? []) as string[];
+// landingMainNav / landingFooter are single objects (CloudCannon `type: object`
+// in cloudcannon.config.yml), so a page can only pick one header and one footer.
+// Arrays are the legacy shape; only the first item is used.
 const normalizeLandingBlocks = (value: unknown, fallbackComponent: string) => {
   const sourceBlocks = Array.isArray(value)
     ? value

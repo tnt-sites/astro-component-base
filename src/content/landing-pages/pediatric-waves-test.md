@@ -3,125 +3,16 @@ _schema: landing-page-pediatric-waves
 title: Pediatric Waves Test
 landingStyle: pediatric-waves
 landingMainNav:
-  - _component: navigation/landing/landing-header-pediatric-waves
-    logoSource: /images/logo.svg
-    logoAlt: Logo Alt
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ''
-        text: Request an Appointment
-        hideText: false
-        link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: true
-    offices: []
-    addressLinkColor: var(--color-brand)
-    addressLinkHoverColor: "#ffffff"
-    phoneLinkColor: var(--color-brand-secondary)
-    phoneLinkHoverColor: var(--color-brand)
-    mobileCallLabel: Call Now
-    mobileRequestLabel: Request a FREE Consultation
-    mobileRequestHref: ''
-    mobileBarBackground: ''
-    mobileCallBackground: var(--color-bg-black)
-    mobileRequestBackground: var(--color-bg-brand-secondary)
-    mobileCallTextColor: "#ffffff"
-    mobileCallSmallTextColor: "#ffffff"
-    mobileRequestTextColor: var(--color-brand)
-    mobileRequestSmallTextColor: "#ffffff"
-    mobileMapLabel: Map
-    mobileMapHref: ''
-    mobileApptBackground: var(--color-brand-secondary)
-    mobileMapBackground: var(--color-brand)
-landingFooter:
-  - _component: navigation/landing/landing-footer-pediatric-waves
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    contactTitle: Contact Us
-    offices: []
-    phoneLinkColor: "#ffffff"
-    phoneLinkHoverColor: var(--color-brand)
-    addressLinkColor: var(--color-brand)
-    addressLinkHoverColor: "#ffffff"
-    legalLinks:
-      - name: Privacy Policy
-        path: /privacy-policy/
-      - name: Sitemap
-        path: /sitemap/
-    legalBlurb: ''
-    linkColor: var(--color-brand)
-    linkHoverColor: var(--color-brand-secondary)
-    formHeading: Ask a Question
-    formAction: ''
-    formBlocks:
-      - _component: building-blocks/forms/input
-        id: ''
-        label: Name
-        name: Name
-        type: text
-        placeholder: Name
-        required: true
-      - _component: building-blocks/forms/input
-        id: ''
-        label: Phone
-        name: Phone
-        type: text
-        placeholder: Phone
-        required: true
-      - _component: building-blocks/forms/input
-        id: ''
-        label: Email
-        name: Email
-        type: email
-        placeholder: Email
-        required: true
-      - _component: building-blocks/forms/textarea
-        id: ''
-        label: Comments
-        name: CommentArea
-        required: false
-        placeholder: Comments
-      - _component: building-blocks/forms/hidden
-        id: ''
-        name: _subject
-        value: Pediatric Footer Questions
-      - _component: building-blocks/forms/submit
-        id: ''
-        text: Send
-        variant: primary
-        size: md
-        iconPosition: before
-        hideText: false
-        disabled: false
-        class: footer-submit-button
-    mapEmbedUrl: ''
-    questionsLine: Have Questions? Get Answers
-    backgroundColor: var(--color-bg-brand-secondary)
-    officeHoursAlignment: left
-    topWaveImage:
-      source:
-      alt: ''
-    formMethod: post
-    formSubject: Pediatric Footer Questions
-    formRedirect: ''
-    formButtonBorderRadius: 0px
-    formButtonTextColor: ''
-    formButtonBackgroundColor: ''
-    formButtonHoverBackgroundColor: ''
-    formButtonHoverTextColor: ''
-    formButton:
-      _component: building-blocks/core-elements/button
-      text: Send
+  _component: navigation/landing/landing-header-pediatric-waves
+  logoSource: /images/logo.svg
+  logoAlt: Logo Alt
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      id: ''
+      text: Request an Appointment
       hideText: false
+      link: /request-an-appointment/
+      modalTarget: ''
       iconName: ''
       iconPosition: before
       variant: primary
@@ -132,6 +23,115 @@ landingFooter:
       borderColor: default
       textColor: default
       uppercase: true
+  offices: []
+  addressLinkColor: var(--color-brand)
+  addressLinkHoverColor: "#ffffff"
+  phoneLinkColor: var(--color-brand-secondary)
+  phoneLinkHoverColor: var(--color-brand)
+  mobileCallLabel: Call Now
+  mobileRequestLabel: Request a FREE Consultation
+  mobileRequestHref: ''
+  mobileBarBackground: ''
+  mobileCallBackground: var(--color-bg-black)
+  mobileRequestBackground: var(--color-bg-brand-secondary)
+  mobileCallTextColor: "#ffffff"
+  mobileCallSmallTextColor: "#ffffff"
+  mobileRequestTextColor: var(--color-brand)
+  mobileRequestSmallTextColor: "#ffffff"
+  mobileMapLabel: Map
+  mobileMapHref: ''
+  mobileApptBackground: var(--color-brand-secondary)
+  mobileMapBackground: var(--color-brand)
+landingFooter:
+  _component: navigation/landing/landing-footer-pediatric-waves
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  contactTitle: Contact Us
+  offices: []
+  phoneLinkColor: "#ffffff"
+  phoneLinkHoverColor: var(--color-brand)
+  addressLinkColor: var(--color-brand)
+  addressLinkHoverColor: "#ffffff"
+  legalLinks:
+    - name: Privacy Policy
+      path: /privacy-policy/
+    - name: Sitemap
+      path: /sitemap/
+  legalBlurb: ''
+  linkColor: var(--color-brand)
+  linkHoverColor: var(--color-brand-secondary)
+  formHeading: Ask a Question
+  formAction: ''
+  formBlocks:
+    - _component: building-blocks/forms/input
+      id: ''
+      label: Name
+      name: Name
+      type: text
+      placeholder: Name
+      required: true
+    - _component: building-blocks/forms/input
+      id: ''
+      label: Phone
+      name: Phone
+      type: text
+      placeholder: Phone
+      required: true
+    - _component: building-blocks/forms/input
+      id: ''
+      label: Email
+      name: Email
+      type: email
+      placeholder: Email
+      required: true
+    - _component: building-blocks/forms/textarea
+      id: ''
+      label: Comments
+      name: CommentArea
+      required: false
+      placeholder: Comments
+    - _component: building-blocks/forms/hidden
+      id: ''
+      name: _subject
+      value: Pediatric Footer Questions
+    - _component: building-blocks/forms/submit
+      id: ''
+      text: Send
+      variant: primary
+      size: md
+      iconPosition: before
+      hideText: false
+      disabled: false
+      class: footer-submit-button
+  mapEmbedUrl: ''
+  questionsLine: Have Questions? Get Answers
+  backgroundColor: var(--color-bg-brand-secondary)
+  officeHoursAlignment: left
+  topWaveImage:
+    source:
+    alt: ''
+  formMethod: post
+  formSubject: Pediatric Footer Questions
+  formRedirect: ''
+  formButtonBorderRadius: 0px
+  formButtonTextColor: ''
+  formButtonBackgroundColor: ''
+  formButtonHoverBackgroundColor: ''
+  formButtonHoverTextColor: ''
+  formButton:
+    _component: building-blocks/core-elements/button
+    text: Send
+    hideText: false
+    iconName: ''
+    iconPosition: before
+    variant: primary
+    size: md
+    width: md
+    borderRadius: default
+    borderWidth: default
+    borderColor: default
+    textColor: default
+    uppercase: true
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''

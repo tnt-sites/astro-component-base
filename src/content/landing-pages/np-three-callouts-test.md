@@ -2,41 +2,41 @@
 _schema: landing-page
 title: New Patient Three Callouts Test
 landingMainNav:
-  - _component: navigation/landing/landing-header
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ""
-        text: Request an Appointment
-        hideText: false
-        link: /request-an-appointment/
-        modalTarget: ""
-        iconName: ""
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    offices: []
+  _component: navigation/landing/landing-header
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      id: ""
+      text: Request an Appointment
+      hideText: false
+      link: /request-an-appointment/
+      modalTarget: ""
+      iconName: ""
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: false
+  offices: []
 landingFooter:
-  - _component: navigation/landing/landing-footer-map-grid
-    heading: Schedule Your Appointment Today!
-    siteName: Dental Studio
-    offices: []
-    legalLinks:
-      - name: Sitemap
-        path: sitemap.html
-      - name: Privacy Policy
-        path: privacy-policy.html
-    legalBlurb: ""
-    backgroundColor: ""
-    linkColor: ""
-    linkHoverColor: ""
+  _component: navigation/landing/landing-footer-map-grid
+  heading: Schedule Your Appointment Today!
+  siteName: Dental Studio
+  offices: []
+  legalLinks:
+    - name: Sitemap
+      path: sitemap.html
+    - name: Privacy Policy
+      path: privacy-policy.html
+  legalBlurb: ""
+  backgroundColor: ""
+  linkColor: ""
+  linkHoverColor: ""
 landingPageSections:
   - _component: landing-page-components/new-patient-three-callouts/banner
     id: ""

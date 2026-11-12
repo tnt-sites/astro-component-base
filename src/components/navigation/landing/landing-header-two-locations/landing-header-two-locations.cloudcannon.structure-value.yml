@@ -38,5 +38,9 @@ picker_preview:
   text: Landing Header — Two Locations, Logo Centered
   subtext: "Left office | centered logo | right office, with mobile call + CTA buttons."
   icon: location_on
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-header-two-locations.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-header-two-locations/landing-header-two-locations.cloudcannon.inputs.yml

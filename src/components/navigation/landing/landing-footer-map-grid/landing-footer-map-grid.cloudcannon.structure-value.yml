@@ -29,5 +29,9 @@ picker_preview:
   text: Landing Footer Map Grid
   subtext: "Two-column map grid with address and phone per location, plus legal bar."
   icon: map
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-map-grid.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-map-grid/landing-footer-map-grid.cloudcannon.inputs.yml

@@ -61,5 +61,9 @@ picker_preview:
   text: Landing Footer 3 Cards
   subtext: "Three-card footer with contact, services, and form."
   icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-three-cards.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-three-cards/landing-footer-three-cards.cloudcannon.inputs.yml

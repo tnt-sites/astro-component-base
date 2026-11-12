@@ -60,5 +60,13 @@ value:
   topWaveImage:
     source: ""
     alt: ""
+picker_preview:
+  text: Landing Footer - Pediatric Waves
+  subtext: "Pediatric landing footer with logo, contact details, question form, and optional map embed."
+  icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-pediatric-waves.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-pediatric-waves/landing-footer-pediatric-waves.cloudcannon.inputs.yml

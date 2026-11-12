@@ -36,5 +36,9 @@ picker_preview:
   text: Landing Footer - Top Bar
   subtext: "FB-ortho style layout with logo, office info, map, and legal row."
   icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-top-bar.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-top-bar/landing-footer-top-bar.cloudcannon.inputs.yml

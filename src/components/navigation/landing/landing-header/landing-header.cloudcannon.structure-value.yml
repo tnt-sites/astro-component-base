@@ -37,5 +37,9 @@ picker_preview:
   text: Landing Header
   subtext: "Logo + contact + CTA header for landing pages."
   icon: web
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-header.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-header/landing-header.cloudcannon.inputs.yml

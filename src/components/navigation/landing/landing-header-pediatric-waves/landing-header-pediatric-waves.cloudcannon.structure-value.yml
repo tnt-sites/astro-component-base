@@ -30,5 +30,13 @@ value:
   mobileCallSmallTextColor: ""
   mobileRequestTextColor: ""
   mobileRequestSmallTextColor: ""
+picker_preview:
+  text: Landing Header - Pediatric Waves
+  subtext: "Pediatric landing header with centered contact details, desktop CTA, and mobile call/request bar."
+  icon: web
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-header-pediatric-waves.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-header-pediatric-waves/landing-header-pediatric-waves.cloudcannon.inputs.yml

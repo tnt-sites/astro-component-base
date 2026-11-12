@@ -20,6 +20,7 @@
     "astro": "astro",
     "generate:structures": "node structuresGenerator.js",
     "new:component": "node .cloudcannon/scripts/new-component.js",
+    "previews:structures": "node .cloudcannon/scripts/structure-previews.mjs",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:yml",
     "lint:js": "eslint .",
     "lint:yml": "eslint \"**/*.{yml,yaml}\"",

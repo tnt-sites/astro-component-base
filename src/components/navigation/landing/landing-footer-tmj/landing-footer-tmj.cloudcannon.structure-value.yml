@@ -48,5 +48,9 @@ picker_preview:
   text: Landing Footer TMJ
   subtext: "Light footer with office hours and a How to Get Started column."
   icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-tmj.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-tmj/landing-footer-tmj.cloudcannon.inputs.yml

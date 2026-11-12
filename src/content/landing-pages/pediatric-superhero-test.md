@@ -3,107 +3,107 @@ _schema: landing-page-pediatric-superhero
 title: Pediatric Superhero Test
 landingStyle: pediatric-superhero
 landingMainNav:
-  - _component: navigation/landing/landing-header-split
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    mobileCallSmallText: Call Now
-    mobileRequestLabel: Request an Appointment
-    mobileRequestHref: ""
-    mobileCallBackgroundColor: ""
-    mobileRequestBackgroundColor: ""
-    mobileCallTextColor: ""
-    mobileCallSmallTextColor: ""
-    mobileRequestTextColor: ""
-    mobileRequestSmallTextColor: ""
-    addressLinkColor: ""
-    addressLinkHoverColor: ""
-    phoneLinkColor: ""
-    phoneLinkHoverColor: ""
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ""
-        text: Request an Appointment
-        hideText: false
-        link: /request-an-appointment/
-        modalTarget: ""
-        iconName: ""
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    offices:
-      - name: ""
-        addresses:
-          - lines:
-              - 1322 NE Orenco Station Pkwy Ste 200
-            city: Hillsboro
-            state: OR
-            postalCode: "97124"
-            country: USA
-            mapUrl: https://maps.app.goo.gl/62EEMDR6pYRA8qw56
-        phones:
-          - display: (503) 640-6565
-            href: tel:+15036406565
+  _component: navigation/landing/landing-header-split
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  mobileCallSmallText: Call Now
+  mobileRequestLabel: Request an Appointment
+  mobileRequestHref: ""
+  mobileCallBackgroundColor: ""
+  mobileRequestBackgroundColor: ""
+  mobileCallTextColor: ""
+  mobileCallSmallTextColor: ""
+  mobileRequestTextColor: ""
+  mobileRequestSmallTextColor: ""
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      id: ""
+      text: Request an Appointment
+      hideText: false
+      link: /request-an-appointment/
+      modalTarget: ""
+      iconName: ""
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: false
+  offices:
+    - name: ""
+      addresses:
+        - lines:
+            - 1322 NE Orenco Station Pkwy Ste 200
+          city: Hillsboro
+          state: OR
+          postalCode: "97124"
+          country: USA
+          mapUrl: https://maps.app.goo.gl/62EEMDR6pYRA8qw56
+      phones:
+        - display: (503) 640-6565
+          href: tel:+15036406565
 landingFooter:
-  - _component: navigation/landing/landing-footer-three-cards-no-links
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    siteName: Test Site
-    contactTitle: Contact Us
-    offices:
-      - name: ""
-        addresses:
-          - lines:
-              - 1322 NE Orenco Station Pkwy Ste 200
-            city: Hillsboro
-            state: OR
-            postalCode: "97124"
-            country: USA
-            mapUrl: https://maps.app.goo.gl/62EEMDR6pYRA8qw56
-        phones:
-          - display: (503) 640-6565
-            href: tel:+15036406565
-    phoneLabel: Call Today!
-    ctaText: "To Schedule An <strong>Appointment</strong>"
-    mapTitle: Find Us
-    mapEmbedUrl: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63234.964817142594!2d-122.95643044457375!3d45.53791178552625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950f8782018263%3A0x85539e482a86f6fb!2sThe%20Dentists%20at%20Orenco%20for%20Kids!5e0!3m2!1sen!2sus!4v1782421168777!5m2!1sen!2sus
-    formTitle: Ask a Question
-    formAction: https://tnt-adder.herokuapp.com/submit/fcef598d-0f5b-4b10-a1c3-616da84eb937
-    formSubject: PPC New Patient Ask a Question
-    formRedirect: thanks.html
-    formSubmitLabel: Submit
-    formButtonBorderRadius: 0px
-    formButtonTextColor: ""
-    formButtonBackgroundColor: ""
-    formButtonHoverBackgroundColor: ""
-    formButtonHoverTextColor: ""
-    contactCardBackgroundColor: ""
-    mapCardBackgroundColor: ""
-    formCardBackgroundColor: ""
-    legalLinks:
-      - name: Sitemap
-        path: /site-map/
-      - name: Privacy Policy
-        path: /privacy-policy/
-    backgroundImage:
-      source:
-      alt: ""
-      positionVertical: top
-      positionHorizontal: center
-    backgroundGradient: ""
-    backgroundColor: ""
-    linkColor: ""
-    linkHoverColor: ""
-    addressLinkColor: ""
-    addressLinkHoverColor: ""
-    phoneLinkColor: ""
-    phoneLinkHoverColor: ""
-    legalBlurb: ""
+  _component: navigation/landing/landing-footer-three-cards-no-links
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  siteName: Test Site
+  contactTitle: Contact Us
+  offices:
+    - name: ""
+      addresses:
+        - lines:
+            - 1322 NE Orenco Station Pkwy Ste 200
+          city: Hillsboro
+          state: OR
+          postalCode: "97124"
+          country: USA
+          mapUrl: https://maps.app.goo.gl/62EEMDR6pYRA8qw56
+      phones:
+        - display: (503) 640-6565
+          href: tel:+15036406565
+  phoneLabel: Call Today!
+  ctaText: "To Schedule An <strong>Appointment</strong>"
+  mapTitle: Find Us
+  mapEmbedUrl: https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63234.964817142594!2d-122.95643044457375!3d45.53791178552625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54950f8782018263%3A0x85539e482a86f6fb!2sThe%20Dentists%20at%20Orenco%20for%20Kids!5e0!3m2!1sen!2sus!4v1782421168777!5m2!1sen!2sus
+  formTitle: Ask a Question
+  formAction: https://tnt-adder.herokuapp.com/submit/fcef598d-0f5b-4b10-a1c3-616da84eb937
+  formSubject: PPC New Patient Ask a Question
+  formRedirect: thanks.html
+  formSubmitLabel: Submit
+  formButtonBorderRadius: 0px
+  formButtonTextColor: ""
+  formButtonBackgroundColor: ""
+  formButtonHoverBackgroundColor: ""
+  formButtonHoverTextColor: ""
+  contactCardBackgroundColor: ""
+  mapCardBackgroundColor: ""
+  formCardBackgroundColor: ""
+  legalLinks:
+    - name: Sitemap
+      path: /site-map/
+    - name: Privacy Policy
+      path: /privacy-policy/
+  backgroundImage:
+    source:
+    alt: ""
+    positionVertical: top
+    positionHorizontal: center
+  backgroundGradient: ""
+  backgroundColor: ""
+  linkColor: ""
+  linkHoverColor: ""
+  addressLinkColor: ""
+  addressLinkHoverColor: ""
+  phoneLinkColor: ""
+  phoneLinkHoverColor: ""
+  legalBlurb: ""
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ""

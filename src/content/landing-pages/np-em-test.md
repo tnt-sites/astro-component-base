@@ -3,91 +3,91 @@ _schema: landing-page-new-patient-emergency-combo
 title: New Patient Emergency Combo Landing Page
 landingStyle: new-patient-emergency-combo
 landingMainNav:
-  - _component: navigation/landing/landing-header
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    mobileCallSmallText: Call Now
-    mobileRequestLabel: Request an Appointment
-    mobileRequestHref: ''
-    mobileCallBackgroundColor: ''
-    mobileRequestBackgroundColor: ''
-    mobileCallTextColor: ''
-    mobileCallSmallTextColor: ''
-    mobileRequestTextColor: ''
-    mobileRequestSmallTextColor: ''
-    addressLinkColor: ''
-    addressLinkHoverColor: ''
-    phoneLinkColor: ''
-    phoneLinkHoverColor: ''
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ''
-        text: Request an Appointment
-        hideText: false
-        link: /np-em-special-form/
-        modalTarget: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    offices: []
+  _component: navigation/landing/landing-header
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  mobileCallSmallText: Call Now
+  mobileRequestLabel: Request an Appointment
+  mobileRequestHref: ''
+  mobileCallBackgroundColor: ''
+  mobileRequestBackgroundColor: ''
+  mobileCallTextColor: ''
+  mobileCallSmallTextColor: ''
+  mobileRequestTextColor: ''
+  mobileRequestSmallTextColor: ''
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      id: ''
+      text: Request an Appointment
+      hideText: false
+      link: /np-em-special-form/
+      modalTarget: ''
+      iconName: ''
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: false
+  offices: []
 landingFooter:
-  - _component: navigation/landing/landing-footer-overlapping-map
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    siteName: Dental Studio
-    contactTitle: Schedule Your Visit Today!
-    cardBackgroundColor: var(--color-bg-dark)
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ''
-        text: Request an Appointment
-        hideText: false
-        link: /request-an-appointment/
-        modalTarget: ''
-        iconName: ''
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    socials:
-      - label: Facebook
-        icon: social/facebook
-        link: https://facebook.com
-    legalLinks:
-      - name: Sitemap
-        path: sitemap.html
-      - name: Privacy Policy
-        path: privacy-policy.html
-    mapEmbedUrl: >-
-      https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3346.989778614253!2d-96.7204146237577!3d32.977671473580536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c23374904d86b%3A0x1d6d5ef027560e48!2sTNT%20Dental!5e0!3m2!1sen!2sus!4v1780452835122!5m2!1sen!2sus
-    backgroundImage:
-      source:
-      alt:
-      positionVertical: top
-      positionHorizontal: center
-    backgroundGradient:
-    backgroundColor: var(--color-bg-dark)
-    officeHoursAlignment: right
-    linkColor: ''
-    linkHoverColor: ''
-    addressLinkColor: ''
-    addressLinkHoverColor: ''
-    phoneLinkColor: ''
-    phoneLinkHoverColor: ''
-    legalBlurb: ''
-    offices: []
+  _component: navigation/landing/landing-footer-overlapping-map
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  siteName: Dental Studio
+  contactTitle: Schedule Your Visit Today!
+  cardBackgroundColor: var(--color-bg-dark)
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      id: ''
+      text: Request an Appointment
+      hideText: false
+      link: /request-an-appointment/
+      modalTarget: ''
+      iconName: ''
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: false
+  socials:
+    - label: Facebook
+      icon: social/facebook
+      link: https://facebook.com
+  legalLinks:
+    - name: Sitemap
+      path: sitemap.html
+    - name: Privacy Policy
+      path: privacy-policy.html
+  mapEmbedUrl: >-
+    https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3346.989778614253!2d-96.7204146237577!3d32.977671473580536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c23374904d86b%3A0x1d6d5ef027560e48!2sTNT%20Dental!5e0!3m2!1sen!2sus!4v1780452835122!5m2!1sen!2sus
+  backgroundImage:
+    source:
+    alt:
+    positionVertical: top
+    positionHorizontal: center
+  backgroundGradient:
+  backgroundColor: var(--color-bg-dark)
+  officeHoursAlignment: right
+  linkColor: ''
+  linkHoverColor: ''
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
+  legalBlurb: ''
+  offices: []
 landingPageSections:
   - _component: landing-page-components/shared/top-bar
     id: ''

@@ -53,5 +53,9 @@ picker_preview:
   text: Landing Footer Overlapping Map
   subtext: "Card-style contact block with overlapping map."
   icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-overlapping-map.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-overlapping-map/landing-footer-overlapping-map.cloudcannon.inputs.yml

@@ -36,5 +36,9 @@ picker_preview:
   text: Landing Footer - Title HR
   subtext: "Three-column footer with heading/HR, contact info, map, and office hours."
   icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-title-hr.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-title-hr/landing-footer-title-hr.cloudcannon.inputs.yml

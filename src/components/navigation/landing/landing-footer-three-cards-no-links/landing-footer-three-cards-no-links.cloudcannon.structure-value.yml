@@ -63,5 +63,9 @@ picker_preview:
   text: Landing Footer 3 Cards (No Links)
   subtext: "Three-card footer with contact, map, and form — no internal navigation links."
   icon: page_footer
+  gallery:
+    image:
+      - text: /images/structure-previews/landing-footer-three-cards-no-links.png
+    fit: padded
 _inputs_from_glob:
   - /src/components/navigation/landing/landing-footer-three-cards-no-links/landing-footer-three-cards-no-links.cloudcannon.inputs.yml

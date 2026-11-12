@@ -2,53 +2,53 @@
 _schema: pep-page
 title: New PEP Page
 landingMainNav:
-  - _component: navigation/landing/landing-header-circle-icons
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    pageButtons:
-      - _component: building-blocks/core-elements/button
-        id: ""
-        text: Request an Appointment
-        hideText: false
-        link: "#main-form"
-        modalTarget: ""
-        iconName: academic-cap
-        iconPosition: before
-        variant: primary
-        size: md
-        width: md
-        borderRadius: default
-        borderWidth: default
-        borderColor: default
-        textColor: default
-        uppercase: false
-    offices: []
-    backgroundColor: ""
-    iconBackgroundColor: ""
-    linkColor: ""
-    mobileCallSmallText: Call Today!
-    mobileApptLabel: Request an Appointment
-    mobileApptHref: ""
+  _component: navigation/landing/landing-header-circle-icons
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  pageButtons:
+    - _component: building-blocks/core-elements/button
+      id: ""
+      text: Request an Appointment
+      hideText: false
+      link: "#main-form"
+      modalTarget: ""
+      iconName: academic-cap
+      iconPosition: before
+      variant: primary
+      size: md
+      width: md
+      borderRadius: default
+      borderWidth: default
+      borderColor: default
+      textColor: default
+      uppercase: false
+  offices: []
+  backgroundColor: ""
+  iconBackgroundColor: ""
+  linkColor: ""
+  mobileCallSmallText: Call Today!
+  mobileApptLabel: Request an Appointment
+  mobileApptHref: ""
 landingFooter:
-  - _component: navigation/landing/landing-footer-title-hr
-    logoSource: /images/logo.svg
-    logoAlt: Logo
-    siteName: ""
-    contactTitle: Contact Us
-    findUsTitle: Find Us
-    officeHoursTitle: Office Hours
-    offices: []
-    mapEmbedUrl: >-
-      https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d204329.1786034009!2d-119.8562439!3d36.8510152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809442b242f16e33%3A0x1d7e31f906ec6d19!2sByron%20L.%20Reintjes%2C%20DDS!5e0!3m2!1sen!2sus!4v1779148035185!5m2!1sen!2sus
-    officeHoursNote: ""
-    legalLinks:
-      - name: Sitemap
-        path: sitemap.html
-      - name: Privacy Policy
-        path: privacy-policy.html
-    legalBlurb: ""
-    backgroundColor: "transparent"
-    headingColor: ""
+  _component: navigation/landing/landing-footer-title-hr
+  logoSource: /images/logo.svg
+  logoAlt: Logo
+  siteName: ""
+  contactTitle: Contact Us
+  findUsTitle: Find Us
+  officeHoursTitle: Office Hours
+  offices: []
+  mapEmbedUrl: >-
+    https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d204329.1786034009!2d-119.8562439!3d36.8510152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809442b242f16e33%3A0x1d7e31f906ec6d19!2sByron%20L.%20Reintjes%2C%20DDS!5e0!3m2!1sen!2sus!4v1779148035185!5m2!1sen!2sus
+  officeHoursNote: ""
+  legalLinks:
+    - name: Sitemap
+      path: sitemap.html
+    - name: Privacy Policy
+      path: privacy-policy.html
+  legalBlurb: ""
+  backgroundColor: "transparent"
+  headingColor: ""
 pepSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
     id: ""

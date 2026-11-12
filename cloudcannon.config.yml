@@ -291,14 +291,14 @@ collections_config:
       - visual
     _inputs:
       landingMainNav:
-        type: array
-        comment: Add one header component for this landing page. Each page can choose a different header style/structure.
+        type: object
+        comment: Choose the header style for this landing page.
         cascade: true
         options:
           structures: _structures.landingHeaderSections
       landingFooter:
-        type: array
-        comment: Add one footer component for this landing page. Each page can choose a different footer style/structure.
+        type: object
+        comment: Choose the footer style for this landing page.
         cascade: true
         options:
           structures: _structures.landingFooterSections
@@ -580,12 +580,14 @@ collections_config:
           - visual
         _inputs:
           landingMainNav:
-            type: array
+            type: object
+            comment: Choose the header style for this landing page.
             options:
               structures: _structures.landingHeaderSections
             cascade: true
           landingFooter:
-            type: array
+            type: object
+            comment: Choose the footer style for this landing page.
             options:
               structures: _structures.landingFooterSections
             cascade: true
@@ -694,14 +696,14 @@ collections_config:
       - visual
     _inputs:
       landingMainNav:
-        type: array
-        comment: Add one header component for this PEP page. Each page can choose a different header style/structure.
+        type: object
+        comment: Choose the header style for this PEP page.
         cascade: true
         options:
           structures: _structures.landingHeaderSections
       landingFooter:
-        type: array
-        comment: Add one footer component for this PEP page. Each page can choose a different footer style/structure.
+        type: object
+        comment: Choose the footer style for this PEP page.
         cascade: true
         options:
           structures: _structures.landingFooterSections
