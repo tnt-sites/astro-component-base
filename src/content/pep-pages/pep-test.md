@@ -7,11 +7,11 @@ landingMainNav:
   logoAlt: Logo
   pageButtons:
     - _component: building-blocks/core-elements/button
-      id: ""
+      id: ''
       text: Request an Appointment
       hideText: false
-      link: "#main-form"
-      modalTarget: ""
+      link: '#main-form'
+      modalTarget: ''
       iconName: academic-cap
       iconPosition: before
       variant: primary
@@ -23,43 +23,71 @@ landingMainNav:
       textColor: default
       uppercase: false
   offices: []
-  backgroundColor: ""
-  iconBackgroundColor: ""
+  backgroundColor: ''
+  iconBackgroundColor: ''
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: var(--color-brand-secondary)
+  phoneLinkHoverColor: ''
+  mobileCallBackgroundColor: ''
+  mobileRequestBackgroundColor: ''
+  mobileCallTextColor: ''
+  mobileCallSmallTextColor: ''
+  mobileRequestTextColor: ''
+  mobileRequestSmallTextColor: ''
   mobileCallSmallText: Call Today!
+  mobileRequestLabel: Request an Appointment
+  mobileRequestHref: ''
   mobileApptLabel: Request an Appointment
-  mobileApptHref: ""
+  mobileApptHref: ''
 landingFooter:
   _component: navigation/landing/landing-footer-title-hr
   logoSource: /images/logo.svg
   logoAlt: Logo
-  siteName: ""
+  siteName: ''
   contactTitle: Contact Us
   findUsTitle: Find Us
   officeHoursTitle: Office Hours
   offices: []
-  mapEmbedUrl: >-
-    https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d204329.1786034009!2d-119.8562439!3d36.8510152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809442b242f16e33%3A0x1d7e31f906ec6d19!2sByron%20L.%20Reintjes%2C%20DDS!5e0!3m2!1sen!2sus!4v1779148035185!5m2!1sen!2sus
-  officeHoursNote: ""
+  mapEmbedUrl: https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d204329.1786034009!2d-119.8562439!3d36.8510152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809442b242f16e33%3A0x1d7e31f906ec6d19!2sByron%20L.%20Reintjes%2C%20DDS!5e0!3m2!1sen!2sus!4v1779148035185!5m2!1sen!2sus
+  officeHoursNote: ''
+  officeHoursAlignment: right
   legalLinks:
     - name: Sitemap
       path: sitemap.html
     - name: Privacy Policy
       path: privacy-policy.html
-  legalBlurb: ""
-  backgroundColor: "transparent"
-  headingColor: ""
+  legalBlurb: ''
+  linkColor: var(--color-brand)
+  linkHoverColor: var(--color-brand-secondary)
+  addressLinkColor: ''
+  addressLinkHoverColor: ''
+  phoneLinkColor: ''
+  phoneLinkHoverColor: ''
+  backgroundColor: transparent
+  textColor: ''
+  headingColor: ''
+  socials:
+    - label: Facebook
+      icon: social/facebook
+      link: https://facebook.com
+    - label: Instagram
+      icon: social/instagram
+      link: https://instagram.com
 pepSections:
   - _component: landing-page-components/new-patient-split-banner/top-bar
-    id: ""
+    id: ''
     backgroundColor: brand
     textColor: var(--color-text-inverse)
     items:
       - New Patients Welcome
       - Same-Day Appointments Available
   - _component: pep-components/pep-banner-centered
-    id: ""
+    fontHeadings: ''
+    fontBody: ''
+    id: ''
     backgroundColor: base
-    backgroundImage: ""
+    backgroundImage: ''
     backgroundPositionX: center
     backgroundPositionY: center
     boxShadow: true
@@ -70,7 +98,6 @@ pepSections:
     textColor: var(--color-text)
     paddingVertical: xl
     heading: Resolve to Smile More in 2025
-    fontHeadings: ""
     contentStyle: checklist
     showDivider: true
     text: >
@@ -89,9 +116,7 @@ pepSections:
       case, our entire team is here to help.
     listItems:
       - Prevention is way less expensive than fixing major problems
-      - >-
-        Lower the risk of gum disease by 81% with regular check-ups and
-        cleanings
+      - Lower the risk of gum disease by 81% with regular check-ups and cleanings
       - Half of Americans are not getting the dental care they need
       - Daily brushing and flossing is the number one habit for healthy smiles
       - Your natural teeth should last a lifetime
@@ -102,13 +127,14 @@ pepSections:
     fontelloGlyph: e832
     checkmarkCharacter:
   - _component: pep-components/pep-split-banner
-    id: ""
+    fontHeadings: playwrite-ar-guides
+    fontBody: ''
+    id: ''
     backgroundColor: base
     borderColor: var(--color-brand)
     headingColor: var(--color-text)
-    textColor: ""
+    textColor: ''
     heading: Plan Ahead.<br />Save. Smile!
-    fontHeadings: playwrite-ar-guides
     text: >-
       It seems like everything is more expensive these days. Dental care does
       not have to follow the trend. By starting now, we can work with you and
@@ -124,13 +150,14 @@ pepSections:
     figcaption: Hello
     buttonSections: []
   - _component: pep-components/pep-banner-benefits-expire
-    id: ""
+    fontHeadings:
+    fontBody: ''
+    id: ''
     backgroundColor: base
-    borderColor: ""
+    borderColor: ''
     headingColor: var(--color-text-inverse)
     textColor: var(--color-text)
     heading: Let Your <br />Insurance <br />Help You Save
-    fontHeadings:
     text: >
       We get it. Things are expensive. At the same time, millions of Americans
       pay for dental benefits they never use. We do not want that to happen to
@@ -148,6 +175,8 @@ pepSections:
       source: https://placehold.co/440x440
       alt: Decorative benefits expire stamp
   - _component: pep-components/pep-banner-background
+    fontHeadings: ''
+    fontBody: ''
     heading: Celebrate Summer
     text: >
       Let this be the season when you no longer have to hide your smile.
@@ -156,19 +185,20 @@ pepSections:
     image:
       source: https://placehold.co/1920x900
       alt: Piggy bank banner image
-    fontHeadings: ""
-    headingColor: ""
+    headingColor: ''
     HeadingSpanColor: var(--color-brand-secondary)
     AccentWordColor: var(--color-brand)
-    dividerColor: ""
-    textColor: ""
-    borderColor: ""
+    dividerColor: ''
+    textColor: ''
+    borderColor: ''
   - _component: pep-components/callout-circle-images
-    id: ""
+    fontHeadings: ''
+    fontBody: ''
+    id: ''
     backgroundColor: base
     headingColor: var(--color-text)
-    itemHeadingColor: ""
-    circleBackgroundColor: ""
+    itemHeadingColor: ''
+    circleBackgroundColor: ''
     heading: 3 Ways We Can Help
     items:
       - image:
@@ -184,13 +214,15 @@ pepSections:
           alt: Callout image three
         heading: Callout Heading Three
   - _component: pep-components/callout-squares
-    id: ""
+    fontHeadings: ''
+    fontBody: ''
+    id: ''
     backgroundColor: base
-    headingBackgroundColor: ""
-    headingTextColor: ""
-    oddItemBackgroundColor: ""
-    evenItemBackgroundColor: ""
-    itemHeadingColor: ""
+    headingBackgroundColor: ''
+    headingTextColor: ''
+    oddItemBackgroundColor: ''
+    evenItemBackgroundColor: ''
+    itemHeadingColor: ''
     heading: Common Problems Covered by Insurance
     items:
       - image:
@@ -210,6 +242,8 @@ pepSections:
           alt: Callout icon four
         heading: Callout<br>Heading Four
   - _component: pep-components/pep-callout-shadows
+    fontHeadings: ''
+    fontBody: ''
     heading: How We Can Help Transform Your Smile
     headingBackgroundColor: var(--color-bg-accent)
     headingTextColor: var(--color-text)
@@ -238,18 +272,20 @@ pepSections:
           alt: Icon 5
         heading: Lasting Results
   - _component: pep-components/pep-image-grid
-    id: ""
+    fontHeadings: ''
+    fontBody: ''
+    id: ''
     heading: Hear From Our Patients
     paddingVertical: xl
     backgroundColor: base
-    cardBackgroundColor: ""
-    captionBackgroundColor: ""
-    captionTextColor: ""
+    cardBackgroundColor: ''
+    captionBackgroundColor: ''
+    captionTextColor: ''
     items:
       - mediaType: youtube
         image:
-          source: ""
-          alt: ""
+          source: ''
+          alt: ''
         youtubeId: qirqwHB1ObQ
         youtubeTitle: Lorem Ipsum
         caption: Lorem Ipsum
@@ -257,49 +293,56 @@ pepSections:
         image:
           source: https://placehold.co/800x800
           alt: lorem
-        youtubeId: ""
-        youtubeTitle: ""
+        youtubeId: ''
+        youtubeTitle: ''
         caption: Lorem Ipsum
       - mediaType: image
         image:
           source: https://placehold.co/800x800
           alt: lorem
-        youtubeId: ""
-        youtubeTitle: ""
+        youtubeId: ''
+        youtubeTitle: ''
         caption: Lorem Ipsum
   - _component: pep-components/pep-form-ctm
-    id: ""
+    fontHeadings: ''
+    fontBody: ''
+    id: ''
     backgroundColor: none
-    contentBackgroundColor: ""
-    callBackgroundColor: ""
-    callTextColor: ""
-    linkColor: ""
+    contentBackgroundColor: ''
+    callBackgroundColor: ''
+    callTextColor: ''
+    linkColor: ''
     image:
       source: https://placehold.co/485x400
       alt: Doctor photo
     figcaption: Dr. Last Name | Dr. Last Name
-    callText: >-
-      Call Us Today at <a href="">(000) 000-0000</a> or Complete the Form Below
-      to Reserve Your Next Appointment
-    iframeEmbed: "\t\t\t\t<iframe class=\"ctm-call-widget\" src=\"https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html\" style=\"width:100%;border:none\"></iframe>\t\t\t\t\t\t\n\t\t\t\t<script defer async src=\"https://186606.tctm.co/formreactor.js\"></script>\n"
-    bottomText: ""
-    iframeSrc: "\t\t\t\t<iframe class=\"ctm-call-widget\" src=\"https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html\" style=\"width:100%;border:none\"></iframe>\t\t\t\t\t\t \t\t\t\t<script defer async src=\"https://186606.tctm.co/formreactor.js\"></script>"
-    phone: ""
+    callText: Call Us Today at <a href="">(000) 000-0000</a> or Complete the Form
+      Below to Reserve Your Next Appointment
+    iframeEmbed: |
+      				<iframe class="ctm-call-widget" src="https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html" style="width:100%;border:none"></iframe>						
+      				<script defer async src="https://186606.tctm.co/formreactor.js"></script>
+    bottomText: ''
+    iframeSrc: '				<iframe class="ctm-call-widget"
+      src="https://186606.tctm.co/form/FRT472ABB2C5B9B141AEC8D26F00F8F377EEAA0292A77C63E9E67219D3A815E5FB4.html"
+      style="width:100%;border:none"></iframe>						 				<script defer async
+      src="https://186606.tctm.co/formreactor.js"></script>'
+    phone: ''
     phoneLabel: (000) 000-0000
   - _component: pep-components/pep-form-nctm
+    fontHeadings: ''
+    fontBody: ''
     id: main-form
     backgroundColor: none
-    contentBackgroundColor: ""
-    callBackgroundColor: ""
-    callTextColor: ""
-    formBackgroundColor: ""
-    linkColor: ""
+    contentBackgroundColor: ''
+    callBackgroundColor: ''
+    callTextColor: ''
+    formBackgroundColor: ''
+    linkColor: ''
     image:
       source: https://placehold.co/485x400
       alt: Doctor photo
     figcaption: Dr. Last Name | Dr. Last Name
-    callText: >-
-      Call Us Today at <a href="tel:+10000000000">(000) 000-0000</a><br> or
+    callText: Call Us Today at <a href="tel:+10000000000">(000) 000-0000</a><br> or
       Complete the Form Below to<br> Reserve Your Next Appointment
     formAction: ./
     nameLabel: Name
@@ -318,11 +361,11 @@ pepSections:
       text: Submit
       variant: primary
       size: md
-      iconName: ""
+      iconName: ''
       iconPosition: before
       hideText: false
       disabled: false
-    bottomText: ""
+    bottomText: ''
 head_scripts: []
 footer_scripts: []
 extraFonts: []
