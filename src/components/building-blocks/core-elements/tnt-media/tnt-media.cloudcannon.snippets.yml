@@ -1,0 +1,35 @@
+tnt-media:
+  template: mdx_component
+  inline: false
+  preview:
+    text:
+      - template: TNT Media - {mode} {mediaId}
+      - TNT Media
+    subtext:
+      - key: title
+    icon: videocam
+  definitions:
+    component_name: TntMedia
+    named_args:
+      - editor_key: mediaId
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: mode
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: aspectRatio
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: title
+        type: string
+        optional: true
+        remove_empty: true
+      - editor_key: poster
+        type: string
+        optional: true
+        remove_empty: true
+  _inputs_from_glob:
+    - /src/components/building-blocks/core-elements/tnt-media/tnt-media.cloudcannon.inputs.yml

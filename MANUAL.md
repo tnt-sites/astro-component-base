@@ -1,6 +1,6 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-10-30 · main @ e47c3011
+> Last updated: 2026-11-11 · main @ e47c3011
 > Latest: **`building-blocks/core-elements/rich-text`** — markdown body block (`content` field, H2/H3/p/links/lists) for use inside `custom-section.contentSections`. Picked up by `containerSections` glob; first consumer is tntdental Phase 2 prose interiors.
 > Prior: **Empty Feature Split/Grid/Hero Center eyebrow** does not mount a CloudCannon text region. Glacier Peak white-lab Cracked Tooth local VE (`cloudcannon dev :10101`).
 > Prior: **CloudCannon live-editing:** Side/Bar/Mobile tolerate missing `Astro.url`; empty Heading/Text/SimpleText/Image do not inherit a parent `_component` to mount a `text` region. Glacier Peak white-lab dump interiors (Hero Center + Split + Side) were throwing pathname + “Failed to render text editable region” in Visual Editor.
@@ -104,6 +104,13 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 `WP2Astro-beta`) and manual CloudCannon editor spot-checks on promoted sites.
 
 ## Recent changes
+
+- **2026-11-11 — `src/pages/404.astro` (builds `/404.html`).** Chuck's 404 copy in the `Page` layout (site nav + footer), noindex. Links are picked at build time from the `pages` collection: Home, plus Contact (`/contact`, `/contact-us`), Request an Appointment (`/request-an-appointment`, `/appointment(s)`, `/schedule-an-appointment`) and `/sitemap` when the site has them. The go-live `.htaccess` (`ErrorDocument 404 /404.html`) serves it, so a missing address is a real 404. Every scaffold from here gets it; sites already scaffolded get theirs from lp-intake's server check (Add the 404 page).
+- **2026-11-10 — `building-blocks/core-elements/tnt-media`.** First-party loop/talkie
+  box for Devs (CloudCannon Add menu via core-elements glob). `mediaId` + mode
+  `loop`|`play` + aspect. Talkies start from the still — no play-button overlay.
+  Public paths `/tnt-media/loop|{play}/{id}.mp4` (no vendor name). Companion local
+  picker: `python C:\do-agents\scripts\vimeo_picker_app.py` → http://127.0.0.1:5094/
 
 - **2026-10-30 — Two fixes brought over from the Imperial rescue.**
   - **Embed:** `aspectRatio: none` embeds no longer force `iframe { height: 100% }`. Widgets that

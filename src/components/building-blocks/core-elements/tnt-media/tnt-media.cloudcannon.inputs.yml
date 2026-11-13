@@ -1,0 +1,40 @@
+mediaId:
+  type: text
+  label: Media ID
+  comment: Numeric id only. Files are /tnt-media/loop/{id}.mp4 or /tnt-media/play/{id}.mp4 (no vendor name in the URL).
+mode:
+  type: select
+  comment: Loop is a silent banner (autoplay, muted, no chrome). Play is a talkie — the still starts the video, no play-button over the face.
+  options:
+    values:
+      - id: loop
+        name: Silent loop
+      - id: play
+        name: Talkie
+aspectRatio:
+  type: select
+  comment: Box shape. Video and still crop with object-fit cover.
+  options:
+    values:
+      - id: "16 / 9"
+        name: 16:9 landscape
+      - id: "21 / 9"
+        name: 21:9 banner
+      - id: "4 / 5"
+        name: 4:5 portrait
+      - id: "1 / 1"
+        name: 1:1 square
+title:
+  type: text
+  comment: Accessible name (screen readers). Not shown as a caption.
+poster:
+  type: image
+  comment: Optional still override. Default is /tnt-media/{mode}/{id}.webp next to the mp4.
+  options:
+    accepts_mime_types:
+      - image/jpeg
+      - image/png
+      - image/webp
+    paths:
+      uploads: public/images
+      static: public

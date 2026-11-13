@@ -1,0 +1,120 @@
+---
+/**
+ * First-party TNT media box (loop banner or talkie).
+ * Public src is /tnt-media/loop|{play}/{id}.mp4 — no vendor name in the URL.
+ * Talkies start from the still (no play-button overlay on the face).
+ */
+const {
+  mediaId = "",
+  mode = "loop",
+  aspectRatio = "16 / 9",
+  title = "",
+  poster = "",
+  class: className,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const kind = mode === "play" ? "play" : "loop";
+const id = String(mediaId || "").replace(/\D/g, "");
+const src = id ? `/tnt-media/${kind}/${id}.mp4` : "";
+const posterSrc = poster || (id ? `/tnt-media/${kind}/${id}.webp` : "");
+const ratio = aspectRatio || "16 / 9";
+const label = title || (kind === "loop" ? "Background video" : "Play video");
+
+if (!_component && !id) return;
+---
+
+<div
+  class:list={["tnt-media", `tnt-media-${kind}`, className]}
+  style={`--tnt-media-ratio: ${ratio}`}
+  {...htmlAttributes}
+>
+  {
+    kind === "loop" ? (
+      <video
+        src={src || undefined}
+        poster={posterSrc || undefined}
+        muted
+        loop
+        playsinline
+        autoplay
+        preload="metadata"
+        aria-label={label}
+      />
+    ) : (
+      <>
+        <button type="button" class="tnt-media-start" aria-label={label}>
+          {posterSrc ? <img src={posterSrc} alt="" /> : null}
+        </button>
+        <video
+          src={src || undefined}
+          poster={posterSrc || undefined}
+          playsinline
+          controls
+          preload="none"
+          hidden
+          aria-label={label}
+        />
+      </>
+    )
+  }
+</div>
+
+<script>
+  import { onPageLoad } from "@component-utils/onPageLoad";
+
+  onPageLoad(() => {
+    document.querySelectorAll<HTMLElement>(".tnt-media-play").forEach((box) => {
+      if (box.dataset.tntMediaReady) return;
+      box.dataset.tntMediaReady = "1";
+      const btn = box.querySelector<HTMLButtonElement>(".tnt-media-start");
+      const vid = box.querySelector<HTMLVideoElement>("video");
+      if (!btn || !vid) return;
+      btn.addEventListener("click", () => {
+        btn.hidden = true;
+        vid.hidden = false;
+        void vid.play();
+      });
+    });
+  });
+</script>
+
+<style lang="pcss" is:global>
+  @layer components {
+    .tnt-media {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      aspect-ratio: var(--tnt-media-ratio, 16 / 9);
+      background: var(--color-bg-muted, #111);
+    }
+
+    .tnt-media video,
+    .tnt-media img,
+    .tnt-media .tnt-media-start {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tnt-media .tnt-media-start {
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .tnt-media .tnt-media-start:focus-visible {
+      outline: 3px solid var(--color-bg, #fff);
+      outline-offset: -3px;
+    }
+
+    .tnt-media-loop video {
+      pointer-events: none;
+    }
+  }
+</style>
