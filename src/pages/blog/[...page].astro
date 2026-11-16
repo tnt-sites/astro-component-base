@@ -86,7 +86,7 @@ const pageDescription =
               return (
                 <GridItem editable={false}>
                   <Card
-                    link={`/blog/${slug}`}
+                    class="post-card"
                     rounded={true}
                     border={true}
                     paddingVertical="lg"
@@ -97,7 +97,7 @@ const pageDescription =
                       <Image
                         slot="before"
                         source={post.data.image}
-                        alt={post.data.title}
+                        alt=""
                         aspectRatio="landscape"
                         editable={false}
                       />
@@ -115,7 +115,7 @@ const pageDescription =
                       style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-sm);"
                       editable={false}
                     >
-                      {post.data.title}
+                      <a class="post-link" href={`/blog/${slug}/`}>{post.data.title}</a>
                     </Heading>
                     <SimpleText
                       size="sm"
@@ -139,3 +139,28 @@ const pageDescription =
     }
   </CustomSection>
 </Page>
+
+<style is:global>
+  /* The post title is the link (its anchor text is the title alone); its ::after covers the whole card. */
+  .post-card > .card-outer-content > .card-content {
+    position: static;
+    z-index: auto;
+  }
+  .post-card .post-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  .post-card .post-link::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+  }
+  .post-card:hover {
+    transform: scale(1.05);
+  }
+  .post-card:has(.post-link:focus-visible) {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+</style>
