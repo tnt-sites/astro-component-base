@@ -40,8 +40,13 @@ if (totalVisible > maxVisiblePages) {
   }
 }
 
-// Helper function to generate page URL
-const getPageUrl = (pageNum: number) => {
+// Helper function to generate page URL. Every address ends in a slash: the site serves /blog/2/ and a bare
+// /blog/2 costs a 301 on every pagination link.
+const withSlash = (url: string) => (url.endsWith("/") ? url : `${url}/`);
+
+const getPageUrl = (pageNum: number) => withSlash(buildPageUrl(pageNum));
+
+const buildPageUrl = (pageNum: number) => {
   // Always use first page URL for page 1
   if (pageNum === 1) {
     return page.url.first || page.url.current?.replace(/\/\d+\/?$/, "") || "/blog";

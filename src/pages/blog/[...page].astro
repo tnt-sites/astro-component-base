@@ -41,7 +41,7 @@ const pageDescription =
   "Read our latest articles and insights on web development, design, and technology.";
 ---
 
-<Page title={pageTitle} description={pageDescription}>
+<Page title={page.currentPage > 1 ? `${pageTitle} - Page ${page.currentPage}` : pageTitle} description={pageDescription}>
   {heroSections.length > 0 ? (
     <Components contentSections={heroSections} propName="pageSections" />
   ) : (
