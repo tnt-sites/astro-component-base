@@ -39,6 +39,10 @@ export default defineConfig({
     }),
     sitemap({
       filter: (page) => {
+        // Thank-you and search-results pages are noindex, so they stay out of the sitemap too.
+        if (/\/(thanks|search)\/?$/.test(page)) return false;
+        // Second and later archive pages (/blog/2/, /blog/page/3/) stay out of the sitemap.
+        if (/\/(?:page\/)?(?:[2-9]|[1-9]\d+)\/?$/.test(page.replace(/^https?:\/\/[^/]+/, ""))) return false;
         if (page.includes("/component-library")) return false;
         // Converted landing campaigns use the lp/ppc/pep route convention.
         // They are forced noindex by the route and must stay out of sitemap.
