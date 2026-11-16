@@ -1,6 +1,6 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-11-15 · main @ a98301e9
+> Last updated: 2026-11-15 · main @ c052ae17
 > Latest: **`building-blocks/core-elements/rich-text`** — markdown body block (`content` field, H2/H3/p/links/lists) for use inside `custom-section.contentSections`. Picked up by `containerSections` glob; first consumer is tntdental Phase 2 prose interiors.
 > Prior: **Empty Feature Split/Grid/Hero Center eyebrow** does not mount a CloudCannon text region. Glacier Peak white-lab Cracked Tooth local VE (`cloudcannon dev :10101`).
 > Prior: **CloudCannon live-editing:** Side/Bar/Mobile tolerate missing `Astro.url`; empty Heading/Text/SimpleText/Image do not inherit a parent `_component` to mount a `text` region. Glacier Peak white-lab dump interiors (Hero Center + Split + Side) were throwing pathname + “Failed to render text editable region” in Visual Editor.
@@ -105,6 +105,7 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Recent changes
 
+- 2026-11-15 — **Adkins moved its posts to `/blog/<slug>/` (site-only change, ACB already did this).** Adkins' own template served posts at the root (`src/pages/[post].astro`), so a crawl showed posts as `/<slug>` beside `/blog/…` archives. Adkins now has `src/pages/blog/[post].astro`, a 301 from each of its 36 old root addresses in its owned `public/.htaccess`, and the CloudCannon collection `url: /blog/[full_slug]/`. ACB's own `src/pages/blog/[...slug].astro` already serves `/blog/<slug>/`, so no scaffold change. Older rescues that still serve posts at the root would need the same move plus 301s. Details in `adkins-family-dentistry/MANUAL.md`.
 - 2026-11-15 — **Blog cards: the anchor text is the post title.** A crawl showed each post's inlink from the blog list with anchor text "December 21, 2020 • Adkins Family Dentistry How Do I Get Rid of Bad Breath? Many people…" (the whole `<Card link>` is one `<a>`) plus an image alt repeating the title. `src/pages/blog/[...page].astro` now links only the heading (`a.post-link`) and a page-level `.post-card` rule stretches its `::after` over the whole card, so the card stays clickable and keeps its hover; the image alt is empty (decorative). The card link also ends in `/` (it was `/blog/${slug}`, one 301 per click). Applied to Adkins too. Not yet in older scaffolded sites.
 
 - 2026-11-15 — **Blog archive: slashed pagination links and a title per page.** A Screaming Frog crawl of Adkins showed `/blog/2`, `/blog/3`, `/blog/4` each answering 301 to the slashed address (the pagination links had no trailing slash), and every archive page titled just "Blog | …". `Pagination.astro` now ends every address in `/` (same `withSlash` as Imperial's copy), and `src/pages/blog/[...page].astro` titles pages 2+ "Blog - Page N". Applied to Adkins too; Imperial already had the slash fix. Sites scaffolded earlier from ACB (Medford, Watauga, others) still carry the old component.
