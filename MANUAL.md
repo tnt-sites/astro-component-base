@@ -1,6 +1,6 @@
 # astro-component-base — Manual
 
-> Last updated: 2026-11-15 · main @ ee7c6217
+> Last updated: 2026-11-15 · main @ a98301e9
 > Latest: **`building-blocks/core-elements/rich-text`** — markdown body block (`content` field, H2/H3/p/links/lists) for use inside `custom-section.contentSections`. Picked up by `containerSections` glob; first consumer is tntdental Phase 2 prose interiors.
 > Prior: **Empty Feature Split/Grid/Hero Center eyebrow** does not mount a CloudCannon text region. Glacier Peak white-lab Cracked Tooth local VE (`cloudcannon dev :10101`).
 > Prior: **CloudCannon live-editing:** Side/Bar/Mobile tolerate missing `Astro.url`; empty Heading/Text/SimpleText/Image do not inherit a parent `_component` to mount a `text` region. Glacier Peak white-lab dump interiors (Hero Center + Split + Side) were throwing pathname + “Failed to render text editable region” in Visual Editor.
@@ -105,6 +105,7 @@ is proven by real conversion runs (`html-gate`, `a11y-gate`, `qc-audit` in `WP2A
 
 ## Recent changes
 
+- **2026-11-15 — the scaffold's noindex and sitemap rules now match lp-intake's standard.** Both carried `(thanks|search)` (plus `404` in the layout) while the board's live check also wants `/thank-you/` and `/style-guide/` noindex and out of the sitemap, so a scaffolded site with a thank-you page failed the check. Now `(thanks|search|thank-you|style-guide)` in `astro.config.mjs` and `(thanks|search|thank-you|style-guide|404)` in `BaseLayout.astro`. Sites already scaffolded keep the narrow rule until lp-intake's **Write the standards fixes** button widens it (it now does).
 - **2026-11-15 — standards baked into the scaffold.** Every site scaffolded from here (and the four rescues Medford, Imperial, Watauga, Adkins that each needed the same hand fix) now starts with: the `@astrojs/sitemap` `filter` in `astro.config.mjs` dropping `/thanks/`, `/search/` and archive pages 2+ (`/blog/2/`, `/blog/page/3/`), and `BaseLayout.astro` marking `/thanks/`, `/search/` and `/404/` noindex alongside the page's own `seo.robots` flag. The 404 page (below) already links Home, Contact, Request an Appointment and Sitemap. lp-intake's Validate path checks all of it live (`site_standards.py`) and can write the same text to an existing site's `staging` branch (`standards_repair.py`).
 - **2026-11-11 — `src/pages/404.astro` (builds `/404.html`).** Chuck's 404 copy in the `Page` layout (site nav + footer), noindex. Links are picked at build time from the `pages` collection: Home, plus Contact (`/contact`, `/contact-us`), Request an Appointment (`/request-an-appointment`, `/appointment(s)`, `/schedule-an-appointment`) and `/sitemap` when the site has them. The go-live `.htaccess` (`ErrorDocument 404 /404.html`) serves it, so a missing address is a real 404. Every scaffold from here gets it; sites already scaffolded get theirs from lp-intake's server check (Add the 404 page).
 - **2026-11-10 — `building-blocks/core-elements/tnt-media`.** First-party loop/talkie

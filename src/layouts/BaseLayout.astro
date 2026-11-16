@@ -43,7 +43,7 @@ const pageImage = props.image || seoData.logoSource;
     <SEO
       title={formattedTitle}
       description={pageDescription}
-      noindex={props.robots?.noindex || /^\/(thanks|search|404)\/?$/.test(Astro.url.pathname)}
+      noindex={props.robots?.noindex || /^\/(thanks|search|thank-you|style-guide|404)\/?$/.test(Astro.url.pathname)}
       nofollow={props.robots?.nofollow}
       openGraph={{
         basic: {
